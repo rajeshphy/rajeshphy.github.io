@@ -1,12 +1,12 @@
 .styled {
-  width: 90px;
-  height: 35px;
+  width: 100px;
+  height: 40px;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   text-transform: uppercase;
-  letter-spacing: 2.5px;
+  letter-spacing: 2.0px;
   font-weight: 500;
-  color: white;
+  color: grey;
   background-color: rgba(189, 93, 56, 1);
   border: none;
   border-radius: 45px;
