@@ -17,8 +17,8 @@
   }
 
 .styled:hover {
-  background-color: #2EE59D;
-  box-shadow: 0px 15px 20px hsl(50, 33%, 25%);
+  background-color: red;
+  box-shadow: 0px 15px 20px rgba(46, 129, 157, 0.5);
   color: #fff;
   transform: translateY(-7px);
 }
