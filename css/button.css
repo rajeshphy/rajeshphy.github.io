@@ -17,7 +17,7 @@
   }
 
 .styled:hover {
-  background-color: red;
+  background-color: #3D9970;
   box-shadow: 0px 15px 20px rgba(46, 129, 157, 0.5);
   color: #fff;
   transform: translateY(-7px);
