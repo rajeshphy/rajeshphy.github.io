@@ -1,6 +1,6 @@
 .styled {
   width: 100px;
-  height: 40px;
+  height: 45px;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   text-transform: uppercase;
@@ -18,7 +18,7 @@
 
 .styled:hover {
   background-color: #2EE59D;
-  box-shadow: 0px 15px 20px rgba(46, 229, 57, 0.5);
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.5);
   color: #fff;
   transform: translateY(-7px);
 }
