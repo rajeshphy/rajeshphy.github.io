@@ -76,7 +76,14 @@
   }
 }
 
+/*!
+*My customization
+*/
 
+
+img.rounded {
+  border-radius: 50%;
+}
 
 body {
   margin: 0;
