@@ -76,15 +76,6 @@
   }
 }
 
-/*!
-*My customization
-*/
-
-
-img.rounded {
-  object-fit: cover;
-  border-radius: 50%;
-}
 
 
 body {
