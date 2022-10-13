@@ -36,24 +36,24 @@
 	    
 <style>
 	.scroll-left {
-	 height: 50px;	
+	 height: 40px;	
 	 overflow: hidden;
 	 position: relative;
-	 background: yellow;
-	 color: orange;
-	 border: 1px solid orange;
+	 background: #2F4F4F;
+	 color: #D2691E;
+	 border: 1px solid #D2691E;
 	}
 	.scroll-left p {
 	 position: absolute;
 	 width: 100%;
 	 height: 100%;
 	 margin: 0;
-	 line-height: 50px;
+	 line-height: 40px;
 	 text-align: center;
 	 /* Starting position */
 	 transform:translateX(100%);
 	 /* Apply animation to this element */
-	 animation: scroll-left 12s linear infinite;
+	 animation: scroll-left 15s linear infinite;
 	}
 	/* Move it (define the animation) */
 	@keyframes scroll-left {
@@ -66,9 +66,7 @@
 	}
 </style>
 
-<div class="scroll-left">
-<p>Click on the button below to land on the desired page</p>
-</div>
+
 	    
 	    
 	    
@@ -131,5 +129,12 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-    </body>
+    
+		
+<div class="scroll-left">
+<p>Click on the above button to land on the corresponding page</p>
+</div>
+		
+		
+		</body>
 </html>
