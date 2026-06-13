@@ -10,11 +10,10 @@ permalink: /about/
       <img src="{{ '/assets/images/about-profile.png' | relative_url }}" alt="Rajesh Kumar">
     </figure>
     <div class="cv-identity">
-      <p class="cv-kicker">Curriculum Vitae</p>
       <h1>Rajesh Kumar</h1>
-      <p class="cv-role">Assistant Professor</p>
+      <!-- <p class="cv-role">Assistant Professor</p> -->
       <p class="cv-summary">
-  Assistant Professor of Physics at S.K.M. University, Dumka; IIT Kanpur alumnus, with academic interests in computational physics, quantum mechanics, and scientific computing.
+  <strong>Assistant Professor</strong> of Physics at S.K.M. University, Dumka; IIT Kanpur alumnus, with academic interests in computational physics, quantum mechanics, and scientific computing.
       </p>
       <div class="cv-contact">
         <a href="mailto:{{ site.email }}">kr.rajesh.phy@gmail.com</a>
