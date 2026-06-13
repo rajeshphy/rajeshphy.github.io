@@ -1,0 +1,296 @@
+---
+title: "LASER"
+summary: "Basic principles of lasers, population inversion, stimulated emission, and common solid-state, gas, semiconductor, and waveguide laser systems."
+date: 2024-06-21 18:47:26 +0530
+categories:
+  - notes
+  - msc
+  - msc-ii
+  - lecture
+tags:
+  - msc
+  - semester-ii
+  - laser
+  - stimulated-emission
+  - population-inversion
+  - ruby-laser
+  - semiconductor-laser
+permalink: /msc/sem-ii/laser/
+hidden: true
+---
+
+
+```
+Basic principles and different LASER’s: principles and working of Ruby Laser, He-Ne Laser, Solid state laser, semiconductor laser CO2 LASER and qualitative description of longitudinal and TE- LASER systems, Excimer LASER, Dye LASER, Roman LASER, Plasma recombination LASER. 
+
+09 Lectures
+```
+## <span style="color:red">Introduction to LASERs</span>
+- A laser is defined as an optical device that generates an intense beam of light with high coherence and narrow spectral bandwidth. This is achieved through the process of stimulated emission, where an external energy source excites atoms or molecules to a higher energy state. When these excited atoms or molecules return to a lower energy state, they emit photons in phase, leading to the amplification of light. The term "laser" stands for Light Amplification by Stimulated Emission of Radiation, highlighting its fundamental mechanism of operation.
+
+There are two main mechanisms involved in the operation of a laser:
+
+1. Population Inversion: This is the process where the number of atoms or molecules in an excited state is greater than the number in the ground state. This condition is essential for stimulated emission to occur and for the laser to function effectively.
+
+2. Stimulated Emission: This is the process where an incoming photon interacts with an excited atom or molecule, causing it to emit a second photon with the same energy, phase, and direction as the incoming photon. This leads to the amplification of light and the generation of a coherent laser beam.
+
+Stimulated emission is the key process that distinguishes lasers from other light sources, such as incandescent bulbs or fluorescent lamps. It is different from **spontaneous emission**, where an atom or molecule emits a photon randomly and independently of external stimuli.
+
+### Light-Atom Interaction Process
+Three processes in which atoms interact with light are given in figure below:
+
+<img src="{{ '/assets/images/msc/sem-ii/laser/interaction-process.jpeg' | relative_url }}" alt="Interaction Process" class="my-custom-class" style="max-width:100%; height:auto;">
+### Population Inversion Process
+We need to create a non-equilibrium situation where more atoms are in a higher-energy state than in a lower-energy state, known as a population inversion. In this situation, the rate of energy radiation by stimulated emission can exceed the rate of absorption, making the system act as a net source of radiation with photon energy E. We achieve population inversion by starting with atoms that have the appropriate excited states. 
+
+The energy-level diagram for such an atom includes a ground state and three excited states of energies E1, E2, and E3 as given in figure-a:
+
+<img src="{{ '/assets/images/msc/sem-ii/laser/pumping.jpeg' | relative_url }}" alt="Interaction Process" class="my-custom-class" style="max-width:100%; height:auto;">
+
+A laser using a material with these energy levels is called a four-level laser. For laser action, the states with energies E1 and E3 must have short lifetimes of about 10⁻⁸ seconds, while the state with energy E2 must have a long lifetime of about 10⁻³ seconds. This long-lived metastable state can occur due to restrictions imposed by conservation of angular momentum that hinder photon emission. The metastable state is the one we aim to populate.
+
+```
+Metastable State: A state of an atom or molecule with a long lifetime due to restrictions on the allowed transitions to lower-energy states.
+```
+To produce a population inversion, we pump the material to excite the atoms from the ground state into the states of energies E1, E2, and E3 as given in figure-b. In a gas, this can be done by inserting two electrodes into the gas container. When a high voltage is applied to the electrodes, an electric discharge occurs, causing collisions between ionized atoms and electrons that excite the atoms to various energy states. Within about 10⁻⁸ seconds as shown in figure-c, the atoms excited to states E1 and E3 undergo spontaneous photon emission, leaving these states depopulated. Atoms accumulate in the metastable state with energy E2. Although the number of atoms in the metastable state is less than in the ground state, it is much greater than in the nearly unoccupied state of energy E1, resulting in a population inversion of state E2 relative to state E1. The levels E1 and E3 are essential: atoms undergoing spontaneous emission from the E3 level help populate the E2 level, and the presence of the E1 level enables the population inversion.
+
+<img src="{{ '/assets/images/msc/sem-ii/laser/after-pumping.jpeg' | relative_url }}" alt="Interaction Process" class="my-custom-class" style="max-width:100%; height:auto;">
+
+---
+
+## <span style="color:red">Types of LASERs</span>
+
+## 1. Solid State LASERs
+Solid-state lasers use a solid material as the gain medium. This medium typically consists of a glass or crystalline host material doped with ions that provide the necessary energy states for lasing.
+
+##### Examples of Solid-State Lasers
+
+- **Ruby Laser**
+- **Nd:YAG Laser**
+- **Nd:Glass Laser**
+
+#### Ruby Laser
+A ruby laser is a type of solid-state laser that uses a synthetic ruby crystal as its gain medium. The first ruby laser was constructed by Theodore H. Maiman in 1960.
+
+#### Construction
+
+- The ruby rod, which is 4 cm long and 5 mm in diameter, serves as the laser medium.
+- Both ends of the rod are highly polished and parallel, with one end partially reflective and the other end fully reflective.
+- The rod is surrounded by a xenon flash tube, which provides the pumping energy to excite the chromium ions in the ruby.
+
+<img src="{{ '/assets/images/msc/sem-ii/laser/ruby.gif' | relative_url }}" alt="Interaction Process" class="my-custom-class" style="max-width:100%; height:auto;">
+### Working Principle
+
+1. The xenon flash tube emits a burst of light, which excites the chromium ions in the ruby rod to a higher energy state.
+2. These ions then drop to a lower energy state (meta-stable state), where they remain for a relatively long time.
+3. As more ions accumulate in this meta-stable state, a population inversion is achieved.
+4. When an excited ion returns to its ground state, it emits a photon. This photon stimulates other excited ions to emit additional photons, leading to a cascade of stimulated emission.
+5. The emitted photons are reflected back and forth between the two mirrors, amplifying the light with each pass until a coherent beam of light exits through the partially reflective mirror.
+
+#### Drawbacks
+
+- Requires high pumping power.
+- Low efficiency.
+- Operates in pulsed mode.
+
+#### Applications
+
+- Optical photography.
+- Measurement of plasma properties.
+- Removal of skin melanin.
+- Holography.
+
+---
+
+## 2. Gas LASERs
+Gas lasers use a gas mixture as the gain medium to produce laser light. The gas mixture can consist of various combinations of noble gases, halogens, and metal vapors, depending on the desired output wavelength and power.
+##### Examples of Gas Lasers
+- **He-Ne Laser**
+- **CO2 Laser**
+- **Argon Ion Laser**
+
+#### I. He-Ne Laser
+
+The He-Ne laser is a gas laser that uses a mixture of helium and neon gases. It was the first continuous-wave (CW) laser and was developed by Ali Javan and his colleagues in 1960.
+
+#### Construction
+
+- A discharge tube containing a mixture of helium and neon gases in the ratio of 10:1.
+- Mirrors are placed at both ends of the tube, with one fully reflective and the other partially reflective.
+- The typical length of the discharge tube is 80 cm with a diameter of 1 cm.
+
+<img src="{{ '/assets/images/msc/sem-ii/laser/He-Ne.png' | relative_url }}" alt="Interaction Process" class="my-custom-class" style="max-width:100%; height:auto;">
+### Working Principle
+
+1. An electric discharge excites the helium atoms to higher energy levels.
+2. These excited helium atoms collide with neon atoms, transferring energy and exciting the neon atoms to higher energy states.
+3. A population inversion is achieved between certain energy levels of the neon atoms.
+4. The neon atoms emit photons when they return to a lower energy state, producing laser light.
+5. The emitted photons are reflected between the mirrors, amplifying the light through stimulated emission until a coherent beam exits through the partially reflective mirror.
+
+#### Applications
+
+- Holography.
+- Barcode scanning.
+- Laser printing.
+- Optical demonstrations in educational settings.
+
+#### II. CO2 LASER
+
+The CO₂ laser is a type of gas laser that uses carbon dioxide (CO₂) as the gain medium. It is one of the most powerful and efficient types of lasers and is commonly used for industrial cutting, welding, and medical procedures.
+
+#### Construction
+
+1. **Discharge Tube:** The CO₂ laser consists of a gas discharge tube filled with a mixture of carbon dioxide (CO₂), nitrogen (N₂), and helium (He). The typical ratio is CO₂:N₂:He = 1:1:8.
+2. **Mirrors:** Two mirrors are placed at the ends of the discharge tube, forming an optical resonator. One mirror is fully reflective, while the other is partially reflective, allowing some light to escape as the laser beam.
+3. **Electrodes:** Electrodes are placed along the discharge tube to create an electric field that excites the gas molecules.
+4. **Cooling System:** A cooling system is used to dissipate the heat generated during the laser operation.
+
+#### Working Principle
+
+1. **Excitation:** When an electric current passes through the discharge tube, it excites the nitrogen molecules to a higher energy state.
+2. **Energy Transfer:** The excited nitrogen molecules collide with CO₂ molecules, transferring energy and exciting the CO₂ molecules to a higher energy state.
+3. **Population Inversion:** A population inversion is achieved between the higher energy state (E3) and the lower energy state (E1) of the CO₂ molecules.
+4. **Stimulated Emission:** CO₂ molecules in the higher energy state return to the lower energy state by emitting photons. These photons stimulate other excited CO₂ molecules to emit more photons of the same wavelength.
+5. **Amplification:** The emitted photons are reflected back and forth between the mirrors, amplifying the light through stimulated emission until a coherent beam of light exits through the partially reflective mirror.
+
+#### Key Characteristics
+
+- **Wavelength:** The CO₂ laser emits infrared light at a wavelength of 10.6 micrometers (µm).
+- **Efficiency:** It has a high efficiency, typically around 10-20%.
+- **Power:** Capable of producing continuous wave (CW) or pulsed laser beams with high power output, ranging from a few watts to several kilowatts.
+
+#### Applications
+
+- **Industrial Cutting and Welding:** The high power and precision of CO₂ lasers make them ideal for cutting and welding materials such as metals, plastics, and wood.
+- **Medical Procedures:** CO₂ lasers are used in various medical applications, including surgery, dermatology, and dental procedures.
+- **Engraving and Marking:** Used for engraving and marking on materials like glass, leather, and ceramics.
+- **Scientific Research:** Employed in various scientific experiments and research applications due to their high power and stable output.
+
+---
+
+### 3. Semiconductor Laser
+
+Semiconductor lasers, also known as diode lasers, use semiconductor materials as the gain medium. These lasers are widely used due to their small size, efficiency, and ability to be directly modulated.
+
+##### Examples of Semiconductor Lasers
+
+- **InP (Indium Phosphide) Laser**
+- **GaAs (Gallium Arsenide) Laser**
+
+#### Construction
+
+<img src="{{ '/assets/images/msc/sem-ii/laser/semi-laser.png' | relative_url }}" alt="Interaction Process" class="my-custom-class" style="max-width:100%; height:auto;">
+
+1. **Active Region:** The laser diode has a p-n junction as the active region where the lasing action occurs.
+2. **Pumping Mechanism:** Electrical current is injected into the p-n junction, causing electrons and holes to recombine and emit photons.
+3. **Optical Cavity:** The semiconductor material itself forms an optical cavity with reflective surfaces at the ends to provide feedback for the amplification of light.
+
+### Working Principle
+
+
+##### 1. Structure of the P-N Junction
+
+A semiconductor laser consists of a p-type and an n-type semiconductor material joined together to form a p-n junction. When these two materials are joined, a depletion region is formed at the junction where no free charge carriers (electrons or holes) are present.
+
+##### 2. Forward Biasing the P-N Junction
+
+When a forward voltage is applied across the p-n junction (positive voltage to the p-type material and negative to the n-type), electrons from the n-type material and holes from the p-type material are pushed towards the junction. This reduces the width of the depletion region and allows current to flow through the junction.
+
+##### 3. Carrier Injection and Recombination
+
+The applied forward voltage causes electrons to be injected into the conduction band of the p-type material and holes into the valence band of the n-type material. At the junction, electrons and holes recombine. This recombination releases energy in the form of photons (light). The process can be described in three steps:
+
+1. **Carrier Injection:** Electrons and holes are injected into the active region from the n-type and p-type materials, respectively.
+2. **Recombination:** In the active region, electrons recombine with holes. Each recombination event releases a photon with energy equal to the bandgap energy of the semiconductor material.
+3. **Stimulated Emission:** Some of the emitted photons stimulate other electrons to recombine with holes, producing additional photons. This chain reaction results in a significant amplification of light.
+
+##### 4. Optical Feedback and Resonance
+
+To sustain lasing action, the semiconductor laser has an optical cavity formed by cleaving the semiconductor crystal to create parallel, reflective end faces. These faces act as mirrors, reflecting photons back and forth through the active region. The cavity length is designed such that it supports standing wave patterns of specific wavelengths.
+
+1. **Photon Reflection:** Photons emitted due to recombination are reflected back and forth between the mirrors.
+2. **Amplification:** As photons travel through the active region, they stimulate further recombination events, resulting in the amplification of light.
+3. **Coherent Light Emission:** When the amplified light reaches a certain intensity, it escapes through the partially reflective mirror at one end of the cavity as a coherent laser beam.
+
+##### 5. Threshold Condition
+
+For lasing to occur, the gain (amplification) provided by stimulated emission must overcome the losses due to absorption, scattering, and reflection at the mirrors. This condition is known as the threshold condition. The current at which this occurs is called the threshold current.
+
+1. **Below Threshold:** Below the threshold current, spontaneous emission dominates, and the device behaves like an LED.
+2. **Above Threshold:** Above the threshold current, stimulated emission dominates, and the device produces coherent laser light.
+
+
+#### Key Characteristics
+
+- **Direct Modulation:** The output can be directly modulated by varying the current, making them suitable for telecommunications.
+- **Efficiency:** High electrical-to-optical efficiency.
+- **Size:** Compact and lightweight, allowing for integration into a variety of electronic devices.
+
+#### Applications
+
+- Fiber optic communications.
+- Laser printers.
+- Barcode scanners.
+- Optical data storage (CDs, DVDs).
+
+---
+
+## Introduction to Waveguides
+
+Waveguides are structures designed to guide electromagnetic waves from one point to another. They are utilized based on the desired operating frequency, power requirements, and acceptable transmission losses. Common types include coaxial cables, two-wire lines, microstrip lines, rectangular waveguides, and optical fibers as shown in figure below.
+
+<img src="{{ '/assets/images/msc/sem-ii/laser/waveguide.jpeg' | relative_url }}" alt="Interaction Process" class="my-custom-class" style="max-width:100%; height:auto;">
+
+### Longitudinal-Transverse Decompositions
+
+To understand wave propagation in waveguides, we use solutions to Maxwell’s equations that describe the behavior of electric and magnetic fields along the guiding direction (z) and their confinement in the transverse directions (x, y).
+
+The electric and magnetic fields can be represented as:
+
+$$ E(x, y, z, t) = E(x, y) e^{j(\omega t - \beta z)} $$
+
+$$ H(x, y, z, t) = H(x, y) e^{j(\omega t - \beta z)} $$
+
+where $$\beta$$ is the propagation wavenumber and $$\lambda_g = \frac{2\pi}{\beta}$$ is the guide wavelength.
+
+### Decomposition of Fields
+
+The fields can be decomposed into transverse and longitudinal components:
+
+$$ E(x, y) = E_T(x, y) + \hat{z}E_z(x, y) $$
+
+$$ H(x, y) = H_T(x, y) + \hat{z}H_z(x, y) $$
+
+Where the transverse electric field $$E_T(x, y)$$ can be further decomposed into its x and y components:
+
+$$ E_T(x, y) = \hat{x}E_x(x, y) + \hat{y}E_y(x, y) $$
+
+### Classification of Modes
+
+Based on the longitudinal components $$E_z$$ and $$H_z$$, modes are classified as:
+
+- **TEM (Transverse Electric and Magnetic) Modes**: $$E_z = 0$$, $$H_z = 0$$
+- **TE (Transverse Electric) Modes**: $$E_z = 0$$, $$H_z \neq 0$$
+- **TM (Transverse Magnetic) Modes**: $$E_z \neq 0$$, $$H_z = 0$$
+- **Hybrid Modes**: $$E_z \neq 0$$, $$H_z \neq 0$$
+
+
+
+
+## <span style="color:red">Advanced LASER Systems</span>
+
+### Longitudinal LASER Systems
+
+   Longitudinal LASER systems operate by aligning the optical resonator (cavity) such that the light travels parallel to the cavity's axis. In these systems, the gain medium is pumped to produce a population inversion, allowing for stimulated emission. The emitted photons travel back and forth between two mirrors at each end of the cavity, amplifying the light through successive passes. The longitudinal modes are determined by the cavity's length and the refractive index of the gain medium, resulting in discrete frequency modes. These systems are critical for applications requiring high coherence and spectral purity, such as in spectroscopy and communication. Key parameters include the cavity length, the reflectivity of the mirrors, and the gain medium's properties. Stability and alignment of the optical components are crucial for the effective operation of longitudinal LASER systems.
+
+### TE-LASER Systems
+
+   TE (Transverse Electric) LASER systems operate with the electric field component of the light oscillating perpendicular to the direction of propagation within the waveguide or resonator structure. These systems typically involve semiconductor materials and are used in diode lasers, where the active region is sandwiched between two cladding layers with differing refractive indices. This configuration confines the light within the active region and supports transverse electric modes. TE modes are characterized by having no electric field component in the direction of propagation (z-axis), which means the electric field lies entirely in the transverse plane (x, y). TE LASER systems are essential in applications requiring compact, efficient, and high-speed light sources, such as in optical communication, barcode scanning, and laser printing. Their design focuses on optimizing the waveguide structure, material composition, and junction properties to achieve desired performance.
+
+## <span style="color:red">Specialized LASER Types</span>
+
+1. Excimer LASER
+2. Dye LASER
+3. Roman LASER
+4. Plasma Recombination LASER

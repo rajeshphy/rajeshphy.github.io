@@ -1,9 +1,21 @@
 ---
-layout: post
-title:  "Quantum Tunneling"
-date:   2025-01-02 06:47:26 +0530
-categories: lecture
-tags: SELF
+title: "Quantum Tunneling"
+summary: "Quantum tunneling through a rectangular barrier, transmission and reflection coefficients, quasi-bound systems, and Rosen-Morse scattering."
+date: 2025-01-02 06:47:26 +0530
+categories:
+  - notes
+  - bsc
+  - bsc-v
+  - lecture
+tags:
+  - bsc
+  - semester-v
+  - quantum-mechanics
+  - quantum-tunneling
+  - scattering
+  - rosen-morse-potential
+permalink: /bsc/sem-v/quantum-tunneling/
+hidden: true
 ---
 
 In this article we will study:
@@ -15,7 +27,7 @@ In this article we will study:
     •	Exploration of scattering problems with Rosen-Morse potential.
 
 <div style="text-align: center;">
-  <img src="/SKMU/assets/images/Scattering/tunneling0.jpg" 
+  <img src="{{ '/assets/images/bsc/sem-v/tunneling/tunneling0.jpg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
        style="width:40%; height:auto;">
@@ -37,7 +49,7 @@ $$\begin{equation}\label{PIBSchrodinger}
 
 Since the particle energy is $E$ and is less than $U_0$ in region-II therefore the solution of ($\ref{PIBSchrodinger}$) is exponentially decaying. The solution of ($\ref{PIBSchrodinger}$) in region-I and region-III are given by plane waves as particle energy is greater than the potential energy in these regions. We expect the solution to be of the form given in figure below:
 <div style="text-align: center;">
-  <img src="/SKMU/assets/images/Scattering/tunneling.jpg" 
+  <img src="{{ '/assets/images/bsc/sem-v/tunneling/tunneling.jpg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
        style="width:40%; height:auto;">
@@ -93,21 +105,21 @@ T = \frac{1}{1+\frac{U^2}{8 (E^2-U^2)}\left(1- \cosh \left(2  L \sqrt{\frac{2m (
 \end{equation}$$
 The Transmission and Reflection coefficient is plotted as a function of $U$ in the figure below keeping $\hbar^2=2m=1,\;L=1$ and $E=0.1$:
 <div style="text-align: center;">
-  <img src="/SKMU/assets/images/Scattering/R-T-U.jpeg" 
+  <img src="{{ '/assets/images/bsc/sem-v/tunneling/R-T-U.jpeg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
        style="width:70%; height:auto;">
 </div>
 Similarly the Transmission and Reflection coefficient is plotted as a function of $L$ in the figure below keeping $\hbar^2=2m=1,\;U=2$ and $E=1$:
 <div style="text-align: center;">
-  <img src="/SKMU/assets/images/Scattering/R-T-L.jpeg" 
+  <img src="{{ '/assets/images/bsc/sem-v/tunneling/R-T-L.jpeg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
        style="width:70%; height:auto;">
 </div>
 The Transmission and Reflection coefficient is plotted as a function of $E$ in the figure below keeping $\hbar^2=2m=1,\;U=2$ and $L=1$:
 <div style="text-align: center;">
-  <img src="/SKMU/assets/images/Scattering/R-T-E.jpeg" 
+  <img src="{{ '/assets/images/bsc/sem-v/tunneling/R-T-E.jpeg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
        style="width:70%; height:auto;">
@@ -132,7 +144,7 @@ The Transmission and Reflection coefficient is plotted as a function of $E$ in t
 
 The nuclear potential is modeled to represent the interactions between nucleons (protons and neutrons) within an atomic nucleus. The attractive nuclear force between nucleons is depicted by a negative potential well, which holds the nucleons together. This attractive force is short-range, meaning it becomes effective only within the confines of the nucleus. Outside the nucleus, the electrostatic repulsion between protons (due to their positive charge) dominates, represented by a $\frac{1}{r}$ potential, which increases as the distance between particles increases. This electrostatic repulsion counteracts the attractive nuclear force at larger distances, ensuring that the nucleons are confined to the nucleus but still experience repulsion as they move further apart.
 <div style="text-align: center;">
-  <img src="/SKMU/assets/images/Scattering/Nuclear.jpg" 
+  <img src="{{ '/assets/images/bsc/sem-v/tunneling/Nuclear.jpg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
        style="width:20%; height:20%;">
@@ -142,7 +154,7 @@ The nuclear potential is modeled to represent the interactions between nucleons 
 
 ##### Resonant-Tunneling Diode and Quantum Dot Mechanism:
 <div style="text-align: center;">
-  <img src="/SKMU/assets/images/Scattering/diode.jpg" 
+  <img src="{{ '/assets/images/bsc/sem-v/tunneling/diode.jpg' | relative_url }}" 
        alt="Resonant-Tunneling Diode" 
        class="my-custom-class" 
        style="width:80%; height:auto;">
@@ -183,7 +195,7 @@ where $ V_0 $ represents the depth of the potential, and $ \lambda $ introduces 
 
 As an example consider the symmetric Rosen-Morse potential with $ V_0 = 12 $ and $ \lambda = 0 $. The potential has the following shape as shown in figure below:
 <div style="text-align: center;">
-  <img src="/SKMU/assets/images/Scattering/RM.jpeg" 
+  <img src="{{ '/assets/images/bsc/sem-v/tunneling/RM.jpeg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
        style="width:60%; height:auto;">
@@ -198,7 +210,7 @@ E_2 & = -1, & \psi_2(x) & = \sqrt{\frac{3}{16}} \, \text{sech}(x) \, \left( 5 \,
 \end{equation}$$
 There are only three bound states for the symmetric Rosen-Morse potential. The wave functions are normalized to unity and exhibit exponential decay outside the potential well as shown in figure below. For energy levels beyond the potential asymptote, the particle transitions to scattering states.
 <div style="text-align: center;">
-  <img src="/SKMU/assets/images/Scattering/RMW.jpeg" 
+  <img src="{{ '/assets/images/bsc/sem-v/tunneling/RMW.jpeg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
        style="width:60%; height:auto;">

@@ -444,6 +444,10 @@
     border-radius: 16px;
   }
 
+  .notes-auto-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .board-pin {
     display: none;
   }
@@ -452,6 +456,11 @@
     grid-template-columns: minmax(0, 1fr) 28px;
     gap: 8px;
     padding: 12px;
+  }
+
+  .notes-auto-board .semester-box summary {
+    min-height: 88px;
+    padding: 14px 8px 12px;
   }
 
   .semester-box summary strong {
@@ -464,6 +473,12 @@
     grid-column: 2;
     grid-row: 1;
     width: 28px;
+  }
+
+  .notes-auto-board .semester-box summary::after {
+    grid-column: auto;
+    grid-row: auto;
+    width: 30px;
   }
 
   .semester-links {
@@ -484,7 +499,9 @@
   .semester-post-links a {
     display: grid;
     gap: 4px;
-    padding: 10px 2px;
+    grid-template-columns: 1fr;
+    padding: 12px 2px 12px 15px;
+    font-size: .98rem;
   }
 
   .semester-post-links a small {
