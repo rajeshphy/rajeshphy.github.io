@@ -1,0 +1,30 @@
+<header class="site-header">
+  <a class="brand" href="{{ '/' | relative_url }}">
+    <span class="brand-mark">RK</span>
+    <span class="brand-copy">
+      <strong>{{ site.title }}</strong>
+      <small>Physical Science</small>
+    </span>
+  </a>
+  <nav class="main-nav" aria-label="Main navigation">
+    <a {% if page.url == "/" %}class="active"{% endif %} href="{{ '/' | relative_url }}">Home</a>
+    <a {% if page.url == "/about/" %}class="active"{% endif %} href="{{ '/about/' | relative_url }}">About</a>
+    <a {% if page.url contains "/ref/" %}class="active"{% endif %} href="{{ '/ref/' | relative_url }}">Ref</a>
+    <a {% if page.url == "/tags/" %}class="active"{% endif %} href="{{ '/tags/' | relative_url }}">Tags</a>
+    <button class="nav-search-toggle" type="button" aria-expanded="false" aria-controls="nav-search-input">Search</button>
+    <label class="nav-search" aria-label="Search posts">
+      <input id="nav-search-input" type="search" placeholder="Search posts" autocomplete="off">
+    </label>
+    <div id="nav-search-results" class="nav-search-results" aria-live="polite"></div>
+  </nav>
+  <div class="icon-row header-icons" aria-label="Contact links">
+    <a class="icon-link" href="mailto:{{ site.email }}" aria-label="Email Rajesh Kumar">
+      <img src="{{ '/assets/icons/icon-email-nav.svg' | relative_url }}" alt="" aria-hidden="true">
+    </a>
+    {% if site.contact.whatsapp %}
+      <a class="icon-link" href="{{ site.contact.whatsapp }}" aria-label="WhatsApp group">
+        <img src="{{ '/assets/icons/icon-whatsapp-nav.svg' | relative_url }}" alt="" aria-hidden="true">
+      </a>
+    {% endif %}
+  </div>
+</header>

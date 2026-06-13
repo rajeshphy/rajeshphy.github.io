@@ -1,0 +1,22 @@
+{% assign share_title = page.title | default: site.title %}
+{% assign share_url = page.url | absolute_url %}
+{% capture whatsapp_text %}{{ share_title }} - {{ share_url }}{% endcapture %}
+
+<section class="share-strip" aria-label="Share this page">
+  <p class="eyebrow">Share This Page</p>
+  <div class="share-actions">
+    <button class="share-button instagram" type="button" data-copy-share="{{ share_url }}" title="Share or copy link for Instagram" aria-label="Share or copy link for Instagram">
+      <img src="{{ '/assets/icons/icon-instagram-share.svg' | relative_url }}" alt="" aria-hidden="true">
+      <span>Instagram</span>
+    </button>
+    <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | uri_escape }}" target="_blank" rel="noopener" title="Share on Facebook" aria-label="Share on Facebook">
+      <img src="{{ '/assets/icons/icon-facebook-share.svg' | relative_url }}" alt="" aria-hidden="true">
+      <span>Facebook</span>
+    </a>
+    <a class="share-button whatsapp" href="https://api.whatsapp.com/send?text={{ whatsapp_text | uri_escape }}" target="_blank" rel="noopener" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+      <img src="{{ '/assets/icons/icon-whatsapp-share.svg' | relative_url }}" alt="" aria-hidden="true">
+      <span>WhatsApp</span>
+    </a>
+  </div>
+  <p class="share-status" aria-live="polite"></p>
+</section>

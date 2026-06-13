@@ -1,0 +1,110 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero" style="--hero-bg: url('{{ "/assets/images/physics-formula-board-1920x1080.svg" | relative_url }}');">
+  <div class="hero-copy">
+    <!-- <p class="eyebrow">Physical Science · Lecture Archive</p> -->
+    <h1>Physics</h1>
+    <p class="hero-subtitle">Curated lecture notes, LaTeX derivations, and diagram-rich research resources.</p>
+    <div class="hero-actions">
+      <a class="button" href="{{ '/notes/' | relative_url }}">Notes</a>
+      <a class="button secondary" href="{{ '/research/' | relative_url }}">Research</a>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="feature-band" aria-label="Archive highlights">
+  <article>
+    <span>01</span>
+    <h2>Focused Notes</h2>
+    <p>Clean lecture material for revision, classroom reference, and self-study.</p>
+  </article>
+  <article>
+    <span>02</span>
+    <h2>Dissertation Reading</h2>
+    <p>Selected resources for symmetry, algebraic methods, and quantum models.</p>
+  </article>
+  <article>
+    <span>03</span>
+    <h2>Research Direction</h2>
+    <p>A compact route from topic discovery to deeper literature exploration.</p>
+  </article>
+</section> -->
+
+
+
+
+<section class="post-list premium-post-list" aria-label="Current study page">
+  <div class="section-heading">
+    <h2>Blog Posts 👇</h2>
+  </div>
+
+  {% assign home_posts = paginator.posts | default: site.posts %}
+
+  {% for post in home_posts %}
+    {% unless post.hidden %}
+      {% assign read_minutes = post.content | number_of_words | divided_by: 180 | plus: 1 %}
+
+      <article class="premium-post-card">
+        <a class="premium-post-card-link" href="{{ post.url | relative_url }}">
+          <div class="premium-post-topline">
+            <span>{{ post.categories | first | default: "Study" }}</span>
+            <span>{{ post.date | date: "%d %b %Y" }}</span>
+            <span>{{ read_minutes }} min read</span>
+          </div>
+
+          <h2>{{ post.title }}</h2>
+
+          <p>
+            {{ post.summary | default: post.excerpt | strip_html | normalize_whitespace | truncate: 145 }}
+          </p>
+
+          <!-- {% if post.tags.size > 0 %}
+            <div class="premium-tag-row">
+              {% for tag in post.tags limit: 3 %}
+                <span>{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %} -->
+        </a>
+      </article>
+    {% endunless %}
+  {% endfor %}
+</section>
+
+
+
+
+
+{% if paginator.total_pages > 1 %}
+  <nav class="pager" aria-label="Pagination">
+    {% if paginator.previous_page %}
+      <a class="pager-control pager-prev" href="{{ paginator.previous_page_path | relative_url }}" aria-label="Newer posts">
+        <span class="pager-icon" aria-hidden="true">&larr;</span>
+        <span>Newer</span>
+      </a>
+    {% else %}
+      <span class="pager-control pager-prev is-disabled" aria-hidden="true">
+        <span class="pager-icon">&larr;</span>
+        <span>Newer</span>
+      </span>
+    {% endif %}
+    <span class="pager-status" aria-current="page">
+      <small>Page</small>
+      <strong>{{ paginator.page }} / {{ paginator.total_pages }}</strong>
+    </span>
+    {% if paginator.next_page %}
+      <a class="pager-control pager-next" href="{{ paginator.next_page_path | relative_url }}" aria-label="Older posts">
+        <span>Older</span>
+        <span class="pager-icon" aria-hidden="true">&rarr;</span>
+      </a>
+    {% else %}
+      <span class="pager-control pager-next is-disabled" aria-hidden="true">
+        <span>Older</span>
+        <span class="pager-icon">&rarr;</span>
+      </span>
+    {% endif %}
+  </nav>
+{% endif %}
