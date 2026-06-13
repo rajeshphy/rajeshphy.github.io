@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Notes"
-permalink: /notes/
+permalink: /notes-archive/
 ---
 
 <section class="notes-page">

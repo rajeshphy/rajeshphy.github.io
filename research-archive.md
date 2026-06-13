@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Research
-permalink: /research/
+permalink: /research-archive/
 ---
 
 <section class="post-list premium-post-list research-archive" aria-label="Research articles">
