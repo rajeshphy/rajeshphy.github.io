@@ -477,6 +477,20 @@
     font-size: .8rem;
   }
 
+  .semester-post-links {
+    grid-template-columns: 1fr;
+  }
+
+  .semester-post-links a {
+    display: grid;
+    gap: 4px;
+    padding: 10px 2px;
+  }
+
+  .semester-post-links a small {
+    white-space: normal;
+  }
+
   .course-grid {
     grid-template-columns: 1fr;
   }

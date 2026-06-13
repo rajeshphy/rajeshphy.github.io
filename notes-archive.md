@@ -4,90 +4,147 @@ title: "Notes"
 permalink: /notes-archive/
 ---
 
+{% assign bsc_semesters = "bsc-i:Sem-I|bsc-ii:Sem-II|bsc-iii:Sem-III|bsc-iv:Sem-IV|bsc-v:Sem-V|bsc-vi:Sem-VI|bsc-vii:Sem-VII|bsc-viii:Sem-VIII" | split: "|" %}
+{% assign msc_semesters = "msc-i:Sem-I|msc-ii:Sem-II|msc-iii:Sem-III|msc-iv:Sem-IV" | split: "|" %}
+
 <section class="notes-page">
-  <!-- <header class="notes-hero">
-    <p class="eyebrow">UG & PG Page</p>
-    <h1>Semester Notice Board</h1>
-    <p>Current semester material stays open at the top. Earlier material remains folded below for quick reference.</p>
-  </header> -->
-
-  <section class="notice-board current-board" aria-label="Current semester material">
-    <div class="board-pin pin-left"></div>
-    <div class="board-pin pin-right"></div>
-    <div class="board-heading">
-      <span>Current Semester</span>
-    </div>
-
-    <details class="semester-box" open>
-      <summary>
-        <span>M.Sc</span>
-        <strong>Sem-I, Sem-III, practicals, dissertation</strong>
-      </summary>
-      <div class="semester-links">
-        <a href="{{ '/msc-sem-i/' | relative_url }}">Sem-I</a>
-        <a href="{{ '/msc-sem-iii/' | relative_url }}">Sem-III</a>
-        <a href="{{ '/msc-practicals-template/' | relative_url }}">Practicals</a>
-        <a href="{{ '/msc-dissertation-template/' | relative_url }}">Dissertation</a>
+  {%- capture bsc_board -%}
+    {% for semester in bsc_semesters %}
+      {% assign semester_parts = semester | split: ":" %}
+      {% assign semester_category = semester_parts[0] %}
+      {% assign semester_label = semester_parts[1] %}
+      {%- capture semester_links -%}
+        {%- for post in site.posts -%}
+          {%- if post.categories contains semester_category -%}
+            <a href="{{ post.url | relative_url }}">
+              <span>{{ post.title }}</span>
+              <small>{{ post.date | date: "%d %b %Y" }}</small>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+      {% assign semester_links = semester_links | strip %}
+      {% if semester_links != "" %}
+        <details class="semester-box">
+          <summary>
+            <span>{{ semester_label }}</span>
+            <strong>Lecture notes</strong>
+          </summary>
+          <div class="semester-links semester-post-links">
+            {{ semester_links }}
+          </div>
+        </details>
+      {% endif %}
+    {% endfor %}
+  {%- endcapture -%}
+  {% assign bsc_board = bsc_board | strip %}
+  {% if bsc_board != "" %}
+    <section class="notice-board current-board notes-auto-board" aria-label="B.Sc semester material">
+      <div class="board-pin pin-left"></div>
+      <div class="board-pin pin-right"></div>
+      <div class="board-heading">
+        <span>B.Sc Notes</span>
       </div>
-    </details>
 
-    <details class="semester-box" open>
-      <summary>
-        <span>B.Sc</span>
-        <strong>Sem-I and practical files</strong>
-      </summary>
-      <div class="semester-links">
-        <a href="{{ '/bsc-sem-i-template/' | relative_url }}">Sem-I</a>
-        <a href="{{ '/bsc-practicals-template/' | relative_url }}">Practicals</a>
+      {{ bsc_board }}
+    </section>
+  {% endif %}
+
+  {%- capture msc_board -%}
+    {% for semester in msc_semesters %}
+      {% assign semester_parts = semester | split: ":" %}
+      {% assign semester_category = semester_parts[0] %}
+      {% assign semester_label = semester_parts[1] %}
+      {%- capture semester_links -%}
+        {%- for post in site.posts -%}
+          {%- if post.categories contains semester_category -%}
+            <a href="{{ post.url | relative_url }}">
+              <span>{{ post.title }}</span>
+              <small>{{ post.date | date: "%d %b %Y" }}</small>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+      {% assign semester_links = semester_links | strip %}
+      {% if semester_links != "" %}
+        <details class="semester-box">
+          <summary>
+            <span>{{ semester_label }}</span>
+            <strong>Lecture notes</strong>
+          </summary>
+          <div class="semester-links semester-post-links">
+            {{ semester_links }}
+          </div>
+        </details>
+      {% endif %}
+    {% endfor %}
+  {%- endcapture -%}
+  {% assign msc_board = msc_board | strip %}
+  {% if msc_board != "" %}
+    <section class="notice-board old-board notes-auto-board" aria-label="M.Sc semester material">
+      <div class="board-heading">
+        <span>M.Sc Notes</span>
       </div>
-    </details>
 
-    <details class="semester-box exam-box" open>
-      <summary>
-        <span>JET, NET & GATE</span>
-        <strong>Exam-oriented study templates</strong>
-      </summary>
-      <div class="semester-links">
-        <a href="{{ '/exam-physical-science-template/' | relative_url }}">Physical Science</a>
-        <a href="{{ '/exam-paper-i-template/' | relative_url }}">Paper I</a>
+      {{ msc_board }}
+    </section>
+  {% endif %}
+
+  {%- capture exam_links -%}
+    {%- for post in site.posts -%}
+      {%- if post.categories contains "exam" -%}
+        <a href="{{ post.url | relative_url }}">
+          <span>{{ post.title }}</span>
+          <small>{{ post.date | date: "%d %b %Y" }}</small>
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {% assign exam_links = exam_links | strip %}
+  {% if exam_links != "" %}
+    <section class="notice-board docs-board notes-auto-board" aria-label="Exam preparation material">
+      <div class="board-heading">
+        <span>Exam Notes</span>
       </div>
-    </details>
-  </section>
 
-  <section class="notice-board old-board" aria-label="Old semester archive">
-    <div class="board-heading">
-      <span>Archive</span>
-      <!-- <h2>Old Semester Material</h2> -->
-    </div>
+      <details class="semester-box exam-box">
+        <summary>
+          <span>NET, JEST & GATE</span>
+          <strong>Preparation material</strong>
+        </summary>
+        <div class="semester-links semester-post-links">
+          {{ exam_links }}
+        </div>
+      </details>
+    </section>
+  {% endif %}
 
-    <details class="semester-box">
-      <summary>
-        <span>M.Sc Old</span>
-        <strong>Earlier semester references</strong>
-      </summary>
-      <div class="semester-links">
-        <a href="{{ '/msc-sem-ii-old-template/' | relative_url }}">Sem-II</a>
+  {%- capture doc_links -%}
+    {%- for post in site.posts -%}
+      {%- if post.categories contains "doc" -%}
+        <a href="{{ post.url | relative_url }}">
+          <span>{{ post.title }}</span>
+          <small>{{ post.date | date: "%d %b %Y" }}</small>
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {% assign doc_links = doc_links | strip %}
+  {% if doc_links != "" %}
+    <section class="notice-board docs-board notes-auto-board" aria-label="Jekyll documentation">
+      <div class="board-heading">
+        <span>Jekyll Documentation</span>
       </div>
-    </details>
-  </section>
 
-  <section class="notice-board docs-board" aria-label="Jekyll documentation">
-    <div class="board-heading">
-      <span>Jekyll Documentation</span>
-    </div>
-
-    <details class="semester-box">
-      <summary>
-        <span>Site Writing Guides</span>
-        <strong>Front matter, Markdown, LaTeX, quiz, and SCSS style editing</strong>
-      </summary>
-      <div class="semester-links">
-        <a href="{{ '/how-to-write-front-matter/' | relative_url }}">Front Matter</a>
-        <a href="{{ '/how-to-write-in-markdown/' | relative_url }}">Markdown</a>
-        <a href="{{ '/how-to-write-latex-equations/' | relative_url }}">LaTeX</a>
-        <a href="{{ '/how-to-write-quiz/' | relative_url }}">Quiz</a>
-        <a href="{{ '/how-to-edit-scss-partials/' | relative_url }}">SCSS Styles</a>
-      </div>
-    </details>
-  </section>
+      <details class="semester-box">
+        <summary>
+          <span>Site Writing Guides</span>
+          <strong>Documentation</strong>
+        </summary>
+        <div class="semester-links semester-post-links">
+          {{ doc_links }}
+        </div>
+      </details>
+    </section>
+  {% endif %}
 </section>
