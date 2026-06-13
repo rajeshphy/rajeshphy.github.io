@@ -1,16 +1,11 @@
 ---
 title: "Reference Resources"
-summary: "Curated physics syllabus files, formula sheets, reading notes, journals, and appendix material."
+summary: "Curated physics formula sheets, reading notes, journals, and appendix material."
 date: 2024-05-09 10:47:26 +0530
 categories:
   - ref
   - resources
-tags:
-  - reference
-  - physics-resources
-  - syllabus
-  - formulas
-  - journals
+
 permalink: /ref/
 hidden: true
 ---
