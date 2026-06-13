@@ -1,7 +1,7 @@
 ---
 title: औपचारिक अभिवादन
 date: 2026-02-01 07:00:00 +0530
-categories: research
+categories: talk
 tags:
   - formal-salutation
   - academic-speech

@@ -1,7 +1,7 @@
 ---
 title: Structure of Formal Salutation
 date: 2026-02-01 07:30:00 +0530
-categories: research
+categories: talk
 tags:
   - formal-salutation
   - academic-speech
