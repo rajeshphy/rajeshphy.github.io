@@ -31,19 +31,20 @@ assets/css/style.scss
 That file imports the partials in order:
 
 ```scss
-@use "base";
-@use "header";
-@use "share";
-@use "layout-hero";
-@use "icons";
-@use "posts-pages";
-@use "about-cv";
-@use "post-list";
-@use "notes-resources";
-@use "code-math";
-@use "quiz";
-@use "tables-search-pager";
-@use "mobile";
+@import "base";
+@import "header";
+@import "share";
+@import "layout-hero";
+@import "icons";
+@import "posts-pages";
+@import "about-cv";
+@import "post-list";
+@import "notes-resources";
+@import "code-math";
+@import "code-blocks";
+@import "quiz";
+@import "tables-search-pager";
+@import "mobile";
 ```
 
 ## Which File To Edit
@@ -58,6 +59,7 @@ That file imports the partials in order:
 | About/CV page | `_sass/_about-cv.scss` |
 | Notes notice board | `_sass/_notes-resources.scss` |
 | Code blocks, figures, MathJax overflow | `_sass/_code-math.scss` |
+| Language-aware code block styling and copy button spacing | `_sass/_code-blocks.scss` |
 | Quiz interface | `_sass/_quiz.scss` |
 | Tables, search page, pager | `_sass/_tables-search-pager.scss` |
 | Phone styles | `_sass/_mobile.scss` |

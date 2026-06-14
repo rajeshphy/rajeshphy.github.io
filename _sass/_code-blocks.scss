@@ -1,0 +1,382 @@
+/* =========================================================
+   LANGUAGE-AWARE CODE BLOCKS
+   ========================================================= */
+
+$code-language-targets:
+  ".highlighter-rouge.language-text, .highlight.language-text, "
+  + ".highlighter-rouge.language-plaintext, .highlight.language-plaintext, "
+  + ".highlighter-rouge.language-terminal, .highlight.language-terminal, "
+  + ".highlighter-rouge.language-console, .highlight.language-console, "
+  + ".highlighter-rouge.language-python, .highlight.language-python, "
+  + ".highlighter-rouge.language-latex, .highlight.language-latex, "
+  + ".highlighter-rouge.language-tex, .highlight.language-tex, "
+  + ".highlighter-rouge.language-maxima, .highlight.language-maxima, "
+  + ".highlighter-rouge.language-scss, .highlight.language-scss, "
+  + ".highlighter-rouge.language-sass, .highlight.language-sass, "
+  + ".highlighter-rouge.language-css, .highlight.language-css, "
+  + ".highlighter-rouge.language-html, .highlight.language-html, "
+  + ".highlighter-rouge.language-javascript, .highlight.language-javascript, "
+  + ".highlighter-rouge.language-js, .highlight.language-js, "
+  + ".highlighter-rouge.language-yaml, .highlight.language-yaml, "
+  + ".highlighter-rouge.language-yml, .highlight.language-yml, "
+  + ".highlighter-rouge.language-bash, .highlight.language-bash, "
+  + ".highlighter-rouge.language-shell, .highlight.language-shell, "
+  + ".highlighter-rouge.language-sh, .highlight.language-sh, "
+  + ".highlighter-rouge.language-markdown, .highlight.language-markdown, "
+  + ".highlighter-rouge.language-md, .highlight.language-md, "
+  + ".highlighter-rouge.language-jekyll, .highlight.language-jekyll, "
+  + ".highlighter-rouge.language-liquid, .highlight.language-liquid, "
+  + ".highlighter-rouge.language-json, .highlight.language-json, "
+  + ".code-copy-shell";
+
+$code-pre-targets:
+  "pre.language-text, pre.language-plaintext, pre.language-terminal, pre.language-console, "
+  + "pre.language-python, pre.language-latex, pre.language-tex, pre.language-maxima, "
+  + "pre.language-scss, pre.language-sass, pre.language-css, pre.language-html, "
+  + "pre.language-javascript, pre.language-js, pre.language-yaml, pre.language-yml, "
+  + "pre.language-bash, pre.language-shell, pre.language-sh, pre.language-markdown, "
+  + "pre.language-md, pre.language-jekyll, pre.language-liquid, pre.language-json";
+
+:not(pre) > code {
+  padding: .12em .34em;
+  border: 1px solid rgba(8, 96, 95, .14);
+  border-radius: 5px;
+  background: rgba(237, 245, 241, .78);
+  color: #075352;
+  font-size: .88em;
+  overflow-wrap: break-word;
+}
+
+:where(#{$code-language-targets}) {
+  --code-accent: #08605f;
+  --code-accent-soft: rgba(8, 96, 95, .13);
+  --code-panel-a: rgba(248, 253, 250, .98);
+  --code-panel-b: rgba(229, 242, 235, .96);
+  position: relative;
+  margin: 1.45rem 0;
+  border-radius: 10px;
+}
+
+:where(#{$code-language-targets}) .highlight {
+  margin: 0;
+}
+
+:where(#{$code-language-targets}) pre,
+:where(#{$code-pre-targets}) {
+  position: relative;
+  max-width: 100%;
+  margin: 0;
+  padding: 1.05rem 5.9rem 1.05rem 1.05rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid var(--code-accent-soft);
+  border-left: 4px solid var(--code-accent);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, var(--code-panel-a), var(--code-panel-b));
+  color: #1e332d;
+  font-size: clamp(.82rem, 1.6vw, .95rem);
+  line-height: 1.68;
+  tab-size: 2;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(8, 96, 95, .34) transparent;
+  box-shadow: 0 16px 42px rgba(27, 58, 47, .11);
+}
+
+:where(#{$code-pre-targets}) {
+  --code-accent: #08605f;
+  --code-accent-soft: rgba(8, 96, 95, .13);
+  --code-panel-a: rgba(248, 253, 250, .98);
+  --code-panel-b: rgba(229, 242, 235, .96);
+  margin: 1.45rem 0;
+}
+
+.code-copy-button {
+  position: absolute;
+  top: .58rem;
+  right: .65rem;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.1rem;
+  min-height: 2rem;
+  padding: .35rem .62rem;
+  border: 1px solid var(--code-accent-soft);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, .9);
+  color: var(--code-accent);
+  cursor: pointer;
+  font: 800 .68rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 22px rgba(35, 31, 26, .1);
+  transition:
+    background-color .18s ease,
+    border-color .18s ease,
+    color .18s ease,
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+.code-copy-button:hover,
+.code-copy-button:focus-visible {
+  background: var(--code-accent);
+  border-color: var(--code-accent);
+  color: #fffdf8;
+  box-shadow: 0 12px 28px rgba(35, 31, 26, .14);
+  transform: translateY(-1px);
+}
+
+.code-copy-button:focus-visible {
+  outline: 3px solid rgba(185, 140, 53, .28);
+  outline-offset: 2px;
+}
+
+.code-copy-button.is-copied {
+  background: #08605f;
+  border-color: #08605f;
+  color: #fffdf8;
+}
+
+:where(#{$code-language-targets}) pre::-webkit-scrollbar,
+:where(#{$code-pre-targets})::-webkit-scrollbar {
+  height: 10px;
+}
+
+:where(#{$code-language-targets}) pre::-webkit-scrollbar-thumb,
+:where(#{$code-pre-targets})::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgba(8, 96, 95, .28);
+  background-clip: padding-box;
+}
+
+:where(#{$code-language-targets}) code,
+:where(#{$code-pre-targets}) code {
+  display: block;
+  min-width: max-content;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  white-space: pre;
+}
+
+.language-text,
+pre.language-text,
+.language-plaintext,
+pre.language-plaintext,
+.language-terminal,
+pre.language-terminal,
+.language-console,
+pre.language-console {
+  --code-accent: #6b6258;
+  --code-accent-soft: rgba(107, 98, 88, .18);
+  --code-panel-a: rgba(252, 249, 242, .98);
+  --code-panel-b: rgba(238, 232, 220, .96);
+}
+
+.language-terminal,
+pre.language-terminal,
+.language-console,
+pre.language-console {
+  --code-accent: #47645a;
+  --code-accent-soft: rgba(71, 100, 90, .2);
+}
+
+.language-python,
+pre.language-python {
+  --code-accent: #2f6f8f;
+  --code-accent-soft: rgba(47, 111, 143, .18);
+  --code-panel-a: rgba(247, 252, 253, .98);
+  --code-panel-b: rgba(226, 239, 244, .96);
+}
+
+.language-latex,
+pre.language-latex,
+.language-tex,
+pre.language-tex {
+  --code-accent: #7a5a91;
+  --code-accent-soft: rgba(122, 90, 145, .18);
+  --code-panel-a: rgba(252, 249, 253, .98);
+  --code-panel-b: rgba(239, 231, 244, .96);
+}
+
+.language-maxima,
+pre.language-maxima {
+  --code-accent: #8a5d2b;
+  --code-accent-soft: rgba(138, 93, 43, .18);
+  --code-panel-a: rgba(253, 250, 244, .98);
+  --code-panel-b: rgba(242, 233, 218, .96);
+}
+
+.language-scss,
+pre.language-scss {
+  --code-accent: #8b4f68;
+  --code-accent-soft: rgba(139, 79, 104, .18);
+  --code-panel-a: rgba(253, 249, 251, .98);
+  --code-panel-b: rgba(244, 230, 236, .96);
+}
+
+.language-sass,
+pre.language-sass {
+  --code-accent: #8b4f68;
+  --code-accent-soft: rgba(139, 79, 104, .18);
+  --code-panel-a: rgba(253, 249, 251, .98);
+  --code-panel-b: rgba(244, 230, 236, .96);
+}
+
+.language-css,
+pre.language-css {
+  --code-accent: #8b4f68;
+  --code-accent-soft: rgba(139, 79, 104, .18);
+  --code-panel-a: rgba(253, 249, 251, .98);
+  --code-panel-b: rgba(244, 230, 236, .96);
+}
+
+.language-html,
+pre.language-html {
+  --code-accent: #9a5a3b;
+  --code-accent-soft: rgba(154, 90, 59, .18);
+  --code-panel-a: rgba(253, 250, 247, .98);
+  --code-panel-b: rgba(244, 233, 226, .96);
+}
+
+.language-javascript,
+pre.language-javascript,
+.language-js,
+pre.language-js {
+  --code-accent: #7f7325;
+  --code-accent-soft: rgba(127, 115, 37, .2);
+  --code-panel-a: rgba(253, 252, 245, .98);
+  --code-panel-b: rgba(242, 238, 214, .96);
+}
+
+.language-yaml,
+pre.language-yaml,
+.language-yml,
+pre.language-yml {
+  --code-accent: #6f6359;
+  --code-accent-soft: rgba(111, 99, 89, .2);
+  --code-panel-a: rgba(252, 250, 246, .98);
+  --code-panel-b: rgba(236, 231, 223, .96);
+}
+
+.language-json,
+pre.language-json {
+  --code-accent: #6f6359;
+  --code-accent-soft: rgba(111, 99, 89, .2);
+  --code-panel-a: rgba(252, 250, 246, .98);
+  --code-panel-b: rgba(236, 231, 223, .96);
+}
+
+.language-bash,
+pre.language-bash,
+.language-shell,
+pre.language-shell,
+.language-sh,
+pre.language-sh {
+  --code-accent: #4f7058;
+  --code-accent-soft: rgba(79, 112, 88, .2);
+  --code-panel-a: rgba(248, 252, 249, .98);
+  --code-panel-b: rgba(229, 240, 231, .96);
+}
+
+.language-markdown,
+pre.language-markdown,
+.language-md,
+pre.language-md {
+  --code-accent: #456d82;
+  --code-accent-soft: rgba(69, 109, 130, .18);
+  --code-panel-a: rgba(248, 251, 252, .98);
+  --code-panel-b: rgba(229, 237, 241, .96);
+}
+
+.language-jekyll,
+pre.language-jekyll,
+.language-liquid,
+pre.language-liquid {
+  --code-accent: #8a3f39;
+  --code-accent-soft: rgba(138, 63, 57, .18);
+  --code-panel-a: rgba(253, 249, 248, .98);
+  --code-panel-b: rgba(243, 229, 227, .96);
+}
+
+.highlight .c,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs {
+  color: #66746d;
+  font-style: italic;
+}
+
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .nt {
+  color: #075f67;
+  font-weight: 700;
+}
+
+.highlight .s,
+.highlight .sb,
+.highlight .s1,
+.highlight .s2,
+.highlight .se,
+.highlight .sh {
+  color: #8a4b35;
+}
+
+.highlight .m,
+.highlight .mi,
+.highlight .mf,
+.highlight .mh,
+.highlight .il {
+  color: #755f12;
+}
+
+.highlight .na,
+.highlight .nb,
+.highlight .nc,
+.highlight .nf,
+.highlight .nv,
+.highlight .o {
+  color: #6c4f91;
+}
+
+.highlight .gd {
+  background: rgba(138, 63, 57, .12);
+  color: #7b332d;
+}
+
+.highlight .gi {
+  background: rgba(8, 96, 95, .1);
+  color: #075352;
+}
+
+@media (max-width: 640px) {
+  :where(#{$code-language-targets}),
+  :where(#{$code-pre-targets}) {
+    margin: 1.15rem 0;
+  }
+
+  :where(#{$code-language-targets}) pre,
+  :where(#{$code-pre-targets}) {
+    padding: .9rem 5rem .9rem .85rem;
+    border-left-width: 3px;
+    font-size: .82rem;
+    line-height: 1.62;
+  }
+
+  .code-copy-button {
+    top: .52rem;
+    right: .55rem;
+    min-width: 3.75rem;
+    min-height: 1.8rem;
+    padding: .3rem .52rem;
+    font-size: .6rem;
+  }
+}
