@@ -114,7 +114,7 @@ The Transmission and Reflection coefficient is plotted as a function of $E$ in t
   <img src="{{ '/assets/images/bsc/sem-v/tunneling/R-T-E.jpeg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
-       style="width:70%; height:auto;">
+       style="width:90%; height:auto;">
 </div>
 
 **Observations:**
@@ -139,7 +139,7 @@ The nuclear potential is modeled to represent the interactions between nucleons 
   <img src="{{ '/assets/images/bsc/sem-v/tunneling/Nuclear.jpg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
-       style="width:20%; height:20%;">
+       style="width:50%; height:30;">
 </div>
 **Tunneling phenomena:** An alpha particle can be emitted or absorbed through quantum tunneling. When the nucleus has enough energy to overcome the potential barrier created by the electrostatic repulsion, the alpha particle (comprising two protons and two neutrons) can escape the nucleus. This process, known as alpha decay, is facilitated by tunneling through the potential barrier, despite the particle's energy being lower than the barrier height. Conversely, an alpha particle can also be absorbed by the nucleus if the incoming particle’s energy and the potential conditions align, leading to an increase in the nucleus's energy state.
 
@@ -149,7 +149,7 @@ The nuclear potential is modeled to represent the interactions between nucleons 
   <img src="{{ '/assets/images/bsc/sem-v/tunneling/diode.jpg' | relative_url }}" 
        alt="Resonant-Tunneling Diode" 
        class="my-custom-class" 
-       style="width:80%; height:auto;">
+       style="width:90%; height:auto;">
   <p><strong>Resonant-Tunneling Diode:</strong> (a) A gallium arsenide quantum dot embedded in aluminum arsenide. (b) A potential well with two barriers and no voltage bias, where electron energies in aluminum arsenide do not align with the quantum dot's energy levels, preventing tunneling. (c) The potential well with an applied voltage bias, aligning the electron energies in the dot and aluminum arsenide, enabling tunneling through the dot.</p>
 </div>
 In resonant tunneling devices, quantum dots act as potential wells with quantized energy levels for electrons. These dots are embedded in semiconductor materials, where potential barriers exist at the dot boundaries. Electrons outside the dot cannot tunnel through unless their energy matches the quantized energy level inside the dot. This alignment occurs when an external voltage bias lowers one of the barriers, allowing tunneling to occur. As the bias is increased further, alignment is lost and tunneling stops. When the bias is adjusted to match the next energy level, tunneling resumes. This energy-dependent tunneling is the key mechanism in resonant-tunneling diodes, enabling high-speed switching in nano-electronic devices.
@@ -190,7 +190,7 @@ As an example consider the symmetric Rosen-Morse potential with $ V_0 = 12 $ and
   <img src="{{ '/assets/images/bsc/sem-v/tunneling/RM.jpeg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
-       style="width:60%; height:auto;">
+       style="width:90%; height:auto;">
 </div>
 The energy and bound state wave functions are
 $$\begin{equation}
@@ -205,7 +205,7 @@ There are only three bound states for the symmetric Rosen-Morse potential. The w
   <img src="{{ '/assets/images/bsc/sem-v/tunneling/RMW.jpeg' | relative_url }}" 
        alt="Scattering" 
        class="my-custom-class" 
-       style="width:60%; height:auto;">
+       style="width:90%; height:auto;">
 </div>
 
 
