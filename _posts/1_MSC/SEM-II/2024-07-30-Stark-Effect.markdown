@@ -38,10 +38,14 @@ This level is four-fold degenerate because there are multiple quantum states wit
 
 Thus, the \( n = 2 \) level has the following four degenerate states:
 
-1. $ \ket{2,0,0}$ (2s state)
-2. $ \ket{2,1,0}$ (2p state)
-3. $ \ket{2,1,1}$ (2p state)
-4. $ \ket{2,1,-1}$ (2p state)
+$$
+\begin{aligned}
+\lvert 2,0,0\rangle &\quad \text{2s state},\\
+\lvert 2,1,0\rangle &\quad \text{2p state with } m_l=0,\\
+\lvert 2,1,1\rangle &\quad \text{2p state with } m_l=1,\\
+\lvert 2,1,-1\rangle &\quad \text{2p state with } m_l=-1.
+\end{aligned}
+$$
 
 These states are degenerate in the absence of an external electric field. In presence of electric field they split as shown in figure given below:
 
@@ -74,15 +78,70 @@ where:
 - $$ \psi_{200}^{(0)} $$ is the 2s state.
 - $$ \psi_{211}^{(0)} $$, $$ \psi_{210}^{(0)} $$, $$ \psi_{21-1}^{(0)} $$ are the 2p states.
 
-The matrix elements $H'_{ij} = \brakett{\psi_i^{(0)}}{H'}{\psi_j^{(0)}}$ are:
+The perturbation matrix elements are written as
 
-1. $$H'_{11} = \brakett{\psi_{200}^{(0)}}{e\mathcal{E}z}{\psi_{200}^{(0)}} = 0\;\text{(due to parity)}$$ 
-2. $$H'_{12} = \brakett{\psi_{200}^{(0)}}{e\mathcal{E}z}{\psi_{211}^{(0)}}$$
-3. $$H'_{13} = \brakett{\psi_{200}^{(0)}}{e\mathcal{E}z}{\psi_{210}^{(0)}}$$
-4. $$H'_{14} = \brakett{\psi_{200}^{(0)}}{e\mathcal{E}z}{\psi_{21-1}^{(0)}}$$
-5. $$H'_{22} = \brakett{\psi_{211}^{(0)}}{e\mathcal{E}z}{\psi_{211}^{(0)}}$$
-6. $$H'_{33} = \brakett{\psi_{210}^{(0)}}{e\mathcal{E}z}{\psi_{210}^{(0)}}$$
-7. $$H'_{44} = \brakett{\psi_{21-1}^{(0)}}{e\mathcal{E}z}{\psi_{21-1}^{(0)}}$$
+$$
+H'_{ij}
+=
+\left\langle \psi_i^{(0)}
+\middle| H'
+\middle| \psi_j^{(0)} \right\rangle .
+$$
+
+In the ordered basis
+
+$$
+\left\{
+\psi_{200}^{(0)},\,
+\psi_{211}^{(0)},\,
+\psi_{210}^{(0)},\,
+\psi_{21-1}^{(0)}
+\right\},
+$$
+
+the required matrix elements are:
+
+$$
+\begin{aligned}
+H'_{11}
+&=
+\left\langle \psi_{200}^{(0)}
+\middle| e\mathcal{E}z
+\middle| \psi_{200}^{(0)} \right\rangle
+=0
+\quad \text{(by parity)},\\
+H'_{12}
+&=
+\left\langle \psi_{200}^{(0)}
+\middle| e\mathcal{E}z
+\middle| \psi_{211}^{(0)} \right\rangle,\\
+H'_{13}
+&=
+\left\langle \psi_{200}^{(0)}
+\middle| e\mathcal{E}z
+\middle| \psi_{210}^{(0)} \right\rangle,\\
+H'_{14}
+&=
+\left\langle \psi_{200}^{(0)}
+\middle| e\mathcal{E}z
+\middle| \psi_{21-1}^{(0)} \right\rangle,\\
+H'_{22}
+&=
+\left\langle \psi_{211}^{(0)}
+\middle| e\mathcal{E}z
+\middle| \psi_{211}^{(0)} \right\rangle,\\
+H'_{33}
+&=
+\left\langle \psi_{210}^{(0)}
+\middle| e\mathcal{E}z
+\middle| \psi_{210}^{(0)} \right\rangle,\\
+H'_{44}
+&=
+\left\langle \psi_{21-1}^{(0)}
+\middle| e\mathcal{E}z
+\middle| \psi_{21-1}^{(0)} \right\rangle.
+\end{aligned}
+$$
 
 These elements need to be calculated. For simplicity, we consider the known spherical harmonics and radial functions.
 
@@ -110,7 +169,20 @@ $$ Y_1^{\pm1} = \mp\sqrt{\frac{3}{8\pi}} \sin\theta e^{\pm i\phi} $$
 
 Using these, we find the non-zero matrix elements:
 
-$$ H'_{13} = \langle \psi_{200}^{(0)} | e\mathcal{E}z | \psi_{210}^{(0)} \rangle = e\mathcal{E} \langle 200 | r\cos\theta | 210 \rangle $$
+$$
+\begin{aligned}
+H'_{13}
+&=
+\left\langle \psi_{200}^{(0)}
+\middle| e\mathcal{E}z
+\middle| \psi_{210}^{(0)} \right\rangle\\
+&=
+e\mathcal{E}
+\left\langle 200
+\middle| r\cos\theta
+\middle| 210 \right\rangle .
+\end{aligned}
+$$
 
 The radial part can be computed as:
 
@@ -122,7 +194,14 @@ $$ \int Y_{00} \cos\theta Y_{10} \, d\Omega $$
 
 Combining these gives:
 
-$$ H'_{13} = e\mathcal{E} \left( \frac{3a_0}{2\sqrt{2}} \right) \sqrt{\frac{3}{4\pi}} \int_0^\infty r^3 R_{20} R_{21} \, dr $$
+$$
+H'_{13}
+=
+e\mathcal{E}
+\left( \frac{3a_0}{2\sqrt{2}} \right)
+\sqrt{\frac{3}{4\pi}}
+\int_0^\infty r^3 R_{20}R_{21}\,dr .
+$$
 
 #### Solving the Secular Equation
 
