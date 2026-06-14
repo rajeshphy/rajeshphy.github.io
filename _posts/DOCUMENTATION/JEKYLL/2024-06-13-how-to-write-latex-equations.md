@@ -2,7 +2,8 @@
 title: "How To Write LaTeX Equations"
 summary: "A practical demonstration of inline math, display equations, aligned derivations, and mobile-friendly equation writing."
 date: 2024-06-13 00:10:00 +0530
-categories: doc
+categories:
+  - doc-jekyll
 tags:
   - latex
   - equations

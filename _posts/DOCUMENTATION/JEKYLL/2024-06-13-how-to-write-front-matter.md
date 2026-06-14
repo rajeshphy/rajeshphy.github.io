@@ -2,7 +2,8 @@
 title: "How To Write YAML Front Matter"
 summary: "A practical guide to the small YAML block that controls title, date, tags, permalink, and visibility in Jekyll posts."
 date: 2024-06-13 00:00:00 +0530
-categories: doc
+categories:
+  - doc-jekyll
 tags:
   - yaml
   - front-matter

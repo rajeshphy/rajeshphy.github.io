@@ -2,7 +2,8 @@
 title: "How To Edit SCSS Partials"
 summary: "A practical guide to editing the segmented Sass files inside the _sass directory without touching one huge CSS file."
 date: 2024-06-13 00:50:00 +0530
-categories: doc
+categories:
+  - doc-jekyll
 tags:
   - scss
   - sass

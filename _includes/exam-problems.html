@@ -1,0 +1,7 @@
+<section class="exam-problem-renderer" aria-label="Standard exam problems">
+  <textarea class="exam-problem-source-text" hidden>{{ include.source | strip | escape }}</textarea>
+  <div class="exam-problem-set"></div>
+  <p class="exam-answer-key"></p>
+</section>
+
+<script src="{{ '/assets/js/exam-problems.js' | relative_url }}" defer></script>

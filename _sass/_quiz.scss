@@ -61,8 +61,17 @@
 
 .quiz-shell h2 {
   margin: 0 0 20px;
-  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-size: clamp(1.22rem, 2.4vw, 1.72rem);
+  font-weight: 650;
   line-height: 1.28;
+}
+
+.quiz-question-tag {
+  display: inline-block;
+  margin-left: .35rem;
+  color: var(--gold);
+  font: 850 .72em/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  white-space: nowrap;
 }
 
 .quiz-options {
@@ -156,6 +165,16 @@
   text-align: center;
 }
 
+.quiz-result-card h2 {
+  margin-bottom: 6px;
+}
+
+.quiz-result-count {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font: 800 1rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 .quiz-score-ring {
   display: inline-grid;
   place-items: center;
@@ -163,9 +182,8 @@
   height: 132px;
   margin: 10px auto 18px;
   border-radius: 50%;
-  background: conic-gradient(var(--accent) 0 75%, #eadfce 75% 100%);
+  background: conic-gradient(var(--accent) 0 var(--score-percent, 0%), #eadfce var(--score-percent, 0%) 100%);
   color: white;
   font: 950 2rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   box-shadow: 0 18px 46px rgba(8, 96, 95, .18);
 }
-

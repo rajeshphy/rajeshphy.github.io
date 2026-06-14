@@ -58,6 +58,14 @@
     }[char]));
   }
 
+  function formatQuestion(value) {
+    const question = String(value).trim();
+    const match = question.match(/^\[([^\]]+)\]\s*(.+)$/);
+    if (!match) return question;
+
+    return `${match[2]} <strong class="quiz-question-tag">[${escapeHtml(match[1])}]</strong>`;
+  }
+
   function decodeHtml(value) {
     const textarea = document.createElement("textarea");
     textarea.innerHTML = value;
@@ -118,7 +126,7 @@
       countEl.textContent = `Question ${current + 1} of ${questions.length}`;
       scoreMiniEl.textContent = `Score ${score}`;
       progressEl.style.width = `${(current / questions.length) * 100}%`;
-      questionEl.innerHTML = item.question;
+      questionEl.innerHTML = formatQuestion(item.question);
 
       optionsEl.innerHTML = item.options.map((option, index) => `
         <button class="quiz-option" type="button" data-index="${index}">
@@ -162,6 +170,7 @@
     function finishQuiz() {
       const total = questions.length;
       const percent = Math.round((score / total) * 100);
+      const wrong = total - score;
       const message = percent >= 80
         ? "Excellent command of the essentials."
         : percent >= 60
@@ -171,8 +180,9 @@
       shell.innerHTML = `
         <div class="quiz-result-card">
           <p class="eyebrow">Quiz Result</p>
-          <div class="quiz-score-ring">${percent}%</div>
-          <h2>${score} / ${total} Correct</h2>
+          <div class="quiz-score-ring" style="--score-percent: ${percent}%;">${percent}%</div>
+          <h2>${score} answered correctly</h2>
+          <p class="quiz-result-count">${wrong} answered wrongly</p>
           <p>${escapeHtml(message)}</p>
           <button class="quiz-next quiz-restart" type="button">Restart Quiz</button>
         </div>

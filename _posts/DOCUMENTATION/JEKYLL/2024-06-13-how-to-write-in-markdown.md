@@ -2,7 +2,8 @@
 title: "How To Write In Markdown"
 summary: "A clear demonstration of headings, paragraphs, lists, links, tables, code blocks, and academic note structure."
 date: 2024-06-13 00:30:00 +0530
-categories: doc
+categories:
+  - doc-jekyll
 tags:
   - markdown
   - writing

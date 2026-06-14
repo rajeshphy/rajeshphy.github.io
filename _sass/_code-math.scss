@@ -10,11 +10,27 @@ pre {
 pre {
   overflow-x: auto;
   padding: 16px;
-  border: 1px solid rgba(228, 216, 200, .72);
+  border: 1px solid rgba(91, 132, 113, .36);
   border-radius: 8px;
-  background: #17191d;
-  color: #f5efe4;
-  box-shadow: 0 18px 44px rgba(35, 31, 26, .12);
+  background:
+    linear-gradient(135deg, rgba(232, 241, 235, .98), rgba(211, 228, 218, .96));
+  color: #1f352d;
+  box-shadow: 0 14px 34px rgba(27, 58, 47, .12);
+}
+
+.highlight {
+  background: transparent;
+}
+
+.highlight pre,
+pre.highlight {
+  background:
+    linear-gradient(135deg, rgba(232, 241, 235, .98), rgba(211, 228, 218, .96));
+}
+
+pre code {
+  color: inherit;
+  background: transparent;
 }
 
 .diagram-figure {
