@@ -125,20 +125,57 @@ blockquote {
   color: #333;
 }
 
+.exam-problem-renderer {
+  max-width: 920px;
+  margin: 2rem auto 0;
+}
+
+.exam-problem-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+  padding: 0 4px 10px;
+  border-bottom: 1px solid rgba(8, 96, 95, .18);
+}
+
+.exam-problem-heading span {
+  color: var(--gold);
+  font: 850 .78rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.exam-problem-heading strong {
+  color: #4f4942;
+  font: 800 .9rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 .exam-problem-set {
   display: grid;
   gap: 18px;
-  margin: 1.7rem auto;
-  max-width: 880px;
+  margin: 0;
+  max-width: none;
 }
 
 .exam-problem {
-  padding: clamp(16px, 2.4vw, 22px);
-  border: 1px solid rgba(8, 96, 95, .16);
-  border-radius: 10px;
+  position: relative;
+  padding: clamp(16px, 2.4vw, 22px) clamp(16px, 2.4vw, 24px) clamp(16px, 2.4vw, 22px) clamp(20px, 2.8vw, 30px);
+  border: 1px solid rgba(84, 119, 102, .28);
+  border-radius: 6px;
   background:
-    linear-gradient(135deg, rgba(255, 253, 248, .96), rgba(239, 247, 242, .82));
-  box-shadow: 0 14px 34px rgba(35, 31, 26, .07);
+    linear-gradient(135deg, rgba(250, 252, 248, .98), rgba(232, 241, 235, .9));
+  box-shadow: 0 10px 26px rgba(35, 31, 26, .055);
+}
+
+.exam-problem::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  border-radius: 6px 0 0 6px;
+  background: linear-gradient(180deg, #0f766e, #b98c35);
 }
 
 .exam-problem-head {
@@ -151,14 +188,25 @@ blockquote {
 }
 
 .exam-problem-number {
-  font-weight: 800;
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(8, 96, 95, .18);
+  border-radius: 50%;
+  background: rgba(255, 253, 248, .82);
+  color: var(--accent);
+  font: 900 .9rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .exam-problem-source {
   justify-self: end;
-  padding-top: .12rem;
-  color: var(--gold);
-  font: 850 .74rem/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 5px 8px;
+  border: 1px solid rgba(185, 140, 53, .24);
+  border-radius: 999px;
+  background: rgba(255, 248, 231, .7);
+  color: #8b681f;
+  font: 850 .68rem/1.15 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   text-align: right;
   white-space: nowrap;
 }
@@ -166,31 +214,36 @@ blockquote {
 .exam-problem-options {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 14px;
+  gap: 6px 18px;
+  margin-top: 16px;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(84, 119, 102, .14);
+  list-style: none;
 }
 
 .exam-problem-option {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: 8px;
-  align-items: center;
-  min-height: 46px;
-  padding: 10px 12px;
-  border: 1px solid rgba(8, 96, 95, .16);
-  border-radius: 8px;
-  background: rgba(255, 253, 248, .86);
+  align-items: baseline;
+  min-height: 0;
+  padding: 4px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .exam-problem-option span {
-  display: inline-grid;
-  place-items: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: rgba(8, 96, 95, .1);
-  color: var(--accent);
-  font: 900 .78rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  display: inline;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  color: #075f5b;
+  font: 900 .86rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: uppercase;
 }
 
 .exam-problem-option p {
@@ -200,14 +253,14 @@ blockquote {
 }
 
 .exam-answer-key {
-  max-width: 880px;
-  margin: 1.6rem auto 0;
-  padding: 13px 16px;
-  border: 1px solid rgba(185, 140, 53, .28);
-  border-radius: 8px;
-  background: rgba(248, 241, 224, .78);
-  color: #5e4515;
-  font: 850 1rem/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  max-width: none;
+  margin: 1.3rem 0 0;
+  padding: 12px 14px 12px 18px;
+  border: 1px dashed rgba(8, 96, 95, .35);
+  border-radius: 6px;
+  background: rgba(237, 245, 241, .72);
+  color: #075f5b;
+  font: 850 .95rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 .post > h1,

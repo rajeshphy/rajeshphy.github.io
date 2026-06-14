@@ -71,14 +71,14 @@
           <span class="exam-problem-text">${problem.question}</span>
           ${problem.source ? `<strong class="exam-problem-source">[${escapeHtml(problem.source)}]</strong>` : ""}
         </div>
-        <div class="exam-problem-options">
+        <ol class="exam-problem-options" type="a">
           ${["a", "b", "c", "d"].map((letter) => `
-            <div class="exam-problem-option">
+            <li class="exam-problem-option">
               <span>${letter}.</span>
               <p>${problem.options[letter] || ""}</p>
-            </div>
+            </li>
           `).join("")}
-        </div>
+        </ol>
       </section>
     `).join("");
 
