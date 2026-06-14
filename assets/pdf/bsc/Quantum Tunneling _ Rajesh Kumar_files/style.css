@@ -1,0 +1,3844 @@
+@charset "UTF-8";
+:root {
+  --bg: #f4efe6;
+  --paper: #fffdf8;
+  --ink: #1b1d21;
+  --muted: #69635b;
+  --line: #e4d8c8;
+  --accent: #08605f;
+  --accent-2: #8a3f39;
+  --gold: #b98c35;
+  --soft: #edf5f1;
+  --shadow: 0 24px 70px rgba(35, 31, 26, .12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 18px/1.65 Georgia, "Times New Roman", serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.site-header,
+.site-footer,
+.wrap {
+  width: min(1080px, 100% - 32px);
+  margin: 0 auto;
+}
+
+.site-header,
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 3000;
+  width: 100%;
+  padding-inline: max(24px, (100vw - 1080px) / 2);
+  border-bottom: 1px solid rgba(228, 216, 200, 0.72);
+  background: rgba(244, 239, 230, 0.82);
+  backdrop-filter: blur(18px);
+  overflow: visible;
+}
+
+.site-footer {
+  justify-content: center;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.site-footer a {
+  margin-left: 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: white;
+  font: 800 13px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  box-shadow: 0 12px 30px rgba(27, 29, 33, 0.16);
+}
+
+.brand-copy {
+  display: grid;
+  gap: 1px;
+}
+
+.brand-copy strong {
+  font-size: 1.08rem;
+  line-height: 1.1;
+}
+
+.brand-copy small {
+  color: var(--muted);
+  font: 700 11px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+nav,
+.site-footer {
+  font: 15px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* =========================================================
+   MAIN NAVIGATION + INLINE SEARCH
+   ========================================================= */
+.main-nav {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid rgba(228, 216, 200, 0.9);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82), 0 12px 38px rgba(35, 31, 26, 0.08);
+  overflow: visible;
+  z-index: 3001;
+}
+
+.main-nav a,
+.main-nav button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.main-nav a:hover,
+.main-nav a.active,
+.main-nav button:hover,
+.main-nav.search-open .nav-search-toggle {
+  color: white;
+  background: var(--accent);
+  text-decoration: none;
+}
+
+.nav-search {
+  position: relative;
+  display: grid;
+  width: 0;
+  overflow: hidden;
+  transition: width 0.22s ease;
+}
+
+.main-nav.search-open .nav-search {
+  width: min(230px, 28vw);
+  overflow: visible;
+}
+
+.nav-search input {
+  width: 100%;
+  min-height: 34px;
+  border: 1px solid rgba(8, 96, 95, 0.18);
+  border-radius: 999px;
+  padding: 7px 13px;
+  outline: none;
+  background: rgba(255, 253, 248, 0.96);
+  color: var(--ink);
+  font: 700 14px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.nav-search input:focus {
+  border-color: rgba(8, 96, 95, 0.5);
+  box-shadow: 0 0 0 3px rgba(8, 96, 95, 0.12);
+}
+
+.nav-search-results {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  display: none;
+  width: min(360px, 100vw - 32px);
+  max-height: 360px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px;
+  border: 1px solid rgba(228, 216, 200, 0.95);
+  border-radius: 10px;
+  background: rgba(255, 253, 248, 0.98);
+  box-shadow: 0 22px 58px rgba(35, 31, 26, 0.16);
+  z-index: 5000;
+}
+
+.main-nav.search-open .nav-search-results:not(:empty) {
+  display: grid;
+  gap: 4px;
+}
+
+.nav-search-results a {
+  display: grid;
+  gap: 4px;
+  min-height: auto;
+  padding: 11px 12px;
+  border-radius: 8px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-search-results a:hover {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.nav-search-results strong {
+  font: 800 15px/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.nav-search-results small,
+.nav-search-results p {
+  margin: 0;
+  color: var(--muted);
+  font: 13px/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.nav-search-results p {
+  padding: 12px;
+}
+
+/* =========================================================
+   SHARE STRIP
+   ========================================================= */
+.share-strip {
+  width: min(920px, 100% - 32px);
+  margin: 26px auto 0;
+  padding: 12px 18px 10px;
+  text-align: center;
+  border-top: 1px solid rgba(228, 216, 200, 0.95);
+}
+
+.share-strip .eyebrow {
+  margin: 0;
+  color: #6d655b;
+  font: italic 700 clamp(1.08rem, 2.2vw, 1.42rem)/1.12 Georgia, "Times New Roman", serif;
+  letter-spacing: 0.01em;
+}
+
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(22px, 4vw, 38px);
+  margin-top: 12px;
+}
+
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  min-height: 74px;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  color: var(--ink);
+  background: transparent;
+  box-shadow: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.18s ease, transform 0.18s ease;
+}
+
+.share-button:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  filter: drop-shadow(0 12px 20px rgba(35, 31, 26, 0.14));
+}
+
+.share-button:focus-visible {
+  outline: 2px solid rgba(8, 96, 95, 0.32);
+  outline-offset: 6px;
+}
+
+.share-button svg,
+.share-button img {
+  width: 66px;
+  height: 66px;
+}
+
+.share-button img {
+  display: block;
+  object-fit: contain;
+}
+
+.share-button svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.share-button span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.share-button.instagram {
+  color: #7b245f;
+}
+
+.share-button.facebook {
+  color: #174ea6;
+}
+
+.share-button.whatsapp {
+  color: #087c54;
+}
+
+.share-status {
+  min-height: 20px;
+  margin: 4px 0 0;
+  color: var(--muted);
+  font: 13px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* =========================================================
+   LAYOUT + HERO
+   ========================================================= */
+.wrap {
+  width: 100%;
+  padding: 0 0 64px;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: min(260px, (100vh - 120px) * 0.5);
+  padding: clamp(26px, 3.5vw, 43px) max(24px, (100vw - 1080px) / 2) 35px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(5, 10, 12, 0.54) 0%, rgba(5, 10, 12, 0.2) 50%, rgba(5, 10, 12, 0.56) 100%), linear-gradient(0deg, rgba(5, 10, 12, 0.34), rgba(5, 10, 12, 0.04)), var(--hero-bg) center/cover;
+  color: white;
+  text-align: center;
+}
+
+.hero h1,
+.post h1,
+.page h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2.75rem, 6.4vw, 5.9rem);
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.hero h1 {
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.42), 0 10px 34px rgba(0, 0, 0, 0.82), 0 0 28px rgba(0, 0, 0, 0.62);
+}
+
+.hero-copy {
+  position: relative;
+  max-width: 900px;
+  margin-inline: auto;
+  padding: clamp(18px, 3vw, 28px);
+  border-radius: 18px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.22) 48%, transparent 72%);
+}
+
+.hero .eyebrow {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hero-subtitle,
+.summary {
+  max-width: 680px;
+  margin-inline: auto;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1.08rem, 1.6vw, 1.38rem);
+  line-height: 1.55;
+}
+
+.hero-subtitle {
+  color: #fff1c2;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.36), 0 7px 22px rgba(0, 0, 0, 0.85);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(180deg, #0e7d78, #075653);
+  color: white;
+  box-shadow: 0 14px 0 #043f3d, 0 26px 42px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.button:hover {
+  text-decoration: none;
+  transform: translateY(-3px);
+  box-shadow: 0 17px 0 #043f3d, 0 30px 46px rgba(0, 0, 0, 0.44), inset 0 1px 0 rgba(255, 255, 255, 0.38);
+}
+
+.button:active {
+  transform: translateY(8px);
+  box-shadow: 0 5px 0 #043f3d, 0 14px 24px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.hero .button {
+  color: white;
+}
+
+.button.secondary,
+.hero .button.secondary {
+  background: linear-gradient(180deg, #f4d06f, #b98522);
+  color: #1b1d21;
+  border: 1px solid rgba(127, 90, 20, 0.28);
+}
+
+.hero .button.secondary {
+  border-color: rgba(255, 245, 204, 0.75);
+  box-shadow: 0 14px 0 #7f5a14, 0 26px 42px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+
+.hero .button.secondary:hover {
+  box-shadow: 0 17px 0 #7f5a14, 0 30px 46px rgba(0, 0, 0, 0.44), inset 0 1px 0 rgba(255, 255, 255, 0.68);
+}
+
+.hero .button.secondary:active {
+  box-shadow: 0 5px 0 #7f5a14, 0 14px 24px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+/* =========================================================
+   ICONS
+   ========================================================= */
+.icon-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-link {
+  display: inline-grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin: 0;
+  border: 1px solid rgba(35, 31, 26, 0.18);
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(248, 244, 236, 0.9));
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0 14px 34px rgba(35, 31, 26, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.icon-link svg,
+.icon-link img {
+  width: 31px;
+  height: 31px;
+}
+
+.icon-link img {
+  display: block;
+  max-width: 31px;
+  max-height: 31px;
+  object-fit: contain;
+  filter: contrast(1.35) saturate(1.05);
+}
+
+.icon-link svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-link:hover {
+  color: white;
+  background: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.header-icons .icon-link {
+  width: 54px;
+  height: 54px;
+  background: radial-gradient(circle at 35% 25%, rgb(255, 255, 255), rgba(255, 251, 244, 0.92));
+}
+
+.header-icons .icon-link img {
+  width: 34px;
+  height: 34px;
+  max-width: 34px;
+  max-height: 34px;
+  filter: drop-shadow(0 3px 5px rgba(35, 31, 26, 0.13));
+}
+
+.header-icons .icon-link:hover {
+  background: radial-gradient(circle at 35% 25%, rgb(255, 255, 255), rgba(252, 246, 236, 0.96));
+  border-color: rgba(190, 134, 38, 0.38);
+  box-shadow: 0 18px 38px rgba(35, 31, 26, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+/* =========================================================
+   POSTS + PAGES
+   ========================================================= */
+.post,
+.page {
+  width: min(980px, 100% - 32px);
+  margin: 14px auto 0;
+  max-width: 980px;
+}
+
+.feature-band,
+.post-list {
+  width: min(1080px, 100% - 32px);
+  margin: 0 auto;
+}
+
+.post-list {
+  margin-top: -6px;
+}
+
+.feature-band {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  transform: translateY(-42px);
+}
+
+.feature-band article {
+  min-height: 168px;
+  padding: 24px;
+  border: 1px solid rgba(228, 216, 200, 0.84);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(248, 244, 236, 0.92));
+  box-shadow: 0 20px 54px rgba(35, 31, 26, 0.1);
+}
+
+.feature-band span {
+  color: var(--gold);
+  font: 700 13px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.feature-band h2,
+.section-heading h2 {
+  margin: 10px 0 8px;
+  font-size: 1.28rem;
+}
+
+.feature-band p,
+.post-list p {
+  color: var(--muted);
+}
+
+.section-heading {
+  margin: 8px 0 2px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+  font: 650 0.95rem/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.research-year {
+  margin: 18px 0 6px;
+  color: var(--gold);
+  font: 850 0.9rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.post-hero {
+  padding: clamp(8px, 1.6vw, 18px) 0 clamp(8px, 1.4vw, 14px);
+  margin-bottom: 6px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+}
+
+.post-hero h1 {
+  max-width: 680px;
+  margin-block: 0;
+  margin-inline: auto;
+  font-size: clamp(1.65rem, 3.4vw, 2.75rem);
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
+.post-hero .summary {
+  max-width: 760px;
+  margin: 6px auto 0;
+  color: var(--accent-2);
+  font: 650 clamp(0.92rem, 1.08vw, 1.02rem)/1.36 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.post-hero .eyebrow {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.eyebrow,
+.meta,
+time {
+  color: var(--muted);
+  font: 14px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.post img,
+.page img {
+  max-width: 100%;
+  height: auto;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+  color: #333;
+}
+
+.exam-problem-renderer {
+  max-width: 920px;
+  margin: 2rem auto 0;
+}
+
+.exam-problem-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+  padding: 0 4px 10px;
+  border-bottom: 1px solid rgba(8, 96, 95, 0.18);
+}
+
+.exam-problem-heading span {
+  color: var(--gold);
+  font: 850 0.78rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.exam-problem-heading strong {
+  color: #4f4942;
+  font: 800 0.9rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.exam-problem-set {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  max-width: none;
+}
+
+.exam-problem {
+  position: relative;
+  padding: clamp(16px, 2.4vw, 22px) clamp(16px, 2.4vw, 24px) clamp(16px, 2.4vw, 22px) clamp(20px, 2.8vw, 30px);
+  border: 1px solid rgba(84, 119, 102, 0.28);
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(250, 252, 248, 0.98), rgba(232, 241, 235, 0.9));
+  box-shadow: 0 10px 26px rgba(35, 31, 26, 0.055);
+}
+
+.exam-problem::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  border-radius: 6px 0 0 6px;
+  background: linear-gradient(180deg, #0f766e, #b98c35);
+}
+
+.exam-problem-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 8px 12px;
+  align-items: start;
+  color: var(--ink);
+  font: 650 clamp(1.02rem, 1.8vw, 1.24rem)/1.35 Georgia, "Times New Roman", serif;
+}
+
+.exam-problem-number {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(8, 96, 95, 0.18);
+  border-radius: 50%;
+  background: rgba(255, 253, 248, 0.82);
+  color: var(--accent);
+  font: 900 0.9rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.exam-problem-source {
+  justify-self: end;
+  padding: 5px 8px;
+  border: 1px solid rgba(185, 140, 53, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 248, 231, 0.7);
+  color: #8b681f;
+  font: 850 0.68rem/1.15 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.exam-problem-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 18px;
+  margin-top: 16px;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(84, 119, 102, 0.14);
+  list-style: none;
+}
+
+.exam-problem-option {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 8px;
+  align-items: baseline;
+  min-height: 0;
+  padding: 4px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.exam-problem-option span {
+  display: inline;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  color: #075f5b;
+  font: 900 0.86rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: uppercase;
+}
+
+.exam-problem-option p {
+  margin: 0;
+  color: #2f2b27;
+  font: 650 0.98rem/1.35 Georgia, "Times New Roman", serif;
+}
+
+.exam-answer-key {
+  max-width: none;
+  margin: 1.3rem 0 0;
+  padding: 12px 14px 12px 18px;
+  border: 1px dashed rgba(8, 96, 95, 0.35);
+  border-radius: 6px;
+  background: rgba(237, 245, 241, 0.72);
+  color: #075f5b;
+  font: 850 0.95rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.post > h1,
+.post > h2,
+.post > h3,
+.page > h1,
+.page > h2,
+.page > h3 {
+  max-width: 820px;
+  margin: 2rem auto 0.85rem;
+  color: var(--ink);
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.post > h1,
+.page > h1 {
+  padding-bottom: 0.42rem;
+  border-bottom: 1px solid rgba(185, 140, 53, 0.28);
+  font: 760 clamp(1.45rem, 2.6vw, 2.05rem)/1.12 Georgia, "Times New Roman", serif;
+}
+
+.post > h2,
+.page > h2 {
+  color: #075f5b;
+  font: 760 clamp(1.22rem, 2.1vw, 1.55rem)/1.18 Georgia, "Times New Roman", serif;
+}
+
+.post > h3,
+.page > h3 {
+  color: #8b681f;
+  font: 760 clamp(1.05rem, 1.7vw, 1.24rem)/1.24 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.post > h4,
+.page > h4 {
+  max-width: 820px;
+  margin: 1.4rem auto 0.6rem;
+  color: #4f4942;
+  font: 760 1rem/1.28 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* =========================================================
+   OLD DESK CARD STYLE
+   ========================================================= */
+.desk-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  gap: 22px;
+  padding: 20px 24px;
+  border: 1px solid rgba(228, 216, 200, 0.95);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(255, 253, 248, 0.86)), radial-gradient(circle at top right, rgba(185, 140, 53, 0.16), transparent 18rem);
+  box-shadow: 0 18px 56px rgba(35, 31, 26, 0.1);
+}
+
+.desk-card h2 {
+  margin: 3px 0 8px;
+  font-size: clamp(1.25rem, 2.1vw, 1.8rem);
+  line-height: 1.12;
+}
+
+.desk-card h2 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.desk-card h2 a:hover {
+  color: var(--accent);
+}
+
+.desk-card-main p {
+  max-width: 720px;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.desk-card-meta {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+  padding-left: 18px;
+  border-left: 1px solid var(--line);
+  font: 15px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.desk-card-meta strong {
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+
+.desk-card-meta small {
+  color: var(--muted);
+}
+
+.text-link {
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.tag-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border: 1px solid rgba(8, 96, 95, 0.18);
+  border-radius: 999px;
+  background: rgba(237, 245, 241, 0.8);
+  color: var(--accent);
+  font: 700 12px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.post-hero .tag-row {
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* =========================================================
+   ABOUT / CV PAGE
+   ========================================================= */
+.about-page {
+  width: min(1040px, 100% - 32px);
+  margin: 26px auto 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.about-page h1,
+.about-page h2,
+.about-page h3,
+.about-page p {
+  letter-spacing: 0;
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: clamp(22px, 4vw, 42px);
+  align-items: center;
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid rgba(228, 216, 200, 0.9);
+  border-radius: 18px;
+  background: radial-gradient(circle at top left, rgba(8, 96, 95, 0.12), transparent 20rem), linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(248, 244, 236, 0.9));
+  box-shadow: 0 22px 70px rgba(35, 31, 26, 0.12);
+}
+
+.about-portrait {
+  justify-self: center;
+  width: clamp(148px, 18vw, 206px);
+  aspect-ratio: 1;
+  padding: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.95), rgba(237, 245, 241, 0.82)), var(--paper);
+  box-shadow: 0 18px 42px rgba(35, 31, 26, 0.16), inset 0 0 0 1px rgba(228, 216, 200, 0.9);
+}
+
+.about-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-hero-copy h1 {
+  margin: 6px 0 10px;
+  color: var(--ink);
+  font: 800 clamp(2.4rem, 5.4vw, 5rem)/0.95 Georgia, "Times New Roman", serif;
+  text-wrap: balance;
+}
+
+.about-lede {
+  max-width: 720px;
+  margin: 0;
+  color: #4f4740;
+  font: 650 clamp(1rem, 1.45vw, 1.18rem)/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.about-badges,
+.skill-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.about-badges {
+  margin-top: 18px;
+}
+
+.about-badges span,
+.skill-cloud span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 11px;
+  border: 1px solid rgba(8, 96, 95, 0.18);
+  border-radius: 999px;
+  background: rgba(237, 245, 241, 0.76);
+  color: var(--accent);
+  font: 800 13px/1.15 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.about-panel,
+.about-card,
+.about-section {
+  border: 1px solid rgba(228, 216, 200, 0.88);
+  border-radius: 14px;
+  background: rgba(255, 253, 248, 0.82);
+  box-shadow: 0 14px 42px rgba(35, 31, 26, 0.08);
+}
+
+.about-panel {
+  margin-top: 18px;
+  padding: 24px;
+}
+
+.about-panel h2,
+.about-card h2,
+.about-section-heading h2 {
+  margin: 4px 0 8px;
+  color: var(--ink);
+  font: 800 clamp(1.25rem, 2vw, 1.75rem)/1.12 Georgia, "Times New Roman", serif;
+}
+
+.about-panel p:not(.eyebrow),
+.about-card p,
+.about-timeline p,
+.about-list p,
+.paper-list a,
+.about-note p {
+  color: #575049;
+  font: 500 1rem/1.58 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.about-card {
+  padding: 22px;
+}
+
+.about-card > span,
+.paper-list span,
+.about-list strong,
+.about-timeline time {
+  display: block;
+  color: var(--gold);
+  font: 850 0.78rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.about-section {
+  margin-top: 18px;
+  padding: 24px;
+}
+
+.about-section-heading {
+  display: grid;
+  gap: 2px;
+  margin-bottom: 16px;
+}
+
+.paper-list {
+  display: grid;
+  gap: 10px;
+}
+
+.paper-list a {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border: 1px solid rgba(228, 216, 200, 0.85);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(237, 245, 241, 0.55));
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.paper-list a:hover {
+  border-color: rgba(8, 96, 95, 0.32);
+  transform: translateY(-1px);
+}
+
+.about-timeline {
+  display: grid;
+  gap: 12px;
+}
+
+.about-timeline article {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px 16px 24px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  background: rgba(248, 244, 236, 0.62);
+}
+
+.about-timeline h3 {
+  margin: 0;
+  color: var(--ink);
+  font: 850 1.05rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.about-timeline p,
+.about-list p,
+.about-card p,
+.about-panel p {
+  margin: 0;
+}
+
+.about-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.about-list {
+  display: grid;
+  gap: 10px;
+}
+
+.about-list p {
+  display: grid;
+  gap: 4px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(228, 216, 200, 0.72);
+}
+
+.about-list p:last-child {
+  border-bottom: 0;
+}
+
+.about-list span {
+  display: block;
+}
+
+.skill-cloud {
+  gap: 9px;
+}
+
+.about-note {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   CV BIO PAGE
+   ========================================================= */
+.cv-page {
+  width: min(980px, 100% - 32px);
+  margin: 24px auto 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.cv-page h1,
+.cv-page h2,
+.cv-page h3,
+.cv-page p {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.cv-header {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 156px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  overflow: hidden;
+  padding: 26px;
+  border: 1px solid rgba(228, 216, 200, 0.9);
+  border-radius: 14px;
+  background: radial-gradient(circle at top left, rgba(8, 96, 95, 0.1), transparent 18rem), linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(248, 244, 236, 0.9));
+  box-shadow: 0 22px 60px rgba(35, 31, 26, 0.12);
+}
+
+.cv-header::before {
+  content: "";
+  position: absolute;
+  inset: -36%;
+  z-index: 0;
+  background: radial-gradient(circle at 10% 14%, rgba(255, 193, 220, 0.42), transparent 28%), radial-gradient(circle at 88% 18%, rgba(172, 218, 255, 0.38), transparent 30%), radial-gradient(circle at 82% 88%, rgba(195, 238, 223, 0.34), transparent 32%), radial-gradient(circle at 18% 82%, rgba(255, 224, 151, 0.22), transparent 28%);
+  opacity: 0.9;
+  pointer-events: none;
+  transform: translate3d(-7%, -6%, 0) scale(1.04);
+  animation: cvColorDrift 9s ease-in-out infinite alternate;
+}
+
+.cv-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cv-photo {
+  width: 156px;
+  aspect-ratio: 1;
+  margin: 0;
+  padding: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fffdf8, #edf5f1);
+  box-shadow: 0 16px 34px rgba(35, 31, 26, 0.15), inset 0 0 0 1px rgba(228, 216, 200, 0.95);
+}
+
+.cv-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cv-kicker,
+.cv-section > header p,
+.cv-band span,
+.cv-publications .paper-venue,
+.cv-books span {
+  color: var(--gold);
+  font: 850 0.76rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cv-identity h1 {
+  margin-top: 4px;
+  color: var(--ink);
+  font: 850 clamp(2rem, 4.2vw, 3.2rem)/0.96 Georgia, "Times New Roman", serif;
+}
+
+.cv-role {
+  margin-top: 8px;
+  color: var(--accent);
+  font: 850 0.98rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: uppercase;
+}
+
+.cv-summary {
+  max-width: 700px;
+  margin-top: 14px;
+  color: #5a403b;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: clamp(1.05rem, 1.7vw, 1.34rem);
+  font-style: italic;
+  font-weight: 650;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
+.cv-contact,
+.cv-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cv-contact {
+  margin-top: 16px;
+}
+
+.cv-contact a,
+.cv-contact span,
+.cv-skills span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 6px 10px;
+  border: 1px solid rgba(8, 96, 95, 0.18);
+  border-radius: 999px;
+  background: rgba(237, 245, 241, 0.72);
+  color: var(--accent);
+  font: 800 0.78rem/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-decoration: none;
+}
+
+.cv-band {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.cv-band > div,
+.cv-section {
+  border: 1px solid rgba(228, 216, 200, 0.9);
+  border-radius: 12px;
+  background: rgba(255, 253, 248, 0.84);
+  box-shadow: 0 12px 34px rgba(35, 31, 26, 0.07);
+}
+
+.cv-band > div {
+  padding: 18px;
+}
+
+.cv-band p {
+  margin-top: 6px;
+  color: #4f4740;
+  font: 650 0.98rem/1.48 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.cv-section {
+  margin-top: 16px;
+  padding: 20px;
+}
+
+.cv-section > header {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.cv-section > header::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.cv-section > header h2 {
+  color: var(--ink);
+  font: 850 clamp(1.1rem, 2vw, 1.45rem)/1.18 Georgia, "Times New Roman", serif;
+}
+
+.cv-section > header p {
+  color: var(--ink);
+  font: 850 clamp(1.45rem, 3vw, 2.05rem)/1.05 Georgia, "Times New Roman", serif;
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+.cv-timeline {
+  display: grid;
+  gap: 12px;
+}
+
+.cv-timeline article {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(228, 216, 200, 0.82);
+}
+
+.cv-timeline article:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.cv-timeline time {
+  color: var(--gold);
+  font: 850 0.8rem/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: uppercase;
+}
+
+.cv-timeline h3,
+.cv-list h3 {
+  color: var(--ink);
+  font: 850 1rem/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.cv-timeline p,
+.cv-list p,
+.cv-note > p {
+  margin-top: 4px;
+  color: #5a534c;
+  font: 520 0.95rem/1.52 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.cv-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cv-list {
+  display: grid;
+  gap: 10px;
+}
+
+.cv-list article {
+  padding-top: 10px;
+  border-top: 1px solid rgba(228, 216, 200, 0.78);
+}
+
+.cv-list article:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.cv-list.compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cv-list.compact article {
+  padding: 10px;
+  border: 1px solid rgba(228, 216, 200, 0.8);
+  border-radius: 10px;
+  background: rgba(248, 244, 236, 0.5);
+}
+
+.cv-publications {
+  display: grid;
+  gap: 9px;
+}
+
+.cv-books {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.cv-article-strip {
+  margin-top: 10px;
+}
+
+.cv-publications a {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  overflow: hidden;
+  padding: 12px 16px 12px 20px;
+  border: 1px solid rgba(228, 216, 200, 0.86);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(237, 245, 241, 0.42)), radial-gradient(circle at top right, rgba(185, 140, 53, 0.1), transparent 18rem);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.cv-publications a::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--accent), var(--gold), #8a3f39, var(--accent));
+  background-size: 100% 300%;
+  animation: paperAccent 5.4s linear infinite;
+}
+
+.cv-publications a:nth-child(2)::before {
+  animation-delay: -1.8s;
+}
+
+.cv-publications a:nth-child(3)::before {
+  animation-delay: -3.4s;
+}
+
+.cv-more-publications {
+  display: grid;
+  justify-items: center;
+  overflow: visible;
+}
+
+.cv-more-publications summary {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: auto auto 24px;
+  gap: 8px;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 0;
+  padding: 8px 12px 8px 14px;
+  border: 1px solid rgba(228, 216, 200, 0.92);
+  border-radius: 999px;
+  background: radial-gradient(circle at 22% 0, rgba(185, 140, 53, 0.13), transparent 8rem), linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(237, 245, 241, 0.68));
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(35, 31, 26, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.cv-more-publications summary::-webkit-details-marker {
+  display: none;
+}
+
+.cv-more-publications summary::after {
+  content: "+";
+  display: grid;
+  place-items: center;
+  width: 24px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(8, 96, 95, 0.22);
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(237, 245, 241, 0.92));
+  color: var(--accent);
+  font: 900 0.9rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  box-shadow: 0 5px 12px rgba(35, 31, 26, 0.09);
+}
+
+.cv-more-publications[open] summary::after {
+  content: "-";
+}
+
+.cv-more-publications summary span {
+  color: var(--gold);
+  font: 850 0.7rem/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cv-more-publications summary strong {
+  color: #5a534c;
+  font: 800 0.78rem/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.cv-more-publications summary:focus {
+  outline: none;
+}
+
+.cv-more-publications summary:focus-visible {
+  box-shadow: 0 0 0 3px rgba(8, 96, 95, 0.14), 0 10px 24px rgba(35, 31, 26, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.cv-more-publications-panel {
+  display: grid;
+  gap: 9px;
+  width: 100%;
+  margin-top: 9px;
+  padding: 9px;
+  border: 1px solid rgba(228, 216, 200, 0.82);
+  border-radius: 12px;
+  background: rgba(255, 253, 248, 0.56);
+}
+
+.cv-more-publications .cv-more-publications-panel a {
+  margin-top: 10px;
+}
+
+.cv-more-publications .cv-more-publications-panel a::before {
+  animation-delay: -3.4s;
+}
+
+.cv-books a {
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(228, 216, 200, 0.84);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.cv-books a:first-child {
+  border-top: 0;
+}
+
+.cv-article-strip a {
+  display: grid;
+  gap: 4px;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(228, 216, 200, 0.84);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.cv-publications strong {
+  color: var(--ink);
+  font: 850 0.98rem/1.28 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.cv-books strong {
+  color: var(--ink);
+  font: 850 1.04rem/1.25 Georgia, "Times New Roman", serif;
+}
+
+.cv-article-strip strong {
+  color: var(--ink);
+  font: 850 0.98rem/1.28 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.cv-publications small,
+.cv-publications em,
+.cv-publications .paper-doi {
+  color: #5a534c;
+  font: 650 0.82rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.cv-books em {
+  color: #5a534c;
+  font: 650 0.84rem/1.42 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-style: normal;
+}
+
+.cv-books small {
+  color: var(--gold);
+  font: 850 0.76rem/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cv-article-strip span {
+  color: var(--gold);
+  font: 850 0.74rem/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cv-publications em {
+  color: var(--accent-2);
+  font-style: normal;
+}
+
+.cv-publications .paper-doi {
+  display: inline-flex;
+  width: max-content;
+  margin-top: 1px;
+  color: var(--accent);
+  animation: doiBlink 1.35s ease-in-out infinite;
+}
+
+.cv-publications a:hover {
+  border-color: rgba(8, 96, 95, 0.34);
+  transform: translateY(-1px);
+}
+
+.cv-books a:hover strong,
+.cv-article-strip a:hover strong {
+  color: var(--accent);
+}
+
+@keyframes paperAccent {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 300%;
+  }
+}
+@keyframes cvColorDrift {
+  0% {
+    transform: translate3d(-8%, -7%, 0) scale(1.04);
+    filter: hue-rotate(0deg);
+  }
+  30% {
+    transform: translate3d(7%, -3%, 0) scale(1.07);
+    filter: hue-rotate(12deg);
+  }
+  68% {
+    transform: translate3d(6%, 7%, 0) scale(1.06);
+    filter: hue-rotate(-14deg);
+  }
+  100% {
+    transform: translate3d(-7%, 6%, 0) scale(1.07);
+    filter: hue-rotate(18deg);
+  }
+}
+@keyframes doiBlink {
+  0%, 100% {
+    opacity: 1;
+    color: var(--accent);
+    text-shadow: 0 0 0 rgba(8, 96, 95, 0);
+  }
+  50% {
+    opacity: 0.45;
+    color: var(--gold);
+    text-shadow: 0 0 12px rgba(185, 140, 53, 0.36);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cv-publications a::before,
+  .cv-header::before,
+  .cv-publications .paper-doi {
+    animation: none;
+  }
+}
+.cv-skills {
+  gap: 8px;
+}
+
+.cv-skills span {
+  background: rgba(255, 253, 248, 0.75);
+}
+
+/* =========================================================
+   PREMIUM COMPACT POST LIST
+   ========================================================= */
+.premium-post-list {
+  display: grid;
+  gap: 16px;
+}
+
+.premium-post-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(155, 130, 90, 0.24);
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(250, 244, 232, 0.82)), radial-gradient(circle at top left, rgba(0, 108, 104, 0.1), transparent 34%);
+  box-shadow: 0 18px 42px rgba(54, 44, 28, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.premium-post-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: linear-gradient(180deg, #006b68, #c7a35c);
+  opacity: 0.9;
+}
+
+.premium-post-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 108, 104, 0.36);
+  box-shadow: 0 24px 56px rgba(54, 44, 28, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+.premium-post-card-link {
+  display: block;
+  padding: 20px 24px 20px 28px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.premium-post-card-link:hover {
+  text-decoration: none;
+}
+
+.premium-post-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 9px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #6b6258;
+}
+
+.premium-post-topline span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.premium-post-topline span:not(:last-child)::after {
+  content: "•";
+  margin-left: 8px;
+  color: rgba(0, 108, 104, 0.72);
+}
+
+.premium-post-card h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #1f2229;
+}
+
+.premium-post-card p {
+  margin: 9px 0 0;
+  max-width: 780px;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: #6b6258;
+}
+
+.premium-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.premium-tag-row span {
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 108, 104, 0.22);
+  border-radius: 999px;
+  background: rgba(0, 108, 104, 0.055);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #006b68;
+}
+
+/* =========================================================
+   RESOURCE + CONTENT BLOCKS
+   ========================================================= */
+.studio-intro {
+  max-width: 760px;
+  margin-inline: auto;
+  padding: 0 0 18px;
+  color: var(--ink);
+  font-size: 1.15rem;
+}
+
+.studio-intro p:first-child {
+  margin-top: 0;
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 36px 0;
+}
+
+.resource-card {
+  display: grid;
+  gap: 10px;
+  min-height: 210px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.9);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0 12px 38px rgba(35, 31, 26, 0.07);
+}
+
+.resource-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(8, 96, 95, 0.38);
+  text-decoration: none;
+}
+
+.resource-card small {
+  color: var(--muted);
+  font: 15px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.resource-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--soft);
+  color: var(--accent);
+  font: 700 18px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.resource-card:nth-child(2n) .resource-icon {
+  color: var(--accent-2);
+  background: #f7eeee;
+}
+
+.resource-card:nth-child(3n) .resource-icon {
+  color: #765415;
+  background: #f7efd9;
+}
+
+.note-panel,
+.contact-panel {
+  margin: 30px auto 0;
+  max-width: 760px;
+  padding: 22px 0 0;
+  border-top: 1px solid rgba(228, 216, 200, 0.95);
+  border-left: 0;
+  background: transparent;
+}
+
+.note-panel h2,
+.contact-panel h2 {
+  margin-top: 0;
+  font-size: 1.35rem;
+}
+
+.notes-page {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.notes-hero {
+  max-width: 780px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.notes-hero h1 {
+  margin: 6px 0 8px;
+  color: var(--ink);
+  font: 850 clamp(2rem, 5vw, 3.4rem)/0.98 Georgia, "Times New Roman", serif;
+  letter-spacing: 0;
+}
+
+.notes-hero p:last-child {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #5a534c;
+  font: 650 1rem/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.notice-board {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  margin: 18px auto 0;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(228, 216, 200, 0.95);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(235, 244, 238, 0.82)), radial-gradient(circle at top left, rgba(185, 140, 53, 0.16), transparent 16rem);
+  box-shadow: 0 24px 70px rgba(35, 31, 26, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.notes-auto-board {
+  grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+  align-items: start;
+}
+
+.notes-auto-board .board-heading,
+.notes-auto-board .board-pin {
+  grid-column: 1/-1;
+}
+
+.board-more {
+  display: grid;
+  grid-column: 1/-1;
+  justify-items: center;
+  width: 100%;
+  overflow: visible;
+}
+
+.board-more[open] {
+  justify-items: stretch;
+}
+
+.board-more[open] > summary {
+  justify-self: center;
+}
+
+.board-more > summary {
+  display: inline-grid;
+  grid-template-columns: auto auto 24px;
+  gap: 8px;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 0;
+  padding: 8px 12px 8px 14px;
+  border: 1px solid rgba(228, 216, 200, 0.92);
+  border-radius: 999px;
+  background: radial-gradient(circle at 22% 0, rgba(185, 140, 53, 0.13), transparent 8rem), linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(237, 245, 241, 0.68));
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(35, 31, 26, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.board-more > summary {
+  list-style: none;
+}
+
+.board-more > summary::marker {
+  content: "";
+}
+
+.board-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.board-more > summary::after {
+  content: "+";
+  display: grid;
+  place-items: center;
+  width: 24px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(8, 96, 95, 0.22);
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(237, 245, 241, 0.92));
+  color: var(--accent);
+  font: 900 0.9rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  box-shadow: 0 5px 12px rgba(35, 31, 26, 0.09);
+}
+
+.board-more[open] > summary::after {
+  content: "-";
+}
+
+.board-more > summary span {
+  color: var(--gold);
+  font: 850 0.7rem/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.board-more > summary strong {
+  color: #5a534c;
+  font: 800 0.78rem/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.board-more > summary:focus {
+  outline: none;
+}
+
+.board-more > summary:focus-visible {
+  box-shadow: 0 0 0 3px rgba(8, 96, 95, 0.14), 0 10px 24px rgba(35, 31, 26, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.board-more-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+  gap: 14px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.board-more-panel .semester-box {
+  min-width: 0;
+}
+
+.board-more-panel .semester-box[open] {
+  grid-column: 1/-1;
+}
+
+.old-board {
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.94), rgba(248, 244, 236, 0.82)), radial-gradient(circle at top right, rgba(138, 63, 57, 0.12), transparent 15rem);
+}
+
+.board-pin {
+  position: absolute;
+  top: 14px;
+  width: 14px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), #f6df9d);
+  box-shadow: 0 3px 10px rgba(35, 31, 26, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.pin-left {
+  left: 18px;
+}
+
+.pin-right {
+  right: 18px;
+}
+
+.board-heading {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.board-heading span {
+  color: var(--gold);
+  font: 850 0.76rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.board-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font: 850 clamp(1.4rem, 3vw, 2rem)/1.05 Georgia, "Times New Roman", serif;
+}
+
+.board-heading::after {
+  content: "";
+  width: 58px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.semester-box {
+  overflow: hidden;
+  border: 1px solid rgba(228, 216, 200, 0.88);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.92), rgba(255, 253, 248, 0.72)), radial-gradient(circle at 100% 0, rgba(8, 96, 95, 0.08), transparent 12rem);
+}
+
+.notes-auto-board .semester-box {
+  min-width: 0;
+}
+
+.notes-auto-board .semester-box[open] {
+  grid-column: 1/-1;
+  border-color: rgba(8, 96, 95, 0.18);
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(247, 251, 248, 0.86)), radial-gradient(circle at 100% 0, rgba(8, 96, 95, 0.06), transparent 14rem);
+  box-shadow: 0 16px 38px rgba(35, 31, 26, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+.semester-box summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.notes-auto-board .semester-box summary {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 9px;
+  min-height: 104px;
+  padding: 18px 12px 16px;
+  text-align: center;
+}
+
+.semester-box summary:focus,
+.semester-box summary:focus-visible {
+  outline: 0;
+}
+
+.semester-box summary:focus-visible::after {
+  box-shadow: 0 0 0 3px rgba(255, 253, 248, 0.9), 0 0 0 5px rgba(8, 96, 95, 0.26);
+}
+
+.semester-box summary::-webkit-details-marker {
+  display: none;
+}
+
+.semester-box summary::after {
+  content: "+";
+  display: grid;
+  place-items: center;
+  width: 30px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(8, 96, 95, 0.22);
+  border-radius: 50%;
+  background: rgba(237, 245, 241, 0.8);
+  color: var(--accent);
+  font: 900 1rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.notes-auto-board .semester-box summary::after {
+  width: 34px;
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.semester-box[open] summary::after {
+  content: "-";
+}
+
+.semester-box summary span {
+  color: var(--ink);
+  font: 780 1.12rem/1.15 Georgia, "Times New Roman", serif;
+}
+
+.semester-box summary strong {
+  color: #5a534c;
+  font: 750 0.82rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.notes-auto-board .semester-box summary strong {
+  display: none;
+}
+
+.semester-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 2px 16px 16px;
+}
+
+.semester-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 9px 16px;
+  border: 1px solid rgba(8, 96, 95, 0.28);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(0, 122, 116, 0.98), rgba(0, 92, 88, 0.98));
+  color: #fffdf8;
+  font: 850 0.86rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-decoration: none;
+  box-shadow: 0 8px 0 rgba(0, 69, 66, 0.82), 0 16px 30px rgba(0, 74, 70, 0.2);
+}
+
+.semester-links a:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.semester-links a:active {
+  transform: translateY(3px);
+  box-shadow: 0 4px 0 rgba(0, 69, 66, 0.82), 0 10px 18px rgba(0, 74, 70, 0.18);
+}
+
+.semester-post-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: 860px;
+  margin-inline: auto;
+  padding: 0 clamp(16px, 3vw, 34px) clamp(18px, 3vw, 30px);
+}
+
+.semester-post-links a {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 18px;
+  min-height: 0;
+  padding: 14px 8px 14px 18px;
+  border: 0;
+  border-bottom: 1px solid rgba(8, 96, 95, 0.1);
+  border-radius: 0;
+  background: transparent;
+  color: #075f5b;
+  text-align: left;
+  line-height: 1.32;
+  box-shadow: none;
+  font: 680 clamp(0.98rem, 1.4vw, 1.08rem)/1.32 Georgia, "Times New Roman", serif;
+}
+
+.semester-post-links a::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(185, 140, 53, 0.72);
+  transform: translateY(-50%);
+}
+
+.semester-post-links a:hover {
+  transform: none;
+  color: #004f4b;
+  background: rgba(237, 245, 241, 0.44);
+  text-decoration: none;
+}
+
+.semester-post-links a:active {
+  transform: none;
+  box-shadow: none;
+}
+
+.semester-post-links a span {
+  overflow-wrap: anywhere;
+}
+
+.semester-post-links a small {
+  flex: 0 0 auto;
+  color: #766f66;
+  font: 650 0.74rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.semester-post-links a:last-child {
+  border-bottom: 0;
+}
+
+.semester-material {
+  display: grid;
+  gap: 22px;
+  margin: 6px auto 0;
+}
+
+.semester-intro {
+  display: grid;
+  gap: 10px;
+  padding: clamp(16px, 2.5vw, 24px);
+  border: 1px solid rgba(228, 216, 200, 0.92);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(239, 247, 243, 0.78)), radial-gradient(circle at top right, rgba(185, 140, 53, 0.14), transparent 18rem);
+  box-shadow: 0 18px 52px rgba(35, 31, 26, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+.semester-intro p {
+  max-width: 780px;
+  margin: 0 auto 4px;
+  color: #5a534c;
+  text-align: center;
+  font: 700 1rem/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.semester-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.semester-meta-strip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid rgba(8, 96, 95, 0.18);
+  border-radius: 999px;
+  background: rgba(237, 245, 241, 0.76);
+  color: var(--accent);
+  font: 850 0.78rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.course-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(18px, 2.4vw, 26px);
+  border: 1px solid rgba(228, 216, 200, 0.9);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(250, 245, 235, 0.82)), radial-gradient(circle at top left, rgba(185, 140, 53, 0.12), transparent 14rem);
+  box-shadow: 0 18px 46px rgba(35, 31, 26, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.course-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--gold), var(--accent));
+  opacity: 0.9;
+}
+
+.accent-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(237, 245, 241, 0.82)), radial-gradient(circle at top right, rgba(8, 96, 95, 0.11), transparent 15rem);
+}
+
+.course-kicker {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font: 900 0.78rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.course-card h2 {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font: 850 clamp(1.35rem, 2.4vw, 1.9rem)/1.08 Georgia, "Times New Roman", serif;
+}
+
+.course-card h3 {
+  margin: 18px 0 8px;
+  color: var(--accent);
+  font: 850 1.02rem/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.course-card h3 span {
+  color: #7a7066;
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+
+.topic-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #514a43;
+  font: 650 0.96rem/1.48 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.topic-list li::marker {
+  color: var(--gold);
+}
+
+.link-list a {
+  color: var(--accent);
+  font-weight: 850;
+}
+
+.ref-page {
+  display: grid;
+  gap: 18px;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.ref-list {
+  display: grid;
+  gap: 14px;
+  margin: 0 auto;
+  padding-left: clamp(24px, 4vw, 42px);
+  width: min(900px, 100%);
+  color: #272522;
+  font: 800 clamp(1rem, 1.6vw, 1.28rem)/1.35 "Courier New", Courier, monospace;
+}
+
+.ref-list li {
+  padding-left: 4px;
+}
+
+.ref-list li::marker {
+  color: #272522;
+  font-size: 0.78em;
+}
+
+.ref-list a,
+.ref-list span {
+  color: #215f3c;
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-thickness: 0.055em;
+  text-underline-offset: 0.1em;
+}
+
+.ref-list a:hover {
+  color: var(--accent);
+  text-decoration-thickness: 0.09em;
+}
+
+.ref-list ul {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+  padding-left: clamp(18px, 3vw, 38px);
+  font-size: 0.92em;
+  line-height: 1.32;
+}
+
+.ref-list ul li::marker {
+  color: #0b665f;
+}
+
+.ref-list ul a {
+  color: #0b665f;
+  text-decoration-color: currentColor;
+  text-shadow: 0 0 12px rgba(11, 102, 95, 0.1);
+}
+
+.ref-grid,
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ref-card,
+.journal-grid article {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-height: 112px;
+  padding: 18px;
+  border: 1px solid rgba(228, 216, 200, 0.9);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 244, 236, 0.84)), radial-gradient(circle at top right, rgba(8, 96, 95, 0.08), transparent 12rem);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0 14px 34px rgba(35, 31, 26, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+.ref-card:hover,
+.journal-grid article:hover {
+  transform: translateY(-2px);
+  border-color: rgba(8, 96, 95, 0.28);
+  text-decoration: none;
+}
+
+.ref-feature {
+  min-height: 150px;
+}
+
+.ref-card h2 {
+  margin: 0;
+  text-align: left;
+  font-size: 1.55rem;
+}
+
+.ref-card a,
+.journal-grid a {
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.journal-grid p {
+  margin: 0;
+  color: #5a534c;
+  font: 650 0.92rem/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* =========================================================
+   CODE + FIGURES + MATH
+   ========================================================= */
+code,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 16px;
+  border: 1px solid rgba(91, 132, 113, 0.36);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(232, 241, 235, 0.98), rgba(211, 228, 218, 0.96));
+  color: #1f352d;
+  box-shadow: 0 14px 34px rgba(27, 58, 47, 0.12);
+}
+
+.highlight {
+  background: transparent;
+}
+
+.highlight pre,
+pre.highlight {
+  background: linear-gradient(135deg, rgba(232, 241, 235, 0.98), rgba(211, 228, 218, 0.96));
+}
+
+pre code {
+  color: inherit;
+  background: transparent;
+}
+
+.diagram-figure {
+  margin: 34px auto;
+  max-width: 860px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.diagram-figure img {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(228, 216, 200, 0.95);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 16px 44px rgba(35, 31, 26, 0.09);
+}
+
+.diagram-figure figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font: 14px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.MathJax {
+  font-size: 1.05em !important;
+}
+
+mjx-container[jax=SVG][display=true] {
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2rem 0.75rem 0.45rem;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  text-align: left !important;
+  scrollbar-width: thin;
+}
+
+mjx-container[jax=SVG][display=true] > svg {
+  display: block;
+  margin-inline: auto;
+  max-width: none !important;
+  overflow: visible !important;
+  vertical-align: middle;
+}
+
+.post > div mjx-container[jax=SVG][display=true],
+.page > div mjx-container[jax=SVG][display=true] {
+  min-width: 0;
+}
+
+.post mjx-container[jax=SVG][display=true],
+.page mjx-container[jax=SVG][display=true] {
+  margin: 1rem auto;
+}
+
+.post > div[style],
+.page > div[style] {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* =========================================================
+   LANGUAGE-AWARE CODE BLOCKS
+   ========================================================= */
+:not(pre) > code {
+  padding: 0.12em 0.34em;
+  border: 1px solid rgba(8, 96, 95, 0.14);
+  border-radius: 5px;
+  background: rgba(237, 245, 241, 0.78);
+  color: #075352;
+  font-size: 0.88em;
+  overflow-wrap: break-word;
+}
+
+:where(.highlighter-rouge.language-text, .highlight.language-text, .highlighter-rouge.language-plaintext, .highlight.language-plaintext, .highlighter-rouge.language-terminal, .highlight.language-terminal, .highlighter-rouge.language-console, .highlight.language-console, .highlighter-rouge.language-python, .highlight.language-python, .highlighter-rouge.language-latex, .highlight.language-latex, .highlighter-rouge.language-tex, .highlight.language-tex, .highlighter-rouge.language-maxima, .highlight.language-maxima, .highlighter-rouge.language-scss, .highlight.language-scss, .highlighter-rouge.language-sass, .highlight.language-sass, .highlighter-rouge.language-css, .highlight.language-css, .highlighter-rouge.language-html, .highlight.language-html, .highlighter-rouge.language-javascript, .highlight.language-javascript, .highlighter-rouge.language-js, .highlight.language-js, .highlighter-rouge.language-yaml, .highlight.language-yaml, .highlighter-rouge.language-yml, .highlight.language-yml, .highlighter-rouge.language-bash, .highlight.language-bash, .highlighter-rouge.language-shell, .highlight.language-shell, .highlighter-rouge.language-sh, .highlight.language-sh, .highlighter-rouge.language-markdown, .highlight.language-markdown, .highlighter-rouge.language-md, .highlight.language-md, .highlighter-rouge.language-jekyll, .highlight.language-jekyll, .highlighter-rouge.language-liquid, .highlight.language-liquid, .highlighter-rouge.language-json, .highlight.language-json, .code-copy-shell) {
+  --code-accent: #08605f;
+  --code-accent-soft: rgba(8, 96, 95, .13);
+  --code-panel-a: rgba(248, 253, 250, .98);
+  --code-panel-b: rgba(229, 242, 235, .96);
+  position: relative;
+  margin: 1.45rem 0;
+  border-radius: 10px;
+}
+
+:where(.highlighter-rouge.language-text, .highlight.language-text, .highlighter-rouge.language-plaintext, .highlight.language-plaintext, .highlighter-rouge.language-terminal, .highlight.language-terminal, .highlighter-rouge.language-console, .highlight.language-console, .highlighter-rouge.language-python, .highlight.language-python, .highlighter-rouge.language-latex, .highlight.language-latex, .highlighter-rouge.language-tex, .highlight.language-tex, .highlighter-rouge.language-maxima, .highlight.language-maxima, .highlighter-rouge.language-scss, .highlight.language-scss, .highlighter-rouge.language-sass, .highlight.language-sass, .highlighter-rouge.language-css, .highlight.language-css, .highlighter-rouge.language-html, .highlight.language-html, .highlighter-rouge.language-javascript, .highlight.language-javascript, .highlighter-rouge.language-js, .highlight.language-js, .highlighter-rouge.language-yaml, .highlight.language-yaml, .highlighter-rouge.language-yml, .highlight.language-yml, .highlighter-rouge.language-bash, .highlight.language-bash, .highlighter-rouge.language-shell, .highlight.language-shell, .highlighter-rouge.language-sh, .highlight.language-sh, .highlighter-rouge.language-markdown, .highlight.language-markdown, .highlighter-rouge.language-md, .highlight.language-md, .highlighter-rouge.language-jekyll, .highlight.language-jekyll, .highlighter-rouge.language-liquid, .highlight.language-liquid, .highlighter-rouge.language-json, .highlight.language-json, .code-copy-shell) .highlight {
+  margin: 0;
+}
+
+:where(.highlighter-rouge.language-text, .highlight.language-text, .highlighter-rouge.language-plaintext, .highlight.language-plaintext, .highlighter-rouge.language-terminal, .highlight.language-terminal, .highlighter-rouge.language-console, .highlight.language-console, .highlighter-rouge.language-python, .highlight.language-python, .highlighter-rouge.language-latex, .highlight.language-latex, .highlighter-rouge.language-tex, .highlight.language-tex, .highlighter-rouge.language-maxima, .highlight.language-maxima, .highlighter-rouge.language-scss, .highlight.language-scss, .highlighter-rouge.language-sass, .highlight.language-sass, .highlighter-rouge.language-css, .highlight.language-css, .highlighter-rouge.language-html, .highlight.language-html, .highlighter-rouge.language-javascript, .highlight.language-javascript, .highlighter-rouge.language-js, .highlight.language-js, .highlighter-rouge.language-yaml, .highlight.language-yaml, .highlighter-rouge.language-yml, .highlight.language-yml, .highlighter-rouge.language-bash, .highlight.language-bash, .highlighter-rouge.language-shell, .highlight.language-shell, .highlighter-rouge.language-sh, .highlight.language-sh, .highlighter-rouge.language-markdown, .highlight.language-markdown, .highlighter-rouge.language-md, .highlight.language-md, .highlighter-rouge.language-jekyll, .highlight.language-jekyll, .highlighter-rouge.language-liquid, .highlight.language-liquid, .highlighter-rouge.language-json, .highlight.language-json, .code-copy-shell) pre,
+:where(pre.language-text, pre.language-plaintext, pre.language-terminal, pre.language-console, pre.language-python, pre.language-latex, pre.language-tex, pre.language-maxima, pre.language-scss, pre.language-sass, pre.language-css, pre.language-html, pre.language-javascript, pre.language-js, pre.language-yaml, pre.language-yml, pre.language-bash, pre.language-shell, pre.language-sh, pre.language-markdown, pre.language-md, pre.language-jekyll, pre.language-liquid, pre.language-json) {
+  position: relative;
+  max-width: 100%;
+  margin: 0;
+  padding: 1.05rem 5.9rem 1.05rem 1.05rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid var(--code-accent-soft);
+  border-left: 4px solid var(--code-accent);
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--code-panel-a), var(--code-panel-b));
+  color: #1e332d;
+  font-size: clamp(0.82rem, 1.6vw, 0.95rem);
+  line-height: 1.68;
+  tab-size: 2;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(8, 96, 95, 0.34) transparent;
+  box-shadow: 0 16px 42px rgba(27, 58, 47, 0.11);
+}
+
+:where(pre.language-text, pre.language-plaintext, pre.language-terminal, pre.language-console, pre.language-python, pre.language-latex, pre.language-tex, pre.language-maxima, pre.language-scss, pre.language-sass, pre.language-css, pre.language-html, pre.language-javascript, pre.language-js, pre.language-yaml, pre.language-yml, pre.language-bash, pre.language-shell, pre.language-sh, pre.language-markdown, pre.language-md, pre.language-jekyll, pre.language-liquid, pre.language-json) {
+  --code-accent: #08605f;
+  --code-accent-soft: rgba(8, 96, 95, .13);
+  --code-panel-a: rgba(248, 253, 250, .98);
+  --code-panel-b: rgba(229, 242, 235, .96);
+  margin: 1.45rem 0;
+}
+
+.code-copy-button {
+  position: absolute;
+  top: 0.58rem;
+  right: 0.65rem;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.1rem;
+  min-height: 2rem;
+  padding: 0.35rem 0.62rem;
+  border: 1px solid var(--code-accent-soft);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.9);
+  color: var(--code-accent);
+  cursor: pointer;
+  font: 800 0.68rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 22px rgba(35, 31, 26, 0.1);
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.code-copy-button:hover,
+.code-copy-button:focus-visible {
+  background: var(--code-accent);
+  border-color: var(--code-accent);
+  color: #fffdf8;
+  box-shadow: 0 12px 28px rgba(35, 31, 26, 0.14);
+  transform: translateY(-1px);
+}
+
+.code-copy-button:focus-visible {
+  outline: 3px solid rgba(185, 140, 53, 0.28);
+  outline-offset: 2px;
+}
+
+.code-copy-button.is-copied {
+  background: #08605f;
+  border-color: #08605f;
+  color: #fffdf8;
+}
+
+:where(.highlighter-rouge.language-text, .highlight.language-text, .highlighter-rouge.language-plaintext, .highlight.language-plaintext, .highlighter-rouge.language-terminal, .highlight.language-terminal, .highlighter-rouge.language-console, .highlight.language-console, .highlighter-rouge.language-python, .highlight.language-python, .highlighter-rouge.language-latex, .highlight.language-latex, .highlighter-rouge.language-tex, .highlight.language-tex, .highlighter-rouge.language-maxima, .highlight.language-maxima, .highlighter-rouge.language-scss, .highlight.language-scss, .highlighter-rouge.language-sass, .highlight.language-sass, .highlighter-rouge.language-css, .highlight.language-css, .highlighter-rouge.language-html, .highlight.language-html, .highlighter-rouge.language-javascript, .highlight.language-javascript, .highlighter-rouge.language-js, .highlight.language-js, .highlighter-rouge.language-yaml, .highlight.language-yaml, .highlighter-rouge.language-yml, .highlight.language-yml, .highlighter-rouge.language-bash, .highlight.language-bash, .highlighter-rouge.language-shell, .highlight.language-shell, .highlighter-rouge.language-sh, .highlight.language-sh, .highlighter-rouge.language-markdown, .highlight.language-markdown, .highlighter-rouge.language-md, .highlight.language-md, .highlighter-rouge.language-jekyll, .highlight.language-jekyll, .highlighter-rouge.language-liquid, .highlight.language-liquid, .highlighter-rouge.language-json, .highlight.language-json, .code-copy-shell) pre::-webkit-scrollbar,
+:where(pre.language-text, pre.language-plaintext, pre.language-terminal, pre.language-console, pre.language-python, pre.language-latex, pre.language-tex, pre.language-maxima, pre.language-scss, pre.language-sass, pre.language-css, pre.language-html, pre.language-javascript, pre.language-js, pre.language-yaml, pre.language-yml, pre.language-bash, pre.language-shell, pre.language-sh, pre.language-markdown, pre.language-md, pre.language-jekyll, pre.language-liquid, pre.language-json)::-webkit-scrollbar {
+  height: 10px;
+}
+
+:where(.highlighter-rouge.language-text, .highlight.language-text, .highlighter-rouge.language-plaintext, .highlight.language-plaintext, .highlighter-rouge.language-terminal, .highlight.language-terminal, .highlighter-rouge.language-console, .highlight.language-console, .highlighter-rouge.language-python, .highlight.language-python, .highlighter-rouge.language-latex, .highlight.language-latex, .highlighter-rouge.language-tex, .highlight.language-tex, .highlighter-rouge.language-maxima, .highlight.language-maxima, .highlighter-rouge.language-scss, .highlight.language-scss, .highlighter-rouge.language-sass, .highlight.language-sass, .highlighter-rouge.language-css, .highlight.language-css, .highlighter-rouge.language-html, .highlight.language-html, .highlighter-rouge.language-javascript, .highlight.language-javascript, .highlighter-rouge.language-js, .highlight.language-js, .highlighter-rouge.language-yaml, .highlight.language-yaml, .highlighter-rouge.language-yml, .highlight.language-yml, .highlighter-rouge.language-bash, .highlight.language-bash, .highlighter-rouge.language-shell, .highlight.language-shell, .highlighter-rouge.language-sh, .highlight.language-sh, .highlighter-rouge.language-markdown, .highlight.language-markdown, .highlighter-rouge.language-md, .highlight.language-md, .highlighter-rouge.language-jekyll, .highlight.language-jekyll, .highlighter-rouge.language-liquid, .highlight.language-liquid, .highlighter-rouge.language-json, .highlight.language-json, .code-copy-shell) pre::-webkit-scrollbar-thumb,
+:where(pre.language-text, pre.language-plaintext, pre.language-terminal, pre.language-console, pre.language-python, pre.language-latex, pre.language-tex, pre.language-maxima, pre.language-scss, pre.language-sass, pre.language-css, pre.language-html, pre.language-javascript, pre.language-js, pre.language-yaml, pre.language-yml, pre.language-bash, pre.language-shell, pre.language-sh, pre.language-markdown, pre.language-md, pre.language-jekyll, pre.language-liquid, pre.language-json)::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgba(8, 96, 95, 0.28);
+  background-clip: padding-box;
+}
+
+:where(.highlighter-rouge.language-text, .highlight.language-text, .highlighter-rouge.language-plaintext, .highlight.language-plaintext, .highlighter-rouge.language-terminal, .highlight.language-terminal, .highlighter-rouge.language-console, .highlight.language-console, .highlighter-rouge.language-python, .highlight.language-python, .highlighter-rouge.language-latex, .highlight.language-latex, .highlighter-rouge.language-tex, .highlight.language-tex, .highlighter-rouge.language-maxima, .highlight.language-maxima, .highlighter-rouge.language-scss, .highlight.language-scss, .highlighter-rouge.language-sass, .highlight.language-sass, .highlighter-rouge.language-css, .highlight.language-css, .highlighter-rouge.language-html, .highlight.language-html, .highlighter-rouge.language-javascript, .highlight.language-javascript, .highlighter-rouge.language-js, .highlight.language-js, .highlighter-rouge.language-yaml, .highlight.language-yaml, .highlighter-rouge.language-yml, .highlight.language-yml, .highlighter-rouge.language-bash, .highlight.language-bash, .highlighter-rouge.language-shell, .highlight.language-shell, .highlighter-rouge.language-sh, .highlight.language-sh, .highlighter-rouge.language-markdown, .highlight.language-markdown, .highlighter-rouge.language-md, .highlight.language-md, .highlighter-rouge.language-jekyll, .highlight.language-jekyll, .highlighter-rouge.language-liquid, .highlight.language-liquid, .highlighter-rouge.language-json, .highlight.language-json, .code-copy-shell) code,
+:where(pre.language-text, pre.language-plaintext, pre.language-terminal, pre.language-console, pre.language-python, pre.language-latex, pre.language-tex, pre.language-maxima, pre.language-scss, pre.language-sass, pre.language-css, pre.language-html, pre.language-javascript, pre.language-js, pre.language-yaml, pre.language-yml, pre.language-bash, pre.language-shell, pre.language-sh, pre.language-markdown, pre.language-md, pre.language-jekyll, pre.language-liquid, pre.language-json) code {
+  display: block;
+  min-width: max-content;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  white-space: pre;
+}
+
+.article-rendered-block {
+  margin: 1.45rem 0;
+  padding: clamp(1rem, 2.4vw, 1.35rem);
+  border: 1px solid rgba(8, 96, 95, 0.16);
+  border-left: 4px solid rgba(8, 96, 95, 0.72);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(237, 245, 241, 0.94));
+  color: var(--ink);
+  box-shadow: 0 16px 42px rgba(35, 31, 26, 0.09);
+}
+
+.article-rendered-block h2,
+.article-rendered-block h3,
+.article-rendered-block h4 {
+  margin: 0 0 0.65rem;
+  color: #08605f;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.22;
+}
+
+.article-rendered-block h2 {
+  font-size: clamp(1.28rem, 2.8vw, 1.72rem);
+}
+
+.article-rendered-block h3 {
+  font-size: clamp(1.15rem, 2.3vw, 1.45rem);
+}
+
+.article-rendered-block h4 {
+  font-size: clamp(1.05rem, 2vw, 1.24rem);
+}
+
+.article-rendered-block p {
+  margin: 0.85rem 0 0;
+}
+
+.article-rendered-block p:first-child {
+  margin-top: 0;
+}
+
+.article-rendered-block code {
+  padding: 0.08em 0.3em;
+  border: 1px solid rgba(8, 96, 95, 0.14);
+  border-radius: 5px;
+  background: rgba(237, 245, 241, 0.78);
+  color: #075352;
+  font-size: 0.88em;
+}
+
+.article-rendered-block .article-display-math {
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.article-rendered-block .article-display-math mjx-container[jax=SVG][display=true] {
+  margin: 0.35rem auto;
+}
+
+.language-text,
+pre.language-text,
+.language-plaintext,
+pre.language-plaintext,
+.language-terminal,
+pre.language-terminal,
+.language-console,
+pre.language-console {
+  --code-accent: #6b6258;
+  --code-accent-soft: rgba(107, 98, 88, .18);
+  --code-panel-a: rgba(252, 249, 242, .98);
+  --code-panel-b: rgba(238, 232, 220, .96);
+}
+
+.language-terminal,
+pre.language-terminal,
+.language-console,
+pre.language-console {
+  --code-accent: #47645a;
+  --code-accent-soft: rgba(71, 100, 90, .2);
+}
+
+.language-python,
+pre.language-python {
+  --code-accent: #2f6f8f;
+  --code-accent-soft: rgba(47, 111, 143, .18);
+  --code-panel-a: rgba(247, 252, 253, .98);
+  --code-panel-b: rgba(226, 239, 244, .96);
+}
+
+.language-latex,
+pre.language-latex,
+.language-tex,
+pre.language-tex {
+  --code-accent: #7a5a91;
+  --code-accent-soft: rgba(122, 90, 145, .18);
+  --code-panel-a: rgba(252, 249, 253, .98);
+  --code-panel-b: rgba(239, 231, 244, .96);
+}
+
+.language-maxima,
+pre.language-maxima {
+  --code-accent: #8a5d2b;
+  --code-accent-soft: rgba(138, 93, 43, .18);
+  --code-panel-a: rgba(253, 250, 244, .98);
+  --code-panel-b: rgba(242, 233, 218, .96);
+}
+
+.language-scss,
+pre.language-scss {
+  --code-accent: #8b4f68;
+  --code-accent-soft: rgba(139, 79, 104, .18);
+  --code-panel-a: rgba(253, 249, 251, .98);
+  --code-panel-b: rgba(244, 230, 236, .96);
+}
+
+.language-sass,
+pre.language-sass {
+  --code-accent: #8b4f68;
+  --code-accent-soft: rgba(139, 79, 104, .18);
+  --code-panel-a: rgba(253, 249, 251, .98);
+  --code-panel-b: rgba(244, 230, 236, .96);
+}
+
+.language-css,
+pre.language-css {
+  --code-accent: #8b4f68;
+  --code-accent-soft: rgba(139, 79, 104, .18);
+  --code-panel-a: rgba(253, 249, 251, .98);
+  --code-panel-b: rgba(244, 230, 236, .96);
+}
+
+.language-html,
+pre.language-html {
+  --code-accent: #9a5a3b;
+  --code-accent-soft: rgba(154, 90, 59, .18);
+  --code-panel-a: rgba(253, 250, 247, .98);
+  --code-panel-b: rgba(244, 233, 226, .96);
+}
+
+.language-javascript,
+pre.language-javascript,
+.language-js,
+pre.language-js {
+  --code-accent: #7f7325;
+  --code-accent-soft: rgba(127, 115, 37, .2);
+  --code-panel-a: rgba(253, 252, 245, .98);
+  --code-panel-b: rgba(242, 238, 214, .96);
+}
+
+.language-yaml,
+pre.language-yaml,
+.language-yml,
+pre.language-yml {
+  --code-accent: #6f6359;
+  --code-accent-soft: rgba(111, 99, 89, .2);
+  --code-panel-a: rgba(252, 250, 246, .98);
+  --code-panel-b: rgba(236, 231, 223, .96);
+}
+
+.language-json,
+pre.language-json {
+  --code-accent: #6f6359;
+  --code-accent-soft: rgba(111, 99, 89, .2);
+  --code-panel-a: rgba(252, 250, 246, .98);
+  --code-panel-b: rgba(236, 231, 223, .96);
+}
+
+.language-bash,
+pre.language-bash,
+.language-shell,
+pre.language-shell,
+.language-sh,
+pre.language-sh {
+  --code-accent: #4f7058;
+  --code-accent-soft: rgba(79, 112, 88, .2);
+  --code-panel-a: rgba(248, 252, 249, .98);
+  --code-panel-b: rgba(229, 240, 231, .96);
+}
+
+.language-markdown,
+pre.language-markdown,
+.language-md,
+pre.language-md {
+  --code-accent: #456d82;
+  --code-accent-soft: rgba(69, 109, 130, .18);
+  --code-panel-a: rgba(248, 251, 252, .98);
+  --code-panel-b: rgba(229, 237, 241, .96);
+}
+
+.language-jekyll,
+pre.language-jekyll,
+.language-liquid,
+pre.language-liquid {
+  --code-accent: #8a3f39;
+  --code-accent-soft: rgba(138, 63, 57, .18);
+  --code-panel-a: rgba(253, 249, 248, .98);
+  --code-panel-b: rgba(243, 229, 227, .96);
+}
+
+.highlight .c,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs {
+  color: #66746d;
+  font-style: italic;
+}
+
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .nt {
+  color: #075f67;
+  font-weight: 700;
+}
+
+.highlight .s,
+.highlight .sb,
+.highlight .s1,
+.highlight .s2,
+.highlight .se,
+.highlight .sh {
+  color: #8a4b35;
+}
+
+.highlight .m,
+.highlight .mi,
+.highlight .mf,
+.highlight .mh,
+.highlight .il {
+  color: #755f12;
+}
+
+.highlight .na,
+.highlight .nb,
+.highlight .nc,
+.highlight .nf,
+.highlight .nv,
+.highlight .o {
+  color: #6c4f91;
+}
+
+.highlight .gd {
+  background: rgba(138, 63, 57, 0.12);
+  color: #7b332d;
+}
+
+.highlight .gi {
+  background: rgba(8, 96, 95, 0.1);
+  color: #075352;
+}
+
+@media (max-width: 640px) {
+  :where(.highlighter-rouge.language-text, .highlight.language-text, .highlighter-rouge.language-plaintext, .highlight.language-plaintext, .highlighter-rouge.language-terminal, .highlight.language-terminal, .highlighter-rouge.language-console, .highlight.language-console, .highlighter-rouge.language-python, .highlight.language-python, .highlighter-rouge.language-latex, .highlight.language-latex, .highlighter-rouge.language-tex, .highlight.language-tex, .highlighter-rouge.language-maxima, .highlight.language-maxima, .highlighter-rouge.language-scss, .highlight.language-scss, .highlighter-rouge.language-sass, .highlight.language-sass, .highlighter-rouge.language-css, .highlight.language-css, .highlighter-rouge.language-html, .highlight.language-html, .highlighter-rouge.language-javascript, .highlight.language-javascript, .highlighter-rouge.language-js, .highlight.language-js, .highlighter-rouge.language-yaml, .highlight.language-yaml, .highlighter-rouge.language-yml, .highlight.language-yml, .highlighter-rouge.language-bash, .highlight.language-bash, .highlighter-rouge.language-shell, .highlight.language-shell, .highlighter-rouge.language-sh, .highlight.language-sh, .highlighter-rouge.language-markdown, .highlight.language-markdown, .highlighter-rouge.language-md, .highlight.language-md, .highlighter-rouge.language-jekyll, .highlight.language-jekyll, .highlighter-rouge.language-liquid, .highlight.language-liquid, .highlighter-rouge.language-json, .highlight.language-json, .code-copy-shell),
+  :where(pre.language-text, pre.language-plaintext, pre.language-terminal, pre.language-console, pre.language-python, pre.language-latex, pre.language-tex, pre.language-maxima, pre.language-scss, pre.language-sass, pre.language-css, pre.language-html, pre.language-javascript, pre.language-js, pre.language-yaml, pre.language-yml, pre.language-bash, pre.language-shell, pre.language-sh, pre.language-markdown, pre.language-md, pre.language-jekyll, pre.language-liquid, pre.language-json) {
+    margin: 1.15rem 0;
+  }
+  :where(.highlighter-rouge.language-text, .highlight.language-text, .highlighter-rouge.language-plaintext, .highlight.language-plaintext, .highlighter-rouge.language-terminal, .highlight.language-terminal, .highlighter-rouge.language-console, .highlight.language-console, .highlighter-rouge.language-python, .highlight.language-python, .highlighter-rouge.language-latex, .highlight.language-latex, .highlighter-rouge.language-tex, .highlight.language-tex, .highlighter-rouge.language-maxima, .highlight.language-maxima, .highlighter-rouge.language-scss, .highlight.language-scss, .highlighter-rouge.language-sass, .highlight.language-sass, .highlighter-rouge.language-css, .highlight.language-css, .highlighter-rouge.language-html, .highlight.language-html, .highlighter-rouge.language-javascript, .highlight.language-javascript, .highlighter-rouge.language-js, .highlight.language-js, .highlighter-rouge.language-yaml, .highlight.language-yaml, .highlighter-rouge.language-yml, .highlight.language-yml, .highlighter-rouge.language-bash, .highlight.language-bash, .highlighter-rouge.language-shell, .highlight.language-shell, .highlighter-rouge.language-sh, .highlight.language-sh, .highlighter-rouge.language-markdown, .highlight.language-markdown, .highlighter-rouge.language-md, .highlight.language-md, .highlighter-rouge.language-jekyll, .highlight.language-jekyll, .highlighter-rouge.language-liquid, .highlight.language-liquid, .highlighter-rouge.language-json, .highlight.language-json, .code-copy-shell) pre,
+  :where(pre.language-text, pre.language-plaintext, pre.language-terminal, pre.language-console, pre.language-python, pre.language-latex, pre.language-tex, pre.language-maxima, pre.language-scss, pre.language-sass, pre.language-css, pre.language-html, pre.language-javascript, pre.language-js, pre.language-yaml, pre.language-yml, pre.language-bash, pre.language-shell, pre.language-sh, pre.language-markdown, pre.language-md, pre.language-jekyll, pre.language-liquid, pre.language-json) {
+    padding: 0.9rem 5rem 0.9rem 0.85rem;
+    border-left-width: 3px;
+    font-size: 0.82rem;
+    line-height: 1.62;
+  }
+  .article-rendered-block {
+    margin: 1.15rem 0;
+    padding: 0.95rem 0.85rem;
+  }
+  .code-copy-button {
+    top: 0.52rem;
+    right: 0.55rem;
+    min-width: 3.75rem;
+    min-height: 1.8rem;
+    padding: 0.3rem 0.52rem;
+    font-size: 0.6rem;
+  }
+}
+/* =========================================================
+   QUIZ
+   ========================================================= */
+.quiz-page {
+  width: min(880px, 100% - 32px);
+  margin: 42px auto 0;
+  text-align: center;
+}
+
+.quiz-page h1 {
+  margin: 4px 0 10px;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+}
+
+.quiz-lead {
+  max-width: 680px;
+  margin: 0 auto 28px;
+  color: var(--muted);
+  font: 650 clamp(1rem, 1.8vw, 1.18rem)/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.quiz-shell {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid rgba(228, 216, 200, 0.95);
+  border-radius: 12px;
+  background: radial-gradient(circle at top right, rgba(8, 96, 95, 0.08), transparent 20rem), rgba(255, 253, 248, 0.92);
+  box-shadow: 0 22px 58px rgba(35, 31, 26, 0.12);
+  text-align: left;
+}
+
+.quiz-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  color: var(--muted);
+  font: 800 13px/1.3 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: uppercase;
+}
+
+.quiz-progress {
+  height: 8px;
+  margin: 16px 0 22px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e8dfd1;
+}
+
+.quiz-progress span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  transition: width 0.25s ease;
+}
+
+.quiz-shell h2 {
+  margin: 0 0 20px;
+  font-size: clamp(1.22rem, 2.4vw, 1.72rem);
+  font-weight: 650;
+  line-height: 1.28;
+}
+
+.quiz-question-tag {
+  display: inline-block;
+  margin-left: 0.35rem;
+  color: var(--gold);
+  font: 850 0.72em/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  white-space: nowrap;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 58px;
+  padding: 13px 14px;
+  border: 1px solid rgba(228, 216, 200, 0.95);
+  border-radius: 10px;
+  background: rgba(255, 253, 248, 0.88);
+  color: var(--ink);
+  box-shadow: 0 10px 26px rgba(35, 31, 26, 0.06);
+  text-align: left;
+  cursor: pointer;
+}
+
+.quiz-option span {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--soft);
+  color: var(--accent);
+  font: 900 13px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.quiz-option strong {
+  font: 750 15px/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.quiz-option:hover {
+  transform: translateY(-1px);
+  border-color: rgba(8, 96, 95, 0.36);
+}
+
+.quiz-option.is-correct {
+  color: #0f5132;
+  border-color: rgba(15, 81, 50, 0.38);
+  background: #e8f7ef;
+}
+
+.quiz-option.is-wrong {
+  color: #842029;
+  border-color: rgba(132, 32, 41, 0.36);
+  background: #fbe8eb;
+}
+
+.quiz-option:disabled {
+  cursor: default;
+}
+
+.quiz-feedback {
+  min-height: 32px;
+  margin: 18px 0 0;
+  color: var(--accent-2);
+  font: 750 15px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.quiz-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 14px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #0e7d78, #075653);
+  color: white;
+  box-shadow: 0 8px 0 #043f3d, 0 18px 32px rgba(0, 0, 0, 0.2);
+  font: 900 15px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  cursor: pointer;
+}
+
+.quiz-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.quiz-result-card {
+  text-align: center;
+}
+
+.quiz-result-card h2 {
+  margin-bottom: 6px;
+}
+
+.quiz-result-count {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font: 800 1rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.quiz-score-ring {
+  display: inline-grid;
+  place-items: center;
+  width: 132px;
+  height: 132px;
+  margin: 10px auto 18px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) 0 var(--score-percent, 0%), #eadfce var(--score-percent, 0%) 100%);
+  color: white;
+  font: 950 2rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  box-shadow: 0 18px 46px rgba(8, 96, 95, 0.18);
+}
+
+/* =========================================================
+   TABLES + SEARCH PAGE + PAGER
+   ========================================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 8px;
+  border: 1px solid var(--line);
+}
+
+.search-box {
+  display: grid;
+  gap: 8px;
+  font: 16px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+  font: inherit;
+}
+
+.search-results article {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px auto 8px;
+  padding: 8px;
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid rgba(155, 130, 90, 0.22);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 242, 231, 0.86));
+  box-shadow: 0 16px 38px rgba(54, 44, 28, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+.pager-control,
+.pager-status {
+  min-height: 48px;
+  border-radius: 999px;
+  font: 800 1rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.pager-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 18px;
+  border: 1px solid rgba(0, 108, 104, 0.22);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(241, 252, 250, 0.88));
+  color: var(--accent);
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 92, 88, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  transition: transform 170ms ease, color 170ms ease, background 170ms ease, box-shadow 170ms ease;
+}
+
+.pager-control:hover {
+  transform: translateY(-1px);
+  color: white;
+  background: linear-gradient(135deg, #087b77, #045a57);
+  text-decoration: none;
+  box-shadow: 0 12px 24px rgba(0, 92, 88, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.pager-control.is-disabled {
+  color: rgba(107, 98, 88, 0.45);
+  background: rgba(255, 255, 255, 0.45);
+  border-color: rgba(155, 130, 90, 0.16);
+  box-shadow: none;
+}
+
+.pager-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 108, 104, 0.09);
+  font-size: 1.1rem;
+}
+
+.pager-control:hover .pager-icon {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.pager-status {
+  display: grid;
+  place-items: center;
+  min-width: 92px;
+  padding: 0 18px;
+  color: var(--ink);
+}
+
+.pager-status small {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #b4862c;
+}
+
+.pager-status strong {
+  font-size: 1.05rem;
+}
+
+@media (max-width: 560px) {
+  .pager {
+    gap: 8px;
+    padding: 6px;
+  }
+  .pager-control {
+    min-height: 44px;
+    padding: 0 12px;
+  }
+  .pager-control span:not(.pager-icon) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .pager-status {
+    min-height: 44px;
+    min-width: 78px;
+    padding: 0 12px;
+  }
+}
+/* =========================================================
+   MOBILE
+   ========================================================= */
+@media (max-width: 640px) {
+  body {
+    font-size: 17px;
+  }
+  .site-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    overflow: visible;
+    z-index: 3000;
+  }
+  .site-footer {
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  .brand {
+    min-width: 0;
+  }
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+  .brand-copy small {
+    display: none;
+  }
+  .brand-copy strong {
+    display: block;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .header-icons {
+    margin-left: auto;
+  }
+  .header-icons .icon-link {
+    width: 48px;
+    height: 48px;
+  }
+  .header-icons .icon-link img,
+  .header-icons .icon-link svg {
+    width: 30px;
+    height: 30px;
+  }
+  .main-nav {
+    grid-column: 1/-1;
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    z-index: 3001;
+  }
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .main-nav a,
+  .main-nav button {
+    flex: 0 0 auto;
+    padding-inline: 12px;
+  }
+  .main-nav.search-open {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: auto;
+    padding: 10px;
+    border-radius: 28px;
+    overflow: visible;
+    z-index: 3002;
+  }
+  .main-nav.search-open a,
+  .main-nav.search-open button {
+    flex: 0 0 auto;
+  }
+  .main-nav.search-open .nav-search {
+    position: relative;
+    display: block;
+    flex: 0 0 100%;
+    order: 99;
+    width: 100%;
+    margin-top: 8px;
+    overflow: visible;
+  }
+  .main-nav.search-open .nav-search input,
+  .main-nav.search-open #nav-search-input {
+    width: 100%;
+    height: 52px;
+    min-height: 52px;
+    box-sizing: border-box;
+    border-radius: 22px;
+    font-size: 16px;
+  }
+  .main-nav.search-open .nav-search-results,
+  .main-nav.search-open #nav-search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    max-height: 320px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px;
+    border: 1px solid rgba(8, 96, 95, 0.24);
+    border-radius: 18px;
+    background: rgba(255, 253, 248, 0.98);
+    box-shadow: 0 20px 44px rgba(35, 31, 26, 0.22);
+    z-index: 5000;
+  }
+  .main-nav.search-open .nav-search-results:not(:empty),
+  .main-nav.search-open #nav-search-results:not(:empty) {
+    display: grid;
+    gap: 4px;
+  }
+  .main-nav.search-open .nav-search-results a,
+  .main-nav.search-open #nav-search-results a {
+    display: grid;
+    gap: 4px;
+    min-height: auto;
+    padding: 12px 14px;
+    border-radius: 12px;
+    color: var(--ink);
+    background: transparent;
+    text-decoration: none;
+  }
+  .main-nav.search-open .nav-search-results a:hover,
+  .main-nav.search-open #nav-search-results a:hover {
+    background: var(--soft);
+    color: var(--ink);
+  }
+  .main-nav.search-open .nav-search-results strong,
+  .main-nav.search-open #nav-search-results strong {
+    font: 800 15px/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  .main-nav.search-open .nav-search-results small,
+  .main-nav.search-open .nav-search-results p,
+  .main-nav.search-open #nav-search-results small,
+  .main-nav.search-open #nav-search-results p {
+    margin: 0;
+    color: var(--muted);
+    font: 13px/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  .main-nav.search-open .nav-search-results p,
+  .main-nav.search-open #nav-search-results p {
+    padding: 12px;
+  }
+  .hero {
+    min-height: 210px;
+    padding: 29px 18px 27px;
+    background-position: center;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 14vw, 4.3rem);
+  }
+  .hero-copy {
+    width: 100%;
+    padding: 18px 10px;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero-actions {
+    gap: 10px;
+  }
+  .hero .button {
+    min-width: min(100%, 190px);
+    min-height: 42px;
+    padding: 10px 15px;
+    box-shadow: 0 9px 0 #043f3d, 0 18px 30px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+  .hero .button.secondary {
+    box-shadow: 0 9px 0 #7f5a14, 0 18px 30px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.58);
+  }
+  .feature-band {
+    grid-template-columns: 1fr;
+    transform: translateY(-22px);
+  }
+  .desk-card {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px;
+  }
+  .desk-card h2 {
+    font-size: clamp(1.25rem, 7vw, 1.75rem);
+  }
+  .desk-card-meta {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+  .premium-post-card-link {
+    padding: 18px 18px 18px 24px;
+  }
+  .premium-post-topline {
+    font-size: 0.72rem;
+  }
+  .premium-post-card p {
+    font-size: 0.95rem;
+  }
+  .post-hero {
+    padding: 10px 4px 12px;
+  }
+  .post-hero h1 {
+    font-size: clamp(1.65rem, 8.5vw, 2.45rem);
+  }
+  .post-hero .summary {
+    font-size: 0.92rem;
+    line-height: 1.42;
+  }
+  .post mjx-container[jax=SVG][display=true],
+  .page mjx-container[jax=SVG][display=true] {
+    margin: 0.85rem auto;
+    padding-inline: 0.9rem;
+    text-align: left !important;
+  }
+  .post > h1,
+  .page > h1 {
+    margin-top: 1.55rem;
+    padding-bottom: 0.38rem;
+    font-size: clamp(1.3rem, 6vw, 1.62rem);
+    line-height: 1.16;
+  }
+  .post > h2,
+  .page > h2 {
+    margin-top: 1.35rem;
+    font-size: clamp(1.12rem, 5vw, 1.36rem);
+    line-height: 1.2;
+  }
+  .post > h3,
+  .page > h3 {
+    margin-top: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.26;
+  }
+  .post > h4,
+  .page > h4 {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  .exam-problem-set {
+    gap: 14px;
+  }
+  .exam-problem {
+    padding: 14px;
+  }
+  .exam-problem-head {
+    grid-template-columns: auto minmax(0, 1fr);
+    font-size: 1rem;
+    line-height: 1.34;
+  }
+  .exam-problem-source {
+    grid-column: 2;
+    justify-self: start;
+    white-space: normal;
+  }
+  .exam-problem-options {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .exam-problem-option {
+    min-height: 42px;
+  }
+  .cv-page {
+    width: min(100% - 24px, 560px);
+    margin-top: 14px;
+  }
+  .cv-header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
+    padding: 18px;
+    text-align: center;
+    border-radius: 14px;
+  }
+  .cv-photo {
+    width: 118px;
+  }
+  .cv-identity h1 {
+    font-size: clamp(1.9rem, 9vw, 2.45rem);
+  }
+  .cv-role {
+    font-size: 0.82rem;
+  }
+  .cv-summary {
+    margin-top: 10px;
+    font-size: 1.02rem;
+    line-height: 1.48;
+  }
+  .cv-contact {
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .cv-band,
+  .cv-columns {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .cv-band > div,
+  .cv-section {
+    padding: 16px;
+  }
+  .cv-section {
+    margin-top: 12px;
+  }
+  .cv-section > header {
+    margin-bottom: 14px;
+  }
+  .cv-section > header p {
+    font-size: clamp(1.25rem, 7vw, 1.65rem);
+  }
+  .cv-section > header h2 {
+    font-size: 1.12rem;
+  }
+  .cv-timeline article {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 12px 0;
+  }
+  .cv-list.compact {
+    grid-template-columns: 1fr;
+  }
+  .cv-books {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .cv-publications a,
+  .cv-timeline p,
+  .cv-list p,
+  .cv-note > p {
+    font-size: 0.9rem;
+  }
+  .cv-publications a {
+    padding: 11px 12px 11px 17px;
+  }
+  .cv-more-publications summary {
+    grid-template-columns: 1fr 22px;
+    gap: 5px 8px;
+    padding: 8px 10px 8px 12px;
+  }
+  .cv-more-publications summary::after {
+    grid-column: 2;
+    grid-row: 1/span 2;
+    width: 22px;
+  }
+  .cv-more-publications summary span,
+  .cv-more-publications summary strong {
+    grid-column: 1;
+  }
+  .cv-more-publications-panel {
+    padding: 7px;
+  }
+  .cv-books a {
+    padding: 12px 0;
+  }
+  .cv-article-strip {
+    margin-top: 8px;
+  }
+  .cv-article-strip a {
+    padding: 12px 0 0;
+  }
+  .cv-publications strong {
+    font-size: 0.9rem;
+  }
+  .cv-books strong,
+  .cv-article-strip strong {
+    font-size: 0.98rem;
+  }
+  .cv-publications small,
+  .cv-publications em,
+  .cv-publications .paper-doi,
+  .cv-more-publications summary span,
+  .cv-more-publications summary strong,
+  .cv-books small,
+  .cv-books em,
+  .cv-article-strip span {
+    font-size: 0.76rem;
+  }
+  .cv-skills span,
+  .cv-contact a,
+  .cv-contact span {
+    font-size: 0.74rem;
+  }
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+  .notes-page {
+    max-width: 100%;
+  }
+  .notes-hero {
+    margin-bottom: 18px;
+  }
+  .notes-hero h1 {
+    font-size: clamp(1.8rem, 10vw, 2.35rem);
+  }
+  .notice-board {
+    gap: 10px;
+    padding: 16px 12px;
+    border-radius: 16px;
+  }
+  .notes-auto-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .board-pin {
+    display: none;
+  }
+  .semester-box summary {
+    grid-template-columns: minmax(0, 1fr) 28px;
+    gap: 8px;
+    padding: 12px;
+  }
+  .notes-auto-board .semester-box summary {
+    min-height: 88px;
+    padding: 14px 8px 12px;
+  }
+  .semester-box summary strong {
+    grid-column: 1/-1;
+    grid-row: 2;
+    font-size: 0.76rem;
+  }
+  .semester-box summary::after {
+    grid-column: 2;
+    grid-row: 1;
+    width: 28px;
+  }
+  .notes-auto-board .semester-box summary::after {
+    grid-column: auto;
+    grid-row: auto;
+    width: 30px;
+  }
+  .semester-links {
+    gap: 8px;
+    padding: 0 10px 12px;
+  }
+  .semester-links a {
+    min-height: 36px;
+    padding: 8px 13px;
+    font-size: 0.8rem;
+  }
+  .semester-post-links {
+    grid-template-columns: 1fr;
+  }
+  .semester-post-links a {
+    display: grid;
+    gap: 4px;
+    grid-template-columns: 1fr;
+    padding: 12px 2px 12px 15px;
+    font-size: 0.98rem;
+  }
+  .semester-post-links a small {
+    white-space: normal;
+  }
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+  .ref-grid,
+  .journal-grid {
+    grid-template-columns: 1fr;
+  }
+  .ref-copy {
+    font-size: 1.2rem;
+    line-height: 1.52;
+  }
+  .ref-list {
+    gap: 12px;
+    padding-left: 24px;
+    font-size: 0.96rem;
+  }
+  .ref-list ul {
+    gap: 9px;
+    margin-top: 10px;
+    padding-left: 22px;
+  }
+  .semester-meta-strip {
+    align-items: center;
+    flex-direction: column;
+  }
+  .semester-meta-strip span {
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+  .quiz-options {
+    grid-template-columns: 1fr;
+  }
+  .share-strip {
+    margin-top: 20px;
+    padding: 10px 8px 8px;
+  }
+  .share-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 10px;
+  }
+  .share-button {
+    width: 70px;
+    height: 70px;
+    min-height: 70px;
+    padding: 0;
+  }
+  .share-button svg,
+  .share-button img {
+    width: 66px;
+    height: 66px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

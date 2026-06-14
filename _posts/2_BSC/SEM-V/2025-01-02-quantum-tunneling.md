@@ -13,13 +13,10 @@ tags:
 permalink: /quantum-tunneling/
 ---
 
-In this article we will study:
-
-	•	Overview of quantum tunneling and its significance.
-	
-    •	Applications in nuclear potentials and resonant-tunneling diodes.
-	
-    •	Exploration of scattering problems with Rosen-Morse potential.
+>In this article we will study:
+1.  Overview of quantum tunneling and its significance.
+2.  Applications in nuclear potentials and resonant-tunneling diodes.
+3.  Exploration of scattering problems with Rosen-Morse potential.
 
 <div style="text-align: center;">
   <img src="{{ '/assets/images/bsc/sem-v/tunneling/tunneling0.jpg' | relative_url }}" 
@@ -38,11 +35,11 @@ U(x) =
 
 The potential $U(x)$ satisfy the Schrödinger equation
 
-$$\begin{equation}\label{PIBSchrodinger} 
+$$\begin{equation}
 -\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} + U(x)\psi = E\psi
 \end{equation}$$
 
-Since the particle energy is $E$ and is less than $U_0$ in region-II therefore the solution is exponentially decaying. The solution of ($\ref{PIBSchrodinger}$) in region-I and region-III are given by plane waves as particle energy is greater than the potential energy in these regions. We expect the solution to be of the form given in figure below:
+Since the particle energy is $E$ and is less than $U_0$ in region-II therefore the solution is exponentially decaying. The solution in region-I and region-III are given by plane waves as particle energy is greater than the potential energy in these regions. We expect the solution to be of the form given in figure below:
 <div style="text-align: center;">
   <img src="{{ '/assets/images/bsc/sem-v/tunneling/tunneling.jpg' | relative_url }}" 
        alt="Scattering" 
