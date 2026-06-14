@@ -1,3 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path fill="#1768d8" d="M14.45 8.15h2.18V5.08h-2.58c-2.86 0-4.5 1.68-4.5 4.42v2.12H7.37v3.35h2.18V20h3.52v-5.03h2.86l.48-3.35h-3.34V9.86c0-1 .48-1.71 1.38-1.71Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="fb-share-gradient" x1="13" y1="8" x2="51" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f86ff"/>
+      <stop offset="1" stop-color="#0d3f9f"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="48" height="48" rx="13" fill="url(#fb-share-gradient)"/>
+  <path fill="#fff" d="M36.8 20.3h5.1v-7.1h-6c-6.7 0-10.5 3.9-10.5 10.3v4.9h-5.1v7.8h5.1V52h8.2V36.2h6.7l1.1-7.8h-7.8v-4.1c0-2.3 1.1-4 3.2-4Z"/>
 </svg>

@@ -4,34 +4,41 @@
 
 .share-strip {
   width: min(920px, calc(100% - 32px));
-  margin: 30px auto 0;
-  padding: 16px 18px;
+  margin: 34px auto 0;
+  padding: 20px 18px 18px;
   text-align: center;
   border-top: 1px solid rgba(228, 216, 200, .95);
+}
+
+.share-strip .eyebrow {
+  margin: 0;
+  color: #69635c;
+  font: 760 clamp(1rem, 2.2vw, 1.28rem)/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .02em;
 }
 
 .share-actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin-top: 8px;
+  gap: clamp(18px, 4vw, 32px);
+  margin-top: 24px;
 }
 
 .share-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 58px;
-  height: 58px;
-  min-height: 58px;
+  width: 78px;
+  height: 78px;
+  min-height: 78px;
   padding: 0;
   border: 1px solid rgba(228, 216, 200, .78);
   border-radius: 50%;
   color: var(--ink);
   background: rgba(255, 253, 248, .86);
   box-shadow:
-    0 14px 32px rgba(35, 31, 26, .09),
+    0 16px 38px rgba(35, 31, 26, .11),
     inset 0 1px 0 rgba(255, 255, 255, .9);
   text-decoration: none;
   cursor: pointer;
@@ -44,8 +51,8 @@
 
 .share-button svg,
 .share-button img {
-  width: 30px;
-  height: 30px;
+  width: 66px;
+  height: 66px;
 }
 
 .share-button img {
@@ -77,12 +84,12 @@
 
 .share-button.facebook {
   color: #174ea6;
-  background: linear-gradient(135deg, #f6f9ff, #e7efff);
+  background: linear-gradient(135deg, #f8fbff, #e7efff);
 }
 
 .share-button.whatsapp {
   color: #087c54;
-  background: linear-gradient(135deg, #f2fff8, #e4f8ed);
+  background: linear-gradient(135deg, #f1fff8, #dcf9e9);
 }
 
 .share-status {
@@ -91,4 +98,3 @@
   color: var(--muted);
   font: 13px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
-

@@ -1,5 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <rect x="5" y="5" width="14" height="14" rx="4.2" fill="none" stroke="#8f2f73" stroke-width="2.1"/>
-  <circle cx="12" cy="12" r="3.15" fill="none" stroke="#8f2f73" stroke-width="2.1"/>
-  <circle cx="16.8" cy="7.2" r="1.05" fill="#8f2f73"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="ig-share-gradient" x1="11" y1="57" x2="54" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd95a"/>
+      <stop offset=".28" stop-color="#ff5f45"/>
+      <stop offset=".62" stop-color="#d735a8"/>
+      <stop offset="1" stop-color="#4e6eea"/>
+    </linearGradient>
+  </defs>
+  <rect x="7" y="7" width="50" height="50" rx="14" fill="url(#ig-share-gradient)"/>
+  <rect x="19" y="19" width="26" height="26" rx="7" fill="none" stroke="#fff" stroke-width="4.8"/>
+  <circle cx="32" cy="32" r="7.2" fill="none" stroke="#fff" stroke-width="4.8"/>
+  <circle cx="42.4" cy="21.8" r="3.1" fill="#fff"/>
 </svg>

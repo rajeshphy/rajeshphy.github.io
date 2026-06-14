@@ -13,6 +13,8 @@ permalink: /how-to-write-quiz/
 
 A quiz can be written directly inside any Markdown page. Each question uses simple lines: `Q`, `A`, `B`, `C`, `D`, `ANSWER`, and `EXPLAIN`.
 
+Use quiz only when students should click options and get immediate feedback. For a normal printed problem sheet with an answer key at the end, use the standard-problems format instead.
+
 ## Syntax
 
 {% raw %}
@@ -40,6 +42,8 @@ EXPLAIN: The standard position-momentum commutator is $[x,p]=i\hbar$.
 {% endraw %}
 
 Use `---` between questions. The answer can be written as `A`, `B`, `C`, or `D`. LaTeX works inside the question, options, and explanation.
+
+If a question begins with an exam tag like `[GATE 2024 style]`, the quiz display automatically moves that tag to the end of the question and styles it separately.
 
 ## Live Demonstration
 
