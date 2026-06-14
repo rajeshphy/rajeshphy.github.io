@@ -63,6 +63,7 @@ liquid
 json
 terminal
 console
+article
 ```
 
 If a language name is not recognized, the code block keeps the default code block style.
@@ -106,6 +107,32 @@ E\psi(x) &= -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} \\
 \end{align}
 $$
 ```
+
+## Article Block With Rendered Math
+
+Use `article` when you want a compact mini-article inside a post and the equations inside it should render:
+
+````markdown
+```article
+## The equation to solve
+$$
+\frac{1}{2m} p^{2} \psi(\mathbf{p})
+- \frac{Z e^{2}}{2\pi^{2}\hbar}
+\int
+\frac{\psi(\mathbf{p}')\,(\mathrm{d}\mathbf{p}')}
+{|\mathbf{p}-\mathbf{p}'|^{2}}
+= E\,\psi(\mathbf{p}),
+$$
+
+where $(\mathrm{d}\mathbf{p}') = \mathrm{d}p_x'\,\mathrm{d}p_y'\,\mathrm{d}p_z'$ denotes the volume element in momentum space.
+
+$$
+p_{0} = \sqrt{-2mE}. \tag{2}
+$$
+```
+````
+
+Inside an `article` block, headings like `##`, paragraphs, inline math such as `$E$`, and display math inside `$$...$$` are rendered as article content rather than shown as raw code.
 
 ## Jekyll And Liquid Example
 
