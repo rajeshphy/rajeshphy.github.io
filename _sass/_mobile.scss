@@ -608,27 +608,28 @@
   }
 
   .share-strip {
-    margin-top: 24px;
-    padding: 16px 10px;
+    margin-top: 20px;
+    padding: 10px 8px 8px;
   }
 
   .share-actions {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 14px;
+    gap: 18px;
+    margin-top: 10px;
   }
 
   .share-button {
-    width: 64px;
-    height: 64px;
-    min-height: 64px;
+    width: 70px;
+    height: 70px;
+    min-height: 70px;
     padding: 0;
   }
 
   .share-button svg,
   .share-button img {
-    width: 54px;
-    height: 54px;
+    width: 66px;
+    height: 66px;
   }
 }
