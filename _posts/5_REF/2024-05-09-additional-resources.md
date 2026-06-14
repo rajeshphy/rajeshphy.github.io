@@ -13,6 +13,8 @@ hidden: true
 - [UG Physics Syllabus]({{ '/assets/pdf/ref/syllabus/bsc.pdf' | relative_url }})
 - [Free Science Journals]({{ '/ref/free-science-journals/' | relative_url }})
 
+- [Beamer Presentation Template]({{ '/assets/zip/Beamer.zip' | relative_url }})
+
 - [Nine Formulations Of Quantum Mechanics - Daniel F. Styer]({{ '/assets/pdf/ref/None-Formulation-QM.pdf' | relative_url }})
   - [Postulates Of QM]({{ '/assets/pdf/ref/QM-Postulates.pdf' | relative_url }})
 
