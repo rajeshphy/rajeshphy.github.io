@@ -52,13 +52,19 @@ mjx-container[jax="SVG"][display="true"] {
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: .15rem 0 .35rem;
+  padding: .2rem .75rem .45rem;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
+  text-align: left !important;
+  scrollbar-width: thin;
 }
 
 mjx-container[jax="SVG"][display="true"] > svg {
+  display: block;
+  margin-inline: auto;
   max-width: none !important;
+  overflow: visible !important;
+  vertical-align: middle;
 }
 
 .post > div mjx-container[jax="SVG"][display="true"],
@@ -66,9 +72,13 @@ mjx-container[jax="SVG"][display="true"] > svg {
   min-width: 0;
 }
 
+.post mjx-container[jax="SVG"][display="true"],
+.page mjx-container[jax="SVG"][display="true"] {
+  margin: 1rem auto;
+}
+
 .post > div[style],
 .page > div[style] {
   max-width: 100%;
   overflow-x: auto;
 }
-
