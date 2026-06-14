@@ -20,7 +20,7 @@ B: Second option
 C: Third option
 D: Fourth option
 ANSWER: A
-SOURCE: GATE style
+NOTE: GATE style
 ---
 Q: Write another question here
 A: First option
@@ -28,7 +28,7 @@ B: Second option
 C: Third option
 D: Fourth option
 ANSWER: C
-SOURCE: CSIR-NET style
+NOTE: CSIR-NET style
 {% endcapture %}
 
 {% include exam-problems.html source=exam_problems %}

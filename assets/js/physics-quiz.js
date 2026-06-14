@@ -83,7 +83,7 @@
         const optionMap = { A: 0, B: 1, C: 2, D: 3, E: 4 };
 
         lines.forEach((line) => {
-          const match = line.match(/^([A-EQ]|ANSWER|EXPLAIN):\s*(.*)$/i);
+          const match = line.match(/^([A-EQ]|ANSWER|NOTE):\s*(.*)$/i);
           if (!match) return;
 
           const key = match[1].toUpperCase();
@@ -91,7 +91,7 @@
 
           if (key === "Q") item.question = value;
           else if (key === "ANSWER") item.correct = optionMap[value.toUpperCase()] ?? Number(value);
-          else if (key === "EXPLAIN") item.explanation = value;
+          else if (key === "NOTE") item.explanation = value;
           else item.options[optionMap[key]] = value;
         });
 

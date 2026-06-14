@@ -1,5 +1,6 @@
 ---
-title: Lagrangian Mechanics
+title: Lagrangian Mechanics-Advance
+summary: "Advanced concepts in Lagrangian mechanics, including generalized coordinates, nonstandard Lagrangians, and coupled systems."
 date: 2026-04-13 12:00:00 +0530
 categories: research
 tags:
@@ -65,7 +66,7 @@ These equations replace Newton’s laws in the Lagrangian framework and are vali
     Hamilton’s principle states that, among all possible paths $q_i(t)$ connecting fixed endpoints $q_i(t_1)$ and $q_i(t_2)$, the actual path taken by the system makes the action
   </div>
 
-  <div style="margin:14px 0 10px 0;">
+<div style="margin:14px 0 10px 0;">
     
 $$
 S[q]=\int_{t_1}^{t_2} L(q_i,\dot{q}_i,t)\,dt

@@ -21,7 +21,7 @@ B: zero
 C: equal to output current
 D: equal to supply current
 ANSWER: B
-EXPLAIN: An ideal op-amp has infinite input impedance, so input currents vanish.
+NOTE: An ideal op-amp has infinite input impedance, so input currents vanish.
 ---
 Q: [CSIR-NET 2023 style] A forward-biased silicon diode has an approximate cut-in voltage of
 A: $0.1\,\mathrm{V}$
@@ -29,7 +29,7 @@ B: $0.3\,\mathrm{V}$
 C: $0.7\,\mathrm{V}$
 D: $5\,\mathrm{V}$
 ANSWER: C
-EXPLAIN: Silicon p-n diodes typically conduct appreciably near $0.7\,\mathrm{V}$.
+NOTE: Silicon p-n diodes typically conduct appreciably near $0.7\,\mathrm{V}$.
 ---
 Q: [JEST 2022 style] In a common-emitter amplifier, the output voltage is approximately
 A: in phase with input
@@ -37,7 +37,7 @@ B: $180^\circ$ out of phase with input
 C: always zero
 D: independent of transistor bias
 ANSWER: B
-EXPLAIN: A common-emitter stage inverts the signal voltage.
+NOTE: A common-emitter stage inverts the signal voltage.
 ---
 Q: [GATE 2021 style] The output of an ideal inverting op-amp amplifier is
 A: $V_o=-(R_f/R_{in})V_i$
@@ -45,7 +45,7 @@ B: $V_o=(R_{in}/R_f)V_i$
 C: $V_o=V_i$
 D: $V_o=0$
 ANSWER: A
-EXPLAIN: Virtual ground analysis gives gain $-R_f/R_{in}$.
+NOTE: Virtual ground analysis gives gain $-R_f/R_{in}$.
 ---
 Q: [CSIR-NET 2020 style] A NAND gate output is zero only when
 A: both inputs are zero
@@ -53,7 +53,7 @@ B: one input is zero
 C: both inputs are one
 D: inputs are unequal
 ANSWER: C
-EXPLAIN: NAND is the negation of AND, so it is low only for input $1,1$.
+NOTE: NAND is the negation of AND, so it is low only for input $1,1$.
 {% endcapture %}
 
 {% include quiz.html source=quiz_questions %}

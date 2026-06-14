@@ -31,7 +31,7 @@
         const item = { question: "", options: {}, answer: "", source: "" };
 
         lines.forEach((line) => {
-          const match = line.match(/^([A-DQ]|ANSWER|SOURCE):\s*(.*)$/i);
+          const match = line.match(/^([A-DQ]|ANSWER|NOTE):\s*(.*)$/i);
           if (!match) return;
 
           const key = match[1].toUpperCase();
@@ -39,7 +39,7 @@
 
           if (key === "Q") item.question = value;
           else if (key === "ANSWER") item.answer = value.toLowerCase();
-          else if (key === "SOURCE") item.source = value.replace(/^\[|\]$/g, "");
+          else if (key === "NOTE") item.source = value.replace(/^\[|\]$/g, "");
           else item.options[key.toLowerCase()] = value;
         });
 
