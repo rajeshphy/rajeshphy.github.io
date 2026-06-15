@@ -1,0 +1,116 @@
+{% assign board = include.board %}
+{% assign visible_limit = board.visible_limit | default: 4 %}
+
+{% assign total_count = 0 %}
+
+{%- capture visible_board -%}
+  {% for item in board.items %}
+    {% assign group_category = item.category %}
+    {% assign group_label = item.label %}
+
+    {%- capture group_links -%}
+      {%- for post in site.posts -%}
+        {%- if post.categories contains group_category -%}
+          <a href="{{ post.url | relative_url }}">
+            <span>{{ post.title }}</span>
+            <small>{{ post.date | date: "%d %b %Y" }}</small>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    {% assign group_links = group_links | strip %}
+
+    {% if group_links != "" %}
+      {% assign total_count = total_count | plus: 1 %}
+
+      {% if total_count <= visible_limit %}
+        <details class="semester-box {{ board.item_class }}">
+          <summary>
+            <span>{{ group_label }}</span>
+            <strong>{{ board.item_type }}</strong>
+          </summary>
+
+          <div class="semester-links semester-post-links">
+            {{ group_links }}
+          </div>
+        </details>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{%- endcapture -%}
+
+{% assign extra_count = 0 %}
+
+{%- capture extra_board -%}
+  {% assign running_count = 0 %}
+
+  {% for item in board.items %}
+    {% assign group_category = item.category %}
+    {% assign group_label = item.label %}
+
+    {%- capture group_links -%}
+      {%- for post in site.posts -%}
+        {%- if post.categories contains group_category -%}
+          <a href="{{ post.url | relative_url }}">
+            <span>{{ post.title }}</span>
+            <small>{{ post.date | date: "%d %b %Y" }}</small>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    {% assign group_links = group_links | strip %}
+
+    {% if group_links != "" %}
+      {% assign running_count = running_count | plus: 1 %}
+
+      {% if running_count > visible_limit %}
+        {% assign extra_count = extra_count | plus: 1 %}
+
+        <details class="semester-box {{ board.item_class }}">
+          <summary>
+            <span>{{ group_label }}</span>
+            <strong>{{ board.item_type }}</strong>
+          </summary>
+
+          <div class="semester-links semester-post-links">
+            {{ group_links }}
+          </div>
+        </details>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{%- endcapture -%}
+
+{% assign visible_board = visible_board | strip %}
+{% assign extra_board = extra_board | strip %}
+{% assign full_board = visible_board | append: extra_board | strip %}
+
+{% if full_board != "" %}
+  <section class="notice-board {{ board.board_class }} notes-auto-board" aria-label="{{ board.aria_label }}">
+    {% if board.board_class contains "current-board" %}
+      <div class="board-pin pin-left"></div>
+      <div class="board-pin pin-right"></div>
+    {% endif %}
+
+    <div class="board-heading">
+      <span>{{ board.title }}</span>
+    </div>
+
+    {{ visible_board }}
+
+    {% if extra_board != "" %}
+      <details class="board-more">
+        <summary>
+          <span>More</span>
+          <strong>{{ extra_count }} more</strong>
+        </summary>
+
+        <div class="board-more-panel">
+          {{ extra_board }}
+        </div>
+      </details>
+    {% endif %}
+  </section>
+{% endif %}
