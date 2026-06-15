@@ -14,6 +14,8 @@ permalink: /how-to-write-front-matter/
 
 Front matter is the YAML block at the top of a Jekyll page or post. It is written between two lines of three dashes.
 
+Use front matter for individual pages and posts. Use `_data` files for reusable site lists such as About details, Ref resources, header icons, and share icons.
+
 ## Basic Post Front Matter
 
 ```yaml
@@ -124,3 +126,4 @@ Common automatic categories are:
 - Use a trailing slash in `permalink`, for example `/notes/`.
 - Do not repeat `math: true` in posts; the site default already enables it.
 - Use `hidden: true` only for pages that should not appear in normal archives.
+- For reusable structured lists, edit `_data` instead of adding front matter fields.

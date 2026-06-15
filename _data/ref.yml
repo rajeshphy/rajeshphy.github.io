@@ -1,0 +1,66 @@
+items:
+
+  - title: Free Science Journals
+    url: /ref/free-science-journals/
+    
+  - title: Syllabus
+    children:
+    - title: PG Physics Syllabus
+      url: /assets/pdf/ref/syllabus/msc.pdf
+    - title: UG Physics Syllabus
+      url: /assets/pdf/ref/syllabus/bsc.pdf
+  
+  - title: Beamer Template
+    children:
+    - title: Beamer ZIP
+      url: /assets/zip/Beamer.zip
+    - title: Beamer PDF
+      url: /assets/zip/Beamer.pdf
+  - title: Nine Formulations Of Quantum Mechanics - Daniel F. Styer
+    url: /assets/pdf/ref/None-Formulation-QM.pdf
+    children:
+      - title: Postulates Of QM
+        url: /assets/pdf/ref/QM-Postulates.pdf
+  - title: Green's Function - Erik M. Olsen
+    url: /assets/pdf/ref/Greens-Function.pdf
+    children:
+      - title: Green's Function Example
+        url: "https://bingweb.binghamton.edu/~suzuki/Math-Physics/LN-14_Green_s_function.pdf"
+      - title: Scattering Theory - B. Zwiebach
+        url: /assets/pdf/ref/Scattering-MIT.pdf
+      - title: Angular Momentum - Rajesh
+        url: /assets/pdf/ref/Angular-Momentum.pdf
+  - title: Variational Principle
+    url: /assets/pdf/ref/QM-Variational.pdf
+  - title: Experimental Verification Of Compound Nuclear Reaction - S. N. Ghoshal
+    url: /assets/pdf/ref/Experimental-Compound-Nuclear-Reaction-SN-Ghoshal.pdf
+  - title: Nuclear Reactions
+    url: /assets/pdf/ref/Nuclear-Reactions.pdf
+  - title: Reasoning In Physics
+    url: /assets/pdf/ref/appendix/Reasoning-In-Physics.pdf
+  - title: Frequently Used Mathematical Formulae
+    url: /assets/pdf/ref/Math-Formulae.pdf
+  - title: Frequently Used Quantum Mechanics Formulae
+    url: /assets/pdf/ref/QM-Formulae.pdf
+  - title: Pauli Spin Matrices Relation
+    url: /assets/pdf/ref/Pauli-Dirac-Relation.pdf
+  - title: Edmond Becquerel
+    url: /assets/pdf/ref/Edmond_Becquerel.pdf
+  - title: Appendix
+    children:
+      - title: Fourier Transform
+        url: /assets/pdf/ref/appendix/Fourier-Transform.pdf
+      - title: Relativity Proof
+        url: /assets/pdf/ref/appendix/Relativity-Proof.pdf
+      - title: Kinetic Energy in Generalized Coordinates
+        url: /assets/pdf/ref/appendix/KE-Generalized-Coordinates.pdf
+      - title: Vector and Tensor Calculus
+        url: /assets/pdf/ref/appendix/Vector-Tensor-Calculus.pdf
+      - title: Numerical Solution
+        url: /assets/pdf/ref/appendix/Numerical-Solution.pdf
+  - title: Statistical Mechanics Formulae
+    url: /assets/pdf/ref/Statistical-Formulae.pdf
+  - title: Handbook Of Physics Formulas
+    url: /assets/pdf/ref/The-Cambridge-Handbook-of-Physics-Formulas.pdf
+  - title: Particle Physics
+    url: /assets/pdf/ref/Particle-Physics.pdf

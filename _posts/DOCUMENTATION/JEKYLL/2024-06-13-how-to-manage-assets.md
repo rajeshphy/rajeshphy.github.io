@@ -39,9 +39,31 @@ Use lowercase folder names when possible, and keep related files together.
 
 Using `relative_url` keeps links working with the current `baseurl`.
 
+## Icons Used By Data Files
+
+Header and share icons are listed in data files:
+
+```text
+_data/header_icons.yml
+_data/share_icons.yml
+```
+
+Keep the actual SVG or image files inside:
+
+```text
+assets/icons/
+```
+
+Then reference them with a site-relative path such as:
+
+```yaml
+icon: /assets/icons/icon-whatsapp-share.svg
+```
+
 ## Small Rules
 
 - Avoid spaces in filenames.
 - Prefer descriptive names such as `barrier-potential.png`.
 - Keep large PDFs in `assets/pdfs`.
+- Keep reusable icon paths in `_data` when they are used by the header or share strip.
 - After adding files, run `jekyll build` and click the generated link locally.

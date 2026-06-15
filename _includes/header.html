@@ -1,8 +1,9 @@
 <header class="site-header">
+  {% assign site_name = site.author.name | default: site.title %}
   <a class="brand" href="{{ '/' | relative_url }}">
     <span class="brand-mark">RK</span>
     <span class="brand-copy">
-      <strong>{{ site.title }}</strong>
+      <strong>{{ site_name }}</strong>
       <small>Physical Science</small>
     </span>
   </a>
@@ -18,13 +19,10 @@
     <div id="nav-search-results" class="nav-search-results" aria-live="polite"></div>
   </nav>
   <div class="icon-row header-icons" aria-label="Contact links">
-    <a class="icon-link" href="mailto:{{ site.email }}" aria-label="Email Rajesh Kumar">
-      <img src="{{ '/assets/icons/icon-email-nav.svg' | relative_url }}" alt="" aria-hidden="true">
-    </a>
-    {% if site.contact.whatsapp %}
-      <a class="icon-link" href="{{ site.contact.whatsapp }}" aria-label="WhatsApp group">
-        <img src="{{ '/assets/icons/icon-whatsapp-nav.svg' | relative_url }}" alt="" aria-hidden="true">
+    {% for icon in site.data.header_icons %}
+      <a class="icon-link" href="{{ icon.href }}" aria-label="{{ icon.label }}">
+        <img src="{{ icon.icon | relative_url }}" alt="" aria-hidden="true">
       </a>
-    {% endif %}
+    {% endfor %}
   </div>
 </header>

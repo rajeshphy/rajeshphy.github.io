@@ -1,0 +1,9 @@
+- name: email
+  label: Email Rajesh Kumar
+  href: "mailto:kr.rajesh.phy@gmail.com"
+  icon: /assets/icons/icon-email-nav.svg
+
+- name: whatsapp
+  label: WhatsApp group
+  href: "https://chat.whatsapp.com/IU67roYMMwy161ERjJaZUS?s=cl&p=a&ilr=2&amv=2"
+  icon: /assets/icons/icon-whatsapp-nav.svg

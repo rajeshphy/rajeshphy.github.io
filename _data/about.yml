@@ -1,0 +1,85 @@
+profile:
+  image: /assets/images/about-profile.png
+  role: Assistant Professor
+  summary: "of Physics at S.K.M. University, Dumka; IIT Kanpur alumnus, with academic interests in computational physics, quantum mechanics, and scientific computing."
+
+research_papers:
+  - venue: Annals of Physics · Vol. 463 · Article 169623 · 2024
+    title: Rationally Extended Harmonic Oscillator Potential, Isospectral Family and the Uncertainty Relations
+    authors: Rajesh Kumar, Rajesh Kumar Yadav, Avinash Khare
+    doi: 10.1016/j.aop.2024.169623
+    url: "https://doi.org/10.1016/j.aop.2024.169623"
+  - venue: Annals of Physics · Vol. 479 · Article 170045 · 2025
+    title: Rational Extension of Anisotropic Harmonic Oscillator Potentials in Higher Dimensions
+    authors: Rajesh Kumar, Rajesh Kumar Yadav, Avinash Khare
+    doi: 10.1016/j.aop.2025.170045
+    url: "https://www.sciencedirect.com/science/article/abs/pii/S0003491625001265"
+  - venue: International Journal of Modern Physics A · Vol. 41 · Article 2650003 · 2026
+    title: Rational Extension of Quantum Anisotropic Oscillator Potentials with Linear and/or Quadratic Perturbations
+    authors: Rajesh Kumar Yadav, Rajesh Kumar, Avinash Khare
+    doi: 10.1142/S0217751X2650003X
+    url: "https://www.worldscientific.com/doi/10.1142/S0217751X2650003X"
+
+books:
+  - title: The First Generation Mind
+    detail: ISBN 979-890510755-9
+    description: Academic reflections and writing for first-generation learners.
+    url: "https://amzn.in/d/0aXt5CtS"
+  - title: Physics Tikz
+    detail: ISBN 978-93-5917-683-3
+    description: A practical resource for clean physics diagrams and lecture visuals.
+    url: "https://store.pothi.com/book/rajesh-kumar-physics-tikz/"
+
+articles:
+  - label: Selected Article · Shaikshik Manthan · Page 26 · ISSN 2581-4133
+    title: Indian Astronomy and Indian Knowledge Tradition
+    url: "https://shaikshikmanthan.com/सितंबर-अंक-2023/"
+
+experience:
+  - time: Oct 2022-Now
+    title: Assistant Professor
+    description: S.K.M. University Dumka and Model College Dumka.
+  - time: Nov 2020-Oct 2022
+    title: Assistant Professor
+    description: Deoghar College Deoghar, constituent unit of S.K.M. University, Dumka.
+  - time: Mar 2019-Apr 2020
+    title: Project Scientist B
+    description: INCOIS, Ministry of Earth Sciences, Government of India. Worked in ocean state forecast laboratory on modelling the Indian Ocean to predict weather conditions over ocean and coastal areas.
+  - time: Nov 2018-Feb 2019
+    title: Junior Research Fellow
+    description: Nano Photonics Lab, ISM Dhanbad. Worked on theoretical and experimental modelling of SPR ellipsometry.
+
+education:
+  - title: IIT Kanpur
+    description: Master of Science
+  - title: St. Xavier's College, Ranchi
+    description: Bachelor of Science
+  - title: Intermediate Silli College, Silli
+    description: ISC, JAC
+  - title: Ursuline Convent School, Muri
+    description: ICSE
+
+certifications:
+  - title: NGPE 2016
+    description: State Topper, Jharkhand and Bihar Circle, 2016
+  - title: IIT-JAM 2016
+    description: Physics
+  - title: JRF-NET 2017
+    description: Physics
+  - title: GATE 2018
+    description: Physics
+
+skills:
+  - Fortran
+  - Python
+  - Java
+  - C++
+  - Shell scripting
+  - Gmsh
+  - Git
+  - Django
+  - Jekyll
+  - Linux
+  - Windows
+  - FEM simulation
+  - Microcontroller applications

@@ -1,0 +1,18 @@
+heading: Share This Page
+icons:
+  - name: instagram
+    label: Share or copy link for Instagram
+    action: copy
+    icon: /assets/icons/icon-instagram-share.svg
+
+  - name: facebook
+    label: Share on Facebook
+    action: facebook
+    icon: /assets/icons/icon-facebook-share.svg
+    url: "https://www.facebook.com/sharer/sharer.php"
+
+  - name: whatsapp
+    label: Share on WhatsApp
+    action: whatsapp
+    icon: /assets/icons/icon-whatsapp-share.svg
+    url: "https://api.whatsapp.com/send"
