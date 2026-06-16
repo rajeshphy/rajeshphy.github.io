@@ -86,6 +86,52 @@ permalink: /about/
     </div>
   </section>
 
+  {% if about.talks %}
+    <section class="cv-section">
+      <header>
+        <p>Talks</p>
+      </header>
+      <div class="cv-list cv-talks">
+        {% for talk in about.talks limit: 3 %}
+          <article>
+            <h3>{{ talk.topic }}</h3>
+            {% if talk.date %}
+              <time class="cv-talk-date">{{ talk.date }}</time>
+            {% endif %}
+            <p>
+              {{ talk.role }}{% if talk.event %}, {{ talk.event }}{% endif %}{% if talk.organizer %}, {{ talk.organizer }}{% endif %}
+            </p>
+          </article>
+        {% endfor %}
+      </div>
+
+      {% assign additional_talks = about.talks.size | minus: 3 %}
+      {% if additional_talks > 0 %}
+        <details class="cv-more-publications cv-more-talks">
+          <summary>
+            <span>More Talks</span>
+            <strong>{{ additional_talks }} additional talk{% if additional_talks > 1 %}s{% endif %}</strong>
+          </summary>
+          <div class="cv-more-publications-panel">
+            <div class="cv-list cv-talks">
+              {% for talk in about.talks offset: 3 %}
+                <article>
+                  <h3>{{ talk.topic }}</h3>
+                  {% if talk.date %}
+                    <time class="cv-talk-date">{{ talk.date }}</time>
+                  {% endif %}
+                  <p>
+                    {{ talk.role }}{% if talk.event %}, {{ talk.event }}{% endif %}{% if talk.organizer %}, {{ talk.organizer }}{% endif %}
+                  </p>
+                </article>
+              {% endfor %}
+            </div>
+          </div>
+        </details>
+      {% endif %}
+    </section>
+  {% endif %}
+
   <section class="cv-section">
     <header>
       <p>Experience</p>

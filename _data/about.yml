@@ -35,6 +35,18 @@ articles:
     title: Indian Astronomy and Indian Knowledge Tradition
     url: "https://shaikshikmanthan.com/सितंबर-अंक-2023/"
 
+talks:
+  - role: Invited Resource Person 
+    event: Information Technology Refresher Course
+    organizer: UGC-MMTTC Ranchi, Jharkhand
+    topic: AI, Automation and Web Workflows
+    date: 16th June 2026  
+  - role: Invited Resource Person
+    event: Multidisciplinary International Seminar
+    organizer: S.R.T. College Dhamri, Godda, Jharkhand
+    topic: Responsible AI
+    date: 28th Jan 2026
+
 experience:
   - time: Oct 2022-Now
     title: Assistant Professor

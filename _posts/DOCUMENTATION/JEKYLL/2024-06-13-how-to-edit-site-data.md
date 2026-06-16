@@ -39,6 +39,7 @@ This file controls:
 - profile photo and summary
 - research papers
 - books and selected articles
+- talks
 - experience
 - education
 - certifications
@@ -56,6 +57,18 @@ research_papers:
 ```
 
 The first research paper is shown directly. Extra papers appear inside the collapsible “More Research Papers” section automatically.
+
+Example talk entry:
+
+```yaml
+talks:
+  - role: Invited Resource Person
+    event: Information Technology Refresher Course
+    organizer: UGC-MMTTC Ranchi
+    topic: AI, Automation and Web Workflows
+```
+
+The About page shows the first three talks directly. If more than three talks are listed, the remaining talks appear inside a collapsible “More Talks” section automatically.
 
 ## Ref Page Data
 
