@@ -3,14 +3,14 @@ layout: default
 title: Home
 ---
 
-<section class="hero" style="--hero-bg: url('{{ "/assets/images/physics-formula-board-1920x1080.svg" | relative_url }}');">
+<section class="hero" style="--hero-bg: url('{{ site.base_page_details.background_image | relative_url }}');">
   <div class="hero-copy">
     <!-- <p class="eyebrow">Physical Science · Lecture Archive</p> -->
     <h1>{{ site.base_page_details.name | default: site.title }}</h1>
     <p class="hero-subtitle">{{ site.base_page_details.description | default: site.description }}</p>
     <div class="hero-actions">
-      <a class="button" href="{{ '/notes-archive/' | relative_url }}">{{ site.base_page_details.button1-1 | default: "Notes" }}</a>
-      <a class="button secondary" href="{{ '/research-archive/' | relative_url }}">{{ site.base_page_details.button1-2 | default: "Research" }}</a>
+      <a class="button" href="{{ '/notes-archive/' | relative_url }}">{{ site.base_page_details.button-1 | default: "Notes" }}</a>
+      <a class="button secondary" href="{{ '/research-archive/' | relative_url }}">{{ site.base_page_details.button-2 | default: "Research" }}</a>
     </div>
   </div>
 </section>

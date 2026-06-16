@@ -9,10 +9,11 @@ contact:
   whatsapp: "https://chat.whatsapp.com/IU67roYMMwy161ERjJaZUS?s=cl&p=a&ilr=2&amv=2"
 
 base_page_details:
+  background_image: "/assets/images/physics-formula-board-1920x1080.svg"
   name: PHYSICS
   description: "Curated lecture notes, LaTeX derivations, and diagram-rich research resources."
-  button1-1: Notes
-  button1-2: Research
+  button-1: Notes
+  button-2: Research
 
 markdown: kramdown
 permalink: /:title/
