@@ -8,6 +8,12 @@ author:
 contact:
   whatsapp: "https://chat.whatsapp.com/IU67roYMMwy161ERjJaZUS?s=cl&p=a&ilr=2&amv=2"
 
+base_page_details:
+  name: PHYSICS
+  description: "Curated lecture notes, LaTeX derivations, and diagram-rich research resources."
+  button1-1: Notes
+  button1-2: Research
+
 markdown: kramdown
 permalink: /:title/
 paginate: 10
