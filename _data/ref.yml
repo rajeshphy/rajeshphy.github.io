@@ -7,8 +7,10 @@ items:
     children:
     - title: PG Physics
       url: /assets/pdf/ref/syllabus/msc.pdf
-    - title: UG Physics NEP
-      url: /assets/pdf/ref/syllabus/bsc.pdf
+    - title: UG Physics NEP(2024-2028)
+      url: /assets/pdf/ref/syllabus/bsc-2024-2028.pdf
+    - title: UG Physics NEP(2025-2029)
+      url: /assets/pdf/ref/syllabus/bsc-2025-2029.pdf
     - title: UG Physics CBCS
       url: /assets/pdf/ref/syllabus/bsc-cbcs.pdf
   
