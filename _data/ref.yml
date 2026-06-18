@@ -5,10 +5,12 @@ items:
     
   - title: Syllabus
     children:
-    - title: PG Physics Syllabus
+    - title: PG Physics
       url: /assets/pdf/ref/syllabus/msc.pdf
-    - title: UG Physics Syllabus
+    - title: UG Physics NEP
       url: /assets/pdf/ref/syllabus/bsc.pdf
+    - title: UG Physics CBCS
+      url: /assets/pdf/ref/syllabus/bsc-cbcs.pdf
   
   - title: Beamer Template
     children:
