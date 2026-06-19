@@ -1,5 +1,7 @@
 {% if page.comments != false and jekyll.environment == "production" and site.comments.provider == "cusdis" %}
   <section class="comments" aria-label="Comments">
+    <h2 class="comments__title">Discussion</h2>
+
     <div
       id="cusdis_thread"
       data-host="{{ site.comments.cusdis.host }}"
@@ -7,6 +9,7 @@
       data-page-id="{{ page.id | default: page.url }}"
       data-page-url="{{ page.url | absolute_url }}"
       data-page-title="{{ page.title | escape }}"
+      data-theme="light"
     ></div>
 
     <script async defer src="{{ site.comments.cusdis.host }}/js/cusdis.es.js"></script>
