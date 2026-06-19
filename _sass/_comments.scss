@@ -14,7 +14,7 @@
   border-radius: 18px;
 
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(244, 238, 226, 0.96)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(244, 238, 226, 0.96)),
     #f7f1e7;
 
   box-shadow:
@@ -24,13 +24,18 @@
   overflow: hidden;
 }
 
+/* Center aligned heading */
+
 .comments__title {
-  margin: 0 0 1.4rem;
+  display: block;
+  width: 100%;
+
+  margin: 0 auto 1.8rem;
 
   text-align: center;
 
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-  font-size: 1.45rem;
+  font-size: 1.55rem;
   font-weight: 600;
   line-height: 1.25;
 
@@ -41,14 +46,20 @@
   content: "";
   display: block;
 
-  width: 72px;
+  width: 86px;
   height: 3px;
 
-  margin: 0.65rem auto 0;
+  margin: 0.7rem auto 0;
   border-radius: 999px;
 
-  background: linear-gradient(90deg, rgba(139, 94, 52, 0), #8b5e34, rgba(139, 94, 52, 0));
+  background: linear-gradient(
+    90deg,
+    rgba(139, 94, 52, 0),
+    #8b5e34,
+    rgba(139, 94, 52, 0)
+  );
 }
+
 /* Cusdis container */
 
 #cusdis_thread {
@@ -58,7 +69,7 @@
   overflow: hidden;
 }
 
-/* Important: fixes clipped Cusdis iframe */
+/* Fix clipped Cusdis iframe */
 
 #cusdis_thread iframe,
 .comments iframe {
@@ -72,7 +83,7 @@
   border: 0;
 }
 
-/* Optional: give space between article and comments */
+/* Better spacing when embedded after article/post */
 
 .post .comments,
 .post-content + .comments,
@@ -91,6 +102,11 @@ article + .comments {
   }
 
   .comments__title {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .comments__title::after {
+    width: 72px;
   }
 }
