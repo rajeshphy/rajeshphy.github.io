@@ -27,6 +27,8 @@
 .comments__title {
   margin: 0 0 1.4rem;
 
+  text-align: center;
+
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   font-size: 1.45rem;
   font-weight: 600;
@@ -42,12 +44,11 @@
   width: 72px;
   height: 3px;
 
-  margin-top: 0.65rem;
+  margin: 0.65rem auto 0;
   border-radius: 999px;
 
-  background: linear-gradient(90deg, #8b5e34, rgba(139, 94, 52, 0));
+  background: linear-gradient(90deg, rgba(139, 94, 52, 0), #8b5e34, rgba(139, 94, 52, 0));
 }
-
 /* Cusdis container */
 
 #cusdis_thread {
