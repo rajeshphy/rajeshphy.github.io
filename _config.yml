@@ -29,10 +29,13 @@ plugins:
 feed:
   path: feed.xml
 
+
 comments:
-  provider: disqus
-  disqus:
-    shortname: consultt-github-io
+  provider: cusdis
+  cusdis:
+    host: https://cusdis.com
+    app_id: 8a1361f7-420f-4e27-a5c9-eb5ee25bf278
+
 
 defaults:
   - scope:
@@ -41,4 +44,4 @@ defaults:
     values:
       layout: post
       math: true
-      comments: false
+      comments: true
