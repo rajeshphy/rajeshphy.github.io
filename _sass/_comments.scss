@@ -66,16 +66,25 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  overflow: hidden;
+
+  /*
+    Increase this value if you want more vertical space.
+    720px usually shows the form + several comments comfortably.
+  */
+  min-height: 720px;
+
+  overflow: visible;
 }
 
-/* Fix clipped Cusdis iframe */
+/* Cusdis iframe */
 
 #cusdis_thread iframe,
 .comments iframe {
   width: 100% !important;
   max-width: 100% !important;
   min-width: 0 !important;
+
+  min-height: 720px !important;
 
   display: block;
   box-sizing: border-box;
@@ -108,5 +117,11 @@ article + .comments {
 
   .comments__title::after {
     width: 72px;
+  }
+
+  #cusdis_thread,
+  #cusdis_thread iframe,
+  .comments iframe {
+    min-height: 620px !important;
   }
 }
