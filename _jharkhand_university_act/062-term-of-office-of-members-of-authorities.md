@@ -14,9 +14,9 @@ section_number: "62"
  <h2 class="act-section-heading"><span>62</span>Term of Office of Members of Authorities</h2>
  <p class="act-essence-box">Brief: The term of nominated members in any authority constituted under this Act shall be of three years from the said date of nomination. The process for nomination of member shall commence at least three months before expiry of the term of such member and shall be completed before the expiry of the term of such nominated member: Provided that, the process of nomination of members for the reconstituted authorities of the...</p>
  <div class="act-section-body">
-(1) The term of nominated members in any authority constituted under this Act shall be of three years from the said date of nomination.
-(2) The process for nomination of member shall commence at least three months before expiry of the term of such member and shall be completed before the expiry of the term of such nominated member:
-Provided that, the process of nomination of members for the reconstituted authorities of the Universities shall be completed within six months of commencement of this Act.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The term of nominated members in any authority constituted under this Act shall be of three years from the said date of nomination.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The process for nomination of member shall commence at least three months before expiry of the term of such member and shall be completed before the expiry of the term of such nominated member:</span></p>
+<p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">the process of nomination of members for the reconstituted authorities of the Universities shall be completed within six months of commencement of this Act.</span></p>
   </div>
 </article>
 

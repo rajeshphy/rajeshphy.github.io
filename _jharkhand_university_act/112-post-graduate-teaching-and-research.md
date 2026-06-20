@@ -14,7 +14,7 @@ section_number: "112"
  <h2 class="act-section-heading"><span>112</span>Post Graduate Teaching and Research</h2>
  <p class="act-essence-box">Brief: All postgraduate instruction, teaching, training, research, research collaborations, and partnerships shall typically be conducted by the University or through autonomous and empowered autonomous, affiliated or constituent colleges, as prescribed by the Statutes.</p>
  <div class="act-section-body">
-All postgraduate instruction, teaching, training, research, research collaborations, and partnerships shall typically be conducted by the University or through autonomous and empowered autonomous, affiliated or constituent colleges, as prescribed by the Statutes.
+<p class="act-line act-line-continuation">All postgraduate instruction, teaching, training, research, research collaborations, and partnerships shall typically be conducted by the University or through autonomous and empowered autonomous, affiliated or constituent colleges, as prescribed by the Statutes.</p>
   </div>
 </article>
 

@@ -14,10 +14,10 @@ section_number: "123"
  <h2 class="act-section-heading"><span>123</span>University Rules</h2>
  <p class="act-essence-box">Brief: Subject to the provisions of this Act, the University may make rules for all matters mentioned in the Statutes, to provide clarity, explanation or procedure for carrying out the provisions of the Statutes. The Senate shall approve the University Rules proposed by the Syndicate and may send to the State Government for information: Provided that University Rules concerning academic matters shall be proposed by the Syndicate in consultation with the Academic Council...</p>
  <div class="act-section-body">
-(1) Subject to the provisions of this Act, the University may make rules for all matters mentioned in the Statutes, to provide clarity, explanation or procedure for carrying out the provisions of the Statutes.
-(2) The Senate shall approve the University Rules proposed by the Syndicate and may send to the State Government for information:
-Provided that University Rules concerning academic matters shall be proposed by the Syndicate in consultation with the Academic Council for approval from the Senate.
-CHAPTER XII: UNIVERSITY FUNDS, ACCOUNTS AND AUDIT
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Subject to the provisions of this Act, the University may make rules for all matters mentioned in the Statutes, to provide clarity, explanation or procedure for carrying out the provisions of the Statutes.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Senate shall approve the University Rules proposed by the Syndicate and may send to the State Government for information:</span></p>
+<p class="act-line act-line-proviso"><span class="act-marker">Provided that</span><span class="act-line-text">University Rules concerning academic matters shall be proposed by the Syndicate in consultation with the Academic Council for approval from the Senate.</span></p>
+<p class="act-line act-line-chapter-break">CHAPTER XII: UNIVERSITY FUNDS, ACCOUNTS AND AUDIT</p>
   </div>
 </article>
 

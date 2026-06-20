@@ -14,14 +14,14 @@ section_number: "64"
  <h2 class="act-section-heading"><span>64</span>Disqualification for Membership of Authority</h2>
  <p class="act-essence-box">Brief: A person shall be disqualified from being a member of any of the authorities of University, if he- is of unsound mind and stands so declared by a competent court; or is an undischarged insolvent; or has been convicted of any offence involving moral turpitude; or has been punished for indulging in or promoting unfair practices in the conduct of any examination and evaluation, in any form, anywhere; or has willfully omitted...</p>
  <div class="act-section-body">
-(1) A person shall be disqualified from being a member of any of the authorities of University, if he-
-(a) is of unsound mind and stands so declared by a competent court; or
-(b) is an undischarged insolvent; or
-(c) has been convicted of any offence involving moral turpitude; or
-(d) has been punished for indulging in or promoting unfair practices in the conduct of any examination and evaluation, in any form, anywhere; or
-(e) has willfully omitted or refused to carry out the provisions of this Act, Statutes or University Ordinances, or has acted in any manner detrimental to the interests of the University; or
-(f) has been punished in any form, by the competent authority for committing a misconduct; or
-(g) discloses or causes to disclose to the public, in any manner whatsoever, any confidential matter, in relation to the examination and evaluation, the knowledge of which he has come to be in possession, due to his official position.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">A person shall be disqualified from being a member of any of the authorities of University, if he-</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">is of unsound mind and stands so declared by a competent court; or</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">is an undischarged insolvent; or</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">has been convicted of any offence involving moral turpitude; or</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">has been punished for indulging in or promoting unfair practices in the conduct of any examination and evaluation, in any form, anywhere; or</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">has willfully omitted or refused to carry out the provisions of this Act, Statutes or University Ordinances, or has acted in any manner detrimental to the interests of the University; or</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">has been punished in any form, by the competent authority for committing a misconduct; or</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">discloses or causes to disclose to the public, in any manner whatsoever, any confidential matter, in relation to the examination and evaluation, the knowledge of which he has come to be in possession, due to his official position.</span></p>
   </div>
 </article>
 

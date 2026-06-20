@@ -14,7 +14,7 @@ section_number: "156"
  <h2 class="act-section-heading"><span>156</span>Punishment for Non-Compliance</h2>
  <p class="act-essence-box">Brief: Any entity, failing to comply with the recommendations of the Commission shall be liable for legal and penal action as may be prescribed by the Rules.</p>
  <div class="act-section-body">
-Any entity, failing to comply with the recommendations of the Commission shall be liable for legal and penal action as may be prescribed by the Rules.
+<p class="act-line act-line-continuation">Any entity, failing to comply with the recommendations of the Commission shall be liable for legal and penal action as may be prescribed by the Rules.</p>
   </div>
 </article>
 

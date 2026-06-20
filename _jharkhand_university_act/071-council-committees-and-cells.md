@@ -14,17 +14,17 @@ section_number: "71"
  <h2 class="act-section-heading"><span>71</span>Council, Committees and Cells</h2>
  <p class="act-essence-box">Brief: The following shall be the Council, Committees and Cells constituted under this Act, namely:- Advisory Committee; Finance and Accounts Committee; Internal Quality Assurance Cell; Library-Cum-Knowledge Resource Committee; Purchase Committee; Students’ Union and Student Council; Buildings and Works Committee; Fee Fixation Committee; Public Relations Committee; and Internal Complaints Committee.</p>
  <div class="act-section-body">
-(1) The following shall be the Council, Committees and Cells constituted under this Act, namely:-
-(a) Advisory Committee;
-(b) Finance and Accounts Committee;
-(c) Internal Quality Assurance Cell;
-(d) Library-Cum-Knowledge Resource Committee;
-(e) Purchase Committee;
-(f) Students’ Union and Student Council;
-(g) Buildings and Works Committee;
-(h) Fee Fixation Committee;
-(i) Public Relations Committee; and
-(j) Internal Complaints Committee;
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The following shall be the Council, Committees and Cells constituted under this Act, namely:-</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Advisory Committee;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">Finance and Accounts Committee;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">Internal Quality Assurance Cell;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">Library-Cum-Knowledge Resource Committee;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">Purchase Committee;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">Students’ Union and Student Council;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">Buildings and Works Committee;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">Fee Fixation Committee;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(i)</span><span class="act-line-text">Public Relations Committee; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(j)</span><span class="act-line-text">Internal Complaints Committee;</span></p>
   </div>
 </article>
 

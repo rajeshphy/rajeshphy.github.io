@@ -14,17 +14,17 @@ section_number: "104"
  <h2 class="act-section-heading"><span>104</span>General Powers and Procedure of Employees Grievance Redressal Tribunal and Committee</h2>
  <p class="act-essence-box">Brief: The Employees Grievance Redressal Committee shall for the purposes of any inquiry or proceedings under this Act, have the same powers as are vested in a Civil Court under the Code of Civil Procedure, 1908 in respect to the following matters namely:- Summoning and enforcing the attendance of any person and examining him / her on oath; requiring the discovery and production of any document or other material object producible as evidence...</p>
  <div class="act-section-body">
-(1) The Employees Grievance Redressal Committee shall for the purposes of any inquiry or proceedings under this Act, have the same powers as are vested in a Civil Court under the Code of Civil Procedure, 1908 in respect to the following matters namely:-
-(a) Summoning and enforcing the attendance of any person and examining him / her on oath;
-(b) requiring the discovery and production of any document or other material object producible as evidence;
-(c) receiving evidence on affidavits;
-(d), of requisitioning 18public records;
-(e) issuing commission for the examination of witnesses;
-(f) reviewing its decisions, directions and orders; and
-(g) any other matters as may be prescribed.
-(2) The Employees Grievance Redressal Tribunal for the purposes of hearing and disposal of appeals shall have the same powers as vested in an appellate court under the Code of Civil Procedure, 1908 and shall have the power to stay the operation of any order against which an appeal has been made, on such conditions as it may think fit to impose and such other powers as are conferred on it by or under this Act.
-(3) Notwithstanding anything contained in this section, the Tribunal may entertain an appeal made to it after the completion of the said period of thirty days, if it is satisfied that the appellant had sufficient cause for not preferring the appeal within that period.
-(4) Every appeal shall be accompanied by a fee as prescribed by the Statutes.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Employees Grievance Redressal Committee shall for the purposes of any inquiry or proceedings under this Act, have the same powers as are vested in a Civil Court under the Code of Civil Procedure, 1908 in respect to the following matters namely:-</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Summoning and enforcing the attendance of any person and examining him / her on oath;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">requiring the discovery and production of any document or other material object producible as evidence;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">receiving evidence on affidavits;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">, of requisitioning 18public records;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">issuing commission for the examination of witnesses;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">reviewing its decisions, directions and orders; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">any other matters as may be prescribed.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Employees Grievance Redressal Tribunal for the purposes of hearing and disposal of appeals shall have the same powers as vested in an appellate court under the Code of Civil Procedure, 1908 and shall have the power to stay the operation of any order against which an appeal has been made, on such conditions as it may think fit to impose and such other powers as are conferred on it by or under this Act.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">Notwithstanding anything contained in this section, the Tribunal may entertain an appeal made to it after the completion of the said period of thirty days, if it is satisfied that the appellant had sufficient cause for not preferring the appeal within that period.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">Every appeal shall be accompanied by a fee as prescribed by the Statutes.</span></p>
   </div>
 </article>
 

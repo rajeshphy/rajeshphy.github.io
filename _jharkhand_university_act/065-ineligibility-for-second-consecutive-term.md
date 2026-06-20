@@ -14,8 +14,8 @@ section_number: "65"
  <h2 class="act-section-heading"><span>65</span>Ineligibility for Second Consecutive Term</h2>
  <p class="act-essence-box">Brief: No person shall be a nominated member of the Senate or Syndicate, for a second consecutive term: Provided that, any person who was the nominated member of the Senate or Syndicate, for the first time on the date of commencement of this Act, shall not be deemed to have enjoyed the consecutive term if such person is nominated for the first time after the commencement of this Act.</p>
  <div class="act-section-body">
-No person shall be a nominated member of the Senate or Syndicate, for a second consecutive term:
-Provided that, any person who was the nominated member of the Senate or Syndicate, for the first time on the date of commencement of this Act, shall not be deemed to have enjoyed the consecutive term if such person is nominated for the first time after the commencement of this Act.
+<p class="act-line act-line-continuation">No person shall be a nominated member of the Senate or Syndicate, for a second consecutive term:</p>
+<p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">any person who was the nominated member of the Senate or Syndicate, for the first time on the date of commencement of this Act, shall not be deemed to have enjoyed the consecutive term if such person is nominated for the first time after the commencement of this Act.</span></p>
   </div>
 </article>
 

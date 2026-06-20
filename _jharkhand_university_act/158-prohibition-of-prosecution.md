@@ -14,7 +14,7 @@ section_number: "158"
  <h2 class="act-section-heading"><span>158</span>Prohibition of Prosecution</h2>
  <p class="act-essence-box">Brief: No prosecution for any offence under this Act shall be instituted without the sanction of an Officer or Authority as may be determined by the State Government, by an order, issued in this regard.</p>
  <div class="act-section-body">
-No prosecution for any offence under this Act shall be instituted without the sanction of an Officer or Authority as may be determined by the State Government, by an order, issued in this regard.
+<p class="act-line act-line-continuation">No prosecution for any offence under this Act shall be instituted without the sanction of an Officer or Authority as may be determined by the State Government, by an order, issued in this regard.</p>
   </div>
 </article>
 

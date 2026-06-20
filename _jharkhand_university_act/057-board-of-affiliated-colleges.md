@@ -14,27 +14,27 @@ section_number: "57"
  <h2 class="act-section-heading"><span>57</span>Board of Affiliated Colleges</h2>
  <p class="act-essence-box">Brief: The Board of Affiliated, Colleges shall be the primary body responsible for regulation, coordination and monitoring of Affiliated Colleges. The Board of Affiliated Colleges shall consist of the following members,: - Vice Chancellor - Chairperson; Pro-Vice Chancellor; Proctor; Dean (Academic Affairs); Director, Human Resource Management; Director, Information Technology and Digital Learning; Director, Estate and Facility Management; Director, Inclusive Education; Director, Student Affairs; and Director, Affiliated Colleges – Member Secretary.. The Board of...</p>
  <div class="act-section-body">
-(1) The Board of Affiliated, Colleges shall be the primary body responsible for regulation, coordination and monitoring of Affiliated Colleges.
-(2) The Board of Affiliated Colleges shall consist of the following members,: -
-(a) Vice Chancellor - Chairperson;
-(b) Pro-Vice Chancellor;
-(c) Proctor;
-(d) Dean (Academic Affairs);
-(e) Director, Human Resource Management;
-(f) Director, Information Technology and Digital Learning;
-(g) Director, Estate and Facility Management;
-(h) Director, Inclusive Education;
-(i) Director, Student Affairs; and
-(j) Director, Affiliated Colleges – Member Secretary..
-(3) The Board of Affiliated Colleges shall have the following power and duties, namely:-
-(a) to formulate policies regarding granting or renewal or rescind of affiliation;
-(b) to establish and periodically review the criteria and guidelines for granting and renewing affiliation, including academic standards, infrastructure, and governance;
-(c) to ensure that affiliated colleges adhere to the University’s standards for academic quality, teaching, and research;
-(d) to regulate financial support or grants provided to affiliated colleges, if applicable, and ensure that funds are used appropriately;
-(e) to recommend norms for granting temporary and permanent affiliation, autonomous and empowered autonomous status;
-(f) to conduct regular evaluations and inspections of affiliated colleges to assess their performance, compliance with University standards, and overall effectiveness;
-(g) to ensure that directives mandated by the University or the State Government related to healthcare facilities, safety and security of employees and students are implemented properly; and
-(h) to perform such other duties as prescribed by the Statutes.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Board of Affiliated, Colleges shall be the primary body responsible for regulation, coordination and monitoring of Affiliated Colleges.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board of Affiliated Colleges shall consist of the following members,: -</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Vice Chancellor - Chairperson;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">Pro-Vice Chancellor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">Proctor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">Dean (Academic Affairs);</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">Director, Human Resource Management;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">Director, Information Technology and Digital Learning;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">Director, Estate and Facility Management;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">Director, Inclusive Education;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(i)</span><span class="act-line-text">Director, Student Affairs; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(j)</span><span class="act-line-text">Director, Affiliated Colleges – Member Secretary..</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">The Board of Affiliated Colleges shall have the following power and duties, namely:-</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">to formulate policies regarding granting or renewal or rescind of affiliation;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">to establish and periodically review the criteria and guidelines for granting and renewing affiliation, including academic standards, infrastructure, and governance;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">to ensure that affiliated colleges adhere to the University’s standards for academic quality, teaching, and research;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">to regulate financial support or grants provided to affiliated colleges, if applicable, and ensure that funds are used appropriately;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">to recommend norms for granting temporary and permanent affiliation, autonomous and empowered autonomous status;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">to conduct regular evaluations and inspections of affiliated colleges to assess their performance, compliance with University standards, and overall effectiveness;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">to ensure that directives mandated by the University or the State Government related to healthcare facilities, safety and security of employees and students are implemented properly; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">to perform such other duties as prescribed by the Statutes.</span></p>
   </div>
 </article>
 

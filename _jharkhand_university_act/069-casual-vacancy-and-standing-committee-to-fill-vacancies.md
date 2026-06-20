@@ -14,18 +14,18 @@ section_number: "69"
  <h2 class="act-section-heading"><span>69</span>Casual Vacancy and Standing Committee to Fill Vacancies</h2>
  <p class="act-essence-box">Brief: In case, any vacancy occurs in the office of a member, other than an ex-officio member of the University, it shall be filled within 3 months, by nomination of the person, to the concerned authority. When such vacancy as mentioned in sub-section is not filled within 3 months, the vacancy shall be filled by nomination of a person by the Standing Committee constituted under sub-section who is otherwise eligible to be elected...</p>
  <div class="act-section-body">
-(1) In case, any vacancy occurs in the office of a member, other than an ex-officio member of the University, it shall be filled within 3 months, by nomination of the person, to the concerned authority.
-(2) When such vacancy as mentioned in sub-section (1) is not filled within 3 months, the vacancy shall be filled by nomination of a person by the Standing Committee constituted under sub-section (3) who is otherwise eligible to be elected on the said authority or body from the same category.
-(3) The constitution of the Standing Committee for filling in such casual vacancies shall be as follows, namely:-
-(a) Pro-Vice Chancellor - Chairperson;
-(b) Dean (Academic Affairs);
-(c) one Dean of Faculty, nominated by Senate;
-(d) one Principal of the Constituent College (as applicable) nominated by Vice Chancellor;
-(e) one teacher of the University nominated by Syndicate;
-(f) one graduate or postgraduate student nominated by Senate from amongst its members; and
-(g) Registrar - Member, Secretary.
-(4) The term of the nominated member of the Standing Committee shall be three years.
-(5) The quorum for the meetings of the Standing Committee shall be set at one-half of the total members.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">In case, any vacancy occurs in the office of a member, other than an ex-officio member of the University, it shall be filled within 3 months, by nomination of the person, to the concerned authority.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">When such vacancy as mentioned in sub-section (1) is not filled within 3 months, the vacancy shall be filled by nomination of a person by the Standing Committee constituted under sub-section (3) who is otherwise eligible to be elected on the said authority or body from the same category.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">The constitution of the Standing Committee for filling in such casual vacancies shall be as follows, namely:-</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Pro-Vice Chancellor - Chairperson;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">Dean (Academic Affairs);</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">one Dean of Faculty, nominated by Senate;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">one Principal of the Constituent College (as applicable) nominated by Vice Chancellor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">one teacher of the University nominated by Syndicate;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">one graduate or postgraduate student nominated by Senate from amongst its members; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">Registrar - Member, Secretary.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">The term of the nominated member of the Standing Committee shall be three years.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">The quorum for the meetings of the Standing Committee shall be set at one-half of the total members.</span></p>
   </div>
 </article>
 

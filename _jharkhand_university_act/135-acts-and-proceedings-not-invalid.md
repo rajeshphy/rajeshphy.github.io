@@ -14,10 +14,10 @@ section_number: "135"
  <h2 class="act-section-heading"><span>135</span>Acts and Proceedings Not Invalid</h2>
  <p class="act-essence-box">Brief: No act or proceeding of any authority or body or committee of the University, shall be deemed to be invalid at any time merely on the ground that – any of the members of any such authority, body or committee are not appointed, nominated or for any other reason are not available to take office at the time of the constitution or to attend any meeting thereof or any person is a...</p>
  <div class="act-section-body">
-(1) No act or proceeding of any authority or body or committee of the University, shall be deemed to be invalid at any time merely on the ground that –
-(a) any of the members of any such authority, body or committee are not appointed, nominated or for any other reason are not available to take office at the time of the constitution or to attend any meeting thereof or any person is a member in more than one capacity or there is any other defect in the constitution thereof or there are one or more vacancies in the offices of members thereof; and
-(b) there is any irregularity in the procedure of any such authority, body or committee not affecting the merits of the matter under consideration, and the validity of such act or proceeding shall not be questioned in any court or before any authority or officer merely on any such ground.
-CHAPTER XIV: ESTABLISHMENT OF NEW UNIVERSITIES
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">No act or proceeding of any authority or body or committee of the University, shall be deemed to be invalid at any time merely on the ground that –</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">any of the members of any such authority, body or committee are not appointed, nominated or for any other reason are not available to take office at the time of the constitution or to attend any meeting thereof or any person is a member in more than one capacity or there is any other defect in the constitution thereof or there are one or more vacancies in the offices of members thereof; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">there is any irregularity in the procedure of any such authority, body or committee not affecting the merits of the matter under consideration, and the validity of such act or proceeding shall not be questioned in any court or before any authority or officer merely on any such ground.</span></p>
+<p class="act-line act-line-chapter-break">CHAPTER XIV: ESTABLISHMENT OF NEW UNIVERSITIES</p>
   </div>
 </article>
 

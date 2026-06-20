@@ -14,9 +14,9 @@ section_number: "124"
  <h2 class="act-section-heading"><span>124</span>Annual Financial Statements</h2>
  <p class="act-essence-box">Brief: The annual financial estimates of the University for ensuing financial year shall be prepared by the Finance and Accounts Committee, at least four months before the commencement of the financial year in the manner as prescribed by the Statutes. The Registrar on behalf of the University shall thereafter forward copies of annual financial estimates as approved by the Senate or Syndicate to the State Government. The financial year of the University shall...</p>
  <div class="act-section-body">
-(1) The annual financial estimates (budget) of the University for ensuing financial year shall be prepared by the Finance and Accounts Committee, at least four months before the commencement of the financial year in the manner as prescribed by the Statutes.
-(2) The Registrar on behalf of the University shall thereafter forward copies of annual financial estimates (budget) as approved by the Senate or Syndicate to the State Government.
-(3) The financial year of the University shall be the same as that of the State Government.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The annual financial estimates (budget) of the University for ensuing financial year shall be prepared by the Finance and Accounts Committee, at least four months before the commencement of the financial year in the manner as prescribed by the Statutes.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Registrar on behalf of the University shall thereafter forward copies of annual financial estimates (budget) as approved by the Senate or Syndicate to the State Government.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">The financial year of the University shall be the same as that of the State Government.</span></p>
   </div>
 </article>
 

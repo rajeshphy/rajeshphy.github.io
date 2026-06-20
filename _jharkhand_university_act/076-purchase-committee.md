@@ -14,23 +14,23 @@ section_number: "76"
  <h2 class="act-section-heading"><span>76</span>Purchase Committee</h2>
  <p class="act-essence-box">Brief: There shall be a Purchase Committee for dealing with all matters pertaining to all purchases of the University, as per the latest Rules of State/Central Procurement. The committee shall consist of the following members, namely:- Vice Chancellor - Chairperson; Pro-Vice Chancellor; Finance Advisor;, two heads of University departments nominated by the Vice Chancellor; one member of, the20, Syndicate by the Syndicate; nominated one external expert, nominated by the Vice Chancellor; Registrar; and...</p>
  <div class="act-section-body">
-(1) There shall be a Purchase Committee for dealing with all matters pertaining to all purchases of the University, as per the latest Rules of State/Central Procurement.
-(2) The committee shall consist of the following members, namely:-
-(a) Vice Chancellor - Chairperson;
-(b) Pro-Vice Chancellor;
-(c) Finance Advisor;,
-(d) two heads of University departments nominated by the Vice Chancellor;
-(e) one member of, the20, Syndicate by the Syndicate; nominated
-(f) one external expert, nominated by the Vice Chancellor;
-(g) Registrar; and
-(h) Finance Officer-Member Secretary.
-(3) During the absence of the Finance Officer, the Registrar shall act as the Member Secretary of the Committee.
-(4) The Purchase Committee shall invite the head of the University department or University institution, for which the purchases are to be made.
-(5) All nominated members of the committee shall hold office for a term of three years and shall not be eligible for a second consecutive term.
-(6) All matters pertaining to all purchases of the University shall carried out as per the latest Rules of State/ Central Government or as prescribed by the Statutes.
-(7) The powers and duties of the Purchase Committee shall be as prescribed by the Statutes.
-(8) The quorum for a meeting of the committee shall be set at half of the total members.
-(9) The Purchase Committee shall meet at least three times in a year and as required by the Vice Chancellor.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Purchase Committee for dealing with all matters pertaining to all purchases of the University, as per the latest Rules of State/Central Procurement.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The committee shall consist of the following members, namely:-</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Vice Chancellor - Chairperson;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">Pro-Vice Chancellor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">Finance Advisor;,</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">two heads of University departments nominated by the Vice Chancellor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">one member of, the20, Syndicate by the Syndicate; nominated</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">one external expert, nominated by the Vice Chancellor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">Registrar; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">Finance Officer-Member Secretary.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">During the absence of the Finance Officer, the Registrar shall act as the Member Secretary of the Committee.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">The Purchase Committee shall invite the head of the University department or University institution, for which the purchases are to be made.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">All nominated members of the committee shall hold office for a term of three years and shall not be eligible for a second consecutive term.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(6)</span><span class="act-line-text">All matters pertaining to all purchases of the University shall carried out as per the latest Rules of State/ Central Government or as prescribed by the Statutes.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(7)</span><span class="act-line-text">The powers and duties of the Purchase Committee shall be as prescribed by the Statutes.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(8)</span><span class="act-line-text">The quorum for a meeting of the committee shall be set at half of the total members.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(9)</span><span class="act-line-text">The Purchase Committee shall meet at least three times in a year and as required by the Vice Chancellor.</span></p>
   </div>
 </article>
 

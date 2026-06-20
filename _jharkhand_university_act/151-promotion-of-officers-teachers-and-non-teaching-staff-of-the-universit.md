@@ -14,12 +14,12 @@ section_number: "151"
  <h2 class="act-section-heading"><span>151</span>Promotion of Officers, Teachers and Non-Teaching Staff of the University</h2>
  <p class="act-essence-box">Brief: The University shall carry out the process of promotion as prescribed by its Statutes and submit the list of the candidates to the Commission for its concurrence on or before 15th July of every year., The Commission shall duly vet the proposals for promotion submitted by the University and provide its within concurrence24not exceeding 30 days from the date of a period submission of the proposal by following the process as may...</p>
  <div class="act-section-body">
-(1) The University shall carry out the process of promotion as prescribed by its Statutes and submit the list of the candidates to the Commission for its concurrence on or before 15th July of every year.,
-(2) The Commission shall duly vet the proposals for promotion submitted by the University and provide its within concurrence24not exceeding 30 days from the date of a period submission of the proposal by following the process as may be prescribed by the Rules:
-Provided that, in case the Commission detects any anomaly, it may send back the proposal to the concerned University within a period not exceeding 30 days.
-(3) The University concerned, may resubmit the proposal after removing the defects determined by the Commission within a period of 30 days from the date of receipt of communication regarding the defects.
-(4) The Commission on resubmission on the proposal for promotion may concur or reject the proposal within a period of 30 days.
-(5) The decision taken by the Commission regarding the promotion of Officers, Teachers and non-teaching Staff of University and Principal/s of Constituent College/s shall be final and binding on all parties.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The University shall carry out the process of promotion as prescribed by its Statutes and submit the list of the candidates to the Commission for its concurrence on or before 15th July of every year.,</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Commission shall duly vet the proposals for promotion submitted by the University and provide its within concurrence24not exceeding 30 days from the date of a period submission of the proposal by following the process as may be prescribed by the Rules:</span></p>
+<p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">in case the Commission detects any anomaly, it may send back the proposal to the concerned University within a period not exceeding 30 days.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">The University concerned, may resubmit the proposal after removing the defects determined by the Commission within a period of 30 days from the date of receipt of communication regarding the defects.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">The Commission on resubmission on the proposal for promotion may concur or reject the proposal within a period of 30 days.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">The decision taken by the Commission regarding the promotion of Officers, Teachers and non-teaching Staff of University and Principal/s of Constituent College/s shall be final and binding on all parties.</span></p>
   </div>
 </article>
 

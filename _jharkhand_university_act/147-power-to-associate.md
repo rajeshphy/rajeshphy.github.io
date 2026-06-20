@@ -14,7 +14,7 @@ section_number: "147"
  <h2 class="act-section-heading"><span>147</span>Power to Associate</h2>
  <p class="act-essence-box">Brief: The Commission may associate with itself, in such manner and for such purpose, any person whose assistance or advice it may desire to have in carrying out any of the provisions of the Act.</p>
  <div class="act-section-body">
-The Commission may associate with itself, in such manner and for such purpose, any person whose assistance or advice it may desire to have in carrying out any of the provisions of the Act.
+<p class="act-line act-line-continuation">The Commission may associate with itself, in such manner and for such purpose, any person whose assistance or advice it may desire to have in carrying out any of the provisions of the Act.</p>
   </div>
 </article>
 

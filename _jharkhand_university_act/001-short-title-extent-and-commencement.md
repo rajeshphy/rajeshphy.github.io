@@ -14,9 +14,9 @@ section_number: "1"
  <h2 class="act-section-heading"><span>1</span>Short Title, Extent and Commencement</h2>
  <p class="act-essence-box">Brief: This Act may be called the Jharkhand State Universities Act26. It shall extend to all Universities mentioned in the Schedule II and Schedule III of this Act and established in the State of Jharkhand. It shall come into force from the date of its notification in the Official Gazette.</p>
  <div class="act-section-body">
-(1) This Act may be called the Jharkhand State Universities Act26.
-(2) It shall extend to all Universities mentioned in the Schedule II and Schedule III of this Act and established in the State of Jharkhand.
-(3) It shall come into force from the date of its notification in the Official Gazette.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">This Act may be called the Jharkhand State Universities Act26.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">It shall extend to all Universities mentioned in the Schedule II and Schedule III of this Act and established in the State of Jharkhand.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">It shall come into force from the date of its notification in the Official Gazette.</span></p>
   </div>
 </article>
 

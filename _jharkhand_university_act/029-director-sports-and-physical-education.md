@@ -14,18 +14,18 @@ section_number: "29"
  <h2 class="act-section-heading"><span>29</span>Director, Sports and Physical Education</h2>
  <p class="act-essence-box">Brief: The Director, Sports and Physical Education shall be an officer of the University, responsible for promoting the culture of sports and supervising sports related activities in the University, University Departments and colleges, and work under the direction and control of the Vice Chancellor. The Director, Sports and Physical Education shall be appointed by the Vice Chancellor from amongst the teachers of the University with at least 10 years of teaching experience and...</p>
  <div class="act-section-body">
-(1) The Director, Sports and Physical Education shall be an officer of the University, responsible for promoting the culture of sports and supervising sports related activities in the University, University Departments and colleges, and work under the direction and control of the Vice Chancellor.
-(2) The Director, Sports and Physical Education shall be appointed by the Vice Chancellor from amongst the teachers of the University with at least 10 years of teaching experience and at least three years of experience as Physical Education or Sports officer and has desired exposure in the field of physical education and sports.
-(3) He shall be appointed for a term of three years or till the age of superannuation, whichever is earlier and may be reappointed for one more term of three years.
-(4) The Director, Sports and Physical Education shall, —
-(a) cultivate excellence in various domains of sports and promote a spirit of healthy competition;
-(b) promote sports, culture and organize activities in the field of sports in colleges, institutions and University departments as applicable;
-(c) co-ordinate and organize activities related to various sports jointly with regional and national bodies;
-(d) organize University level competitions, sports skill development camps in various sports on the University campus;
-(e) train students for regional, national and international competitions in various sports;
-(f) prepare the report of the Board of Sports and Physical education to be submitted before the Syndicate;
-(g) undertake any other task that may be assigned to him by the University authorities, so as to carry out objectives of the Board of Sports and Physical education; and
-(h) exercise such other powers and perform such other duties as prescribed by the Statutes.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Sports and Physical Education shall be an officer of the University, responsible for promoting the culture of sports and supervising sports related activities in the University, University Departments and colleges, and work under the direction and control of the Vice Chancellor.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Director, Sports and Physical Education shall be appointed by the Vice Chancellor from amongst the teachers of the University with at least 10 years of teaching experience and at least three years of experience as Physical Education or Sports officer and has desired exposure in the field of physical education and sports.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">He shall be appointed for a term of three years or till the age of superannuation, whichever is earlier and may be reappointed for one more term of three years.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">The Director, Sports and Physical Education shall, —</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">cultivate excellence in various domains of sports and promote a spirit of healthy competition;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">promote sports, culture and organize activities in the field of sports in colleges, institutions and University departments as applicable;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">co-ordinate and organize activities related to various sports jointly with regional and national bodies;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">organize University level competitions, sports skill development camps in various sports on the University campus;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">train students for regional, national and international competitions in various sports;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">prepare the report of the Board of Sports and Physical education to be submitted before the Syndicate;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">undertake any other task that may be assigned to him by the University authorities, so as to carry out objectives of the Board of Sports and Physical education; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">exercise such other powers and perform such other duties as prescribed by the Statutes.</span></p>
   </div>
 </article>
 

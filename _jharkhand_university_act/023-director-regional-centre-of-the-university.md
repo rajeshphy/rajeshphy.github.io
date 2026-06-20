@@ -14,14 +14,14 @@ section_number: "23"
  <h2 class="act-section-heading"><span>23</span>Director, Regional Centre of the University</h2>
  <p class="act-essence-box">Brief: The Director, Regional Centre shall work under the superintendence, direction and control of the Vice Chancellor. The Principal of the Constituent College designated by the University as a Regional Centre shall serve as the Director of the said Regional Centre. The Director, Regional Centre shall have a term co-terminus with that of the Principal of Constituent Colleges., The Director, Regional Centre shall, - be the officer responsible for implementing all academic and...</p>
  <div class="act-section-body">
-(1) The Director, Regional Centre shall work under the superintendence, direction and control of the Vice Chancellor.
-(2) The Principal of the Constituent College designated by the University as a Regional Centre shall serve as the Director of the said Regional Centre.
-(3) The Director, Regional Centre shall have a term co-terminus with that of the Principal of Constituent Colleges.,
-(4) The Director, Regional Centre shall, -
-(a) be the officer responsible for implementing all academic and administrative functions University; assigned by the,
-(b) oversee the delivery of student centric services and manage the constituent and affiliated Colleges under the jurisdiction designated of the University;
-(c) ensure that grievance related to any constituent or affiliated College under the jurisdiction designated of the University is appropriately handled and disposed off; and
-(d) exercise such other powers and perform such other duties as prescribed by the Statutes.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Regional Centre shall work under the superintendence, direction and control of the Vice Chancellor.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Principal of the Constituent College designated by the University as a Regional Centre shall serve as the Director of the said Regional Centre.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">The Director, Regional Centre shall have a term co-terminus with that of the Principal of Constituent Colleges.,</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">The Director, Regional Centre shall, -</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">be the officer responsible for implementing all academic and administrative functions University; assigned by the,</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">oversee the delivery of student centric services and manage the constituent and affiliated Colleges under the jurisdiction designated of the University;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">ensure that grievance related to any constituent or affiliated College under the jurisdiction designated of the University is appropriately handled and disposed off; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">exercise such other powers and perform such other duties as prescribed by the Statutes.</span></p>
   </div>
 </article>
 

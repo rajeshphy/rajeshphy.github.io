@@ -14,26 +14,26 @@ section_number: "53"
  <h2 class="act-section-heading"><span>53</span>Board of Internship, Apprenticeship and Placement</h2>
  <p class="act-essence-box">Brief: There shall be a Board of Internship, Apprenticeship and Placement for creation and cultivation of an enabling environment for industry linkages so as to ensure internship, apprenticeship and placement of the students. The Board for Internship, Apprenticeship and Placement shall consist of the following members, namely:- Vice Chancellor - Chairperson; Pro-Vice Chancellor; Dean (Academic Affairs); Dean of all Faculty; five prominent industrialists, nominated by the Vice Chancellor from manufacturing, information and...</p>
  <div class="act-section-body">
-(1) There shall be a Board of Internship, Apprenticeship and Placement for creation and cultivation of an enabling environment for industry linkages so as to ensure internship, apprenticeship and placement of the students.
-(2) The Board for Internship, Apprenticeship and Placement shall consist of the following members, namely:-
-(a) Vice Chancellor - Chairperson;
-(b) Pro-Vice Chancellor;
-(c) Dean (Academic Affairs);
-(d) Dean of all Faculty;
-(e) five prominent industrialists, nominated by the Vice Chancellor from manufacturing, information and communication technology, biosciences, agro-industries and service industries;
-(f) two teachers from University Departments, who are active in industryacademia linkage nominated by the Vice Chancellor;
-(g) two teachers, nominated by the Vice Chancellor, from Constituent and Affiliated colleges who are active in industry-academia linkage for Universities as applicable;
-(h) a member nominated by Jharkhand State Faculty Development Academy;
-(i) a member nominated by Jharkhand State Higher Education Council;
-(j) a member nominated by Jharkhand Council on Science, Technology and Innovation; and
-(k) the Director, Internship, Apprenticeship and Placement - Member Secretary.
-(3) There shall be a minimum of three meetings of the Board in the year.
-(4) The power and duties of the Board of Internship, Apprenticeship and Placement shall be, namely:-
-(a) to create and maintain partnerships with businesses, industries, and educational institutions to facilitate opportunities for students or participants;
-(b) to oversee the progress and effectiveness of internship and apprenticeship programs, including evaluating participant performance and program outcomes;
-(c) to provide support and guidance to participants, including career counseling and advice on professional development;
-(d) to maintain records and reports related to program activities, participant placements, and outcomes; and
-(e) to perform any other duties as prescribed by the Statutes.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Board of Internship, Apprenticeship and Placement for creation and cultivation of an enabling environment for industry linkages so as to ensure internship, apprenticeship and placement of the students.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board for Internship, Apprenticeship and Placement shall consist of the following members, namely:-</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Vice Chancellor - Chairperson;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">Pro-Vice Chancellor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">Dean (Academic Affairs);</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">Dean of all Faculty;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">five prominent industrialists, nominated by the Vice Chancellor from manufacturing, information and communication technology, biosciences, agro-industries and service industries;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">two teachers from University Departments, who are active in industryacademia linkage nominated by the Vice Chancellor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">two teachers, nominated by the Vice Chancellor, from Constituent and Affiliated colleges who are active in industry-academia linkage for Universities as applicable;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">a member nominated by Jharkhand State Faculty Development Academy;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(i)</span><span class="act-line-text">a member nominated by Jharkhand State Higher Education Council;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(j)</span><span class="act-line-text">a member nominated by Jharkhand Council on Science, Technology and Innovation; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(k)</span><span class="act-line-text">the Director, Internship, Apprenticeship and Placement - Member Secretary.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">There shall be a minimum of three meetings of the Board in the year.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">The power and duties of the Board of Internship, Apprenticeship and Placement shall be, namely:-</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">to create and maintain partnerships with businesses, industries, and educational institutions to facilitate opportunities for students or participants;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">to oversee the progress and effectiveness of internship and apprenticeship programs, including evaluating participant performance and program outcomes;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">to provide support and guidance to participants, including career counseling and advice on professional development;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">to maintain records and reports related to program activities, participant placements, and outcomes; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">to perform any other duties as prescribed by the Statutes.</span></p>
   </div>
 </article>
 

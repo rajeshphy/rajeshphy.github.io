@@ -14,7 +14,7 @@ section_number: "160"
  <h2 class="act-section-heading"><span>160</span>Authentication of Decisions of the Commission</h2>
  <p class="act-essence-box">Brief: All orders and decisions of the Commission shall be authenticated by the signature of the Secretary appointed under Section 148 of this Act or any other Officer authorised by the Commission.</p>
  <div class="act-section-body">
-All orders and decisions of the Commission shall be authenticated by the signature of the Secretary appointed under Section 148 of this Act or any other Officer authorised by the Commission.
+<p class="act-line act-line-continuation">All orders and decisions of the Commission shall be authenticated by the signature of the Secretary appointed under Section 148 of this Act or any other Officer authorised by the Commission.</p>
   </div>
 </article>
 

@@ -14,9 +14,9 @@ section_number: "142"
  <h2 class="act-section-heading"><span>142</span>Establishment of Commission</h2>
  <p class="act-essence-box">Brief: The State Government shall establish the Jharkhand State University Service Commission. The Commission shall be a body corporate, having its head office in Ranchi, which will have perpetual heritance and its common seal and may sue or may be sued in the said name. The Department of Higher and Technical Education shall be the nodal administrative Department and shall provide the necessary Secretarial assistance to the Commission.</p>
  <div class="act-section-body">
-(1) The State Government shall establish the Jharkhand State University Service Commission.
-(2) The Commission shall be a body corporate, having its head office in Ranchi, which will have perpetual heritance and its common seal and may sue or may be sued in the said name.
-(3) The Department of Higher and Technical Education shall be the nodal administrative Department and shall provide the necessary Secretarial assistance to the Commission.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The State Government shall establish the Jharkhand State University Service Commission.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Commission shall be a body corporate, having its head office in Ranchi, which will have perpetual heritance and its common seal and may sue or may be sued in the said name.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">The Department of Higher and Technical Education shall be the nodal administrative Department and shall provide the necessary Secretarial assistance to the Commission.</span></p>
   </div>
 </article>
 

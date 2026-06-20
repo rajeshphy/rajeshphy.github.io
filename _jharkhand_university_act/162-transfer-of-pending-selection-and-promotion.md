@@ -14,7 +14,7 @@ section_number: "162"
  <h2 class="act-section-heading"><span>162</span>Transfer of Pending Selection and Promotion</h2>
  <p class="act-essence-box">Brief: All pending selection of Officers or Teachers or non-teaching staff of University or Principal of Constituent College , whether advertised or not, and said promotion which has not been recommended or concurred upon by the Jharkhand Public Service Commission or Jharkhand Staff Selection Commission shall be transferred to the Jharkhand State University Service Commission, by a notification in the Official Gazette.</p>
  <div class="act-section-body">
-All pending selection of Officers or Teachers or non-teaching staff of University or Principal(s) of Constituent College(s), whether advertised or not, and said promotion which has not been recommended or concurred upon by the Jharkhand Public Service Commission or Jharkhand Staff Selection Commission shall be transferred to the Jharkhand State University Service Commission, by a notification in the Official Gazette.
+<p class="act-line act-line-continuation">All pending selection of Officers or Teachers or non-teaching staff of University or Principal(s) of Constituent College(s), whether advertised or not, and said promotion which has not been recommended or concurred upon by the Jharkhand Public Service Commission or Jharkhand Staff Selection Commission shall be transferred to the Jharkhand State University Service Commission, by a notification in the Official Gazette.</p>
   </div>
 </article>
 

@@ -14,21 +14,21 @@ section_number: "138"
  <h2 class="act-section-heading"><span>138</span>High Power Committee</h2>
  <p class="act-essence-box">Brief: The State Government shall constitute a High Power Committee, which will be a permanent body, to monitor the various stages and progress of work for setting up a new University which has received its approval from State Government. The High Power Committee shall be the responsible for the overall coordination, monitoring and establishment of the University. The State Government may revisit the constitution, and responsibilities of the High Power Committee from time...</p>
  <div class="act-section-body">
-(1) The State Government shall constitute a High Power Committee, which will be a permanent body, to monitor the various stages and progress of work for setting up a new University which has received its approval from State Government. The High Power Committee shall be the responsible for the overall coordination, monitoring and establishment of the University. The State Government may revisit the constitution, and responsibilities of the High Power Committee from time to time and make changes, as it deems fit.
-(2) The composition of the High Power Committee shall be as follows: -
-(a) Director, Higher Education- Chairperson;
-(b) Director, Technical Education- Vice-Chairperson;
-(c) Vice Chancellor or his representative not below the rank of Registrar, Mentoring University-Member;
-(d) Representative of Department of Finance, not below the rank of Joint Secretary-Member;
-(e) Representative of Department of Personnel, Administrative Reforms and Rajbhasha, not below the rank of Joint Secretary-Member;
-(f) Representative of Department of Revenue, Registration and Land Reforms, not below the rank of Joint Secretary-Member;
-(g) Representative of Department of Road Construction, not below the rank of Joint Secretary-Member;
-(h) Representative of Department of Building Construction, not below the rank of Joint Secretary-Member;
-(i) Representative of Department of Energy, not below the rank of Joint Secretary-Member;
-(j) Representative of Department of Forest, Environment and Climate Change, not below the rank of Joint Secretary-Member;
-(k) Under Secretary, Department of Higher and Technical Education-Member Secretary; and
-(l) Special Invitees- as authorised by the Chairperson.
-(3) In case of any circumstances resulting in delay or any exigency conditions, the Chairperson of the High Power Committee shall convey the same with the reasons for such delay or exigency to his superior official for timely resolution.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The State Government shall constitute a High Power Committee, which will be a permanent body, to monitor the various stages and progress of work for setting up a new University which has received its approval from State Government. The High Power Committee shall be the responsible for the overall coordination, monitoring and establishment of the University. The State Government may revisit the constitution, and responsibilities of the High Power Committee from time to time and make changes, as it deems fit.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The composition of the High Power Committee shall be as follows: -</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Director, Higher Education- Chairperson;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">Director, Technical Education- Vice-Chairperson;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">Vice Chancellor or his representative not below the rank of Registrar, Mentoring University-Member;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">Representative of Department of Finance, not below the rank of Joint Secretary-Member;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">Representative of Department of Personnel, Administrative Reforms and Rajbhasha, not below the rank of Joint Secretary-Member;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">Representative of Department of Revenue, Registration and Land Reforms, not below the rank of Joint Secretary-Member;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">Representative of Department of Road Construction, not below the rank of Joint Secretary-Member;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">Representative of Department of Building Construction, not below the rank of Joint Secretary-Member;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(i)</span><span class="act-line-text">Representative of Department of Energy, not below the rank of Joint Secretary-Member;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(j)</span><span class="act-line-text">Representative of Department of Forest, Environment and Climate Change, not below the rank of Joint Secretary-Member;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(k)</span><span class="act-line-text">Under Secretary, Department of Higher and Technical Education-Member Secretary; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(l)</span><span class="act-line-text">Special Invitees- as authorised by the Chairperson.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">In case of any circumstances resulting in delay or any exigency conditions, the Chairperson of the High Power Committee shall convey the same with the reasons for such delay or exigency to his superior official for timely resolution.</span></p>
   </div>
 </article>
 

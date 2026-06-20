@@ -14,15 +14,15 @@ section_number: "120"
  <h2 class="act-section-heading"><span>120</span>Removal of Name from Register of Graduates</h2>
  <p class="act-essence-box">Brief: A person who – is of unsound mind and stands so declared by a competent Court; or is an un-discharged insolvent; or is convicted for an offence involving moral turpitude, criminal procedure code; or has obtained a degree by fraudulent means; or is a registered graduate of any other University established by law in the State, shall not be qualified, to have his name entered in the register of graduates, or be...</p>
  <div class="act-section-body">
-(1) A person who –
-(a) is of unsound mind and stands so declared by a competent Court; or
-(b) is an un-discharged insolvent; or
-(c) is convicted for an offence involving moral turpitude, criminal procedure code; or
-(d) has obtained a degree by fraudulent means; or
-(e) is a registered graduate of any other University established by law in the State, shall not be qualified, to have his name entered in the register of graduates, or be a registered graduate.
-(2) The Vice Chancellor may, on the recommendation of the Academic Council, supported by of not less than a majority, two-third present at its meeting, such majority of its members comprising not less than one-half of its members, remove the name of any person from the register of graduates for such period as the Vice Chancellor thinks fit, for any of the reasons mentioned in sub-section (1) of this section.
-(3) No action under this section shall be taken unless the person concerned is, as prescribed by the Statutes, given an opportunity of being heard in his defense.
-CHAPTER XI: STATUTES, UNIVERSITY ORDINANCES AND UNIVERSITY RULES
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">A person who –</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">is of unsound mind and stands so declared by a competent Court; or</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">is an un-discharged insolvent; or</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">is convicted for an offence involving moral turpitude, criminal procedure code; or</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">has obtained a degree by fraudulent means; or</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">is a registered graduate of any other University established by law in the State, shall not be qualified, to have his name entered in the register of graduates, or be a registered graduate.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Vice Chancellor may, on the recommendation of the Academic Council, supported by of not less than a majority, two-third present at its meeting, such majority of its members comprising not less than one-half of its members, remove the name of any person from the register of graduates for such period as the Vice Chancellor thinks fit, for any of the reasons mentioned in sub-section (1) of this section.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">No action under this section shall be taken unless the person concerned is, as prescribed by the Statutes, given an opportunity of being heard in his defense.</span></p>
+<p class="act-line act-line-chapter-break">CHAPTER XI: STATUTES, UNIVERSITY ORDINANCES AND UNIVERSITY RULES</p>
   </div>
 </article>
 

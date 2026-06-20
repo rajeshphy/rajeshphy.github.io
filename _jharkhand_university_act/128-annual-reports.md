@@ -14,20 +14,20 @@ section_number: "128"
  <h2 class="act-section-heading"><span>128</span>Annual Reports</h2>
  <p class="act-essence-box">Brief: The Finance and Accounts Committee shall prepare the Annual Report containing the administrative, academic, research and development and other activities of the University, colleges and institutions under its jurisdiction, for each academic year and submit it to the Senate after approval of Syndicate for final consideration. The Senate shall discuss and approve the Annual Report as received from the Finance and Accounts Committee. Such report, as approved by the Senate, shall be...</p>
  <div class="act-section-body">
-(1) The Finance and Accounts Committee shall prepare the Annual Report containing the administrative, academic, research and development and other activities of the University, colleges and institutions under its jurisdiction, for each academic year and submit it to the Senate after approval of Syndicate for final consideration. The Senate shall discuss and approve the Annual Report as received from the Finance and Accounts Committee. Such report, as approved by the Senate, shall be submitted to the State Government for information, within one year from the conclusion of the academic year.
-(2) The Annual Report shall mandatorily contain the following sections: -
-(a) Targeted Sources Revenue of the University and its implementation plan;
-(b) Achievement of revenue against targets set in the previous financial year; and
-(c) New initiatives taken by the University for achievement of the targets or causes and remedies for failure to achieve the targets of the last financial year.
-(3) While preparing the Annual Report, the University shall focus on: -
-(a) Appropriateness of the fees being charged from students for academic programs and the revisions, required with a view of achieving financial self-sustenance;
-(b) Steps taken and income generated from research and consultancy activities by the teachers and students at the University;, made
-(c) Capital Investments for improvement of research by the University facilities in the University and its expected outcome;
-(d) Actions taken for collaboration with industrial houses, companies within and outside Jharkhand and plans for future collaboration;
-(e) Courses and academic programs initiated by the University after demand analysis with the industry;
-(f) Initiation of self-financed courses and the estimated revenue for the University; and
-(g) Any other matter having implication on the financial revenue of the University.
-CHAPTER XIII: MISCELLENOUS
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Finance and Accounts Committee shall prepare the Annual Report containing the administrative, academic, research and development and other activities of the University, colleges and institutions under its jurisdiction, for each academic year and submit it to the Senate after approval of Syndicate for final consideration. The Senate shall discuss and approve the Annual Report as received from the Finance and Accounts Committee. Such report, as approved by the Senate, shall be submitted to the State Government for information, within one year from the conclusion of the academic year.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Annual Report shall mandatorily contain the following sections: -</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Targeted Sources Revenue of the University and its implementation plan;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">Achievement of revenue against targets set in the previous financial year; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">New initiatives taken by the University for achievement of the targets or causes and remedies for failure to achieve the targets of the last financial year.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">While preparing the Annual Report, the University shall focus on: -</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Appropriateness of the fees being charged from students for academic programs and the revisions, required with a view of achieving financial self-sustenance;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">Steps taken and income generated from research and consultancy activities by the teachers and students at the University;, made</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">Capital Investments for improvement of research by the University facilities in the University and its expected outcome;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">Actions taken for collaboration with industrial houses, companies within and outside Jharkhand and plans for future collaboration;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">Courses and academic programs initiated by the University after demand analysis with the industry;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">Initiation of self-financed courses and the estimated revenue for the University; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">Any other matter having implication on the financial revenue of the University.</span></p>
+<p class="act-line act-line-chapter-break">CHAPTER XIII: MISCELLENOUS</p>
   </div>
 </article>
 

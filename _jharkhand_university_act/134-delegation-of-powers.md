@@ -14,7 +14,7 @@ section_number: "134"
  <h2 class="act-section-heading"><span>134</span>Delegation of Powers</h2>
  <p class="act-essence-box">Brief: Subject to the provisions of this Act and the Statutes, any officer of the University may, by order, delegate his or its powers, except the power to make University Ordinances and Rules and recommend amendment to the Statutes, to an immediate subordinate officer of the University, and subject to the condition that the ultimate responsibility for the exercise of the powers so delegated shall continue to vest in the officer delegating them.</p>
  <div class="act-section-body">
-Subject to the provisions of this Act and the Statutes, any officer of the University may, by order, delegate his or its powers, except the power to make University Ordinances and Rules and recommend amendment to the Statutes, to an immediate subordinate officer of the University, and subject to the condition that the ultimate responsibility for the exercise of the powers so delegated shall continue to vest in the officer delegating them.
+<p class="act-line act-line-continuation">Subject to the provisions of this Act and the Statutes, any officer of the University may, by order, delegate his or its powers, except the power to make University Ordinances and Rules and recommend amendment to the Statutes, to an immediate subordinate officer of the University, and subject to the condition that the ultimate responsibility for the exercise of the powers so delegated shall continue to vest in the officer delegating them.</p>
   </div>
 </article>
 

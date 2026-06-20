@@ -14,12 +14,12 @@ section_number: "68"
  <h2 class="act-section-heading"><span>68</span>Meeting of the Authorities</h2>
  <p class="act-essence-box">Brief: Save as otherwise provided by this Act, all matters with regard to the conduct of meetings of the authorities, bodies or committees, if any, constituted by the University, shall be a s mentioned in this Act or as may be prescribed by the Statutes. A meeting of an authority or body shall be convened on the date determined by the Chairperson by a notice issued by its Member Secretary. Except as otherwise...</p>
  <div class="act-section-body">
-(1) Save as otherwise provided by this Act, all matters with regard to the conduct of meetings of the authorities, bodies or committees, if any, constituted by the University, shall be a s mentioned in this Act or as may be prescribed by the Statutes.
-(2) A meeting of an authority or body shall be convened on the date determined by the Chairperson by a notice issued by its Member Secretary.
-(3) Except as otherwise provided, the quorum for a meeting shall ordinarily be one-third of the number of sitting members. If there is no quorum, the meeting shall be adjourned by the Chairperson to a specific time on the same day, or on a later date and quorum shall be necessary for such adjourned meeting. Quorum shall be necessary on the following day of the continued meeting.
-(4) Where no provision is made by or under the Statutes for the Chairperson to preside over a meeting of any authority or body of the University or when the Chairperson so
-provided for is absent and no provision is made for any other person to preside, the members present shall elect a person from amongst themselves to preside at the meeting.
-(5) Save as otherwise provided, all items, questions, matters or proposals on the agenda shall be decided by consensus of the members present.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Save as otherwise provided by this Act, all matters with regard to the conduct of meetings of the authorities, bodies or committees, if any, constituted by the University, shall be a s mentioned in this Act or as may be prescribed by the Statutes.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">A meeting of an authority or body shall be convened on the date determined by the Chairperson by a notice issued by its Member Secretary.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">Except as otherwise provided, the quorum for a meeting shall ordinarily be one-third of the number of sitting members. If there is no quorum, the meeting shall be adjourned by the Chairperson to a specific time on the same day, or on a later date and quorum shall be necessary for such adjourned meeting. Quorum shall be necessary on the following day of the continued meeting.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">Where no provision is made by or under the Statutes for the Chairperson to preside over a meeting of any authority or body of the University or when the Chairperson so</span></p>
+<p class="act-line act-line-continuation">provided for is absent and no provision is made for any other person to preside, the members present shall elect a person from amongst themselves to preside at the meeting.</p>
+<p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">Save as otherwise provided, all items, questions, matters or proposals on the agenda shall be decided by consensus of the members present.</span></p>
   </div>
 </article>
 

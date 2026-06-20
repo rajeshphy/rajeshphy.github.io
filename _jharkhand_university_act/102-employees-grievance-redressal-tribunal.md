@@ -14,20 +14,20 @@ section_number: "102"
  <h2 class="act-section-heading"><span>102</span>Employees Grievance Redressal Tribunal</h2>
  <p class="act-essence-box">Brief: There shall be Employee Grievance Redressal Tribunal at the State Level governed by this Act as the appellate authority for review and disposal of any matter adjudicated by the Employee Grievance Redressal Committee. The Tribunal shall consist of following members: Retired Judge of High Court or a person having qualification to become a High Court Judge - Chairperson; an advocate recognised by the State Bar Council with at least 10 years of...</p>
  <div class="act-section-body">
-(1) There shall be Employee Grievance Redressal Tribunal at the State Level governed by this Act as the appellate authority for review and disposal of any matter adjudicated by the Employee Grievance Redressal Committee.
-(2) The Tribunal shall consist of following members:
-(a) Retired Judge of High Court or a person having qualification to become a High Court Judge - Chairperson;
-(b) an advocate recognised by the State Bar Council with at least 10 years of prior experience in handling, of legal matter pertaining to State Universities - Member;
-(c) retired Officer of Jharkhand Financial Services not below the rank of Joint Secretary to the Government- Member;
-(d) retired Officer of Government the State, not below the rank of Joint Secretary, having significant experience in administrative and personnel related matters - Member;
-(e) a Professor or Associate Professor from any University shall be deputed as the Member Secretary of the Committee; and
-(f) Any invitee as decided by the Chairperson.
-(3) The appointment of members of the Tribunal as mentioned in sub-section (2)(a) to (2)(d) and deputation of member mentioned in sub-section (2)(e) of this section shall be done by the State Government for a period of three years, in the manner as prescribed by the Statutes.
-(4) The quorum of meeting of the Tribunal shall be set at two members with the compulsory attendance of the Chairperson, excluding the invitee members.
-(5) The appointment and deputed members of the Tribunal shall be entitled for such pay and allowances as may be determined by the State Government in the Statutes.
-(6) The State Government shall make available to the Tribunal such staff as may be necessary for the discharge of its functions under this Act.
-(7) Any appointed member may, by writing under his signature resign from his office and shall cease to hold his office on the acceptance of his resignation by the State Government or from the date of expiry of thirty days from the date of resignation, whichever is earlier.
-(8) The State Government shall fill the vacant posts of the Tribunal within a period of 30 (thirty) days of the occurrence of such vacancy. The quorum and sittings of the Tribunal shall not be affected for want of vacancy.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be Employee Grievance Redressal Tribunal at the State Level governed by this Act as the appellate authority for review and disposal of any matter adjudicated by the Employee Grievance Redressal Committee.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Tribunal shall consist of following members:</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Retired Judge of High Court or a person having qualification to become a High Court Judge - Chairperson;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">an advocate recognised by the State Bar Council with at least 10 years of prior experience in handling, of legal matter pertaining to State Universities - Member;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">retired Officer of Jharkhand Financial Services not below the rank of Joint Secretary to the Government- Member;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">retired Officer of Government the State, not below the rank of Joint Secretary, having significant experience in administrative and personnel related matters - Member;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">a Professor or Associate Professor from any University shall be deputed as the Member Secretary of the Committee; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">Any invitee as decided by the Chairperson.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">The appointment of members of the Tribunal as mentioned in sub-section (2)(a) to (2)(d) and deputation of member mentioned in sub-section (2)(e) of this section shall be done by the State Government for a period of three years, in the manner as prescribed by the Statutes.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">The quorum of meeting of the Tribunal shall be set at two members with the compulsory attendance of the Chairperson, excluding the invitee members.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">The appointment and deputed members of the Tribunal shall be entitled for such pay and allowances as may be determined by the State Government in the Statutes.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(6)</span><span class="act-line-text">The State Government shall make available to the Tribunal such staff as may be necessary for the discharge of its functions under this Act.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(7)</span><span class="act-line-text">Any appointed member may, by writing under his signature resign from his office and shall cease to hold his office on the acceptance of his resignation by the State Government or from the date of expiry of thirty days from the date of resignation, whichever is earlier.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(8)</span><span class="act-line-text">The State Government shall fill the vacant posts of the Tribunal within a period of 30 (thirty) days of the occurrence of such vacancy. The quorum and sittings of the Tribunal shall not be affected for want of vacancy.</span></p>
   </div>
 </article>
 

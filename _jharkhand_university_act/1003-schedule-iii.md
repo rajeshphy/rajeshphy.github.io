@@ -13,16 +13,16 @@ chapter_title: "Schedules"
  <h2 class="act-section-heading">Schedule III</h2>
  <p class="act-essence-box">Brief: lists the universities, governing Acts, locations, jurisdictions, or classifications assigned under Schedule III, so the institutional coverage of the Act can be checked without reading the full table.</p>
  <div class="act-section-body">
-LIST OF RESEARCH-INTENSIVE UNITARY
-UNIVERSITIES
-Year of
-Sl. No. Name of University Location Jurisdiction
-Establishment
-I II III IV V
-1. Dr. Shyama Prasad Mukherjee University 2017 Ranchi State of Jharkhand
-2. Jamshedpur Women’s University 2019 Jamshedpur State of Jharkhand
-3. Pandit Raghunath Murmu Tribal University 2022 Jamshedpur State of Jharkhand
-4. Jharkhand Raksha Shakti University Ranchi State of Jharkhand
+<p class="act-line act-line-table">LIST OF RESEARCH-INTENSIVE UNITARY</p>
+<p class="act-line act-line-table">UNIVERSITIES</p>
+<p class="act-line act-line-table">Year of</p>
+<p class="act-line act-line-table">Sl. No. Name of University Location Jurisdiction</p>
+<p class="act-line act-line-table">Establishment</p>
+<p class="act-line act-line-table">I II III IV V</p>
+<p class="act-line act-line-table">1. Dr. Shyama Prasad Mukherjee University 2017 Ranchi State of Jharkhand</p>
+<p class="act-line act-line-table">2. Jamshedpur Women’s University 2019 Jamshedpur State of Jharkhand</p>
+<p class="act-line act-line-table">3. Pandit Raghunath Murmu Tribal University 2022 Jamshedpur State of Jharkhand</p>
+<p class="act-line act-line-table">4. Jharkhand Raksha Shakti University Ranchi State of Jharkhand</p>
   </div>
 </article>
 

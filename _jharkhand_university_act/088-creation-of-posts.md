@@ -14,8 +14,8 @@ section_number: "88"
  <h2 class="act-section-heading"><span>88</span>Creation of Posts</h2>
  <p class="act-essence-box">Brief: After the commencement of this Act, the State Government shall create the posts of teaching and non-teaching staffs, only for the University, University Departments and Constituent Colleges. The affiliated Colleges shall have the autonomy to create posts in the manner as prescribed by the Statutes and there shall be no financial liability on the State Government for such posts.</p>
  <div class="act-section-body">
-(1) After the commencement of this Act, the State Government shall create the posts of teaching and non-teaching staffs, only for the University, University Departments and Constituent Colleges.
-(2) The affiliated Colleges shall have the autonomy to create posts in the manner as prescribed by the Statutes and there shall be no financial liability on the State Government for such posts.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">After the commencement of this Act, the State Government shall create the posts of teaching and non-teaching staffs, only for the University, University Departments and Constituent Colleges.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The affiliated Colleges shall have the autonomy to create posts in the manner as prescribed by the Statutes and there shall be no financial liability on the State Government for such posts.</span></p>
   </div>
 </article>
 

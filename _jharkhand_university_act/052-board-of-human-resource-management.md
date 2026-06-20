@@ -14,27 +14,27 @@ section_number: "52"
  <h2 class="act-section-heading"><span>52</span>Board of Human Resource Management</h2>
  <p class="act-essence-box">Brief: The Board of Human Resource Management shall be the primary body responsible for timely appointment, promotion, and training of officers, teachers and non-teaching employees of the University. The Board of Human Resource Management shall consist of the following members,: - Vice Chancellor - Chairperson; Pro-Vice Chancellor; Proctor; Dean (Academic Affairs); Director, Information Technology and Digital Learning; Director, Student Affairs; member nominated by Jharkhand State Faculty Development Academy; and the Director, Human Resource...</p>
  <div class="act-section-body">
-(1) The Board of Human Resource Management shall be the primary body responsible for timely appointment, promotion, and training of officers, teachers and non-teaching employees of the University.
-(2) The Board of Human Resource Management shall consist of the following members,: -
-(a) Vice Chancellor - Chairperson;
-(b) Pro-Vice Chancellor;
-(c) Proctor;
-(d) Dean (Academic Affairs);
-(e) Director, Information Technology and Digital Learning;
-(f) Director, Student Affairs;
-(g) member nominated by Jharkhand State Faculty Development Academy; and
-(h) the Director, Human Resource Management - Member Secretary.
-(3) The Board of Human Resource Management shall have the following power and duties, namely:-
-(a) to prepare the roster of vacancies available for teaching or non-teaching staff;
-(b) to enlist the vacancies of officers, teaching and non-teaching employees that may arise in the University Department/s, faculties and Colleges and prepare a consolidated list of the same:
-(c) to propose amendments to the Statutes for promotion of various teaching and nonteaching posts as per revisions by the University Grants Commission and/or State Government;
-(d) to entertain concerns, grievance, conflicts related to the administrative functions of teachers and non-teaching staff, and work to maintain a positive working environment and ensure that policies and procedures are followed;
-(e) to monitor and ensure timely conduction of professional development programs, trainings, workshops, etc. by Jharkhand State Faculty Development Academy, HRDC’s or Malaviya Mission Teacher Training Centre similar specialised agencies for teachers and non-teaching staff;
-(f) to oversees workplace safety programs and initiatives related to employee health and wellness are being followed properly;
-(g) to prepare the record of pay-fixation of teachers, non-teaching staffs and officers of the University;
-(h) to monitor that the record/ database of seniority of all categories of teaching and non-teaching staffs is being maintained accurately and in timely manner.
-(i) to monitor and oversee the updation of service records and/or books of the University employees; and,
-(j) to perform any other task or activity as may be prescribed by the Statutes.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Board of Human Resource Management shall be the primary body responsible for timely appointment, promotion, and training of officers, teachers and non-teaching employees of the University.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board of Human Resource Management shall consist of the following members,: -</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Vice Chancellor - Chairperson;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">Pro-Vice Chancellor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">Proctor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">Dean (Academic Affairs);</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">Director, Information Technology and Digital Learning;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">Director, Student Affairs;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">member nominated by Jharkhand State Faculty Development Academy; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">the Director, Human Resource Management - Member Secretary.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">The Board of Human Resource Management shall have the following power and duties, namely:-</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">to prepare the roster of vacancies available for teaching or non-teaching staff;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">to enlist the vacancies of officers, teaching and non-teaching employees that may arise in the University Department/s, faculties and Colleges and prepare a consolidated list of the same:</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">to propose amendments to the Statutes for promotion of various teaching and nonteaching posts as per revisions by the University Grants Commission and/or State Government;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">to entertain concerns, grievance, conflicts related to the administrative functions of teachers and non-teaching staff, and work to maintain a positive working environment and ensure that policies and procedures are followed;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">to monitor and ensure timely conduction of professional development programs, trainings, workshops, etc. by Jharkhand State Faculty Development Academy, HRDC’s or Malaviya Mission Teacher Training Centre similar specialised agencies for teachers and non-teaching staff;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">to oversees workplace safety programs and initiatives related to employee health and wellness are being followed properly;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">to prepare the record of pay-fixation of teachers, non-teaching staffs and officers of the University;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">to monitor that the record/ database of seniority of all categories of teaching and non-teaching staffs is being maintained accurately and in timely manner.</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(i)</span><span class="act-line-text">to monitor and oversee the updation of service records and/or books of the University employees; and,</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(j)</span><span class="act-line-text">to perform any other task or activity as may be prescribed by the Statutes.</span></p>
   </div>
 </article>
 

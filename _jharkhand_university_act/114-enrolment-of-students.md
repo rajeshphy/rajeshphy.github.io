@@ -14,7 +14,7 @@ section_number: "114"
  <h2 class="act-section-heading"><span>114</span>Enrolment of Students</h2>
  <p class="act-essence-box">Brief: A person to be enrolled as the student of the University shall possess such qualifications and fulfill such conditions as may be prescribed.</p>
  <div class="act-section-body">
-A person to be enrolled as the student of the University shall possess such qualifications and fulfill such conditions as may be prescribed.
+<p class="act-line act-line-continuation">A person to be enrolled as the student of the University shall possess such qualifications and fulfill such conditions as may be prescribed.</p>
   </div>
 </article>
 

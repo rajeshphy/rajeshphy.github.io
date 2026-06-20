@@ -14,7 +14,7 @@ section_number: "118"
  <h2 class="act-section-heading"><span>118</span>Convocation</h2>
  <p class="act-essence-box">Brief: The convocation of the University shall be held at least once during an academic year in the manner prescribed by the Statutes for conferring degrees, post-graduate diplomas or for any other purpose.</p>
  <div class="act-section-body">
-The convocation of the University shall be held at least once during an academic year in the manner prescribed by the Statutes for conferring degrees, post-graduate diplomas or for any other purpose.
+<p class="act-line act-line-continuation">The convocation of the University shall be held at least once during an academic year in the manner prescribed by the Statutes for conferring degrees, post-graduate diplomas or for any other purpose.</p>
   </div>
 </article>
 

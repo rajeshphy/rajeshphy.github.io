@@ -14,9 +14,9 @@ section_number: "94"
  <h2 class="act-section-heading"><span>94</span>Admission</h2>
  <p class="act-essence-box">Brief: Subject to the reservation policy of the State Government, admission to all courses in the University Departments, Constituent Colleges and Affiliated Colleges shall be made on the basis of merit in accordance with the rules, if any, made by the State Government and published in the Official Gazette, or University Ordinances made by the University: Provided that, where model rules have been framed by the State Government in the interest of students...</p>
  <div class="act-section-body">
-(1) Subject to the reservation policy of the State Government, admission to all courses in the University Departments, Constituent Colleges and Affiliated Colleges shall be made on the basis of merit in accordance with the rules, if any, made by the State Government and published in the Official Gazette, or University Ordinances made by the University:
-Provided that, where model rules have been framed by the State Government in the interest of students throughout the State, the University shall adopt the same and such rules shall be published by the University before the commencement of the academic session.
-(2) Further with regard to the maintenance of discipline, the authority concerned shall have the power to refuse admission to a student, except at the entry point of any academic programme.,
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Subject to the reservation policy of the State Government, admission to all courses in the University Departments, Constituent Colleges and Affiliated Colleges shall be made on the basis of merit in accordance with the rules, if any, made by the State Government and published in the Official Gazette, or University Ordinances made by the University:</span></p>
+<p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">where model rules have been framed by the State Government in the interest of students throughout the State, the University shall adopt the same and such rules shall be published by the University before the commencement of the academic session.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">Further with regard to the maintenance of discipline, the authority concerned shall have the power to refuse admission to a student, except at the entry point of any academic programme.,</span></p>
   </div>
 </article>
 

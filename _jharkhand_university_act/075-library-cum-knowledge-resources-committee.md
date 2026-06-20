@@ -14,26 +14,26 @@ section_number: "75"
  <h2 class="act-section-heading"><span>75</span>Library-Cum-Knowledge Resources Committee</h2>
  <p class="act-essence-box">Brief: There shall be a Library-cum-Knowledge Resource Committee for administering, organizing and maintaining the Library and Knowledge Resource Centre, print and electronic material and related services of the University. The Library-cum-Knowledge Resource Committee shall consist of the following members, namely:- Vice Chancellor - Chairperson; one Dean of Faculty, nominated by the Vice Chancellor, on rotation basis; one head of the University department or University institution nominated by the Vice Chancellor, on rotation basis...</p>
  <div class="act-section-body">
-(1) There shall be a Library-cum-Knowledge Resource Committee for administering, organizing and maintaining the Library and Knowledge Resource Centre, print and electronic material and related services of the University.
-(2) The Library-cum-Knowledge Resource Committee shall consist of the following members, namely:-
-(a) Vice Chancellor - Chairperson;
-(b) one Dean of Faculty, nominated by the Vice Chancellor, on rotation basis;
-(c) one head of the University department or University institution nominated by the Vice Chancellor, on rotation basis;
-(d) two members nominated by the Vice Chancellor, of whom one shall be from industry and the other shall be librarian from a national level organization;
-(e) Registrar;
-(f) Finance Officer; and
-(g) Director, Knowledge Resource Center - Member Secretary.
-(3) All nominated members of the Library-cum-Knowledge Resource Committee, shall hold office for a period of three years.
-(4) The Library-cum-Knowledge Resource Committee shall meet at least three times in a year and as desired by the Chairperson.
-(5) The quorum for a meeting of the committee shall be set at half of the total members;
-(6) The Library-cum-Knowledge Resource Committee shall, -
-(a) provide for proper organization and support for the functioning of the Library and Knowledge Resource Centre, documentation services and maintenance of records in analogue and digital form;
-(b) provide the approach and operational plan for modernization and improvement of Library and Knowledge Resource Centre and documentation services in both analogue and digital format;
-(c) recommend to the Academic Council fees and other charges for the services and use of the Knowledge Resource Centre by students and others;
-(d) prepare the annual budget and proposal for development of the Library and Knowledge Resource Centre;
-(e) submit the annual report on the functioning of the Library and Knowledge Resource Centre to the Vice Chancellor;
-(f) establish a network with regional, national and international libraries and information centers; and
-(g) undertake any other task as may be prescribed by the Statutes.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Library-cum-Knowledge Resource Committee for administering, organizing and maintaining the Library and Knowledge Resource Centre, print and electronic material and related services of the University.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Library-cum-Knowledge Resource Committee shall consist of the following members, namely:-</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Vice Chancellor - Chairperson;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">one Dean of Faculty, nominated by the Vice Chancellor, on rotation basis;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">one head of the University department or University institution nominated by the Vice Chancellor, on rotation basis;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">two members nominated by the Vice Chancellor, of whom one shall be from industry and the other shall be librarian from a national level organization;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">Registrar;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">Finance Officer; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">Director, Knowledge Resource Center - Member Secretary.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">All nominated members of the Library-cum-Knowledge Resource Committee, shall hold office for a period of three years.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">The Library-cum-Knowledge Resource Committee shall meet at least three times in a year and as desired by the Chairperson.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">The quorum for a meeting of the committee shall be set at half of the total members;</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(6)</span><span class="act-line-text">The Library-cum-Knowledge Resource Committee shall, -</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">provide for proper organization and support for the functioning of the Library and Knowledge Resource Centre, documentation services and maintenance of records in analogue and digital form;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">provide the approach and operational plan for modernization and improvement of Library and Knowledge Resource Centre and documentation services in both analogue and digital format;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">recommend to the Academic Council fees and other charges for the services and use of the Knowledge Resource Centre by students and others;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">prepare the annual budget and proposal for development of the Library and Knowledge Resource Centre;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">submit the annual report on the functioning of the Library and Knowledge Resource Centre to the Vice Chancellor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">establish a network with regional, national and international libraries and information centers; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">undertake any other task as may be prescribed by the Statutes.</span></p>
   </div>
 </article>
 

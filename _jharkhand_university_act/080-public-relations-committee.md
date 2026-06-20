@@ -14,18 +14,18 @@ section_number: "80"
  <h2 class="act-section-heading"><span>80</span>Public Relations Committee</h2>
  <p class="act-essence-box">Brief: There shall be a Public Relations Committee to manage the University’s image, fostering positive relationships with various stakeholders, and ensuring effective communication both internally and externally. The Public Relations Committee shall consist of the following members: - Vice Chancellor, Chairperson; Pro-Vice Chancellor; Dean (Academic, Affairs); Director, Student Affairs; Director, Constituent Colleges; Director, Affiliated Colleges; and Director, Public Relations and Community Outreach – Member Secretary. The quorum for all the meetings of the...</p>
  <div class="act-section-body">
-(1) There shall be a Public Relations Committee to manage the University’s image, fostering positive relationships with various stakeholders, and ensuring effective communication both internally and externally.
-(2) The Public Relations Committee shall consist of the following members: -
-(a) Vice Chancellor, Chairperson;
-(b) Pro-Vice Chancellor;
-(c) Dean (Academic, Affairs);
-(d) Director, Student Affairs;
-(e) Director, Constituent Colleges;
-(f) Director, Affiliated Colleges; and
-(g) Director, Public Relations and Community Outreach – Member Secretary.
-(3) The quorum for all the meetings of the committee shall be set at half of total members with mandatory presence of the Chairperson.
-(4) No statement or press release or any material on behalf of the University shall be released to any media organisation or platform without the explicit permission of the cell.
-(5) The Committee shall convene its meeting quarterly or as and when required by the Chairperson.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Public Relations Committee to manage the University’s image, fostering positive relationships with various stakeholders, and ensuring effective communication both internally and externally.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Public Relations Committee shall consist of the following members: -</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Vice Chancellor, Chairperson;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">Pro-Vice Chancellor;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">Dean (Academic, Affairs);</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">Director, Student Affairs;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">Director, Constituent Colleges;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">Director, Affiliated Colleges; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">Director, Public Relations and Community Outreach – Member Secretary.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">The quorum for all the meetings of the committee shall be set at half of total members with mandatory presence of the Chairperson.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">No statement or press release or any material on behalf of the University shall be released to any media organisation or platform without the explicit permission of the cell.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">The Committee shall convene its meeting quarterly or as and when required by the Chairperson.</span></p>
   </div>
 </article>
 

@@ -13,7 +13,7 @@ chapter_title: "Gazette Act"
  <h2 class="act-section-heading">The Jharkhand State Universities Act, 2026</h2>
  <p class="act-essence-box">Brief: identifies the official title and Act number of the Jharkhand State Universities Act, 2026, providing the opening reference point for the extracted Gazette collection.</p>
  <div class="act-section-body">
-THE JHARKHAND STATE UNIVERSITIES ACT26 (Jharkhand Act- 0526)
+<p class="act-line act-line-continuation">THE JHARKHAND STATE UNIVERSITIES ACT26 (Jharkhand Act- 0526)</p>
   </div>
 </article>
 

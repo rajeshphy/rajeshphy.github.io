@@ -14,7 +14,7 @@ section_number: "95"
  <h2 class="act-section-heading"><span>95</span>Disputes Relating to Admission</h2>
  <p class="act-essence-box">Brief: All the disputes relating to admissions to University Departments, Constituent Colleges and Affiliated Colleges shall be adjudicated by the Students Grievance Redressal Committee as per section 100.</p>
  <div class="act-section-body">
-All the disputes relating to admissions to University Departments, Constituent Colleges and Affiliated Colleges shall be adjudicated by the Students Grievance Redressal Committee as per section 100.
+<p class="act-line act-line-continuation">All the disputes relating to admissions to University Departments, Constituent Colleges and Affiliated Colleges shall be adjudicated by the Students Grievance Redressal Committee as per section 100.</p>
   </div>
 </article>
 

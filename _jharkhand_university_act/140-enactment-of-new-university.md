@@ -14,7 +14,7 @@ section_number: "140"
  <h2 class="act-section-heading"><span>140</span>Enactment of New University</h2>
  <p class="act-essence-box">Brief: The Department of Higher and Technical Education on fulfilling the provisions as mentioned in Section 136 and Section 139, shall make recommendation to the State Government for establishment of new University as per Section 3 and addition of its name in Schedule-II or Schedule – III of the Act, as applicable by the State Legislature. The name of the new University to be established shall be finalized on the approval from State...</p>
  <div class="act-section-body">
-The Department of Higher and Technical Education on fulfilling the provisions as mentioned in Section 136 and Section 139, shall make recommendation to the State Government for establishment of new University as per Section 3 and addition of its name in Schedule-II or Schedule – III of the Act, as applicable by the State Legislature. The name of the new University to be established shall be finalized on the approval from State Government.
+<p class="act-line act-line-continuation">The Department of Higher and Technical Education on fulfilling the provisions as mentioned in Section 136 and Section 139, shall make recommendation to the State Government for establishment of new University as per Section 3 and addition of its name in Schedule-II or Schedule – III of the Act, as applicable by the State Legislature. The name of the new University to be established shall be finalized on the approval from State Government.</p>
   </div>
 </article>
 

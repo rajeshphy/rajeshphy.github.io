@@ -14,8 +14,8 @@ section_number: "10"
  <h2 class="act-section-heading"><span>10</span>Chancellor</h2>
  <p class="act-essence-box">Brief: The Governor of the State of Jharkhand shall be the Chancellor of the University. The Chancellor shall, by virtue of his/her office, be the Head of the University and shall, if present, preside at the Convocations of the University held for conferring degrees.</p>
  <div class="act-section-body">
-(1) The Governor of the State of Jharkhand shall be the Chancellor of the University.
-(2) The Chancellor shall, by virtue of his/her office, be the Head of the University and shall, if present, preside at the Convocations of the University held for conferring degrees.
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Governor of the State of Jharkhand shall be the Chancellor of the University.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Chancellor shall, by virtue of his/her office, be the Head of the University and shall, if present, preside at the Convocations of the University held for conferring degrees.</span></p>
   </div>
 </article>
 

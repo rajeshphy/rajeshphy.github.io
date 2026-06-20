@@ -14,7 +14,7 @@ section_number: "66"
  <h2 class="act-section-heading"><span>66</span>Conclusiveness of Decision of Authority</h2>
  <p class="act-essence-box">Brief: Save as otherwise provided by or under the provisions of this Act, each authority of the University while acting and exercising its powers and discharging functions or duties assigned to it by or under the provisions of this Act, shall have the exclusive jurisdiction to deal with and decide the mattersassigned, to it and discharging functions or duties assigned to it by or under the provisions of this Act.</p>
  <div class="act-section-body">
-Save as otherwise provided by or under the provisions of this Act, each authority of the University while acting and exercising its powers and discharging functions or duties assigned to it by or under the provisions of this Act, shall have the exclusive jurisdiction to deal with and decide the mattersassigned, to it and discharging functions or duties assigned to it by or under the provisions of this Act.
+<p class="act-line act-line-continuation">Save as otherwise provided by or under the provisions of this Act, each authority of the University while acting and exercising its powers and discharging functions or duties assigned to it by or under the provisions of this Act, shall have the exclusive jurisdiction to deal with and decide the mattersassigned, to it and discharging functions or duties assigned to it by or under the provisions of this Act.</p>
   </div>
 </article>
 

@@ -14,14 +14,14 @@ section_number: "145"
  <h2 class="act-section-heading"><span>145</span>Term of Office and Conditions of Service of Chairperson, Member (administration) and Other Members</h2>
  <p class="act-essence-box">Brief: and other Members The Chairperson of the Commission shall hold the office for a term of five years from the date of appointment or till he / she attains the age of Seventy years, whichever is earlier. The Member of the Commission shall hold the office for a term of four years from the date of appointment or till he / she attains the age of Seventy years, whichever is earlier. All...</p>
  <div class="act-section-body">
-and other Members
-(1) The Chairperson of the Commission shall hold the office for a term of five years from the date of appointment or till he / she attains the age of Seventy years, whichever is earlier.
-(2) The Member (Administration) of the Commission shall hold the office for a term of four years from the date of appointment or till he / she attains the age of Seventy years, whichever is earlier.
-(3) All Other Members of the Commission shall hold the office for a term of three years from the date of appointment or till he / she attains the age of Seventy years, whichever is earlier.
-(4) No person shall be appointed to the post of Chairperson or Member (Administration) or a Member for more than one term in the same post.
-(5) In case of absence of the, Chairperson, the Member (Administration) shall act as the Chairperson of the Commission with the same powers and responsibilities, not exceeding a continuous period of twelve months.
-(6) The pay, allowances, and, any 20other service conditions of the Chairperson, Member
-(Administration) and other Members shall be as prescribed by the Rules.
+<p class="act-line act-line-continuation">and other Members</p>
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Chairperson of the Commission shall hold the office for a term of five years from the date of appointment or till he / she attains the age of Seventy years, whichever is earlier.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Member (Administration) of the Commission shall hold the office for a term of four years from the date of appointment or till he / she attains the age of Seventy years, whichever is earlier.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">All Other Members of the Commission shall hold the office for a term of three years from the date of appointment or till he / she attains the age of Seventy years, whichever is earlier.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">No person shall be appointed to the post of Chairperson or Member (Administration) or a Member for more than one term in the same post.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">In case of absence of the, Chairperson, the Member (Administration) shall act as the Chairperson of the Commission with the same powers and responsibilities, not exceeding a continuous period of twelve months.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(6)</span><span class="act-line-text">The pay, allowances, and, any 20other service conditions of the Chairperson, Member</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(Administration)</span><span class="act-line-text">and other Members shall be as prescribed by the Rules.</span></p>
   </div>
 </article>
 
