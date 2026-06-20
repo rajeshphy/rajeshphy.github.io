@@ -1,0 +1,39 @@
+---
+layout: "act"
+title: "Appointment of Registrar, Financial Advisor, Controller of Examinations and Finance Officers of the University"
+act_part: "CHAPTER VI: SELECTION, APPOINTMENT AND PROMOTION OF OFFICERS, TEACHING AND NON-TEACHING EMPLOYEES OF THE UNIVERSITY - Section 82"
+order: 92
+source_pdf: "/assets/pdf/ref/acts/2026-Gazette-Jharkhand-University-Act.pdf"
+chapter_title: "CHAPTER VI: SELECTION, APPOINTMENT AND PROMOTION OF OFFICERS, TEACHING AND NON-TEACHING EMPLOYEES OF THE UNIVERSITY"
+section_number: "82"
+---
+
+
+<article class="act-document act-section-document">
+ <p class="act-chapter-kicker">CHAPTER VI: SELECTION, APPOINTMENT AND PROMOTION OF OFFICERS, TEACHING AND NON-TEACHING EMPLOYEES OF THE UNIVERSITY</p>
+ <h2 class="act-section-heading"><span>82</span>Appointment of Registrar, Financial Advisor, Controller of Examinations and Finance Officers of the University</h2>
+ <p class="act-essence-box">Brief: the University The Finance Advisor shall be a full-time officer of the University and shall be appointed or taken on deputation by the Chancellor from amongst the officers of the Indian Audit and Accounts Service or any other Accounts Service of the Government of India or the Jharkhand Finance Service or any other State Finance Service, or from amongst Chartered Accountants who are partners of a firm empanelled with the Comptroller and...</p>
+ <div class="act-section-body">
+the University
+(1) The Finance Advisor shall be a full-time officer of the University and shall be appointed or taken on deputation by the Chancellor from amongst the officers of the Indian Audit and Accounts Service or any other Accounts Service of the Government of India or the Jharkhand Finance Service or any other State Finance Service, or from amongst Chartered Accountants who are partners of a firm empanelled with the Comptroller and Auditor General of India.
+Provided that, until such an officer is appointed the present incumbent may continue to work as the Financial Advisor.
+(2) The terms and conditions of service of the Financial Advisor shall be determined by the State Government and he shall ordinarily hold the post for five (05) years and shall not be eligible for consecutive terms in the same University.
+(3) The Registrar, Controller of Examinations, and Finance Officer shall be a whole-time officer of the University appointed by the State Government, either on deputation or by reemployment through the Commission as per the eligibility criteria and process prescribed by the Statutes. The term of shall be for a term of four (04) years or till he attains the age of superannuation as per the University Grants Commission norms whichever is earlier:
+Provided that, in case of a new University established under Section 140 of the Act, the Department of Higher and Technical Education shall provide a panel of 03 names to the State Government for the appointment of 1st Registrar, 1st Controller of Examination, and 1st Finance Officer of the University.
+(4) The Deputy Registrar, Assistant Registrar; and Deputy Controller of Examinations, Assistant Controller of Examinations; Deputy Finance Officer and Assistant Finance Officer; shall be appointed, for a fixed term, by the University through the Commission as may be prescribed by the Statutes in this regard.
+(5) The Finance Officer, Deputy Finance Officer and Assistant Finance Officer shall be a person who possess the required eligibility criteria as prescribed by the Statutes.
+(6) In case the person possessing the qualifications and experience as specified in sub-section
+(5) cannot be appointed, the Finance Officer, Deputy Finance Officer and Assistant Finance Officer may be appointed on interim basis from amongst the teachers of the University with approval from the State Government for a period not exceeding one year.
+(7) Where an appointment has been made to a post referred to in sub-section (3), sub-section
+(4), sub-section (5), or sub-section (6) of this section, if the State Government, either upon a petition lodged by any person directly affected or on its own motion (suo motu), after conducting or causing to be conducted such inquiries, and obtaining or causing to be obtained such explanations, including explanations from the person whose appointment is likely to be affected, as it deems necessary, determines that such appointment, when made by any authority or officer of the University, was not in accordance with the law then in force, the State Government may, by order, and notwithstanding anything to the contrary contained in the contract relating to the conditions of service of such person, direct the Vice Chancellor to terminate the appointment of that person. The Vice Chancellor shall forthwith comply with such direction. Such termination shall be effected by giving one month&#x27;s notice to the person concerned, or by paying one month&#x27;s salary in lieu of such notice. Upon such termination, the Vice Chancellor shall initiate steps for a fresh selection to be made for the post. A person whose appointment has been terminated under this subsection shall be eligible to apply again for the same post, provided that such person fulfills the prescribed eligibility criteria at the time of making the fresh application
+(8) Any order made by the State Government, under the sub-section (7) shall be final and a copy of the order shall be served on the person concerned by the Vice Chancellor within three days from its receipt.
+(9) It shall be the duty of the Vice Chancellor, to ensure that no payment whatsoever is made to any person, by way of salary or allowance, from the funds of the University, for any period after the termination of his services, and any authority or officer authorizing or making any such payment shall be liable to reimburse the amount so paid to the University.,
+(10) The process of appointment for all the above-mentioned posts shall begin at least six months before the probable date of occurrence of the vacancy of the post and shall be completed month at least one prior, date of occurrence of the vacancy. It to the probable shall be the responsibility of the Director, Human Resource Management to complete the process of appointment.
+  </div>
+</article>
+
+<nav class="act-page-nav" aria-label="Act page navigation">
+ <a class="act-page-nav-link" href="{{ '/jharkhand-university-act/081-internal-complaints-committee/' | relative_url }}">Previous</a>
+ <a class="act-page-nav-link act-page-nav-toc" href="{{ '/jharkhand-state-universities-act-2026/' | relative_url }}">TOC</a>
+ <a class="act-page-nav-link" href="{{ '/jharkhand-university-act/083-appointment-of-all-deans-directors-head-of-departments-and-proctor-of/' | relative_url }}">Next</a>
+</nav>

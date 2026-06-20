@@ -1,0 +1,29 @@
+---
+layout: "act"
+title: "Self-Financed Courses"
+act_part: "CHAPTER X: ENROLMENT, DEGREES AND CONVOCATIONS - Section 113"
+order: 123
+source_pdf: "/assets/pdf/ref/acts/2026-Gazette-Jharkhand-University-Act.pdf"
+chapter_title: "CHAPTER X: ENROLMENT, DEGREES AND CONVOCATIONS"
+section_number: "113"
+---
+
+
+<article class="act-document act-section-document">
+ <p class="act-chapter-kicker">CHAPTER X: ENROLMENT, DEGREES AND CONVOCATIONS</p>
+ <h2 class="act-section-heading"><span>113</span>Self-Financed Courses</h2>
+ <p class="act-essence-box">Brief: Any University Department or Constituent College, as applicable, may introduce or windoff Self-financed Courses by submitting a detailed proposal to the Board of Studies of the concerned University in the manner as prescribed by the Statutes. Every proposal for introduction of Self-financed Course must contain the details of the curriculum, domain, necessity, employment opportunities, pedagogy, and duration of such course/s or any other matter as may be prescribed by the Statutes. The...</p>
+ <div class="act-section-body">
+(1) Any University Department or Constituent College, as applicable, may introduce or windoff Self-financed Courses by submitting a detailed proposal to the Board of Studies of the concerned University in the manner as prescribed by the Statutes.
+(2) Every proposal for introduction of Self-financed Course must contain the details of the curriculum, domain, necessity, employment opportunities, pedagogy, and duration of such course/s or any other matter as may be prescribed by the Statutes.
+(3) The Board of Studies, after due consideration, shall present the proposal to the Academic Council, Fee Fixation Committee, Finance and Accounts Committee for its concurrence, and, on receipt of such concurrence, the proposal may be placed before the Senate / Syndicate for necessary approvals.
+(4) All Self-financed Courses must be delivered in strict compliance with the provisions of UGC or other regulatory bodies as applicable and the Board of Studies shall be responsible for monitoring of all Self-financed Courses in the Departments under its jurisdiction.
+(5) All appointments to teaching or non-teaching posts under self-financed courses shall be made by the University or an autonomous body of the University in the manner as prescribed by the Statutes.
+  </div>
+</article>
+
+<nav class="act-page-nav" aria-label="Act page navigation">
+ <a class="act-page-nav-link" href="{{ '/jharkhand-university-act/112-post-graduate-teaching-and-research/' | relative_url }}">Previous</a>
+ <a class="act-page-nav-link act-page-nav-toc" href="{{ '/jharkhand-state-universities-act-2026/' | relative_url }}">TOC</a>
+ <a class="act-page-nav-link" href="{{ '/jharkhand-university-act/114-enrolment-of-students/' | relative_url }}">Next</a>
+</nav>

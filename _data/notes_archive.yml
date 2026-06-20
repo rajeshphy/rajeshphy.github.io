@@ -90,3 +90,5 @@ boards:
         label: "Tech"
       - category: "doc-code"
         label: "Code"
+      - category: "doc-acts"
+        label: "Acts"

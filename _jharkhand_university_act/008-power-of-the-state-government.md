@@ -1,0 +1,88 @@
+---
+layout: "act"
+title: "Power of the State Government"
+act_part: "CHAPTER II: STATE UNIVERSITIES - Section 8"
+order: 18
+source_pdf: "/assets/pdf/ref/acts/2026-Gazette-Jharkhand-University-Act.pdf"
+chapter_title: "CHAPTER II: STATE UNIVERSITIES"
+section_number: "8"
+---
+
+
+<article class="act-document act-section-document">
+ <p class="act-chapter-kicker">CHAPTER II: STATE UNIVERSITIES</p>
+ <h2 class="act-section-heading"><span>8</span>Power of the State Government</h2>
+ <p class="act-essence-box">Brief: Without prior approval of the State Government, the University shall not: - create new posts of teachers, officers or other employees of the University except for operationalization of self-financed courses; grant and revise the pay, allowances, post-retirement benefits and other benefits for the employees of the University; divert any earmarked funds received for any purpose other than that for which it was received; transfer by sale or lease of immovable property; and...</p>
+ <div class="act-section-body">
+(1) Without prior approval of the State Government, the University shall not: -
+(a) create new posts of teachers, officers or other employees of the University except for operationalization of self-financed courses;
+(b) grant and revise the pay, allowances, post-retirement benefits and other benefits for the employees of the University;
+(c) divert any earmarked funds received for any purpose other than that for which it was received;
+(d) transfer by sale or lease of immovable property; and
+(e) incur expenditure for any development work from the funds received from the State Government or Central Government or any other source, other than the purpose for which the funds are received.
+(2) The State Government may, in accordance with the provisions contained in this Act, for the purpose of securing and maintaining uniform standards in all Universities in the State, by notification in the Official Gazette, prescribe Statutes for: -
+(a) classification, manner and mode of selection; qualifications and experience for posts; process of appointment; induction, advance training and field exposure of employees; deputation; reservation of post as per State Reservation Policy; duties, workload, pay, allowances, post-retirement benefits, and other benefits; conduct, disciplinary matters and other conditions of service of the officers, teachers and other employees of the University;
+(b) governing the process, norms, criteria, and procedure for grant of affiliation, continuation of affiliation, and withdrawal or de-affiliation of colleges by the Universities; including provisions for related to academic performance, infrastructural standards, financial viability, governance, management practices, and other such matters as may be deemed necessary;
+(c) relating to the establishment, composition, manner of constitution or appointment, qualifications, tenure, roles, powers, responsibilities, reporting obligations, code of conduct, and, decision-making processes of the various Authorities, Committees, Councils, and Officers of the University; definition of administrative, academic, and financial roles and interrelationships between officers of the University including the, Pro-Vice Chancellor, Registrar, Vice Chancellor, Financial Advisor, Deans, Directors, and other statutory officers;
+(d) governance and administration of academic affairs, course and curriculum design, student welfare, safety and security of employees and students, healthcare facilities for employees and students, quality benchmarks, institutional assessment, accreditation, and national and state-level ranking systems; development, review, and periodic revision of curricula and academic programmes in line with the guidelines issued by the University Grants Commission (UGC);
+(e) frame and prescribe Statutes regarding the creation of posts, pay fixation, transfer, posting, and deputation of employees of the University and its Constituent Colleges;
+(f) frame and prescribe Statutes for infrastructure development, establishment and governance of Regional Centres and Study Centres, and for implementation of Environmental, Social and Governance (ESG) initiatives;
+(g) establishment, governance, standardisation, and effective functioning of grievance redressal mechanisms for employees and students of the University, its Constituent Colleges, and affiliated institutions;
+(h) establishment, composition, powers, functions, and procedures of the Jharkhand State University Service Commission; and
+(i) any other matter as may be required by the State Government.
+(3) The State Government shall have the powers relating to: -
+(a) Conditions of Service for employees, namely as: -
+(i) Creation of posts for teaching and non-teaching employees only in University, University Departments and Constituent Colleges;
+(ii) Clearance of roster for appointment of Employees against the sanctioned posts;
+(iii) Mandating mechanisms for deputation, intra-University transfer of employees and approving inter-University transfer of Employees;
+(iv) Selection of Vice Chancellor and Pro-Vice Chancellor;
+(v) Prescribing conditions for creation of posts by the University for selffinanced, externally funded, or project-based academic programmes, including guidelines for approval, tenure, renewal, and abolition of such posts;
+(vi) Standards and procedures for fixation and revision of pay, allowances, and other benefits of employees appointed against sanctioned posts;
+(vii) Regulatory framework for the State Government to carry out pay fixation of University employees, including modalities of implementation, audit, and rectification of anomalies;
+(viii) Conditions, tenure, and approval procedures for deputation of University employees to other educational institutions, State bodies, research organisations, or other departments of the Government; and
+(ix) Any other matter necessary or incidental to ensure a fair, merit-based, and efficient human resource management system within the Universities.
+(b) Funds, Accounts and Financial Audits, namely as: -
+(i) Oversee the financial management of the University and its Constituent Colleges, as and applicable carry out test audit or full audit of the accounts of the University and its Constituent Units, regularly or at such intervals as it may deem fit;
+(ii) Establish special funds or accounts for specific purposes, sanction grants and loans to the University and regulate the terms and conditions for such financial assistance;
+(iii) Prescribe standards of accounting, maintenance of records, books and other documentary or digital records of transactions made from the funds of the University;
+(iv) To carry out inspection of any affiliated, constituent, or autonomous college or University at any time it deems fit, and
+(v) Any other matter necessary or incidental to ensure effective financial management of the Universities.
+(c) Issue directions, directives and its compliance, namely as: -
+(i) Issue any direction/s or order/s or notification/s from time to time, as may be required, or it deems fit for compliance of any provisions of this Act, or guidelines/ regulations issued by UGC or any regulatory bodies and it shall be mandatory for all Universities to comply with the same;
+(ii) In case of failure of the University to exercise powers or perform duties specified in section 5, or where the University has not exercised such powers or performed such duties adequately, or where there has been a failure to comply with any direction/s or order/s or notification/s issued by the State Government, or under any other circumstances as the State Government may deem fit, the State Government may issue a directive to the University for proper exercise of such powers or performance of such duties or comply with the order and it shall be mandatory for the University to comply with all such directives.
+(d) Operation of the Commission, namely as: -
+(i) Appointment and conditions of service of Chairperson, Member
+(Administration) and other Members of the Commission;
+(ii) Create post and conditions of Service for employees of the Commission including but not limited to Secretary, Deputy Secretary, Controller of Examinations, Finance Officer and any other employee;
+(iii) Issue directions on any matter its fit and seek consultations on Qualification criteria, eligibility norms, reservation policy, age limits, and equivalency conditions for employees of the University; and
+(iv) Any other matter necessary or incidental to fulfillment of objectives of the Commission.
+(e) Creation and Maintenance of Infrastructure, namely as: -
+(i) Development, upgradation, and maintenance of physical, academic, digital, and residential infrastructure for the University headquarters, Constituent Colleges, and affiliated campuses, including funding mechanisms, technical standards, approval processes, and compliance timelines;
+(ii) Prescribing Norms and procedures for establishment, territorial jurisdiction, administrative structure, and operational governance of and Regional Centres, of the University, including the roles Study Centres of the University;
+(iii) Establish Community Colleges based on the need assessment and of recommendations, the University;
+(iv) Mandatory conduct of periodic Green Audits across University campuses, Constituent Colleges, Regional Centres and Study Centres to assess energy efficiency, waste management, water conservation, biodiversity protection, carbon footprint, and related parameters in accordance with guidelines issued by competent authorities or agencies; and
+(v) Any other matter that the State Government may consider necessary to promote environmentally responsible, socially responsive, and institutionally accountable growth and development in higher education institutions.
+(f) Grants, Aid and Incentives, namely as: -
+(i) Prescribe the norms for Grants or funds to be given to the University or Constituent College;
+(ii) Formulate Schemes for performance based incentives to be provided for employees of the University, Constituent Colleges and affiliated Colleges;
+(iii) Monitor the utilization of Grants and mandate deficit financing based accounting of the Universities; and
+(iv) Any other matter incidental to promotion of financial prudence and granting of incentives to the University.
+(g) Grievance Redressal of Employees and Students, namely as:
+(i) Mandate Institutional structure, jurisdiction, and procedures of the Student Grievance Redressal Committee (SGRC), Employees Grievance Redressal Committee (EGRC), and Employees Grievance Redressal Tribunal (EGRT), as provided under this Act, including their composition, term of office, quorum, powers, and duties;
+(ii) Prescribe the manner of appointment and deputation of Members to the EGRC and EGRT along with determination of their pay and allowances;
+(iii) Prescribe timelines and escalation protocols for redressal of grievances related to admissions, examination results, discrimination, harassment, service conditions, promotions, transfers, pay anomalies, and disciplinary actions;
+(iv) Mechanism for quarterly and annual reporting of grievance statistics, status of disposal, systemic issues, and policy recommendations by the University; and
+(v) Any other matter deemed necessary by the State Government to secure justice, dignity, and institutional integrity in the management of grievances.
+(h) Nomenclature of the University and Constituent College, namely as:
+(i) amendment to Schedule-II and Schedule-III limited to nomenclature i.e., change in name of the University by issuance of notification in the Official Gazette; and
+(ii) name or rename Constituent College(s) either established or to be established, by issuance of a notification in the Official Gazette.
+(i) Any other manner or subject as it may deem fit or necessary in the interest of the University and the State.
+CHAPTER III: OFFICERS OF THE UNIVERSITY
+  </div>
+</article>
+
+<nav class="act-page-nav" aria-label="Act page navigation">
+ <a class="act-page-nav-link" href="{{ '/jharkhand-university-act/007-university-open-to-all/' | relative_url }}">Previous</a>
+ <a class="act-page-nav-link act-page-nav-toc" href="{{ '/jharkhand-state-universities-act-2026/' | relative_url }}">TOC</a>
+ <a class="act-page-nav-link" href="{{ '/jharkhand-university-act/009-officers-of-the-university/' | relative_url }}">Next</a>
+</nav>

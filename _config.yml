@@ -20,6 +20,11 @@ permalink: /:title/
 paginate: 10
 paginate_path: "/page:num/"
 
+collections:
+  jharkhand_university_act:
+    output: true
+    permalink: /jharkhand-university-act/:path/
+
 plugins:
   - jekyll-feed
   - jekyll-paginate

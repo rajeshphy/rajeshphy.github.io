@@ -2,7 +2,15 @@ items:
 
   - title: Free Science Journals
     url: /ref/free-science-journals/
-    
+  
+  - title: Acts
+    children:
+    - title: Jharkhand University 2026, PDF
+      url: /assets/pdf/ref/acts/2026-Gazette-Jharkhand-University-Act.pdf
+    - title: Jharkhand University 2026, HTML
+      url: /jharkhand-state-universities-act-2026
+
+
   - title: Syllabus
     children:
     - title: PG Physics
