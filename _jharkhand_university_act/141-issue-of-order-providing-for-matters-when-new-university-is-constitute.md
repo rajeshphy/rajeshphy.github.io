@@ -12,9 +12,11 @@ section_number: "141"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XIV: ESTABLISHMENT OF NEW UNIVERSITIES</p>
  <h2 class="act-section-heading"><span>141</span>Issue of Order Providing for Matters When New University Is Constituted</h2>
- <p class="act-essence-box">Brief: When any new University is constituted by a notification in the Official Gazette under subsection of section 3, the State Government may, notwithstanding anything contained in this Act, by one or more orders published in the Official Gazette, provide for all or any of the following matters, namely:- the appointment of the first Vice Chancellor and other officers of the University and the term for which they shall be appointed; the mentor...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on issue of order providing for matters when new university is constituted under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
-<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">When any new University is constituted by a notification in the Official Gazette under subsection (2) of section 3, the State Government may, notwithstanding anything contained in this Act, by one or more orders published in the Official Gazette, provide for all or any of the following matters, namely:-</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">When any new University is constituted by a notification in the Official Gazette under sub-section (2) of section 3, the State Government may, notwithstanding anything contained in this Act, by one or more orders published in the Official Gazette, provide for all or any of the following matters, namely:-</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">the appointment of the first Vice Chancellor and other officers of the University and the term for which they shall be appointed;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">the mentor University for the newly established University;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">the constitution of the first Senate and Academic Council in such manner as it thinks fit and the term, for which it shall function;</span></p>

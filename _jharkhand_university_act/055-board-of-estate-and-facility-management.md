@@ -12,7 +12,9 @@ section_number: "55"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>55</span>Board of Estate and Facility Management</h2>
- <p class="act-essence-box">Brief: The Board of Estate and Facility Management shall be the primary body responsible to ensure the formulation, adoption, implementation and monitoring of all initiatives or measures related to the campus infra development, safety and security of students, specifically, Women in the University Campus. The Board of Estate and Facility Management shall consist of the following members,: - Vice Chancellor - Chairperson; Pro-Vice Chancellor; Proctor; Registrar; Director, Inclusive Education; Director, Information Technology and...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of Estate and Facility Management. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Board of Estate and Facility Management shall be the primary body responsible to ensure the formulation, adoption, implementation and monitoring of all initiatives or measures related to the campus infra development, safety and security of students, specifically, Women in the University Campus.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board of Estate and Facility Management shall consist of the following members,: -</span></p>

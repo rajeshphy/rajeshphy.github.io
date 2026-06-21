@@ -12,7 +12,9 @@ section_number: "91"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VI: SELECTION, APPOINTMENT AND PROMOTION OF OFFICERS, TEACHING AND NON-TEACHING EMPLOYEES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>91</span>Retirement from Service</h2>
- <p class="act-essence-box">Brief: Notwithstanding anything, contained contrary to the Act, the age of retirement of employee of the University shall be as prescribed by the Statutes. The University may require any employee who, reckoned from the date of his appointment, has completed the total service of 25 years, to retire from the University service after giving at least three months prior notice, if considers that his conduct or efficiency is such, as it does not...</p>
+ <p class="act-essence-box">Brief: This section regulates retirement from service in the University system. It identifies the responsible authority, the relevant procedure or timeline, and the conditions under which appointment, promotion, service, vacancy, transfer or termination matters must be handled under the Act, Statutes or Rules.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Notwithstanding anything, contained contrary to the Act, the age of retirement of employee of the University shall be as prescribed by the Statutes.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The University may require any employee who, reckoned from the date of his appointment, has completed the total service of 25 years, to retire from the University service after giving at least three months prior notice, if considers that his conduct or efficiency is such, as it does not justify his continuation in the service.</span></p>

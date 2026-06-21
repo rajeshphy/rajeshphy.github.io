@@ -12,7 +12,9 @@ section_number: "78"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER V: COUNCIL, COMMITTEES AND CELLS</p>
  <h2 class="act-section-heading"><span>78</span>Building and Works Committee</h2>
- <p class="act-essence-box">Brief: There shall be a Buildings and Works Committee to carry out minor and major infrastructure development activities of the University efficiently and in a time bound manner. The Buildings and Works Committee shall consist of the following members namely:- Vice Chancellor - Chairperson; Pro-Vice Chancellor; Financial Advisor; Engineer of the Building Construction Department in charge of the District in which the University Headquarter is situated, or his nominee not below the rank...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Building and Works Committee. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Buildings and Works Committee to carry out minor and major infrastructure development activities of the University efficiently and in a time bound manner.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Buildings and Works Committee shall consist of the following members namely:-</span></p>
@@ -30,8 +32,8 @@ section_number: "78"
 <p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">The quorum for a meeting of the committee shall be set at half of the total members.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(6)</span><span class="act-line-text">The Buildings and Works committee shall, -</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">under direction and overall supervision of the Vice Chancellor may execute all types of works to be executed through the agency of the Building Construction Department or through the agency recommended by the State Government;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">accord administrative, approval sanction to the maintenance work, and financial subject to availability of funds in the budget;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">recommend and obtain administrative approval and expenditure sanction of the Syndicate in, of20 respect, all minorworks; and and major</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">accord administrative approval and financial sanction to the maintenance work, subject to availability of funds in the budget;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">recommend and obtain administrative approval and expenditure sanction of the Syndicate in respect of all minor and major works; and</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">recommend to the Syndicate through the Finance and Accounts Committee, a ‘Programme of Works’ to be executed in the ensuing year, specifying maintenance works, major works and minor works, separately;</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(7)</span><span class="act-line-text">The Buildings and Works Committee shall perform such other duties as may be prescribed by the Statutes.</span></p>
   </div>

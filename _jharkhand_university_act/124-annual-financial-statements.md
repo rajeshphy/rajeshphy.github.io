@@ -12,7 +12,9 @@ section_number: "124"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XII: UNIVERSITY FUNDS, ACCOUNTS AND AUDIT</p>
  <h2 class="act-section-heading"><span>124</span>Annual Financial Statements</h2>
- <p class="act-essence-box">Brief: The annual financial estimates of the University for ensuing financial year shall be prepared by the Finance and Accounts Committee, at least four months before the commencement of the financial year in the manner as prescribed by the Statutes. The Registrar on behalf of the University shall thereafter forward copies of annual financial estimates as approved by the Senate or Syndicate to the State Government. The financial year of the University shall...</p>
+ <p class="act-essence-box">Brief: This section concerns financial governance relating to annual financial statements. It addresses funds, accounts, audit, budget, fees, expenditure, financial sustainability or reporting duties, and identifies the authority or process responsible for managing, approving or reviewing those matters.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The annual financial estimates (budget) of the University for ensuing financial year shall be prepared by the Finance and Accounts Committee, at least four months before the commencement of the financial year in the manner as prescribed by the Statutes.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Registrar on behalf of the University shall thereafter forward copies of annual financial estimates (budget) as approved by the Senate or Syndicate to the State Government.</span></p>

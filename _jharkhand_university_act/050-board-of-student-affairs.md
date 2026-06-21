@@ -12,7 +12,9 @@ section_number: "50"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>50</span>Board of Student Affairs</h2>
- <p class="act-essence-box">Brief: There shall be a Board of Student Affairs to plan and oversee the various cultural and welfare activities of the students in colleges, institutions and University departments. The activities of the Board of Student Affairs shall be carried out by the Director of Student Affairs. The Board of Student Affairs shall consist of the following members,: - Vice Chancellor - Chairperson; Pro-Vice Chancellor; one professional, nominated by the Vice Chancellor, in the...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of Student Affairs. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Board of Student Affairs to plan and oversee the various cultural and welfare activities of the students in colleges, institutions and University departments. The activities of the Board of Student Affairs shall be carried out by the Director of Student Affairs.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board of Student Affairs shall consist of the following members,: -</span></p>
@@ -29,7 +31,7 @@ section_number: "50"
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">to take necessary steps for promotion of culture and students’ development activities in colleges and University departments;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">to establish links with regional and national bodies in the various cultural activities and to promote various activities jointly with them;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">to take up activities in colleges and University departments to promote interest and skills for appreciation in the field of performing arts, pure art and painting skills;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">to hold University, level18competitions, skills development workshops, interactive activities in order to bring the society closer to the colleges, institutions and University;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">to hold University-level competitions, skills development workshops, interactive activities in order to bring the society closer to the colleges, institutions and University;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">to establish rapport with, groups (excluding political parties), societies and other professional bodies so as to involve them in the activities of Board of Students Affairs;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">to devise, develop and implement innovative schemes of students’ development including Earn and Learn Scheme, Education Loan, Vice Chancellors Aid Fund, Endowment Schemes, Student Exchange Schemes, etc.;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">to devise a mechanism of grievance redressal of student and prevention of sexual harassment and ragging of students and to prepare and submit the Annual Report of the Board to Senate for approval;</span></p>

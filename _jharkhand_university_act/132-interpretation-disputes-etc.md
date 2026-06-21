@@ -12,7 +12,9 @@ section_number: "132"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XIII: MISCELLENOUS</p>
  <h2 class="act-section-heading"><span>132</span>Interpretation, Disputes Etc.</h2>
- <p class="act-essence-box">Brief: If any question arises regarding the interpretation of any provision of this Act, or of any Statutes, University Ordinance or University Rules, by any person the matter may be referred, suo-motu by the Vice Chancellor to the State Government, who shall clarify on such interpretation, and the decision of the State Government shall be final and binding: Provided that, such reference shall be made by the Vice Chancellor upon a requisition...</p>
+ <p class="act-essence-box">Brief: This section deals with interpretation, disputes etc. and the mechanism for resolving the matter. It identifies the forum or authority concerned, the kind of grievance or dispute covered, the applicable procedure, and the binding effect or institutional responsibility created by the provision.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">If any question arises regarding the interpretation of any provision of this Act, or of any Statutes, University Ordinance or University Rules, by any person the matter may be referred, suo-motu by the Vice Chancellor to the State Government, who shall clarify on such interpretation, and the decision of the State Government shall be final and binding:</p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">such reference shall be made by the Vice Chancellor upon a requisition signed by not less than one fourth members of the Senate or Syndicate.</span></p>

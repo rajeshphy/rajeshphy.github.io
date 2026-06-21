@@ -12,7 +12,9 @@ section_number: "31"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>31</span>Director, Inclusive Education</h2>
- <p class="act-essence-box">Brief: The Director, Inclusive Education shall be responsible to ensure that the University shall be inclusive and non-discriminatory in nature and does not discriminate among its students, teachers, non-teaching staff or any other employee of the University. The Director, Inclusive Education shall be appointed by the Vice Chancellor, from amongst teachers of the University, not, below the rank of Associate Professor. The Director, Inclusive Education shall discharge functions under the direction and guidance...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Director, Inclusive Education. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Inclusive Education shall be responsible to ensure that the University shall be inclusive and non-discriminatory in nature and does not discriminate among its students, teachers, non-teaching staff or any other employee of the University.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Director, Inclusive Education shall be appointed by the Vice Chancellor, from amongst teachers of the University, not, below the rank of Associate Professor.</span></p>

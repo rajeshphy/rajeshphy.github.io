@@ -12,7 +12,9 @@ section_number: "146"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XV: JHARKHAND STATE UNIVERSITY SERVICE COMMISSION</p>
  <h2 class="act-section-heading"><span>146</span>Resignation and Removal of Chairperson, Member (administration) and Other Members</h2>
- <p class="act-essence-box">Brief: Members The Chairperson or Member or any Member of the Commission may, by request letter in writing and addressed to State Government, resign from the office, which shall come in force on being accepted by the State Government: Provided that, if the acceptance or rejection of resignation is not communicated within fifteen days from the date of its receipt by the State Government, the resignation shall be deemed to have been accepted....</p>
+ <p class="act-essence-box">Brief: This section contains transitional or saving provisions on resignation and removal of chairperson, member (administration) and other members. It explains how existing offices, acts, rules, orders, proceedings, language versions or practical difficulties are treated so the new Act can operate without disrupting valid earlier actions.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">Members</p>
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Chairperson or Member (Administration) or any Member of the Commission may, by request letter in writing and addressed to State Government, resign from the office, which shall come in force on being accepted by the State Government:</span></p>

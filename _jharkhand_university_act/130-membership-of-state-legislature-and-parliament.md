@@ -12,7 +12,9 @@ section_number: "130"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XIII: MISCELLENOUS</p>
  <h2 class="act-section-heading"><span>130</span>Membership of State Legislature and Parliament</h2>
- <p class="act-essence-box">Brief: If a teacher or non-teaching employee of the University seeks to contest elections or file nominations for membership of the State Legislature or the Parliament of India, he must seek the approval of the University, in the manner as prescribed by the Statutes, before initiating the process of contesting elections or filing nominations. The University before providing any approval shall ensure that teaching, learning, administrative or research activities of the University remain...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on membership of state legislature and parliament under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">If a teacher or non-teaching employee of the University seeks to contest elections or file nominations for membership of the State Legislature or the Parliament of India, he must seek the approval of the University, in the manner as prescribed by the Statutes, before initiating the process of contesting elections or filing nominations. The University before providing any approval shall ensure that teaching, learning, administrative or research activities of the University remain unaffected by such employee contesting elections or filing nominations.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">A teacher or a non-teaching employee shall not be disqualified for continuing as such teacher or a non-teaching employee on the ground that he has been selected or nominated as a member of the Legislative Assembly of the State or of the Parliament.</span></p>

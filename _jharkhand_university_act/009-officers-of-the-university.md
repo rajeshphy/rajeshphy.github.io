@@ -12,7 +12,9 @@ section_number: "9"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>9</span>Officers of the University</h2>
- <p class="act-essence-box">Brief: The following shall be the officers of the University, namely Chancellor; Pro Chancellor; Vice Chancellor; Pro-Vice Chancellor; Financial Advisor; Dean (Academic Affairs); Dean of Faculty; Proctor; Registrar; Controller of Examinations; Finance Officer; Head of Department; Director, Study Centres of the University; Director, Research, Innovation, Incubation, Industry Linkage and Entrepreneurship; Director, Knowledge Resource Center; Director, Student Affairs; Director, NSS; Director, Sports and Physical Education; Director, Student Art and Culture; Director, Internal Quality Assurance...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Officers of the University. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The following shall be the officers of the University, namely</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Chancellor;</span></p>

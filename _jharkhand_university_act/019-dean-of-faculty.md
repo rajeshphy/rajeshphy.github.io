@@ -12,7 +12,9 @@ section_number: "19"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>19</span>Dean of Faculty</h2>
- <p class="act-essence-box">Brief: There shall be a Dean in each Faculty of the University appointed by the Vice Chancellor from amongst the competent teachers within the Faculty, concerned, not below the rank of Professor: Provided that, in case no teacher of the rank of Professor is available, a teacher in the rank of Associate or Assistant Professor may be appointed as Dean of Faculty. Each Dean of Faculty shall be appointed for a period of...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Dean of Faculty. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Dean in each Faculty of the University appointed by the Vice Chancellor from amongst the competent teachers within the Faculty, concerned, not below the rank of Professor:</span></p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">in case no teacher of the rank of Professor is available, a teacher in the rank of Associate or Assistant Professor may be appointed as Dean of Faculty.</span></p>

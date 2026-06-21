@@ -11,53 +11,30 @@ chapter_title: "Schedules"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">Schedules</p>
  <h2 class="act-section-heading">Schedule I</h2>
- <p class="act-essence-box">Brief: lists the universities, governing Acts, locations, jurisdictions, or classifications assigned under Schedule I, so the institutional coverage of the Act can be checked without reading the full table.</p>
+ <p class="act-essence-box">Brief: Schedule I identifies the Acts, universities and territorial jurisdictions covered by the Jharkhand State Universities Act, 2026, including universities governed by the 2000 Act and institutions separately established under the technology, raksha shakti and tribal university laws.</p>
+
+
  <div class="act-section-body">
-<p class="act-line act-line-table">Sr.</p>
-<p class="act-line act-line-table">Name of the Act Name of University Jurisdiction</p>
-<p class="act-line act-line-table">No.</p>
-<p class="act-line act-line-table">I II III IV</p>
-<p class="act-line act-line-table">1.</p>
-<p class="act-line act-line-table">South Chota Nagpur</p>
-<p class="act-line act-line-table">Ranchi University</p>
-<p class="act-line act-line-table">Division</p>
-<p class="act-line act-line-table">2. North Chota Nagpur</p>
-<p class="act-line act-line-table">Division except</p>
-<p class="act-line act-line-table">Vinoba Bhave University districts of Bokaro,</p>
-<p class="act-line act-line-table">Dhanbad, Giridih and</p>
-<p class="act-line act-line-table">Koderma</p>
-<p class="act-line act-line-table">3. Sido Kanhu Murmu University Dumka Division</p>
-<p class="act-line act-line-table">4.</p>
-<p class="act-line act-line-table">Binod Bihari Mahto Koylanchal Districts of Bokaro</p>
-<p class="act-line act-line-table">Jharkhand State University and Dhanbad</p>
-<p class="act-line act-line-table">Universities Act00 with</p>
-<p class="act-line act-line-table">5. Kolhan University Kolhan Division</p>
-<p class="act-line act-line-table">all its amendments</p>
-<p class="act-line act-line-table">6. Nilamber Pitamber University Palamau Division</p>
-<p class="act-line act-line-table">7.</p>
-<p class="act-line act-line-table">Dr. Shyama Prasad Mukherjee</p>
-<p class="act-line act-line-table">State of Jharkhand</p>
-<p class="act-line act-line-table">University, Ranchi</p>
-<p class="act-line act-line-table">8. Jamshedpur Women’s University State of Jharkhand</p>
-<p class="act-line act-line-table">9. Baba Baidyanath Sanskrit</p>
-<p class="act-line act-line-table">State of Jharkhand</p>
-<p class="act-line act-line-table">University</p>
-<p class="act-line act-line-table">10.</p>
-<p class="act-line act-line-table">Districts of Giridih</p>
-<p class="act-line act-line-table">Sir J.C. Bose University</p>
-<p class="act-line act-line-table">and Koderma</p>
-<p class="act-line act-line-table">11.</p>
-<p class="act-line act-line-table">The Jharkhand University Jharkhand University of</p>
-<p class="act-line act-line-table">State of Jharkhand</p>
-<p class="act-line act-line-table">of Technology Act11 Technology</p>
-<p class="act-line act-line-table">12.</p>
-<p class="act-line act-line-table">Jharkhand Raksha Shakti Jharkhand Raksha Shakti</p>
-<p class="act-line act-line-table">State of Jharkhand</p>
-<p class="act-line act-line-table">University Act, University</p>
-<p class="act-line act-line-table">13.</p>
-<p class="act-line act-line-table">Pandit Raghunath Murmu Pandit Raghunath Murmu Tribal</p>
-<p class="act-line act-line-table">State of Jharkhand</p>
-<p class="act-line act-line-table">Tribal University Act22 University</p>
+<div class="act-table-wrap">
+<table class="act-schedule-table">
+<thead><tr><th>Sr. No.</th><th>Name of the Act</th><th>Name of University</th><th>Jurisdiction</th></tr></thead>
+<tbody>
+<tr><td>1.</td><td rowspan="10">Jharkhand State Universities Act, 2000 with all its amendments</td><td>Ranchi University</td><td>South Chota Nagpur Division</td></tr>
+<tr><td>2.</td><td>Vinoba Bhave University</td><td>North Chota Nagpur Division except districts of Bokaro, Dhanbad, Giridih and Koderma</td></tr>
+<tr><td>3.</td><td>Sido Kanhu Murmu University</td><td>Dumka Division</td></tr>
+<tr><td>4.</td><td>Binod Bihari Mahto Koylanchal University</td><td>Districts of Bokaro and Dhanbad</td></tr>
+<tr><td>5.</td><td>Kolhan University</td><td>Kolhan Division</td></tr>
+<tr><td>6.</td><td>Nilamber Pitamber University</td><td>Palamau Division</td></tr>
+<tr><td>7.</td><td>Dr. Shyama Prasad Mukherjee University, Ranchi</td><td>State of Jharkhand</td></tr>
+<tr><td>8.</td><td>Jamshedpur Women’s University</td><td>State of Jharkhand</td></tr>
+<tr><td>9.</td><td>Baba Baidyanath Sanskrit University</td><td>State of Jharkhand</td></tr>
+<tr><td>10.</td><td>Sir J.C. Bose University</td><td>Districts of Giridih and Koderma</td></tr>
+<tr><td>11.</td><td>The Jharkhand University of Technology Act, 2011</td><td>Jharkhand University of Technology</td><td>State of Jharkhand</td></tr>
+<tr><td>12.</td><td>Jharkhand Raksha Shakti University Act, 2016</td><td>Jharkhand Raksha Shakti University</td><td>State of Jharkhand</td></tr>
+<tr><td>13.</td><td>Pandit Raghunath Murmu Tribal University Act, 2022</td><td>Pandit Raghunath Murmu Tribal University</td><td>State of Jharkhand</td></tr>
+</tbody>
+</table>
+</div>
   </div>
 </article>
 

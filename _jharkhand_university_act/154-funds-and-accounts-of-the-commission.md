@@ -12,7 +12,9 @@ section_number: "154"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XV: JHARKHAND STATE UNIVERSITY SERVICE COMMISSION</p>
  <h2 class="act-section-heading"><span>154</span>Funds and Accounts of the Commission</h2>
- <p class="act-essence-box">Brief: The financial management of the Commission shall be done in accordance with the rules or procedure laid down by the State Government from time to time: Provided that, the Commission may, with the prior approval of the State Government frame special Rules or procedure in respect of matters as it considers necessary. The Commission shall maintain a Personal Deposit Account in the Government Treasury to hold grants from State Government. Further, there...</p>
+ <p class="act-essence-box">Brief: This section concerns financial governance relating to funds and accounts of the commission. It addresses funds, accounts, audit, budget, fees, expenditure, financial sustainability or reporting duties, and identifies the authority or process responsible for managing, approving or reviewing those matters.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The financial management of the Commission shall be done in accordance with the rules or procedure laid down by the State Government from time to time:</span></p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">the Commission may, with the prior approval of the State Government frame special Rules or procedure in respect of matters as it considers necessary.</span></p>

@@ -12,7 +12,9 @@ section_number: "94"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VII: ADMISSION, EXAMINATION, EVALUATION AND OTHER MATTERS RELATING TO STUDENTS</p>
  <h2 class="act-section-heading"><span>94</span>Admission</h2>
- <p class="act-essence-box">Brief: Subject to the reservation policy of the State Government, admission to all courses in the University Departments, Constituent Colleges and Affiliated Colleges shall be made on the basis of merit in accordance with the rules, if any, made by the State Government and published in the Official Gazette, or University Ordinances made by the University: Provided that, where model rules have been framed by the State Government in the interest of students...</p>
+ <p class="act-essence-box">Brief: This section deals with admission and the mechanism for resolving the matter. It identifies the forum or authority concerned, the kind of grievance or dispute covered, the applicable procedure, and the binding effect or institutional responsibility created by the provision.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Subject to the reservation policy of the State Government, admission to all courses in the University Departments, Constituent Colleges and Affiliated Colleges shall be made on the basis of merit in accordance with the rules, if any, made by the State Government and published in the Official Gazette, or University Ordinances made by the University:</span></p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">where model rules have been framed by the State Government in the interest of students throughout the State, the University shall adopt the same and such rules shall be published by the University before the commencement of the academic session.</span></p>

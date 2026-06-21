@@ -12,7 +12,9 @@ section_number: "63"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>63</span>Cessation of Membership</h2>
- <p class="act-essence-box">Brief: Notwithstanding anything contained in this Act or the Statutes made thereunder, where a person nominated or appointed as the case may be, as an officer of University or a member of any of the authority or bodies of the University by virtue of his being eligible to be so nominated or appointed as such an officer or a member under any of the categories of officers or members specified by or under...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on cessation of membership under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">Notwithstanding anything contained in this Act or the Statutes made thereunder, where a person nominated or appointed as the case may be, as an officer of University or a member of any of the authority or bodies of the University by virtue of his being eligible to be so nominated or appointed as such an officer or a member under any of the categories of officers or members specified by or under the relevant provisions of this Act in relation to such office, authority or body, he shall cease to be such an officer of the University or a member of such an authority or a body as soon as he ceases to belong to such category and shall be deemed to have vacated his office as such officer or member.</p>
   </div>

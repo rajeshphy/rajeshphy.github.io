@@ -12,7 +12,9 @@ section_number: "37"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>37</span>Director, Constituent Colleges</h2>
- <p class="act-essence-box">Brief: The Director, Constituent Colleges shall be an officer of the University and shall be responsible for overseeing the administration and coordination of the University’s constituent colleges. He shall also ensure that Constituent Colleges are aligned with the University’s overall mission and strategic goals. The Director, Constituent Colleges shall be appointed by the Vice Chancellor, from amongst teachers of the University not below the rank of Associate Professor. The Director, Constituent Colleges shall...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Director, Constituent Colleges. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Constituent Colleges shall be an officer of the University and shall be responsible for overseeing the administration and coordination of the University’s constituent colleges. He shall also ensure that Constituent Colleges are aligned with the University’s overall mission and strategic goals.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Director, Constituent Colleges shall be appointed by the Vice Chancellor, from amongst teachers of the University not below the rank of Associate Professor.</span></p>

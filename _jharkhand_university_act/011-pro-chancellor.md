@@ -12,7 +12,6 @@ section_number: "11"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>11</span>Pro Chancellor</h2>
- <p class="act-essence-box">Brief: The State Government, in consultation with the Chancellor, may nominate any person as the Pro-Chancellor. The Chancellor may authorize the Pro-Chancellor to preside over the meeting of the Senate, as and when required.</p>
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The State Government, in consultation with the Chancellor, may nominate any person as the Pro-Chancellor.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Chancellor may authorize the Pro-Chancellor to preside over the meeting of the Senate, as and when required.</span></p>

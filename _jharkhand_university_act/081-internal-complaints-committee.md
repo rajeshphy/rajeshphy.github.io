@@ -12,7 +12,9 @@ section_number: "81"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER V: COUNCIL, COMMITTEES AND CELLS</p>
  <h2 class="act-section-heading"><span>81</span>Internal Complaints Committee</h2>
- <p class="act-essence-box">Brief: There shall be an Internal Complaints Committee as the primary body to ensure prevention, prohibition and handling of occurrences relating to Sexual harassment or misconduct against any member of the teaching or non-teaching staff and students of the University or its Constituent Colleges, as applicable. The ICC shall have thirteen members, of which at least seven members shall be women. The composition of these members is as follows: - woman teacher of...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Internal Complaints Committee. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be an Internal Complaints Committee (ICC) as the primary body to ensure prevention, prohibition and handling of occurrences relating to Sexual harassment or misconduct against any member of the teaching or non-teaching staff and students of the University or its Constituent Colleges, as applicable.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The ICC shall have thirteen members, of which at least seven members shall be women. The composition of these members is as follows: -</span></p>

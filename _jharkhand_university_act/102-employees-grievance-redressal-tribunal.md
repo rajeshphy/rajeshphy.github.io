@@ -12,7 +12,9 @@ section_number: "102"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VIII: GRIEVANCES OF STUDENTS AND EMPLOYEE</p>
  <h2 class="act-section-heading"><span>102</span>Employees Grievance Redressal Tribunal</h2>
- <p class="act-essence-box">Brief: There shall be Employee Grievance Redressal Tribunal at the State Level governed by this Act as the appellate authority for review and disposal of any matter adjudicated by the Employee Grievance Redressal Committee. The Tribunal shall consist of following members: Retired Judge of High Court or a person having qualification to become a High Court Judge - Chairperson; an advocate recognised by the State Bar Council with at least 10 years of...</p>
+ <p class="act-essence-box">Brief: This section deals with employees grievance redressal tribunal and the mechanism for resolving the matter. It identifies the forum or authority concerned, the kind of grievance or dispute covered, the applicable procedure, and the binding effect or institutional responsibility created by the provision.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be Employee Grievance Redressal Tribunal at the State Level governed by this Act as the appellate authority for review and disposal of any matter adjudicated by the Employee Grievance Redressal Committee.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Tribunal shall consist of following members:</span></p>

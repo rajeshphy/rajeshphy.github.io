@@ -12,7 +12,9 @@ section_number: "51"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>51</span>Board of Sports and Physical Education</h2>
- <p class="act-essence-box">Brief: There shall be a Board of Sports and Physical Education in the University to promote the culture of sports and look after sports related activities. The activities of the Board shall be carried out by the Director of Sports and Physical Education. The Board of Sports and Physical Education shall consist of the following members, namely:- Vice Chancellor - Chairperson; Pro-Vice Chancellor; Director, Student Affairs; three professionals, nominated by the Vice Chancellor...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of Sports and Physical Education. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Board of Sports and Physical Education in the University to promote the culture of sports and look after sports related activities. The activities of the Board shall be carried out by the Director of Sports and Physical Education.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board of Sports and Physical Education shall consist of the following members, namely:-</span></p>

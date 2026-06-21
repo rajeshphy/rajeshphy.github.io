@@ -12,7 +12,9 @@ section_number: "149"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XV: JHARKHAND STATE UNIVERSITY SERVICE COMMISSION</p>
  <h2 class="act-section-heading"><span>149</span>Powers and Duties of the Commission</h2>
- <p class="act-essence-box">Brief: The Commission shall have the following powers and duties, namely:- to prepare guidelines on matters relating to the method of direct recruitment of Officers, Teachers and non-teaching staff of the University and Principals of Constituent Colleges; to conduct examinations, where necessary, hold interviews and select candidates for appointment as Officers, Teachers and non-teaching staff of the University and Principals of Constituent Colleges; to adopt its own procedure or select any agency for...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on powers and duties of the commission under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Commission shall have the following powers and duties, namely:-</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">to prepare guidelines on matters relating to the method of direct recruitment of Officers, Teachers and non-teaching staff of the University and Principals of Constituent Colleges;</span></p>

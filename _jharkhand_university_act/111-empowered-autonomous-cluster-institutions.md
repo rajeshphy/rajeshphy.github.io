@@ -12,7 +12,9 @@ section_number: "111"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IX: PERMISSION FOR AFFILIATION AND RECOGNITION</p>
  <h2 class="act-section-heading"><span>111</span>Empowered Autonomous Cluster Institutions</h2>
- <p class="act-essence-box">Brief: A group of affiliated autonomous colleges of the same management or educational society, constituent autonomous colleges, which includes the colleges or institutions, identified by the University Grants Commission as Potential for Excellence or College of Excellence or which have a high level grade to be prescribed by the State Government through Official Gazette may apply to the University for grant of status of empowered autonomous cluster institutions. The Senate on recommendation of...</p>
+ <p class="act-essence-box">Brief: This section regulates academic matters connected with empowered autonomous cluster institutions. It records the institutional authority, student or college-related process, academic standard, recognition, examination, degree, affiliation or autonomous-status rule that must be followed under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">A group of affiliated autonomous colleges of the same management or educational society, constituent autonomous colleges, which includes the colleges or institutions, identified by the University Grants Commission (UGC) as Potential for Excellence or College of Excellence or which have a high level grade to be prescribed by the State Government through Official Gazette may apply to the University for grant of status of empowered autonomous cluster institutions.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Senate on recommendation of the Syndicate, and after approval of the State Government may confer the status of empowered autonomous cluster institutions upon such group of, colleges or institutions.</span></p>

@@ -12,7 +12,9 @@ section_number: "161"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XV: JHARKHAND STATE UNIVERSITY SERVICE COMMISSION</p>
  <h2 class="act-section-heading"><span>161</span>Delegation of Powers of the Commission</h2>
- <p class="act-essence-box">Brief: All the administrative or financial powers of the Commission if not vested in any Officer under this Act or the Rules made thereunder shall vest with the Chairperson. The Chairperson shall have the power to nominate expert in particular discipline or trade for each selection wherever necessary, from among the State Government Officers, Professors of University or Academicians or Officers of Government of India or of other State or of Public Sector...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on delegation of powers of the commission under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">All the administrative or financial powers of the Commission if not vested in any Officer under this Act or the Rules made thereunder shall vest with the Chairperson.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Chairperson shall have the power to nominate expert(s) in particular discipline or trade for each selection wherever necessary, from among the State Government Officers, Professors of University or Academicians or Officers of Government of India or of other State or of Public Sector Undertakings whether in service or retired and from among other eminent persons having specialised knowledge in the particular discipline/trade.</span></p>

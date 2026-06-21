@@ -12,7 +12,9 @@ section_number: "58"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>58</span>Board of Study Centres</h2>
- <p class="act-essence-box">Brief: There shall be a Board of Study Centres of the University to organize the task and activities of the Study Centres. It shall consist of the following members, namely: — Pro-Vice Chancellor - Chairperson; Dean (Academic Affairs); Dean of concerned Faculty; Finance Officer; Directors of all Study Centres; Director, Research, Innovation, Incubation, Industry Linkage and Entrepreneurship; two members from University Departments or constituent college as applicable, to be nominated by the Vice...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of Study Centres. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Board of Study Centres of the University to organize the task and activities of the Study Centres. It shall consist of the following members, namely: —</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Pro-Vice Chancellor - Chairperson;</span></p>

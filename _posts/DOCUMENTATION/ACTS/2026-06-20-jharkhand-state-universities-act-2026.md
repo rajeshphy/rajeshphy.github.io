@@ -13,7 +13,8 @@ hidden: true
 ---
 
 <div class="act-toc-intro">
-  <p>This page follows the contents structure of the Gazette notification and links the section-wise Markdown collection for the Jharkhand State Universities Act, 2026. The Hindi notification text, page headers, page numbers, and repeated watermark fragments have been removed from the collection pages; the English Act text is not paraphrased.</p>
+  <p>This page follows the contents structure of the Gazette notification.
+  </p>
   <a class="act-pdf-link" href="{{ '/assets/pdf/ref/acts/2026-Gazette-Jharkhand-University-Act.pdf' | relative_url }}">Open source Gazette PDF</a>
 </div>
 
@@ -23,7 +24,7 @@ hidden: true
       <h2>{{ group.chapter }}</h2>
       <ul class="act-toc-list">
         {% for item in group.items %}
-          <li>
+          <li class="{% unless item.number %}act-toc-item-plain{% endunless %}">
             {% if item.number %}
               <span class="act-toc-number">{{ item.number }}</span>
             {% endif %}

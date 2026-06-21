@@ -12,7 +12,9 @@ section_number: "41"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>41</span>Senate</h2>
- <p class="act-essence-box">Brief: The Senate shall be the principal executive, final decision making and policy making authority of the University and shall be responsible for administering all the affairs of the University and carrying out such duties, which are not specifically assigned to any other authority, board or committee. The Senate shall meet as and when required but not less than two times in a year (one at even semester and one at odd semester)....</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Senate. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Senate shall be the principal executive, final decision making and policy making authority of the University and shall be responsible for administering all the affairs of the University and carrying out such duties, which are not specifically assigned to any other authority, board or committee.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Senate shall meet as and when required but not less than two times in a year (one at even semester and one at odd semester).</span></p>

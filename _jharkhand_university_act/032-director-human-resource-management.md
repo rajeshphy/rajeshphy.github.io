@@ -12,7 +12,9 @@ section_number: "32"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>32</span>Director, Human Resource Management</h2>
- <p class="act-essence-box">Brief: The Director, Human Resource Management shall be responsible for managing the appointment, promotion, training and capacity building of teaching, non-teaching and other employees of the University. The Director, Human Resource Management shall be selected by State Government, from amongst a list of 03 teachers of the University, in the rank of Professor or having teaching experience of at least 15 years, shortlisted by the Vice Chancellor. The Director, Human Resource Management shall...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Director, Human Resource Management. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Human Resource Management shall be responsible for managing the appointment, promotion, training and capacity building of teaching, non-teaching and other employees of the University.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Director, Human Resource Management shall be selected by State Government, from amongst a list of 03 teachers of the University, in the rank of Professor or having teaching experience of at least 15 years, shortlisted by the Vice Chancellor.</span></p>
@@ -27,7 +29,7 @@ section_number: "32"
 <p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">to entertain concerns, grievance, conflicts related to promotion of teachers;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">to maintain a positive working environment and ensure that policies and procedures are followed;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">to develop a transparent online mechanism for managing the end-to-end process of promotion of all University employees;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(i)</span><span class="act-line-text">to ensure that the screening of application for promotion of teachers and nonteaching staff is done in utmost secrecy without involvement of any personnel other than those mandated by the Board of Human Resource Management;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(i)</span><span class="act-line-text">to ensure that the screening of application for promotion of teachers and non-teaching staff is done in utmost secrecy without involvement of any personnel other than those mandated by the Board of Human Resource Management;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(j)</span><span class="act-line-text">to coordinate with JSFDA or UGC’s Human Resource Development Centres to organise professional development programs, workshops, and training sessions for teachers and non-teaching staff;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(k)</span><span class="act-line-text">to develop and implement digital performance appraisal systems in line with academic performance indicators as a mock assessment tool for employees of the University;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(l)</span><span class="act-line-text">to coordinate with University Departments, constituent colleges and/or recognized institutions as applicable for identifying the prospective vacancies;</span></p>

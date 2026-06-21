@@ -12,7 +12,9 @@ section_number: "125"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XII: UNIVERSITY FUNDS, ACCOUNTS AND AUDIT</p>
  <h2 class="act-section-heading"><span>125</span>University Fund</h2>
- <p class="act-essence-box">Brief: The University shall establish funds, namely:- General fund includes affiliation fee, funds received from affiliated or Constituent Colleges, etc.; Government Fund; Donation Fund; Corpus; and any other fund which, in the opinion of the University, is deemed necessary to establish. The following shall form part, ofor, be paid into, the Government fund, namely:- non-salary contribution or grant, received from the State Government or the Central Government or the University Grants Commission or...</p>
+ <p class="act-essence-box">Brief: This section concerns financial governance relating to university fund. It addresses funds, accounts, audit, budget, fees, expenditure, financial sustainability or reporting duties, and identifies the authority or process responsible for managing, approving or reviewing those matters.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The University shall establish funds, namely:-</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">General fund includes affiliation fee, funds received from affiliated or Constituent Colleges, etc.;</span></p>

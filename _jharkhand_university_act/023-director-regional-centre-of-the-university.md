@@ -12,7 +12,9 @@ section_number: "23"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>23</span>Director, Regional Centre of the University</h2>
- <p class="act-essence-box">Brief: The Director, Regional Centre shall work under the superintendence, direction and control of the Vice Chancellor. The Principal of the Constituent College designated by the University as a Regional Centre shall serve as the Director of the said Regional Centre. The Director, Regional Centre shall have a term co-terminus with that of the Principal of Constituent Colleges., The Director, Regional Centre shall, - be the officer responsible for implementing all academic and...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Director, Regional Centre of the University. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Regional Centre shall work under the superintendence, direction and control of the Vice Chancellor.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Principal of the Constituent College designated by the University as a Regional Centre shall serve as the Director of the said Regional Centre.</span></p>

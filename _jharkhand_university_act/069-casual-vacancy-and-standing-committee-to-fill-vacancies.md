@@ -12,7 +12,9 @@ section_number: "69"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>69</span>Casual Vacancy and Standing Committee to Fill Vacancies</h2>
- <p class="act-essence-box">Brief: In case, any vacancy occurs in the office of a member, other than an ex-officio member of the University, it shall be filled within 3 months, by nomination of the person, to the concerned authority. When such vacancy as mentioned in sub-section is not filled within 3 months, the vacancy shall be filled by nomination of a person by the Standing Committee constituted under sub-section who is otherwise eligible to be elected...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Casual Vacancy and Standing Committee to Fill Vacancies. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">In case, any vacancy occurs in the office of a member, other than an ex-officio member of the University, it shall be filled within 3 months, by nomination of the person, to the concerned authority.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">When such vacancy as mentioned in sub-section (1) is not filled within 3 months, the vacancy shall be filled by nomination of a person by the Standing Committee constituted under sub-section (3) who is otherwise eligible to be elected on the said authority or body from the same category.</span></p>

@@ -12,7 +12,9 @@ section_number: "117"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER X: ENROLMENT, DEGREES AND CONVOCATIONS</p>
  <h2 class="act-section-heading"><span>117</span>Honorary Degrees</h2>
- <p class="act-essence-box">Brief: The Senate may consider and recommend to the State Government the conferment of an honorary degree or other academic distinction on any person, without requiring him to undergo any test or examination or evaluation, on the ground solely that he, by reason of his eminent position, attainments and public service, is a fit and proper person to receive such degree or other academic distinction, and such recommendation shall be deemed to have...</p>
+ <p class="act-essence-box">Brief: This section regulates academic matters connected with honorary degrees. It records the institutional authority, student or college-related process, academic standard, recognition, examination, degree, affiliation or autonomous-status rule that must be followed under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Senate may consider and recommend to the State Government the conferment of an honorary degree or other academic distinction on any person, without requiring him to undergo any test or examination or evaluation, on the ground solely that he, by reason of his eminent position, attainments and public service, is a fit and proper person to receive such degree or other academic distinction, and such recommendation shall be deemed to have been duly passed if supported by a majority of not less than two-thirds of the members present at the meeting, being not less than one-half of its total membership.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Senate may take a decision on the proposal of the Academic Council, provided that, the Academic Council shall not entertain or consider any proposal in that behalf without the Vice Chancellor having obtained prior approval of the State Government.</span></p>

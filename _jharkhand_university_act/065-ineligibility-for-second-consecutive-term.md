@@ -12,7 +12,9 @@ section_number: "65"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>65</span>Ineligibility for Second Consecutive Term</h2>
- <p class="act-essence-box">Brief: No person shall be a nominated member of the Senate or Syndicate, for a second consecutive term: Provided that, any person who was the nominated member of the Senate or Syndicate, for the first time on the date of commencement of this Act, shall not be deemed to have enjoyed the consecutive term if such person is nominated for the first time after the commencement of this Act.</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on ineligibility for second consecutive term under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">No person shall be a nominated member of the Senate or Syndicate, for a second consecutive term:</p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">any person who was the nominated member of the Senate or Syndicate, for the first time on the date of commencement of this Act, shall not be deemed to have enjoyed the consecutive term if such person is nominated for the first time after the commencement of this Act.</span></p>

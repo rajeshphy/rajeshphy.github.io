@@ -12,7 +12,9 @@ section_number: "44"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>44</span>Faculty</h2>
- <p class="act-essence-box">Brief: The faculty shall be the primary academic co-ordinating authority of the University in respect of studies and research in relation to the subjects included in the respective faculty and also in respect of studies and research in multi-faculties. The University shall have the following faculties, namely: — Faculty of Science and Technology; Faculty of Commerce and Management; Faculty of Social Science; Faculty of Humanities; Faculty of Inter-disciplinary Studies-cum-Vocational Studies. Faculty of Legal...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Faculty. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The faculty shall be the primary academic co-ordinating authority of the University in respect of studies and research in relation to the subjects included in the respective faculty and also in respect of studies and research in multi-faculties.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The University shall have the following faculties, namely: —</span></p>
@@ -32,7 +34,7 @@ section_number: "44"
 <p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">The faculty shall have the following powers and duties, namely: —</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">to consider the report on any matter referred to it by the Dean of concerned Faculty or Academic Council;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">to create time bound, operative for implementation of the academic mechanism policy decisions;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">to consider and recommend with modifications, if any, to the Academic Council, the matters, to20it, referred by the Departments;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">to consider and recommend with modifications, if any, to the Academic Council, the matters referred to it by the Departments;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">to recommend to the Academic Council the course syllabi, course structures and evaluation schemes of various courses;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">to study and certify the curricula made by the autonomous colleges, empowered autonomous colleges or cluster of institutions as applicable;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">to recommend to the Academic Council the requirements regarding the conduct of post-graduate or under-graduate teaching, research, training and instruction, in University departments or institutions, empowered autonomous and autonomous colleges, including the manpower requirement;</span></p>

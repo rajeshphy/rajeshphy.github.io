@@ -12,7 +12,9 @@ section_number: "155"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XV: JHARKHAND STATE UNIVERSITY SERVICE COMMISSION</p>
  <h2 class="act-section-heading"><span>155</span>Audit and Report of Commission</h2>
- <p class="act-essence-box">Brief: The Commission shall maintain proper records of accounts which shall be duly audited internally by a qualified State Government empanelled Chartered Accountant as defined under clause of section 2 of the Chartered Accountant Act, 1949, in the manner prescribed by the State Government and shall submit such accounts before the State Government. The Commission as soon as possible after closing of its annual accounts, prepare a statement of accounts in such form...</p>
+ <p class="act-essence-box">Brief: This section concerns financial governance relating to audit and report of commission. It addresses funds, accounts, audit, budget, fees, expenditure, financial sustainability or reporting duties, and identifies the authority or process responsible for managing, approving or reviewing those matters.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Commission shall maintain proper records of accounts which shall be duly audited internally by a qualified State Government empanelled Chartered Accountant as defined under clause (b) of section 2 of the Chartered Accountant Act, 1949, in the manner prescribed by the State Government and shall submit such accounts before the State Government.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Commission as soon as possible after closing of its annual accounts, prepare a statement of accounts in such form and forward it to the Accountant General by such date as the State Government may notify for audit under Section 14 of the Comptroller and Auditor General (Duties, Powers and Conditions of Service Act), 1971.</span></p>

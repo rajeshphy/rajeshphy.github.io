@@ -12,7 +12,9 @@ section_number: "143"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XV: JHARKHAND STATE UNIVERSITY SERVICE COMMISSION</p>
  <h2 class="act-section-heading"><span>143</span>Composition of the Commission</h2>
- <p class="act-essence-box">Brief: The Commission shall consist of Chairperson, Member and three Members, who shall be whole time officers and shall be appointed by the State Government. A person shall be eligible for appointment to the post of Chairperson, if, he or she: - is a retired Officer not below the pay grade of Principal Secretary in the State Government or Additional Secretary in the Government of India or equivalent pay grade from All India...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on composition of the commission under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Commission shall consist of Chairperson, Member (Administration) and three Members, who shall be whole time officers and shall be appointed by the State Government.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">A person shall be eligible for appointment to the post of Chairperson, if, he or she: -</span></p>

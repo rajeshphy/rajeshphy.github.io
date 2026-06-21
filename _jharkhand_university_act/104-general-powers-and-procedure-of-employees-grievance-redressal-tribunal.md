@@ -12,13 +12,15 @@ section_number: "104"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VIII: GRIEVANCES OF STUDENTS AND EMPLOYEE</p>
  <h2 class="act-section-heading"><span>104</span>General Powers and Procedure of Employees Grievance Redressal Tribunal and Committee</h2>
- <p class="act-essence-box">Brief: The Employees Grievance Redressal Committee shall for the purposes of any inquiry or proceedings under this Act, have the same powers as are vested in a Civil Court under the Code of Civil Procedure, 1908 in respect to the following matters namely:- Summoning and enforcing the attendance of any person and examining him / her on oath; requiring the discovery and production of any document or other material object producible as evidence...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the General Powers and Procedure of Employees Grievance Redressal Tribunal and Committee. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Employees Grievance Redressal Committee shall for the purposes of any inquiry or proceedings under this Act, have the same powers as are vested in a Civil Court under the Code of Civil Procedure, 1908 in respect to the following matters namely:-</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Summoning and enforcing the attendance of any person and examining him / her on oath;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">requiring the discovery and production of any document or other material object producible as evidence;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">receiving evidence on affidavits;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">, of requisitioning 18public records;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">of requisitioning public records;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">issuing commission for the examination of witnesses;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">reviewing its decisions, directions and orders; and</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">any other matters as may be prescribed.</span></p>

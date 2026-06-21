@@ -12,7 +12,9 @@ section_number: "60"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>60</span>Board of National and International Linkages</h2>
- <p class="act-essence-box">Brief: There shall be a Board of National and International Linkages to cultivate, establish, maintain and strengthen the link of the University with premier national and international universities and institutions. The Board shall meet at least three times in a year. The Board of National and International Linkages shall consist of the following members, namely:- Vice Chancellor - Chairperson; Pro-Vice Chancellor; Dean of all Faculty; one senior professor of the University, nominated by...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of National and International Linkages. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Board of National and International Linkages to cultivate, establish, maintain and strengthen the link of the University with premier national and international universities and institutions.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board shall meet at least three times in a year.</span></p>

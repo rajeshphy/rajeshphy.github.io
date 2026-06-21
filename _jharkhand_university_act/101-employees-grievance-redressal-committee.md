@@ -12,7 +12,9 @@ section_number: "101"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VIII: GRIEVANCES OF STUDENTS AND EMPLOYEE</p>
  <h2 class="act-section-heading"><span>101</span>Employees Grievance Redressal Committee</h2>
- <p class="act-essence-box">Brief: There shall be an Employees Grievance Redressal Committee in each University or group of Universities to deal with all types of grievances of employees of University and Colleges under its jurisdiction as may be determined by the State Government: Provided that, in case a group of Universities have a common Employees Grievance Redressal Committee, the oldest University by virtue of its establishment as mentioned in Schedule – II or Schedule – III...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Employees Grievance Redressal Committee. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be an Employees Grievance Redressal Committee in each University or group of Universities to deal with all types of grievances of employees of University and Colleges under its jurisdiction as may be determined by the State Government:</span></p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">in case a group of Universities have a common Employees Grievance Redressal Committee, the oldest University by virtue of its establishment as mentioned in Schedule – II or Schedule – III shall be the headquarters of the Committee.</span></p>

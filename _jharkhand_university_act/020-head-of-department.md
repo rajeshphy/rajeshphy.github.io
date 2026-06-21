@@ -12,7 +12,9 @@ section_number: "20"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>20</span>Head of Department</h2>
- <p class="act-essence-box">Brief: There shall be a Head of Department for each University Department within the faculty, who shall be a regular permanent teacher of the University and work directly under the superintendence, direction and control of the Dean of Concerned Faculty. The Head of Department shall be appointed by the Vice Chancellor from amongst the Professors of the Department for a period of 3 years each on rotation basis: Provided that, in the Department...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Head of Department. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Head of Department for each University Department within the faculty, who shall be a regular permanent teacher of the University and work directly under the superintendence, direction and control of the Dean of Concerned Faculty.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Head of Department shall be appointed by the Vice Chancellor from amongst the Professors of the Department for a period of 3 years each on rotation basis:</span></p>

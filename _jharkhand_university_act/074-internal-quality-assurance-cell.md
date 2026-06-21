@@ -12,7 +12,9 @@ section_number: "74"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER V: COUNCIL, COMMITTEES AND CELLS</p>
  <h2 class="act-section-heading"><span>74</span>Internal Quality Assurance Cell</h2>
- <p class="act-essence-box">Brief: There shall be an Internal Quality Assurance Cell in the University to plan, guide and monitor quality assurance and quality enhancement in all the academic activities of the University. The Internal Quality Assurance Cell in the University shall be constituted and function as per the guidelines of the University Grants Commission. The Annual Quality Assurance Report shall be approved by the Senate of the University for the follow up action for the...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Internal Quality Assurance Cell. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be an Internal Quality Assurance Cell in the University to plan, guide and monitor quality assurance and quality enhancement in all the academic activities of the University.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Internal Quality Assurance Cell in the University shall be constituted and function as per the guidelines of the University Grants Commission.</span></p>

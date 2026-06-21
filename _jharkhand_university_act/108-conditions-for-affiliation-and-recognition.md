@@ -12,7 +12,9 @@ section_number: "108"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IX: PERMISSION FOR AFFILIATION AND RECOGNITION</p>
  <h2 class="act-section-heading"><span>108</span>Conditions for Affiliation and Recognition</h2>
- <p class="act-essence-box">Brief: The management applying for affiliation or recognition, and the management whose college or institution has been granted affiliation or recognition, shall give the following undertaking and shall comply with the following conditions, namely:- that the provisions of the Act, Statutes and University Ordinances made there under and the standing orders and directions of the University and the State Government shall be complied with;, that the number of students admitted for courses of...</p>
+ <p class="act-essence-box">Brief: This section regulates academic matters connected with conditions for affiliation and recognition. It records the institutional authority, student or college-related process, academic standard, recognition, examination, degree, affiliation or autonomous-status rule that must be followed under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The management applying for affiliation or recognition, and the management whose college or institution has been granted affiliation or recognition, shall give the following undertaking and shall comply with the following conditions, namely:-</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">that the provisions of the Act, Statutes and University Ordinances made there under and the standing orders and directions of the University and the State Government shall be complied with;,</span></p>

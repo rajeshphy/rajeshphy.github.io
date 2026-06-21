@@ -12,7 +12,9 @@ section_number: "123"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XI: STATUTES, UNIVERSITY ORDINANCES AND UNIVERSITY RULES</p>
  <h2 class="act-section-heading"><span>123</span>University Rules</h2>
- <p class="act-essence-box">Brief: Subject to the provisions of this Act, the University may make rules for all matters mentioned in the Statutes, to provide clarity, explanation or procedure for carrying out the provisions of the Statutes. The Senate shall approve the University Rules proposed by the Syndicate and may send to the State Government for information: Provided that University Rules concerning academic matters shall be proposed by the Syndicate in consultation with the Academic Council...</p>
+ <p class="act-essence-box">Brief: This section explains how university rules operate under the Act. It indicates the subject matter they may regulate, the authority or approval process involved, and the legal effect of actions, rights or procedures taken under those statutory instruments.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Subject to the provisions of this Act, the University may make rules for all matters mentioned in the Statutes, to provide clarity, explanation or procedure for carrying out the provisions of the Statutes.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Senate shall approve the University Rules proposed by the Syndicate and may send to the State Government for information:</span></p>

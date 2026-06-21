@@ -11,34 +11,27 @@ chapter_title: "Schedules"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">Schedules</p>
  <h2 class="act-section-heading">Schedule II</h2>
- <p class="act-essence-box">Brief: lists the universities, governing Acts, locations, jurisdictions, or classifications assigned under Schedule II, so the institutional coverage of the Act can be checked without reading the full table.</p>
+ <p class="act-essence-box">Brief: Schedule II lists the teaching-intensive affiliating universities, giving their establishment year, location and territorial jurisdiction. It identifies the institutions responsible for affiliating and serving colleges across defined divisions, districts or the whole State of Jharkhand.</p>
+
+
  <div class="act-section-body">
-<p class="act-line act-line-table">LIST OF TEACHING INTENSIVE AFFILIATING UNIVERSITIES</p>
-<p class="act-line act-line-table">Year of</p>
-<p class="act-line act-line-table">Sl. No. Name of University Location Jurisdiction</p>
-<p class="act-line act-line-table">Establishment</p>
-<p class="act-line act-line-table">I II III IV V</p>
-<p class="act-line act-line-table">South Chota Nagpur</p>
-<p class="act-line act-line-table">1. Ranchi University, 1960</p>
-<p class="act-line act-line-table">Ranchi</p>
-<p class="act-line act-line-table">Division</p>
-<p class="act-line act-line-table">North Chota Nagpur</p>
-<p class="act-line act-line-table">2., Division except districts</p>
-<p class="act-line act-line-table">Vinoba</p>
-<p class="act-line act-line-table">Bhave University 1992 Hazaribagh</p>
-<p class="act-line act-line-table">of Bokaro, Dhanbad,</p>
-<p class="act-line act-line-table">Giridih and Koderma</p>
-<p class="act-line act-line-table">Districts of Bokaro and</p>
-<p class="act-line act-line-table">3. Binod Bihari Mahto Koylanchal University 2017 Dhanbad</p>
-<p class="act-line act-line-table">Dhanbad</p>
-<p class="act-line act-line-table">4. Kolhan University 2007 Chaibasa Kolhan Division</p>
-<p class="act-line act-line-table">5. Sido Kanhu Murmu University 1992 Dumka Santhal Pargana Division</p>
-<p class="act-line act-line-table">6. Nilamber Pitamber University 2007 Medininagar Palamau Division</p>
-<p class="act-line act-line-table">7. Baba Baidyanath Sanskrit University 2019 Deoghar State of Jharkhand</p>
-<p class="act-line act-line-table">8. Jharkhand University of Technology 2011 Ranchi State of Jharkhand</p>
-<p class="act-line act-line-table">Districts of Giridih and</p>
-<p class="act-line act-line-table">9. Sir J.C. Bose University Giridih</p>
-<p class="act-line act-line-table">Koderma</p>
+<p class="act-line act-line-chapter-break">List of Teaching Intensive Affiliating Universities</p>
+<div class="act-table-wrap">
+<table class="act-schedule-table">
+<thead><tr><th>Sl. No.</th><th>Name of University</th><th>Year of Establishment</th><th>Location</th><th>Jurisdiction</th></tr></thead>
+<tbody>
+<tr><td>1.</td><td>Ranchi University</td><td>1960</td><td>Ranchi</td><td>South Chota Nagpur Division</td></tr>
+<tr><td>2.</td><td>Vinoba Bhave University</td><td>1992</td><td>Hazaribagh</td><td>North Chota Nagpur Division except districts of Bokaro, Dhanbad, Giridih and Koderma</td></tr>
+<tr><td>3.</td><td>Binod Bihari Mahto Koylanchal University</td><td>2017</td><td>Dhanbad</td><td>Districts of Bokaro and Dhanbad</td></tr>
+<tr><td>4.</td><td>Kolhan University</td><td>2007</td><td>Chaibasa</td><td>Kolhan Division</td></tr>
+<tr><td>5.</td><td>Sido Kanhu Murmu University</td><td>1992</td><td>Dumka</td><td>Santhal Pargana Division</td></tr>
+<tr><td>6.</td><td>Nilamber Pitamber University</td><td>2007</td><td>Medininagar</td><td>Palamau Division</td></tr>
+<tr><td>7.</td><td>Baba Baidyanath Sanskrit University</td><td>2019</td><td>Deoghar</td><td>State of Jharkhand</td></tr>
+<tr><td>8.</td><td>Jharkhand University of Technology</td><td>2011</td><td>Ranchi</td><td>State of Jharkhand</td></tr>
+<tr><td>9.</td><td>Sir J.C. Bose University</td><td>2024</td><td>Giridih</td><td>Districts of Giridih and Koderma</td></tr>
+</tbody>
+</table>
+</div>
   </div>
 </article>
 

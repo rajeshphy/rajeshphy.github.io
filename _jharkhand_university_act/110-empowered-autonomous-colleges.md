@@ -12,13 +12,15 @@ section_number: "110"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IX: PERMISSION FOR AFFILIATION AND RECOGNITION</p>
  <h2 class="act-section-heading"><span>110</span>Empowered Autonomous Colleges</h2>
- <p class="act-essence-box">Brief: The constituent or affiliated autonomous colleges that are identified by the University Grants Commission as college with potential for Excellence or College of Excellence which have a high level grade to be prescribed by the State Government through Official Gazette may apply to the University for grant of empowered autonomous status. The Senate or Syndicate on the recommendation of the Academic Council may after the approval of the State Government confer the...</p>
+ <p class="act-essence-box">Brief: This section regulates academic matters connected with empowered autonomous colleges. It records the institutional authority, student or college-related process, academic standard, recognition, examination, degree, affiliation or autonomous-status rule that must be followed under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The constituent or affiliated autonomous colleges that are identified by the University Grants Commission (UGC) as college with potential for Excellence or College of Excellence which have a high level grade to be prescribed by the State Government through Official Gazette may apply to the University for grant of empowered autonomous status. The Senate or Syndicate on the recommendation of the Academic Council may after the approval of the State Government confer the empowered autonomous status upon such college.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The norms and procedure for grant of the empowered autonomous status and continuation thereof, shall be as may be prescribed by the Statutes.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">The empowered autonomous college may constitute its authorities or bodies and exercise the powers and perform the functions and carry out the administrative, academic, financial and other activities of the University, as may be prescribed by the Statutes.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">The empowered autonomous college shall enjoy all such privileges in addition to the privileges enjoyed by autonomous college as may be prescribed by the Statutes and orders or notifications of the State Government and the University Grants Commission.</span></p>
-<p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">The empowered autonomous college shall strive to be recognised as Deemed to be University under applicable regulations of University Grant Commission.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">The empowered autonomous college shall strive to be recognised as Deemed to be University under applicable regulations of University Grants Commission.</span></p>
   </div>
 </article>
 

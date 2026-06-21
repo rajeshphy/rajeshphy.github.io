@@ -12,7 +12,9 @@ section_number: "27"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>27</span>Director, Lifelong Learning and Education</h2>
- <p class="act-essence-box">Brief: The Director, Lifelong Learning and Education, shall be an officer of the University not below the rank of Associate Professor, who shall be responsible to carry out the activities of the Board of Lifelong Learning and Education and work under the superintendence, direction and control of the Vice Chancellor. The Director, Lifelong Learning and Education shall be appointed by the Vice Chancellor from amongst the competent teachers, with at least 12 years...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Director, Lifelong Learning and Education. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Lifelong Learning and Education, shall be an officer of the University not below the rank of Associate Professor, who shall be responsible to carry out the activities of the Board of Lifelong Learning and Education and work under the superintendence, direction and control of the Vice Chancellor.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Director, Lifelong Learning and Education shall be appointed by the Vice Chancellor from amongst the competent teachers, with at least 12 years of teaching experience.</span></p>
@@ -20,7 +22,7 @@ section_number: "27"
 <p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">The Director, Lifelong Learning and Education shall be the ex-officio head of the Board of Lifelong Learning and Education.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(5)</span><span class="act-line-text">The Director, Lifelong Learning and Education shall, —</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">be responsible for implementation of policies and recommendations of the Board of Lifelong Learning and Extension;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">promote research, in18the, learning, value education, life skills for field of lifelong adults and senior citizens, and for longevity;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">promote research, in the learning, value education, life skills for field of lifelong adults and senior citizens, and for longevity;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">organize the, teachingwhich include certificate and diploma programmes programmes for graduate students and advanced diploma programmes at postgraduate level in value education and longevity;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">coordinate with JSFDA for expert lecture, short term courses and training programs in the field of Lifelong Learning and Education;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">organize post-graduate teaching programmes exclusively in the domain of value education and life skills for adults and senior citizens;</span></p>

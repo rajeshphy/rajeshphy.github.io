@@ -12,7 +12,9 @@ section_number: "113"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER X: ENROLMENT, DEGREES AND CONVOCATIONS</p>
  <h2 class="act-section-heading"><span>113</span>Self-Financed Courses</h2>
- <p class="act-essence-box">Brief: Any University Department or Constituent College, as applicable, may introduce or windoff Self-financed Courses by submitting a detailed proposal to the Board of Studies of the concerned University in the manner as prescribed by the Statutes. Every proposal for introduction of Self-financed Course must contain the details of the curriculum, domain, necessity, employment opportunities, pedagogy, and duration of such course/s or any other matter as may be prescribed by the Statutes. The...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on self-financed courses under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Any University Department or Constituent College, as applicable, may introduce or windoff Self-financed Courses by submitting a detailed proposal to the Board of Studies of the concerned University in the manner as prescribed by the Statutes.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">Every proposal for introduction of Self-financed Course must contain the details of the curriculum, domain, necessity, employment opportunities, pedagogy, and duration of such course/s or any other matter as may be prescribed by the Statutes.</span></p>

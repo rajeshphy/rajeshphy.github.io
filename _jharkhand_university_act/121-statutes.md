@@ -12,7 +12,9 @@ section_number: "121"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XI: STATUTES, UNIVERSITY ORDINANCES AND UNIVERSITY RULES</p>
  <h2 class="act-section-heading"><span>121</span>Statutes</h2>
- <p class="act-essence-box">Brief: Subject to the provisions of this Act, the Statutes may provide for all or any of the following matters, namely; the institution of Fellowship, Scholarships, exhibitions, medals and prizes: the designations and powers of the officers of the University: the constitution, powers, functions and duties of the authorities of the University: the admission of educational institutions as colleges and the withdrawal of privileges from Colleges so admitted; the institution of Colleges and...</p>
+ <p class="act-essence-box">Brief: This section explains how statutes operate under the Act. It indicates the subject matter they may regulate, the authority or approval process involved, and the legal effect of actions, rights or procedures taken under those statutory instruments.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Subject to the provisions of this Act, the Statutes may provide for all or any of the following matters, namely;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">the institution of Fellowship, Scholarships, exhibitions, medals and prizes:</span></p>

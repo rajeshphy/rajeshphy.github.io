@@ -12,7 +12,6 @@ section_number: "118"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER X: ENROLMENT, DEGREES AND CONVOCATIONS</p>
  <h2 class="act-section-heading"><span>118</span>Convocation</h2>
- <p class="act-essence-box">Brief: The convocation of the University shall be held at least once during an academic year in the manner prescribed by the Statutes for conferring degrees, post-graduate diplomas or for any other purpose.</p>
  <div class="act-section-body">
 <p class="act-line act-line-continuation">The convocation of the University shall be held at least once during an academic year in the manner prescribed by the Statutes for conferring degrees, post-graduate diplomas or for any other purpose.</p>
   </div>

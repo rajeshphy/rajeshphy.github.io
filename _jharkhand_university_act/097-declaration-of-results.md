@@ -12,7 +12,9 @@ section_number: "97"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VII: ADMISSION, EXAMINATION, EVALUATION AND OTHER MATTERS RELATING TO STUDENTS</p>
  <h2 class="act-section-heading"><span>97</span>Declaration of Results</h2>
- <p class="act-essence-box">Brief: The University shall strive to declare the results of every examination conducted by it within thirty days from the last date of the examination for that particular course and shall in any case declare the results latest within forty-five days thereof: Provided that, if for any reasons whatsoever, the University is unable to finally declare the results of any examination and evaluation within the aforesaid period of fortyfive days, Controller of Examinations...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on declaration of results under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">The University shall strive to declare the results of every examination conducted by it within thirty days from the last date of the examination for that particular course and shall in any case declare the results latest within forty-five days thereof:</p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">if for any reasons whatsoever, the University is unable to finally declare the results of any examination and evaluation within the aforesaid period of fortyfive days, Controller of Examinations shall prepare a detailed report incorporating the reasons for such delay submit the same through Vice Chancellor to the State Government, and the direction of the State Government in this regard shall be final and binding.</span></p>

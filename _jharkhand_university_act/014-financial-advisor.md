@@ -12,7 +12,9 @@ section_number: "14"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>14</span>Financial Advisor</h2>
- <p class="act-essence-box">Brief: The Finance Advisor shall be a full-time officer of the University. The Finance Advisor shall be selected and appointed by the Chancellor. The term for appointment of the financial advisor shall be 5 years. The Finance Advisor shall not be eligible for reappointment in the same University. The Financial Advisor shall be the ex-officio member of the Finance and Accounts Committee. All proposals having any financial implication shall not be approved without...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Financial Advisor. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Finance Advisor shall be a full-time officer of the University. The Finance Advisor shall be selected and appointed by the Chancellor. The term for appointment of the financial advisor shall be 5 years. The Finance Advisor shall not be eligible for reappointment in the same University.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Financial Advisor shall be the ex-officio member of the Finance and Accounts Committee. All proposals having any financial implication shall not be approved without seeking the advice of the Financial Advisor. It shall be the responsibility of the Registrar to obtain the advice of the Financial Advisor on all matters having financial implication. Further, the Registrar shall ensure that the advice of the Financial Advisor is explicitly mentioned in all proposal placed before the Senate or having any financial implication.</span></p>

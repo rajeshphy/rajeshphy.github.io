@@ -12,7 +12,9 @@ section_number: "56"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>56</span>Board of Constituent Colleges</h2>
- <p class="act-essence-box">Brief: The Board of Constituent Colleges shall be the primary body responsible for regulation, coordination and monitoring of Constituent Colleges. The Board of Constituent Colleges shall consist of the following members,: - Vice Chancellor - Chairperson; Pro-Vice Chancellor; Proctor; Dean (Academic Affairs); Director, Human Resource Management; Director, Information Technology and Digital Learning; Director, Estate and Facility Management; Director, Inclusive Education; Director, Student Affairs; and Director, Constituent Colleges – Member Secretary. The Board of...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of Constituent Colleges. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Board of Constituent Colleges shall be the primary body responsible for regulation, coordination and monitoring of Constituent Colleges.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board of Constituent Colleges shall consist of the following members,: -</span></p>

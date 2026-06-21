@@ -12,7 +12,9 @@ section_number: "35"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>35</span>Director, Public Relations and Community Outreach</h2>
- <p class="act-essence-box">Brief: The Director, Public Relations and Community Outreach shall be an officer of the University responsible for handling all external and internal communications of the University. He shall be appointed by the Vice Chancellor, from amongst the teachers of the University having teaching experience of at least 12 years. He shall discharge his functions under the direction and guidance of the Board of Public Relations and Community Outreach and shall be concerned with...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Director, Public Relations and Community Outreach. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Public Relations and Community Outreach shall be an officer of the University responsible for handling all external and internal communications of the University.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">He shall be appointed by the Vice Chancellor, from amongst the teachers of the University having teaching experience of at least 12 years.</span></p>

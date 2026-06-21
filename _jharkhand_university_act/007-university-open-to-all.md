@@ -12,7 +12,9 @@ section_number: "7"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER II: STATE UNIVERSITIES</p>
  <h2 class="act-section-heading"><span>7</span>University Open to All</h2>
- <p class="act-essence-box">Brief: No citizen of India shall be excluded from any office of the University or from membership of any of its authorities, bodies or committees, or from appointment to any post, or from admission to any degree, diploma, certificate or other academic distinction or course of study on the ground only of sex, race, creed, class, caste, place of birth, religious belief or profession or political or other opinion: Provided that, the University...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on university open to all under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">No citizen of India shall be excluded from any office of the University or from membership of any of its authorities, bodies or committees, or from appointment to any post, or from admission to any degree, diploma, certificate or other academic distinction or course of study on the ground only of sex, race, creed, class, caste, place of birth, religious belief or profession or political or other opinion:</span></p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">the University may maintain, accredit, or recognise any college or institution exclusively for women, or reserved for women.</span></p>

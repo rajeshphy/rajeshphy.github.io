@@ -12,7 +12,9 @@ section_number: "28"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>28</span>Director, Student Affairs and Director, Nss</h2>
- <p class="act-essence-box">Brief: The Director, Student Affairs shall be appointed by the Vice Chancellor, from amongst the teachers having teaching experience of at least 12 years and desired exposure in the field of extracurricular and extension activities and shall work under the directions and control of the Vice Chancellor. He shall be appointed for a term of three years or till the age of superannuation, whichever is earlier and may be reappointed for one more...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Director, Student Affairs and Director, Nss. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Student Affairs shall be appointed by the Vice Chancellor, from amongst the teachers having teaching experience of at least 12 years and desired exposure in the field of extracurricular and extension activities and shall work under the directions and control of the Vice Chancellor.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">He shall be appointed for a term of three years or till the age of superannuation, whichever is earlier and may be reappointed for one more term of three years.</span></p>

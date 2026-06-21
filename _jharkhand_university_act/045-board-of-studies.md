@@ -12,7 +12,9 @@ section_number: "45"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>45</span>Board of Studies</h2>
- <p class="act-essence-box">Brief: There shall be a Board of Studies for every subject or group of subjects prescribed by the Statutes. The Board of Studies shall be the primary academic body of the University. The Board of Studies shall consist of the following members, namely: — Dean of concerned Faculty - Chairperson; Head of the University department or institution in the relevant subject; six teachers having minimum ten years teaching experience, nominated by the Vice...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of Studies. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Board of Studies for every subject or group of subjects prescribed by the Statutes. The Board of Studies shall be the primary academic body of the University.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board of Studies shall consist of the following members, namely: —</span></p>

@@ -12,7 +12,9 @@ section_number: "76"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER V: COUNCIL, COMMITTEES AND CELLS</p>
  <h2 class="act-section-heading"><span>76</span>Purchase Committee</h2>
- <p class="act-essence-box">Brief: There shall be a Purchase Committee for dealing with all matters pertaining to all purchases of the University, as per the latest Rules of State/Central Procurement. The committee shall consist of the following members, namely:- Vice Chancellor - Chairperson; Pro-Vice Chancellor; Finance Advisor;, two heads of University departments nominated by the Vice Chancellor; one member of, the20, Syndicate by the Syndicate; nominated one external expert, nominated by the Vice Chancellor; Registrar; and...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Purchase Committee. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Purchase Committee for dealing with all matters pertaining to all purchases of the University, as per the latest Rules of State/Central Procurement.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The committee shall consist of the following members, namely:-</span></p>
@@ -20,7 +22,7 @@ section_number: "76"
 <p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">Pro-Vice Chancellor;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">Finance Advisor;,</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">two heads of University departments nominated by the Vice Chancellor;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">one member of, the20, Syndicate by the Syndicate; nominated</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">one member of the Syndicate nominated by the Syndicate;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">one external expert, nominated by the Vice Chancellor;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">Registrar; and</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">Finance Officer-Member Secretary.</span></p>

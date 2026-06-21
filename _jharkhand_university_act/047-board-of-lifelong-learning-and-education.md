@@ -12,7 +12,9 @@ section_number: "47"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>47</span>Board of Lifelong Learning and Education</h2>
- <p class="act-essence-box">Brief: There shall be a Board for Lifelong Learning and Education to create skilled and learned human power through its various degree level programmes and skills development programmes. The Board for Lifelong Learning and Education shall meet at least three times in a year. The Board for Lifelong Learning and Education shall consist of the following members, namely: — the Vice Chancellor - Chairperson; the Pro-Vice Chancellor; the Dean (Academic Affairs); Dean of...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of Lifelong Learning and Education. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Board for Lifelong Learning and Education to create skilled and learned human power through its various degree level programmes and skills development programmes.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board for Lifelong Learning and Education shall meet at least three times in a year.</span></p>

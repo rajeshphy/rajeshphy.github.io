@@ -12,7 +12,6 @@ section_number: "70"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>70</span>Proceedings of University Authorities and Bodies Not Invalidated to Vacancies</h2>
- <p class="act-essence-box">Brief: No act or proceeding of any authority or other body of the University shall be invalid merely because of the existence of a vacancy or vacancies among its members. CHAPTER V: COUNCIL, COMMITTEES AND CELLS.</p>
  <div class="act-section-body">
 <p class="act-line act-line-continuation">No act or proceeding of any authority or other body of the University shall be invalid merely because of the existence of a vacancy or vacancies among its members.</p>
 <p class="act-line act-line-chapter-break">CHAPTER V: COUNCIL, COMMITTEES AND CELLS</p>

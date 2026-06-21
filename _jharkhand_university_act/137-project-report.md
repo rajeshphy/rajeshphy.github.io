@@ -12,7 +12,9 @@ section_number: "137"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XIV: ESTABLISHMENT OF NEW UNIVERSITIES</p>
  <h2 class="act-section-heading"><span>137</span>Project Report</h2>
- <p class="act-essence-box">Brief: The Department of Higher and Technical Education shall prepare a detailed project report with the particulars, namely:- justification regarding the necessity of establishment of the proposed University; the name, location and headquarters of the proposed University; the objectives of the University; requirement of academic facilities including teaching and non-teaching staffs; availability of academic facilities including teaching and non-teaching staffs if any; the details of plans for campus development such as, construction of...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on project report under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">The Department of Higher and Technical Education shall prepare a detailed project report with the particulars, namely:-</p>
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">justification regarding the necessity of establishment of the proposed University;</span></p>

@@ -12,9 +12,11 @@ section_number: "87"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VI: SELECTION, APPOINTMENT AND PROMOTION OF OFFICERS, TEACHING AND NON-TEACHING EMPLOYEES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>87</span>Temporary Vacancies, Contractual Appointments and Professor of Practice</h2>
- <p class="act-essence-box">Brief: Where an appointment is to be made f o r a temporary vacant post of teaching or nonteaching employee of the University arising due to resignation, leave or vacancy or any other reason, the appointment shall be made by the competent authority of the University as per the process prescribed by the Statutes or by an order of the State Government. The University may engage adjunct teacher including Professor of Practice against...</p>
+ <p class="act-essence-box">Brief: This section regulates temporary vacancies, contractual appointments and professor of practice in the University system. It identifies the responsible authority, the relevant procedure or timeline, and the conditions under which appointment, promotion, service, vacancy, transfer or termination matters must be handled under the Act, Statutes or Rules.</p>
+
+
  <div class="act-section-body">
-<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Where an appointment is to be made f o r a temporary vacant post of teaching or nonteaching employee of the University arising due to resignation, leave or vacancy or any other reason, the appointment shall be made by the competent authority of the University as per the process prescribed by the Statutes or by an order of the State Government.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Where an appointment is to be made for a temporary vacant post of teaching or non-teaching employee of the University arising due to resignation, leave or vacancy or any other reason, the appointment shall be made by the competent authority of the University as per the process prescribed by the Statutes or by an order of the State Government.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The University may engage adjunct teacher including Professor of Practice against the total sanctioned posts of teachers as per the provisions in the Statutes.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">Any contractual employee of the University or Professor of Practice shall not claim for regularization of service in any case.</span></p>
   </div>

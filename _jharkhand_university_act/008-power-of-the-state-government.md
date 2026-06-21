@@ -12,7 +12,9 @@ section_number: "8"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER II: STATE UNIVERSITIES</p>
  <h2 class="act-section-heading"><span>8</span>Power of the State Government</h2>
- <p class="act-essence-box">Brief: Without prior approval of the State Government, the University shall not: - create new posts of teachers, officers or other employees of the University except for operationalization of self-financed courses; grant and revise the pay, allowances, post-retirement benefits and other benefits for the employees of the University; divert any earmarked funds received for any purpose other than that for which it was received; transfer by sale or lease of immovable property; and...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on power of the state government under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Without prior approval of the State Government, the University shall not: -</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">create new posts of teachers, officers or other employees of the University except for operationalization of self-financed courses;</span></p>

@@ -12,7 +12,9 @@ section_number: "138"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XIV: ESTABLISHMENT OF NEW UNIVERSITIES</p>
  <h2 class="act-section-heading"><span>138</span>High Power Committee</h2>
- <p class="act-essence-box">Brief: The State Government shall constitute a High Power Committee, which will be a permanent body, to monitor the various stages and progress of work for setting up a new University which has received its approval from State Government. The High Power Committee shall be the responsible for the overall coordination, monitoring and establishment of the University. The State Government may revisit the constitution, and responsibilities of the High Power Committee from time...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the High Power Committee. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The State Government shall constitute a High Power Committee, which will be a permanent body, to monitor the various stages and progress of work for setting up a new University which has received its approval from State Government. The High Power Committee shall be the responsible for the overall coordination, monitoring and establishment of the University. The State Government may revisit the constitution, and responsibilities of the High Power Committee from time to time and make changes, as it deems fit.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The composition of the High Power Committee shall be as follows: -</span></p>

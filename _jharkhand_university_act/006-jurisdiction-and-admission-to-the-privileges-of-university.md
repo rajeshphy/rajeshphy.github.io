@@ -12,11 +12,13 @@ section_number: "6"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER II: STATE UNIVERSITIES</p>
  <h2 class="act-section-heading"><span>6</span>Jurisdiction and Admission to the Privileges of University</h2>
- <p class="act-essence-box">Brief: The territorial jurisdictions, for Universities enlisted in Schedule-II and Schedule-III of this Act, within which the powers conferred upon the University by this Act shall be exercised, shall comprise the whole of the University area as specified against the name of such University in the Schedule: Provided that, the benefit of Open and Distance Learning and Online Courses, of any University may, with the prior permission of the State Government, extend and...</p>
+ <p class="act-essence-box">Brief: This section deals with jurisdiction and admission to the privileges of university and the mechanism for resolving the matter. It identifies the forum or authority concerned, the kind of grievance or dispute covered, the applicable procedure, and the binding effect or institutional responsibility created by the provision.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The territorial jurisdictions, for Universities enlisted in Schedule-II and Schedule-III of this Act, within which the powers conferred upon the University by this Act shall be exercised, shall comprise the whole of the University area as specified against the name of such University in the Schedule:</span></p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">the benefit of Open and Distance Learning and Online Courses, of any University may, with the prior permission of the State Government, extend and cover area outside the University area.</span></p>
-<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">If a new district is created by the State Government, the area of such district shall be under the jurisdiction of such, University24 which the University have been before the creation of the new district, for the purpose of admission to the privileges of such University.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">If a new district is created by the State Government, the area of such district shall be under the jurisdiction of such, University under which the area had been before the creation of the new district, for the purpose of admission to the privileges of such University.</span></p>
   </div>
 </article>
 

@@ -12,7 +12,9 @@ section_number: "61"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>61</span>Board of Student Art and Culture</h2>
- <p class="act-essence-box">Brief: There shall be a Board of Student Art and Culture to fostering a vibrant art and cultural environment in the University. The Board of Student Art and Culture shall consist of the following members, namely:- Vice Chancellor - Chairperson; Pro-Vice Chancellor; Dean (Academic Affairs); Registrar; Finance Officer; Director, Estate and Facilities Management; Director, Student Affairs; Director, Public Relations and Community Outreach; and Director, Student Art and Culture – Member Secretary. The Board...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of Student Art and Culture. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Board of Student Art and Culture to fostering a vibrant art and cultural environment in the University.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board of Student Art and Culture shall consist of the following members, namely:-</span></p>

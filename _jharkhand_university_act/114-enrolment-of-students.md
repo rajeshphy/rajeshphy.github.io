@@ -12,7 +12,6 @@ section_number: "114"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER X: ENROLMENT, DEGREES AND CONVOCATIONS</p>
  <h2 class="act-section-heading"><span>114</span>Enrolment of Students</h2>
- <p class="act-essence-box">Brief: A person to be enrolled as the student of the University shall possess such qualifications and fulfill such conditions as may be prescribed.</p>
  <div class="act-section-body">
 <p class="act-line act-line-continuation">A person to be enrolled as the student of the University shall possess such qualifications and fulfill such conditions as may be prescribed.</p>
   </div>

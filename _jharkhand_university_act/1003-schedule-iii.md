@@ -11,18 +11,22 @@ chapter_title: "Schedules"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">Schedules</p>
  <h2 class="act-section-heading">Schedule III</h2>
- <p class="act-essence-box">Brief: lists the universities, governing Acts, locations, jurisdictions, or classifications assigned under Schedule III, so the institutional coverage of the Act can be checked without reading the full table.</p>
+ <p class="act-essence-box">Brief: Schedule III lists the research-intensive unitary universities under the Act, with their establishment year, location and statewide jurisdiction. These entries distinguish unitary research-focused institutions from the teaching-intensive affiliating universities listed separately in Schedule II.</p>
+
+
  <div class="act-section-body">
-<p class="act-line act-line-table">LIST OF RESEARCH-INTENSIVE UNITARY</p>
-<p class="act-line act-line-table">UNIVERSITIES</p>
-<p class="act-line act-line-table">Year of</p>
-<p class="act-line act-line-table">Sl. No. Name of University Location Jurisdiction</p>
-<p class="act-line act-line-table">Establishment</p>
-<p class="act-line act-line-table">I II III IV V</p>
-<p class="act-line act-line-table">1. Dr. Shyama Prasad Mukherjee University 2017 Ranchi State of Jharkhand</p>
-<p class="act-line act-line-table">2. Jamshedpur Women’s University 2019 Jamshedpur State of Jharkhand</p>
-<p class="act-line act-line-table">3. Pandit Raghunath Murmu Tribal University 2022 Jamshedpur State of Jharkhand</p>
-<p class="act-line act-line-table">4. Jharkhand Raksha Shakti University Ranchi State of Jharkhand</p>
+<p class="act-line act-line-chapter-break">List of Research-Intensive Unitary Universities</p>
+<div class="act-table-wrap">
+<table class="act-schedule-table">
+<thead><tr><th>Sl. No.</th><th>Name of University</th><th>Year of Establishment</th><th>Location</th><th>Jurisdiction</th></tr></thead>
+<tbody>
+<tr><td>1.</td><td>Dr. Shyama Prasad Mukherjee University</td><td>2017</td><td>Ranchi</td><td>State of Jharkhand</td></tr>
+<tr><td>2.</td><td>Jamshedpur Women’s University</td><td>2019</td><td>Jamshedpur</td><td>State of Jharkhand</td></tr>
+<tr><td>3.</td><td>Pandit Raghunath Murmu Tribal University</td><td>2022</td><td>Jamshedpur</td><td>State of Jharkhand</td></tr>
+<tr><td>4.</td><td>Jharkhand Raksha Shakti University</td><td>2016</td><td>Ranchi</td><td>State of Jharkhand</td></tr>
+</tbody>
+</table>
+</div>
   </div>
 </article>
 

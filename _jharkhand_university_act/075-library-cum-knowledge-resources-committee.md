@@ -12,7 +12,9 @@ section_number: "75"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER V: COUNCIL, COMMITTEES AND CELLS</p>
  <h2 class="act-section-heading"><span>75</span>Library-Cum-Knowledge Resources Committee</h2>
- <p class="act-essence-box">Brief: There shall be a Library-cum-Knowledge Resource Committee for administering, organizing and maintaining the Library and Knowledge Resource Centre, print and electronic material and related services of the University. The Library-cum-Knowledge Resource Committee shall consist of the following members, namely:- Vice Chancellor - Chairperson; one Dean of Faculty, nominated by the Vice Chancellor, on rotation basis; one head of the University department or University institution nominated by the Vice Chancellor, on rotation basis...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Library-Cum-Knowledge Resources Committee. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Library-cum-Knowledge Resource Committee for administering, organizing and maintaining the Library and Knowledge Resource Centre, print and electronic material and related services of the University.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Library-cum-Knowledge Resource Committee shall consist of the following members, namely:-</span></p>

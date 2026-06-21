@@ -12,7 +12,9 @@ section_number: "40"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>40</span>Authorities of the University</h2>
- <p class="act-essence-box">Brief: of the The following shall be the authorities of the University, namely:- Senate; Syndicate; Academic Council; Faculty; Board of Studies; Board of Examinations and Evaluation; Board of Lifelong Learning and Education; Board of Information Technology and Digital Learning; Board of Research, Innovation, Incubation, Industry Linkage and Entrepreneurship; Board of Student Affairs; Board of Sports and Physical Education; Board of Human Resource Management; Board of Internship, Apprenticeship and Placement; Board of Inclusive Education...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on authorities of the university under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">of the</p>
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The following shall be the authorities of the University, namely:-</span></p>

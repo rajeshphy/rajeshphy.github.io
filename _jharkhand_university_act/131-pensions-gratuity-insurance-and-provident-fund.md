@@ -12,7 +12,9 @@ section_number: "131"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XIII: MISCELLENOUS</p>
  <h2 class="act-section-heading"><span>131</span>Pensions, Gratuity, Insurance and Provident Fund</h2>
- <p class="act-essence-box">Brief: The University shall, subject to such manner and conditions as may be prescribed by the Statutes, constitute any pension, gratuity, insurance or provident fund, as it may deem fit for the benefit of its officers, teachers and non-teaching employees. Where any such pension, gratuity, insurance or provident fund is constituted in this manner, the State Government may declare that the provisions of the Provident Fund Act, 1925 (Act No. 19 of 1925)...</p>
+ <p class="act-essence-box">Brief: This section concerns financial governance relating to pensions, gratuity, insurance and provident fund. It addresses funds, accounts, audit, budget, fees, expenditure, financial sustainability or reporting duties, and identifies the authority or process responsible for managing, approving or reviewing those matters.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The University shall, subject to such manner and conditions as may be prescribed by the Statutes, constitute any pension, gratuity, insurance or provident fund, as it may deem fit for the benefit of its officers, teachers and non-teaching employees.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">Where any such pension, gratuity, insurance or provident fund is constituted in this manner, the State Government may declare that the provisions of the Provident Fund Act, 1925 (Act No. 19 of 1925) shall apply to the said Fund, as if that fund State Provident Fund.</span></p>

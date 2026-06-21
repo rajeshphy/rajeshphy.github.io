@@ -12,7 +12,9 @@ section_number: "85"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VI: SELECTION, APPOINTMENT AND PROMOTION OF OFFICERS, TEACHING AND NON-TEACHING EMPLOYEES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>85</span>Appointment for Principals of Constituent Colleges of the University</h2>
- <p class="act-essence-box">Brief: The Principals of Constituent Colleges shall be appointed from amongst teachers of the University on recommendation of the Commission, in the manner as may be prescribed by the Statutes. The process for appointment of Principals in Constituent Colleges shall begin at least six months before the probable date of occurrence of the vacancy of the post and shall be completed at least one month prior to the probable date of occurrence of...</p>
+ <p class="act-essence-box">Brief: This section regulates appointment for principals of constituent colleges of the university in the University system. It identifies the responsible authority, the relevant procedure or timeline, and the conditions under which appointment, promotion, service, vacancy, transfer or termination matters must be handled under the Act, Statutes or Rules.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Principals of Constituent Colleges shall be appointed from amongst teachers of the University on recommendation of the Commission, in the manner as may be prescribed by the Statutes.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The process for appointment of Principals in Constituent Colleges shall begin at least six months before the probable date of occurrence of the vacancy of the post and shall be completed at least one month prior to the probable date of occurrence of the vacancy.</span></p>

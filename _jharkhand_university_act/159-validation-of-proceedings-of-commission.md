@@ -12,7 +12,9 @@ section_number: "159"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XV: JHARKHAND STATE UNIVERSITY SERVICE COMMISSION</p>
  <h2 class="act-section-heading"><span>159</span>Validation of Proceedings of Commission</h2>
- <p class="act-essence-box">Brief: No act or proceeding of the Commission shall be deemed to be invalid merely on the ground of, - any vacancy or defect, in the Constitution of the Commission; or any defect or irregularity in the appointment of any person acting as a member thereof; or any defect or irregularity in such act or proceeding not having any material effect.</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on validation of proceedings of commission under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">No act or proceeding of the Commission shall be deemed to be invalid merely on the ground of, -</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">any vacancy or defect, in the Constitution of the Commission; or</span></p>

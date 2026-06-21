@@ -12,7 +12,9 @@ section_number: "15"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>15</span>Registrar</h2>
- <p class="act-essence-box">Brief: The Registrar shall be the custodian of records and administrative officer of the University and work under the direction and control of the Vice Chancellor. He shall be appointed by the University on recommendation of the Commission for a period of 04 years or till he attains the age of superannuation, whichever is earlier. Further, he shall be eligible for reappointment in the manner as prescribed by the Statutes. The Registrar shall...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Registrar. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Registrar shall be the custodian of records and administrative officer of the University and work under the direction and control of the Vice Chancellor. He shall be appointed by the University on recommendation of the Commission for a period of 04 years or till he attains the age of superannuation, whichever is earlier. Further, he shall be eligible for reappointment in the manner as prescribed by the Statutes.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Registrar shall supervise and maintain discipline of the staff of the entire University. He shall report all such matters in writing to the Vice Chancellor.</span></p>

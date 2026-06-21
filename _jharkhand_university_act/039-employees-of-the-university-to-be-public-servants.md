@@ -12,9 +12,8 @@ section_number: "39"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>39</span>Employees of the University to Be Public Servants</h2>
- <p class="act-essence-box">Brief: Employees of the University shall be deemed to be public servants within the meaning of section 2 of the Bharatiya, Nyaya Sanhita23. CHAPTER IV: AUTHORITIES OF THE UNIVERSITY.</p>
  <div class="act-section-body">
-<p class="act-line act-line-continuation">Employees of the University shall be deemed to be public servants within the meaning of section 2(28) of the Bharatiya, Nyaya Sanhita23.</p>
+<p class="act-line act-line-continuation">Employees of the University shall be deemed to be public servants within the meaning of section 2(28) of the Bharatiya Nyaya Sanhita, 2023.</p>
 <p class="act-line act-line-chapter-break">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
   </div>
 </article>

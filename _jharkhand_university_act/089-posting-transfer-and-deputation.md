@@ -12,7 +12,9 @@ section_number: "89"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VI: SELECTION, APPOINTMENT AND PROMOTION OF OFFICERS, TEACHING AND NON-TEACHING EMPLOYEES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>89</span>Posting, Transfer and Deputation</h2>
- <p class="act-essence-box">Brief: All existing or newly appointed officers, teachers and non-teaching staff of the University may be transferred or deputed to any University and Constituent College within the State of Jharkhand: Provided that any teacher on probation shall not be considered and allowed for inter or intra University transfer or deputation. They may also be deputed to Department of Higher and Technical Education, Government of Jharkhand or any organisation/body of the State Government associated...</p>
+ <p class="act-essence-box">Brief: This section regulates posting, transfer and deputation in the University system. It identifies the responsible authority, the relevant procedure or timeline, and the conditions under which appointment, promotion, service, vacancy, transfer or termination matters must be handled under the Act, Statutes or Rules.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">All existing or newly appointed officers, teachers and non-teaching staff of the University may be transferred or deputed to any University and Constituent College within the State of Jharkhand:</span></p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that</span><span class="act-line-text">any teacher on probation shall not be considered and allowed for inter or intra University transfer or deputation.</span></p>

@@ -12,7 +12,9 @@ section_number: "106"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VIII: GRIEVANCES OF STUDENTS AND EMPLOYEE</p>
  <h2 class="act-section-heading"><span>106</span>Decision of Tribunal to Be Final and Binding</h2>
- <p class="act-essence-box">Brief: Notwithstanding anything contained in any law or contract for the time being in force, the decision of the Tribunal on an appeal entertained and disposed of by it shall be final and binding on the employee, University or College, as the case may be, and no suit, appeal or other legal proceeding shall lie in any court or before any other Tribunal or authority, in respect of the matters...</p>
+ <p class="act-essence-box">Brief: This section deals with decision of tribunal to be final and binding and the mechanism for resolving the matter. It identifies the forum or authority concerned, the kind of grievance or dispute covered, the applicable procedure, and the binding effect or institutional responsibility created by the provision.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">Notwithstanding anything contained in any law or contract for the time being in force, the decision of the Tribunal on an appeal entertained and disposed of by it shall be final and binding on the employee, University or College, as the case may be, and no suit, appeal or other legal proceeding shall lie in any court or before any other Tribunal or authority, in respect of the matters decided by the Tribunal.</p>
   </div>

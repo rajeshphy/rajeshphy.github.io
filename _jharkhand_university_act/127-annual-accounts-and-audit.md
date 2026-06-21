@@ -12,7 +12,9 @@ section_number: "127"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XII: UNIVERSITY FUNDS, ACCOUNTS AND AUDIT</p>
  <h2 class="act-section-heading"><span>127</span>Annual Accounts and Audit</h2>
- <p class="act-essence-box">Brief: The accounts of the University shall be maintained on the basis and principles of double entry accounting system, and the method of accounting to be followed shall be the mercantile system as prescribed by the State Government. The accounts of the University shall be audited at least once every year and in any case within four months of the closure of the financial year by the auditors appointed by the University from...</p>
+ <p class="act-essence-box">Brief: This section concerns financial governance relating to annual accounts and audit. It addresses funds, accounts, audit, budget, fees, expenditure, financial sustainability or reporting duties, and identifies the authority or process responsible for managing, approving or reviewing those matters.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The accounts of the University shall be maintained on the basis and principles of double entry accounting system, and the method of accounting to be followed shall be the mercantile system as prescribed by the State Government.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The accounts of the University shall be audited at least once every year and in any case within four months of the closure of the financial year by the auditors appointed by the University from amongst the Comptroller and Auditor General (CAG) of India empanelled Chartered Accountant firms whose partners have no interest in any of the authorities or affairs of the University.</span></p>

@@ -12,7 +12,9 @@ section_number: "17"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>17</span>Finance Officer</h2>
- <p class="act-essence-box">Brief: Officer The Finance Officer shall be the finance and accounts officer of the University and work directly under the superintendence, direction and control of the Financial Advisor. He shall be appointed by the University on recommendation of the Commission for a period of 04 years or till the age of superannuation, whichever is earlier. Further, he shall be eligible for reappointment in the manner as prescribed by the Statutes. When the office...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Finance Officer. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">Officer</p>
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Finance Officer shall be the finance and accounts officer of the University and work directly under the superintendence, direction and control of the Financial Advisor. He shall be appointed by the University on recommendation of the Commission for a period of 04 years or till the age of superannuation, whichever is earlier. Further, he shall be eligible for reappointment in the manner as prescribed by the Statutes.</span></p>

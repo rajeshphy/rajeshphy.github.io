@@ -12,7 +12,9 @@ section_number: "83"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VI: SELECTION, APPOINTMENT AND PROMOTION OF OFFICERS, TEACHING AND NON-TEACHING EMPLOYEES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>83</span>Appointment of All Deans, Directors, Head of Departments and Proctor of the University</h2>
- <p class="act-essence-box">Brief: All the Deans, Directors, Head of Departments and Proctor of the University shall be appointed by the Vice Chancellor as per procedure prescribed by the Statutes: Provided that, the Director, Human Resource Management and Director, Knowledge Resource Centre shall be appointed in the manner mentioned in Section 32 and Section 26 of this Act respectively. The University shall maintain a seniority list of all the Teachers of the University with categorization of...</p>
+ <p class="act-essence-box">Brief: This section explains the appointment framework for all Deans, Directors, Heads of Departments and the Proctor of the University. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">All the Deans, Directors, Head of Departments and Proctor of the University shall be appointed by the Vice Chancellor as per procedure prescribed by the Statutes:</span></p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">the Director, Human Resource Management and Director, Knowledge Resource Centre shall be appointed in the manner mentioned in Section 32 and Section 26 of this Act respectively.</span></p>

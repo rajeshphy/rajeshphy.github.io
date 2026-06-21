@@ -12,9 +12,11 @@ section_number: "68"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>68</span>Meeting of the Authorities</h2>
- <p class="act-essence-box">Brief: Save as otherwise provided by this Act, all matters with regard to the conduct of meetings of the authorities, bodies or committees, if any, constituted by the University, shall be a s mentioned in this Act or as may be prescribed by the Statutes. A meeting of an authority or body shall be convened on the date determined by the Chairperson by a notice issued by its Member Secretary. Except as otherwise...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on meeting of the authorities under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
-<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Save as otherwise provided by this Act, all matters with regard to the conduct of meetings of the authorities, bodies or committees, if any, constituted by the University, shall be a s mentioned in this Act or as may be prescribed by the Statutes.</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Save as otherwise provided by this Act, all matters with regard to the conduct of meetings of the authorities, bodies or committees, if any, constituted by the University shall be a s mentioned in this Act or as may be prescribed by the Statutes.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">A meeting of an authority or body shall be convened on the date determined by the Chairperson by a notice issued by its Member Secretary.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(3)</span><span class="act-line-text">Except as otherwise provided, the quorum for a meeting shall ordinarily be one-third of the number of sitting members. If there is no quorum, the meeting shall be adjourned by the Chairperson to a specific time on the same day, or on a later date and quorum shall be necessary for such adjourned meeting. Quorum shall be necessary on the following day of the continued meeting.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(4)</span><span class="act-line-text">Where no provision is made by or under the Statutes for the Chairperson to preside over a meeting of any authority or body of the University or when the Chairperson so</span></p>

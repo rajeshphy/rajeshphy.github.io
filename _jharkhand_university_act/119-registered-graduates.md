@@ -12,7 +12,9 @@ section_number: "119"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER X: ENROLMENT, DEGREES AND CONVOCATIONS</p>
  <h2 class="act-section-heading"><span>119</span>Registered Graduates</h2>
- <p class="act-essence-box">Brief: Subject to the provisions prescribed by the Statutes, the following persons shall be entitled to have their names entered in the register of registered graduates or deemed to be registered graduates, maintained by the University, namely:- who are graduates of the University, and who are graduates of the parent University from which corresponding new University is established: Provided that, the graduates registered in the parent University as registered graduates but residing in...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on registered graduates under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">Subject to the provisions prescribed by the Statutes, the following persons shall be entitled to have their names entered in the register of registered graduates or deemed to be registered graduates, maintained by the University, namely:-</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">who are graduates of the University, and</span></p>

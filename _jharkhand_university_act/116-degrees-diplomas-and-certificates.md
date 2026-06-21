@@ -12,7 +12,9 @@ section_number: "116"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER X: ENROLMENT, DEGREES AND CONVOCATIONS</p>
  <h2 class="act-section-heading"><span>116</span>Degrees, Diplomas and Certificates</h2>
- <p class="act-essence-box">Brief: The Senate may institute and confer such degrees, diplomas, certificates and other academic distinctions as may be recommended by the Academic Council in accordance with the norms laid down by the University Grants Commission . The Senate may institute and confer post-doctoral degrees such as DSc and DLitt - by Research, as may be recommended by the Academic Council. The Vice-Chancellor may, on the recommendation of the Senate and the Academic Council...</p>
+ <p class="act-essence-box">Brief: This section regulates academic matters connected with degrees, diplomas and certificates. It records the institutional authority, student or college-related process, academic standard, recognition, examination, degree, affiliation or autonomous-status rule that must be followed under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Senate may institute and confer such degrees, diplomas, certificates and other academic distinctions as may be recommended by the Academic Council in accordance with the norms laid down by the University Grants Commission (UGC).</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Senate may institute and confer post-doctoral degrees such as DSc and DLitt - by Research, as may be recommended by the Academic Council.</span></p>

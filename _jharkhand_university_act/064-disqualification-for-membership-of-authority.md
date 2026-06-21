@@ -12,7 +12,9 @@ section_number: "64"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>64</span>Disqualification for Membership of Authority</h2>
- <p class="act-essence-box">Brief: A person shall be disqualified from being a member of any of the authorities of University, if he- is of unsound mind and stands so declared by a competent court; or is an undischarged insolvent; or has been convicted of any offence involving moral turpitude; or has been punished for indulging in or promoting unfair practices in the conduct of any examination and evaluation, in any form, anywhere; or has willfully omitted...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on disqualification for membership of authority under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">A person shall be disqualified from being a member of any of the authorities of University, if he-</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">is of unsound mind and stands so declared by a competent court; or</span></p>

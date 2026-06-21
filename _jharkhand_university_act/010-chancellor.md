@@ -12,7 +12,9 @@ section_number: "10"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>10</span>Chancellor</h2>
- <p class="act-essence-box">Brief: The Governor of the State of Jharkhand shall be the Chancellor of the University. The Chancellor shall, by virtue of his/her office, be the Head of the University and shall, if present, preside at the Convocations of the University held for conferring degrees.</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Chancellor. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Governor of the State of Jharkhand shall be the Chancellor of the University.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Chancellor shall, by virtue of his/her office, be the Head of the University and shall, if present, preside at the Convocations of the University held for conferring degrees.</span></p>

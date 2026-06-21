@@ -12,7 +12,9 @@ section_number: "99"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VII: ADMISSION, EXAMINATION, EVALUATION AND OTHER MATTERS RELATING TO STUDENTS</p>
  <h2 class="act-section-heading"><span>99</span>Sports and Extra- Curricular Activities</h2>
- <p class="act-essence-box">Brief: The University shall frame appropriate University Ordinance and Rules to ensure that the students selected to represent their Department, Colleges or the University, as the case may be, for sports, culture and all other extra-curricular activities are selected entirely on the basis of merit, through open merit competition alone and on no other basis. CHAPTER VIII: GRIEVANCES OF STUDENTS AND EMPLOYEE.</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on sports and extra- curricular activities under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">The University shall frame appropriate University Ordinance and Rules to ensure that the students selected to represent their Department, Colleges or the University, as the case may be, for sports, culture and all other extra-curricular activities are selected entirely on the basis of merit, through open merit competition alone and on no other basis.</p>
 <p class="act-line act-line-chapter-break">CHAPTER VIII: GRIEVANCES OF STUDENTS AND EMPLOYEE</p>

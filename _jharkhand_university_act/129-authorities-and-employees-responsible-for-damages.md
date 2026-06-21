@@ -12,7 +12,9 @@ section_number: "129"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XIII: MISCELLENOUS</p>
  <h2 class="act-section-heading"><span>129</span>Authorities and Employees Responsible for Damages</h2>
- <p class="act-essence-box">Brief: It shall be the duty of every authority, employee and officer of the University to ensure that the interests of the University are duly safeguarded. If it is found that a damage or loss has been caused to the University by any action on the part of any authority or employee or officer of the University, not in conformity with the provisions of this Act, Statutes, University Ordinances or Rules, or any...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on authorities and employees responsible for damages under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">It shall be the duty of every authority, employee and officer of the University to ensure that the interests of the University are duly safeguarded.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">If it is found that a damage or loss has been caused to the University by any action on the part of any authority or employee or officer of the University, not in conformity with the provisions of this Act, Statutes, University Ordinances or Rules, or any failure so as to act in conformity thereof, by willful neglect or default on its or his part, such damage or loss shall be liable to be recovered from the authority or employee or the Officer thereof, jointly or severally, or from the officer or employee concerned, as the case may be, in accordance with the procedure prescribed by the Statutes.</span></p>

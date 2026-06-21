@@ -12,7 +12,9 @@ section_number: "73"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER V: COUNCIL, COMMITTEES AND CELLS</p>
  <h2 class="act-section-heading"><span>73</span>Finance and Accounts Committee</h2>
- <p class="act-essence-box">Brief: There shall be a Finance and Accounts Committee for planning, coordinating and overseeing the financial operations of the University. It shall examine the accounts, the progress of expenditure and all new proposals involving fresh expenditure in the light of the provisions available. The Finance and Accounts Committee shall consist of the following members, namely:- Vice Chancellor - Chairperson; Financial Advisor; one person from the Academic Council, nominated by the Vice Chancellor; two...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Finance and Accounts Committee. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Finance and Accounts Committee for planning, coordinating and overseeing the financial operations of the University. It shall examine the accounts, the progress of expenditure and all new proposals involving fresh expenditure in the light of the provisions available.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Finance and Accounts Committee shall consist of the following members, namely:-</span></p>
@@ -32,7 +34,7 @@ section_number: "73"
 <p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">recommend to the productive investment and management of University assets and resources;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">explore the possibilities of augmenting further resources for the development of the University;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">assess the financial viability of the proposals for Self-Financed Courses submitted by Board of Studies;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">take necessary steps to have the University accounts audited by the auditors appointed by the University and Accountant General respectively;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">take necessary steps to have the University accounts audited by the auditors appointed by the University and Accountant Accountant General respectively;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">advise on matters related to the administration of the property and the funds of the University;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(i)</span><span class="act-line-text">ensure proper implementation of the orders issued by the State Government from time to time, in respect of funds, assets, and other resources received from the State Government;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(j)</span><span class="act-line-text">advise on financial matters referred to it by the Syndicate, Academic Council or any other authority, body or committee or any officer of the University;</span></p>

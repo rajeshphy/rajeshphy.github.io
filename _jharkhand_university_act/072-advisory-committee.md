@@ -12,7 +12,9 @@ section_number: "72"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER V: COUNCIL, COMMITTEES AND CELLS</p>
  <h2 class="act-section-heading"><span>72</span>Advisory Committee</h2>
- <p class="act-essence-box">Brief: The Advisory Committee shall consist of following members - to be nominated by State Government, - An eminent industrialist who has proven wide experience in the changing scenario of opportunities for youth and global trends in academy-industry interaction-Chairperson; An eminent scientist of repute with experience of working with national and global entities that deal with policy and approaches in research and development - Vice Chairperson; An eminent social leader who has experience...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Advisory Committee. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Advisory Committee shall consist of following members -</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">to be nominated by State Government, -</span></p>
@@ -26,7 +28,7 @@ section_number: "72"
 <p class="act-line act-line-sub"><span class="act-marker">(ii)</span><span class="act-line-text">Registrar-Member Secretary.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The duties of the Committee shall be as follows: -</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">to advise the Vice Chancellor through generation of reports and action plans in academic, research and development, administration, generation of financial resources and governance so as to make the University academically vibrant, administratively efficient and financially sustainable;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">to devise a mechanism and, approach for monitoring of the working of the University system as a whole and to keep track of the activities and provide information and critical analysis and comments on the progress and impact of the activities on the20working of Universities and its identity in the Society;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">to devise a mechanism and, approach for monitoring of the working of the University system as a whole and to keep track of the activities and provide information and critical analysis and comments on the progress and impact of the activities on the working of Universities and its identity in the Society;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">to advise the Senate of the University regarding strategic perspective planning;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">to take up any other task that the Chairperson of the Committee shall find of importance for the growth of the University;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">to periodically report on the development, progress and working of the University to the State Government;</span></p>

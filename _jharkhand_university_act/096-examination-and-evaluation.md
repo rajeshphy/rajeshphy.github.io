@@ -12,7 +12,9 @@ section_number: "96"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VII: ADMISSION, EXAMINATION, EVALUATION AND OTHER MATTERS RELATING TO STUDENTS</p>
  <h2 class="act-section-heading"><span>96</span>Examination and Evaluation</h2>
- <p class="act-essence-box">Brief: Before the start of each academic year, the University shall prepare the schedule of examinations for the next academic year for each and every course wherever applicable, conducted by itself within its jurisdiction and shall publish it at the commencement of each academic year and shall strictly adhere to the schedule. Failing which the concerned authority or officer of the University shall have to make a reasoned report to State Government within...</p>
+ <p class="act-essence-box">Brief: This section regulates academic matters connected with examination and evaluation. It records the institutional authority, student or college-related process, academic standard, recognition, examination, degree, affiliation or autonomous-status rule that must be followed under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">Before the start of each academic year, the University shall prepare the schedule of examinations for the next academic year for each and every course wherever applicable, conducted by itself within its jurisdiction and shall publish it at the commencement of each academic year and shall strictly adhere to the schedule. Failing which the concerned authority or officer of the University shall have to make a reasoned report to State Government within thirty days and the directions or decisions of the State Government in this regard shall be final and binding:</p>
 <p class="act-line act-line-proviso"><span class="act-marker">Provided that,</span><span class="act-line-text">in case the University is unable to follow the said schedule due to reasons and circumstances beyond its control it shall at the earliest, submit a report to the State Government incorporating the detailed reasons for making a deviation from the published schedule.</span></p>

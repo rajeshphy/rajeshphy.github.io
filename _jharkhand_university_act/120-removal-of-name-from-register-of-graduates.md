@@ -12,7 +12,9 @@ section_number: "120"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER X: ENROLMENT, DEGREES AND CONVOCATIONS</p>
  <h2 class="act-section-heading"><span>120</span>Removal of Name from Register of Graduates</h2>
- <p class="act-essence-box">Brief: A person who – is of unsound mind and stands so declared by a competent Court; or is an un-discharged insolvent; or is convicted for an offence involving moral turpitude, criminal procedure code; or has obtained a degree by fraudulent means; or is a registered graduate of any other University established by law in the State, shall not be qualified, to have his name entered in the register of graduates, or be...</p>
+ <p class="act-essence-box">Brief: This section contains transitional or saving provisions on removal of name from register of graduates. It explains how existing offices, acts, rules, orders, proceedings, language versions or practical difficulties are treated so the new Act can operate without disrupting valid earlier actions.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">A person who –</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">is of unsound mind and stands so declared by a competent Court; or</span></p>

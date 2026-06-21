@@ -12,7 +12,9 @@ section_number: "162"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XV: JHARKHAND STATE UNIVERSITY SERVICE COMMISSION</p>
  <h2 class="act-section-heading"><span>162</span>Transfer of Pending Selection and Promotion</h2>
- <p class="act-essence-box">Brief: All pending selection of Officers or Teachers or non-teaching staff of University or Principal of Constituent College , whether advertised or not, and said promotion which has not been recommended or concurred upon by the Jharkhand Public Service Commission or Jharkhand Staff Selection Commission shall be transferred to the Jharkhand State University Service Commission, by a notification in the Official Gazette.</p>
+ <p class="act-essence-box">Brief: This section regulates transfer of pending selection and promotion in the University system. It identifies the responsible authority, the relevant procedure or timeline, and the conditions under which appointment, promotion, service, vacancy, transfer or termination matters must be handled under the Act, Statutes or Rules.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">All pending selection of Officers or Teachers or non-teaching staff of University or Principal(s) of Constituent College(s), whether advertised or not, and said promotion which has not been recommended or concurred upon by the Jharkhand Public Service Commission or Jharkhand Staff Selection Commission shall be transferred to the Jharkhand State University Service Commission, by a notification in the Official Gazette.</p>
   </div>

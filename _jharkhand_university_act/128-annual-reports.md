@@ -12,7 +12,9 @@ section_number: "128"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XII: UNIVERSITY FUNDS, ACCOUNTS AND AUDIT</p>
  <h2 class="act-section-heading"><span>128</span>Annual Reports</h2>
- <p class="act-essence-box">Brief: The Finance and Accounts Committee shall prepare the Annual Report containing the administrative, academic, research and development and other activities of the University, colleges and institutions under its jurisdiction, for each academic year and submit it to the Senate after approval of Syndicate for final consideration. The Senate shall discuss and approve the Annual Report as received from the Finance and Accounts Committee. Such report, as approved by the Senate, shall be...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on annual reports under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Finance and Accounts Committee shall prepare the Annual Report containing the administrative, academic, research and development and other activities of the University, colleges and institutions under its jurisdiction, for each academic year and submit it to the Senate after approval of Syndicate for final consideration. The Senate shall discuss and approve the Annual Report as received from the Finance and Accounts Committee. Such report, as approved by the Senate, shall be submitted to the State Government for information, within one year from the conclusion of the academic year.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Annual Report shall mandatorily contain the following sections: -</span></p>

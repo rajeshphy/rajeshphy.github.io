@@ -12,7 +12,9 @@ section_number: "98"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VII: ADMISSION, EXAMINATION, EVALUATION AND OTHER MATTERS RELATING TO STUDENTS</p>
  <h2 class="act-section-heading"><span>98</span>Examination and Evaluation Not Invalid for Non-Compliance with Schedule</h2>
- <p class="act-essence-box">Brief: No examination or evaluation or the results of an examination or evaluation shall be held invalid only for the reasons that the University has not followed the schedule as stipulated in sections 96 and 97, as the case may be.</p>
+ <p class="act-essence-box">Brief: This section regulates academic matters connected with examination and evaluation not invalid for non-compliance with schedule. It records the institutional authority, student or college-related process, academic standard, recognition, examination, degree, affiliation or autonomous-status rule that must be followed under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">No examination or evaluation or the results of an examination or evaluation shall be held invalid only for the reasons that the University has not followed the schedule as stipulated in sections 96 and 97, as the case may be.</p>
   </div>

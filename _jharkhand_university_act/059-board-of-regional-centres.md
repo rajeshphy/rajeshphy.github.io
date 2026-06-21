@@ -12,7 +12,9 @@ section_number: "59"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>59</span>Board of Regional Centres</h2>
- <p class="act-essence-box">Brief: There shall be a Board of Regional Centres of the University for monitoring the activities of Regional Centres. It shall consist of the following members, namely: — Pro-Vice Chancellor - Chairperson; Dean (Academic Affairs); Finance Officer; Directors of all Regional Centres; two Principals, one each from Constituent College and Affiliated College, to be nominated by the Vice Chancellor; Controller of Examinations; Director, Student Affairs; and Registrar - Member Secretary. The Board of...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of Regional Centres. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Board of Regional Centres of the University for monitoring the activities of Regional Centres. It shall consist of the following members, namely: —</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Pro-Vice Chancellor - Chairperson;</span></p>

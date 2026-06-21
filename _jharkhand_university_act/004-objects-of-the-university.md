@@ -12,7 +12,9 @@ section_number: "4"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER II: STATE UNIVERSITIES</p>
  <h2 class="act-section-heading"><span>4</span>Objects of the University</h2>
- <p class="act-essence-box">Brief: The objects of the University, in general, shall be to disseminate, create and preserve knowledge and understanding by teaching, research and development, skill development, training and education, extension and service and by effective demonstration and influence of its corporate life on a society in general, and in particular, the objects shall be to- carry out its responsibility of creation, preservation and dissemination of knowledge; promote discipline and the spirit of intellectual inquiry...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on objects of the university under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The objects of the University, in general, shall be to disseminate, create and preserve knowledge and understanding by teaching, research and development, skill development, training and education, extension and service and by effective demonstration and influence of its corporate life on a society in general, and in particular, the objects shall be to-</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">carry out its responsibility of creation, preservation and dissemination of knowledge;</span></p>

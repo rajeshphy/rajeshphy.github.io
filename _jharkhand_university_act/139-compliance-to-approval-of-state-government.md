@@ -12,7 +12,9 @@ section_number: "139"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XIV: ESTABLISHMENT OF NEW UNIVERSITIES</p>
  <h2 class="act-section-heading"><span>139</span>Compliance to Approval of State Government</h2>
- <p class="act-essence-box">Brief: On consideration of the proposal submitted by the Department of Higher and Technical Education, the State Government may accept or reject or seek modification or additional information in the proposal. On acceptance of the proposal by the State Government, the Department of Higher and Technical Education shall, acquire the land as specified in Section 136 within a period of one year from the approval by the State Government; complete the construction of...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on compliance to approval of state government under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">On consideration of the proposal submitted by the Department of Higher and Technical Education, the State Government may accept or reject or seek modification or additional information in the proposal.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">On acceptance of the proposal by the State Government, the Department of Higher and Technical Education shall,</span></p>

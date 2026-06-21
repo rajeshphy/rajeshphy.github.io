@@ -12,7 +12,9 @@ section_number: "26"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>26</span>Director, Knowledge Resource Centre</h2>
- <p class="act-essence-box">Brief: The Director, Knowledge Resource Centre shall be an Officer of the University, appointed by the University on recommendation of the Commission, in-charge of the Knowledge Resource Centre in the University. He shall work under the superintendence, direction and control of the Vice Chancellor. The qualifications, experience, emoluments, other conditions of service of the Director, Knowledge Resource Center shall be as recommended by the University Grants Commission, Librarian for University by the Statutes....</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Director, Knowledge Resource Centre. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Knowledge Resource Centre shall be an Officer of the University, appointed by the University on recommendation of the Commission, in-charge of the Knowledge Resource Centre in the University. He shall work under the superintendence, direction and control of the Vice Chancellor.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The qualifications, experience, emoluments, other conditions of service of the Director, Knowledge Resource Center shall be as recommended by the University Grants Commission, Librarian for University by the Statutes. and as prescribed</span></p>

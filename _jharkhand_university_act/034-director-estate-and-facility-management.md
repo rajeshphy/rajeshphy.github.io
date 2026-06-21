@@ -12,7 +12,9 @@ section_number: "34"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>34</span>Director, Estate and Facility Management</h2>
- <p class="act-essence-box">Brief: The Director, Estate and Facility Management shall be an officer of the University responsible for handling all the activities related to infrastructure development, maintenance and up keeping of the University and its utilities. The Director, Estate and Facility Management shall be appointed by the Vice Chancellor, from amongst teachers at the University, not be below the rank of Associate Professor or having teaching experience of at least 12 years. The Director, Estate...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Director, Estate and Facility Management. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Estate and Facility Management shall be an officer of the University responsible for handling all the activities related to infrastructure development, maintenance and up keeping of the University and its utilities.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Director, Estate and Facility Management shall be appointed by the Vice Chancellor, from amongst teachers at the University, not be below the rank of Associate Professor or having teaching experience of at least 12 years.</span></p>

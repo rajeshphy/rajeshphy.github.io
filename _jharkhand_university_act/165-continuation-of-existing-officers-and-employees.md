@@ -12,7 +12,9 @@ section_number: "165"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XVII: TRANSITORY PROVISIONS</p>
  <h2 class="act-section-heading"><span>165</span>Continuation of Existing Officers and Employees</h2>
- <p class="act-essence-box">Brief: Save as otherwise provided by or under this Act, every person holding office either as an officer or the employee, whether teaching or non-teaching employee, of any University on the date immediately before the commencement of this Act shall continue to hold office on the same terms and conditions as were applicable to him immediately before such date, and shall exercise such powers and perform such duties as conferred on them by...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Continuation of Existing Officers and Employees. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">Save as otherwise provided by or under this Act, every person holding office either as an officer or the employee, whether teaching or non-teaching employee, of any University on the date immediately before the commencement of this Act shall continue to hold office on the same terms and conditions as were applicable to him immediately before such date, and shall exercise such powers and perform such duties as conferred on them by or under this Act.</p>
   </div>

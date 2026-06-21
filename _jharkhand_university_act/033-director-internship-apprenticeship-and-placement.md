@@ -12,7 +12,9 @@ section_number: "33"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>33</span>Director, Internship, Apprenticeship and Placement</h2>
- <p class="act-essence-box">Brief: The Director, Internship, Apprenticeship and Placement shall be an officer of the University responsible for managing the internship, apprenticeship and placement of the students of the University including their skill enhancement, capacity building and training. The Director, Internship, Apprenticeship and Placement shall be appointed by the Vice Chancellor, from amongst the competent teachers having at least 12 years of experience. The Director, Internship, Apprenticeship and Placement shall discharge his functions under the...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Director, Internship, Apprenticeship and Placement. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Internship, Apprenticeship and Placement shall be an officer of the University responsible for managing the internship, apprenticeship and placement of the students of the University including their skill enhancement, capacity building and training.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Director, Internship, Apprenticeship and Placement shall be appointed by the Vice Chancellor, from amongst the competent teachers having at least 12 years of experience.</span></p>

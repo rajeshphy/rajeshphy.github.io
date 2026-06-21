@@ -12,9 +12,11 @@ section_number: "66"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>66</span>Conclusiveness of Decision of Authority</h2>
- <p class="act-essence-box">Brief: Save as otherwise provided by or under the provisions of this Act, each authority of the University while acting and exercising its powers and discharging functions or duties assigned to it by or under the provisions of this Act, shall have the exclusive jurisdiction to deal with and decide the mattersassigned, to it and discharging functions or duties assigned to it by or under the provisions of this Act.</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on conclusiveness of decision of authority under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
-<p class="act-line act-line-continuation">Save as otherwise provided by or under the provisions of this Act, each authority of the University while acting and exercising its powers and discharging functions or duties assigned to it by or under the provisions of this Act, shall have the exclusive jurisdiction to deal with and decide the mattersassigned, to it and discharging functions or duties assigned to it by or under the provisions of this Act.</p>
+<p class="act-line act-line-continuation">Save as otherwise provided by or under the provisions of this Act, each authority of the University while acting and exercising its powers and discharging functions or duties assigned to it by or under the provisions of this Act shall have the exclusive jurisdiction to deal with and decide the matters assigned to it.</p>
   </div>
 </article>
 

@@ -12,7 +12,9 @@ section_number: "133"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XIII: MISCELLENOUS</p>
  <h2 class="act-section-heading"><span>133</span>Protection of Acts and Orders</h2>
- <p class="act-essence-box">Brief: No suit, prosecution, or other legal proceeding shall lie against the University or any of its officers, authorities, or any person duly authorised by it, in respect of anything which is in good faith done or intended to be done in pursuance of the provisions of this Act or the Statutes, University Ordinances, or Rules made thereunder. All acts done and orders passed in good faith by the University or any of...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on protection of acts and orders under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-continuation">No suit, prosecution, or other legal proceeding shall lie against the University or any of its officers, authorities, or any person duly authorised by it, in respect of anything which is in good faith done or intended to be done in pursuance of the provisions of this Act or the Statutes, University Ordinances, or Rules made thereunder. All acts done and orders passed in good faith by the University or any of its officers, authorities, or authorised persons shall, subject to the provisions of this Act, be final and binding.</p>
   </div>

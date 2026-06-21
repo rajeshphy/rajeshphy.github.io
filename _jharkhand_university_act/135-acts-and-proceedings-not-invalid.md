@@ -12,9 +12,11 @@ section_number: "135"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XIII: MISCELLENOUS</p>
  <h2 class="act-section-heading"><span>135</span>Acts and Proceedings Not Invalid</h2>
- <p class="act-essence-box">Brief: No act or proceeding of any authority or body or committee of the University, shall be deemed to be invalid at any time merely on the ground that – any of the members of any such authority, body or committee are not appointed, nominated or for any other reason are not available to take office at the time of the constitution or to attend any meeting thereof or any person is a...</p>
+ <p class="act-essence-box">Brief: This section sets out the rule on acts and proceedings not invalid under the Jharkhand State Universities Act, 2026. It identifies the authority, institution, right, duty or procedure governed by the provision and states how that matter is to be handled within the statutory framework.</p>
+
+
  <div class="act-section-body">
-<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">No act or proceeding of any authority or body or committee of the University, shall be deemed to be invalid at any time merely on the ground that –</span></p>
+<p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">No act or proceeding of any authority or body or committee of the University shall be deemed to be invalid at any time merely on the ground that –</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">any of the members of any such authority, body or committee are not appointed, nominated or for any other reason are not available to take office at the time of the constitution or to attend any meeting thereof or any person is a member in more than one capacity or there is any other defect in the constitution thereof or there are one or more vacancies in the offices of members thereof; and</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(b)</span><span class="act-line-text">there is any irregularity in the procedure of any such authority, body or committee not affecting the merits of the matter under consideration, and the validity of such act or proceeding shall not be questioned in any court or before any authority or officer merely on any such ground.</span></p>
 <p class="act-line act-line-chapter-break">CHAPTER XIV: ESTABLISHMENT OF NEW UNIVERSITIES</p>

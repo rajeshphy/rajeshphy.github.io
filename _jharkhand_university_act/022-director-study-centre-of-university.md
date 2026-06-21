@@ -12,7 +12,9 @@ section_number: "22"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>22</span>Director, Study Centre of University</h2>
- <p class="act-essence-box">Brief: The Director, Study Centre shall be the chief academic and administrative officer of the Study Centres and work under the superintendence, direction and control of the Pro-Vice Chancellor. The Director, Study Centre shall be a person engaged in teaching, research and development activities, with not less than fifteen years of teaching or research or administrative experience. The appointment of the Director, Study Centre shall be made by the Vice Chancellor from the...</p>
+ <p class="act-essence-box">Brief: This section defines the office of the Director, Study Centre of University. It covers appointment or selection, term and reporting arrangements where stated, and sets out the powers, duties, vacancy arrangements, temporary-charge provisions or accountability requirements attached to the office under the Act.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Study Centre shall be the chief academic and administrative officer of the Study Centres and work under the superintendence, direction and control of the Pro-Vice Chancellor.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Director, Study Centre shall be a person engaged in teaching, research and development activities, with not less than fifteen years of teaching or research or administrative experience.</span></p>

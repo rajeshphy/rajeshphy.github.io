@@ -12,7 +12,9 @@ section_number: "71"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER V: COUNCIL, COMMITTEES AND CELLS</p>
  <h2 class="act-section-heading"><span>71</span>Council, Committees and Cells</h2>
- <p class="act-essence-box">Brief: The following shall be the Council, Committees and Cells constituted under this Act, namely:- Advisory Committee; Finance and Accounts Committee; Internal Quality Assurance Cell; Library-Cum-Knowledge Resource Committee; Purchase Committee; Students’ Union and Student Council; Buildings and Works Committee; Fee Fixation Committee; Public Relations Committee; and Internal Complaints Committee.</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Council, Committees and Cells. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The following shall be the Council, Committees and Cells constituted under this Act, namely:-</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">Advisory Committee;</span></p>

@@ -12,7 +12,9 @@ section_number: "92"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER VI: SELECTION, APPOINTMENT AND PROMOTION OF OFFICERS, TEACHING AND NON-TEACHING EMPLOYEES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>92</span>Termination from Service</h2>
- <p class="act-essence-box">Brief: All employees of the University shall conduct themselves as per the service conditions mandated in the Statutes and prescribed by the Rules. Further, no employee of the University shall: - engage in any unlawful activity/ies or mischief or criminal trespassing or show of criminal force or compel any person to do what he is not legally bound to do; or use abusive language inside the institution campus; perform dissatisfactory while discharging of...</p>
+ <p class="act-essence-box">Brief: This section regulates termination from service in the University system. It identifies the responsible authority, the relevant procedure or timeline, and the conditions under which appointment, promotion, service, vacancy, transfer or termination matters must be handled under the Act, Statutes or Rules.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">All employees of the University shall conduct themselves as per the service conditions mandated in the Statutes and prescribed by the Rules. Further, no employee of the University shall: -</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(a)</span><span class="act-line-text">engage in any unlawful activity/ies or mischief or criminal trespassing or show of criminal force or compel any person to do what he is not legally bound to do; or use abusive language inside the institution campus;</span></p>

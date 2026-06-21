@@ -12,7 +12,9 @@ section_number: "122"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER XI: STATUTES, UNIVERSITY ORDINANCES AND UNIVERSITY RULES</p>
  <h2 class="act-section-heading"><span>122</span>University Ordinance</h2>
- <p class="act-essence-box">Brief: On all subjects for which the Statutes can be made, the University shall have the power to promulgate University Ordinance, in case of urgency or exigency for a period of not more than 06 months, within which timeframe the University shall obtain approval of the State Government. The State Government may approve or withhold approval thereto. Upon such approval being granted by the State Government the University Ordinance shall become the Statute....</p>
+ <p class="act-essence-box">Brief: This section explains how university ordinance operate under the Act. It indicates the subject matter they may regulate, the authority or approval process involved, and the legal effect of actions, rights or procedures taken under those statutory instruments.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">On all subjects for which the Statutes can be made, the University shall have the power to promulgate University Ordinance, in case of urgency or exigency for a period of not more than 06 (six) months, within which timeframe the University shall obtain approval of the State Government.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The State Government may approve or withhold approval thereto.</span></p>

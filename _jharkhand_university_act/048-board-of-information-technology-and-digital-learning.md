@@ -12,7 +12,9 @@ section_number: "48"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>48</span>Board of Information Technology and Digital Learning</h2>
- <p class="act-essence-box">Brief: There shall be a Board of Information Technology and Digital Learning to create an umbrella structure to professionally manage the selection, deployment and use of application software and technology in Academics, Finances and Administration, address the issues relating to use of the right kind of technology, software, hardware and connectivity to deploy technology in all domains of activities and associated tasks of the University and to project the funds required for that...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of Information Technology and Digital Learning. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">There shall be a Board of Information Technology and Digital Learning to create an umbrella structure to professionally manage the selection, deployment and use of application software and technology in Academics, Finances and Administration, address the issues relating to use of the right kind of technology, software, hardware and connectivity to deploy technology in all domains of activities and associated tasks of the University and to project the funds required for that purpose.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board of Information Technology and Digital Learning shall meet at least three times in a year.</span></p>
@@ -33,7 +35,7 @@ section_number: "48"
 <p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">to devise strategy for creation of virtual classrooms and laboratory infrastructure;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">to lay down the policy for networking in the various campuses of the University; to work out appropriate</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">policy, for creation of a Data Repository and procedure Cell for creation, up-gradation and maintenance of data on students, teachers as well as other staff members in the institutions and give a Unique Identification Number;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">to implement Enterprise Resources Planning and other similar Information Technology tools mandated by the State Government or University Grant Commission or other regulatory organisations; and</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">to implement Enterprise Resources Planning and other similar Information Technology tools mandated by the State Government or University Grants Commission or other regulatory organisations; and</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">to undertake any other task as may be prescribed by the Statutes.</span></p>
   </div>
 </article>

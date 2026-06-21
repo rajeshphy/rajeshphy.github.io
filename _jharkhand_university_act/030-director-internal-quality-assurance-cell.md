@@ -12,7 +12,9 @@ section_number: "30"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER III: OFFICERS OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>30</span>Director, Internal Quality Assurance Cell</h2>
- <p class="act-essence-box">Brief: The Director, Internal Quality Assurance Cell shall be responsible for promoting measures for institutional functioning, towards quality enhancement through internalization of quality culture and institutionalization of best practices and shall be the head of the University Internal Quality Assurance Cell. The Director, Internal Quality Assurance Cell shall be appointed by the Vice Chancellor, from amongst the teachers at the University not below the rank of Associate Professor or having equivalent research and...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Director, Internal Quality Assurance Cell. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Director, Internal Quality Assurance Cell shall be responsible for promoting measures for institutional functioning, towards quality enhancement through internalization of quality culture and institutionalization of best practices and shall be the head of the University Internal Quality Assurance Cell.</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Director, Internal Quality Assurance Cell shall be appointed by the Vice Chancellor, from amongst the teachers at the University not below the rank of Associate Professor or having equivalent research and teaching experience.</span></p>

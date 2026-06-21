@@ -12,7 +12,9 @@ section_number: "54"
 <article class="act-document act-section-document">
  <p class="act-chapter-kicker">CHAPTER IV: AUTHORITIES OF THE UNIVERSITY</p>
  <h2 class="act-section-heading"><span>54</span>Board of Inclusive Education</h2>
- <p class="act-essence-box">Brief: The Board of Inclusive Education shall be the primary body responsible to ensure that there is no discrimination of any form with teacher, non-teaching staff and students. It shall also be responsible to ensure that rights of teacher, non-teaching staff and students belonging to any section of the society for whom special provisions have been mandated by the Government of India or the State Government through any law at the time in-force...</p>
+ <p class="act-essence-box">Brief: This section establishes the structure and role of the Board of Inclusive Education. It identifies membership or composition where applicable, explains the body’s functions and decision-making responsibilities, and records procedural details such as meetings, quorum, nomination or reporting duties when the Act provides them.</p>
+
+
  <div class="act-section-body">
 <p class="act-line act-line-main"><span class="act-marker">(1)</span><span class="act-line-text">The Board of Inclusive Education shall be the primary body responsible to ensure that there is no discrimination of any form with teacher, non-teaching staff and students. It shall also be responsible to ensure that rights of teacher, non-teaching staff and students belonging to any section of the society for whom special provisions have been mandated by the Government of India or the State Government through any law at the time in-force shall be strictly adhered to in the University</span></p>
 <p class="act-line act-line-main"><span class="act-marker">(2)</span><span class="act-line-text">The Board of Inclusive Education shall consist of the following members,: -</span></p>
@@ -21,7 +23,7 @@ section_number: "54"
 <p class="act-line act-line-sub"><span class="act-marker">(c)</span><span class="act-line-text">Proctor;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(d)</span><span class="act-line-text">Dean (Academic, Affairs);</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(e)</span><span class="act-line-text">Director, Information Technology and Digital Learning;</span></p>
-<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">Director, and Estate 20Facility Management;</span></p>
+<p class="act-line act-line-sub"><span class="act-marker">(f)</span><span class="act-line-text">Director, Estate and Facility Management;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(g)</span><span class="act-line-text">Director, Student Affairs;</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(h)</span><span class="act-line-text">Director, Constituent Colleges; and</span></p>
 <p class="act-line act-line-sub"><span class="act-marker">(i)</span><span class="act-line-text">Director, Inclusive Education - Member Secretary.</span></p>
