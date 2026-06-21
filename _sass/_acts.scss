@@ -241,8 +241,10 @@
 }
 
 .act-toc-intro {
+  display: flex;
+  justify-content: center;
   max-width: 850px;
-  margin: 0 auto 1.2rem;
+  margin: 0 auto 1rem;
   color: #5a534c;
   font: 520 1rem/1.58 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -326,9 +328,24 @@
 
 .act-pdf-link {
   display: inline-flex;
-  margin-top: .6rem;
-  color: var(--accent-2);
-  font: 800 .92rem/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.35rem;
+  padding: .48rem 1rem;
+  border: 1px solid rgba(7, 91, 91, .34);
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(8, 130, 126, .98), rgba(6, 93, 91, .98));
+  box-shadow: 0 12px 28px rgba(8, 96, 95, .14);
+  font: 850 .82rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .07em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.act-pdf-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 15px 30px rgba(8, 96, 95, .18);
 }
 
 @media (max-width: 640px) {

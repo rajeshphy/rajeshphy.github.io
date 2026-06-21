@@ -1,15 +1,15 @@
 ---
 title: "Jharkhand State Universities Act, 2026"
-summary: "Table of contents for the extracted Gazette text of the Jharkhand State Universities Act, 2026."
+summary: "Table of contents extracted from Gazette."
 date: 2024-06-13 01:10:00 +0530
 categories:
   - doc-acts
-  
+
 hidden: true
 ---
 
 <div class="act-toc-intro">
-  <a class="act-pdf-link" href="{{ '/assets/pdf/ref/acts/2026-Gazette-Jharkhand-University-Act.pdf' | relative_url }}">Open source Gazette PDF</a>
+  <a class="act-pdf-link" href="{{ '/assets/pdf/ref/acts/2026-Gazette-Jharkhand-University-Act.pdf' | relative_url }}">Gazette PDF</a>
 </div>
 
 <div class="act-toc-shell">
