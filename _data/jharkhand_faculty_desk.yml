@@ -1,21 +1,28 @@
 sections:
   - title: Frequently Used
     items:
-      - title: SKMU Holiday List 2026
+      - title: SKMU Holiday
         url: "https://rajeshphy.github.io/Aca/RECORDS/05_SKMU_Notification/A._Important/2026-Holiday-List.pdf"
-        note: Quick PDF reference.
-      - title: AIR Daily Broadcast
+        note: Holiday List 2026.
+      - title: Nation News
         url: "https://newsonair.gov.in/listen-broadcast-category/daily-broadcast/"
-        note: India AIR news.
-      - title: AIR Ranchi News
+        note: AIR news.
+      - title: Ranchi News
         url: "https://www.newsonair.gov.in/?s=ranchi&date_from=&date_to=&post_type="
-        note: Ranchi AIR news.
+        note: AIR news.
       - title: SKMU Dumka
         url: "https://skmu.ac.in/"
         note: University notices.
       - title: Physics Archive
         url: /notes-archive/
-        note: Semesterwise Class Notes.
+        note: Semesterwise Contents.
+      - title: Weather
+        url: "https://city.imd.gov.in/citywx/responsive/?id=42599"
+        note: IMD Dumka
+      - title: Universities Act
+        url: "http://rajeshphy.github.io/jharkhand-state-universities-act-2026/"
+        note: Jharkhand Act 2026.
+      
 
   - title: News And Daily Watch
     items:
@@ -28,9 +35,7 @@ sections:
       - title: Press Information Bureau
         url: "https://www.pib.gov.in/"
         note: Official Government of India press releases and policy updates.
-      - title: IMD City Weather
-        url: "https://city.imd.gov.in/citywx/responsive/?id=42599"
-        note: Ranchi city weather page from India Meteorological Department.
+
 
   - title: Jharkhand First
     items:
@@ -40,9 +45,7 @@ sections:
       - title: Lok Bhavan Jharkhand
         url: "https://lokbhavanjharkhand.nic.in/"
         note: Governor and Chancellor-related public information for Jharkhand.
-      - title: Jharkhand State Universities Act, 2026
-        url: "http://rajeshphy.github.io/jharkhand-state-universities-act-2026/"
-        note: Readable site version of the Act for fast consultation.
+
 
   - title: Admissions And Students
     items:
