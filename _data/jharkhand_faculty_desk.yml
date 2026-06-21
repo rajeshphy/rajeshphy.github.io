@@ -36,9 +36,6 @@ sections:
         url: "https://www.pib.gov.in/"
         note: Official Government of India press releases and policy updates.
 
-
-  - title: Jharkhand First
-    items:
       - title: Government of Jharkhand
         url: "https://www.jharkhand.gov.in/"
         note: State portal for departments, notices, policies, acts, tenders, services, and public updates.
