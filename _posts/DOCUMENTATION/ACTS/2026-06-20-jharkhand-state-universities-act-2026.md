@@ -13,8 +13,6 @@ hidden: true
 ---
 
 <div class="act-toc-intro">
-  <p>This page follows the contents structure of the Gazette notification.
-  </p>
   <a class="act-pdf-link" href="{{ '/assets/pdf/ref/acts/2026-Gazette-Jharkhand-University-Act.pdf' | relative_url }}">Open source Gazette PDF</a>
 </div>
 
