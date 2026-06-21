@@ -1,0 +1,129 @@
+sections:
+  - title: Frequently Used
+    items:
+      - title: SKMU Holiday List 2026
+        url: "https://rajeshphy.github.io/Aca/RECORDS/05_SKMU_Notification/A._Important/2026-Holiday-List.pdf"
+        note: Quick PDF reference.
+      - title: AIR Daily Broadcast
+        url: "https://newsonair.gov.in/listen-broadcast-category/daily-broadcast/"
+        note: India AIR news.
+      - title: AIR Ranchi News
+        url: "https://www.newsonair.gov.in/?s=ranchi&date_from=&date_to=&post_type="
+        note: Ranchi AIR news.
+      - title: SKMU Dumka
+        url: "https://skmu.ac.in/"
+        note: University notices.
+      - title: Physics Archive
+        url: /notes-archive/
+        note: Semesterwise Class Notes.
+
+  - title: News And Daily Watch
+    items:
+      - title: News Minimalist
+        url: "https://www.newsminimalist.com/?category=all&from=5&sort=significance&to=10"
+        note: Minimal news feed with significance-based filtering.
+      - title: News as Facts
+        url: "https://newsasfacts.com/"
+        note: Short news summaries arranged as factual updates.
+      - title: Press Information Bureau
+        url: "https://www.pib.gov.in/"
+        note: Official Government of India press releases and policy updates.
+      - title: IMD City Weather
+        url: "https://city.imd.gov.in/citywx/responsive/?id=42599"
+        note: Ranchi city weather page from India Meteorological Department.
+
+  - title: Jharkhand First
+    items:
+      - title: Government of Jharkhand
+        url: "https://www.jharkhand.gov.in/"
+        note: State portal for departments, notices, policies, acts, tenders, services, and public updates.
+      - title: Lok Bhavan Jharkhand
+        url: "https://lokbhavanjharkhand.nic.in/"
+        note: Governor and Chancellor-related public information for Jharkhand.
+      - title: Jharkhand State Universities Act, 2026
+        url: "http://rajeshphy.github.io/jharkhand-state-universities-act-2026/"
+        note: Readable site version of the Act for fast consultation.
+
+  - title: Admissions And Students
+    items:
+      - title: JCECEB
+        url: "https://jceceb.jharkhand.gov.in/"
+        note: State entrance, counselling, examination, result, and admission notices.
+      - title: Jharkhand Academic Council
+        url: "https://jac.jharkhand.gov.in/"
+        note: Intermediate and school-level academic notices, results, forms, and public links.
+      - title: Academic Bank of Credits
+        url: "https://www.abc.gov.in/"
+        note: Credit accumulation and transfer system under NEP-linked academic mobility.
+      - title: National Academic Depository
+        url: "https://nad.digilocker.gov.in/"
+        note: Digital academic certificates, marksheets, degree records, and verification workflows.
+
+  - title: Compliance And Quality
+    items:
+      - title: UGC
+        url: "https://www.ugc.gov.in/"
+        note: Standards, regulations, HEI lists, initiatives, public notices, and faculty/student corners.
+      - title: UGC Notices
+        url: "https://www.ugc.gov.in/Notices"
+        note: Letters and public notices that colleges and universities often need to act upon.
+      - title: UGC Regulations
+        url: "https://www.ugc.gov.in/Regulations"
+        note: Regulations related to degrees, Ph.D., ODL/online education, academic standards, and compliance.
+      - title: NAAC
+        url: "https://www.naac.gov.in/"
+        note: Accreditation, quality-assurance manuals, assessment updates, and institutional documentation.
+      - title: AISHE
+        url: "https://aishe.gov.in/"
+        note: Higher-education data and survey portal for institutional reporting.
+      - title: NIRF
+        url: "https://www.nirfindia.org/Home"
+        note: Ministry of Education ranking framework, parameters, documents, and annual rankings.
+      - title: AICTE
+        url: "https://www.aicte.gov.in/"
+        note: Technical-education approvals, policies, notices, and institutional information.
+
+  - title: Research And Teaching
+    items:
+      - title: ANRF e-PMS
+        url: "https://www.anrfonline.in/ANRF/HomePage"
+        note: Research grants, fellowships, travel support, and programme calls.
+      - title: DST e-PMS
+        url: "https://onlinedst.gov.in/"
+        note: Department of Science and Technology proposal-management portal.
+      - title: INFLIBNET
+        url: "https://www.inflibnet.ac.in/"
+        note: National academic library-network services, research tools, and information infrastructure.
+      - title: Shodhganga
+        url: "https://shodhganga.inflibnet.ac.in/"
+        note: Indian electronic theses and dissertations repository.
+      - title: SWAYAM
+        url: "https://swayam.gov.in/"
+        note: Online courses, credit-linked learning, local chapters, and faculty/student learning resources.
+      - title: e-PG Pathshala
+        url: "https://epgp.inflibnet.ac.in/"
+        note: Postgraduate e-content developed under national higher-education initiatives.
+      - title: NPTEL
+        url: "https://nptel.ac.in/"
+        note: Engineering, science, humanities, and management courses useful for teaching support and self-learning.
+      - title: Google Scholar
+        url: "https://scholar.google.com/"
+        note: Quick discovery of papers, citations, author profiles, and related scholarly literature.
+      - title: eGyanKosh
+        url: "https://egyankosh.ac.in/"
+        note: IGNOU digital repository for course material and open educational resources.
+
+  - title: Law And Public Records
+    items:
+      - title: e-Gazette of India
+        url: "https://egazette.gov.in/"
+        note: Central Gazette notifications, Acts, rules, appointments, and official public records.
+      - title: Constitution of India
+        url: "https://www.constitutionofindia.net/read/"
+        note: Readable online version of the Constitution of India.
+      - title: RTI Online
+        url: "https://rtionline.gov.in/"
+        note: Central RTI portal for filing and tracking information requests.
+      - title: National Portal of India
+        url: "https://www.india.gov.in/"
+        note: Official gateway to Government of India services, documents, and departmental portals.

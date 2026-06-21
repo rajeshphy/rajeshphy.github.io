@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="public-links-body">
+    <main class="public-links-wrap">
+      <article class="public-links-panel">
+        <header class="public-links-hero">
+          {% unless page.hide_public_kicker %}
+            <p>{{ page.kicker | default: "Public Reference Links" }}</p>
+          {% endunless %}
+          <h1>{{ page.title }}</h1>
+          {% if page.summary and page.show_public_summary != false %}
+            <div>{{ page.summary }}</div>
+          {% endif %}
+        </header>
+        <div class="public-links-content">
+          {{ content }}
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

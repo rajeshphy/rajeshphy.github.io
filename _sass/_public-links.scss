@@ -1,0 +1,326 @@
+/* =========================================================
+   PUBLIC LINKS PAGE
+   ========================================================= */
+
+.public-links-body {
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, #efe6d9 0%, #f7f1e8 45%, #efe8dc 100%);
+}
+
+.public-links-wrap {
+  width: min(500px, 100%);
+  margin: 0 auto;
+  padding: 0;
+}
+
+.public-links-panel {
+  min-height: 100vh;
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, .98), rgba(250, 246, 237, .98));
+  box-shadow: 0 0 0 1px rgba(213, 200, 181, .45);
+}
+
+.public-links-hero {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 13px 16px 12px;
+  border-bottom: 1px solid rgba(213, 200, 181, .72);
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, .98), rgba(248, 242, 231, .96));
+  backdrop-filter: blur(14px);
+  text-align: center;
+}
+
+.public-links-hero p {
+  margin: 0 0 .36rem;
+  color: #8d6b2b;
+  font: 850 .68rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.public-links-hero h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.42rem;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.public-links-hero h1::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 2px;
+  margin: .45rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #b98c35, transparent);
+}
+
+.public-links-hero div {
+  margin: .54rem 0 0;
+  color: #5f574f;
+  font: 600 .87rem/1.42 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.public-links-content {
+  padding: 12px 12px 24px;
+}
+
+.public-links-content > p:first-child {
+  margin: 0 0 1rem;
+  padding: .8rem .88rem;
+  border: 1px solid rgba(8, 96, 95, .12);
+  border-radius: 9px;
+  color: #4f4942;
+  background: rgba(237, 245, 241, .58);
+  font: 620 .91rem/1.48 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: left;
+}
+
+.faculty-link-section {
+  margin: 0;
+}
+
+.faculty-link-section + .faculty-link-section {
+  margin-top: 1rem;
+  padding-top: .9rem;
+  border-top: 1px solid rgba(213, 200, 181, .72);
+}
+
+.faculty-link-section h2 {
+  width: fit-content;
+  margin: 0 auto .5rem;
+  padding: .2rem .68rem;
+  border-radius: 999px;
+  color: #9b732a;
+  background: rgba(255, 248, 231, .66);
+  font: 850 .7rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.faculty-link-list {
+  display: grid;
+  gap: .42rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.faculty-link-list li {
+  margin: 0;
+}
+
+.faculty-link-card {
+  display: grid;
+  gap: .16rem;
+  min-height: 58px;
+  padding: .68rem .8rem;
+  border: 1px solid rgba(221, 209, 190, .7);
+  border-radius: 9px;
+  background: rgba(255, 253, 248, .72);
+  box-shadow: 0 6px 16px rgba(35, 31, 26, .035);
+  text-decoration: none;
+}
+
+.faculty-link-card:hover {
+  border-color: rgba(8, 96, 95, .24);
+  background: rgba(237, 245, 241, .54);
+  box-shadow: 0 8px 18px rgba(35, 31, 26, .052);
+  text-decoration: none;
+}
+
+.faculty-link-title {
+  color: #075f5d;
+  font: 820 .98rem/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.faculty-link-note {
+  color: #5f574f;
+  font: 560 .82rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.faculty-link-section.is-priority {
+  padding: .64rem .62rem .68rem;
+  border: 1px solid rgba(8, 96, 95, .16);
+  border-radius: 13px;
+  background:
+    linear-gradient(135deg, rgba(237, 245, 241, .82), rgba(255, 248, 231, .52));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .72), 0 10px 24px rgba(35, 31, 26, .045);
+}
+
+.faculty-link-section.is-priority h2 {
+  color: #075f5d;
+  background: rgba(255, 253, 248, .72);
+}
+
+.faculty-link-section.is-priority .faculty-link-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .46rem;
+}
+
+.faculty-link-section.is-priority li:first-child {
+  grid-column: 1 / -1;
+}
+
+.faculty-link-section.is-priority .faculty-link-card {
+  min-height: 66px;
+  justify-items: center;
+  align-content: center;
+  padding: .56rem .64rem;
+  border-color: rgba(8, 96, 95, .14);
+  background: rgba(255, 253, 248, .78);
+  text-align: center;
+}
+
+.faculty-link-section.is-priority .faculty-link-title {
+  font-size: .93rem;
+}
+
+.faculty-link-section.is-priority .faculty-link-note {
+  max-width: 24ch;
+  font-size: .72rem;
+  line-height: 1.22;
+}
+
+@media (max-width: 640px) {
+  .public-links-wrap {
+    width: 100%;
+    padding: 0;
+  }
+
+  .public-links-panel {
+    border-radius: 0;
+  }
+
+  .public-links-content {
+    padding: 12px 12px 24px;
+  }
+
+  .faculty-link-card {
+    min-height: 58px;
+  }
+}
+
+@media (min-width: 700px) {
+  .public-links-wrap {
+    padding: 18px 0;
+  }
+
+  .public-links-panel {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 900px) {
+  .public-links-body {
+    background:
+      radial-gradient(circle at 14% 8%, rgba(8, 96, 95, .08), transparent 28%),
+      radial-gradient(circle at 86% 0%, rgba(185, 140, 53, .12), transparent 30%),
+      linear-gradient(135deg, #efe6d9 0%, #fffdf8 52%, #edf5f1 100%);
+  }
+
+  .public-links-wrap {
+    width: min(1040px, calc(100% - 48px));
+    padding: 30px 0 42px;
+  }
+
+  .public-links-panel {
+    min-height: auto;
+    border: 1px solid rgba(213, 200, 181, .82);
+    border-radius: 18px;
+    background:
+      linear-gradient(180deg, rgba(255, 253, 248, .92), rgba(250, 246, 237, .92));
+    box-shadow: 0 26px 70px rgba(35, 31, 26, .09);
+  }
+
+  .public-links-hero {
+    position: static;
+    padding: 24px 28px 20px;
+    background:
+      linear-gradient(135deg, rgba(255, 253, 248, .96), rgba(237, 245, 241, .78));
+  }
+
+  .public-links-hero h1 {
+    font-size: clamp(2rem, 3.4vw, 3rem);
+  }
+
+  .public-links-hero h1::after {
+    width: 80px;
+    margin-top: .58rem;
+  }
+
+  .public-links-content {
+    padding: 24px 30px 34px;
+  }
+
+  .faculty-link-section + .faculty-link-section {
+    margin-top: 1.35rem;
+    padding-top: 1.2rem;
+  }
+
+  .faculty-link-section h2 {
+    margin-bottom: .7rem;
+    padding: .24rem .8rem;
+    font-size: .78rem;
+  }
+
+  .faculty-link-section:not(.is-priority) .faculty-link-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .62rem;
+  }
+
+  .faculty-link-section:not(.is-priority) .faculty-link-card {
+    min-height: 86px;
+    height: 100%;
+    padding: .82rem .95rem;
+  }
+
+  .faculty-link-section.is-priority {
+    padding: .9rem;
+    border-radius: 16px;
+  }
+
+  .faculty-link-section.is-priority .faculty-link-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .62rem;
+  }
+
+  .faculty-link-section.is-priority li:first-child {
+    grid-column: span 2;
+  }
+
+  .faculty-link-section.is-priority li:nth-child(4),
+  .faculty-link-section.is-priority li:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .faculty-link-section.is-priority .faculty-link-card {
+    min-height: 90px;
+    padding: .78rem .82rem;
+  }
+
+  .faculty-link-section.is-priority .faculty-link-title {
+    font-size: 1rem;
+  }
+
+  .faculty-link-section.is-priority .faculty-link-note {
+    max-width: 30ch;
+    font-size: .78rem;
+    line-height: 1.3;
+  }
+
+  .faculty-link-title {
+    font-size: 1.04rem;
+  }
+
+  .faculty-link-note {
+    font-size: .86rem;
+  }
+}

@@ -1,8 +1,12 @@
 items:
 
-  - title: Free Science Journals
-    url: /ref/free-science-journals/
-  
+  - title: Extra Website
+    children:
+    - title: Free Science Journals
+      url: /free-science-journals/
+    - title: Selected Sites 
+      url: /selected-useful-sites/
+
   - title: Acts
     children:
     - title: Jharkhand University 2026, PDF
