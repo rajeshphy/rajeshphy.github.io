@@ -1,7 +1,7 @@
 ---
 title: "Jharkhand State Universities Act, 2026"
 summary: "Table of contents extracted from Gazette."
-date: 2024-06-13 01:10:00 +0530
+date: 2026-04-28 01:10:00 +0530
 categories:
   - doc-acts
 
