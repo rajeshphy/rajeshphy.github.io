@@ -4,11 +4,7 @@ summary: "Table of contents for the extracted Gazette text of the Jharkhand Stat
 date: 2024-06-13 01:10:00 +0530
 categories:
   - doc-acts
-tags:
-  - jharkhand-university-act
-  - gazette
-  - acts
-  - higher-education
+  
 hidden: true
 ---
 
