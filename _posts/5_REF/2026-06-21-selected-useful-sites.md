@@ -9,7 +9,7 @@ hide_public_kicker: true
 show_public_summary: false
 categories:
   - doc-tech
-permalink: /selected-useful-sites/
+permalink: /desk/
 hidden: true
 ---
 
