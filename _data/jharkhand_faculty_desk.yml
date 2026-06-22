@@ -12,7 +12,7 @@ sections:
         note: AIR news.
       - title: News Minimalist
         url: "https://www.newsminimalist.com/?category=all&from=5&sort=significance&to=10"
-        note: Significance-based filtering.
+        note: Significance-based.
       - title: Universities Act
         url: "http://rajeshphy.github.io/jharkhand-state-universities-act-2026/"
         note: Jharkhand Act 2026.
