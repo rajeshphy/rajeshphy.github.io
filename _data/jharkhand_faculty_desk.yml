@@ -26,6 +26,9 @@ sections:
       - title: Scholar Lab
         url: "https://scholar.google.com/scholar_labs/search"
         note: Google Scholar Labs
+      - title: Prompts
+        url: /prompts/
+        note: Physics Prompts
       - title: Press Information Bureau
         url: "https://www.pib.gov.in/"
         note: Official Government of India press releases and policy updates.
