@@ -20,6 +20,9 @@ sections:
 
   - title: News And Daily Watch
     items:
+      - title: Horizon
+        url: "https://thysrael.github.io/Horizon/"
+        note: tech and research news
       - title: News as Facts
         url: "https://newsasfacts.com/"
         note: Short news summaries arranged as factual updates.
