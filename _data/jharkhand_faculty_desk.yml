@@ -10,9 +10,9 @@ sections:
       - title: Ranchi News
         url: "https://www.newsonair.gov.in/?s=ranchi&date_from=&date_to=&post_type="
         note: AIR news.
-      - title: News Minimalist
-        url: "https://www.newsminimalist.com/?category=all&from=5&sort=significance&to=10"
-        note: Significance-based.
+      - title: PIB
+        url: "https://rajeshphy.github.io/pib/"
+        note: Indian Gov.
       - title: Universities Act
         url: "http://rajeshphy.github.io/jharkhand-state-universities-act-2026/"
         note: Jharkhand Act 2026.
@@ -20,6 +20,9 @@ sections:
 
   - title: News And Daily Watch
     items:
+      - title: News Minimalist
+        url: "https://www.newsminimalist.com/?category=all&from=5&sort=significance&to=10"
+        note: Significance-based.
       - title: Horizon
         url: "https://thysrael.github.io/Horizon/"
         note: tech and research news
