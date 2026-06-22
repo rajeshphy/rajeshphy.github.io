@@ -1,6 +1,6 @@
 ---
-title: "Jharkhand Faculty Desk"
-summary: "A mobile-first link desk for professors working in Jharkhand state universities."
+title: "Academician Desk"
+summary: "A mobile-first link desk for academicians working in Jharkhand state universities."
 excerpt: "Frequently used links for professors working in Jharkhand state universities."
 date: 2026-06-21 10:00:00 +0530
 layout: public-links

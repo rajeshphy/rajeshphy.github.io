@@ -1,11 +1,19 @@
 ---
-layout: default
-title: "Theoretical Physics: 2026-06-21 (EN)"
-date: 2026-06-21
-lang: en
+title: "Theoretical Physics: 2026-06-21"
+summary: "Selected arXiv papers for SUSY/PT symmetry and analytic quantum mechanics."
+date: 2026-06-21 18:00:00 +0530
+categories:
+  - doc-arxiv
+tags:
+  - theoretical-physics
+  - arxiv
+  - susy-qm
+  - pt-symmetry
+  - analytic-quantum-mechanics
+permalink: /2026-06-21/
 ---
 
-> From 64 arXiv items, 12 fresh-graduate-friendly papers were selected
+> From 64 arXiv items, 12 papers were selected for SUSY/PT-symmetry/analytic quantum-mechanics relevance.
 
 ---
 
