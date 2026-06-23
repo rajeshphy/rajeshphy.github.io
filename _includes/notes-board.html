@@ -15,7 +15,6 @@
           {%- assign post_month_class = "note-month-" | append: post_month_number -%}
           <a class="{{ post_month_class }}" href="{{ post.url | relative_url }}">
             <span>{{ post.title }}</span>
-            <small>{{ post.date | date: "%d %b %Y" }}</small>
           </a>
         {%- endif -%}
       {%- endfor -%}
@@ -58,7 +57,6 @@
           {%- assign post_month_class = "note-month-" | append: post_month_number -%}
           <a class="{{ post_month_class }}" href="{{ post.url | relative_url }}">
             <span>{{ post.title }}</span>
-            <small>{{ post.date | date: "%d %b %Y" }}</small>
           </a>
         {%- endif -%}
       {%- endfor -%}

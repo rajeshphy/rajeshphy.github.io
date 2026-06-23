@@ -438,52 +438,50 @@
   gap: 0;
   max-width: 860px;
   margin-inline: auto;
-  padding: 0 clamp(16px, 3vw, 34px) clamp(18px, 3vw, 30px);
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, .88), rgba(246, 250, 247, .62));
+  box-shadow: none;
 }
 
 .semester-post-links a {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   align-items: baseline;
-  gap: 18px;
+  gap: 0;
   min-height: 0;
-  padding: 14px 8px 14px 18px;
+  padding: 4px 14px 4px 20px;
   border: 0;
-  border-bottom: 1px solid rgba(8, 96, 95, .10);
   border-radius: 0;
   background: transparent;
   color: #075f5b;
   text-align: left;
-  line-height: 1.32;
+  line-height: 1.18;
   box-shadow: none;
-  font: 680 clamp(.98rem, 1.4vw, 1.08rem)/1.32 Georgia, "Times New Roman", serif;
+  font: 680 clamp(.9rem, 1.2vw, .98rem)/1.18 Georgia, "Times New Roman", serif;
 }
 
 .semester-post-links a::before {
   content: "";
   position: absolute;
-  left: 4px;
-  top: 50%;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+  inset: -1px auto -1px 0;
+  width: 6px;
+  border-radius: 0;
   background: rgba(185, 140, 53, .72);
-  transform: translateY(-50%);
 }
 
 @mixin note-month-accent($month, $accent, $wash, $line) {
   .semester-post-links a.note-month-#{$month} {
-    border-bottom-color: $line;
-    background:
-      linear-gradient(90deg, $accent 0 5px, transparent 5px),
-      linear-gradient(90deg, $wash 0, $wash 28%, rgba(255, 253, 248, .58) 76%);
+    background: transparent;
     color: $accent;
   }
 
   .semester-post-links a.note-month-#{$month}::before {
     background: $accent;
-    box-shadow: 0 0 0 5px $line;
   }
 }
 
@@ -503,7 +501,7 @@
 .semester-post-links a:hover {
   transform: none;
   color: #004f4b;
-  background: rgba(237, 245, 241, .44);
+  background: rgba(237, 245, 241, .34);
   text-decoration: none;
 }
 
