@@ -112,7 +112,7 @@ Although the two expressions are often used interchangeably in elementary mechan
 
 ---
 
-# Hamilton's Equations of Motion
+## Hamilton's Equations of Motion
 
 Hamiltonian mechanics is an alternative formulation of classical mechanics that uses generalized coordinates $q_i$ and conjugate momenta $p_i$ instead of just coordinates and velocities.
 
