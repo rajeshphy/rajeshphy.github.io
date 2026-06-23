@@ -11,7 +11,9 @@
     {%- capture group_links -%}
       {%- for post in site.posts -%}
         {%- if post.categories contains group_category -%}
-          <a href="{{ post.url | relative_url }}">
+          {%- assign post_month_number = post.date | date: "%m" | plus: 0 -%}
+          {%- assign post_month_class = "note-month-" | append: post_month_number -%}
+          <a class="{{ post_month_class }}" href="{{ post.url | relative_url }}">
             <span>{{ post.title }}</span>
             <small>{{ post.date | date: "%d %b %Y" }}</small>
           </a>
@@ -52,7 +54,9 @@
     {%- capture group_links -%}
       {%- for post in site.posts -%}
         {%- if post.categories contains group_category -%}
-          <a href="{{ post.url | relative_url }}">
+          {%- assign post_month_number = post.date | date: "%m" | plus: 0 -%}
+          {%- assign post_month_class = "note-month-" | append: post_month_number -%}
+          <a class="{{ post_month_class }}" href="{{ post.url | relative_url }}">
             <span>{{ post.title }}</span>
             <small>{{ post.date | date: "%d %b %Y" }}</small>
           </a>
