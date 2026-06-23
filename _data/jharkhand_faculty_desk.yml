@@ -18,8 +18,11 @@ sections:
         note: AI Curated
       
 
-  - title: Daily Watch
-    items:
+    - title: Daily Watch
+      items:
+      -title: SKMU
+        url: "https://skmu.ac.in/"
+        note: website
       - title: Universities Act
         url: "http://rajeshphy.github.io/jharkhand-state-universities-act-2026/"
         note: Jharkhand Act 2026.
@@ -35,7 +38,6 @@ sections:
       - title: Lok Bhavan Jharkhand
         url: "https://lokbhavanjharkhand.nic.in/"
         note: Governor and Chancellor-related public information for Jharkhand.
-
       - title: Scholar Lab
         url: "https://scholar.google.com/scholar_labs/search"
         note: Google Scholar Labs
