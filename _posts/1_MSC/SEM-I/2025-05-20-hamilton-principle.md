@@ -1,7 +1,7 @@
 ---
-title: "Hamilton's Principle"
-summary: "Hamilton's principle, stationary action, and Euler-Lagrange equations for classical systems."
-date: 2025-05-20 07:47:26 +0530
+title: "Hamilton Principle and Calculus of Variations"
+summary: "Stationary action, Euler-Lagrange equation from variational calculus, and simple applications."
+date: 2026-05-03 09:00:00 +0530
 categories:
   - notes
   - msc
@@ -12,154 +12,153 @@ tags:
   - semester-i
   - classical-mechanics
   - hamilton-principle
-  - action
+  - calculus-of-variations
 permalink: /msc/sem-i/lagrangian-mechanics/
 hidden: true
 ---
 
-## Hamilton's Principle
+This note matches the syllabus topics: Hamilton's principle, techniques of the calculus of variations, applications, and derivation of Lagrange's equation using Hamilton's principle.
 
-<span style="color:darkred">**Learning Objectives**</span>:
-- Understand the statement and physical meaning of Hamilton's principle.
-- Derive the Euler-Lagrange equations from the principle.
-- Apply Hamilton's principle to solve simple dynamical systems.
+## Functional and variation
 
----
-
-**Key Concepts / Definitions**:
-- **Hamilton's Principle**: The actual path taken by a system between two configurations is such that the action integral is stationary (usually a minimum).
-- **Action**: The integral of the Lagrangian over time, $S = \int_{t_1}^{t_2} L(q, \dot{q}, t) \, dt$.
-- **Stationary Action**: A value of the action where its first variation is zero, $\delta S = 0$.
-
----
-
-**Theory and Explanation**:
-
-Hamilton’s Principle, also known as the **Principle of Stationary Action**, is a cornerstone of analytical mechanics. It states that:
-
-> *Out of all possible paths that a system can follow between two fixed points in configuration space and time, the actual path followed is the one that makes the action integral stationary.*
-
-This principle unifies many laws of classical mechanics and provides a natural route to derive the **Euler-Lagrange equations**, which are central to Lagrangian mechanics.
-
-The **action** is a scalar quantity defined by:
+A functional assigns a number to a function. A typical functional is
 
 $$
-S[q(t)] = \int_{t_1}^{t_2} L(q, \dot{q}, t) \, dt
+I[y]=\int_{x_1}^{x_2}F(y,y',x)\,dx.
 $$
 
-Here:
-- $q(t)$ are generalized coordinates.
-- $\dot{q} = \frac{dq}{dt}$ is the generalized velocity.
-- $L(q, \dot{q}, t)$ is the **Lagrangian** of the system, typically $T - V$, where $T$ is kinetic energy and $V$ is potential energy.
-
-If the action is stationary, then the path taken by the system satisfies:
+If the curve is varied as
 
 $$
-\delta S = 0
+y(x)\to y(x)+\epsilon\eta(x),
 $$
 
-This leads to the Euler-Lagrange equation, which governs the dynamics of the system.
-
----
-
-**Mathematical Formulation**:
-
-Let $q(t)$ be a differentiable path connecting two fixed endpoints at $t = t_1$ and $t = t_2$.
-
-The action functional is:
+with fixed endpoints
 
 $$
-S[q(t)] = \int_{t_1}^{t_2} L(q, \dot{q}, t) \, dt
+\eta(x_1)=\eta(x_2)=0,
 $$
 
-Consider a variation $q(t) \rightarrow q(t) + \varepsilon \eta(t)$, where $\eta(t_1) = \eta(t_2) = 0$.
-
-The variation of action is:
+then the stationary condition is
 
 $$
-\delta S = \frac{d}{d\varepsilon} S[q + \varepsilon \eta] \bigg|_{\varepsilon=0} = \int_{t_1}^{t_2} \left( \frac{\partial L}{\partial q} \eta + \frac{\partial L}{\partial \dot{q}} \dot{\eta} \right) dt
+\delta I=0.
 $$
 
-Integrating the second term by parts and applying boundary conditions:
+## Euler-Lagrange equation
+
+For
 
 $$
-\delta S = \int_{t_1}^{t_2} \left( \frac{\partial L}{\partial q} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} \right) \eta(t) \, dt
+I[y]=\int_{x_1}^{x_2}F(y,y',x)\,dx,
 $$
 
-For $\delta S = 0$ for arbitrary $\eta(t)$, the integrand must vanish:
+the condition $\delta I=0$ gives
 
 $$
-\frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) - \frac{\partial L}{\partial q} = 0
+\boxed{
+\frac{\partial F}{\partial y}
+-\frac{d}{dx}\left(\frac{\partial F}{\partial y'}\right)=0.
+}
 $$
 
-This is the **Euler-Lagrange equation**.
+This is the basic result of the calculus of variations.
 
----
+## Hamilton's principle
 
-**Solved Examples**:
+For a mechanical system, the action is
 
-- **Example 1**:  
-  **Problem**: Derive the equation of motion for a free particle using Hamilton’s principle.  
-  **Solution**:  
-  For a free particle of mass $m$, the Lagrangian is $L = \frac{1}{2} m \dot{x}^2$.
+$$
+S=\int_{t_1}^{t_2}L(q_i,\dot q_i,t)\,dt.
+$$
 
-  Action:
-  $$
-  S[x(t)] = \int_{t_1}^{t_2} \frac{1}{2} m \dot{x}^2 \, dt
-  $$
+Hamilton's principle states that the actual path makes the action stationary:
 
-  Euler-Lagrange equation:
-  $$
-  \frac{d}{dt} \left( m \dot{x} \right) = 0 \Rightarrow m \ddot{x} = 0
-  $$
+$$
+\boxed{\delta S=0.}
+$$
 
-  This implies constant velocity motion: $x(t) = vt + c$.
+Stationary does not always mean minimum. It may be a minimum, maximum, or saddle point.
 
----
+## Lagrange equation from Hamilton's principle
 
-- **Example 2**:  
-  **Problem**: A particle moves under a constant force $F$. Derive its equation of motion using Hamilton’s principle.  
-  **Solution**:  
-  The Lagrangian is $L = \frac{1}{2} m \dot{x}^2 + Fx$.
+Vary the path:
 
-  Euler-Lagrange equation:
-  $$
-  \frac{d}{dt}(m \dot{x}) - F = 0 \Rightarrow m \ddot{x} = F
-  $$
+$$
+q_i(t)\to q_i(t)+\delta q_i(t),
+$$
 
-  This leads to uniformly accelerated motion.
+with
 
----
+$$
+\delta q_i(t_1)=\delta q_i(t_2)=0.
+$$
 
-**Important Points / Summary**:
-- Hamilton’s principle leads to the Euler-Lagrange equations.
-- It is a variational reformulation of Newtonian mechanics.
-- The action is stationary, not necessarily minimal.
-- Applies to conservative systems and forms the foundation of field theory.
+Then
 
----
+$$
+\delta S=\int_{t_1}^{t_2}\sum_i
+\left(
+\frac{\partial L}{\partial q_i}\delta q_i+
+\frac{\partial L}{\partial\dot q_i}\delta\dot q_i
 
-**Practice Questions**:
-- **Short Answer**:
-  1. State Hamilton's principle in your own words.
-  2. How is the Euler-Lagrange equation derived from the principle of stationary action?
+\right)dt.
+$$
 
-- **Numerical**:
-  1. A particle moves under a potential $V(x) = \frac{1}{2} kx^2$. Use Hamilton’s principle to find the equation of motion.
-  2. Compute the action for a particle moving from $x=0$ to $x=a$ in time $T$ with constant velocity.
+Using integration by parts on the $\delta\dot q_i$ term and applying fixed endpoint conditions gives
 
-- **MCQs**:
-  1. The Euler-Lagrange equation is obtained from Hamilton's principle by:
-     - a) Differentiating the Lagrangian directly  
-     - b) Rewriting Newton’s law  
-     - c) Requiring $\delta S = 0$ for arbitrary variations  
-     - d) Using energy conservation  
-     **Answer**: c)
+$$
+\delta S=\int_{t_1}^{t_2}\sum_i
+\left[
+\frac{\partial L}{\partial q_i}-
+\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)
+\right]
+\delta q_i\,dt.
+$$
 
-  2. In Hamilton’s principle, the variation $\eta(t)$ must:
-     - a) Be arbitrary  
-     - b) Vanish at the endpoints  
-     - c) Be a constant function  
-     - d) Satisfy $\dot{\eta}(t_1) = 0$  
-     **Answer**: b)
+Since the variations $\delta q_i$ are arbitrary,
 
+$$
+\boxed{
+\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)
+-\frac{\partial L}{\partial q_i}=0.
+}
+$$
+
+## Example: shortest path
+
+For the shortest path between two points,
+
+$$
+I[y]=\int_{x_1}^{x_2}\sqrt{1+y'^2}\,dx.
+$$
+
+Here $F=\sqrt{1+y'^2}$ does not depend explicitly on $y$, so
+
+$$
+\frac{d}{dx}\left(\frac{y'}{\sqrt{1+y'^2}}\right)=0.
+$$
+
+This implies $y'$ is constant, so
+
+$$
+y=mx+c.
+$$
+
+Thus the shortest path is a straight line.
+
+## Main points
+
+- Variational calculus studies stationary values of functionals.
+- Hamilton's principle is $\delta S=0$.
+- Fixed endpoints make boundary terms vanish.
+- Lagrange's equations follow directly from Hamilton's principle.
+- The principle is stationary action, not always least action.
+
+## Practice questions
+
+1. Define a functional and its variation.
+2. Derive the Euler-Lagrange equation for $I[y]$.
+3. State Hamilton's principle.
+4. Derive Lagrange's equation from $\delta S=0$.
+5. Show that the shortest path between two points is a straight line.

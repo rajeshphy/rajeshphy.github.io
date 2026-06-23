@@ -1,7 +1,7 @@
 ---
 title: "Angular Momentum and Rotations"
 summary: "Angular momentum as the generator of rotations, rotation operators, and transformation of quantum states."
-date: 2026-06-23 09:40:00 +0530
+date: 2026-06-05 09:00:00 +0530
 categories:
   - notes
   - msc

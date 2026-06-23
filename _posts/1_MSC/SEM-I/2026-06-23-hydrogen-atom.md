@@ -1,7 +1,7 @@
 ---
 title: "Hydrogen Atom"
 summary: "Hydrogen atom as a central potential problem, quantum numbers, energy spectrum, and degeneracy."
-date: 2026-06-23 10:00:00 +0530
+date: 2026-06-07 09:00:00 +0530
 categories:
   - notes
   - msc

@@ -1,7 +1,7 @@
 ---
 title: "Motion in a Centrally Symmetric Field"
 summary: "Quantum motion in a central potential, separation of variables, radial equation, and angular momentum quantum numbers."
-date: 2026-06-23 09:50:00 +0530
+date: 2026-06-06 09:00:00 +0530
 categories:
   - notes
   - msc

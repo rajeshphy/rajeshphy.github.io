@@ -1,7 +1,7 @@
 ---
 title: "Angular Momentum Eigenvalues and Eigenvectors"
 summary: "Eigenvalues of J squared and Jz, ladder construction, spherical harmonics, and angular momentum eigenstates."
-date: 2026-06-23 09:10:00 +0530
+date: 2026-06-02 09:00:00 +0530
 categories:
   - notes
   - msc

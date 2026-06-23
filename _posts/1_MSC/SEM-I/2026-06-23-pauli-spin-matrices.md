@@ -1,7 +1,7 @@
 ---
 title: "Pauli Spin Matrices and Spin Eigenvectors"
 summary: "Spin one-half operators, Pauli matrices, spin eigenvectors, and basic spin measurement probabilities."
-date: 2026-06-23 09:20:00 +0530
+date: 2026-06-03 09:00:00 +0530
 categories:
   - notes
   - msc

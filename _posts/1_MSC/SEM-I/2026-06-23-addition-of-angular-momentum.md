@@ -1,7 +1,7 @@
 ---
 title: "Addition of Angular Momentum and Clebsch-Gordan Coefficients"
 summary: "Addition theorem, coupled and uncoupled bases, Clebsch-Gordan coefficients, and simple examples."
-date: 2026-06-23 09:30:00 +0530
+date: 2026-06-04 09:00:00 +0530
 categories:
   - notes
   - msc

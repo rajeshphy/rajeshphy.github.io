@@ -1,7 +1,7 @@
 ---
 title: "Angular Momentum Operators"
 summary: "Commutation relations, ladder operators, and the algebraic structure of angular momentum in quantum mechanics."
-date: 2026-06-23 09:00:00 +0530
+date: 2026-06-01 09:00:00 +0530
 categories:
   - notes
   - msc
