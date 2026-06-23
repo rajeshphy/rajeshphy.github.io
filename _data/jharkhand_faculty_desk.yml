@@ -18,33 +18,39 @@ sections:
         note: AI Curated
       
 
-    - title: Daily Watch
-      items:
-      -title: SKMU
+  - title: Daily Watch
+    items:
+      - title: SKMU
         url: "https://skmu.ac.in/"
-        note: website
+        note: Website
+
       - title: Universities Act
-        url: "http://rajeshphy.github.io/jharkhand-state-universities-act-2026/"
+        url: "https://rajeshphy.github.io/jharkhand-state-universities-act-2026/"
         note: Jharkhand Act 2026.
+
       - title: Arts & Letters
         url: "https://www.aldaily.com/"
-        note: Higher Education
+        note: Higher education.
+
       - title: News Minimalist
         url: "https://www.newsminimalist.com/?category=all&from=5&sort=significance&to=10"
-        note: Significance-based.
+        note: Significance-based news.
+
       - title: Government of Jharkhand
         url: "https://www.jharkhand.gov.in/"
         note: State portal for departments, notices, policies, acts, tenders, services, and public updates.
+
       - title: Lok Bhavan Jharkhand
         url: "https://lokbhavanjharkhand.nic.in/"
         note: Governor and Chancellor-related public information for Jharkhand.
+
       - title: Scholar Lab
         url: "https://scholar.google.com/scholar_labs/search"
-        note: Google Scholar Labs
-      - title: Prompts
-        url: /prompts/
-        note: example
+        note: Google Scholar Labs.
 
+      - title: Prompts
+        url: "/prompts/"
+        note: Examples.
 
   - title: Admissions And Students
     items:
