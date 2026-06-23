@@ -13,38 +13,35 @@ sections:
       - title: PIB
         url: "https://rajeshphy.github.io/pib/"
         note: Indian Gov.
+      - title: Alltop
+        url: "https://www.alltop.com/"
+        note: AI Curated
+      
+
+  - title: Daily Watch
+    items:
       - title: Universities Act
         url: "http://rajeshphy.github.io/jharkhand-state-universities-act-2026/"
         note: Jharkhand Act 2026.
-      
-
-  - title: News And Daily Watch
-    items:
+      - title: Arts & Letters
+        url: "https://www.aldaily.com/"
+        note: Higher Education
       - title: News Minimalist
         url: "https://www.newsminimalist.com/?category=all&from=5&sort=significance&to=10"
         note: Significance-based.
-      - title: Horizon
-        url: "https://thysrael.github.io/Horizon/"
-        note: tech and research news
-      - title: News as Facts
-        url: "https://newsasfacts.com/"
-        note: Short news summaries arranged as factual updates.
-      - title: Scholar Lab
-        url: "https://scholar.google.com/scholar_labs/search"
-        note: Google Scholar Labs
-      - title: Prompts
-        url: /prompts/
-        note: Physics Prompts
-      - title: Press Information Bureau
-        url: "https://www.pib.gov.in/"
-        note: Official Government of India press releases and policy updates.
-
       - title: Government of Jharkhand
         url: "https://www.jharkhand.gov.in/"
         note: State portal for departments, notices, policies, acts, tenders, services, and public updates.
       - title: Lok Bhavan Jharkhand
         url: "https://lokbhavanjharkhand.nic.in/"
         note: Governor and Chancellor-related public information for Jharkhand.
+
+      - title: Scholar Lab
+        url: "https://scholar.google.com/scholar_labs/search"
+        note: Google Scholar Labs
+      - title: Prompts
+        url: /prompts/
+        note: example
 
 
   - title: Admissions And Students
