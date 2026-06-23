@@ -463,10 +463,10 @@
 .semester-post-links a::before {
   content: "";
   position: absolute;
-  left: 2px;
+  left: 4px;
   top: 50%;
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: rgba(185, 140, 53, .72);
   transform: translateY(-50%);
@@ -476,28 +476,29 @@
   .semester-post-links a.note-month-#{$month} {
     border-bottom-color: $line;
     background:
-      linear-gradient(90deg, $wash, rgba(255, 253, 248, .38) 62%);
+      linear-gradient(90deg, $accent 0 5px, transparent 5px),
+      linear-gradient(90deg, $wash 0, $wash 28%, rgba(255, 253, 248, .58) 76%);
     color: $accent;
   }
 
   .semester-post-links a.note-month-#{$month}::before {
     background: $accent;
-    box-shadow: 0 0 0 4px $line;
+    box-shadow: 0 0 0 5px $line;
   }
 }
 
-@include note-month-accent(1, #7a4f8a, rgba(246, 239, 249, .72), rgba(122, 79, 138, .13));
-@include note-month-accent(2, #1f6d86, rgba(236, 247, 250, .74), rgba(31, 109, 134, .13));
-@include note-month-accent(3, #6c7d20, rgba(246, 249, 235, .74), rgba(108, 125, 32, .13));
-@include note-month-accent(4, #075f5b, rgba(236, 247, 242, .70), rgba(8, 96, 95, .13));
-@include note-month-accent(5, #1c527d, rgba(235, 243, 252, .74), rgba(34, 84, 132, .13));
-@include note-month-accent(6, #9a6a13, rgba(251, 244, 230, .76), rgba(154, 106, 19, .14));
-@include note-month-accent(7, #8a4635, rgba(251, 238, 234, .72), rgba(138, 70, 53, .13));
-@include note-month-accent(8, #346a3f, rgba(238, 248, 238, .74), rgba(52, 106, 63, .13));
-@include note-month-accent(9, #5d6092, rgba(240, 241, 250, .74), rgba(93, 96, 146, .13));
-@include note-month-accent(10, #9a5c25, rgba(250, 240, 231, .74), rgba(154, 92, 37, .13));
-@include note-month-accent(11, #24647a, rgba(236, 246, 249, .74), rgba(36, 100, 122, .13));
-@include note-month-accent(12, #7b6440, rgba(248, 242, 232, .76), rgba(123, 100, 64, .14));
+@include note-month-accent(1, #7a3f82, rgba(245, 229, 249, .90), rgba(122, 63, 130, .22));
+@include note-month-accent(2, #166d86, rgba(225, 246, 251, .92), rgba(22, 109, 134, .22));
+@include note-month-accent(3, #657815, rgba(243, 250, 219, .92), rgba(101, 120, 21, .22));
+@include note-month-accent(4, #006d66, rgba(220, 247, 239, .92), rgba(0, 109, 102, .22));
+@include note-month-accent(5, #15598b, rgba(221, 238, 253, .94), rgba(21, 89, 139, .24));
+@include note-month-accent(6, #815000, rgba(254, 240, 210, .94), rgba(129, 80, 0, .24));
+@include note-month-accent(7, #94432d, rgba(253, 229, 222, .92), rgba(148, 67, 45, .22));
+@include note-month-accent(8, #2d733e, rgba(226, 249, 226, .92), rgba(45, 115, 62, .22));
+@include note-month-accent(9, #5855a0, rgba(233, 233, 252, .94), rgba(88, 85, 160, .22));
+@include note-month-accent(10, #8c470d, rgba(253, 235, 218, .92), rgba(140, 71, 13, .22));
+@include note-month-accent(11, #1b6a80, rgba(224, 246, 251, .92), rgba(27, 106, 128, .22));
+@include note-month-accent(12, #806030, rgba(250, 238, 216, .94), rgba(128, 96, 48, .24));
 
 .semester-post-links a:hover {
   transform: none;
