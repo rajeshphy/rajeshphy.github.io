@@ -107,7 +107,7 @@ $$
 
 so the iteration is convergent.
 
-## Example 2: university exam type problem
+## Example 2:
 
 **Problem.** Use the iteration method to find the real root of
 
@@ -186,7 +186,7 @@ $$
 (0.682)^3+0.682-1 \approx -0.001.
 $$
 
-## Example 3: university exam type problem
+## Example 3:
 
 **Problem.** Find a root of
 
