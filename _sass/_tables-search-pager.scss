@@ -2,15 +2,166 @@
    TABLES + SEARCH PAGE + PAGER
    ========================================================= */
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.table-scroll,
+.post > table,
+.page > table {
+  width: min(820px, 100%);
+  max-width: 100%;
+  margin: 1.35rem auto 1.65rem;
+  border: 1px solid rgba(8, 96, 95, .18);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, .98), rgba(249, 245, 237, .92));
+  box-shadow:
+    0 14px 34px rgba(35, 31, 26, .07),
+    inset 0 1px 0 rgba(255, 255, 255, .85);
 }
 
-td,
-th {
-  padding: 8px;
-  border: 1px solid var(--line);
+.table-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-color: rgba(8, 96, 95, .36) rgba(228, 216, 200, .42);
+  scrollbar-width: thin;
+}
+
+.post > table,
+.page > table {
+  overflow: hidden;
+}
+
+.table-scroll > table,
+.post > table,
+.page > table {
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: transparent;
+  color: #2f2b27;
+  font: 650 .95rem/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.table-scroll > table {
+  width: max-content;
+  min-width: 100%;
+}
+
+.table-scroll::-webkit-scrollbar {
+  height: 9px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(228, 216, 200, .42);
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(248, 244, 236, .9);
+  border-radius: 999px;
+  background: rgba(8, 96, 95, .42);
+}
+
+.table-scroll > table thead,
+.table-scroll > table tbody,
+.post > table thead,
+.post > table tbody,
+.page > table thead,
+.page > table tbody {
+  width: 100%;
+}
+
+.table-scroll > table th,
+.table-scroll > table td,
+.post > table th,
+.post > table td,
+.page > table th,
+.page > table td {
+  min-width: 7.25rem;
+  padding: .68rem .85rem;
+  border: 0;
+  border-bottom: 1px solid rgba(8, 96, 95, .12);
+  text-align: center !important;
+  vertical-align: middle;
+}
+
+.table-scroll > table th + th,
+.table-scroll > table td + td,
+.post > table th + th,
+.post > table td + td,
+.page > table th + th,
+.page > table td + td {
+  border-left: 1px solid rgba(8, 96, 95, .10);
+}
+
+.table-scroll > table th,
+.post > table th,
+.page > table th {
+  background:
+    linear-gradient(180deg, rgba(237, 245, 241, .98), rgba(224, 238, 232, .95));
+  color: #075f5b;
+  font: 850 .8rem/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .035em;
+  text-align: center !important;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.table-scroll > table tbody tr:nth-child(even),
+.post > table tbody tr:nth-child(even),
+.page > table tbody tr:nth-child(even) {
+  background: rgba(237, 245, 241, .42);
+}
+
+.table-scroll > table tbody tr:hover,
+.post > table tbody tr:hover,
+.page > table tbody tr:hover {
+  background: rgba(255, 248, 231, .58);
+}
+
+.table-scroll > table tr:last-child td,
+.post > table tr:last-child td,
+.page > table tr:last-child td {
+  border-bottom: 0;
+}
+
+.table-scroll > table caption,
+.post > table caption,
+.page > table caption {
+  caption-side: bottom;
+  padding: .55rem .75rem .7rem;
+  color: var(--muted);
+  font: 700 .82rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .table-scroll,
+  .post > table,
+  .page > table {
+    width: 100%;
+    margin: 1.1rem auto 1.35rem;
+    border-radius: 6px;
+    font-size: .86rem;
+    line-height: 1.38;
+  }
+
+  .table-scroll > table th,
+  .table-scroll > table td,
+  .post > table th,
+  .post > table td,
+  .page > table th,
+  .page > table td {
+    min-width: 6.25rem;
+    padding: .58rem .65rem;
+  }
+
+  .table-scroll > table th,
+  .post > table th,
+  .page > table th {
+    font-size: .7rem;
+    letter-spacing: .025em;
+  }
 }
 
 .search-box {

@@ -17,7 +17,9 @@ permalink: /msc/sem-i/canonical-maps/
 hidden: true
 ---
 
-Canonical transformations are changes of phase-space variables that preserve Hamilton's form of equations. They are important because a good canonical transformation can turn a difficult problem into a simpler one.
+In Hamiltonian mechanics, the variables $(q,p)$ describe a point in phase space. One may change to new variables $(Q,P)$, but not every change is acceptable. A canonical transformation is a change of phase-space variables that preserves Hamilton's form of equations.
+
+The aim is not merely to rename variables. A good canonical transformation can reveal conserved quantities, simplify the Hamiltonian, or even reduce the problem to constant new momenta.
 
 ## Canonical condition
 
@@ -37,6 +39,8 @@ $$
 $$
 
 Here $F$ is a generating function and $K$ is the new Hamiltonian.
+
+This condition says that the variational structure of Hamiltonian mechanics is unchanged, apart from an exact differential. Since an exact differential changes only endpoint terms in the action, the equations of motion keep their form.
 
 ## Type-1 generating function
 
@@ -94,6 +98,40 @@ Q_i=q_i.
 $$
 
 Thus it generates the identity transformation.
+
+## Scale transformation
+
+Consider the type-$2$ generating function
+
+$$
+F_2(q,P)=aqP,
+$$
+
+where $a$ is a non-zero constant. The transformation equations are
+
+$$
+p=\frac{\partial F_2}{\partial q}=aP,
+$$
+
+and
+
+$$
+Q=\frac{\partial F_2}{\partial P}=aq.
+$$
+
+Therefore
+
+$$
+Q=aq,\qquad P=\frac{p}{a}.
+$$
+
+This transformation is canonical because
+
+$$
+\{Q,P\}=\left\{aq,\frac{p}{a}\right\}=\{q,p\}=1.
+$$
+
+It rescales coordinate and momentum in inverse ways, preserving phase-space area.
 
 ## Hamilton-Jacobi connection
 

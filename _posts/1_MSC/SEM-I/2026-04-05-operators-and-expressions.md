@@ -17,7 +17,9 @@ permalink: /msc/sem-i/operators-and-expressions/
 hidden: true
 ---
 
-An expression combines values, variables, and operators to produce a new value. Most computational formulas in physics are expressions.
+Most formulas in physics become expressions in a program. An expression combines values, variables, and operators to produce a new value. For example, the formula for kinetic energy becomes a Python expression involving multiplication and powers.
+
+The important point is that the computer follows definite rules of precedence. If the intended mathematical grouping is not obvious, parentheses should be used.
 
 ## Arithmetic operators
 
@@ -33,6 +35,8 @@ print(a**b)
 ```
 
 The operator `**` is used for powers.
+
+In physics programs, powers occur frequently in expressions such as $v^2$, $r^2$, and $x^3$. In Python these are written as `v**2`, `r**2`, and `x**3`.
 
 ## Comparison operators
 
@@ -91,3 +95,45 @@ print(energy)
 
 This expression computes kinetic plus gravitational potential energy.
 
+## Displacement expression
+
+For a particle moving with uniform acceleration, the displacement is
+
+$$
+s=ut+\frac12at^2.
+$$
+
+In Python this may be written as
+
+```python
+u = 2.0
+a = 3.0
+t = 4.0
+
+s = u * t + 0.5 * a * t**2
+print(s)
+```
+
+The value printed is `32.0`.
+
+## Logical test
+
+A result can be tested by combining comparison and logical operators.
+
+```python
+energy = -2.0
+normalised = True
+
+acceptable = energy < 0 and normalised
+print(acceptable)
+```
+
+This gives `True` only when both conditions are satisfied.
+
+## Practice questions
+
+1. Distinguish between assignment `=` and comparison `==`.
+2. Write a Python expression for $s=ut+\frac12at^2$.
+3. What is the output of `2 + 3 * 4`? Explain the order of operations.
+4. Give one example each of an arithmetic, comparison, and logical operator.
+5. Write a logical expression that is true only when energy is negative and the state is normalized.

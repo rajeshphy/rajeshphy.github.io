@@ -17,7 +17,9 @@ permalink: /msc/sem-i/small-oscillations-normal-modes/
 hidden: true
 ---
 
-This note covers the final syllabus topics: small oscillation, normal mode of vibration, and coupled oscillator.
+Many mechanical systems have stable equilibrium positions. If the displacement from equilibrium is small, the force can often be approximated as linear in the displacement. This turns a complicated motion into harmonic motion or a set of coupled harmonic motions.
+
+Small oscillation theory is therefore the systematic study of motion near stable equilibrium. Normal modes are the special patterns in which all parts of the system oscillate with one common frequency.
 
 ## Equilibrium and small displacement
 
@@ -32,6 +34,8 @@ At equilibrium,
 $$
 \left(\frac{\partial V}{\partial q_i}\right)_0=0.
 $$
+
+This condition says that the first-order force term vanishes at equilibrium. The leading restoring effect then comes from the second-order term in the potential energy.
 
 For small oscillations, expand the potential up to second order:
 
@@ -154,6 +158,80 @@ $$
 $$
 
 so the masses move out of phase.
+
+## Determinant calculation
+
+For the coupled oscillator, the matrix equation is
+
+$$
+\begin{pmatrix}
+k+k_c-m\omega^2&-k_c\\
+-k_c&k+k_c-m\omega^2
+\end{pmatrix}
+\begin{pmatrix}
+a_1\\
+a_2
+\end{pmatrix}=0.
+$$
+
+For a non-zero mode shape,
+
+$$
+\begin{vmatrix}
+k+k_c-m\omega^2&-k_c\\
+-k_c&k+k_c-m\omega^2
+\end{vmatrix}=0.
+$$
+
+Thus
+
+$$
+(k+k_c-m\omega^2)^2-k_c^2=0.
+$$
+
+Therefore
+
+$$
+k+k_c-m\omega^2=\pm k_c.
+$$
+
+This gives
+
+$$
+\omega_1^2=\frac{k}{m},
+\qquad
+\omega_2^2=\frac{k+2k_c}{m}.
+$$
+
+## One-dimensional small oscillation
+
+For a single coordinate $q$, the equilibrium point $q_0$ is found from
+
+$$
+\left(\frac{dV}{dq}\right)_{q_0}=0.
+$$
+
+Expanding near $q_0$,
+
+$$
+V(q)\simeq V(q_0)+\frac12
+\left(\frac{d^2V}{dq^2}\right)_{q_0}(q-q_0)^2.
+$$
+
+If
+
+$$
+T=\frac12m\dot q^2,
+$$
+
+then the small-oscillation frequency is
+
+$$
+\boxed{
+\omega^2=\frac{1}{m}
+\left(\frac{d^2V}{dq^2}\right)_{q_0}.
+}
+$$
 
 ## Main points
 

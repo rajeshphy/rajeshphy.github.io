@@ -1,6 +1,6 @@
 ---
 title: "Hydrogen Atom"
-summary: "Hydrogen atom as a central potential problem, quantum numbers, energy spectrum, and degeneracy."
+summary: "Hydrogen atom with one proton and one electron, Coulomb potential, quantum numbers, energy spectrum, and degeneracy."
 date: 2026-06-07 09:00:00 +0530
 categories:
   - notes
@@ -17,15 +17,21 @@ permalink: /msc/sem-i/hydrogen-atom/
 hidden: true
 ---
 
-The hydrogen atom is the most important exactly solvable central-potential problem in quantum mechanics. It consists of an electron moving in the Coulomb field of a proton.
+The hydrogen atom contains one proton as the nucleus and one electron bound to it. The proton has charge $+e$ and the electron has charge $-e$, so the force between them is attractive. Since this electrostatic interaction depends only on the separation $r$ between the two particles, it is modelled by a Coulomb potential.
+
+This makes the hydrogen atom a central-potential problem. The potential depends only on $r$, so the Schrodinger equation can be separated into radial and angular parts. The solution gives quantum numbers, allowed energies, and degeneracies.
 
 ## Coulomb potential
 
-The potential energy is
+Choose the zero of potential energy when the electron and proton are infinitely far apart. The Coulomb potential energy is then
 
 $$
 V(r)=-\frac{e^2}{4\pi\epsilon_0r}.
 $$
+
+The negative sign shows attraction. As $r$ decreases, the potential energy becomes more negative, meaning that the electron is bound more strongly to the proton.
+
+Strictly, hydrogen is a two-body problem. It is reduced to an equivalent one-body problem by using the reduced mass $\mu$ for the relative motion of the electron-proton system.
 
 The Hamiltonian is
 
@@ -53,6 +59,8 @@ $$
 =
 R_{nl}(r)Y_l^m(\theta,\phi).
 $$
+
+This separation is possible because the angular part is governed by $L^2$ and $L_z$, while the radial part contains the Coulomb potential.
 
 ## Energy spectrum
 
@@ -82,6 +90,8 @@ n=1,2,3,\dots
 $$
 
 is the principal quantum number.
+
+The negative sign means that the electron is in a bound state. The energy approaches zero from below as $n$ becomes large, corresponding to the ionization limit.
 
 ## Allowed quantum numbers
 
@@ -165,6 +175,59 @@ $$
 It does not depend on $l$ or $m$ in the nonrelativistic Coulomb problem. This produces a high degeneracy. Some of this degeneracy comes from rotational symmetry, and the additional degeneracy is related to a hidden symmetry of the Coulomb potential.
 
 In more accurate treatments, fine structure, spin-orbit coupling, Lamb shift, and external fields partially remove this degeneracy.
+
+## States belonging to $n=3$
+
+For $n=3$, the allowed orbital quantum numbers are
+
+$$
+l=0,1,2.
+$$
+
+For these values, the possible $m$ values are:
+
+| $l$ | allowed $m$ values | number of states |
+|---:|---|---:|
+| 0 | $0$ | 1 |
+| 1 | $-1,0,1$ | 3 |
+| 2 | $-2,-1,0,1,2$ | 5 |
+
+The total number of orbital states is
+
+$$
+1+3+5=9=n^2.
+$$
+
+Including spin, the number becomes
+
+$$
+2n^2=18.
+$$
+
+The energy is
+
+$$
+E_3=-\frac{13.6}{9}\,\mathrm{eV}
+\approx -1.51\,\mathrm{eV}.
+$$
+
+## Ground-state probability density
+
+For the ground state,
+
+$$
+\psi_{100}(r)=
+\frac{1}{\sqrt{\pi a_0^3}}e^{-r/a_0}.
+$$
+
+The probability density is
+
+$$
+|\psi_{100}|^2=
+\frac{1}{\pi a_0^3}e^{-2r/a_0}.
+$$
+
+It depends only on $r$, not on $\theta$ or $\phi$, so the ground-state charge distribution is spherically symmetric.
 
 ## Main points
 

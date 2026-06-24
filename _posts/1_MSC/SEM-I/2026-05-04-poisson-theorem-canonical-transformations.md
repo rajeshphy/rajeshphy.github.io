@@ -20,7 +20,9 @@ hidden: true
 
 **Previous:** [Poisson Brackets](/msc/sem-i/poisson-bracket-theorems/)
 
-This note keeps only the syllabus essentials: Poisson theorems, canonical invariance, cyclic coordinates, and angular momentum brackets.
+The syllabus topics here are Poisson theorem, canonical invariance, cyclic coordinates, and angular momentum brackets. The common idea behind them is that Poisson brackets preserve the structure of Hamiltonian mechanics.
+
+Constants of motion are not isolated facts. Their Poisson brackets can generate further conserved quantities, and canonical transformations are recognized by the way they preserve fundamental brackets.
 
 ## Poisson theorem
 
@@ -129,6 +131,58 @@ $$
 $$
 
 Therefore all components of angular momentum are conserved.
+
+## Proof of Poisson theorem
+
+If $f$ and $g$ have no explicit time dependence and are constants of motion, then
+
+$$
+\{f,H\}=0,
+\qquad
+\{g,H\}=0.
+$$
+
+The time derivative of their bracket is
+
+$$
+\frac{d}{dt}\{f,g\}=\{\{f,g\},H\}.
+$$
+
+Using the Jacobi identity,
+
+$$
+\{\{f,g\},H\}+\{\{g,H\},f\}+\{\{H,f\},g\}=0.
+$$
+
+The second and third terms vanish because $\{g,H\}=0$ and $\{H,f\}=-\{f,H\}=0$. Therefore
+
+$$
+\frac{d}{dt}\{f,g\}=0.
+$$
+
+Hence $\{f,g\}$ is also a constant of motion.
+
+## Canonical test for $Q=p,\ P=-q$
+
+Let
+
+$$
+Q=p,\qquad P=-q.
+$$
+
+Then
+
+$$
+\{Q,P\}=\{p,-q\}=-\{p,q\}=1.
+$$
+
+Also,
+
+$$
+\{Q,Q\}=0,\qquad \{P,P\}=0.
+$$
+
+Therefore the transformation is canonical.
 
 ## Main points
 

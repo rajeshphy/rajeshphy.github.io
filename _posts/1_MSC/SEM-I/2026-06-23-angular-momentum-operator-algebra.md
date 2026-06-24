@@ -17,7 +17,9 @@ permalink: /msc/sem-i/angular-momentum-operator-algebra/
 hidden: true
 ---
 
-Angular momentum in quantum mechanics is not only a vector quantity. It is an operator algebra. The components of angular momentum do not commute with each other, and this non-commutativity is the reason why only one component, usually $L_z$, can be specified sharply along with $L^2$.
+In classical mechanics, angular momentum is defined as $\mathbf L=\mathbf r\times\mathbf p$. In quantum mechanics, position and momentum become operators, so angular momentum also becomes an operator. Because the basic operators do not all commute, the components of angular momentum do not commute with one another.
+
+This non-commutativity is the central point. It explains why $J^2$ and one component, usually $J_z$, can be specified together, but $J_x$, $J_y$, and $J_z$ cannot all have sharp values in the same state.
 
 ## Orbital angular momentum
 
@@ -62,6 +64,8 @@ $$
 $$
 
 Here $\epsilon_{ijk}$ is the Levi-Civita symbol.
+
+The result follows directly from the canonical commutation relations. Thus angular momentum algebra is not an extra assumption for orbital motion; it is a consequence of the quantum relation between position and momentum.
 
 ## Total angular momentum algebra
 
@@ -149,6 +153,58 @@ J_-J_+=J^2-J_z^2-\hbar J_z.
 $$
 
 These identities are used to derive the allowed eigenvalues of angular momentum.
+
+## Derivation of one commutator
+
+Using
+
+$$
+L_x=yp_z-zp_y,
+\qquad
+L_y=zp_x-xp_z,
+$$
+
+and the canonical commutators, one obtains
+
+$$
+[L_x,L_y]
+= [yp_z-zp_y,\; zp_x-xp_z].
+$$
+
+Terms containing only commuting coordinates or commuting momenta vanish. The non-zero terms reduce to
+
+$$
+[L_x,L_y]
+=i\hbar(xp_y-yp_x).
+$$
+
+Therefore
+
+$$
+\boxed{
+[L_x,L_y]=i\hbar L_z.
+}
+$$
+
+The other two relations follow by cyclic interchange of $x,y,z$.
+
+## Ladder action
+
+If $\lvert j,m\rangle$ is an eigenstate of $J^2$ and $J_z$, then
+
+$$
+J_z(J_\pm\lvert j,m\rangle)
+=([J_z,J_\pm]+J_\pm J_z)\lvert j,m\rangle.
+$$
+
+Using $[J_z,J_\pm]=\pm\hbar J_\pm$,
+
+$$
+J_z(J_\pm\lvert j,m\rangle)
+=\hbar(m\pm1)(J_\pm\lvert j,m\rangle).
+$$
+
+Thus $J_+$ raises $m$ by one unit and $J_-$ lowers $m$ by one unit.
 
 ## Main points
 

@@ -17,7 +17,9 @@ permalink: /msc/sem-i/lagrange-equation/
 hidden: true
 ---
 
-This note follows the syllabus portion: D'Alembert's principle, Lagrange's equation, and simple applications. The purpose is to move from Newton's vector equations to generalized coordinates, where constraints are handled without explicitly solving for every constraint force.
+Newton's equation is written for each particle in terms of vector coordinates and forces. This is straightforward for a free particle, but it becomes inconvenient when the motion is constrained, as in a pendulum, bead on a wire, or rigid body. Constraint forces may be unknown, and solving for them is often not the main aim.
+
+D'Alembert's principle gives a way to remove ideal constraint forces from the calculation. Lagrange's equations then describe the motion directly in terms of independent generalized coordinates.
 
 ## D'Alembert's principle
 
@@ -38,6 +40,8 @@ $$
 
 For ideal constraints, constraint forces do no virtual work. Hence only applied forces remain in the variational equation.
 
+The displacement $\delta\mathbf r_i$ is virtual: it is an imagined infinitesimal change compatible with the constraints at a fixed instant of time. It is not the actual displacement during a time interval.
+
 ## Generalized coordinates
 
 If a system has $n$ independent degrees of freedom, write
@@ -57,6 +61,8 @@ The generalized force is
 $$
 Q_j=\sum_i\mathbf F_i\cdot\frac{\partial\mathbf r_i}{\partial q_j}.
 $$
+
+Generalized coordinates need not be lengths. They may be angles, distances along a curve, or any independent variables that specify the configuration. The advantage is that the number of equations becomes equal to the number of degrees of freedom.
 
 ## Lagrange's equation
 
@@ -176,6 +182,60 @@ p_\theta=\frac{\partial L}{\partial\dot\theta}=mr^2\dot\theta
 $$
 
 is conserved. This is angular momentum conservation.
+
+## Particle in a uniform gravitational field
+
+Let a particle move vertically under gravity. Choose the upward coordinate $y$. Then
+
+$$
+T=\frac12m\dot y^2,
+\qquad
+V=mgy.
+$$
+
+The Lagrangian is
+
+$$
+L=\frac12m\dot y^2-mgy.
+$$
+
+Now
+
+$$
+\frac{\partial L}{\partial \dot y}=m\dot y,
+\qquad
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot y}\right)=m\ddot y,
+$$
+
+and
+
+$$
+\frac{\partial L}{\partial y}=-mg.
+$$
+
+Therefore Lagrange's equation gives
+
+$$
+m\ddot y+mg=0,
+$$
+
+or
+
+$$
+\boxed{\ddot y=-g.}
+$$
+
+This is the usual equation of vertical motion obtained without separately writing Newton's vector equation.
+
+## Derivation points
+
+In a derivation of Lagrange's equation, the important steps are:
+
+1. write D'Alembert's principle in virtual-work form;
+2. express $\delta\mathbf r_i$ in terms of $\delta q_j$;
+3. introduce generalized forces $Q_j$;
+4. use the kinetic-energy identity;
+5. use the independence of $\delta q_j$ to obtain the equations.
 
 ## Main points
 

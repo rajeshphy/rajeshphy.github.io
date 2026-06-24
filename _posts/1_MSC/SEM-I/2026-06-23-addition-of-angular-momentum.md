@@ -17,7 +17,9 @@ permalink: /msc/sem-i/addition-of-angular-momentum/
 hidden: true
 ---
 
-When a system has two angular momenta, the total angular momentum is obtained by vector addition at the operator level. The main question is how to rewrite product states of the two subsystems in terms of total angular momentum eigenstates.
+Many quantum systems contain more than one angular momentum. An electron in an atom has orbital angular momentum and spin. Two particles may each carry spin. In such cases the total angular momentum is obtained by adding angular momentum operators.
+
+The main question is how to describe the same state in two languages: individual angular momenta, or total angular momentum. Clebsch-Gordan coefficients provide the conversion between these two descriptions.
 
 ## Total angular momentum
 
@@ -62,6 +64,8 @@ $$
 m=m_1+m_2.
 $$
 
+This basis is natural when the two angular momenta are considered separately.
+
 ## Coupled basis
 
 The coupled basis is
@@ -89,6 +93,8 @@ For each $J$,
 $$
 M=-J,-J+1,\dots,J.
 $$
+
+This basis is natural when the Hamiltonian depends on the total angular momentum, for example through spin-orbit or spin-spin coupling.
 
 ## Clebsch-Gordan expansion
 
@@ -177,6 +183,63 @@ Angular momentum addition is used in:
 - addition of orbital and spin angular momentum,
 - coupling of nuclear spins,
 - selection rules in atomic transitions.
+
+## Example with $j_1=1$ and $j_2=1/2$
+
+If
+
+$$
+j_1=1,\qquad j_2=\frac12,
+$$
+
+then
+
+$$
+J=|1-\tfrac12|,\ |1-\tfrac12|+1,\dots,1+\tfrac12.
+$$
+
+Therefore
+
+$$
+\boxed{
+J=\frac12,\ \frac32.
+}
+$$
+
+The number of coupled states is
+
+$$
+(2\times\tfrac12+1)+(2\times\tfrac32+1)
+=2+4=6.
+$$
+
+This agrees with the number of uncoupled product states:
+
+$$
+(2j_1+1)(2j_2+1)=3\times2=6.
+$$
+
+## Selection rule for coefficients
+
+A Clebsch-Gordan coefficient
+
+$$
+C^{JM}_{j_1m_1\,j_2m_2}
+$$
+
+can be non-zero only if
+
+$$
+M=m_1+m_2.
+$$
+
+For example, if $m_1=1$ and $m_2=-1/2$, then
+
+$$
+M=\frac12.
+$$
+
+Any coefficient with the same $m_1,m_2$ but a different $M$ is zero.
 
 ## Main points
 

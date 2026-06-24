@@ -17,7 +17,9 @@ permalink: /msc/sem-i/data-structures-arrays-and-strings/
 hidden: true
 ---
 
-A data structure stores many related values together. In computational physics, this may be a list of positions, times, velocities, measurements, or labels.
+A single variable is enough for one value, but most physical calculations involve many related values: several readings, a table of positions, a set of times, or a list of labels. A data structure stores such related values together so that they can be accessed and processed systematically.
+
+The choice of data structure depends on the nature of the data. Ordered numerical readings are naturally stored in a list or array-like object. Fixed pairs such as coordinates may be stored in tuples. Named constants are often clearer in a dictionary.
 
 ## Arrays
 
@@ -51,6 +53,8 @@ print(temperatures[2])
 ```
 
 Python indexing starts from `0`. Therefore `temperatures[0]` is the first element.
+
+This zero-based indexing is important in numerical work because the first stored value is often written as $x_0$ or $y_0$.
 
 ## Updating a list
 
@@ -112,3 +116,42 @@ print(constants["c"])
 ## Array-like work
 
 For basic programming, lists are enough. For serious numerical arrays, one usually uses NumPy, but the idea is the same: store many related values and process them systematically.
+
+## Average of readings
+
+Find the average of five temperature readings stored in a list.
+
+```python
+temperatures = [298, 300, 303, 305, 304]
+
+total = 0
+for value in temperatures:
+    total = total + value
+
+average = total / len(temperatures)
+print("Average temperature =", average, "K")
+```
+
+The output is
+
+```text
+Average temperature = 302.0 K
+```
+
+The list stores the data, the loop adds the readings, and `len(temperatures)` gives the number of readings.
+
+## Short-answer points
+
+- A list is mutable; its elements can be changed.
+- A tuple is immutable; it is useful for fixed grouped values.
+- A string is a sequence of characters.
+- A dictionary stores data by key rather than by position.
+- Indexing starts from zero in Python.
+
+## Practice questions
+
+1. Distinguish between a list and a tuple.
+2. Write a Python list containing five temperature readings.
+3. Find the average of readings stored in a list.
+4. Explain slicing with one example.
+5. What is a dictionary? Give one physics-related example.

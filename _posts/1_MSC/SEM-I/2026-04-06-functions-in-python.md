@@ -17,7 +17,9 @@ permalink: /msc/sem-i/functions-in-python/
 hidden: true
 ---
 
-A function is a named block of code that performs a task. Functions reduce repetition and make a program easier to test.
+A formula used once can be written directly as an expression. A formula used many times should be placed inside a function. A function is a named block of code that performs a definite task and returns a result.
+
+In computational physics, functions are useful because the same expression may be evaluated for many values, plotted, differentiated numerically, or used inside an iterative method.
 
 ## Defining a function
 
@@ -29,6 +31,8 @@ print(square(5))
 ```
 
 The keyword `def` begins a function definition. The value after `return` is sent back to the caller.
+
+The function body should express one clear idea. For example, a function named `kinetic_energy` should calculate kinetic energy and not also print unrelated information.
 
 ## Function arguments
 
@@ -78,3 +82,44 @@ def force(k, x):
 
 This small function can later be used in loops, plots, or numerical integration.
 
+## Pendulum period function
+
+Write a function for the period of a simple pendulum for small oscillations:
+
+$$
+T=2\pi\sqrt{\frac{l}{g}}.
+$$
+
+```python
+import math
+
+def pendulum_period(length, g=9.8):
+    return 2 * math.pi * math.sqrt(length / g)
+
+T = pendulum_period(1.0)
+print(T)
+```
+
+For $l=1$ m, the result is approximately
+
+```text
+2.007
+```
+
+The default value `g=9.8` is used unless another value is supplied.
+
+## Answer points
+
+- A function definition begins with `def`.
+- Arguments are placed inside parentheses.
+- `return` sends the result back to the calling statement.
+- Local variables are not normally available outside the function.
+- Functions make repeated calculations shorter and less error-prone.
+
+## Practice questions
+
+1. Define a function in Python to calculate kinetic energy.
+2. What is the difference between an argument and a return value?
+3. Write a function that returns both displacement and velocity for uniform acceleration.
+4. Explain local variables with one example.
+5. Write a function for the small-oscillation period of a simple pendulum.

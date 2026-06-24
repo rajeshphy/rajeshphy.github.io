@@ -17,7 +17,7 @@ permalink: /msc/sem-i/runge-kutta-method/
 hidden: true
 ---
 
-Many physical systems are described by differential equations. A first-order ordinary differential equation has the form
+Many physical laws give rates of change rather than direct formulas. For example, velocity gives the rate of change of position, and force determines the rate of change of momentum. A first-order ordinary differential equation has the form
 
 $$
 \frac{dy}{dx}=f(x,y),
@@ -31,6 +31,8 @@ $$
 
 The aim is to compute approximate values of $y$ at later points.
 
+The initial condition gives the starting point of the curve. A numerical method then walks along the curve using a chosen step size.
+
 ## Step form
 
 Let
@@ -40,6 +42,8 @@ x_{n+1}=x_n+h.
 $$
 
 The numerical method estimates $y_{n+1}$ from $x_n$, $y_n$, and the step size $h$.
+
+Euler's method uses only the slope at the beginning of the interval. Runge-Kutta improves this idea by sampling slopes inside the interval as well.
 
 ## Fourth-order Runge-Kutta method
 
@@ -71,9 +75,55 @@ $$
 
 The method samples the slope at the beginning, middle, and end of the interval. The weighted average gives a good estimate of the net change in $y$.
 
+## One RK4 step
+
+Use one fourth-order Runge-Kutta step for
+
+$$
+\frac{dy}{dx}=x+y,\qquad y(0)=1,
+$$
+
+with $h=0.1$. Here $f(x,y)=x+y$.
+
+$$
+k_1=0.1\,f(0,1)=0.1.
+$$
+
+$$
+k_2=0.1\,f(0.05,1.05)=0.1(1.10)=0.110.
+$$
+
+$$
+k_3=0.1\,f(0.05,1.055)=0.1(1.105)=0.1105.
+$$
+
+$$
+k_4=0.1\,f(0.1,1.1105)=0.1(1.2105)=0.12105.
+$$
+
+Therefore
+
+$$
+y(0.1)\approx 1+\frac{1}{6}
+(0.1+2(0.110)+2(0.1105)+0.12105).
+$$
+
+Hence
+
+$$
+\boxed{y(0.1)\approx 1.11034.}
+$$
+
 ## Key points
 
 - Runge-Kutta methods are step-by-step methods.
 - The fourth-order method is accurate for many smooth problems.
 - Step size must be chosen carefully: too large gives error, too small may waste computation.
 
+## Practice questions
+
+1. Write the standard fourth-order Runge-Kutta formula.
+2. What is the role of $k_1$, $k_2$, $k_3$, and $k_4$?
+3. Use one RK4 step to solve $dy/dx=x+y$, $y(0)=1$, with $h=0.1$.
+4. Why is RK4 usually more accurate than Euler's method?
+5. What happens if the step size is chosen too large?

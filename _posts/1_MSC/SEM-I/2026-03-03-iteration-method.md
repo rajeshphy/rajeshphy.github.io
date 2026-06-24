@@ -16,7 +16,9 @@ permalink: /msc/sem-i/iteration-method/
 hidden: true
 ---
 
-An iteration method starts with an approximate value and improves it repeatedly. In numerical analysis this idea is often used after rewriting a nonlinear equation in the fixed-point form
+Many equations cannot be solved by direct algebra. The iteration method handles such equations by starting with a reasonable approximate value and then improving it repeatedly. The calculation is useful only if the successive values move towards a definite limiting value.
+
+In fixed-point iteration, the original equation is rewritten in the form
 
 $$
 x_{n+1}=g(x_n).
@@ -44,6 +46,8 @@ $$
 x_1=g(x_0),\qquad x_2=g(x_1),\qquad x_3=g(x_2),\ldots
 $$
 
+This rewriting is not unique. The same equation can produce several different iteration formulas, and only some of them may converge.
+
 ## Convergence condition
 
 A useful local condition for convergence is
@@ -59,6 +63,8 @@ $$
 $$
 
 If $\lvert g^{\prime}(\alpha)\rvert>1$, the iteration usually moves away from the fixed point. This is why the same equation may converge in one rearrangement and diverge in another.
+
+Geometrically, the curve $y=g(x)$ should not be too steep near the intersection with $y=x$. A smaller slope pulls the next approximation closer to the fixed point.
 
 ## Example 1: fixed point of $x=\cos x$
 
@@ -107,7 +113,7 @@ $$
 
 so the iteration is convergent.
 
-## Example 2:
+## Example 2: cubic equation with a suitable rearrangement
 
 **Problem.** Use the iteration method to find the real root of
 
@@ -186,7 +192,7 @@ $$
 (0.682)^3+0.682-1 \approx -0.001.
 $$
 
-## Example 3:
+## Example 3: cube-root iteration
 
 **Problem.** Find a root of
 
@@ -263,9 +269,29 @@ $$
 
 where $\varepsilon$ is the desired tolerance, such as $10^{-3}$, $10^{-4}$, or $10^{-5}$.
 
+## Examination style
+
+For an examination solution, do not start directly with a table. Write the original equation, show the fixed-point form $x=g(x)$, and state why the chosen form is expected to converge. The condition
+
+$$
+|g'(x)|<1
+$$
+
+near the required root is usually enough for a concise justification.
+
+After the table of iterations, substitute the final value in the original equation. This last line is important because the iteration formula may converge to a number that is not the desired root if the rearrangement was made carelessly.
+
 ## Key points
 
 - The same equation may be rearranged into many iteration formulas.
 - Not every rearrangement converges.
 - Check $\lvert g^{\prime}(x)\rvert<1$ near the root before trusting the iteration.
 - A numerical result should be tested by substitution into the original equation.
+
+## Practice questions
+
+1. Explain the meaning of a fixed point of $g(x)$.
+2. State the convergence condition for fixed-point iteration.
+3. Show why $x=1-x^3$ is not a good rearrangement for solving $x^3+x-1=0$ near its root.
+4. Perform four iterations of $x_{n+1}=\cos x_n$ starting with $x_0=0.5$.
+5. Why should the final approximate root be substituted into the original equation?

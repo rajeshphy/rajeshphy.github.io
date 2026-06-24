@@ -16,7 +16,9 @@ permalink: /msc/sem-i/legendre-transform/
 hidden: true
 ---
 
-The Legendre transform is the mathematical step that changes the natural variables from velocity to momentum. It is included here only as much as needed for Hamiltonian mechanics and generating functions.
+In Lagrangian mechanics the natural variables are $q$ and $\dot q$. In Hamiltonian mechanics the natural variables are $q$ and $p$. The Legendre transform is the mathematical operation that changes from a variable to its conjugate derivative variable.
+
+The need for this transform appears whenever the slope or momentum is more useful than the original velocity-like variable.
 
 ## Basic idea
 
@@ -49,6 +51,8 @@ $$
 $$
 
 Thus the transform replaces $x$ by its conjugate variable $y$.
+
+Geometrically, a convex curve may be described either by its point coordinate $x$ or by the slope $y=df/dx$ of the tangent at that point. The Legendre transform rewrites the information in terms of the slope.
 
 ## From Lagrangian to Hamiltonian
 
@@ -121,6 +125,54 @@ This condition allows velocities to be solved in terms of momenta.
 ## Relation with generating functions
 
 Generating functions in canonical transformations use the same idea. One may change from variables $(q,Q)$ to $(q,P)$ by a Legendre transform, producing the familiar type-$2$ generating function $F_2(q,P,t)$.
+
+## Transform of a quadratic function
+
+Find the Legendre transform of
+
+$$
+f(x)=\frac12ax^2,
+\qquad a>0.
+$$
+
+The conjugate variable is
+
+$$
+y=\frac{df}{dx}=ax.
+$$
+
+Hence
+
+$$
+x=\frac{y}{a}.
+$$
+
+The Legendre transform is
+
+$$
+g(y)=xy-f(x).
+$$
+
+Substituting $x=y/a$,
+
+$$
+g(y)=\frac{y^2}{a}
+-\frac12a\left(\frac{y}{a}\right)^2.
+$$
+
+Therefore
+
+$$
+\boxed{
+g(y)=\frac{y^2}{2a}.
+}
+$$
+
+The same algebra is used in mechanics when $m\dot q$ is replaced by $p$.
+
+## Common caution
+
+After writing $g=xy-f(x)$ or $H=p\dot q-L$, the old variable must be eliminated. The final expression for $g$ should contain $y$, not $x$; similarly, the final Hamiltonian should contain $(q,p,t)$, not $\dot q$.
 
 ## Main points
 

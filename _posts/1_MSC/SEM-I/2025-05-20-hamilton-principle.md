@@ -17,7 +17,9 @@ permalink: /msc/sem-i/lagrangian-mechanics/
 hidden: true
 ---
 
-This note matches the syllabus topics: Hamilton's principle, techniques of the calculus of variations, applications, and derivation of Lagrange's equation using Hamilton's principle.
+Hamilton's principle gives a variational form of mechanics. Instead of beginning with force and acceleration at each instant, it considers the whole path followed by the system between two fixed times. Among all nearby possible paths with the same endpoints, the actual path makes the action stationary.
+
+This approach is powerful because it leads directly to Lagrange's equations and works naturally with generalized coordinates.
 
 ## Functional and variation
 
@@ -44,6 +46,8 @@ then the stationary condition is
 $$
 \delta I=0.
 $$
+
+The function $\eta(x)$ represents an arbitrary small change of the curve. Since the endpoints are fixed, the varied curve must pass through the same endpoints as the original curve.
 
 ## Euler-Lagrange equation
 
@@ -79,6 +83,8 @@ $$
 $$
 
 Stationary does not always mean minimum. It may be a minimum, maximum, or saddle point.
+
+This is why the phrase "principle of least action" should be used with care. In exam answers, "stationary action" is the safer and more accurate wording.
 
 ## Lagrange equation from Hamilton's principle
 
@@ -146,6 +152,61 @@ y=mx+c.
 $$
 
 Thus the shortest path is a straight line.
+
+## Example: free particle
+
+For a free particle in one dimension,
+
+$$
+L=\frac12m\dot x^2.
+$$
+
+Hamilton's principle gives
+
+$$
+\frac{d}{dt}\left(\frac{\partial L}{\partial\dot x}\right)
+-\frac{\partial L}{\partial x}=0.
+$$
+
+Here
+
+$$
+\frac{\partial L}{\partial\dot x}=m\dot x,
+\qquad
+\frac{\partial L}{\partial x}=0.
+$$
+
+Therefore
+
+$$
+m\ddot x=0.
+$$
+
+The solution is
+
+$$
+x=ut+x_0,
+$$
+
+which is uniform motion in a straight line.
+
+## Boundary condition in the variation
+
+The endpoint conditions
+
+$$
+\delta q_i(t_1)=\delta q_i(t_2)=0
+$$
+
+are essential. They make the boundary term from integration by parts vanish:
+
+$$
+\left[
+\frac{\partial L}{\partial\dot q_i}\delta q_i
+\right]_{t_1}^{t_2}=0.
+$$
+
+Without this condition, the Euler-Lagrange equation would not follow in the usual form.
 
 ## Main points
 

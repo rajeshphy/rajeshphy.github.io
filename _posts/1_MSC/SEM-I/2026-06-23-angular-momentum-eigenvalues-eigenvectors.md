@@ -17,7 +17,9 @@ permalink: /msc/sem-i/angular-momentum-eigenvalues-eigenvectors/
 hidden: true
 ---
 
-The angular momentum eigenvalue problem is built around two commuting operators: $J^2$ and $J_z$. Since they commute, their eigenstates can be chosen simultaneously.
+The components of angular momentum do not commute, so a quantum state cannot generally have definite values of $J_x$, $J_y$, and $J_z$ at the same time. The useful pair is $J^2$ and one component, conventionally $J_z$, because these two operators commute.
+
+The angular momentum eigenvalue problem is therefore built around simultaneous eigenstates of $J^2$ and $J_z$.
 
 ## Simultaneous eigenstates
 
@@ -79,6 +81,8 @@ J_-\lvert j,-j\rangle=0.
 $$
 
 This termination condition forces the allowed $m$ values to be finite and evenly spaced.
+
+The ladder picture also explains why $m$ changes in steps of one. Starting from the highest state and applying $J_-$ repeatedly gives the full set of $m$ values for a fixed $j$.
 
 ## Orbital angular momentum
 
@@ -151,6 +155,56 @@ Y_l^{m*}(\theta,\phi)Y_{l'}^{m'}(\theta,\phi)
 $$
 
 They also form a complete basis for angular functions on the sphere.
+
+## Example for $j=2$
+
+For $j=2$, the allowed magnetic quantum numbers are
+
+$$
+m=-2,-1,0,1,2.
+$$
+
+There are
+
+$$
+2j+1=5
+$$
+
+states. The eigenvalue of $J^2$ is
+
+$$
+\hbar^2j(j+1)=6\hbar^2.
+$$
+
+The eigenvalues of $J_z$ are
+
+$$
+-2\hbar,\ -\hbar,\ 0,\ \hbar,\ 2\hbar.
+$$
+
+## Ladder coefficient example
+
+For $j=1$ and $m=0$,
+
+$$
+J_+\lvert 1,0\rangle
+=\hbar\sqrt{1(1+1)-0(0+1)}
+\lvert 1,1\rangle.
+$$
+
+Thus
+
+$$
+\boxed{
+J_+\lvert 1,0\rangle=\hbar\sqrt2\,\lvert 1,1\rangle.
+}
+$$
+
+Similarly,
+
+$$
+J_-\lvert 1,0\rangle=\hbar\sqrt2\,\lvert 1,-1\rangle.
+$$
 
 ## Main points
 

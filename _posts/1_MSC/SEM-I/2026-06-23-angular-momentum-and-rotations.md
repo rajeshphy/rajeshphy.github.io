@@ -17,7 +17,9 @@ permalink: /msc/sem-i/angular-momentum-and-rotations/
 hidden: true
 ---
 
-Angular momentum is the generator of rotations in quantum mechanics. This means that a rotation of a state is produced by applying an exponential operator built from the angular momentum operator.
+In quantum mechanics, a spatial symmetry is represented by an operator acting on states. For rotations, the corresponding generator is angular momentum. This means that a finite rotation of a state is produced by an exponential operator built from the angular momentum operator.
+
+The connection is the quantum version of a familiar classical idea: angular momentum is the quantity associated with rotational motion and rotational symmetry.
 
 ## Rotation about an axis
 
@@ -56,6 +58,8 @@ U_z(\delta\theta)
 $$
 
 Thus $J_z$ is the generator of rotations about the $z$-axis. Similarly, $J_x$ and $J_y$ generate rotations about the $x$ and $y$ axes.
+
+Finite rotations are obtained by applying many infinitesimal rotations successively. This is why the exponential form appears.
 
 ## Transformation of operators
 
@@ -152,6 +156,77 @@ $$
 $$
 
 Hence angular momentum quantum numbers can be used to label the energy eigenstates.
+
+## Worked spinor rotation
+
+For a general spin-one-half state in the $S_z$ basis,
+
+$$
+\chi=
+\begin{pmatrix}
+a\\
+b
+\end{pmatrix},
+$$
+
+a rotation by $\phi$ about the $z$-axis gives
+
+$$
+\chi'=
+U_z(\phi)\chi
+=
+\begin{pmatrix}
+e^{-i\phi/2}&0\\
+0&e^{i\phi/2}
+\end{pmatrix}
+\begin{pmatrix}
+a\\
+b
+\end{pmatrix}.
+$$
+
+Therefore
+
+$$
+\boxed{
+\chi'=
+\begin{pmatrix}
+ae^{-i\phi/2}\\
+be^{i\phi/2}
+\end{pmatrix}.
+}
+$$
+
+For $\phi=2\pi$,
+
+$$
+\chi'=-\chi.
+$$
+
+This sign change has no effect on a single probability, but it is physically important in interference.
+
+## Infinitesimal operator change
+
+For a small rotation about $z$,
+
+$$
+U\simeq 1-\frac{i}{\hbar}\delta\phi J_z.
+$$
+
+The transformed operator is
+
+$$
+A'=UAU^\dagger.
+$$
+
+Keeping only first-order terms,
+
+$$
+\delta A=A'-A
+=-\frac{i}{\hbar}\delta\phi[J_z,A].
+$$
+
+This formula is often the shortest way to connect commutators with rotations.
 
 ## Main points
 

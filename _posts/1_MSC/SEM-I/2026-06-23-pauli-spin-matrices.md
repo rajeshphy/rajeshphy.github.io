@@ -17,7 +17,9 @@ permalink: /msc/sem-i/pauli-spin-matrices/
 hidden: true
 ---
 
-Spin is intrinsic angular momentum. Unlike orbital angular momentum, it is not produced by motion in ordinary space. For a spin-one-half particle, the spin space is two-dimensional, and the spin operators are represented by Pauli matrices.
+Spin is intrinsic angular momentum. Unlike orbital angular momentum, it is not produced by motion around an origin. Experiments such as Stern-Gerlach show that a spin-one-half particle gives only two possible results when one component of spin is measured.
+
+Therefore the spin state is represented by a two-component vector, called a spinor. The spin operators acting on this two-dimensional space are represented by the Pauli matrices.
 
 ## Spin operators
 
@@ -64,6 +66,8 @@ S_x=\frac{\hbar}{2}\sigma_x,\qquad
 S_y=\frac{\hbar}{2}\sigma_y,\qquad
 S_z=\frac{\hbar}{2}\sigma_z.
 $$
+
+The factor $\hbar/2$ is fixed by the fact that a spin-one-half particle has possible measured values $+\hbar/2$ and $-\hbar/2$ for any chosen spin component.
 
 ## Algebra of Pauli matrices
 
@@ -208,6 +212,80 @@ $$
 P\left(+\frac{\hbar}{2}\right)=|a|^2,
 \qquad
 P\left(-\frac{\hbar}{2}\right)=|b|^2.
+$$
+
+The complex numbers $a$ and $b$ are probability amplitudes. Their moduli squared give probabilities, while their relative phase affects measurements along axes other than $z$.
+
+## Verification of a commutator
+
+Using the Pauli matrices,
+
+$$
+\sigma_x\sigma_y=
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix}
+\begin{pmatrix}
+0&-i\\
+i&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+i&0\\
+0&-i
+\end{pmatrix}
+=i\sigma_z.
+$$
+
+Similarly,
+
+$$
+\sigma_y\sigma_x=-i\sigma_z.
+$$
+
+Therefore
+
+$$
+\boxed{
+[\sigma_x,\sigma_y]=2i\sigma_z.
+}
+$$
+
+Multiplying by $\hbar/2$ gives
+
+$$
+[S_x,S_y]=i\hbar S_z.
+$$
+
+## Measurement example
+
+Let
+
+$$
+\chi=
+\begin{pmatrix}
+1/\sqrt3\\
+\sqrt{2/3}
+\end{pmatrix}.
+$$
+
+The state is normalized because
+
+$$
+\frac13+\frac23=1.
+$$
+
+If $S_z$ is measured,
+
+$$
+P\left(+\frac{\hbar}{2}\right)=\left|\frac{1}{\sqrt3}\right|^2=\frac13,
+$$
+
+and
+
+$$
+P\left(-\frac{\hbar}{2}\right)=\left|\sqrt{\frac23}\right|^2=\frac23.
 $$
 
 ## Main points

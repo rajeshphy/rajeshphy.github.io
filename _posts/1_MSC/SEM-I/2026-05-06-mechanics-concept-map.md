@@ -16,7 +16,7 @@ permalink: /msc/sem-i/mechanics-concept-map/
 hidden: true
 ---
 
-This page is a compact guide to the classical mechanics part of the SEM-I syllabus. It is meant for revision and for seeing how the topics connect.
+The classical mechanics part of the SEM-I syllabus should be read as a connected development, not as separate formulas. It begins with constrained motion, moves to variational principles, then to phase space, and finally to symmetry and small oscillations.
 
 <img src="{{ '/assets/images/msc/sem-i/classical.jpeg' | relative_url }}" alt="Classical Mechanics" class="my-custom-class" style="max-width:100%; height:auto;">
 
@@ -32,6 +32,8 @@ This page is a compact guide to the classical mechanics part of the SEM-I syllab
 8. **Infinitesimal generators** produce translations, rotations, and time evolution.
 9. **Poisson brackets** encode time evolution and canonical structure.
 10. **Small oscillations** linearize motion near equilibrium and lead to normal modes.
+
+The logical thread is that each new formulation keeps the same physics but gives a more powerful language for solving problems.
 
 ## Core formulas
 
@@ -89,9 +91,38 @@ Read the notes in this order:
 8. Conservation theorems and infinitesimal generators
 9. Small oscillations and normal modes
 
+## Standard derivations
+
+For a long-answer question, the following derivations should be prepared in full:
+
+1. Lagrange's equation from D'Alembert's principle.
+2. Lagrange's equation from Hamilton's principle.
+3. Hamilton's equations from the Legendre transform.
+4. Hamilton-Jacobi equation from Hamilton's principal function.
+5. Poisson-bracket form of Hamilton's equations.
+6. Normal-mode equation for small oscillations.
+
+## Answer sequence
+
+A good mechanics answer usually has this order:
+
+1. state the principle or definition;
+2. write the mathematical form;
+3. identify the coordinates and constraints;
+4. derive the required equation;
+5. interpret the conserved quantity, frequency, or physical result.
+
 ## Main points
 
 - The syllabus moves from constraints to variational methods, then to phase space.
 - Symmetry appears first through cyclic coordinates and later through generators.
 - Poisson brackets provide the shortest notation for Hamiltonian dynamics.
 - Small oscillations turn nonlinear mechanics into an eigenvalue problem.
+
+## Practice questions
+
+1. Arrange the main topics of SEM-I classical mechanics in logical order.
+2. List three conservation laws and the symmetries associated with them.
+3. Write the Hamilton-Jacobi equation and explain the meaning of $S$.
+4. State the Poisson-bracket form of Hamilton's equations.
+5. Why do small oscillations lead to an eigenvalue problem?

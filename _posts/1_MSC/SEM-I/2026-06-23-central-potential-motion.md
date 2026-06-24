@@ -17,13 +17,15 @@ permalink: /msc/sem-i/central-potential-motion/
 hidden: true
 ---
 
-A centrally symmetric field is described by a potential that depends only on the distance from the origin:
+A central potential occurs when the force field has a distinguished centre and the potential energy depends only on the distance from that centre. It does not depend on direction. This is the situation for an ideal Coulomb field, gravitational field, or any spherically symmetric potential.
+
+A centrally symmetric field is described by
 
 $$
 V=V(r).
 $$
 
-Such systems are important because rotational symmetry allows the Schrodinger equation to be separated into radial and angular parts.
+Such systems are important because rotational symmetry allows the Schrodinger equation to be separated into radial and angular parts. The angular part is handled by spherical harmonics, while the radial part carries the details of the particular potential.
 
 ## Hamiltonian
 
@@ -61,6 +63,8 @@ $$
 $$
 
 acts like an angular kinetic energy term.
+
+This form already shows why angular momentum is important in a central potential. The angular dependence enters through $L^2$, whose eigenfunctions are known.
 
 ## Separation of variables
 
@@ -168,6 +172,27 @@ $$
 $$
 
 These boundary conditions make the energy spectrum discrete for bound states.
+
+## Effective potential
+
+The radial equation for $u(r)$ has the same form as a one-dimensional Schrodinger equation with
+
+$$
+V_{\mathrm{eff}}(r)
+=V(r)+\frac{\hbar^2l(l+1)}{2mr^2}.
+$$
+
+The second term is positive for $l\ne0$ and becomes large near $r=0$. It represents the centrifugal barrier. For $l=0$, this barrier is absent, and the radial wavefunction may have non-zero value at the origin.
+
+## Answer form for separation
+
+To derive the radial equation in an answer, the clean sequence is:
+
+1. write the Hamiltonian in spherical coordinates;
+2. state that $[H,L^2]=[H,L_z]=0$ for $V(r)$;
+3. choose $\psi=R(r)Y_l^m(\theta,\phi)$;
+4. use $L^2Y_l^m=\hbar^2l(l+1)Y_l^m$;
+5. define $u=rR$ to remove the first derivative term.
 
 ## Main points
 
