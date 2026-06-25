@@ -41,7 +41,7 @@ Use this page as a working template for preparing an M.Sc Physics dissertation. 
   </div>
 
   <div style="font-size: 1.1rem; margin-top: 0;">
-    By<br><strong>Rajesh Kumar</strong>
+    By<br><strong>Anmol Bara</strong>
   </div>
   <div style="font-size: 1.1rem; margin-top: 28px;">
     Under the Supervision of<br><strong>Dr. A. Sharma</strong>
@@ -59,7 +59,7 @@ Use this page as a working template for preparing an M.Sc Physics dissertation. 
 <div style="background-color:#fff8e7; padding:40px; margin-bottom:40px; font-family:'Times New Roman', Times, serif;">
 
 <div style="text-align:center;">
-  <div style="font-size:1.9rem; font-weight:700; color:#5a2a27;">CERTIFICATE / DECLARATION</div>
+  <div style="font-size:1.9rem; font-weight:700; color:#5a2a27;">CERTIFICATE</div>
 </div>
 
 <div style="line-height:1.8; text-align:justify; margin-top:20px;">
@@ -70,7 +70,7 @@ This is to certify that the dissertation titled <strong>"Symmetry in Physics: Ma
 
 <br><br>
 <strong>Supervisor Signature:</strong> ____________<br>
-<strong>Name:</strong> Dr. A. Sharma<br>
+<strong>Name:</strong> ____________<br>
 <strong>Date:</strong> ____________
 
 <br><br><br>
@@ -81,7 +81,7 @@ I hereby declare that this dissertation is my original work and has not been sub
 
 <br><br>
 <strong>Student Signature:</strong> ____________<br>
-<strong>Name:</strong> Rajesh Kumar<br>
+<strong>Name:</strong> ____________<br>
 <strong>Date:</strong> ____________
 
 </div>
@@ -119,14 +119,18 @@ This dissertation studies symmetry in physics with emphasis on its mathematical 
 </div>
 
 <div style="margin-top:20px; line-height:1.8;">
+Acknowledgement<br>
+Abstract<br>
+<br>
 1. Introduction<br>
 2. Mathematical Foundations<br>
 3. Symmetry in Quantum Mechanics<br>
 4. Advanced Topic or Special Application<br>
 5. Applications<br>
-6. Conclusion<br>
-7. References<br>
-8. Appendix
+<br>
+Conclusion<br>
+References<br>
+Appendix
 </div>
 
 </div>
