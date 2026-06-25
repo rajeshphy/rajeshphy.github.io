@@ -39,6 +39,16 @@ boards:
       - category: "msc-iv"
         label: "Sem-IV"
 
+  - title: "Dissertation"
+    aria_label: "Dissertation material"
+    board_class: "docs-board"
+    item_class: ""
+    item_type: "Template"
+    visible_limit: 4
+    items:
+      - category: "dissertation-2026"
+        label: "2026"
+
   - title: "Competitive Exams"
     aria_label: "Exam preparation material"
     board_class: "docs-board"
