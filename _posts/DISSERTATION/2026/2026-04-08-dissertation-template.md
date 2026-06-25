@@ -124,8 +124,8 @@ Abstract<br>
 <br>
 1. Introduction<br>
 2. Mathematical Foundations<br>
-3. Symmetry in Quantum Mechanics<br>
-4. Advanced Topic or Special Application<br>
+3. Symmetry in QM<br>
+4. Advanced Topic<br>
 5. Applications<br>
 <br>
 Conclusion<br>
@@ -191,7 +191,7 @@ $$
 <div style="background-color:#fff8e7; padding:40px; margin-bottom:40px; font-family:'Times New Roman', Times, serif;">
 
 <div style="text-align:center;">
-  <div style="font-size:2rem; font-weight:700; color:#5a2a27;">Chapter 3: Symmetry in Quantum Mechanics</div>
+  <div style="font-size:2rem; font-weight:700; color:#5a2a27;">Chapter 3: Symmetry in QM</div>
 </div>
 
 <div style="margin-top:20px; line-height:1.8;">
@@ -208,7 +208,7 @@ $$
 <div style="background-color:#fff8e7; padding:40px; margin-bottom:40px; font-family:'Times New Roman', Times, serif;">
 
 <div style="text-align:center;">
-  <div style="font-size:2rem; font-weight:700; color:#5a2a27;">Chapter 4: Advanced Topic or Special Application</div>
+  <div style="font-size:2rem; font-weight:700; color:#5a2a27;">Chapter 4: Advanced Topic</div>
 </div>
 
 <div style="margin-top:20px; line-height:1.8;">
