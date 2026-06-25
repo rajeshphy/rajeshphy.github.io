@@ -10,34 +10,37 @@ sections:
       - title: Jharkhand News
         url: "https://www.newsonair.gov.in/?s=ranchi&date_from=&date_to=&post_type="
         note: AIR Audio.
-      - title: PIB
+      - title: PIB Brief
         url: "https://rajeshphy.github.io/pib/"
-        note: Indian Gov.
-      - title: Dumka News
+        note: News
+      - title: Dumka Brief
         url: "https://rajeshphy.github.io/dumka-jhar-news"
-        note: RSS Feed.
-      - title: Alltop
-        url: "https://www.alltop.com/"
-        note: AI Curated
-      - title: Physics
-        url: "https://github.com/rajeshphy/physics-news"
-        note: Physics News.
-      
+        note: News
+      - title: Physics Brief
+        url: "https://rajeshphy.github.io/physics-news"
+        note: News
+      - title: Physics Teaching
+        url: "https://rajeshphy.github.io/notes-archive/"
+        note: Notes
 
   - title: Daily Watch
     items:
+      - title: Jharkhand Universities Act
+        url: "https://rajeshphy.github.io/jharkhand-state-universities-act-2026/"
+        note: Jharkhand Act 2026.
       - title: SKMU
         url: "https://skmu.ac.in/"
         note: Website
-
-      - title: Universities Act
-        url: "https://rajeshphy.github.io/jharkhand-state-universities-act-2026/"
-        note: Jharkhand Act 2026.
+      - title: Chancellor Portal
+        url: "https://universities.jharkhand.gov.in/home"
+        note: Jharkhand
 
       - title: Arts & Letters
         url: "https://www.aldaily.com/"
         note: Higher education.
-
+      - title: Alltop
+        url: "https://www.alltop.com/"
+        note: AI Curated
       - title: News Minimalist
         url: "https://www.newsminimalist.com/?category=all&from=5&sort=significance&to=10"
         note: Significance-based news.
