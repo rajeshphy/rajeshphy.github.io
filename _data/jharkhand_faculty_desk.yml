@@ -6,16 +6,22 @@ sections:
         note: Holiday List 2026.
       - title: India News
         url: "https://newsonair.gov.in/listen-broadcast-category/daily-broadcast/"
-        note: AIR news.
-      - title: Dumka News
-        url: "https://rajeshphy.github.io/dumka-jhar-news"
-        note: RSS Feed.
+        note: AIR Audio.
+      - title: Jharkhand News
+        url: "https://www.newsonair.gov.in/?s=ranchi&date_from=&date_to=&post_type="
+        note: AIR Audio.
       - title: PIB
         url: "https://rajeshphy.github.io/pib/"
         note: Indian Gov.
+      - title: Dumka News
+        url: "https://rajeshphy.github.io/dumka-jhar-news"
+        note: RSS Feed.
       - title: Alltop
         url: "https://www.alltop.com/"
         note: AI Curated
+      - title: Physics
+        url: "https://github.com/rajeshphy/physics-news"
+        note: Physics News.
       
 
   - title: Daily Watch
