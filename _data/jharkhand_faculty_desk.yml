@@ -7,9 +7,9 @@ sections:
       - title: India News
         url: "https://newsonair.gov.in/listen-broadcast-category/daily-broadcast/"
         note: AIR news.
-      - title: Jharkhand News
-        url: "https://www.newsonair.gov.in/?s=ranchi&date_from=&date_to=&post_type="
-        note: AIR news.
+      - title: Dumka News
+        url: "https://rajeshphy.github.io/dumka-jhar-news"
+        note: RSS Feed.
       - title: PIB
         url: "https://rajeshphy.github.io/pib/"
         note: Indian Gov.
