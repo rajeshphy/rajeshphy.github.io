@@ -1,7 +1,7 @@
 ---
 title: "Particle Physics-II"
 summary: "Conservation laws, resonance particles, and the quark model in particle physics."
-date: 2026-04-20 13:00:00 +0530
+date: 2026-01-31 09:00:00 +0530
 categories:
   - notes
   - msc

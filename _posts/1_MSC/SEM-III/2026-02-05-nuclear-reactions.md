@@ -1,7 +1,7 @@
 ---
 title: "Nuclear Reactions"
 summary: "Nuclear reaction notation, Q value, threshold energy, direct reactions, and compound reaction mechanisms."
-date: 2024-12-10 04:47:26 +0530
+date: 2026-02-05 09:00:00 +0530
 categories:
   - notes
   - msc

@@ -1,7 +1,7 @@
 ---
 title: "Particle Physics-I"
 summary: "Fundamental interactions, gauge bosons, antiparticles, hadrons, leptons, and elementary particle structure."
-date: 2026-04-20 11:00:00 +0530
+date: 2026-01-30 09:00:00 +0530
 categories:
   - notes
   - msc

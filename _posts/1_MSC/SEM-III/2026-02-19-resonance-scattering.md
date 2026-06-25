@@ -1,7 +1,7 @@
 ---
 title: "Resonance Scattering"
 summary: "Partial-wave scattering, resonances, phase shifts, resonance width, and Breit-Wigner form."
-date: 2026-04-13 12:00:00 +0530
+date: 2026-02-19 09:00:00 +0530
 categories:
   - notes
   - msc

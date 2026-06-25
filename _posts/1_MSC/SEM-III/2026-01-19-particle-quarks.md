@@ -1,7 +1,7 @@
 ---
 title: "Particle Physics: Quarks"
 summary: "Eightfold way, quark model, fractional charge, and quark composition of hadrons."
-date: 2024-12-02 04:47:26 +0530
+date: 2026-01-19 09:00:00 +0530
 categories:
   - notes
   - msc

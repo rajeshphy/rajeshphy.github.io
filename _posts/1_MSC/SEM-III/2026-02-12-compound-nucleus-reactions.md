@@ -1,7 +1,7 @@
 ---
 title: "Compound-Nucleus Reactions"
 summary: "Compound-nucleus formation, statistical decay, cross-section systematics, and angular distributions."
-date: 2026-04-13 12:00:00 +0530
+date: 2026-02-12 09:00:00 +0530
 categories:
   - notes
   - msc

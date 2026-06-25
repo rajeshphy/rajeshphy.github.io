@@ -1,7 +1,7 @@
 ---
 title: "Particle Physics: Conservation Laws"
 summary: "Baryon number, lepton number, strangeness, isospin, and charge conservation in particle reactions."
-date: 2024-11-25 04:47:26 +0530
+date: 2026-01-12 09:00:00 +0530
 categories:
   - notes
   - msc

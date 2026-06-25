@@ -1,7 +1,7 @@
 ---
 title: "Particle Physics: Particle Classification"
 summary: "Classification of particles into leptons, hadrons, mesons, and baryons with basic properties."
-date: 2024-11-19 04:47:26 +0530
+date: 2026-01-05 09:00:00 +0530
 categories:
   - notes
   - msc
