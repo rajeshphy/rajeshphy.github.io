@@ -16,6 +16,12 @@ sections:
       - title: Dumka Brief
         url: "https://rajeshphy.github.io/dumka-jhar-news"
         note: News
+      - title: Political Brief
+        url: "https://rajeshphy.github.io/political-news/"
+        note: News
+      - title: Economic Brief
+        url: "https://rajeshphy.github.io/economic-news/"
+        note: Notes
       - title: Physics Brief
         url: "https://rajeshphy.github.io/physics-news"
         note: News
