@@ -52,12 +52,11 @@ sections:
       - title: Scholar Lab
         url: "https://scholar.google.com/scholar_labs/search"
         note: Google Scholar Labs.
-
       - title: Prompts
         url: "/prompts/"
         note: Examples.
       - title: Cosmology
-        url: "/https://gorayphy.github.io/cosmology/"
+        url: "https://gorayphy.github.io/cosmology/"
         note: Mahendra Goray
 
   - title: Admissions And Students
