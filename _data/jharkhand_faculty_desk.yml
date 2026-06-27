@@ -17,6 +17,8 @@ sections:
         url: "https://rajeshphy.github.io/notes-archive/"
         note: Notes
 
+
+
   - title: Daily Watch
     items:
       - title: Jharkhand Universities Act
@@ -54,6 +56,9 @@ sections:
       - title: Prompts
         url: "/prompts/"
         note: Examples.
+      - title: Cosmology
+        url: "/https://gorayphy.github.io/cosmology/"
+        note: Mahendra Goray
 
   - title: Admissions And Students
     items:
