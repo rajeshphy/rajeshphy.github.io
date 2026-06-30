@@ -24,6 +24,9 @@ collections:
   jharkhand_university_act:
     output: true
     permalink: /jharkhand-university-act/:path/
+  finance_investment:
+    output: true
+    permalink: /finance-investment/:path/
 
 plugins:
   - jekyll-feed

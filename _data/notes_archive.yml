@@ -92,7 +92,7 @@ boards:
     board_class: "docs-board"
     item_class: ""
     item_type: "Documentation"
-    visible_limit: 4
+    visible_limit: 5
     items:
       - category: "doc-jekyll"
         label: "Jekyll"
@@ -102,3 +102,5 @@ boards:
         label: "Code"
       - category: "doc-acts"
         label: "Acts"
+      - category: "doc-knowledge"
+        label: "Knowledge"

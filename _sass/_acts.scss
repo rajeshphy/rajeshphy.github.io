@@ -348,6 +348,136 @@
   box-shadow: 0 15px 30px rgba(8, 96, 95, .18);
 }
 
+.investment-document {
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, .74), rgba(248, 253, 251, .66));
+}
+
+.investment-section-heading {
+  margin: 1.35rem 0 .52rem;
+  color: #173b37;
+  font: 850 clamp(1.08rem, 2vw, 1.34rem)/1.26 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0;
+}
+
+.investment-section-story {
+  margin: .2rem 0 1rem;
+  padding: .62rem .78rem;
+  border-left: 3px solid rgba(198, 146, 20, .42);
+  border-radius: 0 8px 8px 0;
+  color: #534d45;
+  background: rgba(255, 251, 234, .64);
+  font-style: italic;
+}
+
+.investment-section-story strong {
+  color: #8a6411;
+  font-style: normal;
+  letter-spacing: .02em;
+}
+
+.investment-box {
+  margin: .95rem 0;
+  padding: .85rem .95rem;
+  border: 1px solid rgba(8, 96, 95, .15);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, .72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .72);
+}
+
+.investment-box-definition {
+  border-left: 3px solid rgba(8, 96, 95, .32);
+}
+
+.investment-box h4 {
+  margin: 0 0 .45rem;
+  color: #075f5d;
+  font: 850 .9rem/1.3 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.investment-box p:last-child,
+.investment-box ul:last-child {
+  margin-bottom: 0;
+}
+
+.investment-box p:first-child,
+.investment-box ul:first-child {
+  margin-top: 0;
+}
+
+.investment-box-theory {
+  border-color: rgba(198, 146, 20, .28);
+  background: linear-gradient(135deg, rgba(255, 244, 196, .54), rgba(255, 253, 248, .78));
+}
+
+.investment-box-law {
+  border-color: rgba(47, 111, 94, .22);
+  background: linear-gradient(135deg, rgba(221, 244, 242, .48), rgba(250, 253, 251, .76));
+}
+
+.investment-box-event {
+  border-color: rgba(47, 125, 50, .2);
+  background: linear-gradient(135deg, rgba(223, 244, 216, .5), rgba(255, 253, 248, .74));
+}
+
+.investment-diagram-title {
+  margin: 1rem 0 .45rem;
+  color: #173b37;
+  font: 850 .92rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+.investment-diagram-figure {
+  margin: 1.05rem auto 1.25rem;
+  padding: .85rem;
+  border: 1px solid rgba(8, 96, 95, .14);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, .72);
+  box-shadow: 0 10px 24px rgba(35, 31, 26, .05);
+  text-align: center;
+}
+
+.investment-diagram-figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.investment-diagram-figure figcaption {
+  margin-top: .62rem;
+  color: #173b37;
+  font: 850 .84rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.investment-diagram-source {
+  margin: 0 auto 1.1rem;
+  border: 1px solid rgba(8, 96, 95, .14);
+  border-radius: 8px;
+  background: rgba(237, 245, 241, .42);
+}
+
+.investment-diagram-source summary {
+  cursor: pointer;
+  padding: .64rem .8rem;
+  color: var(--accent);
+  font: 850 .78rem/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.investment-diagram-source pre {
+  margin: 0;
+  padding: .78rem .9rem;
+  overflow-x: auto;
+  border-top: 1px solid rgba(8, 96, 95, .12);
+  background: rgba(255, 253, 248, .72);
+  color: #27231e;
+  font: 500 .82rem/1.5 "Courier New", Courier, monospace;
+}
+
 @media (max-width: 640px) {
   .act-toc-list {
     grid-template-columns: 1fr;
