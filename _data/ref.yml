@@ -34,6 +34,8 @@ items:
       url: /assets/zip/Beamer.pdf
     - title: Latex Book
       url: /assets/pdf/ref/Latex.pdf
+    - title: Investment
+      url: /assets/pdf/ref/Investment.pdf
 
   - title: Nine Formulations Of Quantum Mechanics - Daniel F. Styer
     url: /assets/pdf/ref/None-Formulation-QM.pdf
