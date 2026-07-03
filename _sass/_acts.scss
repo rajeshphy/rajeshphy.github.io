@@ -478,8 +478,134 @@
   font: 500 .82rem/1.5 "Courier New", Courier, monospace;
 }
 
+.sports-document {
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, .78), rgba(248, 252, 249, .7));
+}
+
+.sports-figure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem;
+  margin: 1rem auto 1.25rem;
+}
+
+.sports-figure-grid .investment-diagram-figure {
+  margin: 0;
+}
+
+.sports-figure-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.sports-wide-figure img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+}
+
+.sports-roadmap-group {
+  margin: 1rem auto 1.25rem;
+}
+
+.sports-topic {
+  margin: .78rem 0;
+  padding: .85rem .95rem;
+  border: 1px solid rgba(8, 96, 95, .14);
+  border-left: 3px solid rgba(8, 96, 95, .36);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, .68);
+}
+
+.sports-topic h3 {
+  margin: 0 0 .45rem;
+  color: #173b37;
+  font: 850 clamp(1rem, 1.7vw, 1.2rem)/1.3 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0;
+}
+
+.sports-topic p {
+  margin: .42rem 0;
+}
+
+.sports-topic p:last-child {
+  margin-bottom: 0;
+}
+
+.sports-topic strong {
+  color: #075f5d;
+}
+
+.sports-link-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .55rem .72rem;
+  margin: .8rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sports-link-list li {
+  margin: 0;
+}
+
+.sports-link-list a,
+.sports-source-link {
+  color: var(--accent);
+  font-weight: 850;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+}
+
+.sports-legends-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .8rem;
+  margin: .9rem 0 1.25rem;
+}
+
+.sports-legend-card {
+  margin: 0;
+  padding: .85rem .95rem;
+  border: 1px solid rgba(8, 96, 95, .14);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, .7);
+}
+
+.sports-legend-card h4 {
+  margin: 0 0 .18rem;
+  color: #173b37;
+  font: 850 clamp(1rem, 1.7vw, 1.14rem)/1.3 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.sports-legend-sport {
+  display: block;
+  margin: 0 0 .45rem;
+  color: #8a6411;
+  font: 850 .75rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.sports-legend-card p {
+  margin: .42rem 0;
+}
+
+.sports-legend-card p:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 640px) {
   .act-toc-list {
+    grid-template-columns: 1fr;
+  }
+
+  .sports-figure-grid,
+  .sports-link-list,
+  .sports-legends-list {
     grid-template-columns: 1fr;
   }
 

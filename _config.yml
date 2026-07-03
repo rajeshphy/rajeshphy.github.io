@@ -27,6 +27,9 @@ collections:
   finance_investment:
     output: true
     permalink: /finance-investment/:path/
+  sports:
+    output: true
+    permalink: /sports/:path/
 
 plugins:
   - jekyll-feed
