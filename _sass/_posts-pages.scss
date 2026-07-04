@@ -264,8 +264,6 @@ blockquote {
 }
 
 .post > h1,
-.post > h2,
-.post > h3,
 .page > h1,
 .page > h2,
 .page > h3 {
@@ -276,6 +274,15 @@ blockquote {
   text-wrap: balance;
 }
 
+.post > h2,
+.post > h3 {
+  max-width: none;
+  margin: 2rem 0 .85rem;
+  letter-spacing: 0;
+  text-align: left;
+  text-wrap: balance;
+}
+
 .post > h1,
 .page > h1 {
   padding-bottom: .42rem;
@@ -283,16 +290,26 @@ blockquote {
   font: 760 clamp(1.45rem, 2.6vw, 2.05rem)/1.12 Georgia, "Times New Roman", serif;
 }
 
-.post > h2,
 .page > h2 {
   color: #075f5b;
   font: 760 clamp(1.22rem, 2.1vw, 1.55rem)/1.18 Georgia, "Times New Roman", serif;
 }
 
-.post > h3,
 .page > h3 {
   color: #8b681f;
   font: 760 clamp(1.05rem, 1.7vw, 1.24rem)/1.24 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.post > h2 {
+  padding: .18rem 0 .22rem .78rem;
+  border-left: 4px solid rgba(8, 96, 95, .78);
+  color: #075f5b;
+  font: 760 clamp(1.24rem, 1.55vw, 1.52rem)/1.2 Georgia, "Times New Roman", serif;
+}
+
+.post > h3 {
+  color: #8b681f;
+  font: 760 clamp(1.04rem, 1.25vw, 1.18rem)/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .post > h4,
