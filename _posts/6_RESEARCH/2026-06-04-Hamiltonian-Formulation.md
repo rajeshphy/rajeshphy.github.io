@@ -1,5 +1,5 @@
 ---
-title: "Hamiltonian Formulation of Two Coupled Quantum Oscillators"
+title: "Two Coupled Quantum Oscillators I: Hamiltonian Formulation"
 date: 2026-06-04 22:00:00 +0530
 categories:
   - research
@@ -13,7 +13,7 @@ tags:
 permalink: "/coupled-oscillator-hamiltonian-formulation/"
 ---
 
-This article explains the Hamiltonian for **two coupled quantum harmonic oscillators** in an external magnetic field. The construction has three parts: the energy of each oscillator, their mutual coupling, and the extra mixing produced by the magnetic field.
+This article is Part I of a two-part explanation of **two coupled quantum harmonic oscillators** in an external magnetic field. Here we develop the Hamiltonian formulation. The construction has three parts: the energy of each oscillator, their mutual coupling, and the extra mixing produced by the magnetic field.
 
 The starting Hamiltonian is
 
@@ -479,21 +479,26 @@ $$
 P^TR^T(dR)Q.
 $$
 
-For this rotation matrix,
+Using the identity from the note box,
 
 $$
-R^T(dR)=
-\begin{pmatrix}
-0 & 1\\
--1 & 0
-\end{pmatrix}
-d\phi.
+R^T(dR)=J\,d\phi.
 $$
 
 Hence
 
 $$
 P^TR^T(dR)Q
+=
+\begin{pmatrix}
+P_1 & P_2
+\end{pmatrix}
+J
+\begin{pmatrix}
+X_1\\
+X_2
+\end{pmatrix}
+d\phi
 =
 \begin{pmatrix}
 P_1 & P_2
@@ -553,84 +558,32 @@ $$
 
 is the generator of rotations in this two-dimensional phase space. The extra term is not an assumption; it appears because the rotating coordinates themselves depend on time.
 
-Now compare this correction with the magnetic cross-term. The original Hamiltonian contains a term proportional to
+Now compare this correction with the magnetic cross-term. The original Hamiltonian contains
 
 $$
 \omega_c(p_1x_2-p_2x_1).
 $$
 
-The rotating-frame correction contains the same kind of structure, but with coefficient $-\dot\phi(t)$. Therefore choosing the rotation rate
+Using the invariance identity from the note box,
 
 $$
-\dot\phi(t)=\omega_c
+p_1x_2-p_2x_1=P_1X_2-P_2X_1.
 $$
 
-removes the explicit magnetic position-momentum mixing.
-
-There is one point that should not be skipped. The magnetic term was first written in the old variables as
+Therefore, after the old Hamiltonian is rewritten in the rotating variables, the magnetic part and the rotating-frame correction appear together as
 
 $$
-\omega_c(p_1x_2-p_2x_1),
-$$
-
-whereas the rotating-frame correction has appeared in the new variables as
-
-$$
+\omega_c(P_1X_2-P_2X_1)
 -\dot\phi(t)(P_1X_2-P_2X_1).
 $$
 
-At first sight these do not look like the same term, because one contains $(p_1,x_1,p_2,x_2)$ and the other contains $(P_1,X_1,P_2,X_2)$. The reason they can cancel is that the rotational combination itself is invariant under this rotation.
-
-To see this, write
+The common factor is the same rotational generator, $P_1X_2-P_2X_1$. Its coefficient is $\omega_c-\dot\phi(t)$. Hence the magnetic position-momentum mixing cancels when
 
 $$
-p_1x_2-p_2x_1
-=p^TJq,
-\qquad
-J=
-\begin{pmatrix}
-0 & 1\\
--1 & 0
-\end{pmatrix}.
+\dot\phi(t)=\omega_c.
 $$
 
-Using $p=RP$ and $q=RQ$, we get
-
-$$
-p^TJq
-=(RP)^TJ(RQ)
-=P^T(R^TJR)Q.
-$$
-
-For a rotation matrix,
-
-$$
-R^TJR=J.
-$$
-
-Therefore
-
-$$
-p_1x_2-p_2x_1
-=P^TJQ
-=P_1X_2-P_2X_1.
-$$
-
-So, after the old Hamiltonian is rewritten in the rotating variables, its magnetic mixing term is actually
-
-$$
-+\omega_c(P_1X_2-P_2X_1).
-$$
-
-The time-dependent rotating frame contributes
-
-$$
--\dot\phi(t)(P_1X_2-P_2X_1).
-$$
-
-Thus the two terms cancel exactly when $\dot\phi(t)=\omega_c$. The cancellation is not just a matching of angular frequencies; it is a cancellation of the same rotational generator written in the same variables.
-
-Integrating this equation gives
+This is not merely a matching of angular frequencies; it is a cancellation of the same generator after both terms have been written in the same variables. Integrating the rotation rate gives
 
 $$
 \phi(t)=\omega_ct+\theta,
@@ -642,13 +595,13 @@ The important point is this: the magnetic field has not disappeared. Its awkward
 
 ## 5. Rotating-Frame Hamiltonian
 
-Now we continue directly from the previous result. The rotating frame was chosen so that
+Continue from the choice
 
 $$
 \dot\phi(t)=\omega_c.
 $$
 
-This choice cancels the magnetic position-momentum term. We now ask: **what is left in the Hamiltonian after this cancellation?**
+The magnetic position-momentum term is now gone from the explicit Hamiltonian. The next question is: **what remains after this cancellation?**
 
 ### Step 1: separate the remaining Hamiltonian
 
@@ -979,13 +932,13 @@ $$
 \omega_c(p_1x_2-p_2x_1),
 $$
 
-but the magnetic field remains present because
+because that term was cancelled. The magnetic dependence now enters through
 
 $$
-\phi(t)=\omega_ct+\theta.
+\phi(t)=\omega_ct+\theta,
 $$
 
-Thus $\omega_c$ enters the final Hamiltonian through the time dependence of $\Omega_1(t)$, $\Omega_2(t)$, and $\Omega_{12}(t)$.
+and therefore through the time-dependent quantities $\Omega_1(t)$, $\Omega_2(t)$, and $\Omega_{12}(t)$.
 
 | New quantity | Meaning | Physical role |
 |---|---|---|
@@ -994,7 +947,7 @@ Thus $\omega_c$ enters the final Hamiltonian through the time dependence of $\Om
 | $\Omega_1(t),\Omega_2(t)$ | effective time-dependent frequencies | determine the stiffness of each rotated oscillator |
 | $\Omega_{12}(t)$ | effective time-dependent coupling | measures how strongly the rotated oscillators remain linked |
 
-Thus Section 5 continues the result of Section 4: the rotating frame removes the magnetic position-momentum term, but the remaining quadratic position matrix becomes time dependent through $\phi(t)$. The system is simpler, but it is not generally decoupled.
+The system is simpler than before, but it is not generally decoupled.
 
 ## 6. Instantaneous Decoupling
 
@@ -1106,3 +1059,5 @@ The model can be summarized as:
 ## Takeaway
 
 The magnetic field does not merely shift oscillator frequencies. It also rotates the coupled system in phase space. In the rotating frame, the dynamics are controlled by $\Omega_1(t)$, $\Omega_2(t)$, and $\Omega_{12}(t)$, making the model useful for studying synchronization, mutual information, and quantum circuit complexity.
+
+The continuation is [Part II: Time-Dependent Wavefunction]({{ '/coupled-oscillator-time-dependent-wavefunction/' | relative_url }}), where the Gaussian solution is developed from the time-dependent Schrodinger equation.
