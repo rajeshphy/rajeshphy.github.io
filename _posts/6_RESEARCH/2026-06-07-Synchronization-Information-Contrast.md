@@ -1,5 +1,5 @@
 ---
-title: "Two Coupled Quantum Oscillators IV: Synchronization-Information Contrast"
+title: "Information Dynamics in Quantum Harmonic Systems IV: Synchronization-Information Contrast"
 date: 2026-06-07 22:00:00 +0530
 categories:
   - research

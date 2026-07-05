@@ -1,5 +1,5 @@
 ---
-title: "Two Coupled Quantum Oscillators V: Circuit Depth as Quantum Complexity"
+title: "Information Dynamics in Quantum Harmonic Systems V: Circuit Depth as Quantum Complexity"
 date: 2026-06-08 22:00:00 +0530
 categories:
   - research
@@ -21,10 +21,10 @@ The paper answers this using **circuit depth** as a measure of quantum complexit
 
 ## 1. What Circuit Depth Means
 
-A quantum circuit is a sequence of gates. If a state $\|\psi_R\rangle$ is transformed into another state $\|\psi_T\rangle$, then one writes
+A quantum circuit is a sequence of gates. If a state $\lvert\psi_R\rangle$ is transformed into another state $\lvert\psi_T\rangle$, then one writes
 
 $$
-\|\psi_T\rangle=U\|\psi_R\rangle.
+\lvert\psi_T\rangle=U\lvert\psi_R\rangle.
 $$
 
 The unitary $U$ can be decomposed into elementary gates:
@@ -182,7 +182,7 @@ $$
 \frac{A_1A_2-A_{12}^2}{\omega_R^2}
 \right]
 +
-\left|\frac{A_{12}}{A_1}\right|.
+\left\lvert\frac{A_{12}}{A_1}\right\rvert.
 $$
 
 This formula has two parts:
@@ -190,7 +190,7 @@ This formula has two parts:
 | Term | Meaning |
 |---|---|
 | $\frac{1}{2}\log\left[\frac{A_1A_2-A_{12}^2}{\omega_R^2}\right]$ | global scaling cost |
-| $\left\|\frac{A_{12}}{A_1}\right\|$ | entangling or mode-mixing cost |
+| $\left\lvert A_{12}/A_1\right\rvert$ | entangling or mode-mixing cost |
 
 The logarithmic part compares the overall size of the target Gaussian to the reference Gaussian. The second part measures how much cross-correlation must be created.
 
@@ -226,7 +226,7 @@ This is pure scaling complexity. No entangling gate is needed.
 The term
 
 $$
-\left|\frac{A_{12}}{A_1}\right|
+\left\lvert\frac{A_{12}}{A_1}\right\rvert
 $$
 
 is the additional cost caused by the mixed Gaussian term. If $A_{12}$ is large, the target state has strong mode mixing. Preparing it from an uncorrelated reference state requires nonlocal gates.
@@ -254,7 +254,7 @@ the mixing angle is small and the cross coefficient $A_{12}$ is suppressed. The 
 Then
 
 $$
-\left|\frac{A_{12}}{A_1}\right|\approx0,
+\left\lvert\frac{A_{12}}{A_1}\right\rvert\approx0,
 $$
 
 and the depth reduces to
@@ -423,3 +423,5 @@ The section can be summarized as:
 | field dominated | logarithmic scaling with $\omega_c/\omega_R$ |
 
 Thus circuit depth measures the operational price of preparing the correlated oscillator state. Mutual information may say that correlations are present, but circuit depth asks how expensive those correlations are to create.
+
+The final continuation is [Part VI: Quantum Control and Transport Fidelity]({{ '/quantum-control-transport-fidelity-one-body-model/' | relative_url }}), where the same complexity idea is applied to a moving harmonic trap and compared directly with fidelity.

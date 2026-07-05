@@ -1,5 +1,5 @@
 ---
-title: "Two Coupled Quantum Oscillators I: Hamiltonian Formulation"
+title: "Information Dynamics in Quantum Harmonic Systems I: Hamiltonian Formulation"
 date: 2026-06-04 22:00:00 +0530
 categories:
   - research
@@ -13,7 +13,14 @@ tags:
 permalink: "/coupled-oscillator-hamiltonian-formulation/"
 ---
 
-This article is Part I of a two-part explanation of **two coupled quantum harmonic oscillators** in an external magnetic field. Here we develop the Hamiltonian formulation. The construction has three parts: the energy of each oscillator, their mutual coupling, and the extra mixing produced by the magnetic field.
+This article is Part I of a seven-part explanation of the paper **Information Dynamics in Quantum Harmonic Systems: Insights from Toy Models**. Here we develop the Hamiltonian formulation for **two coupled quantum harmonic oscillators** in an external magnetic field. The construction has three parts: the energy of each oscillator, their mutual coupling, and the extra mixing produced by the magnetic field.
+
+<div class="note-box" markdown="1">
+
+**Paper source:** Reza Pirmoradian and M. Reza Tanhayi, *Information Dynamics in Quantum Harmonic Systems: Insights from Toy Models*, arXiv:2501.14359v4 [quant-ph], 3 January 2026.  
+Source link: [arXiv:2501.14359](https://arxiv.org/abs/2501.14359)
+
+</div>
 
 The starting Hamiltonian is
 

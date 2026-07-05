@@ -5,16 +5,14 @@
 .table-scroll,
 .post > table,
 .page > table {
-  width: min(820px, 100%);
+  width: fit-content;
   max-width: 100%;
-  margin: 1.35rem auto 1.65rem;
-  border: 1px solid rgba(8, 96, 95, .18);
-  border-radius: 8px;
+  margin: .9rem auto 1.15rem;
+  border: 1px solid rgba(8, 96, 95, .14);
+  border-radius: 6px;
   background:
-    linear-gradient(135deg, rgba(255, 253, 248, .98), rgba(249, 245, 237, .92));
-  box-shadow:
-    0 14px 34px rgba(35, 31, 26, .07),
-    inset 0 1px 0 rgba(255, 255, 255, .85);
+    linear-gradient(135deg, rgba(255, 253, 248, .98), rgba(250, 247, 241, .92));
+  box-shadow: 0 8px 20px rgba(35, 31, 26, .045);
 }
 
 .table-scroll {
@@ -38,13 +36,13 @@
   border-spacing: 0;
   background: transparent;
   color: #2f2b27;
-  font: 650 .95rem/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font: 400 .88rem/1.34 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-variant-numeric: tabular-nums;
 }
 
 .table-scroll > table {
   width: max-content;
-  min-width: 100%;
+  min-width: min(34rem, 100%);
 }
 
 .table-scroll::-webkit-scrollbar {
@@ -77,10 +75,10 @@
 .post > table td,
 .page > table th,
 .page > table td {
-  min-width: 7.25rem;
-  padding: .68rem .85rem;
+  min-width: 5.75rem;
+  padding: .42rem .62rem;
   border: 0;
-  border-bottom: 1px solid rgba(8, 96, 95, .12);
+  border-bottom: 1px solid rgba(8, 96, 95, .095);
   text-align: center !important;
   vertical-align: middle;
 }
@@ -91,16 +89,16 @@
 .post > table td + td,
 .page > table th + th,
 .page > table td + td {
-  border-left: 1px solid rgba(8, 96, 95, .10);
+  border-left: 1px solid rgba(8, 96, 95, .075);
 }
 
 .table-scroll > table th,
 .post > table th,
 .page > table th {
   background:
-    linear-gradient(180deg, rgba(237, 245, 241, .98), rgba(224, 238, 232, .95));
+    linear-gradient(180deg, rgba(237, 245, 241, .88), rgba(229, 239, 234, .82));
   color: #075f5b;
-  font: 850 .8rem/1.25 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font: 820 .72rem/1.22 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   letter-spacing: .035em;
   text-align: center !important;
   text-transform: uppercase;
@@ -110,13 +108,13 @@
 .table-scroll > table tbody tr:nth-child(even),
 .post > table tbody tr:nth-child(even),
 .page > table tbody tr:nth-child(even) {
-  background: rgba(237, 245, 241, .42);
+  background: rgba(237, 245, 241, .25);
 }
 
 .table-scroll > table tbody tr:hover,
 .post > table tbody tr:hover,
 .page > table tbody tr:hover {
-  background: rgba(255, 248, 231, .58);
+  background: rgba(255, 248, 231, .42);
 }
 
 .table-scroll > table tr:last-child td,
@@ -140,10 +138,8 @@
   .post > table,
   .page > table {
     width: 100%;
-    margin: 1.1rem auto 1.35rem;
+    margin: .85rem auto 1.1rem;
     border-radius: 6px;
-    font-size: .86rem;
-    line-height: 1.38;
   }
 
   .table-scroll > table th,
@@ -152,14 +148,14 @@
   .post > table td,
   .page > table th,
   .page > table td {
-    min-width: 6.25rem;
-    padding: .58rem .65rem;
+    min-width: 5.35rem;
+    padding: .42rem .52rem;
   }
 
   .table-scroll > table th,
   .post > table th,
   .page > table th {
-    font-size: .7rem;
+    font-size: .66rem;
     letter-spacing: .025em;
   }
 }

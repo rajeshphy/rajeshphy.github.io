@@ -1,5 +1,5 @@
 ---
-title: "Two Coupled Quantum Oscillators III: Quench and Steady-State Approximation"
+title: "Information Dynamics in Quantum Harmonic Systems III: Quench and Steady-State Approximation"
 date: 2026-06-06 22:00:00 +0530
 categories:
   - research

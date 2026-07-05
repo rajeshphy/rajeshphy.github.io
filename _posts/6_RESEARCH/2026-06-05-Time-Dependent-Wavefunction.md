@@ -1,5 +1,5 @@
 ---
-title: "Two Coupled Quantum Oscillators II: Time-Dependent Wavefunction"
+title: "Information Dynamics in Quantum Harmonic Systems II: Time-Dependent Wavefunction"
 date: 2026-06-05 22:00:00 +0530
 categories:
   - research
