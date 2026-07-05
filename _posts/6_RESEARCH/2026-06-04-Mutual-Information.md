@@ -394,6 +394,60 @@ R(\phi)=
 \end{pmatrix}.
 $$
 
+<div class="note-box" markdown="1">
+
+**Note: useful rotation-matrix identities.** For the above rotation matrix, the following properties will be used repeatedly:
+
+$$
+R^TR=RR^T=I.
+$$
+
+This means that the rotation preserves lengths and dot products. For example,
+
+$$
+p_1^2+p_2^2=P_1^2+P_2^2.
+$$
+
+The determinant is
+
+$$
+\det R=1,
+$$
+
+so the transformation is a pure rotation, not a reflection or scaling.
+
+If
+
+$$
+J=
+\begin{pmatrix}
+0 & 1\\
+-1 & 0
+\end{pmatrix},
+$$
+
+then
+
+$$
+R^TJR=J.
+$$
+
+This says that the antisymmetric rotational combination is unchanged by rotating the coordinate system:
+
+$$
+p_1x_2-p_2x_1=P_1X_2-P_2X_1.
+$$
+
+Also,
+
+$$
+R^T(dR)=J\,d\phi.
+$$
+
+This last identity is the one that produces the extra rotating-frame term in the Hamiltonian.
+
+</div>
+
 Now differentiate $q=RQ$:
 
 $$
@@ -511,7 +565,72 @@ $$
 \dot\phi(t)=\omega_c
 $$
 
-removes the explicit magnetic position-momentum mixing. Integrating this equation gives
+removes the explicit magnetic position-momentum mixing.
+
+There is one point that should not be skipped. The magnetic term was first written in the old variables as
+
+$$
+\omega_c(p_1x_2-p_2x_1),
+$$
+
+whereas the rotating-frame correction has appeared in the new variables as
+
+$$
+-\dot\phi(t)(P_1X_2-P_2X_1).
+$$
+
+At first sight these do not look like the same term, because one contains $(p_1,x_1,p_2,x_2)$ and the other contains $(P_1,X_1,P_2,X_2)$. The reason they can cancel is that the rotational combination itself is invariant under this rotation.
+
+To see this, write
+
+$$
+p_1x_2-p_2x_1
+=p^TJq,
+\qquad
+J=
+\begin{pmatrix}
+0 & 1\\
+-1 & 0
+\end{pmatrix}.
+$$
+
+Using $p=RP$ and $q=RQ$, we get
+
+$$
+p^TJq
+=(RP)^TJ(RQ)
+=P^T(R^TJR)Q.
+$$
+
+For a rotation matrix,
+
+$$
+R^TJR=J.
+$$
+
+Therefore
+
+$$
+p_1x_2-p_2x_1
+=P^TJQ
+=P_1X_2-P_2X_1.
+$$
+
+So, after the old Hamiltonian is rewritten in the rotating variables, its magnetic mixing term is actually
+
+$$
++\omega_c(P_1X_2-P_2X_1).
+$$
+
+The time-dependent rotating frame contributes
+
+$$
+-\dot\phi(t)(P_1X_2-P_2X_1).
+$$
+
+Thus the two terms cancel exactly when $\dot\phi(t)=\omega_c$. The cancellation is not just a matching of angular frequencies; it is a cancellation of the same rotational generator written in the same variables.
+
+Integrating this equation gives
 
 $$
 \phi(t)=\omega_ct+\theta,
