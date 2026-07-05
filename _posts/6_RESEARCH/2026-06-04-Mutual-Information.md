@@ -396,7 +396,7 @@ $$
 
 <div class="note-box" markdown="1">
 
-**Note: useful rotation-matrix identities.** For the above rotation matrix, the following properties will be used repeatedly:
+**Note:** For the above rotation matrix, the following properties will be used repeatedly:
 
 $$
 R^TR=RR^T=I.
