@@ -658,3 +658,5 @@ The construction can be summarized as:
 | Rotate back to $(x_1,x_2)$ | mixed Gaussian coefficient $A_{12}$ appears |
 
 Thus the time-dependent wavefunction is not guessed. It follows from three facts: the Hamiltonian is quadratic, the one-dimensional time-dependent oscillator has an Ermakov scaling solution, and the rotating-frame coordinates are related to the original coordinates by an ordinary rotation.
+
+The continuation is [Part III: Quench and Steady-State Approximation]({{ '/coupled-oscillator-quench-steady-state/' | relative_url }}), where the sudden parameter change and the simplified steady-state Gaussian are developed.
