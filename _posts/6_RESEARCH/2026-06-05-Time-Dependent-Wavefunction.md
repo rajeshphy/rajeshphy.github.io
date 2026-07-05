@@ -148,13 +148,63 @@ The second equation is a Riccati equation. It is nonlinear, but it can be solved
 
 ## 3. The Scaling Function and Ermakov Equation
 
-For a time-dependent oscillator, write
+At this point the problem has been reduced to the Riccati equation
+
+$$
+i\dot B=B^2-\Omega^2(t).
+$$
+
+This equation is correct, but it is not yet very transparent. The coefficient $B(t)$ is complex, so it contains two different physical effects at the same time:
+
+1. the **real part** tells how narrow or broad the Gaussian is,
+2. the **imaginary part** tells whether the wavefunction has acquired a position-dependent phase.
+
+To see why a new function is useful, compare a fixed oscillator with a time-dependent one.
+
+For a fixed oscillator of frequency $\Omega(0)$, the ground-state wavefunction is
+
+$$
+\psi_0(X)
+=
+\left(\frac{\Omega(0)}{\pi}\right)^{1/4}
+\exp\left[-\frac{1}{2}\Omega(0)X^2\right].
+$$
+
+The Gaussian coefficient is simply
+
+$$
+B(0)=\Omega(0).
+$$
+
+When the frequency changes with time, the wavefunction does not remain with the same width. It breathes: sometimes it becomes wider, sometimes narrower. We describe this breathing by a real scaling function $h(t)$:
+
+| Value of $h(t)$ | Meaning |
+|---|---|
+| $h(t)=1$ | original ground-state width |
+| $h(t)>1$ | Gaussian is wider |
+| $h(t)<1$ | Gaussian is narrower |
+
+Since the width is scaled by $h(t)$, the inverse width scales as $1/h^2(t)$. Therefore the real part of $B(t)$ should be
+
+$$
+\operatorname{Re}B(t)=\frac{\Omega(0)}{h^2(t)}.
+$$
+
+But a changing width also produces a phase. If the packet is spreading or squeezing, the wavefunction must contain a quadratic phase proportional to $X^2$. The rate of this breathing is measured by $\dot h(t)/h(t)$. Hence the imaginary part is chosen as
+
+$$
+\operatorname{Im}B(t)=-\frac{\dot h(t)}{h(t)}.
+$$
+
+Combining these two pieces, we write
 
 $$
 B(t)=\frac{\Omega(0)}{h^2(t)}-i\frac{\dot h(t)}{h(t)}.
 $$
 
-This form separates the width and the phase:
+This is not an extra assumption about the physics. It is a change of variables that replaces the complex coefficient $B(t)$ by one real scaling function $h(t)$. The advantage is that $h(t)$ has a direct physical meaning: it is the breathing scale of the Gaussian.
+
+The form above separates the width and the phase:
 
 | Part of $B(t)$ | Meaning |
 |---|---|
