@@ -63,11 +63,53 @@ $$
 g^{\prime}(\hat a+\hat a^\dagger)(\hat b+\hat b^\dagger).
 $$
 
-Since $\hat a+\hat a^\dagger$ is proportional to the position of oscillator 1 and $\hat b+\hat b^\dagger$ is proportional to the position of oscillator 2, the coupling is essentially
+This term is responsible for making the two oscillators interact. Without it, oscillator 1 and oscillator 2 would evolve independently. With it, the state of one oscillator can influence the other.
+
+Let us first expand the product:
 
 $$
+(\hat a+\hat a^\dagger)(\hat b+\hat b^\dagger)
+=
+\hat a\hat b
++\hat a\hat b^\dagger
++\hat a^\dagger\hat b
++\hat a^\dagger\hat b^\dagger.
+$$
+
+Each part has a different physical interpretation:
+
+| Term | Meaning |
+|---|---|
+| $\hat a\hat b$ | removes one quantum from both oscillators |
+| $\hat a\hat b^\dagger$ | transfers one quantum from oscillator 1 to oscillator 2 |
+| $\hat a^\dagger\hat b$ | transfers one quantum from oscillator 2 to oscillator 1 |
+| $\hat a^\dagger\hat b^\dagger$ | adds one quantum to both oscillators |
+
+Thus the coupling does more than simply add the energies of the two oscillators. It contains terms that can exchange excitations and terms that can create or remove correlated pairs of excitations.
+
+The reason this expression is connected with position is that, for a harmonic oscillator, the position operator is proportional to the sum of the annihilation and creation operators:
+
+$$
+\hat x\propto \hat a+\hat a^\dagger.
+$$
+
+For the two oscillators, this means
+
+$$
+\hat a+\hat a^\dagger\propto \hat x_1,
+\qquad
+\hat b+\hat b^\dagger\propto \hat x_2.
+$$
+
+Therefore the interaction has the same structure as a position-position coupling:
+
+$$
+(\hat a+\hat a^\dagger)(\hat b+\hat b^\dagger)
+\propto
 \hat x_1\hat x_2.
 $$
+
+In words, the displacement of oscillator 1 is coupled to the displacement of oscillator 2. If oscillator 1 is displaced, it changes the effective force felt by oscillator 2, and vice versa.
 
 | Case | Meaning |
 |---|---|
@@ -75,55 +117,145 @@ $$
 | $g^{\prime}\neq0$ | the oscillators influence each other |
 | larger $g^{\prime}$ | stronger correlation and energy exchange |
 
-In position and momentum variables this interaction is written as
+After rewriting the Hamiltonian in position and momentum variables, the interaction is written in the form
 
 $$
 -gx_1x_2,
 $$
 
-where the rescaled coupling is
+where $g$ is the coupling constant in the position representation. In the notation used here, the relation is
 
 $$
 g=\frac{1}{2}g^{\prime}\sqrt{\omega_1\omega_2}.
 $$
 
+The minus sign in $-gx_1x_2$ is a convention: it tells us how the interaction is included in the position-space Hamiltonian. The important point is that $g^{\prime}$ and $g$ describe the same physical interaction, but in two different languages:
+
+| Form | Coupling written as | Natural language |
+|---|---|---|
+| ladder-operator form | $g^{\prime}(\hat a+\hat a^\dagger)(\hat b+\hat b^\dagger)$ | interaction in terms of quanta |
+| position-space form | $-gx_1x_2$ | interaction in terms of displacements |
+
+So Section 2 connects the quantum-operator description with the later Hamiltonian written in $x_j,p_j$ variables.
+
 ## 3. Magnetic Field
 
-The magnetic field is introduced through a vector potential. The paper uses the symmetric gauge
+The magnetic field is introduced through a vector potential. This is standard in Hamiltonian mechanics because a charged particle does not couple directly to $\vec B$ in the momentum term. Instead, the momentum is modified through the vector potential $\vec A$.
 
-$$
-\vec A=\frac{B}{2}(x_2-x_1),
-$$
-
-where $B$ is the magnetic-field strength. The field is related to the vector potential by
+The magnetic field and vector potential are related by
 
 $$
 \vec B=\nabla\times\vec A.
 $$
 
-In quantum mechanics, the magnetic field modifies momentum through minimal coupling:
+The paper uses a symmetric-gauge form. In the two-coordinate oscillator plane, this gives an effective magnetic mixing between $x_1$ and $x_2$. The useful way to read it is that the momenta are shifted as
 
 $$
-p\rightarrow p-\frac{e}{c}A,
+p_1\rightarrow p_1+\omega_c x_2,
+\qquad
+p_2\rightarrow p_2-\omega_c x_1.
 $$
 
-where $e$ is electric charge and $c$ is the speed of light. After this substitution and setting $m=1$, the Hamiltonian becomes
+The opposite signs are important. A magnetic field produces a rotational coupling in the $(x_1,x_2)$ plane: the shift in $p_1$ depends on the perpendicular coordinate $x_2$, while the shift in $p_2$ depends on $x_1$ with the opposite orientation. This antisymmetric sign pattern is what later produces the combination
+
+$$
+p_1x_2-p_2x_1.
+$$
+
+<figure class="diagram-figure">
+  <img src="{{ '/assets/images/research/magnetic-momentum-shift.png' | relative_url }}" alt="Magnetic momentum shifts with opposite signs in the oscillator plane">
+  <figcaption>Figure: The magnetic field shifts the two momentum channels with opposite signs. The $+\,\omega_c x_2$ shift belongs to $p_1$, while the $-\,\omega_c x_1$ shift belongs to $p_2$; together they form the rotational coupling $\omega_c(p_1x_2-p_2x_1)$.</figcaption>
+</figure>
+
+If both signs were the same, the magnetic term would not have the correct rotational structure.
+
+Here
+
+$$
+\omega_c=\frac{eB}{2c}
+$$
+
+is the cyclotron frequency. The overall sign may change with the sign of the charge or the chosen gauge convention, but the relative opposite signs between the two shifts encode the magnetic rotation.
+
+This rule is a form of **minimal coupling**:
+
+$$
+p\rightarrow p-\frac{e}{c}A.
+$$
+
+Since the mass is set to $m=1$, the kinetic energy without magnetic field is
+
+$$
+T=\frac{1}{2}(p_1^2+p_2^2).
+$$
+
+With the magnetic field, it becomes
+
+$$
+T_B=
+\frac{1}{2}(p_1+\omega_c x_2)^2
++\frac{1}{2}(p_2-\omega_c x_1)^2.
+$$
+
+Now expand this expression step by step:
+
+$$
+\frac{1}{2}(p_1+\omega_c x_2)^2
+=
+\frac{1}{2}p_1^2
++\omega_c p_1x_2
++\frac{1}{2}\omega_c^2x_2^2,
+$$
+
+and
+
+$$
+\frac{1}{2}(p_2-\omega_c x_1)^2
+=
+\frac{1}{2}p_2^2
+-\omega_c p_2x_1
++\frac{1}{2}\omega_c^2x_1^2.
+$$
+
+Adding both parts gives
+
+$$
+T_B=
+\frac{1}{2}(p_1^2+p_2^2)
++\frac{1}{2}\omega_c^2(x_1^2+x_2^2)
++\omega_c(p_1x_2-p_2x_1).
+$$
+
+This expansion is the key step. The magnetic field produces two new contributions:
+
+| Magnetic contribution | Meaning |
+|---|---|
+| $\frac{1}{2}\omega_c^2(x_1^2+x_2^2)$ | adds an extra quadratic potential, so the oscillator frequencies shift |
+| $\omega_c(p_1x_2-p_2x_1)$ | mixes momentum of one oscillator with position of the other |
+
+Now add the ordinary oscillator potential
+
+$$
+\frac{1}{2}\omega_1^2x_1^2+\frac{1}{2}\omega_2^2x_2^2
+$$
+
+and the coupling term
+
+$$
+-gx_1x_2.
+$$
+
+Combining all terms, the Hamiltonian becomes
 
 $$
 H=
 \frac{1}{2}\sum_{j=1}^{2}
 \left[p_j^2+(\omega_j^2+\omega_c^2)x_j^2\right]
 -gx_1x_2
-+\omega_c(p_1x_2-p_2x_1),
++\omega_c(p_1x_2-p_2x_1).
 $$
 
-where
-
-$$
-\omega_c=\frac{eB}{2c}
-$$
-
-is the cyclotron frequency. The terms have the following roles:
+The terms have the following roles:
 
 | Term | Meaning |
 |---|---|
@@ -133,7 +265,13 @@ is the cyclotron frequency. The terms have the following roles:
 | $-gx_1x_2$ | position-position coupling |
 | $\omega_c(p_1x_2-p_2x_1)$ | magnetic position-momentum mixing |
 
-The magnetic field therefore does two things: it shifts the oscillator frequencies and creates a cross-term that mixes position and momentum.
+Thus the magnetic field has two effects. First, it shifts the oscillator frequencies through the $\omega_c^2x_j^2$ contribution. Second, it creates the mixed term
+
+$$
+\omega_c(p_1x_2-p_2x_1),
+$$
+
+which is the difficult term handled in the next section by moving to a rotating frame.
 
 ## 4. Rotating-Frame Transformation
 
