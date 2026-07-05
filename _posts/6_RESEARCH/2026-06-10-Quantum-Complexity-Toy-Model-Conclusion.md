@@ -227,7 +227,7 @@ The two models together give a unified view:
 
 No single quantity tells the whole story. Each measure sees a different face of the quantum dynamics.
 
-The final message is:
+Final message:
 
 <div class="note-box" markdown="1">
 
