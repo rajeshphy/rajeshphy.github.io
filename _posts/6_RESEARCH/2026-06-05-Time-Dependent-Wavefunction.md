@@ -145,64 +145,126 @@ i\dot B=B^2-\Omega^2(t).
 $$
 
 The second equation is a Riccati equation. It is nonlinear, but it can be solved by introducing a real scaling function $h(t)$.
-
 ## 3. The Scaling Function and Ermakov Equation
 
-At this point the problem has been reduced to the Riccati equation
+We have obtained the Riccati equation
 
 $$
 i\dot B=B^2-\Omega^2(t).
 $$
 
-This equation is correct, but it is not yet very transparent. The coefficient $B(t)$ is complex, so it contains two different physical effects at the same time:
+This equation tells us how the Gaussian coefficient $B(t)$ evolves, but it does not immediately tell us what the real and imaginary parts of $B(t)$ mean. To understand that, we should go back to the form of the wavefunction.
 
-1. the **real part** tells how narrow or broad the Gaussian is,
-2. the **imaginary part** tells whether the wavefunction has acquired a position-dependent phase.
-
-To see why a new function is useful, compare a fixed oscillator with a time-dependent one.
-
-For a fixed oscillator of frequency $\Omega(0)$, the ground-state wavefunction is
+For a Gaussian state we write
 
 $$
-\psi_0(X)
+\psi(X,t)=N(t)\exp\left[-\frac{1}{2}B(t)X^2\right],
+$$
+
+where $B(t)$ is allowed to be complex. Let
+
+$$
+B(t)=B_R(t)+iB_I(t),
+$$
+
+where $B_R(t)$ and $B_I(t)$ are real functions. Substituting this into the wavefunction gives
+
+$$
+\psi(X,t)
 =
-\left(\frac{\Omega(0)}{\pi}\right)^{1/4}
-\exp\left[-\frac{1}{2}\Omega(0)X^2\right].
+N(t)
+\exp\left[-\frac{1}{2}B_R(t)X^2\right]
+\exp\left[-\frac{i}{2}B_I(t)X^2\right].
 $$
 
-The Gaussian coefficient is simply
+Now the meaning is clear.
+
+The factor
+
+$$
+\exp\left[-\frac{1}{2}B_R(t)X^2\right]
+$$
+
+controls the size of the wavefunction. Therefore $B_R(t)=\operatorname{Re}B(t)$ controls the width of the Gaussian. A larger $B_R(t)$ makes the Gaussian decay faster and hence makes the wavepacket narrower. A smaller $B_R(t)$ makes the Gaussian wider.
+
+The factor
+
+$$
+\exp\left[-\frac{i}{2}B_I(t)X^2\right]
+$$
+
+does not change the magnitude of the wavefunction. It only changes the phase. Since this phase depends on $X^2$, the imaginary part $B_I(t)=\operatorname{Im}B(t)$ represents a position-dependent quadratic phase.
+
+
+
+
+Thus the interpretation of the two parts of $B(t)$ does not come directly from the Riccati equation. It comes from the Gaussian wavefunction itself:
+
+$$
+\operatorname{Re}B(t)
+\quad \longrightarrow \quad
+\text{width of the Gaussian},
+$$
+
+and
+
+$$
+\operatorname{Im}B(t)
+\quad \longrightarrow \quad
+\text{quadratic phase of the Gaussian}.
+$$
+
+Now we introduce a real scaling function $h(t)$ to describe the changing width. The initial ground-state wavefunction has coefficient
 
 $$
 B(0)=\Omega(0).
 $$
 
-When the frequency changes with time, the wavefunction does not remain with the same width. It breathes: sometimes it becomes wider, sometimes narrower. We describe this breathing by a real scaling function $h(t)$:
 
-| Value of $h(t)$ | Meaning |
-|---|---|
-| $h(t)=1$ | original ground-state width |
-| $h(t)>1$ | Gaussian is wider |
-| $h(t)<1$ | Gaussian is narrower |
-
-Since the width is scaled by $h(t)$, the inverse width scales as $1/h^2(t)$. Therefore the real part of $B(t)$ should be
+If the wavefunction width is scaled by a factor $h(t)$, then the variance scales as $h^2(t)$. Since the Gaussian coefficient is inversely proportional to the variance, the real part of $B(t)$ must scale as
 
 $$
-\operatorname{Re}B(t)=\frac{\Omega(0)}{h^2(t)}.
+\operatorname{Re}B(t)
+=
+\frac{\Omega(0)}{h^2(t)}.
 $$
 
-But a changing width also produces a phase. If the packet is spreading or squeezing, the wavefunction must contain a quadratic phase proportional to $X^2$. The rate of this breathing is measured by $\dot h(t)/h(t)$. Hence the imaginary part is chosen as
+This is the reason for the first part of the substitution.
+
+The imaginary part is fixed by the fact that a changing width produces a quadratic phase. If $h(t)$ changes with time, the wavepacket is either expanding or contracting. The natural measure of this breathing rate is the fractional rate
 
 $$
-\operatorname{Im}B(t)=-\frac{\dot h(t)}{h(t)}.
+\frac{\dot h(t)}{h(t)}.
 $$
 
-Combining these two pieces, we write
+Therefore the imaginary part must be proportional to this quantity. With the standard Gaussian convention used here, one writes
 
 $$
-B(t)=\frac{\Omega(0)}{h^2(t)}-i\frac{\dot h(t)}{h(t)}.
+\operatorname{Im}B(t)
+=
+-\frac{\dot h(t)}{h(t)}.
 $$
 
-This is not an extra assumption about the physics. It is a change of variables that replaces the complex coefficient $B(t)$ by one real scaling function $h(t)$. The advantage is that $h(t)$ has a direct physical meaning: it is the breathing scale of the Gaussian.
+Hence the complex coefficient $B(t)$ is written as
+
+$$
+B(t)
+=
+\frac{\Omega(0)}{h^2(t)}
+-
+i\frac{\dot h(t)}{h(t)}.
+$$
+
+This substitution is not guessed from the Riccati equation alone. Its logic is:
+
+1. the wavefunction shows that $\operatorname{Re}B(t)$ controls the Gaussian width;
+2. the scaling function $h(t)$ measures the change of that width;
+3. therefore $\operatorname{Re}B(t)=\Omega(0)/h^2(t)$;
+4. a time-dependent width creates a quadratic phase;
+5. the breathing rate is $\dot h(t)/h(t)$;
+6. therefore $\operatorname{Im}B(t)=-\dot h(t)/h(t)$.
+
+So the role of $h(t)$ is to separate the two physical meanings hidden inside the complex function $B(t)$: the width and the breathing-induced phase.
 
 The form above separates the width and the phase:
 
