@@ -75,19 +75,7 @@ The derivation below proceeds in four steps:
 
 ## 2. The Decoupled Time-Dependent Oscillator
 
-Start with one time-dependent harmonic oscillator:
-
-$$
-H(t)=\frac{1}{2}P^2+\frac{1}{2}\Omega^2(t)X^2.
-$$
-
-In the coordinate representation,
-
-$$
-P=-i\frac{\partial}{\partial X},
-$$
-
-so the time-dependent Schrodinger equation is
+The time-dependent Schrodinger equation is
 
 $$
 i\frac{\partial \psi}{\partial t}
