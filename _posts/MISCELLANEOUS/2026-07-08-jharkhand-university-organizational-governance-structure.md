@@ -1,13 +1,11 @@
 ---
 title: "Jharkhand State University Governance Manual"
-summary: "A daily reference manual for locating officers, authorities, committees, appointments, finance routes, grievance channels, college structures, and the State University Service Commission under the Jharkhand State Universities Act, 2026."
+summary: "A daily reference guide to Jharkhand university officers, authorities, committees, appointments, finance, grievances, colleges, and the State University Service Commission under the 2026 Act."
 date: 2026-07-07 10:00:00 +0530
 categories: misc
 tags:
   - Jharkhand
   - University Governance
-  - Higher Education
-  - Mermaid
 permalink: "/jharkhand-university-organizational-governance-structure/"
 mermaid: true
 ---
