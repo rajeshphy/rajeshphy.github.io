@@ -98,3 +98,31 @@ mjx-container[jax="SVG"][display="true"] > svg {
   max-width: 100%;
   overflow-x: auto;
 }
+
+.mermaid {
+  max-width: 100%;
+  margin: 1.35rem auto 1.55rem;
+  padding: .9rem;
+  overflow-x: auto;
+  border: 1px solid rgba(8, 96, 95, .16);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, .96), rgba(237, 245, 241, .78));
+  box-shadow: 0 12px 30px rgba(35, 31, 26, .055);
+  text-align: center;
+}
+
+.mermaid svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .mermaid {
+    margin-inline: -4px;
+    padding: .75rem;
+  }
+}
