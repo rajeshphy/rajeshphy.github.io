@@ -13,15 +13,19 @@ tags:
 permalink: "/exceptional-point-project-exceptional-points/"
 ---
 
-This is Part II of the project guide.  [Part
-I]({{ '/exceptional-point-project-non-hermitian-arrays/' | relative_url }})
-introduced non-Hermitian arrays and the exact spectrum
+This is Part II of the project guide, but it is written to be read
+independently.  A matrix is non-Hermitian when $H\neq H^\dagger$.  Such a
+matrix can have complex eigenvalues and nonorthogonal eigenvectors.  The
+two-site example below supplies all the additional background needed here.
+
+[Part I]({{ '/exceptional-point-project-non-hermitian-arrays/' | relative_url }})
+develops the broader array interpretation and introduces the exact spectrum
 
 $$
 E_m=m\sqrt{\Omega^2-\gamma^2}.
 $$
 
-We now ask what really happens when the square root vanishes.
+We now derive what happens when the square root vanishes.
 
 ## 1. Ordinary Degeneracy Versus Exceptional Point
 
