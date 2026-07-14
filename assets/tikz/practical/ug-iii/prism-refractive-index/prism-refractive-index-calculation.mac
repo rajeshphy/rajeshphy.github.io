@@ -1,0 +1,7 @@
+kill(all)$
+n : 30$
+delta : 39.0*%pi/180$
+A : 60.0*%pi/180$
+mu : sin((A+delta)/2)/sin(A/2)$
+float(mu);
+

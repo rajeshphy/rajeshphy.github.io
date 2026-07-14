@@ -1,0 +1,15 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily\small]
+\node[font=\sffamily\bfseries\small,text=teal!55!black] at (3.2,3.45) {Series LCR circuit};
+\draw (0,0) to[sV,l=$V_s$] (0,2.3)
+      to[R,l=$R$] (2.0,2.3)
+      to[L,l=$L$] (4.2,2.3)
+      to[C,l=$C$] (6.4,2.3)
+      -- (6.4,0) -- (0,0);
+\draw (5.8,1.1) to[ammeter,l=$I$] (3.8,1.1);
+\node[align=center,text=black!75] at (3.2,-0.55)
+  {At resonance, $f_0=\frac{1}{2\pi\sqrt{LC}}$ and current is maximum.};
+\end{circuitikz}
+\end{document}

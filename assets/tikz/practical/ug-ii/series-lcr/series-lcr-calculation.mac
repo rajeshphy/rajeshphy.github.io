@@ -1,0 +1,7 @@
+L: 0.050$
+C: 0.80*10^-6$
+R: 100$
+f0: 1/(2*%pi*sqrt(L*C))$
+Q: 2*%pi*f0*L/R$
+bandwidth: f0/Q$
+float([f0,Q,bandwidth]);

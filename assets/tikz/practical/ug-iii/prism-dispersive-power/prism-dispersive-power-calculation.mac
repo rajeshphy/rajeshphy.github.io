@@ -1,0 +1,7 @@
+kill(all)$
+mu_F : 1.528$
+mu_C : 1.514$
+mu_D : 1.520$
+omega : (mu_F-mu_C)/(mu_D-1)$
+float(omega);
+

@@ -1,0 +1,9 @@
+R: 1000$
+C: 0.1*10^-6$
+f: 1000$
+V: 5$
+Xc: 1/(2*%pi*f*C)$
+Z: sqrt(R^2+Xc^2)$
+I: V/Z$
+phi: atan(Xc/R)$
+float([Xc,Z,I*1000,phi*180/%pi]);

@@ -1,0 +1,21 @@
+/* Vernier calipers */
+main_scale_vc: 2.40$
+vernier_coincidence_vc: 6$
+least_count_vc: 0.01$
+zero_correction_vc: -0.02$
+reading_vc: main_scale_vc + vernier_coincidence_vc*least_count_vc + zero_correction_vc$
+float(reading_vc);
+
+/* Screw gauge */
+pitch_scale_sg: 0.50$
+circular_division_sg: 28$
+least_count_sg: 0.01$
+zero_correction_sg: -0.01$
+reading_sg: pitch_scale_sg + circular_division_sg*least_count_sg + zero_correction_sg$
+float(reading_sg);
+
+/* Travelling microscope */
+left_reading_tm: 3.245$
+right_reading_tm: 3.380$
+diameter_tm: right_reading_tm-left_reading_tm$
+float(diameter_tm);

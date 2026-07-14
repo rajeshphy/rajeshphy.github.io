@@ -159,6 +159,52 @@ blockquote {
   margin-block: .75rem;
 }
 
+.practical-sheet {
+  margin: 1.2rem auto 0;
+  padding: clamp(18px, 3vw, 34px);
+  border: 1px solid rgba(8, 96, 95, .18);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, .98), rgba(245, 250, 247, .94));
+  box-shadow: 0 18px 46px rgba(35, 31, 26, .075);
+}
+
+.practical-sheet h2 {
+  margin-top: 1.65rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid rgba(8, 96, 95, .16);
+}
+
+.practical-sheet > h2:first-of-type {
+  margin-top: 0;
+}
+
+.practical-figure {
+  margin: 1.1rem auto 1.35rem;
+  padding: clamp(12px, 2vw, 18px);
+  border: 1px solid rgba(8, 96, 95, .14);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, .9);
+  box-shadow: 0 12px 28px rgba(35, 31, 26, .055);
+  text-align: center;
+}
+
+.practical-figure img {
+  display: block;
+  width: min(100%, 620px);
+  margin: 0 auto;
+}
+
+.practical-figure-wide img {
+  width: min(100%, 860px);
+}
+
+.practical-figure figcaption {
+  margin-top: .65rem;
+  color: var(--muted);
+  font: 700 .86rem/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 .exam-problem-renderer {
   max-width: 920px;
   margin: 2rem auto 0;

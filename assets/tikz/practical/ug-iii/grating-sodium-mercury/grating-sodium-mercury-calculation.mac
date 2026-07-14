@@ -1,0 +1,7 @@
+kill(all)$
+N : 6000$ /* lines per cm */
+d : 1/(N*100)$ /* cm */
+theta : 20.65*%pi/180$
+lambda : d*sin(theta)$ /* cm */
+float(lambda*10^7); /* nm */
+

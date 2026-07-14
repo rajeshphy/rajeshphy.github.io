@@ -1,0 +1,9 @@
+load(draw)$
+g: 9.81$
+L: 1.50$
+r: 0.00025$
+slope_mm_per_kg: 0.379$
+slope_m_per_kg: slope_mm_per_kg*10^-3$
+A: %pi*r^2$
+Y: g*L/(A*slope_m_per_kg)$
+float(Y);

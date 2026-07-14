@@ -1,0 +1,19 @@
+display2d:false$
+
+pi_value: 3.141592653589793$
+L: 0.512$
+T: 1.436$
+k: 0.250$
+Tmin: 1.419$
+l1: 20.0$
+l2: 31.2$
+
+g1: 4*pi_value^2*L/T^2$
+g2: 8*pi_value^2*k/Tmin^2$
+gmean: (g1+g2)/2$
+k_from_lengths: sqrt(l1*l2)$
+
+printf(true, "g1 = ~,3f m/s^2~%", g1)$
+printf(true, "g2 = ~,3f m/s^2~%", g2)$
+printf(true, "gmean = ~,3f m/s^2~%", gmean)$
+printf(true, "k from lengths = ~,3f cm~%", k_from_lengths)$

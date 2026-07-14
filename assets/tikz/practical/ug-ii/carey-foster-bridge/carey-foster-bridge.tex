@@ -1,0 +1,40 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily\small]
+\node[font=\sffamily\bfseries\small,text=teal!55!black] at (3,4.1) {Carey Foster bridge};
+
+% Main bridge nodes
+\coordinate (a) at (0,2.8);
+\coordinate (b) at (3,3.45);
+\coordinate (c) at (6,2.8);
+\coordinate (d) at (1.1,0.8);
+\coordinate (e) at (4.9,0.8);
+\coordinate (j) at (3,0.8);
+
+% Bridge arms
+\draw (a) to[R,l=$P$] (b) to[R,l=$Q$] (c);
+\draw (a) to[R,l_=$X$] (d);
+\draw (e) to[R,l=$S$] (c);
+
+% Uniform bridge wire, drawn as a resistance wire rather than a shorting link
+\draw[teal!65!black,line width=1.6pt] (d) -- (e);
+\foreach \x in {1.45,1.8,...,4.55} {
+  \draw[teal!65!black,line width=0.45pt] (\x,0.68) -- ++(0,0.24);
+}
+\node[below] at (d) {$A$};
+\node[below] at (e) {$B$};
+\node[below] at (j) {$J$};
+\node[font=\sffamily\scriptsize,text=black!70,below] at (3,0.35) {uniform bridge wire};
+
+% Galvanometer branch
+\draw (b) to[R,l=$G$] (j);
+\draw[-latex,black!55,line width=0.6pt] (j) -- ++(0,0.42);
+
+% Battery across the outer bridge terminals
+\draw (a) -- (-0.85,2.8) to[battery1,l=$E$] (-0.85,-0.15) -- (6.85,-0.15) -- (6.85,2.8) -- (c);
+
+\node[align=center,text=black!75] at (3,-0.65)
+  {Balance point is noted on the uniform bridge wire before and after interchanging $X$ and $S$.};
+\end{circuitikz}
+\end{document}

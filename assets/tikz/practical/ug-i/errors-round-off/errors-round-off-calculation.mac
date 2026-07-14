@@ -1,0 +1,8 @@
+true_value: 2.2449$
+truncated_2dp: floor(true_value*100)/100$
+rounded_2dp: round(true_value*100)/100$
+absolute_error_trunc: abs(true_value-truncated_2dp)$
+absolute_error_round: abs(true_value-rounded_2dp)$
+relative_error_round: absolute_error_round/true_value$
+percentage_error_round: relative_error_round*100$
+float([truncated_2dp, rounded_2dp, absolute_error_trunc, absolute_error_round, percentage_error_round]);

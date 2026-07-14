@@ -224,6 +224,15 @@
     transform: translateY(-22px);
   }
 
+  .practical-sheet {
+    padding: 14px;
+    border-radius: 8px;
+  }
+
+  .practical-figure {
+    padding: 10px;
+  }
+
   .desk-card {
     grid-template-columns: 1fr;
     gap: 14px;

@@ -1,0 +1,7 @@
+kill(all)$
+divisions_horizontal : 4$
+time_per_division : 0.5$ /* ms */
+period : divisions_horizontal*time_per_division$
+frequency : 1000/period$ /* Hz */
+float(frequency);
+

@@ -1,0 +1,7 @@
+kill(all)$
+lambda : 589.3*10^(-6)$ /* mm */
+beta : 1.50$ /* mm */
+alpha : lambda/(2*beta)$
+t : 100*alpha$ /* separation 100 mm from contact */
+float(t);
+

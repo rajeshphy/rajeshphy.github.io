@@ -1,0 +1,6 @@
+kill(all)$
+m : 100$
+d : 0.0316$
+lambda : 2*d/m$
+float(lambda*10^6);
+

@@ -1,0 +1,5 @@
+resistance_values: [0.771,0.773,0.774]$
+dc_voltage_values: [4.98,5.01,5.00]$
+capacitance_values: [9.8,10.1,10.0]$
+mean(x):=apply("+",x)/length(x)$
+float([mean(resistance_values),mean(dc_voltage_values),mean(capacitance_values)]);

@@ -104,6 +104,25 @@ Styles are split into Jekyll Sass partials under `_sass`. Keep relevant edits in
 - TikZ image post was removed in favor of documentation. If TikZ demonstration is needed, show code and rendered output only when explicitly requested.
 - No need to add `math: true` in each post because `_config.yml` defaults already set math for posts.
 
+## Practical Posts Workflow
+
+- Practical posts live under `_posts/PRACTICAL/<level>/`, such as `_posts/PRACTICAL/UG-I/` or `_posts/PRACTICAL/PG-II/`.
+- Use practical archive categories by level: `practical-ug-i` through `practical-ug-viii`, and `practical-pg-i` through `practical-pg-iv`.
+- Put `comments: true` explicitly in the front matter of every practical post.
+- Each practical should be copy-ready for students: aim, apparatus, real apparatus image where useful, clean schematic/figure, theory/formulae, procedure, filled observations, graph, calculations, result, precautions, and viva questions with answers.
+- Use TikZ for clean schematic figures and conceptual diagrams, but do not rely on TikZ everywhere. Store editable TikZ sources under `assets/tikz/practical/<level>/<slug>/` and rendered images under `assets/images/practical/<level>/<slug>/`.
+- Image search and image download are allowed for practical posts. For actual instruments/apparatus, prefer a good downloaded photograph instead of trying to draw the instrument. Store downloaded apparatus images under `assets/images/practical/<level>/<slug>/` and keep the source URL in the post or nearby asset notes.
+- Use Gnuplot for standard graphs when it gives a cleaner practical graph. Store plot data/scripts under `assets/plots/practical/<level>/<slug>/`.
+- Use Veusz for publication-style plots when needed; if Veusz is not installed, install it only when a practical requires it.
+- Use Maxima where useful to verify symbolic or numerical calculations. Store short Maxima scripts with the practical assets when calculations are non-trivial.
+- Do not leave observation or result fields blank. If actual data is not supplied, use realistic sample data without making the page look unfinished.
+- For graph-based practicals, include the plotted graph, graph readings, substituted formulae, final numerical value, and units.
+- After generating a practical, visually verify every graph, schematic, and apparatus image. Check label clarity, spacing, axis readability, figure size, mobile fit, and whether the image actually represents the instrument. Iterate until the figures look clean and useful.
+- Viva questions should be written as a readable numbered Q/A list, not as a table.
+- Do not add a second title block inside the practical post body; the Jekyll post title is the only title.
+- Practical front matter should omit `summary` unless a very short subject phrase is genuinely needed; do not repeat generic wording such as observations, graph, calculation, result, and viva questions.
+- Keep the practical page visually clean using the `.practical-sheet` pattern.
+
 ## Quiz System
 
 - Quiz should be reusable anywhere, not a navbar page/button.

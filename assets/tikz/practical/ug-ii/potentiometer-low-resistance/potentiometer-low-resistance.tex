@@ -1,0 +1,17 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily\small]
+\node[font=\sffamily\bfseries\small,text=teal!55!black] at (4,4.05) {Low resistance by potentiometer};
+\draw (0,2.7) to[battery1,l=$E$] (0,0.3) -- (8,0.3) -- (8,2.7);
+\draw[very thick,teal!65!black] (0,2.7) -- (8,2.7);
+\node[above] at (0,2.7) {$A$};
+\node[above] at (8,2.7) {$B$};
+\node[above] at (4.9,2.7) {$J$};
+\draw (4.9,2.7) -- (4.9,1.85) to[R,l=$G$] (3.0,1.85);
+\draw (3.0,1.85) -- (3.0,1.1) to[R,l=$X$] (1.1,1.1) -- (1.1,0.3);
+\draw (3.0,1.85) -- (3.0,0.65) to[R,l=$S$] (5.3,0.65) -- (5.3,0.3);
+\node[align=center,text=black!75] at (4,-0.35)
+  {Compare balancing lengths for unknown resistance $X$ and standard resistance $S$.};
+\end{circuitikz}
+\end{document}

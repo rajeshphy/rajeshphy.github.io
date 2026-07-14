@@ -1,0 +1,198 @@
+ug:
+  i:
+    category: practical-ug-i
+    title: UG-I
+    experiments:
+      - Measurements of length or diameter using vernier calipers, screw gauge and travelling microscope.
+      - Truncation error, round-off error, absolute error and relative error.
+      - Elastic constants of a wire by Searle's method.
+      - Acceleration due to gravity using bar pendulum.
+      - Acceleration due to gravity using Kater's pendulum.
+      - Modulus of rigidity of a wire by Maxwell's needle.
+  ii:
+    category: practical-ug-ii
+    title: UG-II
+    experiments:
+      - Measurements of length or diameter using vernier calipers, screw gauge and travelling microscope.
+      - Truncation error, round-off error, absolute error and relative error.
+      - Motion of spring and calculation of spring constant, g and modulus of rigidity.
+      - Elastic constants of a wire by Searle's method.
+      - Acceleration due to gravity using bar pendulum.
+      - Acceleration due to gravity using Kater's pendulum.
+      - Modulus of rigidity of a wire by Maxwell's needle.
+      - Multimeter measurements of resistance, AC/DC voltage, DC current, capacitance and fuse continuity.
+      - Characteristics of a series RC circuit.
+      - Unknown low resistance using potentiometer.
+      - Unknown low resistance using Carey Foster's bridge.
+      - Comparison of capacitances using De Sauty's bridge.
+      - Self inductance of a coil by Anderson's bridge.
+      - Magnetic field strength and its variation along a solenoid.
+      - Response curve of a series LCR circuit.
+      - Response curve of a parallel LCR circuit.
+  iii:
+    category: practical-ug-iii
+    title: UG-III
+    experiments:
+      - Refractive index of a prism using sodium source.
+      - Dispersive power and Cauchy constants of a prism using mercury source.
+      - Wavelength of sodium source using Michelson interferometer.
+      - Wavelength of sodium light using Fresnel biprism.
+      - Wavelength of sodium light using Newton's rings.
+      - Radius of curvature of plano-convex lens using Newton's rings.
+      - Thickness of thin paper by wedge-shaped film interference fringes.
+      - Wavelength of sodium source and spectral lines of mercury source using plane diffraction grating.
+      - Wavelengths of spectral lines of mercury vapour using diffraction grating.
+      - Diffraction of light by double slits and unknown wavelength determination.
+      - Dispersive power and resolving power of plane diffraction grating.
+  iv:
+    category: practical-ug-iv
+    title: UG-IV
+    experiments:
+      - Voltage and time period of a periodic waveform using CRO.
+      - Diode and transistor testing using multimeter.
+      - Transistor as a switch or NOT gate.
+      - AND, OR, NOT and XOR gates using NAND gates.
+      - V-I characteristics of PN junction diode and verification of diode equation.
+      - V-I characteristics of Zener diode and use as voltage regulator.
+      - BJT characteristics in common-emitter configuration.
+      - Frequency response of RC-coupled transistor amplifier.
+      - Thevenin and Norton theorem verification.
+      - Superposition and maximum power transfer theorem verification.
+  v:
+    category: practical-ug-v
+    title: UG-V
+    experiments:
+      - Coefficient of thermal conductivity of copper by Searle's apparatus.
+      - Coefficient of thermal conductivity of a bad conductor by Lee and Charlton's disc method.
+      - Temperature coefficient of resistance by platinum resistance thermometer.
+      - Thermo-emf of a thermocouple with temperature difference.
+      - Specific heat of a liquid by method of cooling.
+      - Specific heat of a solid with radiation correction.
+      - Latent heat of fusion of ice with radiation correction.
+      - Calibration of thermocouple and unknown temperature determination.
+      - Ratio of specific heats of gas by Clement and Desorme's apparatus.
+      - Temperature coefficient of resistance of a wire material.
+  vi:
+    category: practical-ug-vi
+    title: UG-VI
+    experiments:
+      - Energy gap of semiconductor using PN junction.
+      - Susceptibility of paramagnetic solution by Quincke's tube method.
+      - Magnetic susceptibility of solids.
+      - Coupling coefficient of piezoelectric crystal.
+      - Dielectric constant of dielectric materials with frequency.
+      - B-H curve of iron using solenoid and hysteresis energy loss.
+      - Hall coefficient of a semiconductor sample.
+      - Tunneling effect in tunnel diode using I-V characteristics.
+      - Numerical study of Maxwell-Boltzmann, Fermi-Dirac and Bose-Einstein distribution functions.
+      - Numerical estimates of metallic specific heat.
+      - Numerical studies of partition function and properties.
+      - Simulation of spin systems.
+      - Bose gas confined in harmonic trap.
+      - Stirling approximation for large numbers.
+  vii:
+    category: practical-ug-vii
+    title: UG-VII
+    experiments:
+      - Gravitational acceleration using simple pendulum.
+      - Newton's second law using dynamics cart and track system.
+      - Coefficient of friction using inclined plane.
+      - Magnetic field of a current-carrying wire using Hall probe.
+      - Electromagnetic induction using coil and magnet setup.
+      - Simple harmonic motion using mass-spring system.
+      - Ampere's law using solenoid and current-carrying wire.
+      - Capacitance of a parallel plate capacitor and relation between charge, voltage and capacitance.
+      - Moment of inertia of irregular objects using torsion pendulum.
+      - Radioactive decay and decay constant using Geiger counter.
+      - Projectile motion and dependence on initial velocity and angle.
+      - Half-life of a radioactive isotope using decay curve analysis.
+      - Inverse square law for gamma radiation.
+      - Particle interactions in cloud chamber.
+      - Binding energy per nucleon using nuclear reactions and mass spectrometry.
+  viii:
+    category: practical-ug-viii
+    title: UG-VIII
+    experiments:
+      - Half adder and full adder using XOR and NAND gates.
+      - RS, JK, T and D flip-flops using NAND and NOR gates.
+      - Function generator using op-amp.
+      - Op-amp voltage regulator for 12 V output.
+      - DSP functions, transform functions, filters and compression methods.
+      - Numerical aperture and acceptance angle of optical fibre.
+      - Laser beam divergence and spot size.
+      - Complex dielectric constant and plasma frequency using SPR.
+      - Refractive index of dielectric layer using SPR.
+      - ESR and magnetic field as function of resonance frequency.
+      - Zeeman effect and hyperfine splitting.
+      - Dielectric constant of dielectric materials with frequency.
+      - Photoelectric effect.
+      - Energy band gap of semiconductor.
+      - X-ray spectra variation with tube voltage and current.
+      - Precise lattice parameter of cubic crystals.
+pg:
+  i:
+    category: practical-pg-i
+    title: PG-I
+    experiments:
+      - Wavelength of laser light using grating.
+      - Thickness of thin wire using laser light or microscope.
+      - Brewster's law using spectrometer.
+      - Wavelength of sodium light using Michelson interferometer.
+      - Wavelength of sodium light using Fabry-Perot interferometer.
+      - Resolving power of a telescope.
+      - Resolving power of a prism.
+      - Solar cell characteristics.
+      - Experiments based on holography.
+      - Experiments based on microwave.
+  ii:
+    category: practical-pg-ii
+    title: PG-II
+    experiments:
+      - Zener diode characteristics and stabilisation.
+      - FET characteristics.
+      - MOSFET characteristics.
+      - Unijunction transistor characteristics.
+      - Transistor amplifier in common-emitter mode.
+      - Basic logic gates and universal gates.
+      - Op-amp differentiator and integrator.
+      - Hartley oscillator.
+      - SCR characteristics.
+      - Half adder and full adder.
+      - AD and DA converter.
+  iii:
+    category: practical-pg-iii
+    title: PG-III
+    experiments:
+      - Magnetic field strength and resonance frequency using ESR.
+      - Operating voltage of GM counter.
+      - Energy band gap using four-probe method.
+      - Hall coefficient and Hall angle in Hall-effect experiment.
+      - Planck's constant.
+      - Dielectric constants of solid and liquid samples.
+      - Modulation index.
+      - Hysteresis loss in a sample.
+      - Free running multivibrator.
+      - Lattice dynamics.
+  iv:
+    category: practical-pg-iv
+    title: PG-IV
+    experiments:
+      - AD and DA converters.
+      - Monostable multivibrator waveform using oscilloscope.
+      - Bistable multivibrator waveform using oscilloscope.
+      - Pulse amplitude modulation and demodulation.
+      - BCD to seven-segment display.
+      - Addition, subtraction and multiplication using 8085 or 8086.
+      - Optical fibre loss in dB of patch cords.
+      - Waveform generation and storage amplifier.
+      - Network analysis using Thevenin and Norton theorem.
+      - Klystron characteristics.
+      - Four-probe semiconductor band gap.
+      - Hall coefficient, semiconductor identification and carrier concentration.
+      - Planck's constant.
+      - Lande g-factor using ESR spectrometer.
+      - Dielectric constants of solids and liquids.
+      - Lattice dynamics.
+      - e/m by Millikan oil drop experiment.
+      - e/m by helical method.
+      - B-H loop experiment.
