@@ -133,6 +133,64 @@
   text-align: left;
 }
 
+/* Markdown tables inside a practical sheet are not direct children of .post.
+   Keep them readable and horizontally scrollable without requiring every post
+   to add a wrapper by hand. */
+.practical-sheet > table {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: .9rem auto 1.15rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid rgba(8, 96, 95, .14);
+  border-radius: 6px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, .98), rgba(250, 247, 241, .92));
+  box-shadow: 0 8px 20px rgba(35, 31, 26, .045);
+  scrollbar-color: rgba(8, 96, 95, .36) rgba(228, 216, 200, .42);
+  scrollbar-width: thin;
+}
+
+.practical-sheet > table thead,
+.practical-sheet > table tbody {
+  width: 100%;
+}
+
+.practical-sheet > table th,
+.practical-sheet > table td {
+  min-width: 5.75rem;
+  padding: .42rem .62rem;
+  border: 0;
+  border-bottom: 1px solid rgba(8, 96, 95, .095);
+  text-align: center !important;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.practical-sheet > table th + th,
+.practical-sheet > table td + td {
+  border-left: 1px solid rgba(8, 96, 95, .075);
+}
+
+.practical-sheet > table th {
+  background: linear-gradient(180deg, rgba(237, 245, 241, .88), rgba(229, 239, 234, .82));
+  color: #075f5b;
+  font: 820 .72rem/1.22 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+.practical-sheet > table tbody tr:nth-child(even) {
+  background: rgba(237, 245, 241, .25);
+}
+
+.practical-sheet > table tr:last-child td {
+  border-bottom: 0;
+}
+
 @media (max-width: 640px) {
   .table-scroll,
   .post > table,
@@ -155,6 +213,22 @@
   .table-scroll > table th,
   .post > table th,
   .page > table th {
+    font-size: .66rem;
+    letter-spacing: .025em;
+  }
+
+  .practical-sheet > table {
+    width: 100%;
+    margin: .85rem auto 1.1rem;
+  }
+
+  .practical-sheet > table th,
+  .practical-sheet > table td {
+    min-width: 5.35rem;
+    padding: .42rem .52rem;
+  }
+
+  .practical-sheet > table th {
     font-size: .66rem;
     letter-spacing: .025em;
   }

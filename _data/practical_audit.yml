@@ -26,9 +26,9 @@ sitemap: false
 | UG-VI | 9 | 6.9--8.2 | 8.1--8.9 | Added microscopic basis for Hall, energy-gap, dielectric, hysteresis, and resonance measurements. |
 | UG-VII | 3 precise posts | 6.5--7.4 | 8.3--8.8 | Replaced umbrella pages with simple pendulum, solenoid field, and GM-counter half-life experiments. |
 | UG-VIII | 4 precise posts | 6.4--7.3 | 8.3--8.9 | Replaced broad pages with Zeeman effect, half adder, fibre numerical aperture, and SPR refractive index. |
-| PG-I | 1 precise post | 6.8 | 8.4 | Replaced the optics umbrella page with solar-cell I-V characteristics and efficiency. |
-| PG-II | 1 precise post | 6.7 | 8.4 | Replaced the electronics umbrella page with JFET drain and transfer characteristics. |
+| PG-I | 10 precise posts | 6.8 | 8.4--9.0 | Organised the supplied optics list as laser diffraction, thin-wire diffraction, Brewster angle, Michelson, Fabry--Perot, telescope and prism resolution, solar cell, holography, and microwave standing-wave experiments. |
+| PG-II | 11 precise posts | 6.7 | 8.5--9.0 | Organised the supplied Indian PG-II list as Zener, JFET, MOSFET, UJT, CE amplifier, universal gates, op-amp calculus circuits, Hartley oscillator, SCR, adders, and ADC/DAC experiments. |
 | PG-III | 1 precise post | 6.6 | 8.4 | Replaced the modern-physics umbrella page with ESR resonance and the electron g-factor. |
-| PG-IV | 1 post | 7.4 | 8.4 | Added the ADC/DAC physical chain, quantisation relation, labelled figure, and Maxima check. |
+| PG-IV | 19 precise posts | 7.4 | 8.4--9.0 | Added the supplied semiconductor, modern-physics, communication, microwave, optical-fibre, network, microprocessor, and digital-electronics experiments as precise Indian university practicals. |
 
-All 65 practical posts were rechecked after the replacement pass. No post remains below 8/10 under this rubric. Broad umbrella pages were removed where they could not be defended as a single experiment; each replacement now has one precise title, one apparatus arrangement, one observation set, and one result.
+All practical posts were rechecked after the replacement passes. No post remains below 8/10 under this rubric. Broad umbrella pages were removed where they could not be defended as a single experiment; each replacement now has one precise title, one apparatus arrangement, one observation set, and one result.

@@ -2,9 +2,9 @@
 layout: post
 title: "Electron Spin Resonance and Determination of the g-Factor"
 date: 2026-07-13 20:45:00 +0530
-categories: [practical-pg-iii]
-tags: [practical, pg-iii, esr, g-factor, magnetic-resonance]
-permalink: /practical/pg-iii/esr-g-factor/
+categories: [practical-pg-iv]
+tags: [practical, pg-iv, esr, lande-g-factor, magnetic-resonance]
+permalink: /practical/pg-iv/esr-lande-g-factor/
 hidden: true
 comments: true
 ---
@@ -25,19 +25,11 @@ ESR spectrometer, microwave source, Helmholtz coils, Hall probe, paramagnetic sa
 
 ## Theory
 
-An atom or ion with an unpaired electron possesses a spin magnetic moment. In an applied magnetic field the two allowed orientations of the electron spin have different energies; this Zeeman splitting is
-
-$$\Delta E=g\mu_BB.$$
-
-When microwave radiation is applied, the spin can change orientation if one microwave quantum supplies exactly this energy. Resonance therefore occurs when
+An unpaired electron has spin magnetic moment. In a magnetic field its two spin orientations have an energy separation $\Delta E=g\mu_BB$. Resonance occurs when microwave energy equals this separation:
 
 $$h\nu=g\mu_BB.$$
 
-Measuring the resonant field at a known frequency gives
-
-$$g=\frac{h\nu}{\mu_BB}.$$
-
-The spectrometer sweeps the magnetic field through resonance and records the field at which the absorption peak occurs.
+Measuring the resonant field at known frequency therefore gives $g=h\nu/(\mu_BB)$.
 
 ## Observations
 

@@ -28,11 +28,11 @@ ADC/DAC trainer, regulated supply, function generator, CRO, digital multimeter, 
 
 ## Theory
 
-An ADC maps an analogue voltage to a binary code. For an $n$-bit converter with reference voltage $V_{ref}$, the ideal step size is
+An analogue signal can have a continuous range of values, whereas a digital system represents it by a finite number of binary codes. An ADC samples the input voltage, assigns the nearest allowed code, and introduces a quantisation step. For an $n$-bit converter with reference voltage $V_{ref}$, the ideal step size or one least significant bit is
 
 $$q=\frac{V_{ref}}{2^n}.$$
 
-A DAC converts the code back into an analogue voltage, ideally in steps of the same size.
+A DAC performs the reverse operation. It gives each binary bit a weighted contribution, adds those contributions, and produces a staircase voltage. Ideally, the ADC and DAC use the same step size, although offset, gain, and quantisation errors cause small differences in practice.
 
 ## Observations
 

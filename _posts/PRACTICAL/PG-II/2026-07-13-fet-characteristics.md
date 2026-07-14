@@ -25,9 +25,13 @@ JFET, regulated DC supplies, milliammeter, voltmeters, bias resistors, and conne
 
 ## Theory
 
-Current flows through the channel between drain and source. A reverse-biased gate junction controls the channel width, so the drain current is controlled by gate voltage rather than gate current. In the pinch-off region, the transfer characteristic is approximated by Shockley's equation,
+In a junction FET, the source and drain are connected by a semiconductor channel. A reverse-biased gate junction creates a depletion region inside the channel. Increasing the magnitude of the gate-source voltage widens this depletion region, reduces the conducting cross-section, and consequently reduces the drain current. Thus the gate controls the channel with negligible gate current.
+
+At a sufficiently large drain-source voltage, the channel narrows near the drain and reaches pinch-off. In this region the transfer characteristic is approximated by Shockley's equation,
 
 $$I_D=I_{DSS}\left(1-\frac{V_{GS}}{V_P}\right)^2.$$
+
+Here $I_{DSS}$ is the drain current at $V_{GS}=0$ and $V_P$ is the pinch-off voltage.
 
 ## Observations
 

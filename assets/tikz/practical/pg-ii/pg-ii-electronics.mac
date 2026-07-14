@@ -1,5 +1,12 @@
+/* Common Maxima checks for the PG-II electronics practicals. */
 kill(all)$
-Vref : 5$
-n : 8$
-float(Vref/2^n);
-
+/* Zener / MOSFET sample calculations */
+Vz:5.1$ Vin:9$ Rs:470$ IL:0.003$
+Is:(Vin-Vz)/Rs$ Iz:Is-IL$ [Is,Iz]$ float([Is,Iz]);
+Vt:1.9$ K:0.8$ Vgs:3.0$
+Id:K*(Vgs-Vt)^2$ float(Id);
+/* Hartley oscillator */
+L1:10e-6$ L2:20e-6$ M:2e-6$ C:4.7e-9$
+f:1/(2*%pi*sqrt((L1+L2+2*M)*C))$ float(f);
+/* ADC step size and quantisation bound */
+Vref:5$ n:8$ q:Vref/2^n$ [q,q/2]$ float([q,q/2]);

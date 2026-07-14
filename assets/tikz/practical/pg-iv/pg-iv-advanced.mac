@@ -1,0 +1,14 @@
+/* Maxima checks for PG-IV semiconductor, network, and converter work. */
+kill(all)$
+k:8.617333262e-5$ slope:2200$ Eg:2.303*k*slope$ float(Eg)$
+t:0.5e-3$ Vh:3.6e-3$ I:5e-3$ B:0.4$
+Rh:Vh*t/(I*B)$ n:1/(1.602176634e-19*Rh)$ float([Rh,n])$
+e:1.602176634e-19$ slopeV:4.14e-15$ h:e*slopeV$ float(h)$
+Vth:4.2$ Rth:60$ RL:1000$ IL:Vth/(Rth+RL)$ float(IL)$
+Vref:5$ bits:8$ q:Vref/2^bits$ float(q)$
+
+/* Helical electron-beam method: SI units are used. */
+Vbeam:180$ diameter:5.8e-2$ radius:diameter/2$
+pitch:2.4e-2$ Bbeam:1.555e-3$
+em_helix:2*Vbeam/(Bbeam^2*(radius^2+(pitch/(2*%pi))^2))$
+float(em_helix)$

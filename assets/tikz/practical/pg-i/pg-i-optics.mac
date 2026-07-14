@@ -1,6 +1,13 @@
+/* Maxima checks for PG-I optics practicals. */
 kill(all)$
-d : 1.0/6000$
-theta : 20.65*%pi/180$
-lambda : d*sin(theta)$
-float(lambda*10^7);
-
+d:1/600000$ D:1.0$ x:0.185$ n:1$
+theta:atan(x/D)$
+lambda:d*sin(theta)/n$
+float(lambda*1e9)$
+wire_lambda:650e-9$ screen:1.0$ x1:0.026$
+a:wire_lambda*screen/x1$
+float(a*1e3)$
+ip:56.25*%pi/180$
+float(tan(ip))$
+f:3e8/5e9$
+float(f)$
