@@ -12,3 +12,44 @@ Vbeam:180$ diameter:5.8e-2$ radius:diameter/2$
 pitch:2.4e-2$ Bbeam:1.555e-3$
 em_helix:2*Vbeam/(Bbeam^2*(radius^2+(pitch/(2*%pi))^2))$
 float(em_helix)$
+
+/* B-H loop readings: representative remanence and coercive field. */
+Br:0.62$ Hc:95$ loop_area:0.18$
+[Br,Hc,loop_area]$
+
+/* Dielectric constant from capacitance ratio. */
+C0:48$ Cglass:336$ Cmica:244$ Coil:98$
+float([Cglass/C0,Cmica/C0,Coil/C0])$
+
+/* ESR g-factor from the slope of resonance frequency against field. */
+h_esr:6.62607015e-34$ muB:9.2740100783e-24$
+f_esr:9.20e9$ B_esr:0.328$
+g_esr:h_esr*f_esr/(muB*B_esr)$
+float(g_esr)$
+
+/* Four-probe sample: conductivity and band-gap values. */
+rho:[0.910,0.640,0.440,0.300,0.200]$
+sigma:map(lambda([r],1/r),rho)$
+float([first(sigma),last(sigma)])$
+
+/* Hall coefficient for t = 0.50 mm, I = 5.0 mA. */
+t_hall:0.50e-3$ Vh_hall:3.6e-3$ I_hall:5e-3$ B_hall:0.4$
+RH_hall:Vh_hall*t_hall/(I_hall*B_hall)$
+n_hall:1/(1.602176634e-19*RH_hall)$
+float([RH_hall,n_hall])$
+
+/* Lattice dispersion for K/m = 1 in model units. */
+q_lattice:%pi/3$ omega_lattice:2*sqrt(1)*abs(sin(q_lattice/2))$
+float(omega_lattice)$
+
+/* Millikan observation: common charge multiplier. */
+charge_multipliers:[5,6,8,10]$
+mean_multiplier:(5+6+8+10)/4$
+mean_multiplier$
+
+/* Planck constant from the endpoint slope of the LED data. */
+c:2.99792458e8$ lambda1:650e-9$ lambda2:470e-9$
+V1:1.82$ V2:2.55$
+nu1:c/lambda1$ nu2:c/lambda2$
+h_led:1.602176634e-19*(V2-V1)/(nu2-nu1)$
+float(h_led)$

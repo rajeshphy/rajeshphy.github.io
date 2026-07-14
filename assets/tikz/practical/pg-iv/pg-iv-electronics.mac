@@ -1,0 +1,52 @@
+/* Maxima checks for PG-IV Electronics practicals. */
+kill(all)$
+
+/* 8085 arithmetic: hexadecimal operands are entered as decimal values. */
+add_result:37+23$
+sub_result:53-18$
+mul_result:6*4$
+float([add_result,sub_result,mul_result])$
+
+/* BCD digit 5 = 0101 in binary. */
+bcd_5:0*2^3+1*2^2+0*2+1$
+bcd_5$
+
+/* Bistable complementary states. */
+q_set:1$ qbar_set:1-q_set$
+q_reset:0$ qbar_reset:1-q_reset$
+[[q_set,qbar_set],[q_reset,qbar_reset]]$
+
+/* Reflex-klystron readings: locate the largest detector response. */
+repeller_voltage:[-180,-200,-220,-240,-260]$
+detector_reading:[18,42,76,51,20]$
+max_detector:max(detector_reading)$
+/* The maximum is the third reading in the displayed table. */
+mode_voltage:-220$
+[max_detector,mode_voltage]$
+
+/* 555 monostable pulse width, T = 1.1 R C. */
+R:10e3$ C:0.10e-6$ T:1.1*R*C$
+float(T*1000)$
+
+/* Optical-fibre loss in dB from dBm readings. */
+reference:-3.2$ output:-4.1$ loss:reference-output$
+loss$
+
+/* PAM sampling check. */
+fm:6$ fs:10$ nyquist:2*fm$
+[nyquist,fs>=nyquist]$
+
+/* Eight-bit ADC step and DAC output. */
+vref:5$ bits:8$ q:vref/2^bits$
+adc_code:round(0.5/q)$
+dac_output:adc_code*vref/(2^bits-1)$
+float([q,adc_code,dac_output])$
+
+/* Thevenin/Norton load current. */
+Vth:5$ Rth:260$ RL:1000$ IN:Vth/Rth$
+IL:Vth/(Rth+RL)$
+float([IN,IL*1000])$
+
+/* Waveform-amplifier voltage gains. */
+input_amplitude:0.20$ output_amplitudes:[2.0,1.9,1.8]$
+float(output_amplitudes/input_amplitude)$

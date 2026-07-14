@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Pulse Amplitude Modulation and Demodulation"
-date: 2026-07-13 20:45:00 +0530
+date: 2026-06-13 20:45:00 +0530
 categories: [practical-pg-iv]
-tags: [practical, pg-iv, pam, communication]
+tags: [practical, pg-iv, electronics, pam, communication]
 permalink: /practical/pg-iv/pam-demodulation/
 hidden: true
 comments: true
@@ -23,7 +23,11 @@ PAM trainer, message oscillator, pulse generator, sampling circuit, low-pass fil
 ## Theory
 A communication system must represent a continuously varying message in a form that can be transmitted and recovered. In pulse-amplitude modulation, a periodic switch samples the message at equally spaced instants, so the amplitude of each pulse follows the instantaneous message voltage. If $m(t)$ is the message and $p(t)$ is a periodic sampling pulse train, the sampled signal is $s(t)=m(t)p(t)$.
 
-The spectrum contains shifted replicas of the message spectrum around harmonics of the sampling frequency. A low-pass filter selects the original baseband replica and reproduces the message when the sampling frequency satisfies the Nyquist condition.
+The spectrum contains shifted replicas of the message spectrum around harmonics of the sampling frequency. If the highest message frequency is $f_m$, faithful recovery requires
+
+$$f_s\geq2f_m.$$
+
+A low-pass filter selects the original baseband replica and reproduces the message. When $f_s<2f_m$, spectral replicas overlap and aliasing makes the recovered waveform distorted.
 
 ## Observations
 
@@ -32,6 +36,22 @@ The spectrum contains shifted replicas of the message spectrum around harmonics 
 | 1 | 10 | faithful sine wave |
 | 2 | 10 | faithful sine wave |
 | 6 | 10 | distorted due to undersampling |
+
+## Calculation
+
+For a 2 kHz message, the Nyquist condition requires
+
+$$f_s\ge2f_m=2(2\,\text{kHz})=4\,\text{kHz}.$$
+
+The applied sampling frequency is 10 kHz, so the 2 kHz signal is sampled faithfully. For the 6 kHz message,
+
+$$f_{s,\min}=2(6\,\text{kHz})=12\,\text{kHz}.$$
+
+Since $10<12$ kHz, spectral overlap produces the observed aliasing distortion.
+
+## Maxima Code
+
+[Download the PAM sampling check]({{ '/assets/tikz/practical/pg-iv/pg-iv-electronics.mac' | relative_url }}).
 
 ## Result
 The pulse amplitudes follow the message signal, and the low-pass filter recovers the message when the sampling frequency is sufficiently high.

@@ -3,7 +3,7 @@ layout: post
 title: "Hall Effect: Carrier Type, Hall Coefficient, and Carrier Concentration"
 date: 2026-07-13 17:25:00 +0530
 categories: [practical-pg-iv]
-tags: [practical, pg-iv, semiconductor, hall-effect, carrier-concentration]
+tags: [practical, pg-iv, cmp, semiconductor, hall-effect, carrier-concentration]
 permalink: /practical/pg-iv/hall-effect-carrier-concentration/
 hidden: true
 comments: true
@@ -28,13 +28,17 @@ Semiconductor Hall sample, electromagnet, constant-current source, microvoltmete
 
 ## Theory
 
-The current in a semiconductor is carried by drifting electrons or holes. When the specimen is placed in a magnetic field perpendicular to the current, each moving carrier experiences the Lorentz force $q(\mathbf v\times\mathbf B)$. The carriers therefore accumulate on one side of the specimen until the transverse electric force balances the magnetic force. This charge separation produces the Hall voltage $V_H$.
+The current in a semiconductor is carried by drifting electrons or holes. When the specimen is placed in a magnetic field perpendicular to the current, each moving carrier experiences the Lorentz force $q(\mathbf v\times\mathbf B)$. The carriers therefore accumulate on one side of the specimen until the transverse electric force balances the magnetic force:
+
+$$qE_H=qv_dB.$$
+
+This charge separation produces the Hall voltage $V_H$. Reversing the magnetic field or the current reverses the Hall voltage, which is why reversal readings are averaged in practice.
 
 For a specimen of thickness $t$, current $I$, and magnetic field $B$,
 
 $$R_H=\frac{V_Ht}{IB},\qquad n=\frac{1}{eR_H}.$$
 
-The sign of $V_H$ identifies the dominant carrier type, while the magnitude of $R_H$ gives the carrier concentration. For a single carrier type, $n=1/(eR_H)$.
+The sign of $V_H$ identifies the dominant carrier type, while the magnitude of $R_H$ gives the carrier concentration. For a single carrier type, $n=1/(e|R_H|)$. The Hall angle is obtained from $\tan\theta_H=E_H/E_x$ when the longitudinal field is measured as well.
 
 ## Observations
 
@@ -58,13 +62,15 @@ Sample thickness $t=0.50\,\text{mm}$; current $I=5\,\text{mA}$.
 
 For $B=0.40\,\text{T}$ and $V_H=3.6\,\text{mV}$,
 
-$$R_H=\frac{3.6\times10^{-3}\times0.50\times10^{-3}}{5\times10^{-3}\times0.40}=2.25\times10^{-3}\,\text{m}^3\text{C}^{-1}.$$
+$$R_H=\frac{3.6\times10^{-3}\times0.50\times10^{-3}}{5\times10^{-3}\times0.40}=9.00\times10^{-4}\,\text{m}^3\text{C}^{-1}.$$
 
-Thus $n=1/(eR_H)=2.78\times10^{21}\,\text{m}^{-3}$.
+Thus
+
+$$n=\frac{1}{eR_H}=\frac{1}{(1.602\times10^{-19})(9.00\times10^{-4})}=6.93\times10^{21}\,\text{m}^{-3}.$$
 
 ## Result
 
-$$\boxed{R_H=2.25\times10^{-3}\,\text{m}^3\text{C}^{-1}},\qquad \boxed{n=2.78\times10^{21}\,\text{m}^{-3}}.$$
+$$\boxed{R_H=9.00\times10^{-4}\,\text{m}^3\text{C}^{-1}},\qquad \boxed{n=6.93\times10^{21}\,\text{m}^{-3}}.$$
 
 ## Precautions
 
@@ -80,6 +86,6 @@ $$\boxed{R_H=2.25\times10^{-3}\,\text{m}^3\text{C}^{-1}},\qquad \boxed{n=2.78\ti
 
 ## Maxima Code
 
-[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-vi/hall-coefficient/hall-coefficient.mac' | relative_url }}).
+[Download the PG-IV Hall-effect calculation]({{ '/assets/tikz/practical/pg-iv/pg-iv-advanced.mac' | relative_url }}).
 
 </div>

@@ -1,5 +1,7 @@
 kill(all)$
 Vref : 5$
 n : 8$
-float(Vref/2^n);
-
+q : Vref/2^n$
+D : round(0.50/q)$
+Vo : D*Vref/(2^n-1)$
+float([q,D,Vo]);

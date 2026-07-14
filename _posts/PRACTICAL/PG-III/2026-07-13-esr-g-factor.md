@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Electron Spin Resonance and Determination of the g-Factor"
+title: "Determination of Magnetic Field Strength and Resonance Frequency Using ESR"
 date: 2026-07-13 20:45:00 +0530
 categories: [practical-pg-iii]
 tags: [practical, pg-iii, esr, g-factor, magnetic-resonance]
-permalink: /practical/pg-iii/esr-g-factor/
+permalink: /practical/pg-iii/esr-field-resonance-frequency/
 hidden: true
 comments: true
 ---
@@ -13,7 +13,7 @@ comments: true
 
 ## Aim
 
-To observe electron spin resonance in a paramagnetic sample and determine the electron $g$-factor.
+To determine the resonance frequency and magnetic field strength of a paramagnetic sample using electron spin resonance, and to calculate the electron $g$-factor.
 
 ## Apparatus
 
@@ -53,7 +53,7 @@ The spectrometer sweeps the magnetic field through resonance and records the fie
 
 ## Result
 
-The mean electron $g$-factor of the sample is
+The resonance condition is observed by sweeping the magnetic field at each microwave frequency. The mean electron $g$-factor of the sample is
 
 $$\boxed{g=2.00}.$$
 

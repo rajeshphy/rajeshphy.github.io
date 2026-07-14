@@ -3,7 +3,7 @@ layout: post
 title: "Determination of e/m by the Helical Method"
 date: 2026-07-13 20:30:00 +0530
 categories: [practical-pg-iv]
-tags: [practical, pg-iv, electron, helical-method]
+tags: [practical, pg-iv, cmp, electron, helical-method]
 permalink: /practical/pg-iv/em-helical-method/
 hidden: true
 comments: true
@@ -27,7 +27,11 @@ Electrons are emitted inside the electron-beam tube and accelerated through the 
 
 $$eV=\frac{1}{2}mv^2.$$
 
-The beam then enters the nearly uniform magnetic field produced by the Helmholtz coils. The magnetic force is
+The beam then enters the nearly uniform magnetic field produced by the Helmholtz coils. For coils of radius $R$ separated by $R$, the field near the midpoint is approximately
+
+$$B=\left(\frac{4}{5}\right)^{3/2}\frac{\mu_0NI_c}{R},$$
+
+where $I_c$ is the coil current. The magnetic force on the electron is
 
 $$\mathbf F=-e(\mathbf v\times\mathbf B).$$
 
