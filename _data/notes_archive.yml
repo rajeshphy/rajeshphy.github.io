@@ -43,7 +43,7 @@ boards:
     aria_label: "Dissertation material"
     board_class: "docs-board"
     item_class: ""
-    item_type: "Template"
+    item_type: "Dissertation"
     visible_limit: 4
     items:
       - category: "dissertation-2026"
