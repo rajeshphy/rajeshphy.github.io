@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To determine the specific heat of a solid by the method of mixtures with radiation correction.
@@ -61,5 +68,8 @@ $$\boxed{s_s=390\,\text{J kg}^{-1}\text{K}^{-1}}.$$
 2. **Why is the solid heated in a steam bath?** It can be brought to a known nearly uniform temperature.
 3. **Why is a stirrer used?** It makes the mixture temperature uniform.
 
-</div>
+## Maxima Code
 
+[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-v/specific-heat-solid/specific-heat-solid.mac' | relative_url }}).
+
+</div>

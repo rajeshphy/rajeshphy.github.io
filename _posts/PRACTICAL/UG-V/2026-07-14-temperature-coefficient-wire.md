@@ -68,4 +68,8 @@ $$\boxed{\alpha=4.2\times10^{-3}\, ^\circ\text{C}^{-1}}.$$
 2. **Why is a bridge used?** It permits accurate comparison of small resistance changes.
 3. **What is $R_0$?** Resistance extrapolated to zero degree Celsius.
 
+## Maxima Code
+
+[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-v/temperature-coefficient-wire/temperature-coefficient-wire.mac' | relative_url }}).
+
 </div>

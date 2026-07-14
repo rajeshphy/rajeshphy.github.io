@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To plot the forward and reverse V-I characteristics of a PN junction diode and determine its knee voltage.
@@ -57,4 +64,3 @@ The diode conducts appreciably above approximately $0.58\,\text{V}$ in forward b
 4. **Why is a series resistor used?** It limits the forward current.
 
 </div>
-

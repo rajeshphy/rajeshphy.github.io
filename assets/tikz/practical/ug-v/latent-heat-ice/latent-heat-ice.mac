@@ -1,0 +1,4 @@
+kill(all)$
+mw : 0.200$ cw : 4200$ Ti : 35$ Tf : 8$ mi : 0.032$
+float((mw*cw*(Ti-Tf)-mi*cw*Tf)/mi);
+

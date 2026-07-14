@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To plot the V-I characteristics of a Zener diode and study its action as a voltage regulator.
@@ -60,4 +67,3 @@ The Zener voltage is approximately $V_Z=5.1\,\text{V}$, and the circuit maintain
 4. **Can a Zener diode be used without a resistor?** No, because the current may exceed its safe limit.
 
 </div>
-

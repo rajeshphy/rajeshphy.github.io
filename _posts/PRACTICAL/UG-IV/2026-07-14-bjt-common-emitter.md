@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To study the input and output characteristics of an NPN transistor in common-emitter configuration and determine its current gain.
@@ -74,4 +81,3 @@ $$\boxed{\beta\approx50}.$$
 4. **Why does collector current become nearly constant?** In the active region it is controlled mainly by base current.
 
 </div>
-

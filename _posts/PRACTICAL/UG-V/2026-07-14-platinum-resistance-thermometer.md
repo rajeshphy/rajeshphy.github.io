@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To determine the temperature coefficient of resistance of platinum using a platinum resistance thermometer.
@@ -60,5 +67,8 @@ $$\boxed{\alpha=3.92\times10^{-3}\, ^\circ\text{C}^{-1}}.$$
 3. **Why is a water bath used?** It gives a uniform and controllable temperature.
 4. **How does resistance of platinum vary with temperature?** It increases approximately linearly over a moderate range.
 
-</div>
+## Maxima Code
 
+[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-v/platinum-resistance-thermometer/platinum-resistance-thermometer.mac' | relative_url }}).
+
+</div>

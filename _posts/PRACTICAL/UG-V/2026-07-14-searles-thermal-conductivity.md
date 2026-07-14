@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To determine the coefficient of thermal conductivity of copper using Searle's apparatus.
@@ -65,5 +72,8 @@ $$\boxed{K=0.637\,\text{W m}^{-1}\text{K}^{-1}}.$$
 3. **Why is the rod insulated?** To reduce heat loss from its lateral surface.
 4. **What is the SI unit of $K$?** Watt metre$^{-1}$ kelvin$^{-1}$.
 
-</div>
+## Maxima Code
 
+[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-v/searles-thermal-conductivity/searles-thermal-conductivity.mac' | relative_url }}).
+
+</div>

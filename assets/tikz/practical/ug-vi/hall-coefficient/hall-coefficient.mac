@@ -1,0 +1,5 @@
+kill(all)$
+VH : 3.6e-3$ t : 0.5e-3$ I : 5e-3$ B : 0.4$
+RH : VH*t/(I*B)$
+float(RH);
+

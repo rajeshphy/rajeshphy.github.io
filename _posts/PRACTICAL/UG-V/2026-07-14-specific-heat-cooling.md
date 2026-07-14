@@ -69,4 +69,8 @@ $$\boxed{s_l=2.92\times10^3\,\text{J kg}^{-1}\text{K}^{-1}}.$$
 3. **Why is a lag correction sometimes needed?** The thermometer and liquid may not have exactly the same temperature at each instant.
 4. **What is specific heat?** It is the heat required to raise the temperature of unit mass by one kelvin.
 
+## Maxima Code
+
+[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-v/specific-heat-cooling/specific-heat-cooling.mac' | relative_url }}).
+
 </div>

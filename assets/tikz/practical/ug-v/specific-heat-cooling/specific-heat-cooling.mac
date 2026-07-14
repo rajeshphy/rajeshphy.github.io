@@ -1,0 +1,4 @@
+kill(all)$
+sw : 4200$ rw : 10/480$ rl : 10/690$
+float(sw*rl/rw);
+

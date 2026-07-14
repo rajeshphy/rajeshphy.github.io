@@ -1,0 +1,6 @@
+kill(all)$
+n : 100$
+stirling : n*log(n)-n+log(2*%pi*n)/2$
+exact : log(n!)$
+float(100*(stirling-exact)/exact);
+

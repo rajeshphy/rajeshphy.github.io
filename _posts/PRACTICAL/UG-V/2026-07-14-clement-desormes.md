@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To determine the ratio of specific heats $\gamma=C_p/C_v$ of a gas by Clement and Desormes' method.
@@ -50,5 +57,8 @@ $$\boxed{\gamma=1.42}.$$
 2. **Why is the final reading delayed?** The gas must return to the temperature of the surroundings.
 3. **What is the value of $\gamma$ for a monatomic ideal gas?** $5/3$.
 
-</div>
+## Maxima Code
 
+[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-v/clement-desormes/clement-desormes.mac' | relative_url }}).
+
+</div>

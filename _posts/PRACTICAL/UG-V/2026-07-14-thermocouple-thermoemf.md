@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To study the variation of thermo-emf of a thermocouple with the temperature difference between its junctions.
@@ -59,5 +66,8 @@ $$\boxed{\frac{E}{\Delta T}=0.0192\,\text{mV K}^{-1}}.$$
 3. **Why is the emf small?** Thermoelectric voltage per kelvin is small for ordinary metal pairs.
 4. **What is neutral temperature?** It is the hot-junction temperature at which thermo-emf becomes maximum for a fixed cold junction.
 
-</div>
+## Maxima Code
 
+[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-v/thermocouple-thermoemf/thermocouple-thermoemf.mac' | relative_url }}).
+
+</div>

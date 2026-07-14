@@ -1,0 +1,5 @@
+kill(all)$
+m : 0.420$ s : 380$ d : 0.004$ A : 0.00785$
+rate : 0.02155$
+float(m*s*d*rate/A);
+

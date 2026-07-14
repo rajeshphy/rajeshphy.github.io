@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To determine the thermal conductivity of a bad conductor by Lee and Charlton's disc method.
@@ -60,5 +67,8 @@ $$\boxed{K=1.74\,\text{W m}^{-1}\text{K}^{-1}}.$$
 3. **What is Newton's law of cooling?** The cooling rate is approximately proportional to the temperature excess for a small temperature range.
 4. **Why should the specimen cover the disc?** It ensures that the heat flow area is known and uniform.
 
-</div>
+## Maxima Code
 
+[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-v/lee-charlton-disc/lee-charlton-disc.mac' | relative_url }}).
+
+</div>

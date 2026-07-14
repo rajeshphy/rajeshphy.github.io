@@ -1,0 +1,4 @@
+kill(all)$
+ms : 0.100$ dT : 98-31.5$ Q : 420$
+float(Q/(ms*dT));
+

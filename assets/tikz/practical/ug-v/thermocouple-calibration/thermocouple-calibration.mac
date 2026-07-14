@@ -1,0 +1,5 @@
+kill(all)$
+E : 0.96$ /* mV */
+T : 68$
+print("calibrated temperature",T);
+

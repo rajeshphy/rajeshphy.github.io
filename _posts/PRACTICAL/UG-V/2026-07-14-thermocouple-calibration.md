@@ -68,4 +68,8 @@ The temperature of the unknown bath is $68^\circ\text{C}$.
 2. **What is interpolation?** It is estimating a value between two calibrated readings.
 3. **Why should the reference junction be fixed?** Otherwise the emf would depend on two changing temperatures.
 
+## Maxima Code
+
+[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-v/thermocouple-calibration/thermocouple-calibration.mac' | relative_url }}).
+
 </div>

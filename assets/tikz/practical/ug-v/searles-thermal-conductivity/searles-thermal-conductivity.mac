@@ -1,0 +1,5 @@
+kill(all)$
+m : 0.120$ l : 0.50$ cw : 4200$
+dtw : 5.2$ t : 300$ A : 1.131e-4$ dT : 54$
+float(m*l*cw*dtw/(t*A*dT));
+

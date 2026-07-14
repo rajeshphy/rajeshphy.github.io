@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To identify semiconductor devices and test the condition of diodes and transistor junctions using a digital multimeter.
@@ -52,4 +59,3 @@ The tested silicon diode, LED, and NPN transistor are in working condition. The 
 4. **Why must power be removed?** External circuit paths can give false readings and may damage the meter.
 
 </div>
-

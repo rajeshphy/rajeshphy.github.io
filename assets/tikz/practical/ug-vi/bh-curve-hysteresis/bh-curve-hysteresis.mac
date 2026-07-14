@@ -1,0 +1,4 @@
+kill(all)$
+Br : 0.62$ Hc : 95$
+print("retentivity",Br,"coercivity",Hc);
+

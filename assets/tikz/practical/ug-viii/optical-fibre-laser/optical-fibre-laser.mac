@@ -1,0 +1,6 @@
+kill(all)$
+r : 3.10$
+L : 20.0$
+theta : atan(r/L)$
+float(sin(theta));
+

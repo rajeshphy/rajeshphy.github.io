@@ -1,0 +1,77 @@
+---
+layout: post
+title: "B-H Curve and Hysteresis Energy Loss of Iron"
+date: 2026-07-13 17:30:00 +0530
+categories: [practical-ug-vi]
+tags: [practical, ug-vi, magnetism, hysteresis, bh-curve]
+permalink: /practical/ug-vi/bh-curve-hysteresis/
+hidden: true
+comments: true
+---
+
+<div class="practical-sheet" markdown="1">
+
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
+## Aim
+
+To plot the B-H curve of an iron sample and determine its hysteresis energy loss.
+
+## Apparatus
+
+Iron ring or transformer core, primary and secondary coils, CRO, integrator circuits, AC supply, and voltmeter.
+
+## Theory
+
+The magnetising field is proportional to the primary current and the magnetic induction is obtained from the integrated secondary voltage. The area of the B-H loop represents energy loss per unit volume per cycle.
+
+## Observations
+
+| $H$ (A m$^{-1}$) | $B$ (T) on increasing field | $B$ (T) on decreasing field |
+|---:|---:|---:|
+| 0 | 0.00 | 0.62 |
+| 100 | 0.48 | 0.73 |
+| 200 | 0.86 | 0.91 |
+| 300 | 1.10 | 1.08 |
+| 400 | 1.25 | 1.20 |
+
+Retentivity: $B_r=0.62\,\text{T}$; coercivity: $H_c=95\,\text{A m}^{-1}$.
+
+## Graph
+
+<figure class="practical-figure practical-figure-wide">
+  <img src="{{ '/assets/images/practical/ug-vi/bh-curve-hysteresis/bh-curve.png' | relative_url }}" alt="B-H hysteresis loop">
+  <figcaption>Measured B-H loop of the iron sample.</figcaption>
+</figure>
+
+## Result
+
+The iron sample shows a closed hysteresis loop with
+
+$$\boxed{B_r=0.62\,\text{T}},\qquad \boxed{H_c=95\,\text{A m}^{-1}}.$$
+
+The loop area gives the hysteresis energy loss per unit volume per cycle.
+
+## Precautions
+
+1. Demagnetise the core before beginning.
+2. Avoid saturation of the CRO input.
+3. Use a calibrated integrator.
+4. Keep the frequency constant while comparing losses.
+
+## Viva Questions
+
+1. **What is retentivity?** It is the residual magnetisation when the applied field is reduced to zero.
+2. **What is coercivity?** It is the reverse field required to reduce the residual induction to zero.
+3. **What does the loop area represent?** Energy dissipated per unit volume per cycle.
+
+## Maxima Code
+
+[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-vi/bh-curve-hysteresis/bh-curve-hysteresis.mac' | relative_url }}).
+
+</div>

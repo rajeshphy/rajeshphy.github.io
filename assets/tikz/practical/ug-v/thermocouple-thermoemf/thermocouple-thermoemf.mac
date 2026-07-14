@@ -1,0 +1,4 @@
+kill(all)$
+E : 0.96$ dT : 50$
+float(E/dT);
+

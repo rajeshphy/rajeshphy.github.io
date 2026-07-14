@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To verify AND, OR, NOT, and XOR functions using NAND gates.
@@ -53,4 +60,3 @@ The truth tables of AND, OR, NOT, and XOR are verified using NAND gates.
 4. **Why are LEDs used?** They give a direct indication of the logic output state.
 
 </div>
-

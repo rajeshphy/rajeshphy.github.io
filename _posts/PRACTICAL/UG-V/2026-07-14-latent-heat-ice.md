@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To determine the latent heat of fusion of ice by the method of mixtures with radiation correction.
@@ -58,5 +65,8 @@ $$\boxed{L=3.31\times10^5\,\text{J kg}^{-1}}.$$
 2. **What is latent heat?** It is heat absorbed or released during a phase change without temperature change.
 3. **Why is surface water removed?** It would add an error to the mass of melted ice.
 
-</div>
+## Maxima Code
 
+[Download the Maxima calculation file]({{ '/assets/tikz/practical/ug-v/latent-heat-ice/latent-heat-ice.mac' | relative_url }}).
+
+</div>

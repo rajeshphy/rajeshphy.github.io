@@ -1,0 +1,5 @@
+kill(all)$
+I : 2.0$
+B : 4.0$
+float(B/I);
+

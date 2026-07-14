@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To verify Thevenin's theorem, Norton's theorem, the superposition theorem, and the maximum power transfer theorem for a DC resistive network.
@@ -73,4 +80,3 @@ The measured equivalent voltage, equivalent resistance, and source superposition
 5. **Why is superposition not applied directly to power?** Power is proportional to the square of current or voltage and is therefore not a linear quantity.
 
 </div>
-

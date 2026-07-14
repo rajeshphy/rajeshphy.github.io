@@ -1,0 +1,6 @@
+kill(all)$
+d : 1.0/6000$
+theta : 20.65*%pi/180$
+lambda : d*sin(theta)$
+float(lambda*10^7);
+

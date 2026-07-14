@@ -11,6 +11,13 @@ comments: true
 
 <div class="practical-sheet" markdown="1">
 
+## Experimental arrangement
+
+<figure class="practical-figure">
+  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
+  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+</figure>
+
 ## Aim
 
 To study the switching action of an NPN transistor and verify its use as a NOT gate.
@@ -56,4 +63,3 @@ The transistor operates as a switch and gives the NOT-gate relation $Y=\overline
 4. **Why is a resistor connected to the base?** It prevents excessive base current.
 
 </div>
-

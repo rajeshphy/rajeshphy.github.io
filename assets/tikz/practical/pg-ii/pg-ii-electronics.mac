@@ -1,0 +1,5 @@
+kill(all)$
+Vref : 5$
+n : 8$
+float(Vref/2^n);
+
