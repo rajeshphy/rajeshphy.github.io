@@ -1,5 +1,7 @@
 items:
 
+  - title: About the Author
+    url: /about/
   - title: Extra Website
     children:
     - title: Free Science Journals
