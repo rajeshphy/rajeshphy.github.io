@@ -14,8 +14,8 @@ comments: true
 ## Experimental arrangement
 
 <figure class="practical-figure">
-  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
-  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+  <img src="{{ '/assets/images/practical/common/thermal/thermal-arrangement.png' | relative_url }}" alt="Thermocouple hot and reference junction arrangement">
+  <figcaption>One thermocouple junction is heated while the reference junction is maintained at a known temperature; the thermo-emf is read by the meter.</figcaption>
 </figure>
 
 ## Aim

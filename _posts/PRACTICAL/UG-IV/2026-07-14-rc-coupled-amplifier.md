@@ -14,8 +14,8 @@ comments: true
 ## Experimental arrangement
 
 <figure class="practical-figure">
-  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
-  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+  <img src="{{ '/assets/images/practical/common/electronics/electronics-arrangement.png' | relative_url }}" alt="RC-coupled transistor amplifier test circuit">
+  <figcaption>RC-coupled amplifier test path: bias supply and input signal feed the transistor stage, while the output is measured across the device.</figcaption>
 </figure>
 
 ## Aim

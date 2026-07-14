@@ -14,8 +14,8 @@ comments: true
 ## Experimental arrangement
 
 <figure class="practical-figure">
-  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
-  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+  <img src="{{ '/assets/images/practical/common/thermal/thermal-arrangement.png' | relative_url }}" alt="Specific heat of solid calorimeter arrangement">
+  <figcaption>The heated solid is transferred to the insulated calorimeter, where the temperature change of the water is measured.</figcaption>
 </figure>
 
 ## Aim

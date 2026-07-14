@@ -1,0 +1,7 @@
+kill(all)$
+N0 : 4200$
+N : 2100$
+t : 300$
+lambda : log(N0/N)/t$
+float(log(2)/lambda);
+

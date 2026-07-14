@@ -1,0 +1,5 @@
+kill(all)$
+theta_air : 44.2$
+theta_sample : 56.1$
+print("resonance shift",theta_sample-theta_air,"degrees");
+

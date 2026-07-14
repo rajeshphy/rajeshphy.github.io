@@ -1,0 +1,7 @@
+kill(all)$
+nu : 9.20e9$
+B : 0.328$
+h : 6.626e-34$
+muB : 9.274e-24$
+float(h*nu/(muB*B));
+

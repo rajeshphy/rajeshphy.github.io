@@ -14,8 +14,8 @@ comments: true
 ## Experimental arrangement
 
 <figure class="practical-figure">
-  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
-  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+  <img src="{{ '/assets/images/practical/common/solid-state/solid-state-arrangement.png' | relative_url }}" alt="Hall-effect semiconductor measurement arrangement">
+  <figcaption>Current flows along the semiconductor strip, the magnetic field is perpendicular to it, and the transverse Hall voltage is measured.</figcaption>
 </figure>
 
 ## Aim

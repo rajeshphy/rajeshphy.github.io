@@ -14,8 +14,8 @@ comments: true
 ## Experimental arrangement
 
 <figure class="practical-figure">
-  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
-  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+  <img src="{{ '/assets/images/practical/common/electronics/electronics-arrangement.png' | relative_url }}" alt="PN junction diode characteristic circuit">
+  <figcaption>Forward or reverse bias is applied through the series resistor; current is measured in series and voltage across the PN junction.</figcaption>
 </figure>
 
 ## Aim

@@ -1,0 +1,5 @@
+kill(all)$
+Vm : 0.40$ Im : 0.061$
+Voc : 0.65$ Isc : 0.082$
+float(Vm*Im/(Voc*Isc));
+

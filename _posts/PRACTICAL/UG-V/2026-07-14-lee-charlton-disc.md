@@ -14,8 +14,8 @@ comments: true
 ## Experimental arrangement
 
 <figure class="practical-figure">
-  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
-  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+  <img src="{{ '/assets/images/practical/common/thermal/thermal-arrangement.png' | relative_url }}" alt="Lee-Charlton disc thermal conductivity arrangement">
+  <figcaption>Lee--Charlton disc arrangement: the bad-conductor specimen is held between the heated upper disc and the lower disc carrying the thermometer.</figcaption>
 </figure>
 
 ## Aim

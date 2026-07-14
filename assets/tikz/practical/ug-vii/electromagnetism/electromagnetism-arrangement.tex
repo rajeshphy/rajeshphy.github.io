@@ -1,0 +1,12 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usetikzlibrary{arrows.meta,positioning}
+\begin{document}
+\begin{tikzpicture}[box/.style={draw=teal!70!black,fill=teal!8,rounded corners,minimum width=2.7cm,minimum height=.9cm,align=center,font=\sffamily\small},a/.style={-{Latex[length=2mm]},draw=black!70}]
+\node[font=\sffamily\bfseries\small,text=teal!55!black] at (0,1.7) {Field and induction arrangement};
+\node[box] (s) at (-4,0) {current source\\$I(t)$};
+\node[box] (c) at (0,0) {wire / solenoid\\or changing flux};
+\node[box] (d) at (4,0) {Hall probe or\\galvanometer};
+\draw[a] (s)--(c); \draw[a] (c)--node[above,font=\sffamily\footnotesize]{$B$ or $\mathcal E$} (d);
+\end{tikzpicture}
+\end{document}
+

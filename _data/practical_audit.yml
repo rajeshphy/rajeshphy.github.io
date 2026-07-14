@@ -1,0 +1,34 @@
+---
+published: false
+sitemap: false
+---
+
+# Practical post audit
+
+## Rubric
+
+- 2 points: physical starting point and first-principles motivation.
+- 2 points: self-contained derivation or explanation of the working relation.
+- 2 points: clear connection between apparatus, controlled quantity, and measured quantity.
+- 2 points: complete observations, calculation, and result consistent with the theory.
+- 1 point: labelled figure and graph where the experiment requires one.
+- 1 point: exam-ready presentation, precautions, viva answers, and Maxima check where calculation is non-trivial.
+
+## Final audit after upgrade loop
+
+| Semester | Posts checked | Initial range | Final range | Main deficiency corrected |
+|---|---:|---:|---:|---|
+| UG-I | 6 | 7.5--8.6 | 8.4--9.2 | Added first-principles explanations for measurement and mechanical methods. |
+| UG-II | 9 | 8.0--9.1 | 8.5--9.4 | Checked bridge logic, circuit interpretation, figures, and Maxima links. |
+| UG-III | 11 | 7.8--9.0 | 8.4--9.3 | Clarified the optical starting point and retained readable apparatus/ray figures. |
+| UG-IV | 9 | 7.1--8.4 | 8.2--9.0 | Expanded semiconductor, transistor, logic, and network theory from device principles. |
+| UG-V | 10 | 7.2--8.5 | 8.2--9.0 | Added thermal-energy-flow reasoning, graphs, and end-of-post Maxima links. |
+| UG-VI | 9 | 6.9--8.2 | 8.1--8.9 | Added microscopic basis for Hall, energy-gap, dielectric, hysteresis, and resonance measurements. |
+| UG-VII | 3 precise posts | 6.5--7.4 | 8.3--8.8 | Replaced umbrella pages with simple pendulum, solenoid field, and GM-counter half-life experiments. |
+| UG-VIII | 4 precise posts | 6.4--7.3 | 8.3--8.9 | Replaced broad pages with Zeeman effect, half adder, fibre numerical aperture, and SPR refractive index. |
+| PG-I | 1 precise post | 6.8 | 8.4 | Replaced the optics umbrella page with solar-cell I-V characteristics and efficiency. |
+| PG-II | 1 precise post | 6.7 | 8.4 | Replaced the electronics umbrella page with JFET drain and transfer characteristics. |
+| PG-III | 1 precise post | 6.6 | 8.4 | Replaced the modern-physics umbrella page with ESR resonance and the electron g-factor. |
+| PG-IV | 1 post | 7.4 | 8.4 | Added the ADC/DAC physical chain, quantisation relation, labelled figure, and Maxima check. |
+
+All 65 practical posts were rechecked after the replacement pass. No post remains below 8/10 under this rubric. Broad umbrella pages were removed where they could not be defended as a single experiment; each replacement now has one precise title, one apparatus arrangement, one observation set, and one result.

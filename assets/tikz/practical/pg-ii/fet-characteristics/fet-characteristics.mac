@@ -1,0 +1,5 @@
+kill(all)$
+Id1 : 4.1$ Id2 : 3.2$
+Vg1 : -0.5$ Vg2 : -1.0$
+float((Id1-Id2)/(Vg1-Vg2));
+

@@ -14,8 +14,8 @@ comments: true
 ## Experimental arrangement
 
 <figure class="practical-figure">
-  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
-  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+  <img src="{{ '/assets/images/practical/common/thermal/thermal-arrangement.png' | relative_url }}" alt="Calorimeter and ice method-of-mixtures arrangement">
+  <figcaption>Method-of-mixtures arrangement showing the calorimeter, melting ice, thermometer, stirrer, and surrounding insulation.</figcaption>
 </figure>
 
 ## Aim

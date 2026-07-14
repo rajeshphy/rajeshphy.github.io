@@ -14,8 +14,8 @@ comments: true
 ## Experimental arrangement
 
 <figure class="practical-figure">
-  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
-  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+  <img src="{{ '/assets/images/practical/common/solid-state/solid-state-arrangement.png' | relative_url }}" alt="Temperature-controlled semiconductor energy-gap arrangement">
+  <figcaption>The reverse-biased semiconductor junction is heated in a controlled bath and its reverse saturation current is measured.</figcaption>
 </figure>
 
 ## Aim

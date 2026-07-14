@@ -1,0 +1,16 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily\small]
+\node[font=\sffamily\bfseries\small,text=teal!55!black] at (4,4.8) {Semiconductor characteristic test circuit};
+\draw (0,0) to[battery1,l=$V_{DC}$] (0,3.2)
+      to[R,l=$R_s$] (2.0,3.2)
+      to[Do,l=\,device\,under\,test] (4.3,3.2)
+      -- (6.5,3.2) -- (6.5,0) -- (0,0);
+\draw (2.0,3.2) to[ammeter,l=$I$] (2.0,1.3);
+\draw (4.3,3.2) to[voltmeter,l=$V$] (4.3,1.3) -- (2.0,1.3);
+\node[align=center,font=\sffamily\footnotesize] at (1.0,-.55) {regulated supply};
+\node[align=center,font=\sffamily\footnotesize] at (4.3,-.55) {voltage across\\device};
+\draw[teal!60!black,->] (7.1,1.2) -- (7.1,2.8) node[midway,right,font=\sffamily\footnotesize]{vary bias};
+\end{circuitikz}
+\end{document}

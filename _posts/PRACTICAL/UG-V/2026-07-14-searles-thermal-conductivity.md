@@ -14,8 +14,8 @@ comments: true
 ## Experimental arrangement
 
 <figure class="practical-figure">
-  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
-  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+  <img src="{{ '/assets/images/practical/common/thermal/thermal-arrangement.png' | relative_url }}" alt="Searle thermal conductivity apparatus arrangement">
+  <figcaption>Searle's apparatus: heat enters the rod at the hot end, flows along its length, and is removed by cooling water at the cold end.</figcaption>
 </figure>
 
 ## Aim

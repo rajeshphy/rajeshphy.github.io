@@ -14,8 +14,8 @@ comments: true
 ## Experimental arrangement
 
 <figure class="practical-figure">
-  <img src="{{ '/assets/images/practical/common/experimental-arrangement/experimental-arrangement.png' | relative_url }}" alt="Labelled general experimental arrangement">
-  <figcaption>Labelled arrangement showing the source, sample under test, detector, and measured response.</figcaption>
+  <img src="{{ '/assets/images/practical/common/solid-state/solid-state-arrangement.png' | relative_url }}" alt="Tunnel-diode current-voltage measurement arrangement">
+  <figcaption>The tunnel diode is biased through a current-limiting resistor while the ammeter and voltmeter trace its complete V-I curve.</figcaption>
 </figure>
 
 ## Aim
