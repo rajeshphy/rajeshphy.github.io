@@ -38,14 +38,25 @@ RH_hall:Vh_hall*t_hall/(I_hall*B_hall)$
 n_hall:1/(1.602176634e-19*RH_hall)$
 float([RH_hall,n_hall])$
 
-/* Lattice dispersion for K/m = 1 in model units. */
-q_lattice:%pi/3$ omega_lattice:2*sqrt(1)*abs(sin(q_lattice/2))$
-float(omega_lattice)$
+/* Monoatomic LC-lattice cut-off and the frequency at qa = 60 degree. */
+L_lattice:10.0e-3$ C_lattice:0.0100e-6$
+fc_lattice:1/(%pi*sqrt(L_lattice*C_lattice))$
+f60_lattice:fc_lattice*sin(%pi/6)$
+float([fc_lattice/1000,f60_lattice/1000])$
 
-/* Millikan observation: common charge multiplier. */
-charge_multipliers:[5,6,8,10]$
-mean_multiplier:(5+6+8+10)/4$
-mean_multiplier$
+/* Millikan oil-drop calculation for the first observation. */
+eta_air:1.82e-5$ rho_oil:860$ rho_air:1.2$ g0:9.81$
+s_drop:0.500e-3$ tf_drop:12.40$ tr_drop:14.59$
+d_plate:5.00e-3$ V_plate:500$
+vf_drop:s_drop/tf_drop$ vr_drop:s_drop/tr_drop$
+r_drop:sqrt(9*eta_air*vf_drop/(2*g0*(rho_oil-rho_air)))$
+q_drop:6*%pi*eta_air*r_drop*d_plate*(vf_drop+vr_drop)/V_plate$
+float([vf_drop,vr_drop,r_drop,q_drop])$
+
+/* Mean charge unit obtained from four drops. */
+e_values:[1.602e-19,3.207e-19/2,4.797e-19/3,6.420e-19/4]$
+e_mean:apply("+",e_values)/length(e_values)$
+float([e_values,e_mean])$
 
 /* Planck constant from the endpoint slope of the LED data. */
 c:2.99792458e8$ lambda1:650e-9$ lambda2:470e-9$

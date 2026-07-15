@@ -1,0 +1,26 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+  \node[op amp] (S) at (2.7,3.5) {};
+  \draw (S.+) -- ++(-.8,0) -- ++(0,-1.2) to[R,l_=$R_2$] ++(0,-1.5) node[ground]{};
+  \draw (S.out) -- ++(1.0,0) coordinate(sq);
+  \node[below=2pt] at (sq) {square output};
+  \draw (sq) -- ++(0,1.2) to[R,l=$R_1$] (S.+ |- 0,4.4) -- (S.+);
+  \node[op amp] (I) at (8.7,3.5) {};
+  \draw (sq) to[R,l=$R$] (I.-);
+  \draw (I.+) -- ++(-.5,0) node[ground]{};
+  \draw (I.out) -- ++(.8,0) node[right]{triangular output};
+  \draw (I.out) -- ++(0,1.2) to[C,l=$C$] (I.- |- 5.8,4.4) -- (I.-);
+  \node[above] at (5.7,5.25) {(a) Op-amp Schmitt trigger and integrator waveform generator};
+
+  \draw (1.0,-1.8) node[left]{$V_i$} -- (2.0,-1.8) to[switch,l=$S$] (3.5,-1.8) -- (4.2,-1.8);
+  \draw (4.2,-1.8) to[C,l=$C_H$] (4.2,-3.8) node[ground]{};
+  \node[op amp] (B) at (7.0,-1.8) {};
+  \draw (4.2,-1.8) -- (B.+);
+  \draw (B.out) -- ++(.8,0) node[right]{$V_o$ held value};
+  \draw (B.out) -- ++(0,-1.2) -| (B.-);
+  \draw[->] (2.75,-.8) -- (2.75,-1.45) node[above]{sampling pulse};
+  \node[above] at (5.7,-.35) {(b) Sample-and-hold storage amplifier with buffer};
+\end{circuitikz}
+\end{document}

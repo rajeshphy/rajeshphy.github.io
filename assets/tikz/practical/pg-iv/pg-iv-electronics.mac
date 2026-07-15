@@ -47,6 +47,13 @@ Vth:5$ Rth:260$ RL:1000$ IN:Vth/Rth$
 IL:Vth/(Rth+RL)$
 float([IN,IL*1000])$
 
-/* Waveform-amplifier voltage gains. */
-input_amplitude:0.20$ output_amplitudes:[2.0,1.9,1.8]$
-float(output_amplitudes/input_amplitude)$
+/* Op-amp waveform generator and sample-and-hold storage amplifier. */
+R1_wave:10.0e3$ R2_wave:10.0e3$ R_wave:10.0e3$ C_wave:0.0100e-6$
+beta_wave:R2_wave/(R1_wave+R2_wave)$
+f_wave:1/(4*beta_wave*R_wave*C_wave)$
+f_observed:4.92e3$
+frequency_difference:abs(f_wave-f_observed)/f_wave*100$
+CH:0.10e-6$ deltaV_hold:0.940-0.920$ deltaT_hold:10.0e-3$
+droop_rate:deltaV_hold/deltaT_hold$
+leakage_current:CH*droop_rate$
+float([beta_wave,f_wave,frequency_difference,droop_rate,leakage_current])$
