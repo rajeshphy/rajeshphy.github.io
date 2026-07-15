@@ -21,11 +21,21 @@ LED or laser fibre source, optical power meter, reference patch cord, test patch
 <figure class="practical-figure"><img src="{{ '/assets/images/practical/common/fibre/fibre-arrangement.png' | relative_url }}" alt="Optical-fibre patch-cord loss measurement setup"><figcaption>The source is first connected to the power meter for reference power and then through the test patch cord for transmitted power.</figcaption></figure>
 
 ## Theory
-Light power is reduced as it travels through a fibre because some energy is absorbed, scattered, radiated at bends, or lost at a connector. The power meter is first connected directly to the source to establish a reference, and the test patch cord is then inserted without changing the source setting. Optical attenuation is therefore defined by comparing the reference power with the transmitted power. If $P_{ref}$ is the reference power and $P_{out}$ is the power after inserting the patch cord,
+An optical fibre confines light to its core by total internal reflection because the core refractive index is slightly greater than that of the cladding. The guided optical power nevertheless decreases during propagation. Material absorption converts part of it to heat, microscopic index fluctuations cause Rayleigh scattering, and sharp bends couple guided modes into radiation modes. A practical patch cord also includes connector and coupling losses at its ends.
+
+Insertion loss is measured by substitution. First, the source is connected to the power meter through the reference arrangement and the reference power $P_{ref}$ is stored. The test cord is then inserted without changing wavelength, source drive, detector range, or connector alignment. If the transmitted power becomes $P_{out}$, the insertion loss is
 
 $$L=10\log_{10}\left(\frac{P_{ref}}{P_{out}}\right)\,\text{dB}.$$
 
-When both readings are displayed in dBm, the loss is simply $L=P_{ref}(\mathrm{dBm})-P_{out}(\mathrm{dBm})$. A clean connector and a gentle bend are essential because coupling and bend losses can be larger than the fibre attenuation itself.
+Optical power in dBm is defined by
+
+$$P(\text{dBm})=10\log_{10}\left[\frac{P(\text{mW})}{1\ \text{mW}}\right].$$
+
+Therefore, when both readings are in dBm,
+
+$$L=P_{ref}(\text{dBm})-P_{out}(\text{dBm}).$$
+
+This value is the loss of the complete patch-cord insertion, not simply the intrinsic fibre attenuation per kilometre. For short cords, connector repeatability may exceed the propagation loss. The connectors must therefore be cleaned and re-seated consistently, the cord must not be bent below its minimum bend radius, and several insertion readings should be averaged.
 
 ## Observations
 
@@ -47,10 +57,6 @@ $$L=(-3.2)-(-5.0)=1.8\,\text{dB}.$$
 
 The loss therefore increases by $0.9$ dB between these two trial cords.
 
-## Maxima Code
-
-[Download the optical-fibre loss calculation]({{ '/assets/tikz/practical/pg-iv/pg-iv-electronics.mac' | relative_url }}).
-
 ## Result
 The insertion loss increases with patch-cord length and connector number.
 
@@ -58,4 +64,8 @@ The insertion loss increases with patch-cord length and connector number.
 1. **Why is a reference reading taken?** To remove the source and meter baseline from the loss measurement.
 2. **What is dBm?** Optical power expressed relative to 1 mW.
 3. **Why should connectors be cleaned?** Dust produces additional coupling loss.
+
+## Maxima Code
+
+[Download the optical-fibre loss calculation]({{ '/assets/tikz/practical/pg-iv/pg-iv-electronics.mac' | relative_url }}).
 </div>

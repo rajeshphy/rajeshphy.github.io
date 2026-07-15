@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Monostable Multivibrator: Waveform Study Using an Oscilloscope"
+title: "IC 555 Monostable Multivibrator: Pulse-Width Measurement"
 date: 2026-06-13 20:35:00 +0530
 categories: [practical-pg-iv]
 tags: [practical, pg-iv, electronics, monostable, multivibrator]
@@ -21,17 +21,21 @@ Monostable multivibrator trainer or 555 timer, DC supply, trigger generator, CRO
 <figure class="practical-figure"><img src="{{ '/assets/images/practical/common/digital/digital-arrangement.png' | relative_url }}" alt="Monostable multivibrator CRO arrangement"><figcaption>A trigger pulse is applied to the monostable circuit and the output pulse width is measured on the CRO.</figcaption></figure>
 
 ## Theory
-The timing capacitor voltage changes according to the charging law of an RC circuit. A monostable circuit uses a trigger to switch from its stable state to a temporary quasi-stable state. For a 555 timer, the capacitor charges towards $V_{CC}$ through $R$ according to
+A monostable multivibrator has one indefinitely stable state and one temporary state. In the IC 555, three equal internal resistors establish reference levels at $V_{CC}/3$ and $2V_{CC}/3$. A trigger comparator, threshold comparator, SR latch, and discharge transistor use these levels to control the output and timing capacitor.
+
+In the stable state the output is LOW and the discharge transistor keeps the capacitor nearly at zero. A negative trigger that falls below $V_{CC}/3$ sets the latch. The output becomes HIGH, the discharge transistor switches off, and the capacitor begins charging through the external resistance $R$ toward $V_{CC}$:
 
 $$V_C(t)=V_{CC}\left(1-e^{-t/(RC)}\right).$$
 
-The threshold comparator changes state when $V_C$ reaches $2V_{CC}/3$. Therefore,
+When $V_C$ reaches $2V_{CC}/3$, the threshold comparator resets the latch. The output returns LOW and the discharge transistor rapidly empties the capacitor. Setting $V_C(T)=2V_{CC}/3$ gives
 
 $$\frac{2}{3}=1-e^{-T/(RC)},\qquad T=RC\ln3\approx1.1RC.$$
 
-The circuit then returns automatically to the stable state. Thus the trigger controls when the pulse begins, while $R$ and $C$ control its duration.
+Thus the trigger determines when the output pulse starts, while $R$ and $C$ determine its width:
 
 $$T=1.1RC.$$
+
+Provided the trigger pulse is shorter than $T$ and ends before the threshold is reached, its amplitude does not determine the output width. The CRO should display the trigger, output, and capacitor voltage: the capacitor rises exponentially during the HIGH output and falls rapidly when discharge begins. Differences between calculated and observed width arise from component tolerance, comparator levels, and probe loading.
 
 ## Observations
 
@@ -53,10 +57,6 @@ $$\frac{|1.12-1.10|}{1.10}\times100=1.8\%,$$
 
 which is reasonable for component tolerance and triggering uncertainty. For $C=0.22\,\mu\text{F}$, the same relation gives $T=2.42$ ms, agreeing with the second reading.
 
-## Maxima Code
-
-[Download the monostable calculation file]({{ '/assets/tikz/practical/pg-iv/pg-iv-electronics.mac' | relative_url }}).
-
 ## Result
 The monostable produces one output pulse for each trigger, and its width agrees with the timing relation $T=1.1RC$.
 
@@ -64,4 +64,8 @@ The monostable produces one output pulse for each trigger, and its width agrees 
 1. **How many stable states does a monostable have?** One.
 2. **What controls the pulse width?** The timing resistor and capacitor.
 3. **Why is a CRO used?** To observe the trigger and output pulse in time.
+
+## Maxima Code
+
+[Download the monostable calculation file]({{ '/assets/tikz/practical/pg-iv/pg-iv-electronics.mac' | relative_url }}).
 </div>

@@ -24,14 +24,33 @@ Four-probe semiconductor unit, constant-current source, microvoltmeter, heater, 
 <figure class="practical-figure"><img src="{{ '/assets/images/practical/common/solid-state/solid-state-arrangement.png' | relative_url }}" alt="Four-probe semiconductor resistance arrangement"><figcaption>Current is passed through the outer probes and the voltage drop is measured between the inner probes while the sample temperature is varied.</figcaption></figure>
 
 ## Theory
+In an ordinary two-terminal resistance measurement, the observed voltage includes the drops across the specimen, leads, and metal-semiconductor contacts. The four-probe arrangement separates these functions. A known current $I$ is passed through the two outer collinear probes, while a high-resistance voltmeter measures $V$ between the inner probes. Since negligible current enters the voltage probes, their contact resistances produce negligible voltage drop.
 
-The four-probe method separates the current contacts from the voltage contacts. A known current enters through the outer probes and the inner probes draw negligible current, so contact resistance and lead resistance do not enter the measured voltage significantly. For a long thin sample, the resistivity is obtained from the measured voltage $V$, current $I$, and geometrical correction factor $G$:
+The current spreads through the semiconductor, so the conversion from $V/I$ to resistivity depends on probe spacing $s$, specimen thickness $t$, and distance from an edge. For a thick, laterally large specimen,
+
+$$\rho=2\pi s\frac{V}{I}.$$
+
+For a thin sheet with $t\ll s$,
+
+$$\rho=\frac{\pi t}{\ln2}\frac{V}{I}.$$
+
+The practical kit combines the appropriate thickness and edge corrections into a geometrical factor $G$, so the working form is
 
 $$\rho=G\frac{V}{I}.$$
 
-For an intrinsic semiconductor, thermal excitation creates electron-hole pairs across the gap. The conductivity varies approximately as $\sigma=\sigma_0e^{-E_g/(2kT)}$. Hence a plot of $\log_{10}\sigma$ against $1/T$ is linear and
+As temperature rises in the intrinsic region, thermal energy excites electrons from the valence band to the conduction band, leaving an equal concentration of holes. The intrinsic carrier concentration varies as $n_i\propto e^{-E_g/(2kT)}$, and therefore
 
-$$E_g=-2.303k\frac{d(\log_{10}\sigma)}{d(1/T)}.$$
+$$\sigma=\frac1\rho=\sigma_0e^{-E_g/(2kT)}.$$
+
+Taking common logarithms gives
+
+$$\log_{10}\sigma=\log_{10}\sigma_0-\frac{E_g}{2(2.303)k}\frac1T.$$
+
+If the slope of the straight-line intrinsic region in a plot of $\log_{10}\sigma$ against $1/T$ is $m$, then
+
+$$\boxed{E_g=-2(2.303)km}.$$
+
+The factor of two is essential because each excitation creates an electron-hole pair. A constant probe current must be low enough to avoid self-heating, and only the linear intrinsic region should be used for the band-gap fit.
 
 ## Observations
 
@@ -59,15 +78,15 @@ Therefore,
 
 $$\sigma=\frac{1}{\rho}=\frac{1}{0.910}=1.10\,\text{S m}^{-1}.$$
 
-The graph is plotted against $1000/T$. Its slope is approximately $-3.36$ per unit of $1000/T$, which corresponds to $-3360$ K when the horizontal variable is $1/T$. Hence
+The graph is plotted against $1000/T$. Its slope is approximately $-1.71$ per unit of $1000/T$, which corresponds to $-1710$ K when the horizontal variable is $1/T$. Hence
 
-$$E_g=-2.303(8.617\times10^{-5})(-3360)=0.67\,\text{eV}.$$
+$$E_g=-2(2.303)(8.617\times10^{-5})(-1710)=0.68\,\text{eV}.$$
 
 ## Result
 
 The semiconductor shows decreasing resistivity with increasing temperature, and the energy gap obtained from the graph is
 
-$$\boxed{E_g\approx0.67\,\text{eV}}.$$
+$$\boxed{E_g\approx0.68\,\text{eV}}.$$
 
 ## Viva Questions
 

@@ -21,7 +21,15 @@ Parallel-plate capacitor, dielectric samples, LCR meter, liquid cell, micrometer
 <figure class="practical-figure"><img src="{{ '/assets/images/practical/common/solid-state/solid-state-arrangement.png' | relative_url }}" alt="Dielectric sample capacitance measurement arrangement"><figcaption>The sample is placed between capacitor plates and the capacitance is measured before and after insertion.</figcaption></figure>
 
 ## Theory
-For a parallel-plate capacitor of plate area $A$ and separation $d$, the capacitance without dielectric is $C_0=\epsilon_0A/d$. When an electric field is applied, bound charges in an insulating material are displaced or oriented. This polarisation reduces the internal field for a given free charge, so more charge is stored at the same applied voltage. When the gap is completely filled with a dielectric of relative permittivity $\epsilon_r$,
+An electric field cannot produce steady conduction through an ideal dielectric, but it displaces bound positive and negative charges in opposite directions. The resulting dipole moment per unit volume is the polarisation $P$. The electric displacement is
+
+$$D=\epsilon_0E+P=\epsilon_0\epsilon_rE,$$
+
+where $\epsilon_r$ is the relative permittivity or dielectric constant. For parallel plates of area $A$ and separation $d$, the free charge is $Q=DA$ and the potential difference is $V=Ed$. Hence an empty cell has
+
+$$C_0=\frac{Q}{V}=\frac{\epsilon_0A}{d}.$$
+
+When the space between the same plates is completely filled by a uniform dielectric, polarisation allows more free charge to be stored for the same applied voltage, giving
 
 $$C=\epsilon_rC_0.$$
 
@@ -29,7 +37,9 @@ Thus
 
 $$\epsilon_r=\frac{C}{C_0}.$$
 
-For a liquid cell, the empty-cell capacitance is measured first and the same relation is used after the liquid fills the active gap. The measurement frequency must be stated because polarisation mechanisms can respond differently at different frequencies.
+This capacitance-ratio method cancels the plate area and separation, provided the specimen fills the active gap and the geometry does not change. A solid sheet must be flat and have the same thickness as the calibrated gap; otherwise, the residual air layer forms a series capacitor and requires a correction. For a liquid, the cell is measured empty and then completely filled without air bubbles.
+
+Electronic and ionic polarisation respond rapidly, whereas orientational and interfacial polarisation may not follow a high-frequency field. The measured $\epsilon_r$ must therefore be quoted with temperature and bridge frequency. Guarding, open-lead correction, and a clean dry cell reduce stray capacitance and leakage errors.
 
 ## Observations
 
@@ -55,10 +65,6 @@ $$\epsilon_r=\frac{98}{48}=2.04.$$
 
 The capacitance ratios are dimensionless because the two capacitances in each ratio have the same unit.
 
-## Maxima Code
-
-[Download the dielectric-constant calculation]({{ '/assets/tikz/practical/pg-iv/pg-iv-advanced.mac' | relative_url }}).
-
 ## Result
 The dielectric constants are obtained from the capacitance ratios; the solid and liquid samples show the expected different polarisation strengths.
 
@@ -66,4 +72,8 @@ The dielectric constants are obtained from the capacitance ratios; the solid and
 1. **What is dielectric polarisation?** Slight separation or alignment of bound charges in an electric field.
 2. **Why must the sample fill the gap completely?** Air gaps would introduce another dielectric and change the effective capacitance.
 3. **Why is an LCR meter convenient?** It measures capacitance at a specified AC frequency.
+
+## Maxima Code
+
+[Download the dielectric-constant calculation]({{ '/assets/tikz/practical/pg-iv/pg-iv-advanced.mac' | relative_url }}).
 </div>

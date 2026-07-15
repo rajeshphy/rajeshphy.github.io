@@ -21,13 +21,25 @@ DC supply, resistors, load resistor, voltmeter, ammeter, potentiometer or decade
 <figure class="practical-figure"><img src="{{ '/assets/images/practical/common/electronics/electronics-arrangement.png' | relative_url }}" alt="Thevenin and Norton equivalent network setup"><figcaption>The original network is replaced by its equivalent source and resistance, and the load current is compared in all arrangements.</figcaption></figure>
 
 ## Theory
-A linear resistive network responds to a load through the voltage and current available at its two output terminals. To find its Thevenin form, remove the load and measure the open-circuit terminal voltage $V_{th}$; then deactivate independent sources and measure the resistance seen from the terminals, $R_{th}$. Thevenin's theorem replaces the network by $V_{th}$ in series with $R_{th}$.
+Any two-terminal network made from linear elements and sources has a terminal voltage-current relation of the form
 
-Norton's theorem follows from the same terminal relation. Measure the short-circuit current $I_N$, and place it in parallel with $R_N$. The two forms satisfy $V_{th}=I_NR_N$ and $R_{th}=R_N$. For a load $R_L$,
+$$V=V_{th}-IR_{th}.$$
+
+The constant term is found by opening the load, for which $I=0$ and $V=V_{oc}=V_{th}$. The slope is the resistance seen from the terminals. To determine it directly, independent voltage sources are replaced by their internal resistance, ideally a short circuit, and independent current sources by an open circuit. Dependent sources, if present, must remain active and a test source must be used. Thevenin's theorem therefore replaces the complete linear network by the open-circuit voltage $V_{th}$ in series with $R_{th}$.
+
+At the opposite limiting condition, shorting the terminals makes $V=0$ and gives
+
+$$I_{sc}=I_N=\frac{V_{th}}{R_{th}}.$$
+
+Norton's theorem represents the same terminal line by current source $I_N$ in parallel with $R_N$. Source transformation requires
+
+$$R_N=R_{th},\qquad V_{th}=I_NR_N.$$
+
+When a finite load $R_L$ is connected, the two equivalent forms predict
 
 $$I_L=\frac{V_{th}}{R_{th}+R_L}=I_N\frac{R_N}{R_N+R_L}.$$
 
-The theorem is verified when the load current obtained from the original and equivalent circuits agrees within the experimental error.
+The theorem is verified by showing that the original network and both equivalents produce the same load current and voltage, not merely by comparing $V_{th}$ and $I_N$. The short-circuit current should be measured only when the source and network can safely supply it; otherwise it is calculated from the equivalent resistance.
 
 ## Observations
 

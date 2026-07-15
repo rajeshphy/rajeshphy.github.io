@@ -39,7 +39,7 @@ fm:6$ fs:10$ nyquist:2*fm$
 /* Eight-bit ADC step and DAC output. */
 vref:5$ bits:8$ q:vref/2^bits$
 adc_code:round(0.5/q)$
-dac_output:adc_code*vref/(2^bits-1)$
+dac_output:adc_code*vref/2^bits$
 float([q,adc_code,dac_output])$
 
 /* Thevenin/Norton load current. */

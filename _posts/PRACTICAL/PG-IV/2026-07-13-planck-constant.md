@@ -21,13 +21,23 @@ LED panel, regulated DC supply, series resistor, voltmeter, milliammeter, and co
 <figure class="practical-figure"><img src="{{ '/assets/images/practical/common/electronics/electronics-arrangement.png' | relative_url }}" alt="LED threshold-voltage measurement circuit"><figcaption>Each LED is forward biased through a current-limiting resistor and its threshold voltage is measured.</figcaption></figure>
 
 ## Theory
-An LED is a forward-biased p-n junction. The forward bias lowers the junction barrier and injects electrons and holes into the active region, where they recombine. The electrical energy supplied per carrier is approximately $eV$, while the emitted photon carries energy $h\nu$. At threshold,
+An LED is a p-n junction made from a direct-band-gap semiconductor. Under forward bias, electrons are injected from the n-side and holes from the p-side into the active region. Their radiative recombination releases energy approximately equal to the band gap $E_g$ as a photon. Photon energy and optical frequency are related by Planck's law,
+
+$$E_\gamma=h\nu=\frac{hc}{\lambda}.$$
+
+The electrical work supplied to one carrier crossing a potential difference $V$ is $eV$. Near the onset of visible emission, these energies are approximately related by
 
 $$eV\approx h\nu=\frac{hc}{\lambda}.$$
 
-The measured voltage also contains a nearly constant junction and contact contribution. It therefore affects the intercept but not the slope of a graph of threshold voltage $V$ against frequency $\nu$. The slope is $h/e$:
+The equality is not exact for one LED because some applied voltage is associated with contact potential, series resistance, non-radiative recombination, and the subjective choice of threshold current. These contributions can be represented approximately by a common intercept $V_0$:
+
+$$V=\frac{h}{e}\nu+V_0.$$
+
+Using several LED colours and plotting measured threshold voltage against frequency separates the physically useful slope from this intercept. Since $\nu=c/\lambda$, the gradient is
 
 $$h=e\frac{\Delta V}{\Delta\nu}.$$
+
+The wavelength used should be the peak emission wavelength, not merely the printed colour name. Threshold voltage should be measured at the same small current for every LED because forward voltage depends on current and temperature. A straight-line fit through all readings is preferable to a single ratio $eV/\nu$, which incorrectly assumes a zero intercept.
 
 ## Observations
 

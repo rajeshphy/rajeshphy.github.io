@@ -24,20 +24,19 @@ ESR spectrometer, microwave source, Helmholtz coils, Hall probe, paramagnetic sa
 <figure class="practical-figure"><img src="{{ '/assets/images/practical/pg-iii/esr-g-factor/esr-arrangement.png' | relative_url }}" alt="Labelled ESR measurement arrangement"><figcaption>Microwave excitation of the paramagnetic sample while the magnetic field is swept and measured.</figcaption></figure>
 
 ## Theory
-
-An atom or ion with an unpaired electron has a spin magnetic moment. In an applied magnetic field, the two allowed spin orientations have different Zeeman energies. Their separation is
+An electron possesses intrinsic angular momentum called spin and an associated magnetic moment. In a paramagnetic atom or free-radical sample, an unpaired electron behaves approximately as a magnetic dipole. With no external field, the two spin projections have equal energy. A static magnetic field $B$ removes this degeneracy through the Zeeman interaction. For an effective spin $S=1/2$, the two energies are separated by
 
 $$\Delta E=g\mu_BB.$$
 
-When the sample is exposed to microwave radiation, absorption occurs when one photon supplies exactly this energy:
+Here $\mu_B=e\hbar/(2m_e)$ is the Bohr magneton and $g$ describes how the magnetic moment is related to the angular momentum. The sample is placed in a coil or electromagnet and exposed to an alternating magnetic field of frequency $\nu$. Magnetic-dipole transitions are induced when one photon supplies the Zeeman energy:
 
 $$h\nu=g\mu_BB.$$
 
-Measuring the resonant field at known frequency therefore gives
+Thus resonance is found by sweeping the static field at fixed frequency, or by changing frequency at a known field. The absorbed RF or microwave power changes the detector signal at the resonant field $B_r$, giving
 
-$$g=\frac{h\nu}{\mu_BB}.$$
+$$\boxed{g=\frac{h\nu}{\mu_BB_r}}.$$
 
-A plot of resonance field against frequency should pass nearly through the origin; its slope is $h/(g\mu_B)$.
+In many teaching ESR spectrometers the field is slowly modulated. Phase-sensitive detection then displays the derivative of the absorption curve, so $B_r$ lies midway between the positive and negative derivative extrema. A plot of resonance frequency against field should be linear through the origin, with slope $g\mu_B/h$. Repeated readings at several fields reduce error due to field calibration and line-width estimation.
 
 ## Observations
 

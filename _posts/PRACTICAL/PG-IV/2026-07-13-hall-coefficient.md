@@ -27,18 +27,21 @@ To determine the Hall coefficient and carrier concentration of a semiconductor s
 Semiconductor Hall sample, electromagnet, constant-current source, microvoltmeter, Gauss meter, and micrometer.
 
 ## Theory
-
-The current in a semiconductor is carried by drifting electrons or holes. When the specimen is placed in a magnetic field perpendicular to the current, each moving carrier experiences the Lorentz force $q(\mathbf v\times\mathbf B)$. The carriers therefore accumulate on one side of the specimen until the transverse electric force balances the magnetic force:
+An applied longitudinal electric field makes the mobile carriers in a semiconductor acquire a mean drift velocity $v_d$. If a magnetic field $B$ is applied perpendicular to this current, every carrier experiences the transverse Lorentz force $q(\mathbf v_d\times\mathbf B)$. Carriers accumulate at one side of the specimen and leave the opposite side deficient. This charge separation creates a transverse Hall field $E_H$ that grows until
 
 $$qE_H=qv_dB.$$
 
-This charge separation produces the Hall voltage $V_H$. Reversing the magnetic field or the current reverses the Hall voltage, which is why reversal readings are averaged in practice.
+For a rectangular specimen of width $w$ and thickness $t$, $E_H=V_H/w$. The current is $I=nqv_dwt$ for one dominant carrier type. Eliminating $v_d$ gives
 
-For a specimen of thickness $t$, current $I$, and magnetic field $B$,
+$$V_H=\frac{IB}{nqt}.$$
+
+The Hall coefficient is therefore
 
 $$R_H=\frac{V_Ht}{IB},\qquad n=\frac{1}{eR_H}.$$
 
-The sign of $V_H$ identifies the dominant carrier type, while the magnitude of $R_H$ gives the carrier concentration. For a single carrier type, $n=1/(e|R_H|)$. The Hall angle is obtained from $\tan\theta_H=E_H/E_x$ when the longitudinal field is measured as well.
+For electrons $q=-e$, so $R_H$ is negative; for holes it is positive. The sign of the corrected Hall voltage therefore identifies the majority carrier. A small transverse voltage may exist even at $B=0$ because the contacts are not exactly opposite. Since the true Hall voltage reverses with $I$ or $B$ while the offset does not, reversal readings are combined to remove it.
+
+If the longitudinal conductivity $\sigma$ is also known, the mobility follows from $\mu=|R_H|\sigma$. The Hall angle describes the deflection of current and satisfies $\tan\theta_H=E_H/E_x=\mu B$ in the simple one-carrier model. The linearity of $V_H$ with both $I$ and $B$ is an important experimental check.
 
 ## Observations
 

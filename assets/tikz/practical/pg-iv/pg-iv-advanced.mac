@@ -1,6 +1,6 @@
 /* Maxima checks for PG-IV semiconductor, network, and converter work. */
 kill(all)$
-k:8.617333262e-5$ slope:2200$ Eg:2.303*k*slope$ float(Eg)$
+k:8.617333262e-5$ slope:1710$ Eg:2*2.303*k*slope$ float(Eg)$
 t:0.5e-3$ Vh:3.6e-3$ I:5e-3$ B:0.4$
 Rh:Vh*t/(I*B)$ n:1/(1.602176634e-19*Rh)$ float([Rh,n])$
 e:1.602176634e-19$ slopeV:4.14e-15$ h:e*slopeV$ float(h)$
