@@ -21,17 +21,23 @@ Transistor oscillator kit, two coupled inductors or tapped coil, capacitor, DC s
 
 ## Experimental arrangement
 
-<figure class="practical-figure"><img src="{{ '/assets/images/practical/common/electronics/electronics-arrangement.png' | relative_url }}" alt="Hartley oscillator tuned circuit"><figcaption>The transistor amplifier receives positive feedback from the tapped inductive coil and capacitor forming the LC tank circuit.</figcaption></figure>
+<figure class="practical-figure practical-figure-wide"><img src="{{ '/assets/images/practical/pg-ii/hartley-oscillator/hartley-setup.png' | relative_url }}" alt="Transistor Hartley oscillator circuit"><figcaption>The collector excites the parallel LC tank, while the tap between $L_1$ and $L_2$ returns a fraction of the tank voltage to the emitter with the phase required for positive feedback.</figcaption></figure>
 
 ## Theory
 
-An oscillator converts DC power into a periodic AC signal. In the Hartley oscillator, two series inductances and a capacitor form the resonant tank circuit. Energy moves between the magnetic field of the inductors and the electric field of the capacitor. The tapped coil supplies the required feedback phase.
+An oscillator converts energy from a DC supply into a periodic signal without an external periodic input. A small noise voltage starts the process. The amplifier increases this voltage and positive feedback returns part of the output in phase with the original disturbance. A steady sinusoid is obtained when the Barkhausen conditions are satisfied: the total phase shift is $0$ or $2\pi$ and the loop-gain magnitude settles to unity.
 
-The approximate frequency is
+In the Hartley oscillator, $L_1$, $L_2$, and $C$ form the resonant tank. When the capacitor discharges, current builds magnetic energy in the inductors; when the magnetic field collapses, the induced emf recharges the capacitor with opposite polarity. Ideally this exchange occurs at the natural frequency of the tank. The transistor replaces the energy lost in the coil resistance and load.
+
+Because the two coil sections are magnetically coupled, their effective series inductance is
+
+$$L_{eq}=L_1+L_2+2M,$$
+
+where the plus sign applies when the windings are series aiding. The oscillation frequency is therefore
 
 $$f=\frac{1}{2\pi\sqrt{(L_1+L_2+2M)C}},$$
 
-where $M$ is the mutual inductance between the coil sections.
+The tapped inductive divider determines the feedback fraction. Reversing one coil connection changes the feedback phase and prevents sustained oscillation.
 
 ## Observations
 
@@ -41,6 +47,22 @@ where $M$ is the mutual inductance between the coil sections.
 | 2.2 | 107 |
 | 4.7 | 73 |
 | 10.0 | 50 |
+
+## Graph
+
+<figure class="practical-figure practical-figure-wide"><img src="{{ '/assets/images/practical/pg-ii/hartley-oscillator/hartley-frequency.png' | relative_url }}" alt="Hartley oscillator frequency versus capacitance graph"><figcaption>The observed frequency follows the inverse-square-root dependence on tank capacitance.</figcaption></figure>
+
+## Calculation
+
+Using $C=1.0$ nF and $f=158$ kHz, the effective tank inductance is
+
+$$L_{eq}=\frac{1}{(2\pi f)^2C}=\frac{1}{[2\pi(158\times10^3)]^2(1.0\times10^{-9})}=1.01\,\text{mH}.$$
+
+With this inductance and $C=10$ nF,
+
+$$f=\frac{1}{2\pi\sqrt{(1.01\times10^{-3})(10\times10^{-9})}}=50.1\,\text{kHz},$$
+
+which agrees with the observed 50 kHz.
 
 ## Result
 

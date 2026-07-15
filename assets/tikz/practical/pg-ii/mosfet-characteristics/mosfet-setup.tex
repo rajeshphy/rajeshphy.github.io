@@ -1,0 +1,18 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+  \node[nmos, scale=1.25] (M) at (0,0) {};
+  \draw (M.D) -- (0,1.1) to[ammeter,l=$I_D$] (0,2.4)
+        to[R,l=$R_D$] (0,3.7) -- (2.2,3.7)
+        to[battery1,l_=$V_{DD}$] (2.2,-1.5) -- (M.S);
+  \draw (M.S) -- (0,-1.5) node[ground]{};
+  \draw (M.G) -- (-1.5,0) to[voltmeter,l_=$V_{GS}$] (-1.5,-1.5) -- (0,-1.5);
+  \draw (-1.5,0) -- (-3.0,0) to[battery1,l_=$V_{GG}$] (-3.0,-1.5) -- (0,-1.5);
+  \draw (0,1.0) -- (1.25,1.0) to[voltmeter,l=$V_{DS}$] (1.25,-1.5) -- (0,-1.5);
+  \node[above] at (0,4.0) {Enhancement-MOSF characteristic circuit};
+  \node[right] at (M.D) {$D$};
+  \node[right] at (M.S) {$S$};
+  \node[above left] at (M.G) {$G$};
+\end{circuitikz}
+\end{document}

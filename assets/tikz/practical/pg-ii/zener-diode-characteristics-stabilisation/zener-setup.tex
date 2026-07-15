@@ -1,0 +1,16 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+  \draw (0,0) to[battery1,l=$V_{in}$] (0,3.5)
+        to[R,l=$R_S$] (2.2,3.5)
+        to[ammeter,l=$I_S$] (4.0,3.5) -- (5.2,3.5);
+  \draw (5.2,3.5) to[zD,l=$D_Z$,invert] (5.2,0) -- (0,0);
+  \draw (5.2,3.5) -- (7.2,3.5) to[R,l=$R_L$] (7.2,0) -- (5.2,0);
+  \draw (7.2,3.5) -- (8.7,3.5) to[voltmeter,l=$V_o$] (8.7,0) -- (7.2,0);
+  \draw[->] (4.55,3.8) -- (5.0,3.8) node[midway,above]{$I_S$};
+  \draw[->] (5.55,2.9) -- (5.55,2.3) node[midway,right]{$I_Z$};
+  \draw[->] (7.55,2.9) -- (7.55,2.3) node[midway,right]{$I_L$};
+  \node[above] at (4.4,4.1) {Reverse-biased Zener shunt stabiliser};
+\end{circuitikz}
+\end{document}

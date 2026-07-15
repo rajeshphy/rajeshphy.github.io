@@ -21,11 +21,27 @@ Digital logic trainer, IC 7400 or 7410, IC 7402, regulated $5$ V supply, patch c
 
 ## Experimental arrangement
 
-<figure class="practical-figure"><img src="{{ '/assets/images/practical/common/digital/digital-arrangement.png' | relative_url }}" alt="Universal logic gate trainer connection"><figcaption>Logic inputs are applied to the gate ICs and the output states are observed using LED indicators.</figcaption></figure>
+<figure class="practical-figure practical-figure-wide"><img src="{{ '/assets/images/practical/pg-ii/universal-logic-gates/universal-gates-setup.png' | relative_url }}" alt="NOT AND and OR gates realised using NAND gates"><figcaption>NAND-only realisations of NOT, AND, and OR; the OR circuit follows directly from De Morgan's theorem.</figcaption></figure>
 
 ## Theory
 
-A digital gate maps input voltage levels representing 0 and 1 to an output level. The output of an AND gate is one only when both inputs are one, whereas OR gives one when at least one input is one. NAND and NOR are called universal gates because NOT, AND, and OR can be constructed from either one alone. Joining the inputs of a NAND gate gives NOT, and NANDing the result again gives AND.
+Digital circuits assign ranges of voltage to the logical states 0 and 1. A gate implements a Boolean function: AND gives $AB$, OR gives $A+B$, and NOT gives $\overline A$. NAND and NOR add inversion to AND and OR, while XOR is one only when the inputs differ:
+
+$$Y_{XOR}=A\oplus B=\overline AB+A\overline B.$$
+
+A gate set is universal if every Boolean function can be built from that gate alone. Connecting both inputs of a NAND gate to $A$ gives
+
+$$A\ \text{NAND}\ A=\overline{AA}=\overline A,$$
+
+so NAND first supplies inversion. NAND followed by this inverter gives AND:
+
+$$\overline{\overline{AB}}=AB.$$
+
+De Morgan's theorem gives the NAND-only OR realisation:
+
+$$A+B=\overline{\overline A\,\overline B}.$$
+
+Similarly, NOR with its inputs joined gives NOT; inversion of a NOR output gives OR, and De Morgan's theorem then gives AND. The LED indicator must be connected through a resistor, and unused TTL inputs must be tied to a defined logic level.
 
 ## Observations
 
@@ -36,6 +52,18 @@ A digital gate maps input voltage levels representing 0 and 1 to an output level
 | 1 | 0 | 0 | 1 | 1 | 0 | 1 |
 | 1 | 1 | 1 | 1 | 0 | 0 | 0 |
 
+## Verification
+
+For $A=0$ and $B=1$,
+
+$$\text{NAND}=\overline{0\cdot1}=1,\qquad \text{NOR}=\overline{0+1}=0,$$
+
+and
+
+$$\text{XOR}=\overline0(1)+0(\overline1)=1.$$
+
+These values match the second observation row.
+
 ## Result
 
 The truth tables are verified, and the basic gates are realised from NAND/NOR universal gates.
@@ -45,5 +73,9 @@ The truth tables are verified, and the basic gates are realised from NAND/NOR un
 1. **Why is NAND universal?** NOT, AND, and OR can all be formed using NAND gates alone.
 2. **What is XOR output for equal inputs?** Zero.
 3. **Why must unused TTL inputs not be left floating?** Their logic state may become undefined and produce unreliable output.
+
+## Maxima Code
+
+[Download the PG-II electronics calculation file]({{ '/assets/tikz/practical/pg-ii/pg-ii-electronics.mac' | relative_url }}).
 
 </div>

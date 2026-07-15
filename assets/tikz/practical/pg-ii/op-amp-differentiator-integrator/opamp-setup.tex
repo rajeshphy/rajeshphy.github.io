@@ -1,0 +1,19 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+  \node[op amp] (A1) at (3,2.7) {};
+  \draw (A1.+) -- ++(-.5,0) node[ground]{};
+  \draw (0,3.2) node[left]{$V_i$} to[C,l=$C_i$] (A1.-);
+  \draw (A1.out) -- (5.0,2.7) node[right]{$V_o=-R_fC_i\,dV_i/dt$};
+  \draw (A1.out) -- ++(0,1.4) to[R,l=$R_f$] (A1.- |- 0,4.1) -- (A1.-);
+  \node[above] at (2.7,4.65) {(a) Practical differentiator};
+
+  \node[op amp] (A2) at (11,2.7) {};
+  \draw (A2.+) -- ++(-.5,0) node[ground]{};
+  \draw (8,3.2) node[left]{$V_i$} to[R,l=$R_i$] (A2.-);
+  \draw (A2.out) -- (13.0,2.7) node[right]{$V_o=-\frac{1}{R_iC_f}\int V_i\,dt$};
+  \draw (A2.out) -- ++(0,1.4) to[C,l=$C_f$] (A2.- |- 8,4.1) -- (A2.-);
+  \node[above] at (10.7,4.65) {(b) Practical integrator};
+\end{circuitikz}
+\end{document}

@@ -21,17 +21,25 @@ Zener diode, regulated DC supply, series resistor, load resistor, milliammeter, 
 
 ## Experimental arrangement
 
-<figure class="practical-figure"><img src="{{ '/assets/images/practical/common/electronics/electronics-arrangement.png' | relative_url }}" alt="Zener diode characteristic and stabiliser circuit"><figcaption>The supply feeds the Zener through a current-limiting resistor; the output voltage is measured across the reverse-biased Zener and load.</figcaption></figure>
+<figure class="practical-figure practical-figure-wide"><img src="{{ '/assets/images/practical/pg-ii/zener-diode-characteristics-stabilisation/zener-setup.png' | relative_url }}" alt="Reverse-biased Zener shunt regulator circuit"><figcaption>The series resistor limits current; the reverse-biased Zener and load are in parallel, so the voltmeter reads both the Zener voltage and the regulated load voltage.</figcaption></figure>
 
 ## Theory
 
-A Zener diode is a heavily doped p-n junction designed to operate safely in reverse breakdown. In forward bias it behaves like an ordinary diode. In reverse bias the current remains small until the reverse voltage approaches the Zener voltage $V_Z$. Beyond this point the current increases sharply, while the voltage changes only slightly. This nearly constant voltage makes the diode useful as a shunt stabiliser.
+A p-n junction forms a depletion region and an internal electric field at the boundary between p-type and n-type material. In forward bias the external field lowers the junction barrier and the diode conducts strongly after its knee voltage. In reverse bias the barrier increases and only a small minority-carrier current flows until the electric field in the depletion layer becomes sufficiently large for breakdown.
+
+A Zener diode is heavily doped and manufactured to operate safely in this reverse-breakdown region. At lower breakdown voltages tunnelling is important; at higher voltages avalanche multiplication is important. In either case, once the knee is crossed, a large change in reverse current produces only a small change in terminal voltage. The local slope is represented by the dynamic resistance $r_Z=\Delta V_Z/\Delta I_Z$.
+
+In the shunt regulator shown above, $R_S$ absorbs the difference between input and Zener voltage and limits the total current. Kirchhoff's current law at the output node gives
 
 For a stabiliser, the series current is
 
 $$I_S=\frac{V_{in}-V_Z}{R_S},$$
 
-and it divides as $I_S=I_L+I_Z$. The load voltage is approximately $V_L=V_Z$ provided $I_Z$ remains between its minimum regulating value and its safe maximum value.
+and
+
+$$I_S=I_L+I_Z,\qquad V_L=V_Z.$$
+
+If $V_{in}$ rises or $I_L$ falls, the excess current is taken by the Zener, leaving $V_L$ nearly unchanged. Regulation fails if $I_Z$ falls below the knee current. The power condition $P_Z=V_ZI_Z<P_{Z,\max}$ must also be satisfied.
 
 ## Observations
 
@@ -50,6 +58,24 @@ For $V_{in}=9$ V and $R_S=470\,\Omega$:
 | 1.0 | 5.08 |
 | 2.0 | 5.10 |
 | 3.0 | 5.11 |
+
+## Graph
+
+<figure class="practical-figure practical-figure-wide"><img src="{{ '/assets/images/practical/pg-ii/zener-diode-characteristics-stabilisation/zener-characteristic.png' | relative_url }}" alt="Reverse characteristic graph of the Zener diode"><figcaption>The rapid rise of current near 5.1 V identifies the breakdown knee and operating voltage.</figcaption></figure>
+
+## Calculation
+
+For $V_{in}=9$ V, $V_Z=5.1$ V, and $R_S=470\,\Omega$,
+
+$$I_S=\frac{9-5.1}{470}=8.30\,\text{mA}.$$
+
+At $I_L=3.0$ mA,
+
+$$I_Z=I_S-I_L=8.30-3.00=5.30\,\text{mA},$$
+
+so $P_Z=V_ZI_Z=5.1(5.30\times10^{-3})=27.0$ mW. From the reverse-characteristic readings between 2 mA and 6 mA,
+
+$$r_Z=\frac{5.20-5.10}{(6-2)\times10^{-3}}=25\,\Omega.$$
 
 ## Result
 

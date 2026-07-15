@@ -21,17 +21,23 @@ Enhancement MOSFET, regulated gate and drain supplies, milliammeter, voltmeters,
 
 ## Experimental arrangement
 
-<figure class="practical-figure"><img src="{{ '/assets/images/practical/common/electronics/electronics-arrangement.png' | relative_url }}" alt="MOSFET drain and transfer characteristic circuit"><figcaption>The drain supply controls $V_{DS}$, the gate supply controls $V_{GS}$, and the drain current is measured in the device path.</figcaption></figure>
+<figure class="practical-figure practical-figure-wide"><img src="{{ '/assets/images/practical/pg-ii/mosfet-characteristics/mosfet-setup.png' | relative_url }}" alt="Circuit for measuring enhancement MOSFET characteristics"><figcaption>The insulated gate is biased by $V_{GG}$ while the separate drain circuit measures $I_D$ and $V_{DS}$; the source is the common reference.</figcaption></figure>
 
 ## Theory
 
-In an enhancement MOSFET, no conducting channel exists at $V_{GS}=0$. A positive gate voltage attracts electrons towards the oxide-semiconductor interface and creates a channel between source and drain. Drain current begins only when $V_{GS}$ exceeds the threshold voltage $V_T$.
+An n-channel enhancement MOSFET has two n-type regions, source and drain, separated by a p-type body. The metal gate is insulated from the semiconductor by a thin oxide, so the steady gate current is practically zero. At $V_{GS}=0$ there is no n-type path between source and drain and the device is normally off.
 
-In the saturation region, the transfer characteristic is approximately
+A positive gate voltage produces an electric field through the oxide. Holes are repelled from the surface and electrons are attracted towards it. When the surface electron concentration becomes sufficient, an inversion layer joins source and drain. The gate voltage at which this conducting channel is established is the threshold voltage $V_T$.
+
+For $V_{GS}>V_T$ and small $V_{DS}$, the device operates in the ohmic region and behaves as a gate-controlled resistor. As $V_{DS}$ approaches $V_{GS}-V_T$, the channel pinches near the drain. Beyond this condition the device enters saturation and the ideal square-law relation is
 
 $$I_D=K(V_{GS}-V_T)^2,$$
 
-where $K$ depends on the device construction. The transconductance is $g_m=\Delta I_D/\Delta V_{GS}$ at constant $V_{DS}$.
+where $K$ depends on oxide capacitance, channel dimensions, and carrier mobility. The transconductance is the slope of the transfer characteristic at constant $V_{DS}$:
+
+$$g_m=\frac{dI_D}{dV_{GS}}=2K(V_{GS}-V_T).$$
+
+The threshold is estimated from the onset of current or, more accurately, from the intercept of a straight-line plot of $\sqrt{I_D}$ against $V_{GS}$.
 
 ## Observations
 
@@ -42,6 +48,16 @@ where $K$ depends on the device construction. The transconductance is $g_m=\Delt
 | 2.5 | 1.6 |
 | 3.0 | 3.4 |
 | 3.5 | 5.8 |
+
+## Graph
+
+<figure class="practical-figure practical-figure-wide"><img src="{{ '/assets/images/practical/pg-ii/mosfet-characteristics/mosfet-transfer.png' | relative_url }}" alt="Enhancement MOSFET transfer characteristic"><figcaption>Drain current increases rapidly after the gate voltage exceeds the threshold region.</figcaption></figure>
+
+## Calculation
+
+The current first becomes measurable between 1.5 V and 2.0 V, giving the experimental estimate $V_T\approx1.9$ V. Around $V_{GS}=3.0$ V, a central-difference estimate gives
+
+$$g_m\approx\frac{I_D(3.5)-I_D(2.5)}{3.5-2.5}=\frac{5.8-1.6}{1.0}=4.2\,\text{mS}.$$
 
 ## Result
 

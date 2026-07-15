@@ -1,12 +1,58 @@
-/* Common Maxima checks for the PG-II electronics practicals. */
+/* Maxima checks for the PG-II electronics practicals. */
 kill(all)$
-/* Zener / MOSFET sample calculations */
-Vz:5.1$ Vin:9$ Rs:470$ IL:0.003$
-Is:(Vin-Vz)/Rs$ Iz:Is-IL$ [Is,Iz]$ float([Is,Iz]);
-Vt:1.9$ K:0.8$ Vgs:3.0$
-Id:K*(Vgs-Vt)^2$ float(Id);
-/* Hartley oscillator */
-L1:10e-6$ L2:20e-6$ M:2e-6$ C:4.7e-9$
-f:1/(2*%pi*sqrt((L1+L2+2*M)*C))$ float(f);
-/* ADC step size and quantisation bound */
-Vref:5$ n:8$ q:Vref/2^n$ [q,q/2]$ float([q,q/2]);
+
+/* Zener shunt regulator and dynamic resistance. */
+Vz:5.1$ Vin:9$ Rs:470$ IL:3e-3$
+Is:(Vin-Vz)/Rs$ Iz:Is-IL$ Pz:Vz*Iz$
+rz:(5.20-5.10)/((6-2)*1e-3)$
+float([Is*1000,Iz*1000,Pz*1000,rz])$
+
+/* Enhancement MOSFET transconductance near VGS = 3 V. */
+gm_mosfet:(5.8-1.6)/(3.5-2.5)$
+float(gm_mosfet)$
+
+/* UJT negative-region dynamic resistance. */
+rd_ujt:(1.4-2.0)/((5.0-1.4)*1e-3)$
+float(rd_ujt)$
+
+/* SCR firing-voltage reduction. */
+scr_reduction:(42-12)/42*100$
+float(scr_reduction)$
+
+/* CE amplifier gain and approximate bandwidth. */
+Av_ce:1.20/(20e-3)$
+half_power_gain:0.707*Av_ce$
+bandwidth:100-0.05$
+float([Av_ce,half_power_gain,bandwidth])$
+
+/* Op-amp differentiator and integrator examples. */
+Rf:10e3$ Ci:0.01e-6$ input_slope:400$
+Vo_diff:-Rf*Ci*input_slope$
+Ri:10e3$ Cf:0.10e-6$ Vi:1$ dt:1e-3$
+delta_Vo_int:-Vi*dt/(Ri*Cf)$
+float([Vo_diff,delta_Vo_int])$
+
+/* Hartley tank inductance and predicted frequency. */
+C1:1e-9$ f1:158e3$
+Leq:1/((2*%pi*f1)^2*C1)$
+C2:10e-9$ f2:1/(2*%pi*sqrt(Leq*C2))$
+float([Leq*1000,f2/1000])$
+
+/* Eight-bit ADC and DAC. */
+Vref:5$ bits:8$ q:Vref/2^bits$
+code:round(0.50/q)$
+Vdac:Vref*code/(2^bits-1)$
+float([q*1000,code,Vdac])$
+
+/* Boolean checks using 0/1 arithmetic. */
+nand2(a,b):=1-a*b$
+or2(a,b):=a+b-a*b$
+xor2(a,b):=a+b-2*a*b$
+logic_row_01:[0*1,or2(0,1),nand2(0,1),1-or2(0,1),xor2(0,1)]$
+logic_row_01$
+
+/* Full-adder check for A = B = Cin = 1. */
+A:1$ B:1$ Cin:1$
+Sum:xor2(xor2(A,B),Cin)$
+Cout:or2(A*B,Cin*xor2(A,B))$
+[Sum,Cout]$

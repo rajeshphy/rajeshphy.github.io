@@ -1,13 +1,18 @@
-\documentclass[tikz,border=8pt]{standalone}
-\usetikzlibrary{arrows.meta,positioning}
+\documentclass[border=8pt]{standalone}
+\usepackage[american]{circuitikz}
 \begin{document}
-\begin{tikzpicture}[box/.style={draw=teal!70!black,fill=teal!8,rounded corners,minimum width=2.35cm,minimum height=.85cm,align=center,font=\sffamily\small},a/.style={-{Latex[length=2mm]},draw=black!70}]
-\node[font=\sffamily\bfseries\small,text=teal!55!black] at (0,1.7) {JFET characteristic arrangement};
-\node[box] (gate) at (-3.8,0) {gate-bias\\supply $V_{GS}$};
-\node[box] (fet) at (0,0) {JFET\\under test};
-\node[box] (drain) at (3.8,.55) {drain supply\\$V_{DS}$};
-\node[box] (meter) at (3.8,-.65) {drain-current\\meter $I_D$};
-\draw[a] (gate)--node[above,font=\sffamily\footnotesize]{gate voltage} (fet);
-\draw[a] (drain)--(fet); \draw[a] (fet)--(meter);
-\end{tikzpicture}
+\begin{circuitikz}[font=\sffamily]
+  \node[njfet, scale=1.25] (Q) at (0,0) {};
+  \draw (Q.D) -- (0,1.1) to[ammeter,l=$I_D$] (0,2.4)
+        to[R,l=$R_D$] (0,3.7) -- (2.2,3.7)
+        to[battery1,l_=$V_{DD}$] (2.2,-1.5) -- (Q.S);
+  \draw (Q.S) -- (0,-1.5) node[ground]{};
+  \draw (Q.G) -- (-1.5,0) to[voltmeter,l_=$V_{GS}$] (-1.5,-1.5) -- (0,-1.5);
+  \draw (-1.5,0) -- (-3.0,0) to[battery1,l_=$V_{GG}$] (-3.0,-1.5) -- (0,-1.5);
+  \draw (0,1.0) -- (1.25,1.0) to[voltmeter,l=$V_{DS}$] (1.25,-1.5) -- (0,-1.5);
+  \node[above] at (0,4.0) {JFET drain and transfer-characteristic circuit};
+  \node[right] at (Q.D) {$D$};
+  \node[right] at (Q.S) {$S$};
+  \node[above left] at (Q.G) {$G$};
+\end{circuitikz}
 \end{document}
