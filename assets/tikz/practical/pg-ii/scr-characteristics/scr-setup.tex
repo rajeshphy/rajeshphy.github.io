@@ -7,11 +7,10 @@
         to[ammeter,l=$I_A$] (4.0,4.2)
         to[thyristor,l=$SCR$] (4.0,0) -- (0,0);
   \draw (4.0,3.0) -- (5.4,3.0) to[voltmeter,l=$V_{AK}$] (5.4,0) -- (4.0,0);
-  \draw (-0.2,0) -- (-0.2,-1.5) to[battery1,l=$V_G$] (2.0,-1.5)
-        to[R,l=$R_G$] (3.3,-1.5) -- (3.3,1.6);
-  \draw (2.3,-1.5) to[ammeter,l=$I_G$] (3.3,-1.5);
-  \draw[->] (3.3,1.6) -- (3.75,1.9) node[midway,left]{$G$};
-  \node[above] at (2.7,4.65) {SCR static-characteristic circuit};
+  \draw (-0.2,0) -- (-0.2,-1.8) to[battery1,l=$V_G$] (1.25,-1.8)
+        to[R,l=$R_G$] (2.45,-1.8) to[ammeter,l=$I_G$] (3.6,-1.8) -- (3.6,1.6);
+  \draw[->] (3.6,1.6) -- (3.82,1.9) node[midway,left]{$G$};
+  \node[above] at (2.7,5.15) {SCR static-characteristic circuit};
   \node[right] at (4.1,3.55) {$A$};
   \node[right] at (4.1,0.45) {$K$};
 \end{circuitikz}

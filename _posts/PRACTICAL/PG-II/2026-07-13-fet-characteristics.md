@@ -48,6 +48,12 @@ It is obtained experimentally from the slope of the $I_D$-$V_{GS}$ graph at cons
 | 6 | 5.2 | 3.2 |
 | 8 | 5.3 | 3.2 |
 
+Transfer readings at $V_{DS}=6$ V:
+
+| $V_{GS}$ (V) | 0.0 | -0.5 | -1.0 | -1.5 | -2.0 |
+|---:|---:|---:|---:|---:|---:|
+| $I_D$ (mA) | 5.2 | 4.1 | 3.2 | 2.0 | 0.9 |
+
 ## Graph
 
 <figure class="practical-figure practical-figure-wide"><img src="{{ '/assets/images/practical/pg-ii/fet-characteristics/fet.png' | relative_url }}" alt="JFET transfer characteristic graph"><figcaption>Drain current plotted against gate-source voltage.</figcaption></figure>
