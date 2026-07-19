@@ -29,9 +29,9 @@ items:
       url: /assets/pdf/ref/syllabus/bsc-cbcs.pdf
   - title: Future Research
     children:
-    - title: Future Research
+    - title: Quantum Problems
       url: /assets/pdf/ref/Future-Research/Flugge-Based-Problems.pdf
-    - title: Maxima Book
+    - title: Maxima Software Book
       url: /assets/pdf/ref/Future-Research/Maxima-Book.pdf
   - title: Latex
     children:
