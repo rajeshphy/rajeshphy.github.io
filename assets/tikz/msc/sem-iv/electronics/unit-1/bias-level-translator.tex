@@ -1,0 +1,31 @@
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage[american]{circuitikz}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+ \node[font=\bfseries] at (-3.2,3.75) {(a) Emitter-follower level shift};
+ \draw (-3.2,2.6) node[vcc]{$+V_{CC}$} -- (-3.2,1.45)
+       node[npn,anchor=C](Q){$Q_L$};
+ \draw (Q.B) -- (-5.2,.65) node[left] {$v_i$};
+ \draw (Q.E) -- (-3.2,-.3) node[circ,label=right:$v_o$]{}
+       to[I,l_=$I_B$] (-3.2,-2) node[vee]{$-V_{EE}$};
+ \draw[->,blue!70!black,thick] (-4.55,.45) -- (-4.55,-.15)
+ node[midway,left] {$V_{BE}$};
+ \node[draw,rounded corners,fill=blue!3] at (-3.2,-2.75)
+ {$v_o\simeq v_i-V_{BE}$};
+
+ \draw[dashed] (.15,-3.15) -- (.15,3.45);
+ \node[font=\bfseries] at (3.7,3.75) {(b) DC-level placement};
+ \draw[->] (1,0) -- (6.5,0) node[right] {signal path};
+ \draw[very thick,blue!75!black] (1.4,1.7) sin (2.05,2.15) cos (2.7,1.7)
+ sin (3.35,1.25) cos (4,1.7);
+ \draw[very thick,orange!85!black] (3.55,-.65) sin (4.2,-.2) cos (4.85,-.65)
+ sin (5.5,-1.1) cos (6.15,-.65);
+ \draw[->,teal!75!black,thick] (3.15,1.45) -- (4.25,-.35)
+ node[midway,right] {$-V_{BE}$};
+ \draw[densely dotted] (1.2,1.7) -- (4.1,1.7) node[right] {$V_{IQ}$};
+ \draw[densely dotted] (3.4,-.65) -- (6.3,-.65) node[right] {$V_{OQ}$};
+ \node[align=center] at (3.7,-2.1)
+ {AC waveform is retained;\\the quiescent level is translated.};
+\end{circuitikz}
+\end{document}

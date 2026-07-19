@@ -1,0 +1,47 @@
+/* Macroscopic dielectric response in SI units.
+   Run with: maxima -q -b macroscopic-dielectric-response.mac */
+
+kill(all)$
+display2d:false$
+
+/* Constitutive identities. */
+P_expr : eps0*chi*E$
+D_expr : eps0*E + P_expr$
+epsr : 1 + chi$
+print("D - eps0*epsr*E =", ratsimp(D_expr - eps0*epsr*E))$
+
+/* Finite ellipsoid: solve the depolarization-field equation. */
+dep_eq : Pvar = eps0*chi*(Eext - Nd*Pvar/eps0)$
+P_solution : solve(dep_eq,Pvar)[1]$
+print("Polarization of an ellipsoid:", P_solution)$
+print("Residual of the constitutive equation:",
+      ratsimp(subst(rhs(P_solution),Pvar,lhs(dep_eq)-rhs(dep_eq))))$
+
+/* A sphere has Nd=1/3. */
+P_sphere : ratsimp(subst(1/3,Nd,rhs(P_solution)))$
+print("P/Eext for a sphere =", factor(P_sphere/Eext))$
+
+/* Parallel-plate numerical example. */
+eps0_num : 8.8541878128b-12$
+epsr_num : 6.0b0$
+A_num : 20.0b0*10^-4$       /* 20 cm^2 */
+d_num : 0.80b0*10^-3$
+V_num : 100.0b0$
+C_num : eps0_num*epsr_num*A_num/d_num$
+Q_num : C_num*V_num$
+E_num : V_num/d_num$
+P_num : eps0_num*(epsr_num-1)*E_num$
+U_num : C_num*V_num^2/2$
+
+printf(true,"C = ~,6e F~%",C_num)$
+printf(true,"Q = ~,6e C~%",Q_num)$
+printf(true,"E = ~,6e V/m~%",E_num)$
+printf(true,"P = ~,6e C/m^2~%",P_num)$
+printf(true,"U = ~,6e J~%",U_num)$
+
+/* Verify equality of lumped and field-energy calculations. */
+volume_num : A_num*d_num$
+U_field : (eps0_num*epsr_num*E_num^2/2)*volume_num$
+printf(true,"U_field - U_capacitor = ~,6e J~%",U_field-U_num)$
+
+quit();

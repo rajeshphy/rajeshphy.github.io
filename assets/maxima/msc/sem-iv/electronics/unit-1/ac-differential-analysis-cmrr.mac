@@ -1,0 +1,42 @@
+/* Differential/common-mode small-signal gains of a matched BJT pair. */
+kill(all)$
+display2d:false$
+fpprintprec:8$
+
+VT : 25.85e-3$
+IC : 0.50e-3$        /* collector quiescent current of each transistor, A */
+RC : 10.0e3$
+REE : 100.0e3$       /* small-signal tail resistance, ohm */
+beta : 150$
+gm : IC/VT$
+rpi : beta/gm$
+re : 1/gm$
+
+Ad_se : -gm*RC/2$
+Ad_bo : -gm*RC$
+Acm_se : -RC/(2*REE+re)$
+CMRR_se : abs(Ad_se/Acm_se)$
+CMRR_dB : 20*log(CMRR_se)/log(10)$
+printf(true,"gm=~,6g S, rpi=~,6g ohm, re=~,6g ohm~%",gm,rpi,re)$
+printf(true,"single-ended Ad=~,6g, balanced-output Ad=~,6g~%",Ad_se,Ad_bo)$
+printf(true,"single-ended Acm=~,6g, CMRR=~,6g = ~,6g dB~%",Acm_se,CMRR_se,CMRR_dB)$
+
+/* Tail resistance needed for a specified low-frequency CMRR. */
+CMRR_target_dB : 90$
+CMRR_target : 10^(CMRR_target_dB/20)$
+REE_needed : (2*CMRR_target/gm-re)/2$
+printf(true,"REE for approximately 90 dB CMRR = ~,6g ohm~%",REE_needed)$
+
+/* Balanced-output common-mode residue caused by collector-resistor mismatch. */
+deltaRC : 0.01*RC$   /* RC1-RC2 = 1 percent of nominal RC */
+Acm_bo_mismatch : -deltaRC/(2*REE+re)$
+CMRR_bo_mismatch : abs(Ad_bo/Acm_bo_mismatch)$
+printf(true,"With 1 percent load mismatch: Acm,BO=~,6g, CMRR_BO=~,6g dB~%",
+       Acm_bo_mismatch,20*log(CMRR_bo_mismatch)/log(10))$
+
+/* Illustrative single-pole frequency degradation. */
+A0 : abs(Ad_bo)$
+fD : 1.0e4$
+f : 1.0e5$
+Ad_mag : A0/sqrt(1+(f/fD)^2)$
+printf(true,"At 100 kHz for fD=10 kHz, |Ad|=~,6g~%",Ad_mag)$

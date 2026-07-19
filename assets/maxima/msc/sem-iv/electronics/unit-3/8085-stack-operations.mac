@@ -1,0 +1,54 @@
+/* 8085 stack operations: address and byte-order checks. */
+kill(all)$
+
+hexbyte(n) := printf(false,"~2,'0X",mod(n,256))$
+hexword(n) := printf(false,"~4,'0X",mod(n,65536))$
+hi(n) := floor(mod(n,65536)/256)$
+lo(n) := mod(n,256)$
+
+/* Intel manual example: PUSH B with SP=9AAFh, B=2Ah, C=4Ch. */
+sp0 : 39599$ /* 9AAFh */
+b : 42$      /* 2Ah */
+c : 76$      /* 4Ch */
+sp_high : sp0-1$
+sp_low : sp0-2$
+printf(true,"PUSH B: [~a]=~a (B), [~a]=~a (C), final SP=~a~%",
+       hexword(sp_high),hexbyte(b),hexword(sp_low),hexbyte(c),hexword(sp_low))$
+
+/* Complete LIFO trace from the post. */
+sp : 16384$ /* 4000h */
+bc : 4660$  /* 1234h */
+de : 43981$ /* ABCDh */
+sp_after_bc : sp-2$
+sp_after_de : sp_after_bc-2$
+hl_after_pop : de$
+sp_after_pop_h : sp_after_de+2$
+bc_after_pop : bc$
+sp_final : sp_after_pop_h+2$
+printf(true,"Trace: after PUSH B SP=~a; after PUSH D SP=~a~%",
+       hexword(sp_after_bc),hexword(sp_after_de))$
+printf(true,"POP H gives HL=~a and SP=~a~%",hexword(hl_after_pop),hexword(sp_after_pop_h))$
+printf(true,"POP B gives BC=~a and restores SP=~a~%",hexword(bc_after_pop),hexword(sp_final))$
+
+/* XTHL exchange: L <-> [SP], H <-> [SP+1]. */
+hl_old : 3568$ /* 0DF0h */
+mem_low : 60$  /* 3Ch */
+mem_high : 11$ /* 0Bh */
+hl_new : 256*mem_high+mem_low$
+mem_word_new : 256*hi(hl_old)+lo(hl_old)$
+printf(true,"XTHL: new HL=~a; new stack word=~a; SP unchanged~%",
+       hexword(hl_new),hexword(mem_word_new))$
+
+/* Stack-capacity and worst-depth calculations. */
+sp_base : 39599$ /* 9AAFh */
+lowest : 39424$  /* 9A00h */
+entries : floor((sp_base-lowest)/2)$
+depth : 2*(2+3+1+4)$
+printf(true,"Reserved interval supports ~d complete 16-bit entries.~%",entries)$
+printf(true,"Worst-case example depth = ~d bytes; lowest SP = ~a~%",
+       depth,hexword(sp_base-depth))$
+
+/* Meaningful 8085 flag positions; unused bits deliberately omitted. */
+s:1$ z:0$ ac:1$ p:1$ cy:0$
+flag_mask : 128*s+64*z+16*ac+4*p+cy$
+printf(true,"Meaningful S/Z/AC/P/CY mask for the example = ~a~%",hexbyte(flag_mask))$

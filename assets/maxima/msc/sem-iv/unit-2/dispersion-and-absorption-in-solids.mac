@@ -1,0 +1,107 @@
+/*
+  Dispersion and absorption in solids
+  Maxima 5.49-compatible batch worksheet
+
+  Run with:
+      maxima --very-quiet -b dispersion-and-absorption-in-solids.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("DISPERSION AND ABSORPTION IN SOLIDS")$
+
+/* 1. Lorentz dielectric function and decomposition. */
+eps_lorentz : eps_inf+Om2/(w0^2-w^2-%i*gam*w)$
+denom : (w0^2-w^2)^2+gam^2*w^2$
+eps_real : eps_inf+Om2*(w0^2-w^2)/denom$
+eps_imag : Om2*gam*w/denom$
+parts_check : ratsimp(
+    eps_lorentz-(eps_real+%i*eps_imag))$
+print("Lorentz epsilon(w) =", eps_lorentz)$
+print("epsilon-prime =", eps_real)$
+print("epsilon-double-prime =", eps_imag)$
+print("Complex decomposition residual (must be 0) =", parts_check)$
+
+/* Resonant values. */
+res_real : ratsimp(subst(w=w0,eps_real))$
+res_imag : ratsimp(subst(w=w0,eps_imag))$
+print("epsilon-prime at resonance =", res_real)$
+print("epsilon-double-prime at resonance =", res_imag)$
+
+/* 2. Lossless normal-dispersion derivative. */
+eps_lossless : eps_inf+Om2/(w0^2-w^2)$
+dispersion_derivative : factor(diff(eps_lossless,w))$
+print("d epsilon-prime/d omega without damping =",
+      dispersion_derivative)$
+
+/* 3. Sellmeier form from one undamped Lorentz oscillator. */
+lorentz_increment : B*w0^2/(w0^2-w^2)$
+lambda_form : ratsimp(subst(
+    [w=2*%pi*c/lambda,w0=2*%pi*c/lambda0],
+    lorentz_increment))$
+sellmeier_expected : B*lambda^2/(lambda^2-lambda0^2)$
+sellmeier_check : ratsimp(lambda_form-sellmeier_expected)$
+print("One-oscillator wavelength form =", lambda_form)$
+print("Sellmeier conversion residual (must be 0) =",
+      sellmeier_check)$
+
+/* 4. Numerical Lorentz example in units with omega_0=1. */
+epsinf_num : 2.25$
+deps_num : 3.00$
+w0_num : 1.00$
+gam_num : 0.10*w0_num$
+Om2_num : deps_num*w0_num^2$
+
+epsp_num(x) := epsinf_num+
+    Om2_num*(w0_num^2-x^2)/
+    ((w0_num^2-x^2)^2+gam_num^2*x^2)$
+epspp_num(x) := Om2_num*gam_num*x/
+    ((w0_num^2-x^2)^2+gam_num^2*x^2)$
+n_num(x) := sqrt((sqrt(epsp_num(x)^2+epspp_num(x)^2)
+                       +epsp_num(x))/2)$
+kap_num(x) := sqrt((sqrt(epsp_num(x)^2+epspp_num(x)^2)
+                         -epsp_num(x))/2)$
+
+for x in [0.8,1.0,1.2] do (
+  print("omega/omega_0 =",x),
+  print("  epsilon-prime =",float(epsp_num(x))),
+  print("  epsilon-double-prime =",float(epspp_num(x))),
+  print("  n =",float(n_num(x))),
+  print("  kappa =",float(kap_num(x)))
+)$
+
+/* Verify epsilon'=n^2-kappa^2 and epsilon''=2 n kappa. */
+index_check_real : float(n_num(0.8)^2-kap_num(0.8)^2
+                         -epsp_num(0.8))$
+index_check_imag : float(2*n_num(0.8)*kap_num(0.8)
+                         -epspp_num(0.8))$
+print("Numerical index real-part residual =", index_check_real)$
+print("Numerical index imaginary-part residual =", index_check_imag)$
+
+/* 5. One-resonance Sellmeier and its Cauchy approximation. */
+B_num : 1.20$
+lambda0_num : 0.150$ /* micrometres */
+sell_n(lam) := sqrt(1+B_num*lam^2/
+                         (lam^2-lambda0_num^2))$
+A0_num : 1+B_num$
+A2_num : B_num*lambda0_num^2$
+cauchy_A : sqrt(A0_num)$
+cauchy_B : A2_num/(2*sqrt(A0_num))$
+cauchy_n(lam) := cauchy_A+cauchy_B/lam^2$
+
+for lam in [0.500,0.700] do (
+  print("lambda (micrometre) =",lam),
+  print("  exact Sellmeier n =",float(sell_n(lam))),
+  print("  Cauchy through lambda^-2 =",float(cauchy_n(lam)))
+)$
+print("Cauchy A =",float(cauchy_A))$
+print("Cauchy B in micrometre^2 =",float(cauchy_B))$
+
+/* Symbolic coefficients through lambda^-4 for n^2=A0+A2/lambda^2+A4/lambda^4. */
+cauchy_C_general : A4/(2*sqrt(A0))-A2^2/(8*A0^(3/2))$
+print("General Cauchy lambda^-4 coefficient =",
+      cauchy_C_general)$
+
+quit();

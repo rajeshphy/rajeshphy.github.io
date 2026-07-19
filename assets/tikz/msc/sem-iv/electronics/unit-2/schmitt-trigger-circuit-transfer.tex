@@ -1,0 +1,34 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{circuitikz}[font=\sffamily,>=Latex]
+\node[op amp] (A) at (3.6,2) {};
+\draw (A.-)--++(-1.2,0) node[left]{$v_i$};
+\draw (A.+)--++(-.55,0) coordinate(th);
+\fill (th) circle (1.4pt);
+\draw (A.out)--++(1,0) coordinate(vo) node[right]{$v_o$};
+\draw (vo)--++(0,2.2) coordinate(fbOut);
+\coordinate (fbTh) at (th |- fbOut);
+\draw (fbOut) to[R,l=$R_1$] (fbTh);
+\draw (fbTh)--(th);
+\draw (th)--++(0,-.35) coordinate(refTop);
+\draw (refTop) to[R,l_=$R_2$] ++(0,-1.55) node[below]{$V_R$};
+\node[above] at (3.5,5.0) {(a) inverting Schmitt trigger};
+\begin{scope}[xshift=8.2cm,yshift=2cm]
+\draw[->] (-2.2,0)--(2.6,0) node[right]{$v_i$};
+\draw[->] (0,-2)--(0,2.2) node[above]{$v_o$};
+\draw[blue!70!black,very thick] (-2,1.45)--(.9,1.45);
+\draw[blue!70!black,very thick,->] (.9,1.45)--(1.2,1.45);
+\draw[blue!70!black,very thick] (1.2,1.45)--(1.2,-1.45)--(-2,-1.45);
+\draw[red!70!black,very thick] (2,-1.45)--(-.9,-1.45);
+\draw[red!70!black,very thick,->] (-.9,-1.45)--(-1.2,-1.45);
+\draw[red!70!black,very thick] (-1.2,-1.45)--(-1.2,1.45)--(2,1.45);
+\node[below] at (1.2,0) {$V_{T+}$};
+\node[above] at (-1.2,0) {$V_{T-}$};
+\node[left] at (-.05,1.72) {$V_{OH}$};
+\node[left] at (-.05,-1.72) {$V_{OL}$};
+\node at (.2,2.65) {(b) directed hysteresis};
+\end{scope}
+\end{circuitikz}
+\end{document}

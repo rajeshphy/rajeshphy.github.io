@@ -1,0 +1,43 @@
+/* Ideal and practical integrators and differentiators */
+kill(all)$
+display2d:false$
+
+/* Ideal transfer functions */
+Hint : -1/(s*R*C)$
+Hdiff : -s*Rf*C$
+print("ideal integrator H(s) =",Hint)$
+print("ideal differentiator H(s) =",Hdiff)$
+
+/* Practical integrator: input R, feedback Rf parallel C */
+Zf_pi : 1/(1/Rf+s*C)$
+Hpi : factor(-Zf_pi/R)$
+print("practical integrator H(s) =",Hpi)$
+
+/* Practical differentiator: input C1 series R1, feedback Rf parallel Cf */
+Zin_pd : R1+1/(s*C1)$
+Zf_pd : 1/(1/Rf+s*Cf)$
+Hpd : factor(-Zf_pd/Zin_pd)$
+print("band-limited differentiator H(s) =",Hpd)$
+
+/* Design numbers */
+R1n : 10e3$
+C1n : 10e-9$
+Rfn : 100e3$
+Cfn : 100e-12$
+f_input_corner : 1/(2*%pi*R1n*C1n)$
+f_feedback_corner : 1/(2*%pi*Rfn*Cfn)$
+print("differentiator lower corner (Hz) =",float(f_input_corner))$
+print("differentiator upper corner (Hz) =",float(f_feedback_corner))$
+
+/* Ideal integrator response to a square-wave half-cycle */
+V : 1.0$
+f : 1.0e3$
+Rint : 10e3$
+Cint : 10e-9$
+delta_vo : -V/(Rint*Cint)*(1/(2*f))$
+print("output change during positive half-cycle (V) =",float(delta_vo))$
+
+/* Sine-wave magnitude and phase */
+w : 2*%pi*1e3$
+mag_int : 1/(w*Rint*Cint)$
+print("integrator magnitude at 1 kHz =",float(mag_int)," phase = +90 degrees")$

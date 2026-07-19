@@ -1,0 +1,105 @@
+/* Phonon polaritons: coupled electromagnetic and optical modes
+   Batch worksheet: maxima -b phonon-polaritons.mac */
+
+kill(all)$
+display2d:false$
+fpprintprec:8$
+
+/* ---------- Symbolic dispersion relation ---------- */
+assume(L>0,T>0,L>T,y>0)$
+D : sqrt((L^2+y)^2-4*y*T^2)$
+xplus : (L^2+y+D)/2$
+xminus : (L^2+y-D)/2$
+poly(x) := x^2-(L^2+y)*x+y*T^2$
+
+print("upper-branch polynomial residual =", ratsimp(poly(xplus)))$
+print("lower-branch polynomial residual =", ratsimp(poly(xminus)))$
+print("sum-of-roots residual =", ratsimp(xplus+xminus-(L^2+y)))$
+print("product-of-roots residual =", ratsimp(xplus*xminus-y*T^2))$
+
+/* Rationalized lower root is numerically stable and exposes limits. */
+xminus_rat : 2*y*T^2/(L^2+y+D)$
+print("rationalized lower-root residual =",
+      ratsimp(xminus-xminus_rat))$
+print("small-y coefficient xminus/y =",
+      limit(xminus_rat/y,y,0,plus))$
+print("large-y lower-branch limit =",
+      limit(xminus_rat,y,inf))$
+print("large-y correction y*(T^2-xminus) =",
+      limit(y*(T^2-xminus_rat),y,inf))$
+
+/* Differentiate x_+(y) and x_-(y). */
+dxplus : ratsimp(diff(xplus,y))$
+dxminus : ratsimp(diff(xminus,y))$
+dxplus_expected : (1+(y+L^2-2*T^2)/D)/2$
+dxminus_expected : (1-(y+L^2-2*T^2)/D)/2$
+print("upper derivative residual =",
+      ratsimp(dxplus-dxplus_expected))$
+print("lower derivative residual =",
+      ratsimp(dxminus-dxminus_expected))$
+
+/* Verify the dielectric and quadratic forms are identical.
+   y=(c*k)^2/epsilon_infinity and x=omega^2. */
+eps_x : epsinf*(L^2-x)/(T^2-x)$
+wave_residual : ratsimp(y-x*eps_x/epsinf)$
+quadratic_from_wave : ratsimp(wave_residual*(T^2-x))$
+print("wave equation multiplied by (T^2-x) =", quadratic_from_wave)$
+
+/* ---------- Numerical branch and group-velocity example ---------- */
+fT : 5.00$                       /* THz */
+fL : 7.477112596984905$          /* THz */
+fb : 6.00$                       /* Omega_k/(2*pi), THz */
+yn : fb^2$
+Dn : sqrt((fL^2+yn)^2-4*yn*fT^2)$
+xmn : (fL^2+yn-Dn)/2$
+xpn : (fL^2+yn+Dn)/2$
+fminus : sqrt(xmn)$
+fplus : sqrt(xpn)$
+
+dxmn : (1-(yn+fL^2-2*fT^2)/Dn)/2$
+dxpn : (1+(yn+fL^2-2*fT^2)/Dn)/2$
+/* v_g/(c/sqrt(epsinf)) = d f_branch / d f_bare. */
+vgminus_norm : fb*dxmn/fminus$
+vgplus_norm : fb*dxpn/fplus$
+
+print("lower and upper frequencies (THz) =",
+      float(fminus), float(fplus))$
+print("group velocities divided by c/sqrt(epsinf) =",
+      float(vgminus_norm), float(vgplus_norm))$
+
+epsinf_num : 2.50$
+epss_num : epsinf_num*(fL/fT)^2$
+c_num : 299792458.0$
+k_num : sqrt(epsinf_num)*(2*%pi*fb*1.0e12)/c_num$
+print("static relative permittivity =", float(epss_num))$
+print("small-k lower group velocity / c =", float(1/sqrt(epss_num)))$
+print("wave number for bare 6 THz photon (m^-1) =", float(k_num))$
+
+/* Compare implicit and explicit group-velocity formulas numerically. */
+w_num : 2*%pi*fminus*1.0e12$
+wT_num : 2*%pi*fT*1.0e12$
+wL_num : 2*%pi*fL*1.0e12$
+eps_fun(wv) := epsinf_num*(wL_num^2-wv^2)/(wT_num^2-wv^2)$
+deps_num : at(diff(epsinf_num*(wL_num^2-wv^2)/
+                        (wT_num^2-wv^2),wv),wv=w_num)$
+vg_implicit : c_num^2*k_num/
+              (w_num*eps_fun(w_num)+w_num^2*deps_num/2)$
+vg_explicit : c_num/sqrt(epsinf_num)*vgminus_norm$
+print("lower v_g implicit and explicit (m/s) =",
+      float(vg_implicit), float(vg_explicit))$
+print("relative group-velocity residual =",
+      float(abs(vg_implicit-vg_explicit)/vg_explicit))$
+
+/* ---------- Surface phonon polariton ---------- */
+epsd : 1.0$
+fSO : sqrt((epsinf_num*fL^2+epsd*fT^2)/(epsinf_num+epsd))$
+eps_at_SO : epsinf_num*(fL^2-fSO^2)/(fT^2-fSO^2)$
+print("vacuum-interface surface optical frequency (THz) =", float(fSO))$
+print("epsilon(f_SO)+epsilon_d =", float(eps_at_SO+epsd))$
+
+/* The dielectric function is negative in the bulk stop band. */
+fmid : 6.0$
+eps_mid : epsinf_num*(fL^2-fmid^2)/(fT^2-fmid^2)$
+print("epsilon at 6 THz =", float(eps_mid))$
+
+quit();

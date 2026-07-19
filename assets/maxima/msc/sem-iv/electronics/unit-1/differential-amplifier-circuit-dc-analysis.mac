@@ -1,0 +1,42 @@
+/* Matched BJT differential pair: dc bias and exact large-signal transfer. */
+kill(all)$
+display2d:false$
+fpprintprec:8$
+
+VT : 25.85e-3$       /* thermal voltage, V, at approximately 300 K */
+IT : 2.00e-3$        /* tail emitter current, A */
+RC : 4.70e3$         /* each collector resistor, ohm */
+VCC : 12.0$          /* positive supply, V */
+beta : 150$
+alpha : beta/(beta+1)$
+
+IEQ : IT/2$
+ICQ : alpha*IEQ$
+IBQ : ICQ/beta$
+VOQ : VCC-ICQ*RC$
+printf(true,"IEQ = ~,6g A, ICQ = ~,6g A, IBQ = ~,6g A~%",IEQ,ICQ,IBQ)$
+printf(true,"Balanced collector quiescent voltage VOQ = ~,6g V~%",VOQ)$
+
+/* vd=v1-v2.  The ideal tail source fixes IC1+IC2=alpha*IT. */
+IC1(vd) := alpha*IT/(1+exp(-vd/VT))$
+IC2(vd) := alpha*IT/(1+exp(vd/VT))$
+vod(vd) := -RC*(IC1(vd)-IC2(vd))$
+vod_closed(vd) := -alpha*IT*RC*tanh(vd/(2*VT))$
+linear_vod(vd) := -alpha*IT*RC*vd/(2*VT)$
+
+vdx : 10e-3$
+printf(true,"At vd=10 mV: IC1=~,6g A, IC2=~,6g A~%",IC1(vdx),IC2(vdx))$
+printf(true,"Exact vod=~,6g V; linear vod=~,6g V~%",vod(vdx),linear_vod(vdx))$
+printf(true,"Identity check vod-vod_closed = ~,3g V~%",vod(vdx)-vod_closed(vdx))$
+
+/* Odd Taylor series exhibits the first nonlinear correction. */
+series_vod : taylor(vod_closed(vd),vd,0,5)$
+printf(true,"Series of balanced output about vd=0: ~a~%",series_vod)$
+
+/* Collector extremes and the strict collector-base forward-active boundary. */
+VC_floor : VCC-alpha*IT*RC$
+VB_max_boundary : VC_floor$ /* VCB,min=0: the base may not exceed this value */
+Vcm_max_boundary : VOQ$     /* balanced pair, VCB,min=0 */
+printf(true,"Full-steering low collector level = ~,6g V~%",VC_floor)$
+printf(true,"For VCB,min=0, forward active requires VB,max < ~,6g V~%",VB_max_boundary)$
+printf(true,"Balanced zero-margin common-mode upper boundary = ~,6g V~%",Vcm_max_boundary)$

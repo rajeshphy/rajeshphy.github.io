@@ -1,0 +1,137 @@
+/*
+  Ferroelectricity: dipole theory and Landau theory
+  Maxima 5.49-compatible batch worksheet
+
+  Run with:
+      maxima --very-quiet -b ferroelectricity-dipole-theory.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("FERROELECTRICITY: WEISS AND LANDAU THEORY")$
+
+/* 1. Curie--Weiss law from the Weiss effective field */
+weiss_eq : P = eps0*C/T*(E + lambda*P)$
+P_weiss : rhs(first(solve(weiss_eq, P)))$
+chi_weiss : ratsimp(P_weiss/(eps0*E))$
+print("P obtained from the linearized Weiss equation:", P_weiss)$
+print("Susceptibility before defining T0:", chi_weiss)$
+
+chi_CW : ratsimp(subst(T0/(eps0*C), lambda, chi_weiss))$
+print("After lambda = T0/(eps0 C), chi =", chi_CW)$
+print("Curie--Weiss residual chi-C/(T-T0):",
+      ratsimp(chi_CW-C/(T-T0)))$
+
+/* Cubic Langevin expansion at E=0. */
+L3(x) := x/3-x^3/45$
+weiss_cubic : expand(N*mu*L3(mu*lambda*P/(kB*T)) - P)$
+print("Cubic-order zero-field self-consistency residual:", weiss_cubic)$
+
+T0_weiss : N*mu^2*lambda/(3*kB)$
+Ps2_weiss : 45*kB^3*T^2*(T0_weiss-T)/(N*mu^4*lambda^3)$
+/* Dividing the residual by P and substituting Ps^2 must give zero. */
+weiss_nonzero_residual : ratsimp(weiss_cubic/P)$
+weiss_check : ratsimp(subst(Ps2_weiss, P^2, weiss_nonzero_residual))$
+print("Residual after substituting the near-T0 spontaneous P^2:",
+      weiss_check)$
+
+/* 2. Quartic Landau theory */
+f4(P) := alpha*P^2/2 + b*P^4/4 - E*P$
+equation_of_state : diff(f4(P), P)$
+print("Quartic equation of state d f/dP =", equation_of_state)$
+
+Ps2 : -alpha/b$
+curvature_para : subst(P=0, diff(f4(P), P, 2))$
+curvature_ferro : ratsimp(subst(P^2=Ps2,
+                                  subst(E=0, diff(f4(P), P, 2))))$
+delta_f_ferro : ratsimp(alpha*Ps2/2+b*Ps2^2/4)$
+print("Paraelectric curvature =", curvature_para)$
+print("Ferroelectric curvature at Ps^2=-alpha/b =", curvature_ferro)$
+print("Free-energy difference f(Ps)-f(0) =", delta_f_ferro)$
+print("Predicted susceptibility above T0 =", 1/(eps0*alpha))$
+print("Predicted susceptibility below T0 =", -1/(2*eps0*alpha))$
+
+/* Intrinsic spinodal/coercive field of the quartic model. */
+Pspin2 : -alpha/(3*b)$
+Espin_squared : ratsimp(
+    subst(P^2=Pspin2, P^2*(alpha+b*P^2)^2))$
+print("Spinodal polarization squared =", Pspin2)$
+print("Intrinsic coercive field squared =", Espin_squared)$
+print("Equivalent |Ec| for alpha<0, b>0:",
+      2*(-alpha)^(3/2)/(3*sqrt(3*b)))$
+
+/* 3. Sixth-order theory and a first-order transition */
+f6_y(y) := alpha*y/2 + b*y^2/4 + c*y^3/6$
+stationary_y(y) := alpha+b*y+c*y^2$
+
+y_jump : -3*b/(4*c)$
+alpha_c : 3*b^2/(16*c)$
+stationary_check : ratsimp(subst(alpha=alpha_c,
+                                  stationary_y(y_jump)))$
+coexistence_check : ratsimp(subst(alpha=alpha_c,
+                                   f6_y(y_jump)))$
+print("First-order jump P^2 =", y_jump)$
+print("Coexistence alpha =", alpha_c)$
+print("Stationarity residual at coexistence =", stationary_check)$
+print("Equal-free-energy residual at coexistence =", coexistence_check)$
+print("Transition shift Tc-T0 =", alpha_c/a)$
+
+/* 4. Electrostrictive strain and quartic-coefficient renormalization */
+fel(u,P) := K*u^2/2-q*u*P^2$
+u_eq : rhs(first(solve(diff(fel(u,P),u)=0,u)))$
+fel_reduced : ratsimp(subst(u=u_eq, fel(u,P)))$
+b_eff : b-2*q^2/K$
+print("Equilibrium strain at zero applied stress =", u_eq)$
+print("Reduced elastic contribution =", fel_reduced)$
+print("Renormalized quartic coefficient =", b_eff)$
+
+/* 5. One-dimensional 180-degree domain wall */
+/* Use A=|alpha|>0, so the Euler equation is g P''=-A P+b P^3. */
+assume(A>0, b>0, g>0)$
+P0 : sqrt(A/b)$
+delta : sqrt(2*g/A)$
+Pwall(x) := P0*tanh(x/delta)$
+
+wall_residual :
+    trigsimp(radcan(g*diff(Pwall(x),x,2)
+                     -(-A*Pwall(x)+b*Pwall(x)^3)))$
+print("Domain-wall Euler-equation residual (must be 0):",
+      wall_residual)$
+
+sech4_integral : integrate(sech(y)^4, y, minf, inf)$
+sigma_wall : ratsimp(g*P0^2/delta*sech4_integral)$
+print("Integral of sech(y)^4 from -infinity to infinity =",
+      sech4_integral)$
+print("Domain-wall energy per area =", sigma_wall)$
+print("Expected form =", 2*sqrt(2)*A^(3/2)*sqrt(g)/(3*b))$
+
+/* 6. Numerical continuous-transition example in SI units */
+eps0_num : 8.8541878128e-12$
+a_num : 3.00e5$
+b_num : 2.00e9$
+T0_num : 400.0$
+T_num : 380.0$
+alpha_num : a_num*(T_num-T0_num)$
+Ps_num : sqrt(-alpha_num/b_num)$
+chi_below_num : 1/(2*eps0_num*(-alpha_num))$
+Ec_num : 2*(-alpha_num)^(3/2)/(3*sqrt(3*b_num))$
+
+print("Continuous example: alpha (V m/C) =", float(alpha_num))$
+print("Continuous example: Ps (C/m^2) =", float(Ps_num))$
+print("Continuous example: intrinsic chi below T0 =",
+      float(chi_below_num))$
+print("Continuous example: homogeneous |Ec| (V/m) =",
+      float(Ec_num))$
+
+/* 7. Numerical first-order example */
+a1 : 3.00e5$
+b1 : -4.00e8$
+c1 : 6.00e9$
+delta_T1 : 3*b1^2/(16*a1*c1)$
+Pjump1 : sqrt(-3*b1/(4*c1))$
+print("First-order example: Tc-T0 (K) =", float(delta_T1))$
+print("First-order example: P jump (C/m^2) =", float(Pjump1))$
+
+quit();

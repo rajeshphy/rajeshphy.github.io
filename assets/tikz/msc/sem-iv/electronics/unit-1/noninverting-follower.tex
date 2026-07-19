@@ -1,0 +1,21 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}\usepackage{amsmath}
+\definecolor{ink}{HTML}{21352F}\definecolor{teal}{HTML}{087F7B}\definecolor{gold}{HTML}{C58B2A}\definecolor{rose}{HTML}{B65A62}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily,color=ink]
+ \node[font=\bfseries\large] at (6,3.3) {Non-inverting amplifier and unity follower};
+ \node[op amp,draw=teal,very thick] (a) at (3,0) {};
+ \draw (1.0,-.5) node[left]{$v_i$} -- (a.+);
+ \draw (a.out)--++(1.3,0) coordinate(ao) node[right]{$v_o$};
+ \draw (a.-)--++(-.6,0) coordinate(n);\coordinate (rnode) at ($(n)+(-1.2,0)$);
+ \draw (n)--(rnode) to[R,l_=$R_1$,color=gold] ++(0,-1.7) node[ground]{};
+ \coordinate (nf) at ($(n)+(0,1.6)$);\draw (n)--(nf) to[R,l=$R_f$,color=gold] (nf-|ao)--(ao);
+ \node[font=\small,align=center] at (2.8,-2.5) {$A_f=\dfrac{A}{1+A\beta}$\\$\beta=\dfrac{R_1}{R_1+R_f}$};
+ \node[op amp,draw=rose,very thick] (b) at (9,0) {};
+ \draw (6.3,-.5) node[left]{$v_i$}--(b.+);
+ \draw (b.out)--++(1.2,0) coordinate(bo) node[right]{$v_o$};
+ \coordinate (nb) at ($(b.-)+(-.5,0)$);\draw (b.-)--(nb)--++(0,1.5)-|(bo);
+ \node[font=\small,align=center] at (9,-2.2) {$\beta=1$\\$A_f=A/(1+A)$};
+\end{circuitikz}
+\end{document}

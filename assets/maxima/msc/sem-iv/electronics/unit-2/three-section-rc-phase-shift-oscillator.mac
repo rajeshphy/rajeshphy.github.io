@@ -1,0 +1,30 @@
+/* Three-section RC phase-shift oscillator */
+kill(all)$ display2d:false$ fpprintprec:12$
+print("THREE-SECTION RC PHASE-SHIFT OSCILLATOR")$
+x:s*R*C$
+beta:x^3/(x^3+6*x^2+5*x+1)$
+print("Loaded-ladder beta(s) =",beta)$
+
+u0:1/sqrt(6)$
+betaj:ratsimp(subst(s=%i*w,beta))$
+beta_at:ratsimp(subst(w=u0/(R*C),betaj))$
+print("beta(j omega0) =",beta_at)$
+print("Required inverting gain magnitude =",ratsimp(-1/beta_at))$
+
+/* Check imaginary part through conjugate algebra. */
+den:(1-6*u^2)^2+(5*u-u^3)^2$
+breal:-u^3*(5*u-u^3)/den$
+bimag:-u^3*(1-6*u^2)/den$
+print("Re beta at u0 =",ratsimp(subst(u=u0,breal)))$
+print("Im beta at u0 =",ratsimp(subst(u=u0,bimag)))$
+
+/* 1 kHz design with C=10 nF. */
+fnum:1000$ Cnum:10e-9$
+Rnum:float(1/(2*%pi*fnum*Cnum*sqrt(6)))$
+f6490:float(1/(2*%pi*6490*Cnum*sqrt(6)))$
+print("Required R for 1 kHz, C=10 nF (ohm) =",Rnum)$
+print("Frequency with R=6.49 kohm (Hz) =",f6490)$
+Kdesign:196e3/6490$
+print("Gain Rf/Rg for Rf=196 kohm, Rg=6.49 kohm =",float(Kdesign))$
+print("Gain margin above 29 =",float(Kdesign/29-1))$
+quit();

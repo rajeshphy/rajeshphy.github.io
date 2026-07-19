@@ -1,0 +1,25 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+\node[op amp,noinv input up] (A) at (5.2,2.3) {};
+\draw (A.out)--++(1,0) coordinate(vo) node[circ]{} node[right]{$v_o$};
+
+% Positive-feedback divider: R1 is the sole path from the output to vplus.
+\path (A.+) ++(-2.1,0) coordinate(vplus);
+\path (vplus) ++(0,1.8) coordinate(fbtop);
+\path (vo |- fbtop) coordinate(fbout);
+\draw (vo)--(fbout) to[R,l=$R_1$] (fbtop)--(vplus)--(A.+);
+\draw (vplus) node[circ]{} to[R,l_=$R_2$] ++(0,-2.0) node[ground]{};
+
+% Independent timing path to the inverting input.
+\path (A.-) ++(-.45,0) coordinate(vc);
+\path (vo) ++(0,-1.0) coordinate(rtop);
+\path (rtop) ++(0,-1.3) coordinate(rbottom);
+\path (vc) ++(-.65,0) coordinate(cnode);
+\draw (vo)--(rtop) to[R,l=$R$] (rbottom)--(vc |- rbottom)--(vc)--(A.-);
+\draw (vc) node[circ]{}--(cnode) to[C,l=$C$] ++(0,-2.0) node[ground]{};
+\node[above left] at (vc) {$v_C$};
+\node[above] at (4.7,5.4) {Op-amp astable multivibrator};
+\end{circuitikz}
+\end{document}

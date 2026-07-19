@@ -1,0 +1,103 @@
+/* Long-wavelength optical modes in ionic crystals
+   Batch worksheet: maxima -b optical-modes-in-ionic-crystals.mac */
+
+kill(all)$
+display2d:false$
+fpprintprec:8$
+
+/* ---------- Diatomic-chain secular equation ---------- */
+assume(M>0,m>0,C>0,a>0)$
+s : sin(k*a/2)^2$
+disc : sqrt((M+m)^2-4*M*m*s)$
+xplus : C*(M+m)/(M*m) + C*disc/(M*m)$
+xminus : C*(M+m)/(M*m) - C*disc/(M*m)$
+secular(x) := M*m*x^2-2*C*(M+m)*x+4*C^2*s$
+
+print("secular polynomial at optical root =",
+      ratsimp(secular(xplus)))$
+print("secular polynomial at acoustic root =",
+      ratsimp(secular(xminus)))$
+print("sum-of-roots residual =",
+      ratsimp(xplus+xminus-2*C*(M+m)/(M*m)))$
+print("product-of-roots residual =",
+      ratsimp(xplus*xminus-4*C^2*s/(M*m)))$
+
+/* k=0 and zone-boundary limits, assuming M>m for labels. */
+xplus0 : ratsimp(subst(k=0,xplus))$
+xminus0 : ratsimp(subst(k=0,xminus))$
+print("omega_optical^2 at k=0 =", xplus0)$
+print("omega_acoustic^2 at k=0 =", xminus0)$
+
+/* Verify the long-wave acoustic coefficient by series expansion. */
+acoustic_series : taylor(xminus,k,0,3)$
+print("long-wave expansion of omega_acoustic^2 =", acoustic_series)$
+
+/* At k=0 the optical eigenvector has V=-(M/m)U. */
+wopt2 : 2*C*(1/M+1/m)$
+U : 1$
+V : -M/m$
+row1 : ratsimp((2*C-M*wopt2)*U-2*C*V)$
+row2 : ratsimp(-2*C*U+(2*C-m*wopt2)*V)$
+com_motion : ratsimp(M*U+m*V)$
+print("optical eigenvector row residuals =", row1, row2)$
+print("cell centre-of-mass displacement =", com_motion)$
+
+/* Numerical chain example. */
+u_kg : 1.66053906660e-27$
+Mnum : 40*u_kg$
+mnum : 20*u_kg$
+Cnum : 100.0$
+fopt0 : sqrt(2*Cnum*(1/Mnum+1/mnum))/(2*%pi)$
+fac_edge : sqrt(2*Cnum/Mnum)/(2*%pi)$
+fop_edge : sqrt(2*Cnum/mnum)/(2*%pi)$
+print("chain frequencies in THz: optical(k=0), acoustic(edge), optical(edge) =",
+      float(fopt0/1.0e12), float(fac_edge/1.0e12),
+      float(fop_edge/1.0e12))$
+
+/* ---------- LO-TO splitting and dielectric factorization ---------- */
+split : N*(Z*qe)^2/(eps0*epsinf*mu)$
+wLO2 : wTO^2+split$
+eps_osc : epsinf + N*(Z*qe)^2/(eps0*mu*(wTO^2-w^2))$
+eps_factored : epsinf*(wLO2-w^2)/(wTO^2-w^2)$
+print("oscillator/factorized dielectric residual =",
+      ratsimp(eps_osc-eps_factored))$
+
+eps_static : ratsimp(subst(w=0,eps_osc))$
+print("LST residual =",
+      ratsimp(eps_static/epsinf-wLO2/wTO^2))$
+print("epsilon(w_LO) =", ratsimp(subst(w^2=wLO2,eps_factored)))$
+
+/* Numerical polar-crystal example in SI units. */
+Nnum : 2.00e28$                 /* primitive cells / m^3 */
+Znum : 1.10$
+qe_num : 1.602176634e-19$       /* C */
+eps0_num : 8.8541878128e-12$    /* F/m */
+epsinf_num : 2.50$
+mu_num : 2.30e-26$              /* kg */
+fTO : 5.00e12$                  /* Hz */
+wTO_num : 2*%pi*fTO$
+split_num : Nnum*(Znum*qe_num)^2/
+            (eps0_num*epsinf_num*mu_num)$
+wLO_num : sqrt(wTO_num^2+split_num)$
+fLO : wLO_num/(2*%pi)$
+epss_num : epsinf_num*(wLO_num/wTO_num)^2$
+
+print("Coulomb contribution Delta omega^2 (s^-2) =", float(split_num))$
+print("TO and LO frequencies (THz) =",
+      float(fTO/1.0e12), float(fLO/1.0e12))$
+print("static relative permittivity from LST =", float(epss_num))$
+
+/* Dielectric function inside the reststrahlen interval. */
+ftest : 6.00e12$
+wtest : 2*%pi*ftest$
+eps_test : epsinf_num*(wLO_num^2-wtest^2)/
+           (wTO_num^2-wtest^2)$
+print("lossless epsilon at 6 THz =", float(eps_test))$
+
+/* For real negative epsilon, r=(1-i*kappa)/(1+i*kappa), so R=1. */
+kappa : sqrt(-eps_test)$
+rreal : (1-%i*kappa)/(1+%i*kappa)$
+Rtest : realpart(rreal*conjugate(rreal))$
+print("normal-incidence lossless reflectance at 6 THz =", float(Rtest))$
+
+quit();

@@ -1,0 +1,131 @@
+/*
+  Three-dimensional lattice dynamics
+  Maxima 5.49-compatible batch worksheet
+
+  Run with:
+      maxima --very-quiet -b three-dimensional-lattice-dynamics.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("THREE-DIMENSIONAL LATTICE DYNAMICS")$
+
+/* 1. Simple-cubic dynamical matrix with effective bond constants */
+sx : sin(qx*a/2)^2$
+sy : sin(qy*a/2)^2$
+sz : sin(qz*a/2)^2$
+
+Dxx : 4*(KL*sx+KT*sy+KT*sz)/M$
+Dyy : 4*(KT*sx+KL*sy+KT*sz)/M$
+Dzz : 4*(KT*sx+KT*sy+KL*sz)/M$
+Dsc : matrix([Dxx,0,0],[0,Dyy,0],[0,0,Dzz])$
+
+print("Simple-cubic dynamical matrix =",Dsc)$
+D_gamma : ratsimp(subst([qx=0,qy=0,qz=0],Dsc))$
+print("D(q=0), which must be the zero matrix =",D_gamma)$
+
+/* Along [100], verify the longitudinal and transverse branches. */
+D_100 : trigsimp(subst([qx=q,qy=0,qz=0],Dsc))$
+wL2 : 4*KL*sin(q*a/2)^2/M$
+wT2 : 4*KT*sin(q*a/2)^2/M$
+branch_100_check : ratsimp(
+    D_100-matrix([wL2,0,0],[0,wT2,0],[0,0,wT2]))$
+print("D along [100] =",D_100)$
+print("[100] branch residual matrix (must be zero):",
+      branch_100_check)$
+
+vL_limit : limit(2*sqrt(KL/M)*sin(q*a/2)/q,q,0,plus)$
+vT_limit : limit(2*sqrt(KT/M)*sin(q*a/2)/q,q,0,plus)$
+print("Long-wave longitudinal speed =",vL_limit)$
+print("Long-wave transverse speed =",vT_limit)$
+
+/* 2. Cubic Christoffel matrix for propagation along [110] */
+G110 : matrix(
+ [(C11+C44)/2,(C12+C44)/2,0],
+ [(C12+C44)/2,(C11+C44)/2,0],
+ [0,0,C44])$
+
+eL110  : matrix([1],[1],[0])/sqrt(2)$
+eT110a : matrix([1],[-1],[0])/sqrt(2)$
+eT110b : matrix([0],[0],[1])$
+
+lamL110  : (C11+C12+2*C44)/2$
+lamT110a : (C11-C12)/2$
+lamT110b : C44$
+
+check_L110 : ratsimp(G110.eL110-lamL110*eL110)$
+check_T110a : ratsimp(G110.eT110a-lamT110a*eT110a)$
+check_T110b : ratsimp(G110.eT110b-lamT110b*eT110b)$
+print("[110] longitudinal eigenvector residual (must be zero):",
+      check_L110)$
+print("[110] in-plane transverse residual (must be zero):",
+      check_T110a)$
+print("[110] out-of-plane transverse residual (must be zero):",
+      check_T110b)$
+
+/* 3. Cubic Christoffel matrix for propagation along [111] */
+gd : (C11+2*C44)/3$
+go : (C12+C44)/3$
+G111 : matrix([gd,go,go],[go,gd,go],[go,go,gd])$
+eL111 : matrix([1],[1],[1])/sqrt(3)$
+eT111a : matrix([1],[-1],[0])/sqrt(2)$
+eT111b : matrix([1],[1],[-2])/sqrt(6)$
+lamL111 : (C11+2*C12+4*C44)/3$
+lamT111 : (C11-C12+C44)/3$
+check_L111 : ratsimp(G111.eL111-lamL111*eL111)$
+check_T111a : ratsimp(G111.eT111a-lamT111*eT111a)$
+check_T111b : ratsimp(G111.eT111b-lamT111*eT111b)$
+print("[111] longitudinal residual (must be zero):",check_L111)$
+print("[111] first transverse residual (must be zero):",check_T111a)$
+print("[111] second transverse residual (must be zero):",check_T111b)$
+
+/* 4. Numerical elastic example */
+rho_num : 2330.0$
+C11_num : 165.7e9$
+C12_num : 63.9e9$
+C44_num : 79.6e9$
+
+vL100 : sqrt(C11_num/rho_num)$
+vT100 : sqrt(C44_num/rho_num)$
+vL110 : sqrt((C11_num+C12_num+2*C44_num)/(2*rho_num))$
+vT110a : sqrt((C11_num-C12_num)/(2*rho_num))$
+vT110b : sqrt(C44_num/rho_num)$
+vL111 : sqrt((C11_num+2*C12_num+4*C44_num)/(3*rho_num))$
+vT111 : sqrt((C11_num-C12_num+C44_num)/(3*rho_num))$
+
+print("v_L[100] (m/s) =",float(vL100))$
+print("v_T[100] (m/s) =",float(vT100))$
+print("v_L[110] (m/s) =",float(vL110))$
+print("v_T[1 -1 0] for q along [110] (m/s) =",float(vT110a))$
+print("v_T[001] for q along [110] (m/s) =",float(vT110b))$
+print("v_L[111] (m/s) =",float(vL111))$
+print("doubly-degenerate v_T[111] (m/s) =",float(vT111))$
+
+stability_1 : C44_num$
+stability_2 : C11_num-C12_num$
+stability_3 : C11_num+2*C12_num$
+print("C44 (GPa) =",float(stability_1/1.0e9))$
+print("C11-C12 (GPa) =",float(stability_2/1.0e9))$
+print("C11+2C12 (GPa) =",float(stability_3/1.0e9))$
+
+/* 5. A microscopic numerical [100] example */
+u_num : 1.66053906660e-27$
+M_num : 40.0*u_num$
+a_num : 0.400e-9$
+KL_num : 50.0$
+KT_num : 20.0$
+q_num : %pi/(2*a_num)$
+wL_num : 2*sqrt(KL_num/M_num)*sin(q_num*a_num/2)$
+wT_num : 2*sqrt(KT_num/M_num)*sin(q_num*a_num/2)$
+cL_num : a_num*sqrt(KL_num/M_num)$
+cT_num : a_num*sqrt(KT_num/M_num)$
+print("Microscopic [100] longitudinal frequency (THz) =",
+      float(wL_num/(2*%pi*1.0e12)))$
+print("Microscopic [100] transverse frequency (THz) =",
+      float(wT_num/(2*%pi*1.0e12)))$
+print("Long-wave c_L (m/s) =",float(cL_num))$
+print("Long-wave c_T (m/s) =",float(cT_num))$
+
+quit();

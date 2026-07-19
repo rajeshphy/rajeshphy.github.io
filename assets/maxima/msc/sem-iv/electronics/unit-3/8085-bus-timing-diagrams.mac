@@ -1,0 +1,26 @@
+/* 8085 bus timing and address checks */
+kill(all)$ display2d:false$
+ofetch:4$ read_cycle:3$ write_cycle:3$ io_cycle:3$
+in_t:ofetch+read_cycle+io_cycle$
+out_t:ofetch+read_cycle+io_cycle$
+mov_ma_t:ofetch+write_cycle$
+mvi_m_t:ofetch+read_cycle+write_cycle$
+print("IN/OUT T-states =",in_t,out_t)$
+print("MOV M,A and MVI M,data T-states =",mov_ma_t,mvi_m_t)$
+if [in_t,out_t,mov_ma_t,mvi_m_t]#[10,10,7,10] then error("bus-cycle total failed")$
+
+/* Standard isolated I/O repeats the 8-bit port on both halves. */
+port:66$ duplicated:256*port+port$
+print("Port 42H duplicated address decimal/hex =",duplicated,printf(false,"~4,'0X",duplicated))$
+if duplicated#16962 then error("port duplication failed")$
+
+fclk:3.0e6$
+base:mov_ma_t/fclk$ with_waits:(mov_ma_t+3)/fclk$
+print("MOV M,A seconds, no waits/three waits =",float(base),float(with_waits))$
+if abs(float(with_waits)-10/3.0e6)>1e-15 then error("wait-state timing failed")$
+
+/* Status codes: fetch=3, read=2, write=1. */
+fetch_status:2*1+1$ read_status:2*1+0$ write_status:2*0+1$
+if [fetch_status,read_status,write_status]#[3,2,1] then error("status encoding failed")$
+print("S1S0 fetch/read/write =",fetch_status,read_status,write_status)$
+quit();

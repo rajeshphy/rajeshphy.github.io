@@ -1,0 +1,100 @@
+/*
+  Drude model of solids
+  Maxima 5.49-compatible batch worksheet
+
+  Run with:
+      maxima --very-quiet -b drude-model-of-solids.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("DRUDE MODEL OF SOLIDS")$
+
+/* 1. Conductivity from the harmonic equation of motion. */
+sigma : n*e^2/(m*(gam-%i*w))$
+sigma0 : n*e^2/(m*gam)$
+sigma1 : sigma0/(1+(w/gam)^2)$
+sigma2 : sigma0*(w/gam)/(1+(w/gam)^2)$
+sigma_check : ratsimp(sigma-(sigma1+%i*sigma2))$
+print("sigma(w) =", sigma)$
+print("sigma_1(w) =", sigma1)$
+print("sigma_2(w) =", sigma2)$
+print("Conductivity decomposition residual (must be 0) =",
+      sigma_check)$
+
+/* 2. Dielectric function and its real and imaginary parts. */
+wp2 : n*e^2/(eps0*m)$
+eps_drude : eps_inf+%i*sigma/(eps0*w)$
+eps_expected : eps_inf-wp2/(w*(w+%i*gam))$
+eps_complex_check : ratsimp(eps_drude-eps_expected)$
+eps_real : eps_inf-wp2/(w^2+gam^2)$
+eps_imag : wp2*gam/(w*(w^2+gam^2))$
+eps_parts_check : ratsimp(eps_expected-(eps_real+%i*eps_imag))$
+print("Drude epsilon(w) =", eps_expected)$
+print("Conductivity-to-epsilon residual (must be 0) =",
+      eps_complex_check)$
+print("Real/imaginary decomposition residual (must be 0) =",
+      eps_parts_check)$
+
+/* 3. Plasma-edge condition and longitudinal complex roots. */
+wedge2 : wp2/eps_inf-gam^2$
+edge_check : ratsimp(subst(w^2=wedge2,eps_real))$
+longitudinal_polynomial : w^2+%i*gam*w-wp2/eps_inf$
+longitudinal_roots : solve(longitudinal_polynomial=0,w)$
+print("omega_edge^2 =", wedge2)$
+print("epsilon-prime edge residual (must be 0) =", edge_check)$
+print("Complex longitudinal roots =", longitudinal_roots)$
+
+/* 4. Drude spectral weight. */
+assume(gam>0)$
+spectral_integral : integrate(
+    n*e^2*gam/(m*(gam^2+w^2)),w,0,inf)$
+spectral_expected : %pi*n*e^2/(2*m)$
+print("Integral_0^infinity sigma_1 dw =", spectral_integral)$
+print("Expected spectral weight =", spectral_expected)$
+
+/* 5. Numerical metallic example in SI units. */
+e_num    : 1.602176634e-19$
+me_num   : 9.1093837015e-31$
+eps0_num : 8.8541878128e-12$
+hbar_num : 1.054571817e-34$
+n_num    : 8.50e28$
+tau_num  : 2.50e-14$
+m_num    : me_num$
+epsinf_num : 1.0$
+w_num    : 2.00e15$
+
+gam_num : 1/tau_num$
+sigma0_num : n_num*e_num^2*tau_num/m_num$
+rho0_num : 1/sigma0_num$
+wp_num : sqrt(n_num*e_num^2/(eps0_num*m_num))$
+fp_num : wp_num/(2*%pi)$
+Ep_num_eV : hbar_num*wp_num/e_num$
+wedge_num : sqrt(wp_num^2/epsinf_num-gam_num^2)$
+sigma1_num : sigma0_num/(1+(w_num*tau_num)^2)$
+sigma2_num : sigma0_num*w_num*tau_num/
+             (1+(w_num*tau_num)^2)$
+epsreal_num : epsinf_num-wp_num^2/(w_num^2+gam_num^2)$
+epsimag_num : wp_num^2*gam_num/
+              (w_num*(w_num^2+gam_num^2))$
+
+print("sigma_0 (S/m) =", float(sigma0_num))$
+print("rho_0 (ohm m) =", float(rho0_num))$
+print("gamma (1/s) =", float(gam_num))$
+print("omega_p (rad/s) =", float(wp_num))$
+print("f_p (Hz) =", float(fp_num))$
+print("hbar omega_p (eV) =", float(Ep_num_eV))$
+print("omega_edge (rad/s) =", float(wedge_num))$
+print("omega tau at sample frequency =", float(w_num*tau_num))$
+print("sigma_1 at sample frequency (S/m) =",
+      float(sigma1_num))$
+print("sigma_2 at sample frequency (S/m) =",
+      float(sigma2_num))$
+print("epsilon-prime at sample frequency =",
+      float(epsreal_num))$
+print("epsilon-double-prime at sample frequency =",
+      float(epsimag_num))$
+
+quit();

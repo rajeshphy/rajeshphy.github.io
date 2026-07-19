@@ -1,0 +1,15 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}\usepackage{amsmath}
+\definecolor{ink}{HTML}{21352F}\definecolor{teal}{HTML}{087F7B}\definecolor{gold}{HTML}{C58B2A}\definecolor{rose}{HTML}{B65A62}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily,color=ink]
+ \node[font=\bfseries\large] at (4.2,3.2) {Bias-current compensation in an inverting amplifier};
+ \node[op amp,draw=teal,very thick] (op) at (4,0) {};
+ \draw (-1,.5) node[left]{$v_i$} to[R,l=$R_1$,color=gold] (op.-);
+ \draw (op.out)--++(1.4,0) coordinate(o) node[right]{$v_o$};
+ \draw (op.-)--++(0,1.5) coordinate(f) to[R,l=$R_f$,color=gold] (f-|o)--(o);
+ \draw (op.+)--++(-.8,0) coordinate(p) to[R,l_=$R_B$,color=rose] ++(0,-1.5) node[ground]{};
+ \node[font=\small,align=center] at (3.8,-2.5) {$\displaystyle R_B=R_1\parallel R_f$ makes the two input Thevenin resistances equal\\equal bias currents then produce equal input-node drops and cancel differentially};
+\end{circuitikz}
+\end{document}

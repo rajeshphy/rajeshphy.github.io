@@ -1,0 +1,168 @@
+/*
+  Plasma oscillations and plasmons
+  Maxima 5.49-compatible batch worksheet
+
+  Run with:
+      maxima --very-quiet -b plasma-oscillations-and-plasmons.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("PLASMA OSCILLATIONS AND PLASMONS")$
+
+/* 1. Plasma frequency from the linearized fluid equations */
+/* For exp[i(k x-w t)], use a scalar potential with E=-grad(phi). */
+continuity_eq : -w*dn+k*n0*v=0$
+momentum_eq : m*w*v = -e*k*phi+k*dp/n0$
+poisson_eq : -k^2*phi=e*dn/eps0$
+
+/* Adopt dp=m*vs^2*dn and eliminate v and phi. */
+v_from_continuity : rhs(first(solve(continuity_eq,v)))$
+phi_from_poisson : rhs(first(solve(poisson_eq,phi)))$
+fluid_residual : ratsimp(
+    subst([v=v_from_continuity,
+           phi=phi_from_poisson,
+           dp=m*vs^2*dn],
+          lhs(momentum_eq)-rhs(momentum_eq)))$
+dispersion_eq : ratsimp(fluid_residual*k*n0/(m*dn))$
+print("Eliminated fluid equation (zero gives dispersion):",
+      dispersion_eq)$
+
+wp2 : n0*e^2/(m*eps0)$
+dispersion_check : ratsimp(
+    subst(w^2=wp2+vs^2*k^2, dispersion_eq))$
+print("Residual for w^2=wp^2+vs^2 k^2 (must be 0):",
+      dispersion_check)$
+print("Cold plasma angular frequency squared =", wp2)$
+
+/* 2. Drude dielectric function for the exp(-i w t) convention */
+eps_D : eps_inf-wp^2/(w*(w+%i*gam))$
+eps_real : eps_inf-wp^2/(w^2+gam^2)$
+eps_imag : wp^2*gam/(w*(w^2+gam^2))$
+drude_check : ratsimp(eps_D-(eps_real+%i*eps_imag))$
+print("Drude epsilon(w) =", eps_D)$
+print("Real part =", eps_real)$
+print("Imaginary part =", eps_imag)$
+print("Complex-form residual (must be 0):", drude_check)$
+
+plasmon_roots : solve(w^2+%i*gam*w-wp^2/eps_inf=0,w)$
+print("Complex zeros of epsilon =", plasmon_roots)$
+
+/* For eps_inf=1, verify the standard loss-function expression. */
+loss_complex : subst(eps_inf=1, -1/eps_D)$
+loss_expected : gam*w*wp^2/
+    ((w^2-wp^2)^2+gam^2*w^2)$
+
+/* Algebraic verification: construct -1/epsilon in real+i imaginary form. */
+loss_real_expected :
+    (wp^2*w^2-w^4-gam^2*w^2)/
+    ((w^2-wp^2)^2+gam^2*w^2)$
+loss_check : ratsimp(
+    loss_complex-(loss_real_expected+%i*loss_expected))$
+print("Loss function Im[-1/epsilon] for eps_inf=1 =",
+      loss_expected)$
+print("Loss-function complex decomposition residual (must be 0):",
+      loss_check)$
+
+/* 3. Surface and localized plasmon conditions */
+eps_m_lossless : eps_inf-wp^2/w^2$
+surface_condition : eps_m_lossless+eps_d$
+surface_w2 : wp^2/(eps_inf+eps_d)$
+surface_check : ratsimp(subst(w^2=surface_w2,
+                               surface_condition))$
+print("Planar surface-plasmon w^2 =", surface_w2)$
+print("Planar boundary-condition residual (must be 0):",
+      surface_check)$
+
+sphere_condition : eps_m_lossless+2*eps_d$
+sphere_w2 : wp^2/(eps_inf+2*eps_d)$
+sphere_check : ratsimp(subst(w^2=sphere_w2,
+                              sphere_condition))$
+print("Dipolar localized-sphere plasmon w^2 =", sphere_w2)$
+print("Sphere resonance residual (must be 0):", sphere_check)$
+
+/* Retarded planar surface-plasmon-polariton wavevector. */
+k_spp2 : (w/c0)^2*eps_m*eps_d/(eps_m+eps_d)$
+print("Retarded planar SPP k_parallel^2 =", k_spp2)$
+
+/* 4. Numerical constants (SI) */
+e_num    : 1.602176634e-19$
+me_num   : 9.1093837015e-31$
+eps0_num : 8.8541878128e-12$
+hbar_num : 1.054571817e-34$
+c_num    : 2.99792458e8$
+
+/* Free-electron metal example. */
+n_metal : 8.50e28$
+wp_metal : sqrt(n_metal*e_num^2/(me_num*eps0_num))$
+fp_metal : wp_metal/(2*%pi)$
+Ep_J : hbar_num*wp_metal$
+Ep_eV : Ep_J/e_num$
+wsp_vac : wp_metal/sqrt(2)$
+Esp_eV : hbar_num*wsp_vac/e_num$
+lambda_edge : 2*%pi*c_num/wp_metal$
+
+print("Metal example: bulk omega_p (rad/s) =", float(wp_metal))$
+print("Metal example: f_p (Hz) =", float(fp_metal))$
+print("Metal example: hbar omega_p (eV) =", float(Ep_eV))$
+print("Metal example: vacuum-surface energy (eV) =", float(Esp_eV))$
+print("Metal example: vacuum wavelength at omega_p (m) =",
+      float(lambda_edge))$
+
+/* Long-wavelength RPA dispersion through order k^2 at a sample k. */
+kF_metal : (3*%pi^2*n_metal)^(1/3)$
+vF_metal : hbar_num*kF_metal/me_num$
+k_sample : 1.00e9$
+w_RPA : sqrt(wp_metal^2
+             +(3/5)*vF_metal^2*k_sample^2)$
+relative_RPA_shift : (w_RPA-wp_metal)/wp_metal$
+print("Metal example: k_F (1/m) =", float(kF_metal))$
+print("Metal example: v_F (m/s) =", float(vF_metal))$
+print("At k=1e9 1/m, RPA omega (rad/s) =", float(w_RPA))$
+print("At k=1e9 1/m, relative dispersion shift =",
+      float(relative_RPA_shift))$
+
+/* Loss function at and around the weakly damped resonance. */
+gam_num : 0.05*wp_metal$
+loss_num(w_num) := ev(loss_expected,
+                      w=w_num, wp=wp_metal, gam=gam_num)$
+print("Loss with gamma=0.05 omega_p at 0.9 omega_p =",
+      float(loss_num(0.9*wp_metal)))$
+print("Loss with gamma=0.05 omega_p at omega_p =",
+      float(loss_num(wp_metal)))$
+print("Loss with gamma=0.05 omega_p at 1.1 omega_p =",
+      float(loss_num(1.1*wp_metal)))$
+
+/* Doped semiconductor example with background screening. */
+n_semi : 1.00e24$
+mstar : 0.10*me_num$
+eps_inf_semi : 12.0$
+wp_semi_unscreened : sqrt(n_semi*e_num^2/(mstar*eps0_num))$
+wp_semi_screened : wp_semi_unscreened/sqrt(eps_inf_semi)$
+Ep_semi_eV : hbar_num*wp_semi_screened/e_num$
+lambda_semi : 2*%pi*c_num/wp_semi_screened$
+print("Semiconductor: unscreened omega_p (rad/s) =",
+      float(wp_semi_unscreened))$
+print("Semiconductor: screened omega_p (rad/s) =",
+      float(wp_semi_screened))$
+print("Semiconductor: screened plasmon energy (eV) =",
+      float(Ep_semi_eV))$
+print("Semiconductor: corresponding free-space wavelength (m) =",
+      float(lambda_semi))$
+
+/* 5. Bohm--Gross thermal correction for a sample classical plasma. */
+kb_num : 1.380649e-23$
+T_classical : 1.00e4$
+n_classical : 1.00e18$
+k_classical : 1.00e3$
+wp_classical : sqrt(n_classical*e_num^2/(me_num*eps0_num))$
+vT_classical : sqrt(kb_num*T_classical/me_num)$
+w_BG : sqrt(wp_classical^2+3*k_classical^2*vT_classical^2)$
+print("Classical example: cold omega_p (rad/s) =",
+      float(wp_classical))$
+print("Classical example: Bohm--Gross omega (rad/s) =",
+      float(w_BG))$
+
+quit();

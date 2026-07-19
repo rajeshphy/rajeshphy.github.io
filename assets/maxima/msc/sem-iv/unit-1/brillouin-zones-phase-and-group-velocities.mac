@@ -1,0 +1,61 @@
+/* Brillouin zones, phase velocity, and group velocity.
+   Run with: maxima --very-quiet -b brillouin-zones-phase-and-group-velocities.mac */
+
+kill(all)$
+display2d:false$
+assume(a>0,C>0,M>0,k>0)$
+
+omega_first : 2*sqrt(C/M)*sin(k*a/2)$
+v_phase : omega_first/k$
+v_group : diff(omega_first,k)$
+v_sound : a*sqrt(C/M)$
+
+print("phase velocity =",v_phase)$
+print("group velocity =",v_group)$
+print("limit of phase velocity at k=0 =",limit(v_phase,k,0,plus))$
+print("limit of group velocity at k=0 =",limit(v_group,k,0,plus))$
+print("group velocity at the zone boundary =",
+      trigsimp(subst(%pi/a,k,v_group)))$
+
+/* Series through the first dispersive correction. */
+print("v_phase/v_sound series =",taylor(v_phase/v_sound,k,0,4))$
+print("v_group/v_sound series =",taylor(v_group/v_sound,k,0,4))$
+
+/* Reciprocal equivalence at an integer lattice site. */
+declare(m,integer,n,integer)$
+phase_exponent : ratsimp(expand((k+2*%pi*m/a)*n*a-k*n*a))$
+reciprocal_ratio : rectform(exp(%i*phase_exponent))$
+print("For integer m,n, reciprocal-space phase ratio =",reciprocal_ratio)$
+
+/* Numerical example used in the notes. */
+u_atomic : 1.66053906660b-27$
+M_num : 39.1b0*u_atomic$
+a_num : 0.520b-9$
+C_num : 18.0b0$
+vs_num : a_num*sqrt(C_num/M_num)$
+k1 : 0.60b0*%pi/a_num$
+k2 : 1.40b0*%pi/a_num$
+omega(kv) := 2*sqrt(C_num/M_num)*sin(kv*a_num/2)$
+vg(kv) := a_num*sqrt(C_num/M_num)*cos(kv*a_num/2)$
+
+omega1 : omega(k1)$
+omega2 : omega(k2)$
+vp1 : omega1/k1$
+vp2_extended : omega2/k2$
+vg1 : vg(k1)$
+vg2 : vg(k2)$
+q2 : k2-2*%pi/a_num$
+
+printf(true,"sound speed = ~,7e m/s~%",vs_num)$
+printf(true,"frequency at 0.60*pi/a = ~,7e THz~%",omega1/(2*%pi*1.0b12))$
+printf(true,"phase velocity at 0.60*pi/a = ~,7e m/s~%",vp1)$
+printf(true,"group velocity at 0.60*pi/a = ~,7e m/s~%",vg1)$
+printf(true,"frequency difference for 0.60 and 1.40*pi/a = ~,7e s^-1~%",
+       omega2-omega1)$
+printf(true,"extended-label phase velocity at 1.40*pi/a = ~,7e m/s~%",
+       vp2_extended)$
+printf(true,"group velocity at 1.40*pi/a = ~,7e m/s~%",vg2)$
+printf(true,"reduced q for 1.40*pi/a, in units pi/a = ~,7e~%",
+       q2*a_num/%pi)$
+
+quit();

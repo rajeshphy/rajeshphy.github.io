@@ -1,0 +1,83 @@
+/* Dynamic dielectric response with the exp(-i omega t) convention.
+   Run with: maxima -q -b dynamic-dielectric-response.mac */
+
+kill(all)$
+display2d:false$
+
+/* Lorentz oscillator: algebraic separation into real and imaginary parts. */
+a : omega0^2-omega^2$
+b : gamma*omega$
+lorentz_complex : Omegap2/(a-%i*b)$
+lorentz_parts : Omegap2*a/(a^2+b^2)
+                +%i*Omegap2*b/(a^2+b^2)$
+print("Lorentz real/imaginary decomposition residual =",
+      ratsimp(lorentz_complex-lorentz_parts))$
+print("Static Lorentz susceptibility =",
+      ratsimp(subst(0,omega,lorentz_complex)))$
+
+/* Debye relaxation and its loss maximum. */
+debye_complex : Delta/(1-%i*omega*tau)$
+debye_parts : Delta/(1+(omega*tau)^2)
+              +%i*Delta*omega*tau/(1+(omega*tau)^2)$
+print("Debye decomposition residual =",
+      ratsimp(debye_complex-debye_parts))$
+debye_loss : Delta*omega*tau/(1+(omega*tau)^2)$
+print("d(loss)/d(omega) at omega=1/tau =",
+      ratsimp(subst(1/tau,omega,diff(debye_loss,omega))))$
+print("loss at omega*tau=1 =",
+      ratsimp(subst(1/tau,omega,debye_loss)))$
+
+/* Kramers-Kronig zero-frequency sum rule for a Debye response. */
+assume(tau>0)$
+kk_static : 2/%pi*integrate(
+    (Delta*Omega*tau/(1+(Omega*tau)^2))/Omega,
+    Omega,0,inf)$
+print("Debye Kramers-Kronig static integral =",kk_static)$
+
+/* Symbolic two-layer Maxwell-Wagner decomposition.
+   s=-i*omega, f is layer-1 fraction and g=1-f. */
+g : 1-f$
+K1 : sigma1+s*ep1$
+K2 : sigma2+s*ep2$
+Asigma : f*sigma2+g*sigma1$
+Aeps : f*ep2+g*ep1$
+Keff : ratsimp(K1*K2/(f*K2+g*K1))$
+sigma_dc : sigma1*sigma2/Asigma$
+ep_inf : ep1*ep2/Aeps$
+tau_mw : Aeps/Asigma$
+Delta_mw : f*g*(sigma1*ep2-sigma2*ep1)^2/(Asigma^2*Aeps)$
+Kmodel : sigma_dc+s*(ep_inf+Delta_mw/(1+s*tau_mw))$
+print("Maxwell-Wagner decomposition residual =",
+      factor(ratsimp(Keff-Kmodel)))$
+
+/* Numerical Debye example. */
+eps_inf_num : 4.0b0$
+Delta_num : 20.0b0$
+tau_num : 8.0b-12$
+freq_num : 10.0b9$
+omega_num : 2*%pi*freq_num$
+y_num : omega_num*tau_num$
+epsp_num : eps_inf_num+Delta_num/(1+y_num^2)$
+epspp_num : Delta_num*y_num/(1+y_num^2)$
+tand_num : epspp_num/epsp_num$
+printf(true,"Debye omega*tau = ~,8f~%",y_num)$
+printf(true,"Debye epsilon' = ~,8f~%",epsp_num)$
+printf(true,"Debye epsilon'' = ~,8f~%",epspp_num)$
+printf(true,"Debye tan(delta) = ~,8f~%",tand_num)$
+
+/* Numerical ionic Lorentz oscillator. */
+eps_inf_ion : 4.0b0$
+Delta_ion : 5.0b0$
+omega0_num : 2*%pi*3.0b12$
+gamma_num : 2*%pi*0.20b12$
+omega_eval : 2*%pi*2.5b12$
+aa_num : omega0_num^2-omega_eval^2$
+bb_num : gamma_num*omega_eval$
+den_num : aa_num^2+bb_num^2$
+chip_ion : Delta_ion*omega0_num^2*aa_num/den_num$
+chipp_ion : Delta_ion*omega0_num^2*bb_num/den_num$
+printf(true,"Ionic oscillator epsilon' = ~,8f~%",
+       eps_inf_ion+chip_ion)$
+printf(true,"Ionic oscillator epsilon'' = ~,8f~%",chipp_ion)$
+
+quit();

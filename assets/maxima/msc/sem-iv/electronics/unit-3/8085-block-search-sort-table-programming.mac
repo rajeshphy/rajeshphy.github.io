@@ -1,0 +1,44 @@
+/* 8085 block direction, search, bubble-sort and table checks. */
+kill(all)$
+
+forward_move(mem,s,d,n) := block([m:copylist(mem)],
+  if n>0 then for i:0 thru n-1 do m[d+i+1]:m[s+i+1],
+  m)$
+backward_move(mem,s,d,n) := block([m:copylist(mem)],
+  if n>0 then for i:n-1 step -1 thru 0 do m[d+i+1]:m[s+i+1],
+  m)$
+
+mem : makelist(i,i,0,11)$
+bad : forward_move(mem,2,4,5)$
+good : backward_move(mem,2,4,5)$
+printf(true,"Original memory             : ~a~%",mem)$
+printf(true,"Forward overlapping copy    : ~a~%",bad)$
+printf(true,"Backward overlap-safe copy  : ~a~%",good)$
+
+findfirst(v,key) := block([ans:-1],
+  for i:1 thru length(v) while ans=-1 do if v[i]=key then ans:i-1,
+  ans)$
+v : [66,23,99,8,49,23]$
+printf(true,"First 17h at index ~d; AAh returns ~d~%",findfirst(v,23),findfirst(v,170))$
+
+inversions(v) := block([n:length(v)],
+  if n<2 then 0 else sum(sum(if v[i]>v[j] then 1 else 0,j,i+1,n),i,1,n-1))$
+bubblesort_trace(v) := block([a:copylist(v),n:length(v),tr:[copylist(v)],tmp],
+  if n>1 then for pass:1 thru n-1 do (
+    for i:1 thru n-pass do if a[i]>a[i+1] then (
+      tmp:a[i],a[i]:a[i+1],a[i+1]:tmp),
+    tr:endcons(copylist(a),tr)),
+  [a,tr])$
+
+sample : [66,23,99,8,49]$
+q : bubblesort_trace(sample)$
+printf(true,"Initial inversions (hence adjacent swaps) = ~d~%",inversions(sample))$
+printf(true,"Pass trace = ~a~%",q[2])$
+printf(true,"Sorted result = ~a; comparison count = ~d~%",q[1],length(sample)*(length(sample)-1)/2)$
+
+/* Table and checksum verification. */
+squares : makelist(i^2,i,0,15)$
+blockbytes : [66,23,99,8,49]$
+printf(true,"Square table = ~a~%",squares)$
+printf(true,"Modulo-256 checksum of sample block = ~d (hex ~2,'0X)~%",
+       mod(lsum(x,x,blockbytes),256),mod(lsum(x,x,blockbytes),256))$

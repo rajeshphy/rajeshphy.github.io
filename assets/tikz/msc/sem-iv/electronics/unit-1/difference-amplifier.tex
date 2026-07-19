@@ -1,0 +1,16 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}\usepackage{amsmath}
+\definecolor{ink}{HTML}{21352F}\definecolor{teal}{HTML}{087F7B}\definecolor{gold}{HTML}{C58B2A}\definecolor{rose}{HTML}{B65A62}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily,color=ink]
+ \node[font=\bfseries\large] at (4.2,3.6) {Four-resistor difference amplifier};
+ \node[op amp,draw=teal,very thick] (op) at (5,0) {};
+ \draw (-1,.5) node[left]{$v_1$} to[R,l=$R_1$,color=gold] (op.-);
+ \draw (op.out)--++(1.3,0) coordinate(o) node[right]{$v_o$};
+ \draw (op.-)--++(0,1.8) coordinate(f) to[R,l=$R_2$,color=rose] (f-|o)--(o);
+ \draw (-1,-.5) node[left]{$v_2$} to[R,l_=$R_3$,color=gold] (op.+);
+ \draw (op.+)--++(0,-1.5) to[R,l=$R_4$,color=rose] ++(0,-1.4) node[ground]{};
+ \node[font=\small,align=center] at (4.1,-5.0) {$\displaystyle v_o=\left(1+\frac{R_2}{R_1}\right)\frac{R_4}{R_3+R_4}v_2-\frac{R_2}{R_1}v_1$\\if $R_2/R_1=R_4/R_3=k$, then $v_o=k(v_2-v_1)$};
+\end{circuitikz}
+\end{document}

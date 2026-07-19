@@ -1,0 +1,148 @@
+/*
+  Neutron scattering by phonons
+  Maxima 5.49-compatible batch worksheet
+
+  Run with:
+      maxima --very-quiet -b neutron-scattering-by-phonons.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("NEUTRON SCATTERING BY PHONONS")$
+
+/* 1. Free-neutron conversion E(meV)=A*k(angstrom^-1)^2 */
+hbar_num : 1.054571817e-34$
+mn_num : 1.67492749804e-27$
+e_num : 1.602176634e-19$
+kb_eV_num : 8.617333262e-5$
+
+/* k=1 angstrom^-1 = 1e10 m^-1, and 1 meV=1e-3 eV. */
+neutron_A :
+    hbar_num^2*(1.0e10)^2/(2*mn_num)/(e_num*1.0e-3)$
+print("hbar^2/(2m_n) in meV*angstrom^2 =",float(neutron_A))$
+
+/* 2. Scattering triangle */
+Q2 : ki^2+kf^2-2*ki*kf*cos(phi)$
+Qx : ki-kf*cos(phi)$
+Qy : -kf*sin(phi)$
+triangle_check : trigsimp(ratsimp(Qx^2+Qy^2-Q2))$
+print("Scattering-triangle residual (must be 0):",triangle_check)$
+
+/* Energy-transfer check with E=A*k^2. */
+energy_transfer : Aconst*(ki^2-kf^2)$
+kf2_creation : ki^2-Ephon/Aconst$
+energy_check : ratsimp(
+    subst(kf^2=kf2_creation,energy_transfer)-Ephon)$
+print("Creation energy-conservation residual (must be 0):",
+      energy_check)$
+
+/* 3. Bose factors and detailed balance */
+nB(x) := 1/(exp(x)-1)$
+detailed_balance_check :
+    ratsimp(nB(x)/(nB(x)+1)-exp(-x))$
+print("n/(n+1)-exp(-x), which must be 0:",
+      detailed_balance_check)$
+
+/* Matrix-element factors for oscillator number n. */
+creation_factor : n+1$
+annihilation_factor : n$
+print("Creation population factor =",creation_factor)$
+print("Annihilation population factor =",annihilation_factor)$
+
+/* 4. Worked kinematic example */
+Ei_num : 30.0$
+Ephon_num : 8.00$
+Ef_num : Ei_num-Ephon_num$
+phi_num : 40.0*%pi/180$
+a_num : 4.00$
+
+ki_num : sqrt(Ei_num/neutron_A)$
+kf_num : sqrt(Ef_num/neutron_A)$
+Qx_num : ki_num-kf_num*cos(phi_num)$
+Qy_num : -kf_num*sin(phi_num)$
+Q_num : sqrt(Qx_num^2+Qy_num^2)$
+Q_law_num : sqrt(ki_num^2+kf_num^2
+                 -2*ki_num*kf_num*cos(phi_num))$
+
+gstep : 2*%pi/a_num$
+Gx_num : gstep$
+Gy_num : -gstep$
+qx_num : Qx_num-Gx_num$
+qy_num : Qy_num-Gy_num$
+q_num : sqrt(qx_num^2+qy_num^2)$
+BZ_halfwidth : %pi/a_num$
+
+print("Initial wavevector (angstrom^-1) =",float(ki_num))$
+print("Final wavevector after 8 meV loss (angstrom^-1) =",
+      float(kf_num))$
+print("Qx (angstrom^-1) =",float(Qx_num))$
+print("Qy (angstrom^-1) =",float(Qy_num))$
+print("|Q| from components (angstrom^-1) =",float(Q_num))$
+print("|Q| from cosine law (angstrom^-1) =",float(Q_law_num))$
+print("Scattering-triangle numerical residual =",
+      float(Q_num-Q_law_num))$
+print("Reciprocal step 2*pi/a (angstrom^-1) =",float(gstep))$
+print("Reduced qx=Qx-Gx (angstrom^-1) =",float(qx_num))$
+print("Reduced qy=Qy-Gy (angstrom^-1) =",float(qy_num))$
+print("Reduced |q| (angstrom^-1) =",float(q_num))$
+print("First-zone component half-width pi/a (angstrom^-1) =",
+      float(BZ_halfwidth))$
+print("Are both reduced components inside the zone? ",
+      is(abs(qx_num)<BZ_halfwidth and
+         abs(qy_num)<BZ_halfwidth))$
+
+/* 5. Polarization factors for the reduced q direction */
+eLx : qx_num/q_num$
+eLy : qy_num/q_num$
+eTx : -qy_num/q_num$
+eTy : qx_num/q_num$
+QL : Qx_num*eLx+Qy_num*eLy$
+QT : Qx_num*eTx+Qy_num*eTy$
+polarization_completeness :
+    ratsimp(QL^2+QT^2-Q_num^2)$
+print("|Q dot e_L|^2 =",float(QL^2))$
+print("|Q dot e_T|^2 =",float(QT^2))$
+print("Two-polarization completeness residual =",
+      float(polarization_completeness))$
+
+/* 6. Temperature dependence of creation and annihilation */
+occupation_meV(EmeV,Tkelvin) :=
+    1/(exp((EmeV*1.0e-3)/(kb_eV_num*Tkelvin))-1)$
+
+n300 : occupation_meV(Ephon_num,300.0)$
+n50 : occupation_meV(Ephon_num,50.0)$
+ratio300 : n300/(n300+1)$
+ratio50 : n50/(n50+1)$
+ratio300_exp : exp(
+    -(Ephon_num*1.0e-3)/(kb_eV_num*300.0))$
+ratio50_exp : exp(
+    -(Ephon_num*1.0e-3)/(kb_eV_num*50.0))$
+
+print("Bose occupation at 300 K =",float(n300))$
+print("Creation factor n+1 at 300 K =",float(n300+1))$
+print("Annihilation factor n at 300 K =",float(n300))$
+print("Corrected annihilation/creation ratio at 300 K =",
+      float(ratio300))$
+print("Detailed-balance exponential at 300 K =",
+      float(ratio300_exp))$
+print("300 K ratio residual =",float(ratio300-ratio300_exp))$
+print("Bose occupation at 50 K =",float(n50))$
+print("Corrected annihilation/creation ratio at 50 K =",
+      float(ratio50))$
+print("Detailed-balance exponential at 50 K =",
+      float(ratio50_exp))$
+print("50 K ratio residual =",float(ratio50-ratio50_exp))$
+
+/* 7. Kinematic phase-space factors */
+creation_k_ratio : kf_num/ki_num$
+kf_gain_num : sqrt((Ei_num+Ephon_num)/neutron_A)$
+annihilation_k_ratio : kf_gain_num/ki_num$
+print("k_f/k_i for 8 meV phonon creation =",float(creation_k_ratio))$
+print("k_f/k_i for 8 meV phonon annihilation =",
+      float(annihilation_k_ratio))$
+print("Raw intensities must be divided by their k_f/k_i factors",
+      "before applying the simple detailed-balance ratio")$
+
+quit();

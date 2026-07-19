@@ -1,0 +1,35 @@
+/* Input offset voltage, bias currents and total output offset */
+kill(all)$
+display2d:false$
+
+/* Inverting circuit with vi=0; source resistance included in R1 */
+/* KCL: (vm-0)/R1+(vm-vo)/Rf+IBm=0; vp=-IBp*RB; vo=A*(vp+Vos-vm) */
+eqs : [(vm/R1)+(vm-vo)/Rf+IBm=0,
+       vp=-IBp*RB,
+       vo=A*(vp+Vos-vm)]$
+sol : solve(eqs,[vm,vp,vo])$
+vo_exact : factor(rhs(sol[1][3]))$
+print("exact finite-A output offset =",vo_exact)$
+vo_idealA : factor(limit(vo_exact,A,inf))$
+print("infinite-A output offset =",vo_idealA)$
+
+/* Numerical example */
+R1n : 10.0e3$
+Rfn : 100.0e3$
+RBn : R1n*Rfn/(R1n+Rfn)$
+IBp_n : 80.0e-9$
+IBm_n : 86.0e-9$
+Vos_n : 0.5e-3$
+vo_comp : ev(vo_idealA,R1=R1n,Rf=Rfn,RB=RBn,IBp=IBp_n,IBm=IBm_n,Vos=Vos_n,numer)$
+vo_no_comp : ev(vo_idealA,R1=R1n,Rf=Rfn,RB=0,IBp=IBp_n,IBm=IBm_n,Vos=Vos_n,numer)$
+print("R_B compensation (ohm) =",float(RBn))$
+print("uncompensated output offset (mV) =",float(1000*vo_no_comp))$
+print("compensated output offset (mV) =",float(1000*vo_comp))$
+print("input offset current (nA) =",float(1e9*abs(IBm_n-IBp_n)))$
+
+/* Worst-case bound from specified dc limits */
+NG : 1+Rfn/R1n$
+Vos_max : 1.0e-3$
+Ios_max : 20.0e-9$
+bound : NG*Vos_max+Rfn*Ios_max$
+print("worst-case magnitude bound (mV) =",float(1000*bound))$

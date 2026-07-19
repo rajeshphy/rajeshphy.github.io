@@ -1,0 +1,101 @@
+/* Experimental excitation and observation of plasmons
+   Batch worksheet: maxima -b experimental-excitation-of-plasmons.mac */
+
+kill(all)$
+display2d:false$
+fpprintprec:8$
+
+/* ---------- Relativistic EELS kinematics ---------- */
+mc2 : 510998.95$                 /* electron rest energy, eV */
+hbarc : 1973.269804$             /* eV Angstrom */
+Ti : 200000.0$                   /* incident kinetic energy, eV */
+Eloss : 15.0$                    /* energy loss, eV */
+theta : 5.0e-3$                  /* scattering angle, rad */
+
+k_of_T(T) := sqrt(T*(T + 2*mc2))/hbarc$
+beta_of_T(T) := sqrt(1 - (mc2/(T + mc2))^2)$
+
+ki : k_of_T(Ti)$
+kf : k_of_T(Ti-Eloss)$
+beta : beta_of_T(Ti)$
+gamma_i : 1+Ti/mc2$
+q_exact : sqrt(ki^2 + kf^2 - 2*ki*kf*cos(theta))$
+q_parallel : Eloss/(hbarc*beta)$
+q_perp : ki*theta$
+q_small_angle : sqrt(q_parallel^2 + q_perp^2)$
+lambda_A : 2*%pi/ki$
+
+print("200 keV incident wavelength (Angstrom) =", float(lambda_A))$
+print("v/c =", float(beta))$
+print("incident Lorentz factor gamma =", float(gamma_i))$
+print("check gamma^2*(1-beta^2) =",
+      float(gamma_i^2*(1-beta^2)))$
+print("q_parallel (1/Angstrom) =", float(q_parallel))$
+print("q_perp (1/Angstrom) =", float(q_perp))$
+print("exact q (1/Angstrom) =", float(q_exact))$
+print("small-angle q (1/Angstrom) =", float(q_small_angle))$
+print("relative small-angle error =",
+      float(abs(q_small_angle-q_exact)/q_exact))$
+
+/* The zero-angle exact transfer approaches omega/v for a small loss. */
+q_zero_exact : abs(ki-kf)$
+print("exact q at zero angle =", float(q_zero_exact))$
+print("omega/v approximation at zero angle =", float(q_parallel))$
+
+/* Repeat at 0.20 mrad to display the minimum longitudinal transfer. */
+theta2 : 0.20e-3$
+qperp2 : ki*theta2$
+q2 : sqrt(q_parallel^2+qperp2^2)$
+print("at 0.20 mrad: q_perp, q_parallel, q_total =",
+      float(qperp2), float(q_parallel), float(q2))$
+
+/* ---------- Drude bulk and surface frequencies ---------- */
+eps_drude : epsinf - wp^2/w^2$
+bulk_identity : ratsimp(subst(wp^2/epsinf,w^2,eps_drude))$
+print("epsilon at w_bulk^2=wp^2/epsinf =", bulk_identity)$
+
+surface_identity : ratsimp(
+  subst(wp^2/(epsinf+epsd),w^2,eps_drude+epsd))$
+print("epsilon+eps_d at w_surface^2=wp^2/(epsinf+epsd) =",
+      surface_identity)$
+
+Ep_eV : 15.0$
+epsinf_num : 1.0$
+epsd_num : 1.0$
+Ebulk : Ep_eV/sqrt(epsinf_num)$
+Esurface : Ep_eV/sqrt(epsinf_num+epsd_num)$
+print("bulk and vacuum-surface loss energies (eV) =",
+      float(Ebulk), float(Esurface))$
+
+/* With damping, verify the algebraic loss-function expression.
+   For epsilon=e1+i e2, Im(-1/epsilon)=e2/(e1^2+e2^2). */
+declare([e1,e2],real)$
+loss_complex : imagpart(-1/(e1+%i*e2))$
+loss_expected : e2/(e1^2+e2^2)$
+print("loss-function identity residual =",
+      ratsimp(loss_complex-loss_expected))$
+
+/* ---------- Surface-plasmon-polariton momentum matching ---------- */
+epsm_num : -10.0$
+epsd_spp : 1.0$
+q_over_k0 : sqrt(epsm_num*epsd_spp/(epsm_num+epsd_spp))$
+nprism : 1.50$
+theta_prism_deg : asin(q_over_k0/nprism)*180/%pi$
+print("q_spp/k0 for epsilon_m=-10, epsilon_d=1 =", float(q_over_k0))$
+print("matching angle in an n=1.50 prism (degree) =",
+      float(theta_prism_deg))$
+
+/* Verify the quasistatic sphere resonance denominator for a Drude metal. */
+sphere_condition : ratsimp(
+  subst(wp^2/(epsinf+2*epsd),w^2,eps_drude+2*epsd))$
+print("sphere denominator at resonance =", sphere_condition)$
+
+/* ---------- Plural scattering and log-ratio thickness ---------- */
+mu : 0.60$
+P(n) := exp(-mu)*mu^n/n!$
+psum : sum(P(n),n,0,20)$
+print("Poisson probability sum through n=20 =", float(psum))$
+print("P0, P1, P2 =", float(P(0)), float(P(1)), float(P(2)))$
+print("log(I_total/I0) =", float(log(1/P(0))))$
+
+quit();

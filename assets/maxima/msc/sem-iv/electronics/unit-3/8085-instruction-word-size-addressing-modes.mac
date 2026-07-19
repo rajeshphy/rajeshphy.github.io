@@ -1,0 +1,48 @@
+/* 8085 instruction length, byte order and addressing checks */
+kill(all)$
+display2d:false$
+fpprintprec:12$
+print("8085 INSTRUCTION LENGTH AND ADDRESSING MODES")$
+
+low_byte(n) := mod(n,256)$
+high_byte(n) := floor(n/256)$
+word_from_bytes(lo,hi) := 256*hi+lo$
+next_pc(pc,nbytes) := mod(pc+nbytes,65536)$
+
+/* LXI H,2050H is 21H 50H 20H. */
+operand : 2*16^3 + 5*16$
+lo : low_byte(operand)$
+hi : high_byte(operand)$
+rebuilt : word_from_bytes(lo,hi)$
+print("2050H decimal, low byte, high byte =",operand,lo,hi)$
+print("Reconstructed word =",rebuilt)$
+if not is([lo,hi,rebuilt]=[80,32,8272]) then error("little-endian check failed")$
+
+/* JMP 1234H beginning at 4000H occupies three bytes. */
+jump_address : 1*16^3+2*16^2+3*16+4$
+pc_after : next_pc(4*16^3,3)$
+print("JMP 1234H operand bytes (decimal) =",low_byte(jump_address),high_byte(jump_address))$
+print("Next sequential PC after instruction at 4000H =",pc_after)$
+if not is([low_byte(jump_address),high_byte(jump_address),pc_after]=[52,18,16387]) then error("JMP layout check failed")$
+
+/* MOV D,E: 01 DDD SSS with D=010 and E=011 gives 53H. */
+mov_de : 64 + 8*2 + 3$
+print("MOV D,E opcode decimal and expected hexadecimal 53H =",mov_de)$
+if not is(mov_de=83) then error("MOV field encoding failed")$
+
+/* Effective-address examples. */
+hl : 2*16^3+5*16^2$
+direct_ea : 2*16^3+5*16^2$
+print("EA for MOV A,M when HL=2500H =",hl)$
+print("EA for LDA 2500H =",direct_ea)$
+if not is(hl=direct_ea) then error("effective-address check failed")$
+
+/* An 8-bit port field spans 00H through FFH: 2^8 choices. */
+ports : 2^8$
+addresses : 2^16$
+print("Direct I/O port selectors =",ports)$
+print("Memory addresses =",addresses)$
+if not is([ports,addresses]=[256,65536]) then error("address-range check failed")$
+
+print("All instruction-length and addressing checks passed.")$
+quit();

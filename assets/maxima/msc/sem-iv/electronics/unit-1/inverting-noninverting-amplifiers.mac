@@ -1,0 +1,34 @@
+/* Exact finite-gain op-amp amplifiers and large-signal checks */
+kill(all)$
+display2d:false$
+
+/* Inverting: (vi-vm)/R1+(vo-vm)/Rf=0, vo=-A*vm */
+sol_inv : solve([(vi-vm)/R1+(vo-vm)/Rf=0,vo=-A*vm],[vm,vo])$
+Hinv : factor(rhs(sol_inv[1][2])/vi)$
+print("finite-A inverting gain =",Hinv)$
+
+/* Non-inverting: vm=beta vo and vo=A(vi-vm) */
+Hnon : ratsimp(rhs(first(solve(vo=A*(vi-beta*vo),vo)))/vi)$
+print("finite-A non-inverting gain =",Hnon)$
+print("voltage-follower gain =",ratsimp(subst(beta=1,Hnon)))$
+
+/* Numerical gain, bandwidth, output-current and slew checks */
+A0 : 2.0e5$
+R1n : 1.0e3$
+Rfn : 9.0e3$
+Hinv_n : ev(Hinv,A=A0,R1=R1n,Rf=Rfn,numer)$
+print("inverting gain for 1 kOhm, 9 kOhm =",float(Hinv_n))$
+NG : 1+Rfn/R1n$
+ft : 1.0e6$
+print("noise gain =",NG," bandwidth (Hz) approx =",ft/NG)$
+Vpk : 8.0$
+f : 20.0e3$
+SR_required : 2*%pi*f*Vpk/1.0e6$
+print("required slew rate (V/us) =",float(SR_required))$
+RL : 2.0e3$
+Iload_peak : Vpk/RL$
+Ifb_peak : Vpk/Rfn$
+Itotal_peak : Iload_peak+Ifb_peak$
+print("peak load current (mA) =",1000*Iload_peak)$
+print("peak feedback current (mA) =",1000*Ifb_peak)$
+print("approximate total peak output current (mA) =",1000*Itotal_peak)$

@@ -1,0 +1,44 @@
+/* 8085 bus widths, status fields, vectors and fetch checks */
+kill(all)$
+display2d:false$
+fpprintprec:12$
+print("8085 PINOUT, BUSES, CONTROL AND INTERNAL OPERATION")$
+
+memory_locations : 2^16$
+highest_address : memory_locations-1$
+data_values : 2^8$
+print("Memory locations, highest address, byte values =",memory_locations,highest_address,data_values)$
+if not is([memory_locations,highest_address,data_values]=[65536,65535,256]) then error("bus-width check failed")$
+
+/* Encode IO/M,S1,S0 as a three-bit status number. */
+status(iom,s1,s0) := 4*iom+2*s1+s0$
+opcode_fetch : status(0,1,1)$
+memory_read : status(0,1,0)$
+memory_write : status(0,0,1)$
+io_read : status(1,1,0)$
+io_write : status(1,0,1)$
+interrupt_ack : status(1,1,1)$
+print("Status codes fetch, MR, MW, IOR, IOW, INTA =",opcode_fetch,memory_read,memory_write,io_read,io_write,interrupt_ack)$
+if not is([opcode_fetch,memory_read,memory_write,io_read,io_write,interrupt_ack]=[3,2,1,6,5,7]) then error("status-bit check failed")$
+
+/* Vectors equal eight times the restart number, including half-step interrupt names. */
+trap_vector : 8*(9/2)$
+rst55_vector : 8*(11/2)$
+rst65_vector : 8*(13/2)$
+rst75_vector : 8*(15/2)$
+print("TRAP, RST5.5, RST6.5, RST7.5 vectors (decimal) =",trap_vector,rst55_vector,rst65_vector,rst75_vector)$
+if not is([trap_vector,rst55_vector,rst65_vector,rst75_vector]=[36,44,52,60]) then error("interrupt-vector check failed")$
+
+/* A common 6.144 MHz resonator gives a 3.072 MHz processor clock after divide by two. */
+oscillator_hz : 6144000$
+processor_clock_hz : oscillator_hz/2$
+print("Processor clock for 6.144 MHz oscillator (Hz) =",processor_clock_hz)$
+if not is(processor_clock_hz=3072000) then error("clock division check failed")$
+
+/* Program-counter increment wraps in the 16-bit address space. */
+pc_after_fetch(pc) := mod(pc+1,65536)$
+print("PC after fetching at FFFFH =",pc_after_fetch(65535))$
+if not is(pc_after_fetch(65535)=0) then error("program-counter wrap check failed")$
+
+print("All pin, bus, control and vector checks passed.")$
+quit();

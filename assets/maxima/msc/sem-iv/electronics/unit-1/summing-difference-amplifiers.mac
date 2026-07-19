@@ -1,0 +1,31 @@
+/* Summing and difference amplifiers */
+kill(all)$
+display2d:false$
+
+/* Inverting weighted sum */
+vo_sum : -Rf*(v1/R1+v2/R2+v3/R3)$
+print("weighted-summer output =",vo_sum)$
+numeric_sum : ev(vo_sum,Rf=20e3,R1=10e3,R2=20e3,R3=40e3,
+                 v1=.30,v2=-.20,v3=.80,numer)$
+print("worked weighted sum (V) =",float(numeric_sum))$
+
+/* General difference amplifier */
+vp : v2*R4/(R3+R4)$
+vo_diff : factor((1+R2/R1)*vp-(R2/R1)*v1)$
+print("general difference-amplifier output =",vo_diff)$
+matched : ratsimp(subst([R2=k*R1,R4=k*R3],vo_diff))$
+print("matched-ratio output =",matched)$
+
+/* Common-mode and differential gains from v1=vcm-vd/2, v2=vcm+vd/2 */
+vdecomp : expand(subst([v1=vcm-vd/2,v2=vcm+vd/2],vo_diff))$
+Acm : ratsimp(diff(vdecomp,vcm))$
+Ad : ratsimp(diff(vdecomp,vd))$
+print("common-mode gain =",Acm)$
+print("differential gain =",Ad)$
+
+/* 0.1% high-side ratio error for nominal k=10 */
+vals : [R1=10e3,R2=100e3,R3=10e3,R4=100.1e3]$
+Acm_n : ev(Acm,vals,numer)$
+Ad_n : ev(Ad,vals,numer)$
+CMRRdB : 20*log(abs(Ad_n/Acm_n))/log(10)$
+print("Acm =",float(Acm_n)," Ad =",float(Ad_n)," CMRR(dB) =",float(CMRRdB))$

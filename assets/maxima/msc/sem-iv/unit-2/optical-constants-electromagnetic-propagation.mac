@@ -1,0 +1,93 @@
+/*
+  Optical constants and electromagnetic propagation in solids
+  Maxima 5.49-compatible batch worksheet
+
+  Run with:
+      maxima --very-quiet -b optical-constants-electromagnetic-propagation.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("OPTICAL CONSTANTS AND ELECTROMAGNETIC PROPAGATION")$
+
+/* 1. Algebra relating the dielectric function and complex index. */
+eps_real : nr^2-kap^2$
+eps_imag : 2*nr*kap$
+modulus_check : expand(
+    eps_real^2+eps_imag^2-(nr^2+kap^2)^2)$
+print("epsilon-prime =", eps_real)$
+print("epsilon-double-prime =", eps_imag)$
+print("Modulus identity residual (must be 0) =", modulus_check)$
+
+/* 2. Normal-incidence Fresnel energy balance. */
+denom : (n1+nr)^2+kap^2$
+R : ((n1-nr)^2+kap^2)/denom$
+T0 : 4*n1*nr/denom$
+energy_check : ratsimp(R+T0-1)$
+print("Normal-incidence R =", R)$
+print("Flux entering medium T0 =", T0)$
+print("R+T0-1 (must be 0) =", energy_check)$
+
+/* 3. Local Poynting loss equals dielectric heating. */
+alpha : 2*kap*w/c$
+minus_dS_factor : ratsimp(alpha*nr*eps0*c/2)$
+dielectric_heat_factor : ratsimp(w*eps0*(2*nr*kap)/2)$
+poynting_check : ratsimp(
+    minus_dS_factor-dielectric_heat_factor)$
+print("Poynting-loss coefficient =", minus_dS_factor)$
+print("Dielectric-heating coefficient =", dielectric_heat_factor)$
+print("Energy-loss residual (must be 0) =", poynting_check)$
+
+/* 4. Good-conductor square root and skin depth. */
+N_good : (1+%i)*sqrt(sig/(2*eps0*w))$
+good_index_check : ratsimp(N_good^2-%i*sig/(eps0*w))$
+print("Good-conductor complex index =", N_good)$
+print("Good-conductor index-square residual (must be 0) =",
+      good_index_check)$
+
+/* 5. Numerical example: epsilon=4+1.5 i at 600 nm. */
+epsp_num : 4.00$
+epspp_num : 1.50$
+lambda0_num : 600e-9$
+epsmod_num : sqrt(epsp_num^2+epspp_num^2)$
+nr_num : sqrt((epsmod_num+epsp_num)/2)$
+kap_num : sqrt((epsmod_num-epsp_num)/2)$
+R_num : ((1-nr_num)^2+kap_num^2)/
+        ((1+nr_num)^2+kap_num^2)$
+T0_num : 1-R_num$
+alpha_num : 4*%pi*kap_num/lambda0_num$
+dI_num : 1/alpha_num$
+dE_num : 2/alpha_num$
+d_num : 200e-9$
+beer_num : exp(-alpha_num*d_num)$
+Tslab_num : (1-R_num)^2*beer_num/
+            (1-R_num^2*beer_num^2)$
+Rslab_num : R_num + (1-R_num)^2*R_num*beer_num^2/
+            (1-R_num^2*beer_num^2)$
+Aslab_num : 1-Rslab_num-Tslab_num$
+
+print("absolute epsilon =", float(epsmod_num))$
+print("n =", float(nr_num))$
+print("kappa =", float(kap_num))$
+print("R from air =", float(R_num))$
+print("Front-interface flux T0 =", float(T0_num))$
+print("alpha (1/m) =", float(alpha_num))$
+print("Intensity 1/e depth (m) =", float(dI_num))$
+print("Field-amplitude 1/e depth (m) =", float(dE_num))$
+print("Beer-Lambert factor at 200 nm =", float(beer_num))$
+print("Incoherent slab transmittance =", float(Tslab_num))$
+print("Total slab reflectance =", float(Rslab_num))$
+print("Total slab absorptance =", float(Aslab_num))$
+
+/* 6. Good-conductor skin-depth example. */
+mu0_num : 4*%pi*1e-7$
+sig_num : 5.80e7$
+f_num : 1.00e9$
+w_num : 2*%pi*f_num$
+delta_num : sqrt(2/(mu0_num*sig_num*w_num))$
+print("Copper-like skin depth at 1 GHz (m) =",
+      float(delta_num))$
+
+quit();

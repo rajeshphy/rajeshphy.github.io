@@ -1,0 +1,28 @@
+/* 8085 data-transfer opcode and timing checks */
+kill(all)$ display2d:false$
+
+/* Register codes B,C,D,E,H,L,M,A are 0,1,2,3,4,5,6,7. */
+mov_opcode(dst_code,src_code):=64+8*dst_code+src_code$
+mvi_opcode(dst_code):=8*dst_code+6$
+print("MOV E,H / MOV M,A / MOV A,M =",mov_opcode(3,4),mov_opcode(6,7),mov_opcode(7,6))$
+print("MVI D / MVI M =",mvi_opcode(2),mvi_opcode(6))$
+if [mov_opcode(3,4),mov_opcode(6,7),mov_opcode(7,6),mvi_opcode(2),mvi_opcode(6)]#[92,119,126,22,54] then error("opcode construction failed")$
+
+/* LXI rp,d16: 00 RP 0001, pair codes B,D,H,SP = 0,1,2,3. */
+lxi_sp:1+16*3$
+if lxi_sp#49 then error("LXI SP opcode failed")$
+word:16368$ low:mod(word,256)$ high:floor(word/256)$
+print("LXI SP,3FF0H bytes decimal =",lxi_sp,low,high)$
+if [low,high]#[240,63] then error("little-endian split failed")$
+
+ofetch:4$ mr:3$ mw:3$
+timings:[ofetch,ofetch+mr,ofetch+mr+mw,ofetch+2*mr+mw,ofetch+2*mr+2*mw]$
+print("MOV rr, MOV rM, MVI M, LDA, SHLD timings =",timings)$
+if timings#[4,7,10,13,16] then error("transfer timing failed")$
+
+/* XTHL example. */
+H0:18$ L0:52$ memsp0:120$ memsp1:86$
+H1:memsp1$ L1:memsp0$ memsp_new:L0$ memsp1_new:H0$
+print("XTHL final H,L,[SP],[SP+1] =",H1,L1,memsp_new,memsp1_new)$
+if [H1,L1,memsp_new,memsp1_new]#[86,120,52,18] then error("XTHL exchange failed")$
+quit();

@@ -1,0 +1,32 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\usetikzlibrary{calc}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+ \draw (-5,3.6) -- (5,3.6) node[right] {$+V_{CC}$};
+ \draw (-3.4,1.7) node[npn](Q2){$Q_2$};
+ \draw (-.8,1.7) node[npn,xscale=-1](Q1){}; \node at (-.35,.9) {$Q_1$};
+ \draw (Q2.B) -- (-5,.9) node[left] {$v_-$};
+ \draw (Q1.B) -- (.8,.9) node[right] {$v_+$};
+ \draw (Q2.E) -- (-3.4,-.2) -- (-.8,-.2) -- (Q1.E);
+ \draw (-2.1,-.2) to[I,l_=$I_T$] (-2.1,-2.2) -- (-2.1,-2.6) node[vee]{$-V_{EE}$};
+ \draw (Q2.C) to[R,l=$R_{L2}$] (-3.4,3.6);
+ \draw (Q1.C) to[R,l_=$R_{L1}$] (-.8,3.6);
+ \draw (1.35,2.25) node[pnp](Q3){$Q_3$};
+ \draw (Q1.C) -- (Q3.B);
+ \draw (Q3.E) -- (1.35,3.6);
+ \draw (Q3.C) -- (1.35,.25) coordinate (VAS) node[circ]{};
+ \draw (VAS) to[I,l_=$I_A$] (1.35,-2.25) node[vee]{$-V_{EE}$};
+ \draw (VAS) -- (2.65,.25) |- (3.25,2.5) node[npn,anchor=B](Q4){$Q_4$};
+ \draw (Q4.C) -- (3.25,3.6);
+ \draw (Q4.E) -- ++(0,-.8) coordinate (VO) node[circ,label=right:$v_o$]{};
+ \draw (VO) to[I,l_=$I_O$] ($(VO)+(0,-2.3)$) node[vee]{$-V_{EE}$};
+ \draw[dashed,gray] (-.05,-2.85) -- (-.05,3.15);
+ \draw[dashed,gray] (2.55,-2.85) -- (2.55,3.15);
+ \node[blue!65!black,align=center,font=\small] at (-2.35,4.15) {input differential stage};
+ \node[orange!85!black,align=center,font=\small] at (1.25,4.30)
+ {PNP common-emitter\\voltage-gain stage};
+ \node[teal!65!black,align=center,font=\small] at (3.75,4.15) {output buffer};
+\end{circuitikz}
+\end{document}

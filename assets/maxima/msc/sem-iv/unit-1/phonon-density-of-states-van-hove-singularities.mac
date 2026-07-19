@@ -1,0 +1,114 @@
+/*
+  Phonon density of states and Van Hove singularities
+  Maxima 5.49-compatible batch worksheet
+
+  Run with:
+      maxima --very-quiet -b phonon-density-of-states-van-hove-singularities.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("PHONON DENSITY OF STATES AND VAN HOVE SINGULARITIES")$
+
+/* 1. Debye density of states and normalization */
+gD : V*w^2/(2*%pi^2)*(1/vL^3+2/vT^3)$
+inv_vD3 : (1/vL^3+2/vT^3)/3$
+gD_vD : 3*V*w^2/(2*%pi^2*vD^3)$
+gD_relation_check : ratsimp(
+    subst(1/vD^3=inv_vD3,gD_vD)-gD)$
+print("Debye DOS per angular frequency =",gD)$
+print("Average-velocity form residual (must be 0):",
+      gD_relation_check)$
+
+ND_integrated : integrate(gD_vD,w,0,wD)$
+wD_cubed : 6*%pi^2*(N/V)*vD^3$
+normalization_check : ratsimp(
+    subst(wD^3=wD_cubed,ND_integrated)-3*N)$
+print("Integrated Debye mode count =",ND_integrated)$
+print("Residual after imposing omega_D^3=6*pi^2*(N/V)*v_D^3:",
+      normalization_check)$
+
+/* Fraction of acoustic modes below omega */
+fraction_below : ratsimp(
+    integrate(gD_vD,w,0,w0)/
+    integrate(gD_vD,w,0,wD))$
+print("Debye fraction below omega_0 =",fraction_below)$
+
+/* 2. Exact one-dimensional monatomic-chain DOS
+   omega0_chain=sqrt(K/M); the band edge is 2*omega0_chain. */
+assume(omega0_chain>0)$
+g1 : 2*N/(%pi*sqrt(4*omega0_chain^2-w^2))$
+chain_count : integrate(g1,w,0,2*omega0_chain)$
+print("Exact chain DOS =",g1)$
+print("Integrated chain mode count (must be N) =",chain_count)$
+
+edge_coefficient : limit(
+    g1*sqrt(2*omega0_chain-w),w,2*omega0_chain,minus)$
+edge_expected : N/(%pi*sqrt(omega0_chain))$
+edge_check : ratsimp(edge_coefficient-edge_expected)$
+print("Zone-edge inverse-square-root coefficient =",
+      edge_coefficient)$
+print("Zone-edge coefficient residual (must be 0):",edge_check)$
+
+/* Direct derivation from |d omega/dq|. */
+q_of_w : 2*asin(w/(2*omega0_chain))/a$
+dq_dw : diff(q_of_w,w)$
+g_from_roots : ratsimp(N*a/%pi*dq_dw)$
+chain_derivation_check : trigsimp(ratsimp(g_from_roots-g1))$
+print("DOS obtained from the two opposite-q roots =",g_from_roots)$
+print("Direct-derivation residual (must be 0):",
+      chain_derivation_check)$
+
+/* 3. Dimensional power law for an isotropic linear branch */
+/* Exponents d-1 for linear modes and d/2-1 at a quadratic extremum. */
+for dim:1 thru 3 do (
+  print("dimension",dim,
+        ": linear-mode DOS exponent =",dim-1,
+        ", quadratic-extremum exponent =",dim/2-1)
+)$
+
+/* 4. Numerical Debye example */
+hbar_num : 1.054571817e-34$
+kb_num : 1.380649e-23$
+n_num : 5.00e28$
+vL_num : 6000.0$
+vT_num : 3200.0$
+
+vD_num : ((1/3)*(1/vL_num^3+2/vT_num^3))^(-1/3)$
+qD_num : (6*%pi^2*n_num)^(1/3)$
+wD_num : vD_num*qD_num$
+fD_num : wD_num/(2*%pi)$
+thetaD_num : hbar_num*wD_num/kb_num$
+
+f_probe : 2.00e12$
+w_probe : 2*%pi*f_probe$
+fraction_num : (w_probe/wD_num)^3$
+g_per_volume_probe :
+    w_probe^2/(2*%pi^2)*
+    (1/vL_num^3+2/vT_num^3)$
+states_below_per_volume : 3*n_num*fraction_num$
+
+print("Debye-average speed (m/s) =",float(vD_num))$
+print("Debye wavevector (1/m) =",float(qD_num))$
+print("Debye angular frequency (rad/s) =",float(wD_num))$
+print("Debye ordinary frequency (THz) =",float(fD_num/1.0e12))$
+print("Debye temperature (K) =",float(thetaD_num))$
+print("Fraction of modes below 2 THz =",float(fraction_num))$
+print("DOS/V at 2 THz (states m^-3 per rad/s) =",
+      float(g_per_volume_probe))$
+print("Integrated states/V below 2 THz (m^-3) =",
+      float(states_below_per_volume))$
+
+/* Independent normalization using the numerical cutoff. */
+mode_count_per_volume :
+    wD_num^3/(6*%pi^2)*
+    (1/vL_num^3+2/vT_num^3)$
+print("Debye integrated mode count per volume =",
+      float(mode_count_per_volume))$
+print("Required 3n mode count per volume =",float(3*n_num))$
+print("Relative normalization residual =",
+      float((mode_count_per_volume-3*n_num)/(3*n_num)))$
+
+quit();

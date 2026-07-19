@@ -1,0 +1,18 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+\node[op amp] (A) at (3,2) {};
+\draw (A.+)--++(-1.1,0) node[left]{$v_i$};
+\draw (A.-)--++(-1.1,0) node[left]{$V_R$};
+\draw (A.out)--++(1,0) node[right]{$v_o$};
+\node[above] at (3,3.5) {(a) non-inverting comparator};
+\node at (3,-.1) {$v_i>V_R\Rightarrow v_o=V_{OH}$};
+\node[op amp] (B) at (9.3,2) {};
+\draw (B.-)--++(-1.1,0) node[left]{$v_i$};
+\draw (B.+)--++(-1.1,0) node[left]{$V_R$};
+\draw (B.out)--++(1,0) node[right]{$v_o$};
+\node[above] at (9.3,3.5) {(b) inverting comparator};
+\node at (9.3,-.1) {$v_i>V_R\Rightarrow v_o=V_{OL}$};
+\end{circuitikz}
+\end{document}

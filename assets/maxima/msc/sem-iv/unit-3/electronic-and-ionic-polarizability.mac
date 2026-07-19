@@ -1,0 +1,60 @@
+/* Electronic and ionic polarizability in SI units.
+   Run with: maxima -q -b electronic-and-ionic-polarizability.mac */
+
+kill(all)$
+display2d:false$
+
+/* Uniform electronic cloud. */
+k_cloud : (Z*e)^2/(4*%pi*eps0*R^3)$
+x_eq : Z*e*Eloc/k_cloud$
+alpha_cloud : ratsimp(Z*e*x_eq/Eloc)$
+print("Uniform-cloud electronic polarizability =",alpha_cloud)$
+print("Check against 4*pi*eps0*R^3:",
+      ratsimp(alpha_cloud-4*%pi*eps0*R^3))$
+
+/* Reduction of the two-ion equations to the optical coordinate u. */
+mu : Mplus*Mminus/(Mplus+Mminus)$
+acc_plus : (-K*u+q*Eloc)/Mplus$
+acc_minus : (K*u-q*Eloc)/Mminus$
+uddot : ratsimp(acc_plus-acc_minus)$
+print("mu*u_ddot + K*u - q*Eloc =",
+      ratsimp(mu*uddot+K*u-q*Eloc))$
+omegaTO2 : K/mu$
+alpha_ion : q^2/K$
+print("alpha_ion - q^2/(mu*omega_TO^2) =",
+      ratsimp(alpha_ion-q^2/(mu*omegaTO2)))$
+
+/* SI numerical estimates. */
+eps0_num : 8.8541878128b-12$
+e_num : 1.602176634b-19$
+u_atomic : 1.66053906660b-27$
+
+R_num : 0.150b0*10^-9$
+alpha_el_num : 4*%pi*eps0_num*R_num^3$
+polar_volume_A3 : alpha_el_num/(4*%pi*eps0_num)/10^-30$
+printf(true,"alpha_el = ~,6e C m^2/V~%",alpha_el_num)$
+printf(true,"alpha_el/(4*pi*eps0) = ~,6f Angstrom^3~%",
+       polar_volume_A3)$
+
+Mplus_num : 22.99b0*u_atomic$
+Mminus_num : 35.45b0*u_atomic$
+mu_num : Mplus_num*Mminus_num/(Mplus_num+Mminus_num)$
+nuTO_num : 5.00b12$
+omegaTO_num : 2*%pi*nuTO_num$
+K_num : mu_num*omegaTO_num^2$
+alpha_ion_num : e_num^2/K_num$
+Eloc_num : 1.00b6$
+disp_num : e_num*Eloc_num/K_num$
+
+printf(true,"reduced mass = ~,6e kg~%",mu_num)$
+printf(true,"force constant K = ~,6e N/m~%",K_num)$
+printf(true,"alpha_ion = ~,6e C m^2/V~%",alpha_ion_num)$
+printf(true,"relative displacement = ~,6e m~%",disp_num)$
+
+/* The minimized energy must equal -alpha*E^2/2. */
+xmin : q*Eloc/K$
+Umin : ratsimp(subst(xmin,x,K*x^2/2-q*Eloc*x))$
+print("U_min + alpha_ion*Eloc^2/2 =",
+      ratsimp(Umin+alpha_ion*Eloc^2/2))$
+
+quit();

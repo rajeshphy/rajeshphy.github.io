@@ -1,0 +1,46 @@
+/* Bias current sources, mirror errors, active-load gain, and level shift. */
+kill(all)$
+display2d:false$
+fpprintprec:8$
+
+VCC : 12.0$
+VBE : 0.70$
+RSET : 10.0e3$
+beta : 100$
+VA : 100.0$          /* Early voltage magnitude, V */
+VCEref : VBE$
+VO : 5.0$
+
+IREF : (VCC-VBE)/RSET$
+IO_beta : IREF/(1+2/beta)$
+early_ratio : (1+VO/VA)/(1+VCEref/VA)$
+IO_corrected : IO_beta*early_ratio$
+printf(true,"IREF=~,6g A; finite-beta IO=~,6g A~%",IREF,IO_beta)$
+printf(true,"Including illustrative Early effect at VO=5 V: IO=~,6g A~%",IO_corrected)$
+printf(true,"Relative current error from ideal=~,6g percent~%",100*(IO_corrected/IREF-1))$
+
+/* Differential pair with current-mirror active load. */
+VT : 25.85e-3$
+IC : 0.50e-3$
+gm : IC/VT$
+ro_n : VA/IC$
+VA_p : 80.0$
+ro_p : VA_p/IC$
+Rout : 1/(1/ro_n+1/ro_p)$
+Gmd_active : gm$                /* two half-currents add at output */
+Av_active : Gmd_active*Rout$   /* output at Q2/Q4 rises for vd=v1-v2>0 */
+printf(true,"Active load: gm=~,6g S, Rout=~,6g ohm, Av=~,6g~%",gm,Rout,Av_active)$
+
+/* One emitter-follower translator with ideal base drive and a finite emitter load. */
+VIQ : 4.20$
+RL : 10.0e3$
+IC_translator : 0.50e-3$ /* explicitly assumed translator collector bias current, A */
+gm_translator : IC_translator/VT$
+re_translator : 1/gm_translator$
+Av_follower : RL/(RL+re_translator)$
+VOQ : VIQ-VBE$
+printf(true,"Level translator bias current=~,6g A, VOQ=~,6g V, gain=~,6g~%",
+       IC_translator,VOQ,Av_follower)$
+
+/* Two junction drops, useful when a larger dc translation is required. */
+printf(true,"Two forward junctions translate 4.20 V to approximately ~,6g V~%",VIQ-2*VBE)$

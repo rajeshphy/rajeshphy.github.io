@@ -1,0 +1,36 @@
+/* Square- and triangular-wave generators */
+kill(all)$ display2d:false$ fpprintprec:12$
+print("OP-AMP SQUARE AND TRIANGULAR WAVE GENERATORS")$
+
+/* Single-op-amp exponential relaxation generator. */
+Tsq:2*R*C*log((1+betaE)/(1-betaE))$
+fsq:1/Tsq$
+print("Single-op-amp square-wave period =",Tsq)$
+
+/* Schmitt plus ideal inverting integrator. */
+Ttri:4*betaT*R*C$
+ftri:1/Ttri$
+Vtpk:betaT*VS$
+print("Square-triangle period =",Ttri)$
+print("Frequency =",ftri)$
+print("Triangle peak amplitude =",Vtpk)$
+
+/* Unequal output-level intervals and duty ratio. */
+tH:betaT*R*C*(VOH-VOL)/VOH$
+tL:betaT*R*C*(VOH-VOL)/(-VOL)$
+D:ratsimp(tH/(tH+tL))$
+print("Unequal-level high interval =",tH)$
+print("Unequal-level low interval =",tL)$
+print("High-state duty ratio =",D)$
+
+/* Numerical 1 kHz, beta=0.25 design. */
+bn:0.25$ fn:1000$ Cn:10e-9$
+Rn:float(1/(4*bn*fn*Cn))$
+slope:float(10/(Rn*Cn))$
+print("R for 1 kHz, beta=0.25, C=10 nF (ohm) =",Rn)$
+print("Triangle slope for 10 V square output (V/s) =",slope)$
+
+/* PWM duty relation. */
+Dpwm:(1+Vc/Vt)/2$
+print("PWM duty ratio for high condition triangle < Vc =",Dpwm)$
+quit();

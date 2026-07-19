@@ -1,0 +1,119 @@
+/* Polarons and electron-phonon interaction in ionic crystals
+   Batch worksheet: maxima -b polarons-in-ionic-crystals.mac */
+
+kill(all)$
+display2d:false$
+fpprintprec:8$
+
+/* ---------- Radial integral in the weak-coupling self-energy ---------- */
+assume(A>0,B>0)$
+Iab : integrate(1/(A+B*q^2),q,0,inf)$
+Iexpected : %pi/(2*sqrt(A*B))$
+print("integral of 1/(A+B q^2) from zero to infinity =", Iab)$
+print("integral identity residual =", ratsimp(Iab-Iexpected))$
+
+/* Verify the second-order energy equals -alpha*hbar*omega.
+   d is (1/epsilon_infinity - 1/epsilon_static). */
+assume(hb>0,wlo>0,mb>0,epsvac>0,ec>0,d>0)$
+Aphys : hb*wlo$
+Bphys : hb^2/(2*mb)$
+Iphys : %pi/(2*sqrt(Aphys*Bphys))$
+Esecond : -hb*wlo*ec^2*d/(4*%pi^2*epsvac)*Iphys$
+alpha_sym : ec^2/(4*%pi*epsvac*hb)*
+            sqrt(mb/(2*hb*wlo))*d$
+ratio_energy : radcan(Esecond/(-alpha_sym*hb*wlo))$
+print("Delta E^(2)/(-alpha hbar omega_LO) =", ratio_energy)$
+
+/* The alternative expression through the recoil length is identical. */
+l0_sym : sqrt(hb/(2*mb*wlo))$
+alpha_l0 : ec^2*d/(8*%pi*epsvac*l0_sym*hb*wlo)$
+print("two alpha definitions residual =",
+      radcan(alpha_sym-alpha_l0))$
+
+/* ---------- Numerical Fröhlich example in SI ---------- */
+qe : 1.602176634e-19$            /* C */
+eps0 : 8.8541878128e-12$         /* F/m */
+hbar : 1.054571817e-34$          /* J s */
+me : 9.1093837015e-31$           /* kg */
+kB : 1.380649e-23$               /* J/K */
+eV : qe$                         /* one eV in joules */
+
+mb_num : 0.15*me$
+ELO : 0.060*eV$
+wLO : ELO/hbar$
+epsinf : 5.0$
+epss : 25.0$
+dinv : 1/epsinf-1/epss$
+
+alpha_num : qe^2/(4*%pi*eps0*hbar)*
+            sqrt(mb_num/(2*hbar*wLO))*dinv$
+l0_num : sqrt(hbar/(2*mb_num*wLO))$
+E1_meV : -alpha_num*ELO/eV*1000$
+E2_meV : -(alpha_num+0.0159196*alpha_num^2)*ELO/eV*1000$
+mass_ratio_1 : 1+alpha_num/6$
+mass_ratio_2 : 1+alpha_num/6+0.02362*alpha_num^2$
+
+print("inverse-permittivity difference =", float(dinv))$
+print("Fröhlich alpha =", float(alpha_num))$
+print("recoil length l0 (nm) =", float(l0_num*1.0e9))$
+print("leading and second-order energies (meV) =",
+      float(E1_meV), float(E2_meV))$
+print("first- and second-order mass ratios =",
+      float(mass_ratio_1), float(mass_ratio_2))$
+
+/* Directly compare alpha and the l0 form numerically. */
+alpha_l0_num : qe^2*dinv/(8*%pi*eps0*l0_num*ELO)$
+print("alpha from recoil-length form =", float(alpha_l0_num))$
+print("relative alpha residual =",
+      float(abs(alpha_l0_num-alpha_num)/alpha_num))$
+
+/* Thermal LO occupation and emission/absorption factors. */
+Temp : 300.0$
+nLO : 1/(exp(ELO/(kB*Temp))-1)$
+print("LO occupation at 300 K =", float(nLO))$
+print("emission factor n+1 and absorption factor n =",
+      float(nLO+1), float(nLO))$
+print("(n+1)/n and detailed-balance exponential =",
+      float((nLO+1)/nLO), float(exp(ELO/(kB*Temp))))$
+
+/* ---------- Strong-coupling scaling ---------- */
+alpha_strong : 6.0$
+Epekar_units : -0.108513*alpha_strong^2$
+R_over_l0 : 1/alpha_strong$
+print("Pekar energy for alpha=6 in hbar*omega units =",
+      float(Epekar_units))$
+print("strong-coupling radius scale l0/alpha in units of l0 =",
+      float(R_over_l0))$
+
+/* ---------- Holstein comparison ---------- */
+g : 1.20$
+t_meV : 100.0$
+hw0_meV : 50.0$
+Ep_meV : g^2*hw0_meV$
+teff0_meV : t_meV*exp(-g^2)$
+print("Holstein relaxation energy E_p (meV) =", float(Ep_meV))$
+print("zero-temperature narrowed hopping (meV) =", float(teff0_meV))$
+
+teff_T(Tkelvin) := t_meV*exp(-g^2*coth((hw0_meV*1.0e-3*eV)/
+                                              (2*kB*Tkelvin)))$
+print("thermal narrowed hopping at 100 K and 300 K (meV) =",
+      float(teff_T(100.0)), float(teff_T(300.0)))$
+
+/* A simple coordination-based crossover scale, not a phase boundary. */
+zcoord : 6$
+lambda_H : Ep_meV/(zcoord*t_meV)$
+print("Holstein lambda=E_p/(z t) for the example =", float(lambda_H))$
+
+/* ---------- Additional preparation-question data ---------- */
+mb_q : 0.25*me$
+ELO_q : 0.040*eV$
+wLO_q : ELO_q/hbar$
+dinv_q : 1/4.0-1/16.0$
+alpha_q : qe^2/(4*%pi*eps0*hbar)*
+          sqrt(mb_q/(2*hbar*wLO_q))*dinv_q$
+l0_q : sqrt(hbar/(2*mb_q*wLO_q))$
+print("question 8: alpha, l0(nm), Ebind(meV), m*/mb =",
+      float(alpha_q), float(l0_q*1.0e9),
+      float(-alpha_q*ELO_q/eV*1000), float(1+alpha_q/6))$
+
+quit();

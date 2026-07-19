@@ -1,0 +1,79 @@
+/* Diatomic linear chain: dispersion, eigenvectors, and frequency gap.
+   Run with: maxima --very-quiet -b diatomic-chain-acoustic-optical-modes.mac */
+
+kill(all)$
+display2d:false$
+assume(M1>0,M2>0,C>0,a>0)$
+
+/* Secular polynomial in x=omega^2. */
+secular : expand((2*C-M1*x)*(2*C-M2*x)-4*C^2*cos(k*a/2)^2)$
+secular_expected : M1*M2*x^2-2*C*(M1+M2)*x
+                   +4*C^2*sin(k*a/2)^2$
+print("Secular-polynomial residual =",
+      trigsimp(expand(secular-secular_expected)))$
+
+A : C*(1/M1+1/M2)$
+Delta : C*sqrt((1/M1+1/M2)^2
+               -4*sin(k*a/2)^2/(M1*M2))$
+w2_ac : A-Delta$
+w2_op : A+Delta$
+
+print("Sum-of-roots residual =",ratsimp(w2_ac+w2_op-2*A))$
+print("Product-of-roots residual =",
+      trigsimp(ratsimp(w2_ac*w2_op
+               -4*C^2*sin(k*a/2)^2/(M1*M2))))$
+
+/* Zone-centre and long-wavelength checks. */
+print("acoustic omega^2 at k=0 =",radcan(subst(0,k,w2_ac)))$
+print("optical omega^2 at k=0 =",radcan(subst(0,k,w2_op)))$
+B_expected : C*a^2/(2*(M1+M2))$
+long_wave_residual : ratsimp(-2*C*(M1+M2)*B_expected+C^2*a^2)$
+print("Long-wave acoustic coefficient =",B_expected)$
+print("Order-k^2 secular-equation residual =",long_wave_residual)$
+
+/* Eigenvector ratios at Gamma. */
+ratio(w2) := (2*C-M1*w2)/(2*C*cos(k*a/2))$
+print("V/U for Gamma acoustic mode =",radcan(subst(0,k,ratio(w2_ac))))$
+print("V/U for Gamma optical mode =",radcan(subst(0,k,ratio(w2_op))))$
+
+/* Equal-mass folding relations inside the first cell Brillouin zone. */
+w2_ac_equal : trigsimp(radcan(subst(M,M2,subst(M,M1,w2_ac))))$
+w2_op_equal : trigsimp(radcan(subst(M,M2,subst(M,M1,w2_op))))$
+print("Equal-mass branches simplify piecewise to 4C/M sin^2(ka/4)")$
+print("and 4C/M cos^2(ka/4) for abs(ka)<=pi.")$
+
+/* Numerical example used in the notes. */
+u_atomic : 1.66053906660b-27$
+M1n : 23.00b0*u_atomic$
+M2n : 35.45b0*u_atomic$
+Cn : 100.0b0$
+an : 0.564b-9$
+An : Cn*(1/M1n+1/M2n)$
+
+w2ac_num(kv) := An-Cn*sqrt((1/M1n+1/M2n)^2
+                     -4*sin(kv*an/2)^2/(M1n*M2n))$
+w2op_num(kv) := An+Cn*sqrt((1/M1n+1/M2n)^2
+                     -4*sin(kv*an/2)^2/(M1n*M2n))$
+
+f_gamma_op : sqrt(w2op_num(0))/(2*%pi)$
+f_edge_ac : sqrt(2*Cn/M2n)/(2*%pi)$
+f_edge_op : sqrt(2*Cn/M1n)/(2*%pi)$
+gap_f : f_edge_op-f_edge_ac$
+mass_ratio : M2n/M1n$
+sound_speed : an*sqrt(Cn/(2*(M1n+M2n)))$
+k_mid : %pi/(2*an)$
+f_mid_ac : sqrt(w2ac_num(k_mid))/(2*%pi)$
+f_mid_op : sqrt(w2op_num(k_mid))/(2*%pi)$
+
+printf(true,"Gamma optical frequency = ~,7e THz~%",f_gamma_op/1.0b12)$
+printf(true,"acoustic edge frequency = ~,7e THz~%",f_edge_ac/1.0b12)$
+printf(true,"optical edge frequency = ~,7e THz~%",f_edge_op/1.0b12)$
+printf(true,"frequency-gap width = ~,7e THz~%",gap_f/1.0b12)$
+printf(true,"mass ratio = ~,7e~%",mass_ratio)$
+printf(true,"sqrt(mass ratio) = ~,7e~%",sqrt(mass_ratio))$
+printf(true,"edge-frequency ratio = ~,7e~%",f_edge_op/f_edge_ac)$
+printf(true,"sound speed = ~,7e m/s~%",sound_speed)$
+printf(true,"mid-zone acoustic frequency = ~,7e THz~%",f_mid_ac/1.0b12)$
+printf(true,"mid-zone optical frequency = ~,7e THz~%",f_mid_op/1.0b12)$
+
+quit();

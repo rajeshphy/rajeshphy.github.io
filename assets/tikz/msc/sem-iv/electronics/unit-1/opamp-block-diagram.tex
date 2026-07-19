@@ -1,0 +1,28 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usetikzlibrary{arrows.meta,positioning,fit}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily,>=Latex,
+ block/.style={draw,rounded corners,minimum width=3cm,minimum height=1.25cm,
+ align=center,fill=blue!4,thick},
+ arr/.style={->,very thick,blue!65!black}]
+ \node[block] (diff) {differential\\input stage};
+ \node[block,right=1.1cm of diff] (gain) {high-gain\\voltage stage};
+ \node[block,right=1.1cm of gain] (shift) {bias and level\\translator};
+ \node[block,right=1.1cm of shift] (out) {class-AB\\output stage};
+ \draw[arr] (diff) -- node[above] {$v_{d1}$} (gain);
+ \draw[arr] (gain) -- node[above] {$v_{d2}$} (shift);
+ \draw[arr] (shift) -- node[above] {$v_{d3}$} (out);
+ \draw[arr] ([xshift=-1.7cm,yshift=.25cm]diff.west) node[left] {$v_+$} -- ([yshift=.25cm]diff.west);
+ \draw[arr] ([xshift=-1.7cm,yshift=-.25cm]diff.west) node[left] {$v_-$} -- ([yshift=-.25cm]diff.west);
+ \draw[arr] (out.east) -- ++(1.5,0) node[right] {$v_o$};
+ \node[draw,rounded corners,fill=orange!6,below=1.35cm of gain,minimum width=3cm,
+ minimum height=1cm,align=center] (bias) {reference and\\bias-current network};
+ \draw[arr] (bias.north) -- (gain.south);
+ \draw[arr] (bias.west) -| (diff.south);
+ \draw[arr] (bias.east) -| (shift.south);
+ \node[draw,rounded corners,fill=teal!5,below=1.35cm of out,minimum width=3cm,
+ minimum height=1cm,align=center] (cc) {frequency\\compensation $C_C$};
+ \draw[<->,very thick,teal!70!black] (cc.north) -- (out.south west);
+ \draw[<->,very thick,teal!70!black] (cc.west) -- (gain.south east);
+\end{tikzpicture}
+\end{document}

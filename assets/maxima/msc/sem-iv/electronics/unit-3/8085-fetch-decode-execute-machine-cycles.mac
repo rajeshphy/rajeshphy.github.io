@@ -1,0 +1,29 @@
+/* 8085 instruction-cycle timing checks */
+kill(all)$ display2d:false$
+
+ofetch:4$ mread:3$ mwrite:3$
+mov_rr:ofetch$
+mvi_m:ofetch+mread+mwrite$
+lda:ofetch+3*mread$
+shld:ofetch+2*mread+2*mwrite$
+print("MOV r,r T-states =",mov_rr)$
+print("MVI M,data T-states =",mvi_m)$
+print("LDA address T-states =",lda)$
+print("SHLD address T-states =",shld)$
+if [mov_rr,mvi_m,lda,shld]#[4,10,13,16] then error("cycle total failed")$
+
+/* MOV A,M: 01 DDD SSS with A=7 and M=6. */
+mov_am:64+8*7+6$
+print("MOV A,M opcode decimal/hex =",mov_am,printf(false,"~2,'0X",mov_am))$
+if mov_am#126 then error("opcode field failed")$
+
+fclk:3.0e6$
+lda_time:float(lda/fclk)$
+jnz_not:float(7/fclk)$
+jnz_taken:float(10/fclk)$
+lda_two_waits:float((lda+2)/fclk)$
+print("LDA seconds =",lda_time)$
+print("JNZ not-taken/taken seconds =",jnz_not,jnz_taken)$
+print("LDA plus two waits seconds =",lda_two_waits)$
+if abs(lda_time-13/3.0e6)>1e-15 then error("time conversion failed")$
+quit();

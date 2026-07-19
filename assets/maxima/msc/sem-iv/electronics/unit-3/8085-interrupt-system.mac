@@ -1,0 +1,33 @@
+/* Intel 8085 interrupt vectors, SIM/RIM words, stack and latency checks. */
+kill(all)$
+hexbyte(n) := printf(false,"~2,'0X",mod(n,256))$
+hexword(n) := printf(false,"~4,'0X",mod(n,65536))$
+bit(n,k) := mod(floor(n/2^k),2)$
+
+/* Hardware restart vectors and the usual external RST response. */
+for twice_n in [11,13,15] do
+  printf(true,"RST ~d/2 vector = ~a~%",twice_n,hexword(4*twice_n))$
+printf(true,"TRAP vector = ~a; external RST 5 opcode = ~a, vector = ~a~%",
+       hexword(36),hexbyte(199+8*5),hexword(8*5))$
+
+/* Decode a SIM word: 0Ah masks only RST 6.5 and enables mask update. */
+simword : 10$
+printf(true,"SIM ~a: MSE=~d; masks 7.5/6.5/5.5 = ~d/~d/~d~%",
+       hexbyte(simword),bit(simword,3),bit(simword,2),bit(simword,1),bit(simword,0))$
+
+/* Decode the practice RIM status EDh. */
+rimword : 237$
+printf(true,"RIM ~a: SID=~d pending 7.5/6.5/5.5=~d/~d/~d IE=~d masks=~d/~d/~d~%",
+       hexbyte(rimword),bit(rimword,7),bit(rimword,6),bit(rimword,5),bit(rimword,4),
+       bit(rimword,3),bit(rimword,2),bit(rimword,1),bit(rimword,0))$
+
+/* Stack bound: d calls, p pair saves, q ISR contexts with c[i] pair saves. */
+d : 3$ p : 2$ c : [4,4]$
+stack_bytes : 2*d+2*p+sum(2+2*c[i],i,1,length(c))$
+printf(true,"Stack bound for d=~d, p=~d, ISR saves=~a: ~d bytes~%",d,p,c,stack_bytes)$
+
+/* A latency range for 4--10 remaining T states plus 12 T states of response. */
+fclock : 3072000$
+for tr in [4,10] do
+  printf(true,"Latency for Tr=~d, Ta=12 at 3.072 MHz: ~,3f microseconds~%",
+         tr,1000000.0*(tr+12)/fclock)$

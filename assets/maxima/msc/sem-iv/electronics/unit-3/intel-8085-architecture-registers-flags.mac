@@ -1,0 +1,59 @@
+/* Register-pair formation, byte order and 8085 addition-flag checks. */
+kill(all)$
+display2d:false$
+fpprintprec:8$
+
+check(label,condition) :=
+  if condition then printf(true,"PASS: ~a~%",label)
+  else error("Check failed: ",label)$
+
+byte(n) := mod(n,256)$
+word(high,low) := 256*high+low$
+highbyte(w) := floor(w/256)$
+lowbyte(w) := mod(w,256)$
+
+bit_count8(n) := block([x:byte(n),count:0],
+  for k:0 thru 7 do (count:count+mod(x,2),x:floor(x/2)),
+  count)$
+
+sign8(r) := if byte(r)>=128 then 1 else 0$
+zero8(r) := if byte(r)=0 then 1 else 0$
+auxcarry8(a,b) := if mod(a,16)+mod(b,16)>=16 then 1 else 0$
+parity8(r) := if mod(bit_count8(r),2)=0 then 1 else 0$
+carry8(a,b) := if a+b>=256 then 1 else 0$
+
+/* Return [result byte,S,Z,AC,P,CY]. */
+add_flags8(a,b) := block([r:byte(a+b)],
+  [r,sign8(r),zero8(r),auxcarry8(a,b),parity8(r),carry8(a,b)])$
+
+bc : word(1*16+2,3*16+4)$
+printf(true,"B=12H and C=34H form BC=~d decimal (1234H).~%",bc)$
+check("BC high byte is 12H",highbyte(bc)=18)$
+check("BC low byte is 34H",lowbyte(bc)=52)$
+
+stored_word : 1*16^3+2*16^2+3*16+4$
+printf(true,"Word 1234H stores low byte ~d first, then high byte ~d.~%",
+       lowbyte(stored_word),highbyte(stored_word))$
+check("Little-endian bytes of 1234H are 34H then 12H",
+      lowbyte(stored_word)=52 and highbyte(stored_word)=18)$
+
+example1 : add_flags8(7*16+15,1)$
+printf(true,"7FH + 01H -> [result,S,Z,AC,P,CY] = ~a~%",example1)$
+check("7FH + 01H gives 80H with S=1,Z=0,AC=1,P=0,CY=0",
+      example1=[128,1,0,1,0,0])$
+
+example2 : add_flags8(15*16+8,2*16+8)$
+printf(true,"F8H + 28H -> [result,S,Z,AC,P,CY] = ~a~%",example2)$
+check("F8H + 28H gives 20H with S=0,Z=0,AC=1,P=0,CY=1",
+      example2=[32,0,0,1,0,1])$
+
+question : add_flags8(6*16+15,9*16+1)$
+printf(true,"6FH + 91H -> [result,S,Z,AC,P,CY] = ~a~%",question)$
+check("Preparation example 6FH + 91H gives 00H with Z=1,AC=1,P=1,CY=1",
+      question=[0,0,1,1,1,1])$
+
+sp_initial : 3*16^3$
+sp_after_push : sp_initial-2$
+printf(true,"A two-byte PUSH from SP=3000H leaves SP at decimal ~d (=2FFEH).~%",
+       sp_after_push)$
+check("PUSH moves SP downward by two byte addresses",sp_after_push=12286)$

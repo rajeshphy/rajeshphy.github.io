@@ -1,0 +1,47 @@
+/* Harmonic lattice and monatomic linear chain.
+   Run with: maxima --very-quiet -b harmonic-lattice-and-monatomic-chain.mac */
+
+kill(all)$
+display2d:false$
+
+/* Derive the nearest-neighbour dispersion. */
+plane_residual : C*(2*cos(k*a)-2)+M*omega^2$
+omega2 : 4*C/M*sin(k*a/2)^2$
+print("Plane-wave residual after inserting the dispersion =",
+      ratsimp(subst(1-2*sin(k*a/2)^2,cos(k*a),
+               subst(omega2,omega^2,plane_residual))))$
+
+/* Check the continuum coefficient and zone-boundary value. */
+long_wave_coefficient : limit(omega2/k^2,k,0)$
+print("limit omega^2/k^2 =",long_wave_coefficient)$
+print("omega^2(pi/a) =",trigsimp(subst(%pi/a,k,omega2)))$
+
+/* First- and second-neighbour extension. */
+omega2_extended : 2/M*(C1*(1-cos(k*a))+C2*(1-cos(2*k*a)))$
+v2_extended : limit(omega2_extended/k^2,k,0)$
+print("With C1 and C2, sound-speed squared =",v2_extended)$
+
+/* Numerical example used in the notes. */
+u_atomic : 1.66053906660b-27$
+M_num : 39.1b0*u_atomic$
+a_num : 0.520b-9$
+C_num : 18.0b0$
+omega_scale : sqrt(C_num/M_num)$
+omega_max : 2*omega_scale$
+f_max : omega_max/(2*%pi)$
+v_sound : a_num*omega_scale$
+k_half : %pi/(2*a_num)$
+omega_half : 2*omega_scale*sin(k_half*a_num/2)$
+f_half : omega_half/(2*%pi)$
+f_linear_half : v_sound*k_half/(2*%pi)$
+
+printf(true,"M = ~,7e kg~%",M_num)$
+printf(true,"sqrt(C/M) = ~,7e s^-1~%",omega_scale)$
+printf(true,"omega_max = ~,7e s^-1~%",omega_max)$
+printf(true,"f_max = ~,7e THz~%",f_max/1.0b12)$
+printf(true,"sound speed = ~,7e m/s~%",v_sound)$
+printf(true,"f at k=pi/(2a) = ~,7e THz~%",f_half/1.0b12)$
+printf(true,"linear estimate at k=pi/(2a) = ~,7e THz~%",
+       f_linear_half/1.0b12)$
+
+quit();

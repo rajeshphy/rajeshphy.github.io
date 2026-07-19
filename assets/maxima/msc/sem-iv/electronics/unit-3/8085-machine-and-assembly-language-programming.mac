@@ -1,0 +1,33 @@
+/* 8085 location assignment, operand encoding, relocation and record checksum. */
+kill(all)$
+hexbyte(n) := printf(false,"~2,'0X",mod(n,256))$
+hexword(n) := printf(false,"~4,'0X",mod(n,65536))$
+lo(n) := mod(n,256)$
+hi(n) := floor(mod(n,65536)/256)$
+
+/* Instruction lengths for the example at origin 2000h. */
+origin : 8192$
+lengths : [3,2,1,2,1,1,3,1]$
+addresses : [origin]$
+for n in lengths do addresses : endcons(last(addresses)+n,addresses)$
+printf(true,"Statement addresses and final LC: ~a~%",map(hexword,addresses))$
+loopaddr : addresses[3]$
+printf(true,"JNZ LOOP bytes = C2 ~a ~a (LOOP=~a)~%",
+       hexbyte(lo(loopaddr)),hexbyte(hi(loopaddr)),hexword(loopaddr))$
+
+/* Complete example code bytes, excluding the origin gap and source data. */
+code : [33,16,32,6,4,126,211,32,35,5,194,5,32,118]$
+printf(true,"Executable bytes = ~{~a ~}~%",map(hexbyte,code))$
+
+/* Relocate a relative symbol 0137h into a module loaded at 6000h. */
+base : 24576$ relative_symbol : 311$
+absolute_symbol : mod(base+relative_symbol,65536)$
+printf(true,"Relocation: base=~a, relative=~a -> absolute=~a, bytes ~a ~a~%",
+       hexword(base),hexword(relative_symbol),hexword(absolute_symbol),
+       hexbyte(lo(absolute_symbol)),hexbyte(hi(absolute_symbol)))$
+
+/* Intel-HEX-style checksum for a 14-byte data record at 2000h. */
+count : length(code)$ address : origin$ record_type : 0$
+checksum : mod(-lsum(x,x,append([count,hi(address),lo(address),record_type],code)),256)$
+verify : mod(lsum(x,x,append([count,hi(address),lo(address),record_type],code,[checksum])),256)$
+printf(true,"Record checksum=~a; modulo-256 verification sum=~d~%",hexbyte(checksum),verify)$

@@ -1,0 +1,99 @@
+/*
+  Quantization of elastic waves and phonons
+  Maxima 5.49-compatible batch worksheet
+
+  Run with:
+      maxima --very-quiet -b quantization-elastic-waves-and-phonons.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("QUANTIZATION OF ELASTIC WAVES AND PHONONS")$
+
+/* 1. Classical elastic wave */
+/* For u=A exp[i(q x-w t)], rho*u_tt=C*u_xx. */
+elastic_residual : ratsimp(-rho*w^2+C*q^2)$
+c2 : C/rho$
+elastic_check : ratsimp(subst(w^2=c2*q^2,elastic_residual))$
+print("Elastic-wave residual after w^2=(C/rho)q^2 (must be 0):",
+      elastic_check)$
+
+/* 2. Monatomic-chain normal frequency */
+chain_residual : M*w^2-4*K*sin(q*a/2)^2$
+chain_w2 : 4*K*sin(q*a/2)^2/M$
+chain_check : trigsimp(subst(w^2=chain_w2,chain_residual))$
+print("Monatomic-chain dispersion omega^2 =",chain_w2)$
+print("Chain dispersion residual (must be 0):",chain_check)$
+
+/* Long-wavelength sound speed. */
+sound_speed : a*sqrt(K/M)$
+small_q_ratio :
+    limit(2*sqrt(K/M)*sin(q*a/2)/q,q,0,plus)$
+print("Long-wavelength omega/q =",small_q_ratio)$
+print("Expected sound speed =",sound_speed)$
+
+/* 3. Single normal oscillator and ladder-variable algebra */
+/* Maxima treats aa and ad as commuting amplitudes. The cancellation of
+   aa^2 and ad^2 verifies the classical quadratic transformation; the
+   quantum +1/2 follows after imposing [a,a^dagger]=1. */
+Qosc : sqrt(hbar/(2*w))*(aa+ad)$
+Posc : -%i*sqrt(hbar*w/2)*(aa-ad)$
+Hosc : expand((Posc^2+w^2*Qosc^2)/2)$
+Hosc_expected_commuting : hbar*w*aa*ad$
+osc_check : ratsimp(Hosc-Hosc_expected_commuting)$
+print("Commuting-amplitude oscillator Hamiltonian =",Hosc)$
+print("Quadratic transformation residual (must be 0):",osc_check)$
+print("Quantum ordering gives H=hbar*w*(a^dagger*a+1/2)")$
+
+/* Bose occupation, modal energy and displacement variance. */
+nbar(w,T) := 1/(exp(hbar*w/(kb*T))-1)$
+mean_energy(w,T) := hbar*w*(nbar(w,T)+1/2)$
+mode_variance(Mass,Natoms,w,n) :=
+    hbar*(2*n+1)/(2*Natoms*Mass*w)$
+print("Symbolic Bose occupation =",nbar(w,T))$
+print("Symbolic mean modal energy =",mean_energy(w,T))$
+
+/* 4. Numerical monatomic-chain example (SI) */
+hbar_num : 1.054571817e-34$
+kb_num   : 1.380649e-23$
+u_num    : 1.66053906660e-27$
+e_num    : 1.602176634e-19$
+
+K_num : 60.0$
+M_num : 28.0*u_num$
+a_num : 0.500e-9$
+q_num : %pi/(2*a_num)$
+N_num : 1000$
+T_num : 300.0$
+
+w_num : 2*sqrt(K_num/M_num)*sin(q_num*a_num/2)$
+f_num : w_num/(2*%pi)$
+energy_meV : hbar_num*w_num/e_num*1.0e3$
+n_num : 1/(exp(hbar_num*w_num/(kb_num*T_num))-1)$
+u_coeff : sqrt(hbar_num/(2*N_num*M_num*w_num))$
+ground_variance : u_coeff^2$
+thermal_variance : (2*n_num+1)*u_coeff^2$
+mean_E_meV : energy_meV*(n_num+0.5)$
+
+print("Example angular frequency (rad/s) =",float(w_num))$
+print("Example ordinary frequency (THz) =",float(f_num/1.0e12))$
+print("One-phonon energy (meV) =",float(energy_meV))$
+print("Bose occupation at 300 K =",float(n_num))$
+print("Per-atom one-phonon displacement coefficient (m) =",
+      float(u_coeff))$
+print("Ground-state variance from this mode (m^2) =",
+      float(ground_variance))$
+print("Thermal mean-square contribution (m^2) =",
+      float(thermal_variance))$
+print("Mean mode energy including zero point (meV) =",
+      float(mean_E_meV))$
+
+/* Direct checks of quoted numerical values. */
+print("Relative error of quoted omega =",
+      float((w_num-5.080e13)/w_num))$
+print("Relative error of quoted displacement coefficient =",
+      float((u_coeff-1.49e-13)/u_coeff))$
+
+quit();

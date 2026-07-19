@@ -1,0 +1,56 @@
+/* 8085 byte/multibyte arithmetic, DAA model and delay calibration. */
+kill(all)$
+hexbyte(n) := printf(false,"~2,'0X",mod(n,256))$
+hexword(n) := printf(false,"~4,'0X",mod(n,65536))$
+hex24(n) := printf(false,"~6,'0X",mod(n,16777216))$
+
+uadd8(a,b,cin) := block([s,r,cy,ac,ov],
+  s:a+b+cin,
+  r:mod(s,256),
+  cy:floor(s/256),
+  ac:if mod(a,16)+mod(b,16)+cin>=16 then 1 else 0,
+  ov:if ((a<128 and b<128 and r>=128) or (a>=128 and b>=128 and r<128)) then 1 else 0,
+  [r,cy,ac,ov])$
+
+for pair in [[143,146],[240,32],[112,32]] do block([q],
+  q:uadd8(pair[1],pair[2],0),
+  printf(true,"~a + ~a -> result=~a CY=~d AC=~d signed-overflow=~d~%",
+         hexbyte(pair[1]),hexbyte(pair[2]),hexbyte(q[1]),q[2],q[3],q[4]))$
+
+/* 24-bit example and its little-endian result bytes. */
+x : 15873110$ /* F23456h */
+y : 2311663$  /* 2345EFh */
+s : x+y$
+printf(true,"24-bit: ~a + ~a = carry ~d, low24 ~a; bytes ~a ~a ~a ~d~%",
+       hex24(x),hex24(y),floor(s/16777216),hex24(s),
+       hexbyte(s),hexbyte(floor(s/256)),hexbyte(floor(s/65536)),floor(s/16777216))$
+
+/* 16-bit subtraction example, with carry interpreted as unsigned borrow. */
+minuend : 4660$     /* 1234h */
+subtrahend : 2552$  /* 09F8h */
+difference : mod(minuend-subtrahend,65536)$
+borrow : if minuend<subtrahend then 1 else 0$
+printf(true,"16-bit subtraction: 1234 - 09F8 = ~a, borrow=~d~%",
+       hexword(difference),borrow)$
+
+/* A direct model of post-addition decimal adjustment. */
+daa(raw,cy0,ac0) := block([r,c],
+  r:raw, c:cy0,
+  if mod(r,16)>9 or ac0=1 then r:r+6,
+  if r>255 or mod(floor(r/16),16)>9 or c=1 then (r:r+96,c:1),
+  [mod(r,256),if r>255 or c=1 then 1 else 0])$
+
+raw : 89+115$ /* packed BCD 59h + 73h */
+q : daa(raw,if raw>255 then 1 else 0,if mod(89,16)+mod(115,16)>=16 then 1 else 0)$
+printf(true,"BCD 59 + 73: raw=~a, DAA result=~a, decimal carry=~d~%",
+       hexbyte(raw),hexbyte(q[1]),q[2])$
+
+/* Delay including LXI B (10 T), CALL (18 T), loop and RET. */
+fclock : 3072000.0$
+target : 0.005$
+nexact : (fclock*target-35)/24$
+n : round(nexact)$
+tstates : 24*n+35$
+tactual : tstates/fclock$
+printf(true,"5 ms at 3.072 MHz: ideal N=~,6f, chosen N=~d, states=~d~%",nexact,n,tstates)$
+printf(true,"actual=~,9f s, error=~,6f percent~%",tactual,100.0*(tactual-target)/target)$

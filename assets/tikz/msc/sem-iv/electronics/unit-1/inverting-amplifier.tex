@@ -1,0 +1,15 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}\usepackage{amsmath}
+\definecolor{ink}{HTML}{21352F}\definecolor{teal}{HTML}{087F7B}\definecolor{gold}{HTML}{C58B2A}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily,color=ink]
+ \node[font=\bfseries\large] at (3.3,3.3) {Inverting amplifier};
+ \node[op amp,draw=teal,very thick] (op) at (4,0) {};
+ \draw (-1,0.5) node[left]{$v_i$} to[R,l=$R_1$,color=gold] (op.-);
+ \draw (op.+) -- ++(-.7,0) node[ground]{};
+ \draw (op.out) -- ++(1.5,0) coordinate (out) node[right]{$v_o$};
+ \draw (op.-) -- ++(0,1.6) coordinate (fb1) to[R,l=$R_f$,color=gold] (fb1-|out) -- (out);
+ \node[align=center,font=\small] at (3.4,-2.1) {$\displaystyle \frac{v_o}{v_i}=-\frac{A R_f}{R_f+(A+1)R_1}$\\[3pt]$\displaystyle \xrightarrow{A\to\infty}-\frac{R_f}{R_1}$};
+\end{circuitikz}
+\end{document}

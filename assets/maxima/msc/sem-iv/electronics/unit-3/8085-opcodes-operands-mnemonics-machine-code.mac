@@ -1,0 +1,56 @@
+/* 8085 opcode-field and object-byte checks */
+kill(all)$
+display2d:false$
+print("8085 OPCODES, OPERANDS, MNEMONICS AND MACHINE CODE")$
+
+/* Register codes: B,C,D,E,H,L,M,A = 0,...,7. */
+mov_opcode(dst,src) := 64 + 8*dst + src$
+mvi_opcode(dst) := 6 + 8*dst$
+alu_opcode(group,src) := 128 + 8*group + src$
+lxi_opcode(rp) := 1 + 16*rp$
+jcc_opcode(cond) := 194 + 8*cond$
+rst_opcode(n) := 199 + 8*n$
+low_byte(n) := mod(n,256)$
+high_byte(n) := floor(n/256)$
+
+/* MOV A,C = 01 111 001 = 79H; MOV M,M field collides with HLT 76H. */
+mov_ac : mov_opcode(7,1)$
+mov_mm : mov_opcode(6,6)$
+print("MOV A,C and nominal MOV M,M opcodes (decimal) =",mov_ac,mov_mm)$
+if not is([mov_ac,mov_mm]=[121,118]) then error("MOV encoding failed")$
+
+/* MVI D,5AH begins 16H and is followed by 5AH. */
+mvi_d : mvi_opcode(2)$
+data_5a : 5*16+10$
+print("MVI D,5AH bytes (decimal) =",mvi_d,data_5a)$
+if not is([mvi_d,data_5a]=[22,90]) then error("MVI encoding failed")$
+
+/* ALU groups: ADD=0, ADC=1, SUB=2, SBB=3, ANA=4, XRA=5, ORA=6, CMP=7. */
+add_m : alu_opcode(0,6)$
+cmp_a : alu_opcode(7,7)$
+xra_m : alu_opcode(5,6)$
+print("ADD M, CMP A, XRA M opcodes (decimal) =",add_m,cmp_a,xra_m)$
+if not is([add_m,cmp_a,xra_m]=[134,191,174]) then error("ALU encoding failed")$
+
+/* LXI H,2050H: RP=2, opcode 21H, then low and high operand bytes. */
+word : 2*16^3 + 5*16$
+lxi_h : lxi_opcode(2)$
+print("LXI H,2050H bytes (decimal) =",lxi_h,low_byte(word),high_byte(word))$
+if not is([lxi_h,low_byte(word),high_byte(word)]=[33,80,32]) then error("LXI encoding failed")$
+
+/* JNZ condition=0; JZ condition=1. RST 5 vectors to 8*5=0028H. */
+jnz : jcc_opcode(0)$
+jz : jcc_opcode(1)$
+rst5 : rst_opcode(5)$
+vector5 : 8*5$
+print("JNZ, JZ, RST 5 opcodes and vector (decimal) =",jnz,jz,rst5,vector5)$
+if not is([jnz,jz,rst5,vector5]=[194,202,239,40]) then error("branch encoding failed")$
+
+/* Listing length: 2+1+2+3 bytes from 2000H ends at 2008H. */
+start : 2*16^3$
+next_address : start + 2+1+2+3$
+print("Next address after the worked listing (decimal) =",next_address)$
+if not is(next_address=8200) then error("listing address calculation failed")$
+
+print("All opcode-field checks passed.")$
+quit();

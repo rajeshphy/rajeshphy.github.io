@@ -1,0 +1,30 @@
+/* Comparator and inverting Schmitt trigger */
+kill(all)$ display2d:false$ fpprintprec:12$
+print("OP-AMP COMPARATORS AND SCHMITT TRIGGER")$
+beta:R2/(R1+R2)$
+VTp:beta*VOH+(1-beta)*VR$
+VTm:beta*VOL+(1-beta)*VR$
+VH:ratsimp(VTp-VTm)$
+print("Upper threshold =",VTp)$
+print("Lower threshold =",VTm)$
+print("Hysteresis width =",VH)$
+
+/* Symmetric example. */
+symp:ratsimp(subst([VOH=VS,VOL=-VS,VR=0],VTp))$
+symm:ratsimp(subst([VOH=VS,VOL=-VS,VR=0],VTm))$
+print("Symmetric thresholds =",symp,symm)$
+
+/* Design from measured output levels and desired thresholds. */
+VOHn:11.5$ VOLn:-10.8$ VTpn:2.5$ VTmn:-2.0$
+betan:float((VTpn-VTmn)/(VOHn-VOLn))$
+VRn:float((VTpn-betan*VOHn)/(1-betan))$
+ratio:float((1-betan)/betan)$
+print("Example beta =",betan)$
+print("Required reference V_R (V) =",VRn)$
+print("R1/R2 =",ratio)$
+
+/* Zero-crossing timing offset. */
+Vos:2e-3$ f:1000$ Vm:2$
+dt:float(Vos/(2*%pi*f*Vm))$
+print("Timing error for 2 mV offset, 2 V peak, 1 kHz (s) =",dt)$
+quit();

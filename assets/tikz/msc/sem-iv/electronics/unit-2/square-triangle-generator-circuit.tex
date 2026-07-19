@@ -1,0 +1,19 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+\node[op amp] (S) at (3.1,2.5) {};
+\node[op amp] (I) at (9.0,2.5) {};
+\draw (S.-)--++(-.6,0) node[ground]{};
+\draw (S.out)--++(1.0,0) coordinate(vs) node[above]{$v_S$};
+\draw (vs) to[R,l=$R_S$] ++(-1.0,2.2) -| (S.+);
+\draw (I.+)--++(-.6,0) node[ground]{};
+\draw (vs) to[R,l=$R$] (I.-);
+\draw (I.out)--++(1.0,0) coordinate(vt) node[right]{$v_T$};
+\draw (vt)|-(7.5,4.8) to[C,l=$C$] (I.- |- 4.8,4.8)--(I.-);
+\draw (vt)--++(0,-2.5)--++(-7.5,0) to[R,l_=$R_T$] ++(0,2.5) -- (S.+);
+\node[above] at (3.0,5.7) {Schmitt comparator};
+\node[above] at (8.7,5.7) {inverting integrator};
+\node[below,align=center] at (6.0,-.8) {at switching, $v_+=0$: $v_S/R_S+v_T/R_T=0$,\qquad $\beta_T=R_T/R_S$};
+\end{circuitikz}
+\end{document}

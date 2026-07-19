@@ -1,0 +1,38 @@
+/* 8085 CALL, RET, RST and subroutine-linkage checks. */
+kill(all)$
+hexbyte(n) := printf(false,"~2,'0X",mod(n,256))$
+hexword(n) := printf(false,"~4,'0X",mod(n,65536))$
+hi(n) := floor(mod(n,65536)/256)$
+lo(n) := mod(n,256)$
+
+/* CALL 3400h located at 2050h. */
+call_address : 8272$   /* 2050h */
+target : 13312$        /* 3400h */
+return_address : call_address+3$
+sp0 : 16384$           /* 4000h */
+sp_after : sp0-2$
+printf(true,"CALL bytes: CD ~a ~a; return address=~a~%",
+       hexbyte(lo(target)),hexbyte(hi(target)),hexword(return_address))$
+printf(true,"Stack after CALL: [~a]=~a low, [~a]=~a high; SP=~a~%",
+       hexword(sp_after),hexbyte(lo(return_address)),
+       hexword(sp_after+1),hexbyte(hi(return_address)),hexword(sp_after))$
+
+/* All eight software restart opcodes and vectors. */
+for n:0 thru 7 do
+  printf(true,"RST ~d: opcode=~a vector=~a~%",n,
+         hexbyte(199+8*n),hexword(8*n))$
+
+/* Code-size comparison. */
+L : 40$
+k : 4$
+inline_bytes : k*L$
+subroutine_bytes : L+3*k+1$
+saving : inline_bytes-subroutine_bytes$
+printf(true,"L=~d, k=~d: inline=~d bytes, subroutine=~d bytes, saving=~d bytes~%",
+       L,k,inline_bytes,subroutine_bytes,saving)$
+
+/* Stack depth: three active calls and five unmatched pair pushes. */
+active_calls : 3$
+active_pushes : 5$
+depth : 2*(active_calls+active_pushes)$
+printf(true,"Three calls plus five pair saves occupy ~d stack bytes.~%",depth)$

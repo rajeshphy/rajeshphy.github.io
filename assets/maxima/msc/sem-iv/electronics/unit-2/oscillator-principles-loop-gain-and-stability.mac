@@ -1,0 +1,29 @@
+/* Oscillator principles: symbolic checks and numerical practice */
+kill(all)$ display2d:false$ fpprintprec:10$
+print("OSCILLATOR PRINCIPLES, LOOP GAIN AND STABILITY")$
+
+/* Positive-feedback characteristic equation. */
+H : A/(1-A*beta)$
+print("Closed-loop transfer A/(1-A beta) =",H)$
+print("Characteristic equation: 1-A beta = 0")$
+
+/* Cubic amplitude equation da/dt=(mu-nu*a^2)*a. */
+as : sqrt(mu/nu)$
+stability_slope : ratsimp(subst(a=as,diff((mu-nu*a^2)*a,a)))$
+print("Steady nonzero amplitude =",as)$
+print("Linearized envelope slope at steady amplitude =",stability_slope)$
+
+/* Sensitivity of an LC frequency. */
+w0 : 1/sqrt(L*C)$
+SL : ratsimp(diff(w0,L)*L/w0)$
+SC : ratsimp(diff(w0,C)*C/w0)$
+print("Normalized L sensitivity =",SL)$
+print("Normalized C sensitivity =",SC)$
+
+/* Numerical example. */
+Lnum:10e-3$ Cnum:10e-9$
+fnum:float(1/(2*%pi*sqrt(Lnum*Cnum)))$
+frac_shift:float(-0.5*(0.005+0.005))$
+print("For L=10 mH, C=10 nF, f0 (Hz) =",fnum)$
+print("If both rise 0.5 percent, Delta f/f =",frac_shift)$
+quit();

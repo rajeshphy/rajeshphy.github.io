@@ -1,0 +1,39 @@
+/* Negative feedback, finite gain, bandwidth and stability */
+kill(all)$
+display2d:false$
+
+/* Exact feedback law and large-loop-gain error */
+Af : A/(1+A*beta)$
+ideal : 1/beta$
+relative_error : ratsimp((ideal-Af)/ideal)$
+print("Af =",Af)$
+print("fractional gain error =",relative_error)$
+
+/* Single-pole op amp A(s)=A0/(1+s/wp) */
+As : A0/(1+s/wp)$
+Afs : factor(As/(1+beta*As))$
+print("single-pole closed-loop transfer =",Afs)$
+print("dc gain =",ratsimp(subst(s=0,Afs)))$
+print("closed-loop pole =",-(1+A0*beta)*wp)$
+
+/* Numerical example */
+A0n : 2.0e5$
+ft : 1.0e6$
+NG : 100.0$
+betan : 1/NG$
+Af0 : A0n/(1+A0n*betan)$
+fH : (1+A0n*betan)*ft/A0n$
+print("finite dc closed-loop gain =",float(Af0))$
+print("ideal noise gain =",NG," fractional error =",float(1-Af0/NG))$
+print("closed-loop bandwidth (Hz) =",float(fH))$
+
+/* Independent illustrative high-bandwidth two-pole loop used in the figure.
+   It is separate from the preceding noise-gain-100 numerical example. */
+fp2 : 2.0e5$
+loop_db(f) := 100-20*log(f/100)/log(10)-10*log(1+(f/fp2)^2)/log(10)$
+fc : find_root(loop_db(f),f,1.0e6,2.0e6)$
+phase_deg : -90-atan(fc/fp2)*180/%pi$
+phase_margin : 180+phase_deg$
+print("independent two-pole loop crossover (Hz) =",float(fc))$
+print("loop phase at crossover (degrees) =",float(phase_deg))$
+print("phase margin (degrees) =",float(phase_margin))$

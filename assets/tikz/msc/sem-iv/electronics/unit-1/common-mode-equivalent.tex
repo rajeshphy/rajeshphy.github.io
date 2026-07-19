@@ -1,0 +1,29 @@
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage[american]{circuitikz}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+ \node[font=\bfseries] at (-3.2,3.2) {(a) Common-mode pair};
+ \draw (-5.2,2.5) node[ground,rotate=180]{} to[R,l=$R_C$] (-5.2,1)
+       node[npn,anchor=C](Q1){$Q_1$};
+ \draw (-1.2,2.5) node[ground,rotate=180]{} to[R,l_=$R_C$] (-1.2,1)
+       node[npn,anchor=C,xscale=-1](Q2){};
+ \node at (-.70,-.40) {$Q_2$};
+ \draw (Q1.B) -- (-6.2,.2) node[left] {$v_{cm}$};
+ \draw (Q2.B) -- (-.2,.2) node[right] {$v_{cm}$};
+ \draw (Q1.E) -- (-5.2,-1) -- (-1.2,-1) -- (Q2.E);
+ \draw (-3.2,-1) node[circ]{} to[R,l=$R_{EE}$] (-3.2,-2.55) node[ground]{};
+ \draw[->,blue!70!black,thick] (-2.75,-.75) -- (-2.75,-1.65)
+ node[midway,right] {$2i_e$};
+
+ \draw[dashed] (.7,-2.8) -- (.7,3.45);
+ \node[font=\bfseries] at (4.15,3.2) {(b) Common-mode half-circuit};
+ \draw (4.15,2.5) node[ground,rotate=180]{} to[R,l=$R_C$] (4.15,1)
+ node[npn,anchor=C](Qh){$Q$};
+ \draw (Qh.B) -- (2.7,.2) node[left] {$v_{cm}$};
+ \draw (Qh.E) to[R,l=$2R_{EE}$] (4.15,-1.7) node[ground]{};
+ \draw (4.15,1) -- (6.15,1) node[right] {$v_{ocm}$};
+ \node[draw,rounded corners,align=center,fill=orange!5] at (4.15,-2.45)
+ {$A_{vcm}\simeq-R_C/(2R_{EE}+r_e)$};
+\end{circuitikz}
+\end{document}

@@ -1,0 +1,17 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}\usepackage{amsmath}
+\definecolor{ink}{HTML}{21352F}\definecolor{teal}{HTML}{087F7B}\definecolor{gold}{HTML}{C58B2A}\definecolor{rose}{HTML}{B65A62}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily,color=ink]
+ \node[font=\bfseries\large] at (4,4.2) {Band-limited practical differentiator};
+ \node[op amp,draw=teal,very thick] (op) at (4,0) {};
+ \draw (-1,.5) node[left]{$v_i$} to[C,l=$C_1$,color=rose] (0,.5) to[R,l=$R_1$,color=gold] (op.-);
+ \draw (op.+)--++(-.6,0) node[ground]{};
+ \draw (op.out)--++(1.4,0) coordinate(o) node[right]{$v_o$};
+ \draw (op.-)--++(0,1.7) coordinate(f) to[R,l=$R_f$,color=gold] (f-|o)--(o);
+ \draw ($(f)+(0,.8)$) to[C,l=$C_f$,color=rose] ($(f-|o)+(0,.8)$);
+ \draw (f)--++(0,.8);\draw (f-|o)--++(0,.8);
+ \node[font=\small,align=center] at (3.7,-2.4) {$\displaystyle H(s)=-\frac{sR_fC_1}{(1+sR_1C_1)(1+sR_fC_f)}$\\differentiation for $\omega\ll\min\{1/(R_1C_1),1/(R_fC_f)\}$};
+\end{circuitikz}
+\end{document}

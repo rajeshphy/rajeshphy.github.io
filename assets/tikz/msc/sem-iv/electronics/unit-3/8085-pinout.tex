@@ -1,0 +1,40 @@
+\documentclass[tikz,border=8pt]{standalone}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily, pin/.style={font=\small}, num/.style={font=\scriptsize}]
+\draw[very thick,rounded corners=2pt,fill=gray!4] (-3.30,-5.75) rectangle (3.30,5.75);
+\draw[very thick] (-0.45,5.75) arc[start angle=180,end angle=360,radius=0.45];
+\node[font=\bfseries\Large] at (0,0.25) {Intel 8085};
+\node[font=\small] at (0,-0.40) {40-pin DIP, top view};
+
+% Left side: pins 1--20 from top to bottom.
+\foreach \p/\y/\lab in {
+1/5.25/X1,2/4.70/X2,3/4.15/RESET OUT,4/3.60/SOD,5/3.05/SID,
+6/2.50/TRAP,7/1.95/RST 7.5,8/1.40/RST 6.5,9/0.85/RST 5.5,10/0.30/INTR,
+11/-0.25/$\overline{\mathrm{INTA}}$,12/-0.80/AD0,13/-1.35/AD1,14/-1.90/AD2,15/-2.45/AD3,
+16/-3.00/AD4,17/-3.55/AD5,18/-4.10/AD6,19/-4.65/AD7,20/-5.20/VSS}{
+  \draw (-3.30,\y) -- (-3.83,\y);
+  \node[num,anchor=east] at (-3.41,\y+0.16) {\p};
+  \node[pin,anchor=west] at (-3.12,\y) {\lab};
+}
+
+% Right side: pins 21--40 from bottom to top.
+\foreach \p/\y/\lab in {
+21/-5.20/A8,22/-4.65/A9,23/-4.10/A10,24/-3.55/A11,25/-3.00/A12,
+26/-2.45/A13,27/-1.90/A14,28/-1.35/A15,29/-0.80/S0,30/-0.25/ALE,
+31/0.30/$\overline{\mathrm{WR}}$,32/0.85/$\overline{\mathrm{RD}}$,33/1.40/S1,34/1.95/{IO/M},35/2.50/READY,
+36/3.05/$\overline{\mathrm{RESET\ IN}}$,37/3.60/CLK OUT,38/4.15/HLDA,39/4.70/HOLD,40/5.25/VCC}{
+  \draw (3.30,\y) -- (3.83,\y);
+  \node[num,anchor=west] at (3.41,\y+0.16) {\p};
+  \node[pin,anchor=east] at (3.12,\y) {\lab};
+}
+
+\node[draw,rounded corners,fill=blue!7,align=left,anchor=west,font=\small] at (4.45,-4.15)
+ {address: A15--A8\\status/control: S1, S0, ALE,\\$\overline{\mathrm{RD}}$, $\overline{\mathrm{WR}}$, IO/M};
+\node[draw,rounded corners,fill=green!8,align=left,anchor=east,font=\small] at (-4.45,-3.10)
+ {multiplexed bus:\\AD7--AD0};
+\node[draw,rounded corners,fill=orange!10,align=left,anchor=east,font=\small] at (-4.45,1.60)
+ {interrupt and\\serial interface};
+\node[draw,rounded corners,fill=purple!7,align=left,anchor=west,font=\small] at (4.45,4.15)
+ {clock, reset, wait\\and bus request};
+\end{tikzpicture}
+\end{document}

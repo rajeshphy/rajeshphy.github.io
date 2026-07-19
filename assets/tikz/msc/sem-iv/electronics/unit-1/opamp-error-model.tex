@@ -1,0 +1,16 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}\usepackage{amsmath}
+\definecolor{ink}{HTML}{21352F}\definecolor{teal}{HTML}{087F7B}\definecolor{gold}{HTML}{C58B2A}\definecolor{rose}{HTML}{B65A62}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily,color=ink]
+ \node[font=\bfseries\large] at (4.2,3.3) {Input-error model of a practical op-amp};
+ \node[op amp,draw=teal,very thick] (op) at (5,0) {};
+ \draw (-1,.5) node[left]{$v_-$} to[V,l=$V_{OS}$,color=gold] (1,.5) -- (op.-);
+ \draw (-1,-.5) node[left]{$v_+$} -- (op.+);
+ \draw[<- ,rose,very thick] ($(op.-)+(-.5,0)$)--++(0,1.15) node[above]{$I_{B-}$};
+ \draw[<- ,rose,very thick] ($(op.+)+(-.5,0)$)--++(0,-1.15) node[below]{$I_{B+}$};
+ \draw (op.out)--++(1.4,0) node[right]{$v_o=A_0(v_+-v_-+V_{OS})$};
+ \node[draw=ink!45,rounded corners,fill=teal!5,align=left,font=\small] at (4.2,-2.4) {$I_B=\dfrac{I_{B+}+I_{B-}}2$\qquad $I_{OS}=|I_{B+}-I_{B-}|$\\input currents are drawn into a bipolar-input device};
+\end{circuitikz}
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+\node[op amp] (A) at (4.0,2.5) {};
+\draw (A.-)--++(-.55,0) coordinate(sum1);
+\draw (A.+)--++(-.55,0) node[left]{Wien $V_f$};
+\fill (sum1) circle (1.4pt);
+\draw (A.out)--++(1,0) coordinate(vo1) node[right]{$V_o$};
+\draw (vo1)--++(0,2.2) coordinate(fb1Out);
+\coordinate (fb1Sum) at (sum1 |- fb1Out);
+\draw (fb1Out) to[R,l=$R_f$] (fb1Sum);
+\draw (fb1Sum)--(sum1);
+\draw (sum1)--++(-2.1,0) coordinate(lampTop);
+\draw (lampTop) to[lamp,l_=$R_L(T)$] ++(0,-2.1) node[ground]{};
+\node[above] at (3.3,5.35) {(a) thermal stabilization};
+
+\node[op amp] (B) at (11.0,2.5) {};
+\draw (B.-)--++(-.55,0) coordinate(sum2);
+\draw (B.+)--++(-.55,0) node[left]{Wien $V_f$};
+\fill (sum2) circle (1.4pt);
+\draw (B.out)--++(1,0) coordinate(vo2) node[right]{$V_o$};
+\draw (vo2)--++(0,2.2) coordinate(fb2Out);
+\draw (fb2Out) to[R,l=$R_{f1}$] ++(-1.3,0) coordinate(afterRf1);
+\draw (afterRf1)--++(-2.5,0) coordinate(dRight);
+\draw (dRight) to[R,l_=$R_{f2}$] ++(-2.1,0) coordinate(dLeft);
+\fill (dRight) circle (1.2pt);
+\fill (dLeft) circle (1.2pt);
+\draw (dLeft)--++(0,-.65) coordinate(d1Left);
+\coordinate (d1Right) at (dRight |- d1Left);
+\draw (d1Left) to[Do] (d1Right)--(dRight);
+\draw (dLeft)--++(0,-1.25) coordinate(d2Left);
+\coordinate (d2Right) at (dRight |- d2Left);
+\draw (d2Left) to[Do,invert] (d2Right)--(dRight);
+\node[left] at (d1Left) {$D_1$};
+\node[left] at (d2Left) {$D_2$};
+\coordinate (sumBus) at (dLeft |- sum2);
+\draw (dLeft)--(sumBus)--(sum2);
+\fill (sumBus) circle (1.4pt);
+\draw (sumBus) to[R,l_=$R_g$] ++(0,-2.1) node[ground]{};
+\node[above] at (9.6,5.35) {(b) antiparallel-diode stabilization};
+\end{circuitikz}
+\end{document}

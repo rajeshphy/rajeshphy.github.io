@@ -1,0 +1,33 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily]
+\node[op amp] (A) at (6.5,3.0) {};
+\draw (A.-) -- ++(-.60,0) coordinate(sum);
+\draw (A.+) -- ++(-.60,0) coordinate(pos);
+\fill (sum) circle (1.4pt);
+\fill (pos) circle (1.4pt);
+\draw (A.out) -- ++(1.0,0) coordinate(vo) node[right]{$V_o$};
+
+% Negative-feedback divider: V_o -- R_f -- sum -- R_g -- ground.
+\draw (vo) -- ++(0,2.0) coordinate(fbOut);
+\coordinate (fbSum) at (sum |- fbOut);
+\draw (fbOut) to[R,l=$R_f$] (fbSum);
+\draw (fbSum) -- (sum);
+\draw (sum) -- ++(-1.35,0) coordinate(rgTop);
+\draw (rgTop) to[R,l_=$R_g$] ++(0,-1.55) node[ground]{};
+
+% Wien lead-lag network, routed below R_g before rising to the + input.
+\draw (vo) -- ++(0,-3.45) coordinate(bridgeOut);
+\draw (bridgeOut) to[R,l_=$R$] ++(-1.55,0)
+ to[C,l_=$C$] ++(-1.55,0) coordinate(vf);
+\fill (vf) circle (1.4pt);
+\draw (vf) to[R,l=$R$] ++(0,-1.75) node[ground]{};
+\draw (vf) -- ++(-1.15,0) coordinate(cTop);
+\draw (cTop) to[C,l_=$C$] ++(0,-1.75) node[ground]{};
+\draw (vf) -- ++(-.65,0) coordinate(posLowLeft);
+\draw (posLowLeft) -- (posLowLeft |- pos) -- (pos);
+\node[left] at (vf) {$V_f$};
+\node[above] at (4.9,5.65) {Equal-component Wien-bridge oscillator};
+\end{circuitikz}
+\end{document}

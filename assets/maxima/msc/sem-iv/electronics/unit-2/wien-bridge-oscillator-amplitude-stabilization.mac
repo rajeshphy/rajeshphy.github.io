@@ -1,0 +1,30 @@
+/* Wien-bridge oscillator */
+kill(all)$ display2d:false$ fpprintprec:12$
+print("WIEN-BRIDGE OSCILLATOR")$
+x:s*R*C$
+beta:x/(x^2+3*x+1)$
+print("Equal-component beta(s) =",beta)$
+beta_at:ratsimp(subst(s=%i/(R*C),beta))$
+print("beta(j/(RC)) =",beta_at)$
+print("Required non-inverting gain =",ratsimp(1/beta_at))$
+
+/* General unequal-component expressions and equal-component check. */
+w0:1/sqrt(R1*R2*C1*C2)$
+beta0:R2*C1/(R1*C1+R2*C1+R2*C2)$
+A0:ratsimp(1/beta0)$
+equal_beta:ratsimp(subst([R1=R,R2=R,C1=C,C2=C],beta0))$
+equal_gain:ratsimp(subst([R1=R,R2=R,C1=C,C2=C],A0))$
+print("General omega0 =",w0)$
+print("General beta0 =",beta0)$
+print("General required gain =",A0)$
+print("Equal-component beta0 and gain =",equal_beta,equal_gain)$
+
+/* Numerical design and slew rate. */
+fnum:1000$ Cnum:10e-9$
+Rnum:float(1/(2*%pi*fnum*Cnum))$
+f15800:float(1/(2*%pi*15800*Cnum))$
+SR5k:float(2*%pi*5000*10)$
+print("R for 1 kHz, C=10 nF (ohm) =",Rnum)$
+print("Frequency for R=15.8 kohm (Hz) =",f15800)$
+print("Minimum sine slew rate at 5 kHz, 10 V peak (V/s) =",SR5k)$
+quit();

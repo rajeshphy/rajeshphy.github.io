@@ -1,0 +1,38 @@
+/* Cascaded op-amp stages and dominant-pole open-loop response. */
+kill(all)$
+display2d:false$
+fpprintprec:8$
+
+Ad1 : 80.0$          /* differential input-stage voltage gain */
+Ad2 : 2500.0$        /* voltage-amplifier-stage gain */
+Ashift : 0.98$       /* level translator voltage transfer */
+Aout : 0.995$        /* output buffer voltage transfer */
+A0 : Ad1*Ad2*Ashift*Aout$
+printf(true,"Product of stage gains A0=~,7g (~,6g dB)~%",A0,20*log(A0)/log(10))$
+
+fp : 5.0$            /* dominant pole, Hz */
+fT : A0*fp$
+printf(true,"Gain-bandwidth product fT=A0 fp=~,7g Hz~%",fT)$
+
+Aol_mag(f) := A0/sqrt(1+(f/fp)^2)$
+phase_deg(f) := -atan(f/fp)*180/%pi$
+for f in [1,10,1e3,1e5,1e6] do
+ printf(true,"f=~,6g Hz: |AOL|=~,7g, phase=~,6g deg~%",f,Aol_mag(f),phase_deg(f))$
+
+Vsat : 14.0$
+vd_sat : Vsat/A0$
+printf(true,"Differential input for onset of ideal saturation = ~,6g V = ~,6g microV~%",
+       vd_sat,1e6*vd_sat)$
+
+vd : 25e-6$
+vo_linear : A0*vd$
+vo_actual : if vo_linear>Vsat then Vsat elseif vo_linear < -Vsat then -Vsat else vo_linear$
+printf(true,"For vd=25 microV: linear prediction=~,6g V, rail-limited output=~,6g V~%",
+       vo_linear,vo_actual)$
+
+/* Dominant-pole complex transfer evaluated by its real and imaginary parts. */
+fcheck : 1.0e4$
+x : fcheck/fp$
+realA : A0/(1+x^2)$
+imagA : -A0*x/(1+x^2)$
+printf(true,"AOL at 10 kHz = ~,6g + (~,6g) j~%",realA,imagA)$

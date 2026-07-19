@@ -1,0 +1,33 @@
+/* Op-amp bistable, astable and monostable multivibrators */
+kill(all)$ display2d:false$ fpprintprec:12$
+print("OP-AMP MULTIVIBRATORS")$
+q:log((1+beta)/(1-beta))$
+tH:R*C*q$
+T:2*tH$
+f:1/T$
+print("Symmetric astable half-period =",tH)$
+print("Period =",T)$
+print("Frequency =",f)$
+
+/* Separate charging resistors. */
+tHa:RH*C*q$ tLa:RL*C*q$
+D:ratsimp(tHa/(tHa+tLa))$
+print("Asymmetric duty ratio =",D)$
+
+/* Diode-clamped monostable pulse width. */
+tp:R*C*log((VS+VD)/((1-beta)*VS))$
+tpideal:ratsimp(subst(VD=0,tp))$
+tr:R*C*log((1+beta)*VS/(VS-VD))$
+print("Monostable pulse width with clamp drop =",tp)$
+print("Ideal-clamp pulse width =",tpideal)$
+print("Recovery time to the diode clamp =",tr)$
+
+/* Numerical example beta=1/3, R=100 kohm, C=10 nF. */
+bn:1/3$ Rn:100e3$ Cn:10e-9$
+Tn:float(subst([beta=bn,R=Rn,C=Cn],T))$
+fn:float(1/Tn)$
+tpn:float(subst([beta=bn,R=Rn,C=Cn,VD=0,VS=12],tp))$
+print("Astable period (s) =",Tn)$
+print("Astable frequency (Hz) =",fn)$
+print("Ideal-clamp monostable pulse width (s) =",tpn)$
+quit();

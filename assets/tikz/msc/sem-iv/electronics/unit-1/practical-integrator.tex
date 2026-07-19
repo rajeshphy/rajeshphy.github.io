@@ -1,0 +1,17 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}\usepackage{amsmath}
+\definecolor{ink}{HTML}{21352F}\definecolor{teal}{HTML}{087F7B}\definecolor{gold}{HTML}{C58B2A}\definecolor{rose}{HTML}{B65A62}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily,color=ink]
+ \node[font=\bfseries\large] at (4,4.2) {Band-limited practical integrator};
+ \node[op amp,draw=teal,very thick] (op) at (4,0) {};
+ \draw (-1,.5) node[left]{$v_i$} to[R,l=$R$,color=gold] (op.-);
+ \draw (op.+)--++(-.6,0) node[ground]{};
+ \draw (op.out)--++(1.4,0) coordinate(o) node[right]{$v_o$};
+ \draw (op.-)--++(0,1.65) coordinate(f) to[C,l_=$C$,color=rose] (f-|o)--(o);
+ \draw ($(f)+(0,.8)$) to[R,l=$R_f$,color=gold] ($(f-|o)+(0,.8)$);
+ \draw (f)--++(0,.8);\draw (f-|o)--++(0,.8);
+ \node[font=\small,align=center] at (3.7,-2.4) {$\displaystyle H(s)=-\frac{R_f/R}{1+sR_fC}$\\integration for $\omega\gg1/(R_fC)$, below op-amp limits};
+\end{circuitikz}
+\end{document}

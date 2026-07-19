@@ -1,0 +1,18 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}\usepackage{amsmath}
+\definecolor{ink}{HTML}{21352F}\definecolor{teal}{HTML}{087F7B}\definecolor{gold}{HTML}{C58B2A}\definecolor{rose}{HTML}{B65A62}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[font=\sffamily,color=ink]
+ \node[font=\bfseries\large] at (3.8,4.8) {Weighted inverting summing amplifier};
+ \node[op amp,draw=teal,very thick] (op) at (5,0) {};
+ \coordinate (s) at ($(op.-)+(-.4,0)$); \draw (s)--(op.-);
+ \draw (-1,2.4) node[left]{$v_1$} to[R,l=$R_1$,color=gold] (s);
+ \draw (-1,.5) node[left]{$v_2$} to[R,l=$R_2$,color=gold] (s);
+ \draw (-1,-1.4) node[left]{$v_3$} to[R,l=$R_3$,color=gold] (s);
+ \draw (op.+)--++(-.6,0) node[ground]{};
+ \draw (op.out)--++(1.3,0) coordinate(o) node[right]{$v_o$};
+ \draw (op.-)--++(0,2.3) coordinate(f) to[R,l=$R_f$,color=rose] (f-|o)--(o);
+ \node[font=\small,align=center] at (4,-2.6) {$\displaystyle v_o=-R_f\!\left(\frac{v_1}{R_1}+\frac{v_2}{R_2}+\frac{v_3}{R_3}\right)$\\the summing node is a virtual ground only while linear negative feedback holds};
+\end{circuitikz}
+\end{document}

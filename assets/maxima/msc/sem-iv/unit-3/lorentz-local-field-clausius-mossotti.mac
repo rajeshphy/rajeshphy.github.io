@@ -1,0 +1,56 @@
+/* Lorentz field, Clausius-Mossotti equation, and stability.
+   Run with: maxima -q -b lorentz-local-field-clausius-mossotti.mac */
+
+kill(all)$
+display2d:false$
+
+/* Direct angular integration of the cavity-wall field. */
+angular_integral : integrate(cos(theta)^2*sin(theta),theta,0,%pi)$
+Ecavity : ratsimp(P/(4*%pi*eps0)*2*%pi*angular_integral)$
+print("Angular integral =",angular_integral)$
+print("Cavity field =",Ecavity)$
+print("Check Ecavity - P/(3 eps0) =",
+      ratsimp(Ecavity-P/(3*eps0)))$
+
+/* Solve the Lorentz self-consistency relation. */
+x : N*alpha/(3*eps0)$
+chi_cm : ratsimp((N*alpha/eps0)/(1-x))$
+epsr_cm : ratsimp(1+chi_cm)$
+print("chi_CM =",factor(chi_cm))$
+print("epsilon_r =",factor(epsr_cm))$
+print("Clausius-Mossotti residual =",
+      ratsimp((epsr_cm-1)/(epsr_cm+2)-x))$
+
+/* Verify the dilute expansion through third order in a dummy variable xx. */
+chi_xx : 3*xx/(1-xx)$
+print("Taylor series of chi through x^3:",taylor(chi_xx,xx,0,3))$
+
+/* Free-energy stationarity and curvature. */
+f : P^2/(2*N*alpha)-P^2/(6*eps0)-E*P$
+stationarity : diff(f,P)$
+curvature : factor(diff(f,P,2))$
+print("df/dP =",stationarity)$
+print("d2f/dP2 =",curvature)$
+Pstat : ratsimp(E/(1/(N*alpha)-1/(3*eps0)))$
+print("Self-consistency residual at stationary P =",
+      ratsimp(Pstat-N*alpha*(E+Pstat/(3*eps0))))$
+
+/* Quartic regularization at zero field. */
+A : 1/(N*alpha)-1/(3*eps0)$
+Ps2 : -A/b$
+print("For A < 0 and b > 0, P_s^2 =",Ps2)$
+print("Quartic stationarity residual =",
+      ratsimp(subst(Ps2,P^2,A+b*P^2)))$
+
+/* Numerical example using polarizability volume a=alpha/(4*pi*eps0). */
+a_num : 2.00b-30$
+N_num : 2.50b28$
+x_num : 4*%pi*N_num*a_num/3$
+epsr_num : (1+2*x_num)/(1-x_num)$
+Nc_num : 3/(4*%pi*a_num)$
+printf(true,"x = N alpha/(3 eps0) = ~,8f~%",x_num)$
+printf(true,"epsilon_r = ~,8f~%",epsr_num)$
+printf(true,"critical number density = ~,6e 1/m^3~%",Nc_num)$
+printf(true,"N/Nc - x = ~,6e~%",N_num/Nc_num-x_num)$
+
+quit();

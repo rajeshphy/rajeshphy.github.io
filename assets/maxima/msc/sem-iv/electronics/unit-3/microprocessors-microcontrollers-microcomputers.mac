@@ -1,0 +1,43 @@
+/* Numerical checks for data width, address width and memory-map examples. */
+kill(all)$
+display2d:false$
+fpprintprec:8$
+
+check(label,condition) :=
+  if condition then printf(true,"PASS: ~a~%",label)
+  else error("Check failed: ",label)$
+
+hexbyte(high,low) := 16*high+low$
+binary8(b7,b6,b5,b4,b3,b2,b1,b0) :=
+  b7*2^7+b6*2^6+b5*2^5+b4*2^4+b3*2^3+b2*2^2+b1*2+b0$
+
+data_patterns : 2^8$
+address_locations : 2^16$
+highest_address : address_locations-1$
+io_ports : 2^8$
+
+printf(true,"8-bit data patterns: ~d~%",data_patterns)$
+printf(true,"16-bit byte addresses: ~d (64 KiB)~%",address_locations)$
+printf(true,"Highest 16-bit address in decimal: ~d~%",highest_address)$
+printf(true,"8-bit isolated-I/O port numbers: ~d~%",io_ports)$
+
+value_3ah : hexbyte(3,10)$
+value_00111010b : binary8(0,0,1,1,1,0,1,0)$
+check("3AH = 00111010B = 58 decimal",value_3ah=58 and value_00111010b=58)$
+
+range_start : 2*16^3$
+range_end : 2*16^3+7*16^2+15*16+15$
+range_size : range_end-range_start+1$
+next_address : range_end+1$
+printf(true,"2000H--27FFH: start=~d, end=~d, size=~d bytes~%",
+       range_start,range_end,range_size)$
+printf(true,"Next address after the block: ~d decimal (2800H)~%",next_address)$
+check("Inclusive address-range size is 0800H = 2048 bytes",range_size=8*16^2)$
+check("Next non-overlapping address is 2800H",next_address=2*16^3+8*16^2)$
+
+question_start : 10*16^3+4*16^2$
+question_end : 10*16^3+15*16^2+15*16+15$
+question_size : question_end-question_start+1$
+printf(true,"Preparation example A400H--AFFFH contains ~d bytes (= ~d KiB).~%",
+       question_size,question_size/1024)$
+check("A400H--AFFFH contains 0C00H = 3072 bytes",question_size=12*16^2)$
