@@ -1,7 +1,7 @@
 ---
 title: "Disciplined Investment"
 summary: "Chapter-wise finance and investment knowledge notes."
-date: 2026-06-30 09:00:00 +0530
+date: 2026-04-30 09:00:00 +0530
 categories:
   - doc-knowledge
 

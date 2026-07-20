@@ -1,7 +1,7 @@
 ---
 title: "Sports Knowledge Master Table of Contents"
 summary: "A Jharkhand and India oriented roadmap for sports vocabulary, news reading, and confident sports conversation."
-date: 2026-07-03 08:00:00 +0530
+date: 2026-04-03 08:00:00 +0530
 categories:
   - doc-knowledge
 
