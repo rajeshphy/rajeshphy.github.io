@@ -15,7 +15,7 @@ permalink: /publication-ethics-open-access/
 hidden: true
 ---
 
-[← Course roadmap]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: the scholarly publication lifecycle in physics]({{ '/manuscript-peer-review-publication/' | relative_url }})
+[← Series map]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: the scholarly publication lifecycle in physics]({{ '/manuscript-peer-review-publication/' | relative_url }})
 
 Publication ethics concerns the reliability of the scientific record and the allocation of credit and responsibility. Open access concerns the legal and economic conditions under which that record can be read and reused. Predatory or deceptive publishing concerns organizations that imitate scholarly journals while misrepresenting their editorial, review or commercial practices.
 

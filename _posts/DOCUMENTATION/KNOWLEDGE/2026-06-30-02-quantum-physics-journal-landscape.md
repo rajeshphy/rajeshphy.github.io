@@ -16,7 +16,7 @@ permalink: /quantum-physics-journal-landscape/
 hidden: true
 ---
 
-[← Course roadmap]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: quartiles and research metrics]({{ '/journal-quartiles-metrics/' | relative_url }})
+[← Series map]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: quartiles and research metrics]({{ '/journal-quartiles-metrics/' | relative_url }})
 
 The journal landscape in quantum and theoretical physics is not a single ladder. It is a network of partially overlapping communities, each with its own central questions, article forms, standards of evidence and citation culture. A short result with physics-wide consequences, a rigorous theorem, a long quantum-field-theory calculation and a cosmological parameter analysis may all be excellent research, yet they belong to different parts of that network.
 

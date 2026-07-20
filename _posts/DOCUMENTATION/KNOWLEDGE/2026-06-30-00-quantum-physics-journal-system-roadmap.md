@@ -1,7 +1,7 @@
 ---
 title: "Journal and Paper Publication System for Quantum Physics"
-summary: "An overview of journals, indexing, metrics, peer review, publication ethics, access models, and PhD supervision in quantum and theoretical physics."
-description: "An awareness-oriented reference to journals, quartiles, metrics, peer review, ethics, open access, and PhD supervision in quantum physics."
+summary: "An overview of journals, metrics, peer review, publication ethics, research institutions, international opportunities, conferences, collaboration, research funding, scientific-event organization, and PhD supervision in quantum and theoretical physics."
+description: "An awareness-oriented reference to journal publishing, research networks, funding, scientific-event organization and the wider research system in quantum and theoretical physics."
 date: 2026-06-30 12:00:00 +0530
 categories:
   - doc-knowledge
@@ -16,13 +16,13 @@ hidden: true
 
 Scientific journals form the principal certification and archival system for research literature. In quantum and theoretical physics, that system includes specialist and broad journals, editorial offices, peer reviewers, bibliographic databases, citation indicators, repositories such as arXiv, research identifiers, open-access arrangements, and institutional assessment rules.
 
-This series is an **awareness-oriented reference** for research groups. It describes the vocabulary, institutions and processes of journal publishing without treating publication as a collection of targets, scores or tactical instructions.
+This series is an **awareness-oriented reference** for research groups. It describes the vocabulary, institutions and processes of journal publishing without reducing publication to a collection of targets or scores. The later modules place publishing inside the wider research system: active institutions, international mobility, scientific meetings, collaborations, durable professional networks, the funding structures that support research in Indian colleges, and the institutional organization of seminars, workshops, schools and conferences.
 
 <div class="note-box" markdown="1">
 **Q1, Q2, Q3 and Q4 are quartiles, not calendar quarters.** A quartile is a journal's relative position within a specified subject category, database, metric and data year. A statement such as “the journal is Q1” is therefore incomplete without that context.
 </div>
 
-The time-sensitive facts and links in this series were checked on **30 June 2026**. Journal scopes, fees, editorial policies, indexing coverage and metric values change over time.
+The series uses a reference date of **30 June 2026**. Journal scopes, fees, editorial policies, indexing coverage, metric values, programme terms and calls change over time, so current official pages remain authoritative.
 
 ## Structure of the series
 
@@ -33,6 +33,12 @@ The time-sensitive facts and links in this series were checked on **30 June 2026
 | 3 | [The scholarly publication lifecycle in physics]({{ '/manuscript-peer-review-publication/' | relative_url }}) | Manuscripts, submission, editorial assessment, peer review, revision, production and post-publication changes |
 | 4 | [Publication ethics, open access and predatory journals]({{ '/publication-ethics-open-access/' | relative_url }}) | Authorship, misconduct, licences, fees, preprints, AI policies and deceptive publishing |
 | 5 | [PhD supervision and the publication system]({{ '/phd-supervision-publication-system/' | relative_url }}) | The roles of supervisors and scholars, research independence, assessment pressures and group responsibility |
+| 6 | [Global theoretical-physics research landscape]({{ '/global-theoretical-physics-research-landscape/' | relative_url }}) | Research communities, active centres, major subfields and the public signals by which current activity can be identified |
+| 7 | [Research opportunities abroad from India]({{ '/india-international-theoretical-physics-opportunities/' | relative_url }}) | Internships, visits, PhD and postdoctoral routes, fellowships, vacancy systems, eligibility and application records |
+| 8 | [Conferences, schools and research programmes]({{ '/theoretical-physics-conferences-schools-programmes/' | relative_url }}) | Named meeting series, event formats, applications, abstracts, funding, travel, presentations and proceedings |
+| 9 | [Collaboration and research networks]({{ '/theoretical-physics-collaboration-research-network/' | relative_url }}) | How collaborations begin and operate, technical infrastructure, communication, visits, credit and long-term network continuity |
+| 10 | [Funding theoretical-physics research in Indian colleges]({{ '/funding-theoretical-physics-indian-colleges/' | relative_url }}) | PI-led and institutional grants, mobility and event funding, eligibility, budgets, administration, collaboration and capacity in remote colleges |
+| 11 | [Organizing seminars, workshops, schools and conferences]({{ '/organizing-theoretical-physics-events-indian-colleges/' | relative_url }}) | Event selection, scientific committees, institutional approvals, funding, budgets, participant selection, logistics, conduct, documentation and closure |
 
 ## The main layers of the journal system
 

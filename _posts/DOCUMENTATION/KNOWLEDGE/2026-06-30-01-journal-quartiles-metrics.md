@@ -15,7 +15,7 @@ permalink: /journal-quartiles-metrics/
 hidden: true
 ---
 
-[← Course roadmap: Journal and Paper Publication System for Quantum Physics]({{ '/quantum-physics-journal-system/' | relative_url }})
+[← Series map: Journal and Paper Publication System for Quantum Physics]({{ '/quantum-physics-journal-system/' | relative_url }})
 
 Journal metrics summarize patterns in publications and citations. They are useful for describing journals, fields and publication sets, but they do not directly measure whether an equation is correct, whether a result is original, or how much an individual author contributed. A clear understanding therefore begins with the object being measured, the database supplying the records, the formula, the time window and the comparison group.
 
@@ -400,4 +400,4 @@ A specialist paper can represent a major intellectual contribution while accumul
 - [Hicks et al.: Leiden Manifesto for Research Metrics](https://www.nature.com/articles/520429a)
 - [DOAJ: transparency and best-practice principles](https://doaj.org/apply/transparency/)
 
-[← Course roadmap]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Next: Module 2 — Quantum Physics Journal Landscape]({{ '/quantum-physics-journal-landscape/' | relative_url }})
+[← Series map]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Next: Module 2 — Quantum Physics Journal Landscape]({{ '/quantum-physics-journal-landscape/' | relative_url }})

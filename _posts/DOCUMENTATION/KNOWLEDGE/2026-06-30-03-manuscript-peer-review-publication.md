@@ -16,7 +16,7 @@ permalink: /manuscript-peer-review-publication/
 hidden: true
 ---
 
-[← Course roadmap]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: quantum physics journal landscape]({{ '/quantum-physics-journal-landscape/' | relative_url }}) · [Next: publication ethics and open access →]({{ '/publication-ethics-open-access/' | relative_url }})
+[← Series map]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: quantum physics journal landscape]({{ '/quantum-physics-journal-landscape/' | relative_url }}) · [Next: publication ethics and open access →]({{ '/publication-ethics-open-access/' | relative_url }})
 
 Scholarly publication is the system by which a research claim moves from an author's manuscript into a maintained part of the scientific record. The visible article is only one object in that system. Around it are source files, metadata, declarations, editorial correspondence, referee reports, revised versions, publishing agreements, proofs, persistent identifiers, repository copies, indexing records, and any later correction notice.
 

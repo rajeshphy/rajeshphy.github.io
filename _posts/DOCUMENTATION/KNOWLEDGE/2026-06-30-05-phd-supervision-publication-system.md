@@ -15,7 +15,7 @@ permalink: /phd-supervision-publication-system/
 hidden: true
 ---
 
-[← Course roadmap]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: ethics and open access]({{ '/publication-ethics-open-access/' | relative_url }})
+[← Series map]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: ethics and open access]({{ '/publication-ethics-open-access/' | relative_url }})
 
 Doctoral supervision connects two systems: the educational process through which a scholar becomes an independent researcher, and the publication process through which research enters the scientific record. The systems overlap, but they are not identical. A published paper is evidence of research activity; it is not a complete measure of doctoral learning, independence or scientific judgment.
 
@@ -247,4 +247,6 @@ The central educational distinction is between **producing papers** and **formin
 - [Think. Check. Submit.](https://thinkchecksubmit.org/journals/)
 - [UGC suggestive parameters for peer-reviewed journals](https://www.ugc.gov.in/pdfnews/9678711_PUBLIC-NOTICE-CARE.pdf)
 
-**Return to:** [Journal and Paper Publication System for Quantum Physics]({{ '/quantum-physics-journal-system/' | relative_url }})
+**Next:** [Module 6 — Global Theoretical Physics Research Landscape]({{ '/global-theoretical-physics-research-landscape/' | relative_url }})
+
+**Series map:** [Journal and Paper Publication System for Quantum Physics]({{ '/quantum-physics-journal-system/' | relative_url }})
