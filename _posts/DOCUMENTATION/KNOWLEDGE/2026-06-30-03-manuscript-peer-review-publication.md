@@ -1,749 +1,380 @@
 ---
-title: "From Manuscript to Publication: The Physics Paper Workflow"
-summary: "A supervisor-ready workflow for preparing, submitting, revising, publishing, versioning, and correcting a theoretical-physics paper."
-description: "A complete theoretical-physics workflow for manuscript preparation, submission, peer review, revision, publication, and correction."
+title: "The Scholarly Publication Lifecycle in Physics"
+summary: "A detailed explanation of manuscripts, journal submission, editorial triage, peer review, production, scholarly versions, and post-publication changes in physics."
+description: "A neutral reference to the scholarly publication lifecycle in physics, from manuscripts and peer review to DOI registration, versions, and corrections."
 date: 2026-06-30 11:30:00 +0530
 categories:
   - doc-knowledge
 tags:
   - theoretical-physics
-  - manuscript-writing
+  - scholarly-publishing
   - peer-review
   - journal-submission
   - arxiv
-  - phd-supervision
+  - research-literacy
 permalink: /manuscript-peer-review-publication/
 hidden: true
 ---
 
-[← Course roadmap]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: journal landscape and selection]({{ '/quantum-physics-journal-landscape/' | relative_url }}) · [Next: publication ethics and open access →]({{ '/publication-ethics-open-access/' | relative_url }})
+[← Course roadmap]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: quantum physics journal landscape]({{ '/quantum-physics-journal-landscape/' | relative_url }}) · [Next: publication ethics and open access →]({{ '/publication-ethics-open-access/' | relative_url }})
 
-Publishing is not a single act of uploading a PDF. It is a controlled chain of scientific, editorial, ethical, and production decisions. For a supervisor, the aim is not merely to get one paper accepted; it is to teach a scholar a repeatable system that produces work which is correct, traceable, readable, and defensible.
+Scholarly publication is the system by which a research claim moves from an author's manuscript into a maintained part of the scientific record. The visible article is only one object in that system. Around it are source files, metadata, declarations, editorial correspondence, referee reports, revised versions, publishing agreements, proofs, persistent identifiers, repository copies, indexing records, and any later correction notice.
 
-This chapter follows one theoretical-physics paper from the moment its central result stabilizes to the point at which its version of record may need a correction. Journal-specific instructions always override generic advice. The [APS Physical Review editorial policies](https://journals.aps.org/authors/editorial-policies), [APS journal author guidance](https://journals.aps.org/prl/authors), and [Springer Nature publication workflow](https://www.springernature.com/gp/authors/publish-an-article) are useful authoritative examples of the stages described here.
+In physics, this lifecycle often includes both a journal and a preprint repository such as arXiv. The repository establishes a public, dated version and enables rapid circulation; the journal organizes editorial selection, peer review, production, and stewardship of the version of record. These functions overlap in dissemination but are not identical.
 
-## 1. See the Whole Workflow Before Starting
+A simplified lifecycle is:
 
-A disciplined paper normally passes through these gates:
+**research result → manuscript → journal submission → technical checks → editorial triage → external peer review when selected → editorial decision → revision or closure → acceptance → production and proof → version of record and DOI → indexing and preservation → post-publication discussion or correction when necessary**.
 
-1. **Result gate:** the calculation is stable and independently checked.
-2. **Claim gate:** the authors can state exactly what is new, correct, and useful.
-3. **Literature gate:** the nearest prior work has been found and compared honestly.
-4. **Target gate:** a journal and article type have been selected before final drafting.
-5. **Internal-review gate:** all authors have read and approved the complete manuscript.
-6. **Submission gate:** files, metadata, declarations, and cover letter are consistent.
-7. **Editorial gate:** the journal performs technical checks and an editor decides whether to seek external reviews.
-8. **Peer-review gate:** referees advise; the editor decides.
-9. **Revision gate:** every comment is answered and every change is traceable.
-10. **Acceptance gate:** authors verify the final scientific and administrative record.
-11. **Production gate:** proofs, license, open-access choice, and publication metadata are completed.
-12. **Stewardship gate:** preprints, repositories, ORCID records, and any later corrections remain synchronized.
+The exact names of stages vary among publishers. The general sequence is described in the [APS Physical Review editorial policies](https://journals.aps.org/authors/editorial-policies), the [Physical Review Letters information for authors](https://journals.aps.org/prl/authors), and the [Springer Nature article-publishing overview](https://www.springernature.com/gp/authors/publish-an-article).
 
-Do not collapse these gates into “the student has written something, so let us submit it.” A rushed submission often spends more time in avoidable revisions than a well-managed internal review would have taken.
+## 1. The Manuscript as a Scholarly Object
 
-## 2. Decide Whether the Paper Is Scientifically Ready
+A manuscript is the author's proposed account of a research contribution. It is not yet the journal's version of record, even if it is complete, publicly available as a preprint, or formatted to resemble a published article. Its status changes through submission, revision, acceptance, and production.
 
-### The one-sentence test
+For theoretical physics, a manuscript may contain several kinds of claim:
 
-Before formatting, ask the scholar to complete this sentence without vague words:
+- a theorem or exact analytic result;
+- a controlled approximation within a stated regime;
+- a numerical result with convergence and precision conditions;
+- a new model, Hamiltonian, action, formalism, or solution method;
+- a prediction or phenomenological constraint;
+- a reinterpretation or unification of established results;
+- a review or synthesis of a research area; or
+- a criticism, correction, or extension of an earlier paper.
 
-> We show that **[precise result]** for **[defined system or model]** under **[stated assumptions]**, which changes or extends **[specific earlier understanding]** because **[quantified or conceptual reason]**.
+The scientific record distinguishes these claim types because they carry different evidential burdens. An exact theorem depends on definitions, hypotheses, and proof. An asymptotic result depends on its limiting regime and neglected orders. A computational conclusion depends on algorithms, parameter choices, numerical stability, and reproducibility. A physical interpretation depends on whether the mathematical result supports that interpretation and whether alternative explanations remain possible.
 
-If the sentence cannot be written, the paper probably has not yet identified its claim. “We study,” “we explore,” and “some interesting results are obtained” describe activity, not contribution.
+In quantum and mathematical physics, readers commonly look for internal checks such as dimensional consistency, normalization, Hermiticity, unitarity, positivity, boundary conditions, conservation laws, symmetries, known limits, convergence domains, regulator dependence, and agreement with established special cases. These features are part of the manuscript's scientific content rather than merely editorial formatting.
 
-### Five readiness questions
+The manuscript is also related to, but distinct from, the underlying research record. Derivation notebooks, symbolic-algebra files, numerical code, parameter files, plot data, and failed or intermediate calculations may not all appear in the article. They nevertheless form the evidential history from which the article was produced.
 
-A paper is ready for drafting only when the group can answer yes to these questions:
+## 2. Common Manuscript and Article Types
 
-1. **Correctness:** Have the central derivations or computations been checked by a second route or a second person?
-2. **Novelty:** Can we name the three to ten closest papers and state the exact difference from each?
-3. **Completeness:** Are all steps needed to support the advertised conclusion present, including inconvenient limiting cases?
-4. **Significance:** Is there a recognizable community for whom the result resolves, predicts, unifies, simplifies, or rules out something?
-5. **Reproducibility:** Could a competent researcher reconstruct the result from the definitions, equations, parameters, code, and supplementary material supplied?
+Journal names for article types are not standardized. “Letter,” “Communication,” “Full Paper,” and “Article” can carry different meanings in different journal families. The journal's own definition determines the applicable length, scope, and editorial threshold.
 
-### A theoretical-physics validation audit
+### Full research article
 
-For a quantum-theory manuscript, the supervisor should explicitly record which of the following checks were performed:
+A full article presents an original contribution with enough context, derivation, evidence, comparison, and discussion to support its principal claims. In theoretical physics, this format can accommodate a developed formalism, several linked results, substantial appendices, or detailed numerical validation.
 
-- Dimensions and units are consistent, including in natural-unit conventions.
-- Symbols are defined once and used consistently; indices, signs, phases, and complex conjugations have been audited.
-- Operators have the claimed Hermiticity, domains, boundary conditions, and commutation relations.
-- States, probability distributions, density matrices, propagators, or spectral functions have the required normalization and positivity properties.
-- Time evolution or scattering obeys unitarity where the model requires it.
-- Gauge, Lorentz, rotational, translational, parity, time-reversal, or other stated symmetries really hold.
-- Conservation laws follow from the equations used, and any anomaly or explicit breaking is identified.
-- Known limits are recovered: weak/strong coupling, classical limit, continuum limit, zero/large temperature, short/long time, large size, or a standard solvable parameter choice.
-- Singular points, branch choices, convergence regions, regularization, renormalization, and analytic continuation are stated rather than hidden in algebra.
-- Approximation orders and neglected terms are visible, with a domain in which the approximation is controlled.
-- Numerical results have tolerance, precision, convergence, finite-size, and parameter-range checks.
-- Computer algebra has been verified against hand derivations or an independent implementation for central steps.
-- Plots can be regenerated from saved data or code; axes, units, parameter values, and uncertainty or numerical error are stated.
-- The manuscript distinguishes a theorem, an exact result, an approximation, a conjecture, a numerical observation, and a physical interpretation.
-- Results are compared quantitatively—not merely rhetorically—with the closest literature.
+### Letter or rapid communication
 
-The scholar should maintain a short **verification note** outside the paper listing each check, the file or notebook used, the person who checked it, and the date. This becomes invaluable during review.
+A Letter is usually short and selective. Its identity comes not only from page or word limits but also from an editorial expectation of urgency, unusually broad interest, or a particularly important advance. A technically correct specialist result may be better suited to a full article even when it can be compressed to Letter length.
 
-## 3. Select the Target Before Final Writing
+### Brief report, note, or technical communication
 
-The target journal affects length, emphasis, vocabulary, level of derivational detail, figure count, data policy, and even whether the intended work is an Article, Letter, Rapid Communication, Brief Report, or Review. Choose the journal before polishing the final draft, not after the manuscript has acquired the shape of a different journal.
+These formats generally contain a narrower result than a full article: a concise calculation, a specific methodological advance, a clarification, a benchmark, or a focused extension. Their criteria and availability depend strongly on the journal.
 
-### Prepare a one-page target brief
+### Review, colloquium, or perspective
 
-For each serious candidate, record:
+A review synthesizes a body of literature rather than reporting only one new calculation. Some reviews are comprehensive and technical; others provide a selective conceptual viewpoint. Many high-profile review journals publish mainly by invitation or proposal and assess whether the field is mature enough for synthesis.
 
-- journal name, publisher, and exact scope statement;
-- intended article type and its length or figure limits;
-- two to five genuinely similar papers published there recently;
-- the journal audience and why this result matters to that audience;
-- editorial selectivity: specialist soundness, broad significance, rapid short report, or review/synthesis;
-- peer-review model and preprint policy;
-- data/code and supplementary-material requirements;
-- LaTeX template, reference style, and required statements;
-- subscription, hybrid, or fully open-access route; expected charges and waiver eligibility;
-- a strong backup journal and the changes needed for transfer.
+### Methods, software, data, or resource article
 
-Use journal metrics only as context. A high metric cannot repair poor scope fit. Editors first ask whether the paper belongs in their journal and meets its editorial standard. The [Physical Review Letters author page](https://journals.aps.org/prl/authors), for example, asks authors to understand its scope, editorial criteria, and article type before submission.
+Some journals recognize reusable code, computational methods, curated data, or research infrastructure as the central output. The evaluative emphasis then includes documentation, validation, availability, interoperability, and usefulness beyond a single paper.
 
-### Build a rational journal ladder
+### Comment and reply
 
-Choose three levels in advance:
+A Comment addresses a specific published article, often by identifying an error, limitation, alternative interpretation, or consequential extension. The original authors may be invited to submit a Reply. Journals normally apply special criteria because this format becomes part of an explicit scholarly exchange linked to the original record.
 
-1. **Aspirational but defensible:** the paper genuinely meets the stated novelty and importance threshold.
-2. **Strong scope fit:** the regular readership is precisely the intended research community.
-3. **Reliable backup:** scientifically reputable, appropriately indexed, and suitable for the full result without distortion.
+### Erratum or correction notice
 
-This ladder prevents emotional decisions after rejection. Never submit the same manuscript to two journals simultaneously. A preprint is not a second journal submission, but it should be disclosed according to the target journal's policy.
+An erratum, corrigendum, or correction is not an ordinary new research article. It is a linked publication that changes or clarifies part of an existing article while preserving the publication history. Publisher terminology differs, as discussed below.
 
-## 4. Design the Manuscript Around Its Scientific Argument
+Article type is not a universal hierarchy of quality. It identifies the function and expected form of the contribution inside a particular journal.
 
-A theoretical-physics paper should read as an argument, not as a chronological diary of calculations.
+## 3. The Anatomy of a Physics Manuscript
 
-### Title
+Physics manuscripts do not all follow one rigid structure, but their components perform recognizable scholarly functions.
 
-Make the title specific enough to be discoverable and restrained enough to be credible. Include the physical system or concept and the principal result when possible. Remove unsupported words such as “novel,” “revolutionary,” “complete,” or “exact” unless the manuscript proves them.
+### Title and author information
+
+The title identifies the subject and principal contribution for readers, search engines, databases, and citation systems. The byline connects named authors to affiliations and, increasingly, authenticated ORCID iDs. A corresponding author is designated for communication with the journal and usually remains the principal publication contact.
 
 ### Abstract
 
-A useful abstract answers five questions in roughly this order:
+The abstract is both a summary and a metadata object. It appears independently in databases, alerts, search results, and repository records. It normally states the problem, approach, central result, relevant regime or assumptions, and significance without reproducing the full derivation.
 
-1. What problem or gap is addressed?
-2. What model, framework, or method is used?
-3. What is the principal result?
-4. Under what important assumptions or regime does it hold?
-5. Why does it matter?
+### Introduction and literature position
 
-Include a decisive equation-scale statement or quantitative result when it can be expressed clearly in prose. Avoid citations, undefined abbreviations, derivational detail, and claims broader than the paper.
+The introduction places the manuscript in a research conversation. It identifies the problem, the nearest prior work, the unresolved gap, the contribution of the present paper, and the audience for whom that contribution matters. This section supplies much of the evidence used during editorial triage to judge novelty and journal fit.
 
-### Introduction
+### Model, framework, and notation
 
-The introduction should move from field to gap to contribution:
-
-- establish the problem and its physical importance;
-- synthesize the nearest literature instead of presenting a long historical catalogue;
-- identify the unresolved limitation or contradiction;
-- state what this paper does and does not claim;
-- summarize the method and principal findings;
-- explain the paper's organization only if the structure is not obvious.
-
-The novelty paragraph should be testable. A referee must be able to compare it with cited work.
-
-### Model, assumptions, and notation
-
-Define the Hilbert space, Hamiltonian or action, degrees of freedom, geometry, initial/boundary conditions, units, conventions, parameter domain, and approximation hierarchy. Put assumptions near the equations that depend on them. A result with hidden assumptions appears more general than it is and invites a justified referee objection.
+For a theoretical paper, this part defines the physical system, degrees of freedom, Hamiltonian or action, geometry, units, conventions, initial or boundary conditions, parameter ranges, and approximation hierarchy. Mathematical conclusions acquire meaning only relative to these definitions and assumptions.
 
 ### Methods and derivation
 
-Show the steps needed to audit the result. Standard algebra may be compressed and moved to an appendix; a nonstandard identity, delicate approximation, regulator, numerical procedure, or choice of branch must be explained. State which results are analytic, symbolic, numerical, or fitted.
-
-For a long derivation, give the reader signposts:
-
-1. starting equation and assumptions;
-2. transformation or approximation;
-3. intermediate invariant or checkpoint;
-4. final expression;
-5. limiting-case verification.
+The methods may be analytic, numerical, symbolic, statistical, or mixed. Standard operations can be compressed, while nonstandard transformations, delicate approximations, regularization choices, branch selections, numerical algorithms, and convergence conditions generally require fuller exposition. Appendices often carry technical details needed for verification but not for the main conceptual sequence.
 
 ### Results
 
-Organize results by scientific question, not by the sequence in which the researcher discovered them. Every figure should answer a stated question. Captions should identify the system, parameters, line styles, units, and takeaway well enough that a reader can understand the figure without searching the entire paper.
+The results section presents the equations, theorems, spectra, phase diagrams, numerical outputs, figures, or parameter constraints that constitute the paper's contribution. A figure is part of the evidence: its axes, units, parameter values, normalization, legend, and caption determine how it can be interpreted.
 
-### Discussion
+### Discussion and limitations
 
-Separate result from interpretation. Compare with earlier theory, simulations, or experiment; identify why agreement or disagreement occurs; state the controlled domain; and discuss limitations. A limitation stated by the authors is evidence of scientific judgment, not weakness.
+Discussion connects formal results with physical meaning and compares them with earlier theory, computation, or experiment. It also locates the domain in which the conclusion holds. A limitation may arise from a model assumption, truncation, numerical range, missing interaction, unresolved uniqueness question, or absence of experimental access.
 
 ### Conclusion
 
-Answer the problem posed in the introduction. Do not introduce uncited claims or new derivations. Distinguish demonstrated consequences from future possibilities.
+The conclusion restates what has been established and its implications. It differs from speculation about work that has not yet been performed.
 
-### Appendices and supplementary material
+### Acknowledgements, contributions, funding, conflicts, and availability
 
-Use appendices for derivations necessary to validate the paper but disruptive to its main argument. Use supplementary material only when the journal permits it and when the main paper remains intelligible without it. Important evidence should not be hidden merely to shorten the article.
+Modern articles often contain structured statements about funding, author contributions, conflicts of interest, data, code, and materials. The [CRediT taxonomy](https://credit.niso.org/) provides fourteen standardized contribution roles, including conceptualization, formal analysis, methodology, software, supervision, validation, visualization, and writing. These statements make responsibility and credit more visible but do not by themselves define who qualifies for authorship.
 
-### References
+### References, appendices, and supplementary material
 
-Verify every bibliographic record against the publisher page, arXiv record, or DOI. Cite primary work for technical claims. Include the literature most capable of challenging the novelty claim, not only papers from the authors' network. Ensure that cited equations and conclusions actually occur in the cited sources.
+References link the claim to prior scholarship. Appendices remain part of the article and are usually typeset with it. Supplementary material is a separately associated object and can contain extended calculations, multimedia, data, or additional figures. A journal may review and host supplementary files under policies that differ from those applied to the main article.
 
-## 5. Treat LaTeX and Source Files as Research Infrastructure
+## 4. PDF, LaTeX Source, Figures, Data, and Code
 
-APS provides [REVTeX author resources](https://journals.aps.org/revtex), while arXiv states that TeX/LaTeX is its preferred long-term submission format in its [submission guidelines](https://info.arxiv.org/help/submit/index.html). Whatever template is used, the source should be portable and reproducible.
+The manuscript PDF is the human-readable representation evaluated by editors and referees. The source package is the set of files from which that representation is produced. In physics, LaTeX is common because it handles equations, cross-references, bibliographies, and complex notation. APS maintains [REVTeX](https://journals.aps.org/revtex) for manuscripts submitted to Physical Review and related journals.
 
-### A clean source package
+A source package can include a main TeX file, section files, bibliography databases or a generated bibliography, figures, custom macros, style files, and supplementary source. At submission, some journals initially require only a PDF; others request source immediately. After acceptance, production normally requires editable source so the publisher can convert the article into its house style and structured formats such as XML and HTML.
 
-Keep one authoritative project containing:
+Figures have both scientific and production properties. Vector formats are well suited to line art and diagrams; raster formats are used for images and density plots. Resolution, fonts, colors, and accessibility affect their published form. Reused figures may require permission even when the underlying scientific result is cited.
 
-```text
-paper/
-├── main.tex
-├── sections/
-├── figures/
-├── data/
-├── code/
-├── references.bib
-├── supplement.tex
-├── response/
-└── README.md
-```
+Data and code policies vary. A theoretical paper may have no experimental dataset but may still depend on numerical code, symbolic scripts, simulation configurations, or generated data. Availability statements describe whether these materials are public, available on request, restricted, or not applicable. Repository identifiers and software releases can become separate citable research outputs.
 
-The repository should record how to compile the paper and regenerate nontrivial figures. Before submission:
+arXiv also prefers TeX/LaTeX source for TeX-generated papers and explains accepted formats, figure handling, file naming, compilation, and metadata in its [submission guidelines](https://info.arxiv.org/help/submit/index.html).
 
-- build from a fresh copy, not from an environment containing invisible local files;
-- remove absolute paths, temporary files, unused figures, private notes, and track-change comments;
-- include required custom style or bibliography files and confirm that licenses permit distribution;
-- use vector figures for line art when accepted and adequate resolution for raster images;
-- embed fonts and inspect equations at high zoom;
-- resolve every undefined reference, citation, duplicate label, and important compiler warning;
-- check that figure filenames and LaTeX references match in capitalization;
-- confirm that the source and uploaded PDF produce the same scientific content;
-- archive the exact submitted source, PDF, supplementary material, code commit, and date.
+## 5. What a Journal Submission Contains
 
-Do not “improve” a central equation in the PDF alone. A scientific change must enter the authoritative source and all dependent calculations.
+Journal submission creates a database record around the manuscript. Uploading a PDF is only one part of that record.
 
-## 6. Fix Authorship and Identifiers Before Submission
+### Bibliographic metadata
 
-Authorship is a scientific responsibility, not a reward conferred at upload time. Before the full draft circulates, agree on:
+The submission portal normally records the title, abstract, keywords, article type, author order, affiliations, corresponding-author details, ORCID iDs, funding information, and subject classifications. Editors use this information to route the paper; publishers later use it for production and DOI metadata. A discrepancy between portal metadata and the manuscript can propagate into indexes even when the PDF is correct.
 
-- who qualifies as an author under the target journal's policy;
-- author order and corresponding author;
-- who will approve and submit each revision;
-- who is accountable for each derivation, dataset, code component, and statement;
-- what contributions belong in acknowledgements rather than authorship.
+### Cover letter
 
-Use the [CRediT taxonomy](https://credit.niso.org/) to describe roles such as conceptualization, formal analysis, methodology, software, validation, supervision, visualization, and writing. CRediT has fourteen standardized roles, but it supplements rather than defines authorship.
+The cover letter is private editorial correspondence. It identifies the manuscript, article type, principal contribution, and claimed fit with the journal. It can also disclose related manuscripts, prior consideration, a preprint, unusual history, or information that does not belong in the public article. Springer Nature includes the cover letter as a distinct stage in its [publication overview](https://www.springernature.com/gp/authors/publish-an-article).
 
-Each author should connect an authenticated [ORCID iD](https://orcid.org/) in the submission system where supported. ORCID distinguishes researchers with similar names, and publishers can include authenticated identifiers in publication metadata. [Crossref's ORCID auto-update guidance](https://www.crossref.org/community/orcid) explains how an article can be added to an author's ORCID record after DOI registration with the researcher's permission.
+### Declarations
 
-At the internal approval meeting, every author should explicitly confirm:
+Submission systems commonly require statements that the work is original, is not simultaneously under consideration by another journal, has been approved by all authors, and complies with authorship, conflict, funding, research-integrity, data, and permissions policies. Related papers and public e-prints may also need to be identified. APS describes the corresponding author's responsibilities and disclosure of related material in its [editorial policies](https://journals.aps.org/authors/editorial-policies).
 
-1. the final manuscript and author order;
-2. the accuracy of their affiliation and ORCID;
-3. their contribution statement;
-4. the conflicts, funding, and related-work declarations;
-5. consent to submission to the named journal.
+### Reviewer information
 
-Keep a dated record of this approval.
+Some journals invite suggested reviewers or justified exclusions. Suggestions are advisory. The editor remains responsible for selecting qualified reviewers and evaluating conflicts of interest.
 
-## 7. Write a Cover Letter That Helps the Editor Decide
+### Files beyond the main paper
 
-A cover letter is not a second abstract and not an advertisement full of superlatives. Its purpose is to tell the editor, in one page, why this manuscript belongs in this journal and whether anything requires disclosure. Springer Nature likewise advises authors to explain the work and its relevance in a one-page letter in its [article publication steps](https://www.springernature.com/gp/authors/publish-an-article).
+The portal may contain supplementary files, source archives, separate figures, graphical abstracts, highlights, data statements, author-contribution statements, permissions, and reporting forms. These objects may be visible to referees, visible only to editors, or intended solely for production.
 
-### Cover-letter template
+The initial submission is therefore both a scientific document and a set of representations about authorship, originality, relationships to prior work, and compliance with policy.
 
-```text
-Dear [Editor or Editors],
+## 6. Administrative Checks and Editorial Triage
 
-Please consider our manuscript, “[exact title],” as a [article type]
-for [journal].
+Two distinct forms of initial screening often occur.
 
-We establish [one-sentence principal result] for [system/regime]. The
-main advance over the closest work, [briefly identify it], is [precise
-difference]. This matters to readers of [journal] because [scope- and
-audience-specific reason].
+### Technical or administrative screening
 
-The central result has been checked by [independent analytic/numerical/
-limiting-case checks, stated briefly]. [Data/code/supplement statement,
-if useful.]
+Editorial staff or automated systems may test whether files open, required fields are complete, author information is consistent, figures meet basic specifications, and declarations or permissions are present. A similarity report can identify text overlap for editorial interpretation; it is not by itself a verdict of plagiarism. Springer Nature describes an initial quality check involving authorship, competing interests, ethics, and plagiarism in its [post-submission process](https://support.springernature.com/en/support/solutions/articles/6000251301-editorial-process-after-submission).
 
-The manuscript is original, is not under consideration by another
-journal, and has been approved by all authors. [State preprint, related
-manuscripts, conflicts of interest, prior contact, or transfer history
-when relevant.] We have complied with the journal's authorship,
-research-integrity, and data policies.
+A manuscript returned for technical correction has not necessarily undergone a scientific decision. Portal terms such as “submission incomplete,” “technical check,” and “returned to author” usually refer to this administrative layer.
 
-[Optional: suitable reviewers and any justified exclusions are entered
-in the submission system.]
+### Editorial triage or desk review
 
-Sincerely,
-[Corresponding author, affiliation, ORCID, and contact details]
-```
+An editor assesses whether the manuscript falls within scope and appears capable of meeting the journal's criteria for validity, novelty, importance, completeness, and presentation. A broad selective journal may ask whether the contribution changes understanding beyond a narrow specialty. A specialist journal may emphasize technical significance for its defined community.
 
-Do not claim “first” unless the literature search supports it. Do not ask for a particular editor or referee because they are friendly. Reviewer suggestions should be independent experts with relevant technical competence, not recent coauthors, close collaborators, supervisors, students, institutional colleagues, or people with other conflicts.
+The editor may reject a manuscript without external review. This is commonly called desk rejection, editorial rejection, or rejection without review. It can reflect poor scope fit, insufficient priority for that venue, an article-type mismatch, an unclear contribution, inadequate support, serious presentation problems, or a policy concern. It does not always imply that the result is incorrect.
 
-## 8. Assemble the Submission Package and Declarations
+APS states that its editors may end consideration when a submitted, resubmitted, or transferred manuscript is unlikely to advance under the journal's criteria. It also emphasizes that editors, not referees, are responsible for publication decisions.
 
-The journal's current author instructions are the controlling checklist. A typical package contains:
+## 7. External Peer Review
 
-- manuscript PDF;
-- complete LaTeX/source archive if requested;
-- separate high-quality figure files if requested;
-- supplementary material and its source;
-- cover letter;
-- title, abstract, keywords, author names, affiliations, email, and ORCID entered as metadata;
-- funding agencies and grant numbers in the required registry format;
-- author-contribution statement;
-- competing-interest declaration;
-- data, code, and materials availability statements;
-- related manuscripts, preprints, conference versions, or prior consideration disclosed;
-- suggested or opposed reviewers with evidence-based reasons where the system allows it;
-- permissions for any reused figure, table, or substantial copyrighted material;
-- graphical abstract, highlights, plain-language summary, or classification codes if required.
+Peer review is the evaluation of a manuscript by researchers with relevant expertise. Referees examine the validity, novelty, significance, completeness, literature context, and clarity of the work and submit reports to the editor. They advise; they do not independently publish or reject the paper.
 
-### Read each declaration literally
+### Selection and conflicts
 
-The corresponding author may be asked to attest that:
+Editors select referees using subject expertise, publication history, availability, and conflict-of-interest information. A referee with a close collaboration, direct competition, personal relationship, or other material conflict may be unsuitable. Review materials are generally confidential unless the journal operates an open or transparent model.
 
-- the work is original and not simultaneously submitted elsewhere;
-- all authors qualify, approve the submitted version, and accept accountability;
-- related work and text overlap have been disclosed;
-- conflicts of interest and funding are complete;
-- data, code, images, and third-party material were used lawfully;
-- required research or institutional approvals exist;
-- use of generative-AI tools has been disclosed or limited according to journal policy;
-- the authors will comply with the journal's license, data, and ethics policies.
+### Single-anonymous review
 
-These are not routine boxes to delegate blindly to a student. The corresponding author makes representations on behalf of the group. APS explicitly requires disclosure of related manuscripts and e-prints and places responsibilities on the corresponding author in its [editorial policies](https://journals.aps.org/authors/editorial-policies).
+In single-anonymous review, reviewers know the authors' identities but authors do not know the reviewers' identities. This remains common in physics and is the general model used by APS journals.
 
-### Perform a metadata-to-PDF audit
+### Double-anonymous review
 
-Compare the portal against the manuscript character by character:
+In double-anonymous review, identities are concealed in both directions during evaluation. Authors usually prepare an anonymized manuscript. Complete anonymity can be difficult in a small specialty or when a closely related preprint is public.
 
-- title and subtitle;
-- author spelling and order;
-- affiliations and present addresses;
-- corresponding-author email;
-- abstract and keywords;
-- funding numbers;
-- preprint identifier;
-- data/code links;
-- supplementary-file names.
+### Open and transparent review
 
-Metadata errors propagate into indexing services even when the PDF is correct.
+“Open review” can mean that reviewer identities are disclosed, that reports are public, or both. In transparent review, reports, author responses, and decision letters may accompany the published article even when reviewer names remain confidential. [IOP Publishing's review-model guide](https://publishingsupport.iopscience.iop.org/questions/peer-review-models-on-iop-journals/) distinguishes single-anonymous, double-anonymous, and transparent arrangements.
 
-## 9. Understand Technical Checks and Desk Review
+### The report and the editorial assessment
 
-After upload, two different screens may occur.
+A report commonly contains a summary of the work, an assessment of strengths and weaknesses, major scientific concerns, requests for clarification or additional evidence, minor corrections, and a confidential recommendation. Reports can disagree because referees bring different expertise, standards, and interpretations. The editor evaluates the manuscript, reports, author correspondence, journal criteria, and sometimes additional advice. The final decision is not necessarily a majority vote.
 
-### Technical or administrative check
+Peer review reduces some errors and improves many papers, but acceptance does not certify that every equation is permanently correct. The published authors remain responsible for the work, and the literature remains open to later criticism and correction.
 
-Editorial staff may check file readability, required statements, author information, length, permissions, similarity reports, figure quality, and policy compliance. Springer Nature describes an initial quality check covering matters such as authorship, competing interests, ethics, and plagiarism in its [post-submission editorial process](https://support.springernature.com/en/support/solutions/articles/6000251301-editorial-process-after-submission).
+## 8. Editorial Decision Categories
 
-A technical return is not necessarily a scientific rejection. Correct the requested items promptly and verify that no content changed accidentally.
+Decision terminology varies, and the operative text of a decision letter matters more than its label.
 
-### Editorial or desk review
+### Rejection
 
-An editor then evaluates scope and editorial criteria. The editor may reject without external review. APS notes that an editor may end consideration when a manuscript is unlikely to advance under the journal's criteria in its [peer-review policy](https://journals.aps.org/authors/editorial-policies).
+Rejection closes the current consideration. It may follow desk review or external review. Some journals permit a formal appeal; some permit a substantially changed manuscript as a new submission; others regard the decision as final except for procedural error.
 
-Common desk-rejection reasons are:
+### Major revision
 
-- outside the journal's scope or wrong article type;
-- contribution too narrow or incremental for that journal's threshold;
-- novelty not visible or contradicted by recent literature;
-- result incomplete, insufficiently verified, or too speculative;
-- presentation prevents a reliable evaluation;
-- policy, originality, or research-integrity concern;
-- manuscript substantially exceeds format constraints;
-- audience fit is weak even if the work is technically correct.
+A major-revision decision indicates that the editor sees a possible route to publication but considers substantial scientific or presentational changes necessary. It is not an acceptance. The revision may return to the same referees, go to new referees, or be assessed editorially.
 
-Read the letter diagnostically. “Not sufficiently broad for this journal” does not mean “wrong physics.” It may indicate a better specialist destination. Before resubmitting elsewhere, change the journal name, cover letter, article type, formatting, scope language, and any claims exposed by the decision.
+### Minor revision
 
-## 10. Know What Peer Review Does—and Does Not Do
+Minor revision usually means that the central work appears publishable but specified corrections or clarifications remain. The distinction between major and minor is local to the journal and does not guarantee a particular outcome.
 
-Referees evaluate validity, novelty, importance, completeness, and presentation and advise the editor. The editor owns the decision. Peer review is quality control by informed experts, not proof that every equation is correct and not a vote counted mechanically.
+### Reject and resubmit or revise and resubmit
 
-### Common review models
+This category often closes the original record while inviting a substantially rebuilt paper for fresh consideration. Depending on the journal, the new submission may retain some connection to earlier reports or may begin an entirely new review.
 
-- **Single-anonymous:** reviewers know the authors; authors do not know reviewers.
-- **Double-anonymous:** authors and reviewers are concealed from each other as far as practical. Preprints and small specialties may make inference possible.
-- **Open review:** identities, reports, responses, or some combination may be public.
-- **Transparent review:** reports, author responses, and decision letters may be published even if reviewer identity remains concealed.
+### Conditional acceptance
 
-Models and terminology vary by journal. [IOP Publishing's peer-review model guide](https://publishingsupport.iopscience.iop.org/questions/peer-review-models-on-iop-journals/) defines single-anonymous, double-anonymous, and transparent review and tells authors to check each journal's policy. APS journals generally use single-anonymized review, as explained on the [PRL author page](https://journals.aps.org/prl/authors).
+Conditional acceptance means that publication depends on a defined set of final changes or checks. Formal acceptance occurs only after those conditions are satisfied.
 
-### Typical decisions
+### Acceptance
 
-- **Reject:** the editor has ended consideration. A new submission is possible only if the journal explicitly permits it or after a successful appeal.
-- **Reject and resubmit:** the current manuscript is closed, but a substantially rebuilt paper may be invited as a new submission.
-- **Major revision:** serious scientific or presentation issues must be resolved; acceptance is not promised.
-- **Minor revision:** the paper is promising, but every requested point still requires a response.
-- **Conditional acceptance:** specified final changes are required before formal acceptance.
-- **Accept:** scientific evaluation is complete, subject to production checks.
+Acceptance ends the journal's scientific selection stage and transfers the article into production. It does not mean that the article is already the version of record.
 
-Journal labels differ. Read the operative sentences and deadline, not only the heading.
+### Transfer offer
 
-## 11. Respond to Referees as a Scientific Colleague
+A transfer offer proposes consideration by another journal, often within the same publisher. Files, metadata, and sometimes referee reports can move with the manuscript. The destination journal makes its own decision under its own scope and criteria.
 
-The response letter should make the editor's next decision easy. It is a map from every concern to evidence and manuscript changes.
+## 9. Revision and Response as Parts of the Record
 
-### The response method
+A revision consists of a changed manuscript and an account of how editorial and referee comments were addressed. The response document is normally confidential correspondence, although transparent-review journals may publish it.
 
-1. **Wait before reacting.** Read the reports once, then return after the emotional response has passed.
-2. **Extract every actionable point.** Split long paragraphs into numbered comments.
-3. **Classify each point:** correctness, missing evidence, novelty, scope, clarity, citation, presentation, or optional suggestion.
-4. **Assign responsibility and evidence.** Decide who will calculate, verify, rewrite, or check each response.
-5. **Change the manuscript first.** The response must describe a real revision, not a promise.
-6. **Re-run coupled checks.** Changing an equation may alter figures, limits, abstract, conclusions, supplement, and code.
-7. **Answer point by point.** Quote or faithfully summarize the comment, answer directly, and give page/section/equation/line locations.
-8. **Prepare clean and marked versions** if the journal requests both.
-9. **Audit consistency.** The response, marked manuscript, clean manuscript, source, supplement, and portal metadata must agree.
-10. **Obtain all-author approval** before resubmission.
+Point-by-point responses allow the editor and referees to connect each concern with a change, clarification, additional calculation, or reasoned disagreement. A revision can alter equations, figures, claims, citations, appendices, supplementary material, and metadata. Because changes are coupled, one corrected assumption may affect several sections of the paper.
 
-### Response-letter template
+Reasoned disagreement is a recognized part of peer review. Authors may show that a request rests on an incorrect premise, falls outside the paper's claim, conflicts with another request, or is not supported by available evidence. The editor then adjudicates. A referee recommendation can change after revision, and an editor can reach a different conclusion from the recommendation.
 
-```text
-Dear Editor,
+Review can involve several cycles. Some journals limit repeated rounds because indefinite refinement through anonymous review is not considered an efficient substitute for a clear editorial decision. The review history remains associated with the journal's manuscript record even when it is not public.
 
-We thank you and the referees for the careful assessment. We have
-revised the manuscript substantially. The principal changes are:
+## 10. Rejection, Transfer, Appeal, and Complaint
 
-1. [major scientific change or new verification]
-2. [clarification of novelty or scope]
-3. [new derivation, figure, comparison, or limitation]
+These processes serve different functions.
 
-Below, referee comments are reproduced in bold/quotation and followed
-by our responses. Locations refer to the revised manuscript.
+A rejection is a scientific or editorial decision about publication in a particular journal. A transfer is an administrative route to another venue. An appeal asks the journal to reconsider a decision under its formal policy. A complaint concerns the conduct or management of the process rather than merely the scientific outcome.
 
-REFEREE 1, COMMENT 1
-“[Comment]”
+Appeals generally focus on a material factual error, overlooked evidence, misapplication of journal policy, unmanaged conflict, or procedural irregularity. They are evaluated by an editor, editorial board member, executive editor, or other authority specified by the journal. APS describes escalation routes in its [appeals policy](https://journals.aps.org/authors/editorial-policies). An appeal does not automatically reopen peer review and is conceptually different from submitting a more persuasive revision.
 
-Response: We agree. We have [specific action]. The revised text/equation
-appears in Sec. II B, Eq. (14), page 5 [or lines 183–201]. The result now
-shows [brief scientific consequence].
+Complaints can concern unreasonable delay, inappropriate communication, confidentiality, discrimination, reviewer conduct, or research-integrity handling. Publishers may have separate editorial and ethics channels. COPE frameworks help journals design processes for appeals, disputes, and corrections, but a journal's own published policy determines the route available in a particular case.
 
-REFEREE 1, COMMENT 2
-“[Comment]”
+When a manuscript moves to an unrelated journal after rejection, the new journal usually begins a new editorial record. When it moves through a formal transfer, earlier reports may be visible to the receiving editor and can influence whether additional review is required.
 
-Response: We respectfully disagree with the premise that [precise
-claim]. Under assumptions [A and B], Eq. (7) implies [short reasoning].
-To prevent this misunderstanding, we now state the assumptions before
-Eq. (7), add the limiting-case check in Appendix A, and narrow the claim
-in the abstract. The new text is [location].
-```
+## 11. Acceptance and Production
 
-### How to disagree well
+After acceptance, responsibility shifts from the editorial office to a production workflow, although editors may remain involved if a substantive problem appears.
 
-A justified disagreement contains four elements:
+### Final source and production intake
 
-1. acknowledge the concern;
-2. identify the exact point of disagreement;
-3. provide derivation, evidence, policy, or literature—not authority;
-4. revise the manuscript so future readers do not encounter the same ambiguity.
+The publisher receives editable text, bibliography, figures, supplementary files, author metadata, and permissions. Production staff or vendors convert the source into the journal's structured format and visual design. Copyediting addresses style, grammar, consistency, references, and journal conventions without changing the scientific meaning.
 
-Never write “the referee clearly did not read the paper.” If an expert reader missed something, the presentation may need improvement even when the physics is correct.
+### Publishing agreement and access route
 
-### When reports conflict
+Authors complete a copyright transfer, an exclusive or non-exclusive license to publish, or an open-access agreement. The agreement defines what the publisher may distribute, what rights authors retain, which manuscript versions may be deposited, and which reuse license applies. A fully open-access or hybrid option may involve an article processing charge, institutional agreement, funder arrangement, or waiver. These legal and financial matters are separate from peer-review acceptance.
 
-Do not choose whichever report is easier. Explain the conflict to the editor, propose a scientifically coherent resolution, and state its consequences. For example: preserve the derivation in an appendix, shorten the main text, and add a summary of assumptions. The editor can then adjudicate between incompatible requests.
+### Proof
 
-### When a requested calculation is too large
+The proof is the typeset article supplied for verification before final publication. It exposes production errors that may have entered during conversion: altered symbols, broken equations, misplaced figures, incorrect author information, reference errors, or faulty links. It is not normally treated as a new scientific revision stage. Publisher interfaces such as [Elsevier Proof Central](https://www.elsevier.com/researcher/author/tools-and-resources/proof-central) record corrections and production queries.
 
-Do not merely say it is “beyond scope.” Explain:
+### Online publication and issue assignment
 
-- what question the calculation would answer;
-- why it is not necessary for the manuscript's stated claim;
-- what evidence already supports that claim;
-- what smaller check or limitation statement has been added;
-- whether the requested extension is identified as future work.
+Many journals publish articles online before assigning them to a print issue, volume, or page range. In continuous-publication journals, the article number and online date may constitute the complete citation. “Online first,” “advance article,” and “article in press” are publisher-specific labels and may represent different stages.
 
-## 12. Handle Rejection, Transfer, and Appeal Rationally
+## 12. DOI, Metadata, and the Version of Record
 
-### After rejection
+A Digital Object Identifier is a persistent identifier for a digital object. For journal articles, a publisher registers the DOI and associated metadata with an agency such as Crossref. The DOI resolves to the article's current web location even if that location later changes. Crossref explains this persistent-linking function in its [information for researchers](https://www.crossref.org/community/researchers).
 
-Hold a short post-decision meeting and classify the outcome:
+DOI registration does not by itself certify peer review, correctness, journal quality, or indexing. Many kinds of research output can receive DOIs. Its principal function is identification and reliable linkage.
 
-- **fit rejection:** retarget with changes in framing and format;
-- **threshold rejection:** choose a journal whose selectivity matches the contribution;
-- **correctable scientific rejection:** repair calculations, evidence, or comparison before resubmission;
-- **fundamental rejection:** pause publication until the central claim is changed or withdrawn;
-- **possible procedural/factual error:** evaluate an appeal under the journal's policy.
+Publication metadata can include title, author names, ORCID iDs, abstract, publication dates, journal, volume, issue, article or page number, references, funders, license, relations to preprints or corrections, and the current URL. This metadata feeds library systems, citation databases, search engines, funder systems, and researcher profiles. Crossref can support an [ORCID auto-update](https://www.crossref.org/community/orcid) when authenticated identifiers are deposited and the researcher grants permission.
 
-Do not send the unchanged paper to the next journal within hours. At minimum, resolve valid referee points, update the literature search, adapt the manuscript and cover letter, and archive the rejected version and correspondence.
+The **version of record** is the publisher-maintained final article declared as the authoritative journal version. It can later acquire linked notices, but its publication history is preserved. A typeset proof is not necessarily the version of record; an accepted manuscript is not the version of record; and an arXiv version remains a separate manifestation even when its scientific content is nearly identical.
 
-### Transfer
+## 13. Preprints and Scholarly Versions
 
-A publisher or journal family may offer transfer of files and sometimes reviews. Before accepting, check:
+Version terminology is central to physics publishing because several legitimate versions can coexist.
 
-- the destination's scope, reputation, peer-review model, and charges;
-- whether reviews and identities or confidential correspondence transfer;
-- whether the new editor will make an independent decision;
-- whether the manuscript can be revised before transfer;
-- whether the offer is optional and whether declining affects future submission.
+| Version | Meaning |
+|---|---|
+| Author's original or submitted manuscript | The version submitted to a journal before peer-review changes |
+| Preprint | A publicly shared manuscript, commonly on arXiv; it may precede submission or reflect a later author revision |
+| Revised manuscript | A journal submission changed during peer review |
+| Author accepted manuscript | The peer-reviewed text accepted by the journal, before or apart from the publisher's final typesetting |
+| Proof | The production-stage typeset article circulated for correction |
+| Version of record | The final publisher-maintained and formally published journal version |
 
-Convenience is not evidence of suitability. Treat the destination as a fresh journal decision.
+Publisher and funder policies govern which version may be posted, where it may be posted, under what license, and whether an embargo applies. A preprint policy is therefore distinct from an open-access policy.
 
-### Appeal
+arXiv assigns an identifier and version number. A replacement after public announcement creates a new version while earlier versions remain accessible. The [arXiv replacement guidance](https://info.arxiv.org/help/replace.html) explains that changes generate a new version and that a version comment records their nature. This permanent history prevents an earlier public manuscript from being silently overwritten.
 
-An appeal is appropriate when there is a material factual error, demonstrable misapplication of journal policy, overlooked evidence central to the decision, serious unmanaged conflict, or a procedural failure that could change the outcome. It is usually not appropriate because the authors dislike the editor's assessment of priority or because one referee recommended acceptance.
+After journal publication, the arXiv record can contain the journal reference and DOI. arXiv documents these metadata updates in its [journal-reference and DOI guidance](https://info.arxiv.org/help/jref.html). The repository record then links readers to the formal publication without becoming identical to it.
 
-Follow the journal's stated route and deadline. APS describes formal appeal routes and review of whether its procedures were followed in the [Physical Review editorial policies](https://journals.aps.org/authors/editorial-policies). A useful appeal is brief:
+Preprints establish rapid access and priority evidence but do not normally represent journal certification. Conversely, journal publication does not erase the preprint. Citations may point to either object, although the version of record is generally preferred once available unless the cited content exists only in another version.
 
-```text
-Subject: Appeal regarding manuscript [ID and title]
+## 14. Post-Publication Discussion and Changes
 
-We request reconsideration of the decision dated [date] on one specific
-ground: [factual or procedural issue]. The decision/report states [exact
-point], whereas [equation, supplied evidence, policy, or record] shows
-[concise correction]. This issue is material because [effect on the
-decision].
+Publication does not close scientific evaluation. Readers may reproduce a calculation, find an error, question an interpretation, extend a result, or identify a policy concern. Journals maintain several mechanisms for modifying or commenting on the record.
 
-We are not requesting reconsideration merely because we disagree with
-the journal's editorial threshold. We ask that [specific remedy, such as
-independent editorial review] be considered under the journal's appeal
-policy.
-```
+### Minor amendments
 
-Do not attack a referee, speculate about identity, mobilize personal contacts, or submit the manuscript elsewhere while the appeal remains active unless the journal explicitly permits it. If the group decides to move on, close or withdraw the appeal first.
+Some publishers correct small production or metadata errors directly and attach a dated notice. The threshold for an unnumbered amendment varies. Changes to scientific content generally require a formal linked notice rather than silent replacement.
 
-## 13. Acceptance Is the Start of Production, Not the End of Checking
+### Correction, erratum, or corrigendum
 
-After acceptance, the publisher may request source files, high-resolution figures, permissions, a publishing agreement, an open-access selection, and payment information. Read the agreement. Determine whether copyright is transferred or a license to publish is granted, which reuse rights the authors retain, what Creative Commons license applies if open access is chosen, and whether funder or institutional requirements are met.
+These terms usually describe a limited error whose correction leaves the article's central findings reliable. Some publishers use “erratum” for a publisher error and “corrigendum” for an author error; others use the terms differently or use only “correction.” The notice identifies the original article, states the change, and is linked in both directions. [IOP Publishing's correction policy](https://publishingsupport.iopscience.iop.org/questions/post-publication-corrections-to-journal-articles/) illustrates this linking of a correction with the original record.
 
-Do not pay an invoice based only on an unsolicited email. Verify charges inside the journal's official system or through a known publisher contact.
+### Addendum
 
-### Proofs are for correctness
+An addendum supplies important information discovered or omitted after publication without necessarily correcting an error. Not all journals use this category.
 
-Proofs are normally intended to correct production errors and small author errors, not to rewrite the paper or add new results. Deadlines may be short. Elsevier's [Proof Central guidance](https://www.elsevier.com/researcher/author/tools-and-resources/proof-central) illustrates the need to answer production queries and inspect the article in journal style.
+### Expression of concern
 
-Two people should proof independently. Check:
+An expression of concern alerts readers to a potentially serious problem while an investigation or determination remains incomplete. It is neither a finding of misconduct nor a substitute for a final correction or retraction.
 
-- title, author order, spelling, affiliations, corresponding author, and ORCID;
-- abstract and section headings;
-- every displayed equation, sign, index, exponent, Greek letter, matrix, alignment, and equation number;
-- in-text equation, figure, table, section, appendix, and supplementary references;
-- figure resolution, labels, colors, legends, cropping, and caption association;
-- tables, numerical precision, units, and column alignment;
-- references, page/article numbers, arXiv identifiers, and DOI links;
-- acknowledgements, grant numbers, contribution, conflict, data, and code statements;
-- hyperlinks and supplementary files;
-- copy-editor queries and the final correction log.
+### Retraction
 
-Compare the proof with the accepted manuscript, not only with memory. After returning corrections, save the annotated proof and the publisher's confirmation.
+A retraction indicates that the article's findings should not be relied upon or that the publication record has been seriously compromised. Retraction can follow honest major error, fabrication, falsification, plagiarism, redundant publication, unauthorized material, unethical research, a compromised review process, or a major undisclosed conflict. The article normally remains accessible with a prominent retraction notice so the history is not erased.
 
-### DOI, online publication, and version of record
+The [COPE retraction guidelines](https://publicationethics.org/sites/default/files/retraction-guidelines-cope.pdf) state that notices should identify the article, give the reason, state who is retracting it, be freely available, and be linked to the retracted work. Retraction is a correction of the literature, not a mechanism for deleting an inconvenient past.
 
-A DOI is a persistent identifier, not a quality score. Crossref explains that publishers register bibliographic metadata and a DOI so the work remains discoverable and linkable even if its web location changes in its [guide for researchers](https://www.crossref.org/community/researchers). The first online appearance may already be the version of record even before assignment to an issue, volume, or page range.
+### Withdrawal and removal
 
-Record separately:
+“Withdrawal” can mean cancellation of a manuscript before publication, withdrawal of a preprint with its record retained, or a publisher-specific action on an early online article. Complete removal of a version of record is rare and usually reserved for serious legal, privacy, safety, or fraudulent-publication circumstances. The exact meaning depends on policy.
 
-- acceptance date;
-- online-publication date;
-- DOI;
-- volume, issue, page or article number when assigned;
-- license and open-access status;
-- accepted-manuscript and version-of-record URLs.
+### Comment, reply, and post-publication review
 
-## 14. Manage Preprints and Versions Deliberately
+Formal Comments and Replies extend scholarly debate through the journal. Informal discussion may also occur in repositories, conferences, correspondence, or moderated post-publication platforms. A criticism does not alter the version of record unless the journal publishes a linked response, correction, expression of concern, or retraction.
 
-In quantum physics, arXiv is often part of the communication workflow, but the preprint and journal article are related versions, not interchangeable files.
+## 15. The Participants and Their Distinct Roles
 
-### Before posting
+The publication lifecycle distributes responsibility across several institutions and people.
 
-- Check the target journal's current preprint and double-anonymous-review policy.
-- Obtain approval from every author for the exact preprint version.
-- Select the correct arXiv category and cross-lists.
-- Choose a license deliberately and confirm compatibility with later publishing choices.
-- Remove confidential referee material, submission-system data, and private notes.
-- Compile in arXiv's environment and inspect the generated PDF and metadata.
+- **Authors** create the work, approve the manuscript, make declarations, respond to review, and remain accountable for the published content.
+- **The corresponding author** manages formal communication and often makes attestations on behalf of all authors.
+- **Editors** control journal selection, choose referees, interpret reports, make decisions, and oversee the integrity of the journal record.
+- **Referees** provide confidential or public expert advice under the journal's review model.
+- **Editorial staff** manage files, metadata, workflow, policy documentation, and communication.
+- **Production staff and vendors** copyedit, typeset, convert, proof, and publish the accepted work.
+- **The publisher or scholarly society** maintains infrastructure, policies, licenses, archives, and the version of record.
+- **Repositories** preserve and disseminate preprints, accepted manuscripts, data, or code under their own policies.
+- **DOI registration agencies and indexers** identify, connect, and organize publication metadata; they do not replace editorial judgment.
+- **Institutions and funders** can investigate conduct, require access or data practices, and impose reporting conditions.
+- **Readers and the wider research community** continue evaluation through citation, replication, criticism, reuse, and correction.
 
-arXiv's [submission guidelines](https://info.arxiv.org/help/submit/index.html) require a refereeable scientific contribution, describe accepted source and figure formats, and instruct authors to verify processed files before final submission.
+Confusion arises when one role is mistaken for another. A referee advises but does not own the decision. An index records coverage but does not certify every article. A DOI identifies an object but does not establish quality. A preprint repository disseminates a manuscript but does not perform the same certification as a journal. A publisher creates and maintains the version of record but does not replace the authors' scientific responsibility.
 
-### During review
+## 16. Reading Journal Statuses Correctly
 
-Decide as a group when a revision is scientifically substantial enough for a new preprint version. Do not post a referee report or imply editorial endorsement. Mention the preprint identifier during journal submission and follow the journal's policy on citing it.
+Submission portals expose only a simplified view of an internal workflow. Labels such as “with editor,” “editor assigned,” “under review,” “reviews complete,” “decision in process,” and “production” do not have universal definitions. “Under review” can mean editorial assessment in one system and active external review in another. A status can remain unchanged while invitations are declined, a new referee is sought, an editor consults a colleague, or an administrative check proceeds.
 
-arXiv's [version-replacement guidance](https://info.arxiv.org/help/replace.html) explains that a public replacement creates a new version, requires a description of changes, and leaves earlier versions publicly available. Therefore, use the version comment to state meaningful changes accurately.
+Publication dates also represent different events. A record can contain received, revised, accepted, online, issue, and correction dates. The acceptance date marks editorial completion; the online date marks public journal publication; the issue date locates the article in a volume or issue. These dates may be separated by days or months.
 
-### After acceptance or publication
+Processing time is likewise composed of several intervals: author revision time, editor handling time, reviewer invitation and report time, and production time. A single “time to publication” number can conceal these different components.
 
-1. Check which manuscript version the journal agreement permits you to deposit.
-2. Update arXiv with an allowed accepted version when appropriate.
-3. Add the journal reference and DOI using arXiv's [journal-reference and DOI procedure](https://info.arxiv.org/help/jref.html).
-4. Do not upload the typeset publisher PDF unless the license expressly allows it.
-5. Link the preprint, accepted manuscript, code/data release, and version of record without presenting them as identical.
-
-Maintain a local version register:
-
-```text
-v1-preprint       initial public scientific version
-v2-preprint       revision after new checks or peer review
-submitted         exact journal submission
-revised-1         exact first revision and response
-accepted          author-accepted manuscript
-proof             typeset proof with corrections
-version-of-record publisher's final citable article
-```
-
-## 15. Remain Responsible After Publication
-
-### Publication-day tasks
-
-- Open the final article from the DOI and inspect the HTML, PDF, equations, figures, supplement, and links.
-- Confirm that indexing metadata lists authors, affiliation, abstract, references, funding, and license correctly.
-- Add or authorize the work in ORCID and institutional systems.
-- Update the arXiv journal reference and permitted manuscript version.
-- Create a stable tagged release for associated code or data and cite its identifier.
-- Share a restrained summary that distinguishes the result, assumptions, and implications.
-- Add the paper to the group's internal result and supervision records.
-
-### When an error is found
-
-First determine whether it is:
-
-- a harmless typographical issue that does not affect interpretation;
-- a meaningful but local error correctable without invalidating the conclusion;
-- an authorship, affiliation, funding, or metadata error;
-- a substantial error affecting part of the analysis;
-- a fundamental error making the findings unreliable;
-- a suspected integrity or legal problem.
-
-Notify all coauthors and contact the journal promptly with the exact location, corrected content, cause, and effect on conclusions. Do not silently replace a local PDF and hope the problem disappears.
-
-Publishers use terms differently, but a **correction**, **erratum**, or **corrigendum** usually amends a reliable article; an **expression of concern** alerts readers while a serious matter remains unresolved; and a **retraction** marks findings that should not be relied upon. IOP explains how corrections remain linked to the article in its [post-publication correction policy](https://publishingsupport.iopscience.iop.org/questions/post-publication-corrections-to-journal-articles/). The [COPE retraction guidelines](https://publicationethics.org/sites/default/files/retraction-guidelines-cope.pdf) emphasize correcting the scholarly record transparently and identify major error, fabrication, plagiarism, unauthorized material, unethical research, and compromised review among grounds that may warrant retraction.
-
-An honest correction is part of responsible scholarship. Concealment transforms a correctable scientific mistake into an integrity problem.
-
-## 16. A Supervisor's Operating System
-
-For every paper, keep a small publication ledger containing:
-
-- working and final title;
-- one-sentence claim and novelty comparison;
-- target-journal brief and backup ladder;
-- author order, CRediT roles, ORCID, and dated approvals;
-- verification log for equations, code, figures, and limiting cases;
-- source commit and hashes or filenames of every submitted version;
-- submission ID, editor, dates, status, and deadline;
-- decision letters, referee reports, response matrices, and revised files;
-- accepted manuscript, agreement, proof, DOI, and version-of-record link;
-- preprint versions, repository identifiers, and correction history.
-
-At each supervision meeting ask four questions:
-
-1. What claim changed since the last version?
-2. What evidence now supports or weakens it?
-3. What could a skeptical expert reasonably object to?
-4. Which exact file is the authoritative version?
-
-This teaches the scholar that publication is controlled scientific reasoning, not formatting followed by waiting.
-
-## 17. Complete Submission Checklist
-
-Copy this checklist into the paper's repository and record the name of the person who verified each item.
-
-### Target and policy
-
-- [ ] Journal scope and editorial criteria have been read on the official site.
-- [ ] Correct article type has been selected.
-- [ ] Recent similar papers in the target journal have been examined.
-- [ ] Length, abstract, figure, reference, and supplementary limits are satisfied.
-- [ ] Peer-review, preprint, data/code, AI-tool, and prior-publication policies are understood.
-- [ ] Open-access route, expected charges, agreements, and waiver options are known.
-- [ ] A suitable backup journal is documented.
-
-### Scientific readiness
-
-- [ ] The central claim can be stated in one precise sentence.
-- [ ] Closest prior work is identified and the novelty difference is explicit.
-- [ ] Every central derivation has been independently checked.
-- [ ] Units, signs, indices, phases, normalizations, and conventions have been audited.
-- [ ] Symmetries, conservation laws, and operator properties have been checked.
-- [ ] Known limits and benchmark cases are recovered.
-- [ ] Approximation order and validity regime are stated.
-- [ ] Numerical convergence, precision, tolerance, and robustness checks are complete.
-- [ ] Code-generated figures and values can be reproduced.
-- [ ] Conclusions do not exceed the evidence or parameter regime.
-- [ ] Limitations and unresolved issues are stated honestly.
-
-### Manuscript
-
-- [ ] Title is specific, searchable, and not inflated.
-- [ ] Abstract states problem, method, result, regime, and significance.
-- [ ] Introduction identifies the gap and makes a precise novelty claim.
-- [ ] Model, assumptions, notation, units, and boundary/initial conditions are defined.
-- [ ] Derivations contain enough information for expert verification.
-- [ ] Results and interpretation are distinguished.
-- [ ] Every figure is necessary, legible, reproducible, and fully captioned.
-- [ ] Appendices and supplement contain supporting—not concealed essential—evidence.
-- [ ] References have been verified and include competing/contrary relevant work.
-- [ ] Claims of priority, exactness, generality, and significance are justified.
-- [ ] Spelling, grammar, cross-references, equation numbers, and citations have been checked.
-
-### Authorship and integrity
-
-- [ ] Authorship eligibility and order were agreed before submission.
-- [ ] CRediT roles accurately describe contributions.
-- [ ] All names, affiliations, emails, and ORCID iDs are correct.
-- [ ] Every author approved the exact submitted manuscript and target journal.
-- [ ] Corresponding author responsibilities are understood.
-- [ ] Funding and grant numbers are complete.
-- [ ] Competing interests are declared.
-- [ ] Related manuscripts, prior consideration, conference versions, and preprints are disclosed.
-- [ ] There is no simultaneous journal submission.
-- [ ] Reused material has correct citation and permission.
-- [ ] Text, equations, figures, data, and code satisfy originality and integrity policies.
-- [ ] Any AI-tool use complies with the current journal policy and is disclosed if required.
-
-### Files and reproducibility
-
-- [ ] The manuscript builds from a clean environment.
-- [ ] All LaTeX, bibliography, style, and figure files are included.
-- [ ] No absolute paths, private comments, hidden tracked changes, or unused confidential files remain.
-- [ ] Compiler warnings, broken citations, and undefined references are resolved.
-- [ ] PDF fonts, equations, figures, hyperlinks, and page boundaries were visually inspected.
-- [ ] Supplementary material matches citations in the manuscript.
-- [ ] Data/code availability links work and access permissions are correct.
-- [ ] Exact submitted PDF, source, supplement, and code commit are archived.
-
-### Portal and cover letter
-
-- [ ] Cover letter names the correct journal, editor, title, and article type.
-- [ ] Cover letter states the contribution and scope fit without exaggeration.
-- [ ] Portal title, abstract, authors, affiliations, keywords, funding, and files match the PDF.
-- [ ] Reviewer suggestions are expert and conflict-free.
-- [ ] Reviewer exclusions, if any, have specific professional justification.
-- [ ] Every declaration was read and answered accurately.
-- [ ] The generated submission proof was downloaded and checked.
-- [ ] Submission ID, confirmation email, date, and archived files are recorded.
-
-### Revision
-
-- [ ] Decision category, deadline, and editor instructions are understood.
-- [ ] Every referee and editor comment appears in the response matrix.
-- [ ] Each response states an action, evidence, and manuscript location.
-- [ ] Disagreements are technical, respectful, and supported.
-- [ ] All affected equations, figures, conclusions, source, supplement, and metadata were updated.
-- [ ] Clean and marked manuscripts satisfy journal instructions.
-- [ ] All authors approved the revision and response letter.
-- [ ] Exact revised files and correspondence are archived.
-
-### Acceptance and proofs
-
-- [ ] Publishing agreement, retained rights, and open-access license were read.
-- [ ] Funder and institutional deposit requirements are satisfied.
-- [ ] Any invoice was verified through an official journal channel.
-- [ ] Two people independently checked the proof against the accepted manuscript.
-- [ ] Author data, equations, figures, tables, references, funding, and supplement were checked.
-- [ ] Every production query received an answer.
-- [ ] Proof corrections and publisher confirmation are archived.
-
-### Publication and stewardship
-
-- [ ] DOI resolves to the correct article.
-- [ ] HTML, PDF, metadata, supplement, and links were checked after publication.
-- [ ] Journal reference and DOI were added to arXiv.
-- [ ] Deposited manuscript version complies with the publishing agreement.
-- [ ] ORCID and institutional records were updated or authorized.
-- [ ] Code/data received a stable release and identifier where appropriate.
-- [ ] Any discovered error was assessed with all authors and reported promptly.
-- [ ] Corrections, if needed, are linked in the group's publication ledger.
+The mature understanding of journal publication is therefore institutional rather than ceremonial. A paper does not pass through one mysterious gate. It moves through a documented sequence in which the scientific claim, editorial criteria, expert criticism, legal permissions, metadata, persistent identifiers, public versions, and correction mechanisms each perform a different function.
 
 ## Authoritative Resources
 
@@ -764,6 +395,4 @@ Copy this checklist into the paper's repository and record the name of the perso
 - [Crossref: ORCID auto-update](https://www.crossref.org/community/orcid)
 - [Elsevier: Proof Central](https://www.elsevier.com/researcher/author/tools-and-resources/proof-central)
 
-The mature publication habit is simple to state: **make the claim precise, preserve the evidence, disclose the context, answer criticism with work, and protect the scientific record after publication.**
-
-[← Previous: journal landscape and selection]({{ '/quantum-physics-journal-landscape/' | relative_url }}) · [Next: publication ethics and open access →]({{ '/publication-ethics-open-access/' | relative_url }})
+[← Previous: quantum physics journal landscape]({{ '/quantum-physics-journal-landscape/' | relative_url }}) · [Next: publication ethics and open access →]({{ '/publication-ethics-open-access/' | relative_url }})

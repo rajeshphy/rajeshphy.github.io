@@ -1,7 +1,7 @@
 ---
 title: "Publication Ethics, Open Access and Predatory Journals"
-summary: "A due-diligence guide to trustworthy journals, authorship, plagiarism, AI disclosure, licences, fees, preprints, corrections, and Indian regulatory context."
-description: "A research-group guide to publication ethics, open access, authorship, AI disclosure, predatory-journal checks, and Indian policy context."
+summary: "An explanatory reference to research integrity, authorship, journal trust, access models, licences, preprints, fees, AI policies, and corrections."
+description: "An awareness-oriented reference to publication ethics, open access, authorship, AI policies, predatory journals, and Indian policy context."
 date: 2026-06-30 11:20:00 +0530
 categories:
   - doc-knowledge
@@ -15,382 +15,225 @@ permalink: /publication-ethics-open-access/
 hidden: true
 ---
 
-[← Course roadmap]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: manuscript and peer review]({{ '/manuscript-peer-review-publication/' | relative_url }})
+[← Course roadmap]({{ '/quantum-physics-journal-system/' | relative_url }}) · [Previous: the scholarly publication lifecycle in physics]({{ '/manuscript-peer-review-publication/' | relative_url }})
 
-A research group protects two things at once: the quality of its science and the integrity of the permanent record. Journal prestige cannot compensate for careless authorship, undisclosed conflicts, fabricated references, duplicate submission or an unreliable venue. Conversely, open access, a publication fee or a recently established journal is not automatically suspect. Good judgment requires evidence.
+Publication ethics concerns the reliability of the scientific record and the allocation of credit and responsibility. Open access concerns the legal and economic conditions under which that record can be read and reused. Predatory or deceptive publishing concerns organizations that imitate scholarly journals while misrepresenting their editorial, review or commercial practices.
 
-<div class="note-box" markdown="1">
-**The central test:** Can an independent reader identify who is responsible, what was done, what evidence supports the claim, how the paper was reviewed, what it costs, what may be reused, where it is preserved, and how errors will be corrected?
-</div>
+These subjects overlap, but they are not equivalent. A subscription journal can be ethical or unethical. An open-access journal can be rigorous or deceptive. A publication fee does not establish quality, and the absence of a fee does not establish trust.
 
-## 1. Quality, trust, indexing and metrics are separate questions
+## 1. The institutions of publication integrity
 
-Before submission, ask four different questions:
+Integrity is distributed across several participants:
 
-1. **Scientific fit:** Is this the right audience and article type?
-2. **Editorial trust:** Is there a real, independent and transparent review process?
-3. **Discovery and preservation:** Is the journal currently indexed where it claims and durably archived?
-4. **Citation position:** What do current, properly contextualized metrics say about its place among peers?
+| Participant | Main responsibility |
+|---|---|
+| Authors | Accuracy, originality, attribution, disclosure, authorship and correction of errors |
+| Reviewers | Competent and confidential assessment without misuse of privileged information |
+| Editors | Fair decisions, conflict management, policy enforcement and maintenance of the record |
+| Publishers | Transparent operation, preservation, production, corrections and business practices |
+| Institutions | Research governance, investigation of alleged misconduct and training |
+| Funders | Conditions relating to openness, data, conflicts and acknowledgement |
+| Readers | Critical interpretation and communication of substantive errors |
 
-A journal can fit the paper yet be ethically unreliable. It can be trustworthy but absent from one commercial index. It can be indexed but later discontinued. It can have a high metric while publishing some weak articles. Never collapse the four questions into one badge.
+The Committee on Publication Ethics (COPE) organizes journal practice around themes such as authorship, conflicts of interest, data, peer review, allegations of misconduct, corrections and retractions.
 
-## 2. The 15-minute journal identity check
+## 2. Journal identity, indexing and trust
 
-Do this even for a familiar title when using a new submission portal.
+A journal's identity normally includes its exact title, print and electronic ISSNs, publisher, website, editorial board, publication history and ownership information. Look-alike websites sometimes copy the title or ISSN of a legitimate journal; these are often called **hijacked journals**.
 
-### Step A: start from a trusted route
+Indexing is a database-specific status. Web of Science coverage is recorded in the [Master Journal List](https://mjl.clarivate.com/home), while Scopus coverage is recorded in [Scopus Sources](https://www.scopus.com/sources). The Directory of Open Access Journals (DOAJ) evaluates open-access journals against transparency criteria. Search-engine visibility, a DOI, an ISSN or a Google Scholar record does not by itself mean that a journal is indexed in Web of Science or Scopus.
 
-Navigate from one of these, not from an unsolicited email:
+Established journals typically make the following information visible:
 
-- the known society or publisher's official journal portfolio;
-- the [Web of Science Master Journal List](https://mjl.clarivate.com/home) for exact Web of Science coverage;
-- [Scopus Sources](https://www.scopus.com/sources) for Scopus source and coverage information;
-- the [Directory of Open Access Journals](https://doaj.org/) for a fully open-access journal; or
-- a field service such as [INSPIRE-HEP](https://inspirehep.net/) or [NASA ADS](https://ui.adsabs.harvard.edu/) for discovery, while separately checking formal index claims.
+- aims, scope and article types;
+- editor names and affiliations;
+- a recognizable peer-review model;
+- author fees and waiver conditions;
+- copyright and licensing terms;
+- publication ethics and conflict policies;
+- archiving or preservation arrangements;
+- correction and retraction procedures; and
+- a stable record of previously published articles.
 
-### Step B: match the identity
+These characteristics describe transparency rather than a prestige tier.
 
-Match all of the following:
+## 3. Predatory and deceptive publishing
 
-- exact journal title and abbreviation;
-- print ISSN and electronic ISSN;
-- publisher name and postal identity;
-- official domain and secure submission portal;
-- coverage years and whether coverage is active, on hold or discontinued; and
-- title changes or predecessor/successor relationships.
+The term **predatory journal** is commonly used for a publication that prioritizes revenue or other private benefit while seriously misrepresenting scholarly editorial and peer-review services. There is no single universal legal definition, and journal quality exists on a spectrum. The more precise concern is often **deception**.
 
-Cloned or hijacked journals copy a real title, ISSN, editorial board or impact factor onto a false domain. An authentic ISSN attached to the wrong website is a warning, not reassurance.
+Patterns associated with deceptive operations include:
 
-### Step C: verify claims at their source
+- unsolicited messages unrelated to the recipient's field;
+- promises of guaranteed acceptance or implausibly rapid review;
+- imitation of a respected journal's name, design or ISSN;
+- false claims about indexing, impact factors or editorial-board membership;
+- invented indicators with names resembling the Journal Impact Factor;
+- hidden fees revealed only after acceptance;
+- editors who cannot be identified or whose affiliations are false;
+- extremely broad scopes combining unrelated disciplines;
+- incoherent articles, fabricated contact details or copied policies;
+- submission systems based only on personal email accounts; and
+- no credible mechanism for archiving, corrections or retractions.
 
-- Verify a **Journal Impact Factor** and JCR category inside Journal Citation Reports, not from a decorative logo.
-- Verify **CiteScore** on Scopus and **SJR** on the named source; do not treat them as interchangeable.
-- Verify a claimed COPE, OASPA or society membership in that organisation's live directory.
-- For a fully open-access journal, inspect the actual DOAJ record rather than accepting a DOAJ image.
-- Search recent corrections, expressions of concern and retractions as well as normal articles.
+Individual warning signs are not conclusive in isolation. A new journal may have a small archive, a regional journal may use modest infrastructure, and a legitimate journal may send promotional email. Trust comes from the combined evidence of identity, editorial activity, transparent policy and an authentic publication record.
 
-The [DOAJ application standard](https://doaj.org/apply/guide/) rejects invented “impact factors” and requires clear information about scope, board, peer review, charges, licensing and copyright. These are useful checks for any journal, not only fully open-access titles.
+## 4. The former UGC-CARE list
 
-### Step D: inspect editorial reality
+The University Grants Commission created the UGC-CARE list in response to concern about low-quality and deceptive journals. The system was later discontinued. In a public notice dated **11 February 2025**, UGC replaced reliance on the list with suggestive parameters for evaluating peer-reviewed journals.
 
-Read the official site and answer:
+The parameters include journal title and ISSN, regularity, publisher information, editorial-board details, peer-review transparency, ethical policy, fees, access, indexing and archiving. The archived CARE website states that the list was not updated after October 2024.
 
-- Are editors named with verifiable affiliations and relevant expertise?
-- Does the journal describe who reviews, how many reviewers are normally used and who decides?
-- Are submission, revision, acceptance and publication dates visible on articles?
-- Are conflicts of interest, authorship, corrections, retractions, complaints and appeals covered?
-- Do five recent papers look like genuine scholarship in the stated scope?
-- Are references, equations, English, typesetting and metadata professionally handled?
-- Do established researchers in your subfield read, cite, review for and publish in it?
+Consequently, an old UGC-CARE entry is historical information rather than evidence of continuously monitored status. University regulations and appointment or promotion rules may still contain their own documentary requirements, which are administratively distinct from international indexing systems.
 
-No single missing item proves predation. A pattern of false identity, fabricated metrics, implausible promises, hidden charges and absent review does.
+## 5. Open-access models
 
-## 3. Warning signs that deserve investigation
+**Open access** means that readers can obtain scholarly work online without a subscription barrier. The principal models are:
 
-Treat these as signals, not a mechanical blacklist:
+| Model | Description |
+|---|---|
+| Gold open access | The version of record is openly available from the journal, usually under a stated licence |
+| Hybrid open access | A subscription journal offers open access for individual articles |
+| Diamond or platinum open access | Readers and authors are not charged; costs are supported by institutions, societies or grants |
+| Green open access | An author manuscript is available through arXiv or another repository, sometimes after an embargo |
+| Bronze access | The article is free to read on the publisher site but lacks a clear open licence or permanence guarantee |
 
-- an invitation unrelated to your expertise;
-- excessive praise of a paper the sender could not have read;
-- guaranteed acceptance or guaranteed peer review in a few days;
-- a journal title deliberately similar to a famous title;
-- a submission address using a generic personal email;
-- a very broad scope covering unrelated disciplines without credible editors;
-- false or unverifiable indexing and metric claims;
-- an “impact factor” from a service other than Clarivate JCR presented as if it were the JIF;
-- editorial-board members who deny involvement or whose affiliations cannot be verified;
-- hidden APCs, surprise “withdrawal fees,” payment requested before editorial assessment, or personal bank transfer;
-- no clear peer-review, correction, retraction, copyright or archiving policy;
-- broken DOI links, missing issues, irregular publication, or rapidly changing domains;
-- dozens of special issues with aggressive guest-editor recruitment;
-- acceptance without scientific comments after a superficial review; and
-- pressure to cite the journal, editor or reviewer without scientific reason.
+Open access and author payment are separate concepts. Some open journals charge an **article processing charge (APC)**, while others receive institutional support. Some subscription journals have no ordinary author charge, whereas others impose page, colour or excess-length fees. Hybrid journals may offer both a subscription route and a paid open-access option.
 
-Use the full [Think. Check. Submit. journal checklist](https://thinkchecksubmit.org/journals/). “Predatory” is sometimes used too casually; the precise concern is **deceptive or grossly inadequate editorial and business practice**.
+An APC funds an access route and associated publishing services. It is commonly invoiced after acceptance, although timing and fee structures vary. Legitimate editorial decisions are institutionally separated from payment, and fee information is publicly disclosed.
 
-## 4. India and the discontinued UGC-CARE list
+### SCOAP³ in high-energy physics
 
-The regulatory context changed in 2025. The [official UGC-CARE site](https://ugccare.unipune.ac.in/apps1/home/index) says the list has not been updated since October 2024 and will not be updated further. The UGC's 11 February 2025 notice discontinued the listing system and proposed suggestive parameters for choosing peer-reviewed journals.
+[SCOAP³](https://scoap3.org/what-is-scoap3/) is a consortium coordinated by CERN that converts participating high-energy-physics journal literature to open access through centralized funding. Libraries, agencies and partner organizations redirect subscription resources to the consortium. For eligible articles, authors generally do not pay an individual APC. The arrangement is important because it differs from the ordinary author-pays model.
 
-The [UGC notice and parameters](https://www.ugc.gov.in/pdfnews/9678711_PUBLIC-NOTICE-CARE.pdf) cover:
+## 6. Copyright and licences
 
-- title, ISSN, periodicity, continuity and publisher contact details;
-- transparent peer review, access policy and archiving;
-- editorial-board identity, expertise and efficient process;
-- aims, scope, APC, publication timeline and acceptance rate;
-- academic contribution and conformity to scope;
-- bibliographic quality, online availability and website quality;
-- authorship ethics, plagiarism prevention, conflicts and AI policy;
-- reputable indexing and contextual citation indicators; and
-- internal HEI review suited to the discipline.
+Copyright governs legal control over reproduction and adaptation. A publishing agreement may transfer copyright to a publisher, grant the publisher an exclusive licence, or allow authors to retain copyright while applying an open licence.
 
-Therefore, never promise a scholar that an old “UGC-CARE listed” label settles current eligibility. Before submission and again before thesis filing:
+Common Creative Commons licences and public-domain tools include:
 
-1. obtain the current PhD ordinance and research/publication circular from the scholar's university;
-2. ask the doctoral or research section to clarify ambiguous wording in writing;
-3. preserve the journal's official indexing evidence and coverage date;
-4. record the due-diligence decision in the supervision file; and
-5. apply a scientific and ethical standard higher than the administrative minimum.
+- **CC BY:** redistribution and adaptation, including commercial use, with attribution;
+- **CC BY-SA:** adaptations use the same licence;
+- **CC BY-NC:** reuse is limited to non-commercial purposes;
+- **CC BY-ND:** redistribution is allowed, but derivative versions are restricted; and
+- **CC0:** a public-domain dedication with a fallback licence where complete waiver is not legally possible.
 
-The archived CARE list may explain historical decisions, but it is not a live endorsement.
+“Openly readable” and “openly reusable” are not identical. An article can be free to read without granting broad reuse rights. Third-party images or datasets within an article may also have licences different from the article as a whole.
 
-## 5. Open-access models without confusion
+## 7. Versions of a paper
 
-| Model | Who can read? | Typical author payment | Where the article lives | Main question to ask |
-|---|---|---|---|---|
-| Subscription | Subscribers and licensed institutions | Often no APC, though page/colour charges may exist | Publisher version behind access control | What self-archiving is permitted? |
-| Hybrid | Subscription by default; individual paper may be made OA | APC only if the author selects gold OA | Same journal contains closed and OA articles | Is payment necessary or covered by an agreement? |
-| Gold OA journal | Everyone immediately | APC is common but not universal | Publisher version openly available | Is the fee transparent and is a waiver/agreement available? |
-| Diamond/platinum OA | Everyone immediately | No author-facing APC | Supported by a society, institution, consortium or grant | Is the funding and preservation model sustainable? |
-| Green OA | Access through a repository to an allowed manuscript version | Usually no repository fee | Preprint or accepted manuscript alongside the journal record | Which version and embargo does the publisher allow? |
+Three versions appear frequently in physics publishing:
 
-“Free access” without a reuse licence is not necessarily full open access. A licence specifies what readers may do.
+1. **Preprint:** an author manuscript shared publicly before formal journal publication. It can be revised during or after peer review, and its review status remains distinct from journal certification.
+2. **Author accepted manuscript (AAM):** the text accepted after peer review, before final publisher typesetting and branding.
+3. **Version of record (VoR):** the formal publisher-maintained article with final metadata and publication status.
 
-### Physics-specific advantage: SCOAP³
+A DOI normally resolves to the version of record. Repository policies determine whether a preprint or AAM may be deposited and whether an embargo applies. The publisher-formatted PDF is not automatically licensed for repository upload merely because its authors created the underlying research.
 
-[SCOAP³](https://scoap3.org/what-is-scoap3/) is a CERN-hosted partnership that supports open-access publication in high-energy physics without an author-facing fee for covered articles. Its current coverage includes full-journal support for venues such as JHEP, EPJ C, Nuclear Physics B and Physics Letters B, and eligible HEP content in some broader journals. For partially covered journals, primary arXiv HEP categorisation can matter; verify the [current SCOAP³ FAQ and journal rules](https://scoap3.org/faqs/) before relying on coverage.
-
-### Before agreeing to an APC
-
-- Check whether the journal also offers a no-fee subscription route.
-- Check institutional transformative agreements and funder support.
-- Ask for a waiver or discount **before acceptance** if the policy requires it.
-- Confirm currency, tax and the final payer.
-- Record the invoice source and never pay a private account.
-- Do not choose a weaker journal merely because its APC is high and therefore appears prestigious.
-
-An APC funds the open-access route and associated publishing service; it must not buy a favourable editorial decision. It is commonly invoiced after acceptance, but timing and fee types vary. Check separately for submission, page, colour, excess-length and optional open-access charges, all of which should be disclosed clearly and kept independent of editorial judgment.
-
-## 6. Copyright, licences and manuscript versions
-
-### Three versions to distinguish
-
-1. **Preprint:** an author manuscript shared publicly before formal journal publication; it may later be revised during or after peer review, so its version and review status should always be stated.
-2. **Author accepted manuscript (AAM):** the peer-reviewed text accepted by the journal, before the publisher's final typesetting.
-3. **Version of record (VoR):** the final, citable publisher-maintained article.
-
-The DOI should normally point to the VoR. When updating arXiv, add the journal reference and DOI but preserve a clear version history.
-
-### What CC BY means
-
-Under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), others may share and adapt the work, including commercially, provided they give appropriate attribution, link the licence and indicate changes. Other Creative Commons licences add restrictions such as non-commercial use, no derivatives or share-alike. Read the exact licence; “Creative Commons” alone is incomplete.
-
-Before signing a publishing agreement, check:
-
-- who retains copyright;
-- the licence on the VoR;
-- rights to reuse your own figures and text in a thesis, lecture or book;
-- permitted posting of preprint and AAM;
-- embargo length, if any;
-- text-and-data-mining rights; and
-- whether third-party figures have compatible permission.
-
-Do not upload the publisher PDF to a repository merely because you authored the paper. Use the version permitted by the agreement.
-
-## 7. Preprints: powerful, but not invisible
-
-Preprints are normal in much of theoretical physics and HEP. They establish a public timestamp, accelerate discussion, support open access and may determine SCOAP³ eligibility. They also make errors and overclaims public immediately.
-
-Before arXiv submission:
-
-- obtain approval of the exact version from every author;
-- complete the same equation, reference and attribution audit used for journal submission;
-- choose an accurate primary category and cross-lists;
-- check the target journal's preprint and media policy;
-- remove confidential referee material or third-party content that cannot be posted;
-- retain source, figures and the compiled PDF under version control; and
-- plan who will update the record after journal acceptance.
-
-A preprint may be cited as a preprint. After journal acceptance, describe it as “accepted by” or “in press at” the journal. Use “published in” only after the journal has released the online article or version of record, and always state the status accurately.
+In theoretical physics, arXiv provides dissemination, a public timestamp and version history. It does not perform the same certification function as journal peer review. A preprint can be cited as a preprint; after acceptance its status is “accepted” or “in press,” and after online journal release it can be described as “published in” the journal.
 
 ## 8. Authorship and contributorship
 
-Authorship carries both credit and responsibility. A practical group rule is that an author must make a substantial intellectual contribution, participate in drafting or critical revision, approve the submitted version, and accept accountability for their contribution and the integrity of the work.
+Authorship combines credit with accountability. International policies vary in wording, but authors are generally expected to have made a substantial intellectual contribution, participated in drafting or critical revision, approved the final manuscript and accepted responsibility for the work.
 
-Use the [CRediT taxonomy](https://credit.niso.org/) to record contributions such as conceptualization, formal analysis, methodology, software, validation, supervision, visualization, original drafting, and review/editing. CRediT describes contributions; the group must still decide which contributions satisfy authorship.
+The [CRediT taxonomy](https://credit.niso.org/) names fourteen contribution roles, including conceptualization, methodology, software, validation, formal analysis, investigation, data curation, writing, visualization, supervision, administration and funding acquisition. CRediT records contributions; it does not independently decide who qualifies as an author.
 
-### Agree early and revisit at milestones
+The **corresponding author** manages communication with the journal and often coordinates declarations and proof approval. Corresponding authorship does not necessarily mean first authorship or sole responsibility. Author-order conventions differ across fields. In much of theoretical physics, first position may indicate a leading contribution, while some collaborations use alphabetical ordering.
 
-Discuss authorship at:
+Several authorship distortions are recognized:
 
-1. project start;
-2. first defensible result;
-3. manuscript outline;
-4. preprint/submission approval; and
-5. every material change in contribution.
+- **guest or honorary authorship:** credit without a qualifying contribution;
+- **ghost authorship:** omission of a person who made a qualifying contribution;
+- **coercive authorship:** use of seniority or authority to obtain credit;
+- **authorship dispute:** disagreement about inclusion, order or responsibility; and
+- **unacknowledged assistance:** contribution that does not reach authorship level but is not disclosed.
 
-Record a provisional author order and the reason. Changes are allowed when work changes; secret changes and last-minute honorary additions are not.
+Authorship disputes are often difficult for journals to investigate because institutions, rather than editors, have access to employment and research records.
 
-### Practices to prohibit
+## 9. Major forms of publication misconduct
 
-- **Gift or honorary authorship:** adding a senior, funder or friend without qualifying contribution.
-- **Ghost authorship:** omitting someone who made a qualifying contribution, or concealing a writer.
-- **Coercive authorship:** using authority over a student to demand undeserved credit.
-- **Authorship for sale or exchange:** trading names across papers.
-- **Unapproved submission:** corresponding author submits without all authors seeing the final files.
+**Fabrication** is the invention of data or results. **Falsification** is the manipulation or omission of material so that the research record is misleading. **Plagiarism** is the presentation of another person's language, ideas, figures or results without appropriate attribution.
 
-The corresponding author manages communication; that role does not automatically imply first authorship or sole control of the paper.
+Related publication problems include:
 
-## 9. Overlap, plagiarism and fragmented publication
+- **duplicate submission:** the same manuscript is under consideration at more than one journal simultaneously;
+- **duplicate publication:** substantially the same work appears more than once without transparent cross-reference;
+- **text recycling:** reuse of an author's earlier text beyond what policy and context permit;
+- **salami slicing:** fragmentation of one coherent study into minimally distinct papers;
+- **citation manipulation:** citations added primarily to inflate an author, journal or reviewer metric;
+- **image manipulation:** alteration that changes evidentiary meaning; and
+- **paper-mill production:** commercial manufacture or sale of fraudulent manuscripts or authorship positions.
 
-### Plagiarism
+Similarity software detects textual overlap, not plagiarism as a complete ethical judgment. Legitimate overlap can occur in methods, equations, standard descriptions and preprint versions; interpretation depends on source, attribution, extent and intent.
 
-Plagiarism includes unattributed text, ideas, equations, figures, code or structure. A citation does not permit verbatim copying; quoted text requires appropriate marking and permission where applicable. Translating another source without attribution is also plagiarism.
+## 10. Conflicts of interest and peer-review ethics
 
-### Text recycling and self-plagiarism
+A **conflict of interest** is a relationship or interest that could influence, or reasonably appear to influence, professional judgment. Conflicts may be financial, institutional, collaborative, supervisory, competitive or personal.
 
-Authors do not receive unlimited reuse rights merely because the earlier text is theirs. Methods may sometimes require limited, transparent overlap, but copy only what the journal permits, cite the earlier work and disclose related manuscripts.
+Reviewers receive privileged access to unpublished work. The ethical norms of peer review include confidentiality, disclosure of conflicts, assessment within one's competence, prohibition on using unpublished ideas, and avoidance of coercive citation requests. Editors are responsible for managing disclosed conflicts and preserving procedural fairness.
 
-### Duplicate and simultaneous publication
+Reviewer anonymity depends on the model. In single-anonymous review the reviewer is hidden from the author. In double-anonymous review both identities are concealed during assessment as far as practical. Open review may disclose identities, reports or both. The scientific function remains expert scrutiny, while the social dynamics differ.
 
-Do not submit substantially the same manuscript to more than one journal at once. Disclose conference proceedings, book chapters, preprints and closely related manuscripts so the editor can judge overlap.
+## 11. AI tools in journal publishing
 
-### Salami slicing
+Publisher policies on generative AI are evolving. As checked on **30 June 2026**, the [APS policy on appropriate AI use](https://journals.aps.org/authors/appropriate-use-ai-tools) excludes AI systems from authorship, retains full human responsibility and requires disclosure of substantive use. The [Elsevier journal policy updated in June 2026](https://www.elsevier.com/en-au/about/policies-and-standards/generative-ai-policies-for-journals) similarly emphasizes human accountability and disclosure for manuscript-preparation use beyond basic language tools.
 
-Several papers from a project are legitimate when each answers a distinct question and the relationship is explicit. Fragmenting one coherent result into minimally different papers to inflate counts wastes readers' time and can hide the full evidence.
+Recurring policy themes include:
 
-Ask: **Would combining these results create a scientifically clearer and more convincing paper?** If yes, fragmentation needs a strong reason.
+- an AI system cannot meet authorship and accountability requirements;
+- authors remain responsible for equations, claims, references and originality;
+- substantive use may belong in a methods or disclosure statement;
+- confidential manuscripts and referee reports require protection;
+- generated references and quotations are not reliable without source verification; and
+- editorial and reviewer use is constrained by confidentiality and data-governance rules.
 
-## 10. Citations are evidence links, not currency
+Differences remain between publishers, journals and types of use. Language correction, code assistance, image generation and use of AI as a research method can fall under different disclosure rules.
 
-A responsible reference list should:
+## 12. Reproducibility in theoretical physics
 
-- cite the original source of a result when possible;
-- represent competing methods and contrary evidence fairly;
-- distinguish what a cited work proves from what it merely suggests;
-- avoid decorative references never read by the authors;
-- correct retracted or superseded citations;
-- avoid unnecessary self-citation; and
-- resist reviewer or editor citation requests that lack scientific relevance.
+Theoretical research may have little conventional experimental data, but reproducibility still concerns the traceability of the argument. Relevant research objects include symbolic derivations, numerical scripts, parameter files, boundary conditions, approximation regimes, software versions and plotting data.
 
-Never add citations only to increase an author, reviewer or journal metric. If a requested citation is irrelevant, explain this respectfully in the response letter and invite the editor to decide.
+For analytical work, reproducibility depends on explicit assumptions, definitions, domains, limiting cases and intermediate steps. For computational theory, it also depends on code, dependency versions, random seeds where relevant, convergence tests and machine-readable inputs. A statement such as “no data were used” can be accurate for a purely analytical paper, whereas a numerical calculation may generate data and code even if no external dataset was collected.
 
-## 11. Conflicts of interest and reviewer suggestions
+## 13. Corrections, retractions and the permanent record
 
-Disclose financial and non-financial relationships that a reasonable reader might consider relevant: funding, employment, patents, consulting, close collaboration, recent coauthorship, personal rivalry or institutional dependence.
+Scientific publishing distinguishes several post-publication notices:
 
-When suggesting reviewers:
-
-- choose genuine subject experts from more than one institution and country where possible;
-- disclose collaborators and close professional relationships;
-- use verifiable institutional email addresses;
-- never create or control a reviewer identity; and
-- request exclusions only for a concrete conflict, not merely because someone may be critical.
-
-An uncomfortable expert is not automatically a conflicted expert.
-
-## 12. AI tools: policy, disclosure and confidentiality
-
-Journal AI rules are changing quickly. Check the target journal's policy on the day of submission and preserve a copy.
-
-As checked on 30 June 2026, the [APS policy on appropriate AI use](https://journals.aps.org/authors/appropriate-use-ai-tools) states that AI cannot be an author; authors retain full responsibility; substantive use must be recorded and disclosed with the tool, version, purpose and verification; and AI used in the research belongs in the methods. Light language polishing need not be disclosed under that policy. The [Elsevier journal policy updated in June 2026](https://www.elsevier.com/en-au/about/policies-and-standards/generative-ai-policies-for-journals) similarly requires human accountability and disclosure of manuscript-preparation use beyond basic language tools.
-
-Adopt these group rules even where a journal is silent:
-
-1. An AI system is never an author, source of authority or substitute for a derivation.
-2. Humans independently verify every equation, limit, unit, numerical result, quotation and reference.
-3. Never cite a reference generated by a tool until the real source has been opened and read.
-4. Record tool name, version/date, prompt purpose, output use and human verification for substantive use.
-5. Do not upload unpublished manuscripts, referee reports, collaborator material or confidential data to an external AI service without explicit authority and adequate privacy protection.
-6. Figures must represent real scientific content and comply with copyright; generative decoration has no place in an evidentiary figure.
-7. Disclose methodological use in enough detail to support reproducibility.
-
-Reviewer confidentiality is especially strict. Do not put a manuscript under review into a public AI tool. Publisher policies differ on limited assistance, so reviewers must read and follow the invitation's current rules.
-
-## 13. Data, code and theoretical reproducibility
-
-“No experimental data” does not mean “nothing to preserve.” A theoretical paper may depend on:
-
-- symbolic-algebra notebooks;
-- numerical solver code and versions;
-- parameter files and random seeds;
-- derivation notes and sign conventions;
-- plots and the data used to generate them;
-- custom LaTeX macros that encode notation; and
-- computational environment and dependency versions.
-
-Keep an immutable release corresponding to the submitted and accepted paper. State what is available, where, under which licence and what is genuinely unavailable. A data-availability statement should be truthful, not boilerplate.
-
-## 14. Errors after publication
-
-The [COPE Core Practices](https://publicationethics.org/core-practices) require mechanisms for post-publication debate, correction, revision and retraction. The right response depends on the effect:
-
-| Situation | Typical response |
+| Notice | General function |
 |---|---|
-| Typographical error with no effect on reasoning | Notify journal if reader confusion is plausible; minor publisher correction may suffice |
-| Correctable equation, label or code error; main conclusion survives | Formal correction/erratum linked to the article |
-| Ambiguous concern under investigation | Editor may issue an expression of concern |
-| Central result unreliable because of serious error | Retraction may be needed even when the error was honest |
-| Fabrication, falsification, plagiarism or manipulated review | Institutional and journal investigation; correction or retraction as warranted |
+| Author or publisher correction | Repairs an error while the central conclusions remain reliable |
+| Addendum | Adds information needed to interpret or extend the published record |
+| Expression of concern | Signals a serious unresolved question during investigation |
+| Retraction | Marks an article as unreliable or seriously compromised |
+| Withdrawal | Removes or labels material before or around formal publication under publisher policy |
 
-Group protocol:
+A retraction is not deletion. The original record commonly remains visible and linked to the notice so that readers understand what changed. Retractions can result from misconduct, but they can also arise from major honest error. Correction is part of record maintenance rather than an automatic admission of wrongdoing.
 
-1. freeze relevant records and reproduce the issue;
-2. notify all authors immediately;
-3. determine which claims, figures and downstream papers are affected;
-4. contact the editor with a factual account and proposed remedy;
-5. update repositories and code records with linked notices; and
-6. inform collaborators or readers relying on the result.
+## 14. Commonly confused propositions
 
-Do not quietly replace a preprint while leaving the journal record uncorrected.
-
-## 15. A due-diligence record for every submission
-
-Copy this into the project folder and complete it before approving a target:
-
-```text
-Journal title:
-ISSN / eISSN:
-Official journal and submission URLs:
-Publisher / owner:
-Exact scope match (3 recent comparable papers):
-Article type and editorial threshold:
-Web of Science collection and coverage checked at:
-Scopus active coverage checked at:
-JCR metric, data year, category, rank and quartile:
-CiteScore/SJR metric, data year, category and percentile/quartile:
-DOAJ record, if fully OA:
-Peer-review model:
-APC / no-fee route / waiver / agreement:
-Copyright and licence:
-Preprint and self-archiving policy:
-Data/code policy:
-AI-use policy:
-Correction/retraction/appeal policies:
-University/funder compliance:
-Checked by / date:
-Decision and reasons:
-```
-
-## Supervisor discussion cases
-
-### Case 1: “Fast Scopus journal, acceptance in five days”
-
-The scholar needs a paper before a deadline. The journal claims Scopus coverage and asks for immediate payment. Do not debate the email. Find the exact ISSN in Scopus Sources, inspect active coverage, navigate independently to the official domain, read recent papers and verify the fee and review policy. If the offer guarantees acceptance, reject it even if historical Scopus coverage was real.
-
-### Case 2: reviewer demands six citations to their work
-
-Read each requested paper. Add the citations that materially improve context or correct an omission. For the others, state why they are not relevant. Tell the editor privately if the pattern appears coercive.
-
-### Case 3: scholar used an AI tool to rewrite the introduction
-
-Do not conceal it or automatically discard the paper. Identify the tool and exact use, verify every claim and citation from primary sources, compare the current journal policy, rewrite passages that no author can defend, and disclose as required. Never let fluency hide a weak novelty argument.
-
-### Case 4: senior colleague asks to be an author for “support”
-
-Thank them and offer acknowledgement if appropriate. Ask which authorship-level contribution they will make and record it. Status, general mentorship or administrative help alone does not justify authorship.
+| Proposition | More accurate interpretation |
+|---|---|
+| “Open access means predatory” | Access model and editorial integrity are separate properties |
+| “A journal with an ISSN is approved” | ISSN identifies a serial; it does not certify peer review or indexing |
+| “A DOI proves journal quality” | A DOI is a persistent identifier, not a quality evaluation |
+| “Scopus indexed forever” | Database coverage can begin, change or cease over time |
+| “High APC means high prestige” | Price and scholarly standing are not equivalent |
+| “No APC means free access” | A subscription journal can be free to publish but costly to read |
+| “Accepted means published” | Acceptance precedes production and release of the journal article |
+| “A preprint is unpublishable” | Preprints are normal in many physics communities, subject to journal policy |
+| “Retraction erases a paper” | The record and retraction notice usually remain linked and visible |
 
 ## Core sources
 
 - [COPE Core Practices](https://publicationethics.org/core-practices)
 - [Principles of Transparency and Best Practice in Scholarly Publishing](https://publicationethics.org/resources/guidelines/principles-transparency-and-best-practice-scholarly-publishing)
-- [Think. Check. Submit. journal checklist](https://thinkchecksubmit.org/journals/)
-- [DOAJ Guide to applying and transparency criteria](https://doaj.org/apply/guide/)
-- [Clarivate Web of Science Master Journal List](https://mjl.clarivate.com/home)
+- [Think. Check. Submit.](https://thinkchecksubmit.org/journals/)
+- [DOAJ transparency guidance](https://doaj.org/apply/guide/)
+- [Web of Science Master Journal List](https://mjl.clarivate.com/home)
 - [Scopus content policy and selection](https://www.elsevier.com/en-au/products/scopus/content/content-policy-and-selection)
-- [UGC notice: discontinued CARE listing and suggestive parameters](https://www.ugc.gov.in/pdfnews/9678711_PUBLIC-NOTICE-CARE.pdf)
-- [SCOAP³: open access in high-energy physics](https://scoap3.org/what-is-scoap3/)
-- [CRediT contributor roles](https://credit.niso.org/)
+- [UGC notice on the discontinued CARE listing](https://www.ugc.gov.in/pdfnews/9678711_PUBLIC-NOTICE-CARE.pdf)
+- [SCOAP³ and high-energy-physics open access](https://scoap3.org/what-is-scoap3/)
+- [CRediT Contributor Role Taxonomy](https://credit.niso.org/)
 - [Creative Commons licence guide](https://creativecommons.org/share-your-work/cclicenses/)
 - [APS policy on appropriate use of AI tools](https://journals.aps.org/authors/appropriate-use-ai-tools)
 
-**Next:** [Module 5 — The PhD Supervisor's Publication Playbook]({{ '/phd-supervisor-publication-playbook/' | relative_url }})
+**Next:** [Module 5 — PhD Supervision and the Publication System]({{ '/phd-supervision-publication-system/' | relative_url }})
