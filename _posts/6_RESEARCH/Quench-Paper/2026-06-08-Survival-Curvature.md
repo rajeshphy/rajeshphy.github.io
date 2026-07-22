@@ -1,14 +1,14 @@
 ---
 title: "V: Survival Curvature Beyond the Linear Covariance Response"
-date: 2026-06-08 09:00:00 +05:30
+date: 2026-06-08 09:00:00 +0530
 categories: research
-tags: [survival probability, energy variance, exceptional Hermite states, non-Gaussian dynamics, covariance limitations]
-permalink: /research/survival-curvature/
-description: "An exact survival-curvature test showing that mode-exchange-symmetric second moments can hide nonstationary non-Gaussian evolution."
-series: exceptional-hermite-angular-quench
-part: 5
-authors: [Rajesh Kumar, Rajesh Kumar Yadav]
-status: manuscript
+tags:
+  - survival probability
+  - energy variance
+  - exceptional Hermite states
+  - non-Gaussian dynamics
+  - covariance limitations
+permalink: "/survival-curvature/"
 ---
 
 When all first-order cross-covariance rates vanish, it is tempting to call the post-quench state stationary. That inference is false. The survival probability probes the state vector directly and reveals an exact quadratic response that covariance symmetry can miss.

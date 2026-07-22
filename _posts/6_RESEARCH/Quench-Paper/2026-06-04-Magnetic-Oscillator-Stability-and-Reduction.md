@@ -1,14 +1,14 @@
 ---
 title: "I: Magnetic oscillator stability and rotated-coordinate reduction"
-date: 2026-06-04 09:00:00 +05:30
+date: 2026-06-04 09:00:00 +0530
 categories: research
-tags: [magnetic oscillator, minimal coupling, angular momentum, stability, quantum quench]
-permalink: /research/magnetic-oscillator-stability-reduction/
-description: "A signed-frequency derivation of the static coordinate reduction and stability conditions used in an exceptional-Hermite angular-momentum quench."
-series: exceptional-hermite-angular-quench
-part: 1
-authors: [Rajesh Kumar, Rajesh Kumar Yadav]
-status: manuscript
+tags:
+  - magnetic oscillator
+  - minimal coupling
+  - angular momentum
+  - stability
+  - quantum quench
+permalink: "/magnetic-oscillator-stability-reduction/"
 ---
 
 This article fixes the conventions and the static reduction behind our

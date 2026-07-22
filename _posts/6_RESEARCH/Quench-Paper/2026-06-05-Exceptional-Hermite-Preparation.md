@@ -1,14 +1,14 @@
 ---
 title: "II: Exact exceptional-Hermite preparation before the angular quench"
-date: 2026-06-05 09:00:00 +05:30
+date: 2026-06-05 09:00:00 +0530
 categories: research
-tags: [exceptional Hermite polynomials, rational oscillator, non-Gaussian states, parity, quantum quench]
-permalink: /research/exceptional-hermite-preparation/
-description: "Regular exceptional-Hermite seeds, normalized eigenstates, exact moments, and the product-state preparation used before a fixed-confinement angular quench."
-series: exceptional-hermite-angular-quench
-part: 2
-authors: [Rajesh Kumar, Rajesh Kumar Yadav]
-status: manuscript
+tags:
+  - exceptional Hermite polynomials
+  - rational oscillator
+  - non-Gaussian states
+  - parity
+  - quantum quench
+permalink: "/exceptional-hermite-preparation/"
 ---
 
 The angular quench begins from a state that is known exactly, not from a

@@ -1,14 +1,14 @@
 ---
 title: "IV: Exact First-Order Covariance Response Without Gaussian Closure"
-date: 2026-06-07 09:00:00 +05:30
+date: 2026-06-07 09:00:00 +0530
 categories: research
-tags: [covariance dynamics, moment hierarchy, exceptional Hermite states, quantum synchronization, non-Gaussian dynamics]
-permalink: /research/exact-covariance-response/
-description: "The nonlinear moment hierarchy and the complete first-order cross-covariance response of a parity-resolved exceptional-Hermite quench."
-series: exceptional-hermite-angular-quench
-part: 4
-authors: [Rajesh Kumar, Rajesh Kumar Yadav]
-status: manuscript
+tags:
+  - covariance dynamics
+  - moment hierarchy
+  - exceptional Hermite states
+  - quantum synchronization
+  - non-Gaussian dynamics
+permalink: "/exact-covariance-response/"
 ---
 
 Covariances are useful observables in a non-Gaussian quench, but they do not generally form a closed dynamical system. Here the initial cross-covariance rates can nevertheless be derived exactly, directly from the Heisenberg equations and the symmetry of the prepared state.
