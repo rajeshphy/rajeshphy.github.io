@@ -1,7 +1,7 @@
 ---
-title: "A Fixed-Confinement Angular-Momentum Quench"
+title: "III: A Fixed-Confinement Angular-Momentum Quench"
 date: 2026-06-06 09:00:00 +05:30
-categories: [Research, Quantum Mechanics]
+categories: research
 tags: [angular-momentum quench, exceptional Hermite states, magnetic oscillator, non-Gaussian dynamics, fixed confinement]
 permalink: /research/fixed-confinement-angular-quench/
 description: "An exact exceptional-Hermite preparation followed by a signed angular-momentum quench, with the diamagnetically dressed confinement held fixed."
@@ -12,8 +12,6 @@ status: manuscript
 ---
 
 The quench studied here changes one term of the Hamiltonian, not the complete magnetic field. An exceptional-Hermite product state is first prepared exactly in two rotated coordinates. At $t=0$, a signed angular coupling is activated while the coordinate confinement—including its diamagnetic dressing—is held fixed.
-
-> **Publication status.** This article accompanies a manuscript prepared for submission to *International Journal of Modern Physics A* (IJMPA). No acceptance or DOI is claimed.
 
 ## Conventions and preparation coordinates
 

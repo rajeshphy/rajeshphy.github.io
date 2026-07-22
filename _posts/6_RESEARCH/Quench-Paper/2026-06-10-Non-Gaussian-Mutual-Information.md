@@ -1,7 +1,7 @@
 ---
-title: "Non-Gaussian Mutual Information: Exact Entropy and Covariance Bounds"
+title: "VII: Non-Gaussian Mutual Information: Exact Entropy and Covariance Bounds"
 date: 2026-06-10 09:00:00 +05:30
-categories: [Research, Quantum Mechanics]
+categories: research
 tags: [non-Gaussian states, mutual information, covariance matrix, relative entropy, exceptional Hermite, angular-momentum quench]
 permalink: /research/non-gaussian-mutual-information/
 description: "Why the reduced density spectrum gives the exact rotated-mode mutual information, while 2h(nu_A) is a local-covariance maximum-entropy bound rather than a Gaussian mutual information."
@@ -10,8 +10,6 @@ part: 7
 authors: [Rajesh Kumar, Rajesh Kumar Yadav]
 status: manuscript
 ---
-
-> **Manuscript status.** This article describes work prepared for submission to the *International Journal of Modern Physics A*. It does not claim journal acceptance or a DOI.
 
 Covariance matrices are indispensable for continuous-variable systems, but they do not determine a generic non-Gaussian state. This becomes decisive in the exceptional-Hermite angular quench: second moments produce a useful entropy bound, while the exact mutual information requires the spectrum of a reduced density operator.
 

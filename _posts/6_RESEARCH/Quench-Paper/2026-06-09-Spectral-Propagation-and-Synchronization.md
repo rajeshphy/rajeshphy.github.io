@@ -1,7 +1,7 @@
 ---
-title: "Exceptional-Basis Spectral Propagation and Synchronization"
+title: "VI: Exceptional-Basis Spectral Propagation and Synchronization"
 date: 2026-06-09 09:00:00 +05:30
-categories: [Research, Quantum Mechanics]
+categories: research
 tags: [exceptional Hermite, angular-momentum quench, spectral propagation, quantum synchronization, cutoff convergence, non-Gaussian dynamics]
 permalink: /research/spectral-propagation-synchronization/
 description: "A cutoff-tested exceptional-Hermite propagation of a fixed-confinement angular-momentum quench, with an exact short-time synchronization slope and explicit limits on its interpretation."
@@ -10,8 +10,6 @@ part: 6
 authors: [Rajesh Kumar, Rajesh Kumar Yadav]
 status: manuscript
 ---
-
-> **Manuscript status.** This article describes work prepared for submission to the *International Journal of Modern Physics A*. It does not claim journal acceptance or a DOI.
 
 The short-time commutator expansion tells us how an observable first responds to the quench. It does not, by itself, produce a finite-time trajectory. Here we use the complete exceptional-Hermite product basis to propagate the same non-Gaussian state beyond short times, without imposing a Gaussian closure.
 

@@ -1,7 +1,7 @@
 ---
-title: "Magnetic oscillator stability and rotated-coordinate reduction"
+title: "I: Magnetic oscillator stability and rotated-coordinate reduction"
 date: 2026-06-04 09:00:00 +05:30
-categories: [Research, Quantum Mechanics]
+categories: research
 tags: [magnetic oscillator, minimal coupling, angular momentum, stability, quantum quench]
 permalink: /research/magnetic-oscillator-stability-reduction/
 description: "A signed-frequency derivation of the static coordinate reduction and stability conditions used in an exceptional-Hermite angular-momentum quench."
@@ -17,10 +17,6 @@ easy to miss: rotating the coordinate quadratic form is not the same as
 diagonalizing the complete magnetic Hamiltonian in phase space. The rotation
 identifies useful preparation coordinates, while an angular-momentum term
 remains to couple them dynamically.
-
-> **Publication status.** This series accompanies a manuscript prepared for
-> submission to *International Journal of Modern Physics A* (IJMPA). It makes
-> no claim of journal acceptance, publication, or an assigned DOI.
 
 ## Conventions and the signed magnetic coupling
 

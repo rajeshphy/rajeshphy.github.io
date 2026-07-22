@@ -1,7 +1,7 @@
 ---
-title: "Exact exceptional-Hermite preparation before the angular quench"
+title: "II: Exact exceptional-Hermite preparation before the angular quench"
 date: 2026-06-05 09:00:00 +05:30
-categories: [Research, Quantum Mechanics]
+categories: research
 tags: [exceptional Hermite polynomials, rational oscillator, non-Gaussian states, parity, quantum quench]
 permalink: /research/exceptional-hermite-preparation/
 description: "Regular exceptional-Hermite seeds, normalized eigenstates, exact moments, and the product-state preparation used before a fixed-confinement angular quench."
@@ -18,10 +18,6 @@ separates two stages that must not be conflated:
 
 1. exact, additive state preparation before $t=0$; and
 2. non-additive post-quench evolution after the angular term is activated.
-
-> **Publication status.** This series accompanies a manuscript prepared for
-> submission to *International Journal of Modern Physics A* (IJMPA). It makes
-> no claim of journal acceptance, publication, or an assigned DOI.
 
 We retain the conventions $\hbar=2M=1$ and the signed half-cyclotron
 frequency $\omega_c=qB/(2Mc)$. The preparation scales $\Omega_\pm$ already

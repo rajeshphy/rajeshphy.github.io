@@ -1,7 +1,7 @@
 ---
-title: "Survival Curvature Beyond the Linear Covariance Response"
+title: "V: Survival Curvature Beyond the Linear Covariance Response"
 date: 2026-06-08 09:00:00 +05:30
-categories: [Research, Quantum Mechanics]
+categories: research
 tags: [survival probability, energy variance, exceptional Hermite states, non-Gaussian dynamics, covariance limitations]
 permalink: /research/survival-curvature/
 description: "An exact survival-curvature test showing that mode-exchange-symmetric second moments can hide nonstationary non-Gaussian evolution."
@@ -13,7 +13,6 @@ status: manuscript
 
 When all first-order cross-covariance rates vanish, it is tempting to call the post-quench state stationary. That inference is false. The survival probability probes the state vector directly and reveals an exact quadratic response that covariance symmetry can miss.
 
-> **Publication status.** This article accompanies a manuscript prepared for submission to *International Journal of Modern Physics A* (IJMPA). No acceptance or DOI is claimed.
 
 ## Fixed-confinement quench and domain assumption
 
