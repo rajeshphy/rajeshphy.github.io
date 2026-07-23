@@ -1,5 +1,6 @@
 ---
 title: "VII: Non-Gaussian Mutual Information: Exact Entropy and Covariance Bounds"
+description: "Derives exact two-mode mutual information from the reduced density spectrum and separates it from covariance-based Gaussian bounds."
 date: 2026-06-10 09:00:00 +0530
 categories: research
 tags:
@@ -12,69 +13,149 @@ tags:
 permalink: "/non-gaussian-mutual-information/"
 ---
 
-Covariance matrices are indispensable for continuous-variable systems, but they do not determine a generic non-Gaussian state. This becomes decisive in the exceptional-Hermite angular quench: second moments produce a useful entropy bound, while the exact mutual information requires the spectrum of a reduced density operator.
+Quantum mutual information answers a concrete question: **how much information
+is shared by two chosen subsystems?** For continuous-variable systems it is
+tempting to answer from a covariance matrix alone. That shortcut is exact for
+Gaussian states, but it is generally wrong for non-Gaussian states.
 
-The distinction is visible even before the quench. The initial state is a product, so its mutual information vanishes. Each factor is nevertheless non-Gaussian, and its covariance is also compatible with a mixed Gaussian state of positive entropy. A covariance entropy therefore need not be an intermode correlation entropy.
+This guide develops the distinction from the definitions. It requires only the
+basic ideas of a wavefunction, an inner product, and matrix eigenvalues. The
+central task is to derive the exact correlation measure and then identify,
+mathematically, the more limited statement supplied by a covariance matrix.
 
-## Fix the subsystem assignment first
+All logarithms are natural logarithms, so entropies are measured in **nats**.
+Divide by $\ln 2$ to convert nats to bits.
 
-We use
+## 1. Physics carried forward
+
+This is the information-theory step of a progressive calculation. Three
+results have already been established:
+
+1. [The magnetic Hamiltonian and its stability
+   domain](/magnetic-oscillator-stability-reduction/) give two rotated
+   canonical modes $(q_\pm,p_\pm)$.
+2. [Exceptional-Hermite preparation](/exceptional-hermite-preparation/) gives
+   a normalized product input
+   $$\lvert m_+,\ell_+\rangle\otimes\lvert m_-,\ell_-\rangle$$.
+3. [Spectral propagation](/spectral-propagation-synchronization/) gives
+   cutoff-tested coefficients
+
+   $$
+   |\Psi(t)\rangle
+   =\sum_{r,s}c_{rs}(t)
+   |m_+,r\rangle\otimes|m_-,s\rangle.
+   $$
+
+Those derivations are not repeated here. The new problem is to convert the
+coefficient array $c_{rs}(t)$ into an exact correlation measure and to
+determine precisely what can—and cannot—be inferred from second moments.
+
+The two-mode Hilbert space is
 
 $$
-\hbar=2M=1
+\mathcal H=\mathcal H_A\otimes\mathcal H_B,
+\qquad A=+,\quad B=-.
 $$
 
-and the fixed-confinement post-quench Hamiltonian
+The labels $A$ and $B$ are physical choices, not decorative notation.
+
+If a rotation relates $(q_+,q_-)$ to laboratory coordinates $(x,y)$, then the
+partition $+:-$ need not equal the partition $x:y$. A transformation that mixes
+the two sides changes what is meant by a subsystem and can change the mutual
+information. Every calculation must therefore state the partition before
+quoting a number.
+
+## 2. Pure states, mixed states, and the partial trace
+
+A normalized pure state is represented by a ket
+$$\lvert\Psi\rangle$$ satisfying
 
 $$
-H_{\mathrm{RE},B}
-=H_{\mathrm{sep}}^{\mathrm{RE}}-\omega_cL_z,
+\langle\Psi|\Psi\rangle=1.
+$$
+
+Its density operator is
+
+$$
+\rho_{AB}=|\Psi\rangle\langle\Psi|,
 \qquad
-L_z=q_+p_- -q_-p_+,
+\rho_{AB}^2=\rho_{AB}.
 $$
 
-where $\omega_c=qB/(2Mc)$ is signed. The coordinate confinement, including its diamagnetic dressing, is held fixed while the angular term is activated. No Gaussian approximation is introduced into the state preparation or propagation.
-
-Throughout this article the bipartition is explicitly
-
-$$
-A=+,
-\qquad
-B=-.
-$$
-
-These are the rotated modes that prepare the product input and support the exceptional-basis coefficient expansion. If $g\ne0$, the $+:-$ partition is not the laboratory $x:y$ partition. A canonical rotation changes the subsystem assignment, so the two mutual informations are different observables. In the numerical benchmark, $g=0$, so the two axis pairs coincide up to a permutation.
-
-## Exact mutual information from the reduced spectrum
-
-For a bipartite state $\rho_{AB}$, the quantum mutual information is
+Observer $A$ does not have access to measurements on $B$. The state available
+to that observer is obtained by tracing out $B$:
 
 $$
+\rho_A=\operatorname{Tr}_B\rho_{AB}.
+$$
+
+Similarly, $$\rho_B=\operatorname{Tr}_A\rho_{AB}$$. Even when
+$$\rho_{AB}$$ is pure, $\rho_A$ and $\rho_B$ are usually mixed. This mixedness records
+entanglement between the two modes.
+
+For a positive, unit-trace density matrix $\rho$ with eigenvalues
+$\{\lambda_k\}$, the von Neumann entropy is
+
+$$
+S(\rho)=-\operatorname{Tr}(\rho\ln\rho)
+       =-\sum_k\lambda_k\ln\lambda_k.
+$$
+
+The convention $0\ln0=0$ follows from the limit
+$\lim_{x\to0^+}x\ln x=0$. A pure state has eigenvalues
+$(1,0,0,\ldots)$ and therefore zero entropy.
+
+## 3. Derive mutual information from its definition
+
+For any bipartite state,
+
+$$
+\boxed{
 I(A:B)_\rho
-=S(\rho_A)+S(\rho_B)-S(\rho_{AB}),
+=S(\rho_A)+S(\rho_B)-S(\rho_{AB})
+}.
 $$
 
-where
+It vanishes for a product state
+$\rho_{AB}=\rho_A\otimes\rho_B$ and is non-negative for every valid quantum
+state. It includes both classical and quantum correlations.
+
+Unitary time evolution preserves global purity:
 
 $$
-S(\rho)=-\operatorname{Tr}(\rho\ln\rho).
-$$
-
-The quench is unitary and the prepared global state is pure. Therefore
-
-$$
-S(\rho_{AB})=0,
+\rho_{AB}(t)=U(t)\rho_{AB}(0)U^\dagger(t),
 \qquad
-S(\rho_A)=S(\rho_B),
+U(t)=e^{-iHt}.
 $$
 
-and hence
+Thus $S(\rho_{AB}(t))=0$ when the initial state is pure. A Schmidt
+decomposition,
 
 $$
-I(A:B)_\rho=2S(\rho_A).
+|\Psi(t)\rangle
+=\sum_k\sqrt{\lambda_k(t)}
+\,|u_k(t)\rangle_A|v_k(t)\rangle_B,
 $$
 
-In the exceptional product basis,
+shows that $\rho_A$ and $\rho_B$ have the same nonzero eigenvalues. Hence
+
+$$
+S(\rho_A)=S(\rho_B)
+$$
+
+and the pure-state formula is
+
+$$
+\boxed{I(A:B)_\rho=2S(\rho_A)}.
+$$
+
+The factor of two is important: the entanglement entropy is $S(\rho_A)$,
+whereas the mutual information of a globally pure bipartite state is twice
+that value.
+
+## 4. Turn a propagated wavefunction into a density spectrum
+
+Expand the state in any orthonormal product basis:
 
 $$
 |\Psi(t)\rangle
@@ -82,13 +163,40 @@ $$
 |m_+,r\rangle\otimes|m_-,s\rangle.
 $$
 
-Treating $C(t)=[c_{rs}(t)]$ as a coefficient matrix gives
+Insert this expansion into
+$$\rho_A=\operatorname{Tr}_B\lvert\Psi\rangle\langle\Psi\rvert$$.
+Orthogonality on $B$ gives
 
 $$
-\rho_A(t)=C(t)C^\dagger(t).
+\rho_A
+=\sum_{r,r',s}c_{rs}c_{r's}^*
+|m_+,r\rangle\langle m_+,r'|.
 $$
 
-If $\{\lambda_k(t)\}$ are its eigenvalues, then
+If $C=[c_{rs}]$ is the coefficient matrix, this is simply
+
+$$
+\boxed{\rho_A=CC^\dagger},
+\qquad
+\boxed{\rho_B=C^\dagger C}.
+$$
+
+The nonzero eigenvalues of $CC^\dagger$ and $C^\dagger C$ are the squared
+singular values of $C$. Therefore a singular-value decomposition
+
+$$
+C=U\,\operatorname{diag}(s_k)\,V^\dagger
+$$
+
+immediately gives
+
+$$
+\lambda_k=s_k^2,
+\qquad
+\sum_k\lambda_k=1.
+$$
+
+For the propagated pure state,
 
 $$
 \boxed{
@@ -97,21 +205,194 @@ I(A:B)_\rho(t)
 }.
 $$
 
-This calculation uses the reduced density spectrum and retains non-Gaussian information. In a finite basis it is exact for the propagated truncated pure state; its interpretation as the infinite-dimensional result still requires cutoff convergence.
+This formula contains all orders of the state, not only its first and second
+moments.
 
-## The globally covariance-matched Gaussian state
+Numerically, singular values are preferable to diagonalizing a rounded
+$CC^\dagger$: they preserve non-negativity more reliably. The identities
+$$\lVert C\rVert_F^2=1$$ and $\sum_k\lambda_k=1$ must hold within the numerical
+tolerance. A substantial negative density-matrix eigenvalue is not something
+to clip away; it signals an error in propagation, reshaping, normalization, or
+the partial trace.
 
-Let $\tau_{AB}$ be the Gaussian state with the same global first and second moments as $\rho_{AB}$. Its marginals $\tau_A$ and $\tau_B$ are the covariance-matched Gaussian states of $\rho_A$ and $\rho_B$.
+## 5. What a covariance matrix knows
 
-For any subsystem $X$, define the relative-entropy non-Gaussianity
+Collect the four quadratures into
 
 $$
-\delta_{\mathrm{NG}}(\rho_X)
-=D(\rho_X\Vert\tau_X)
-=S(\tau_X)-S(\rho_X).
+\boldsymbol R=(q_+,p_+,q_-,p_-)^T
 $$
 
-Subtracting the corresponding entropy differences gives the exact general identity
+and define centered operators
+
+$$
+\delta R_j=R_j-\langle R_j\rangle.
+$$
+
+The covariance matrix is
+
+$$
+\sigma_{jk}
+=\frac12\langle\delta R_j\delta R_k+\delta R_k\delta R_j\rangle.
+$$
+
+It stores means, variances, and pair correlations. It does **not** store
+higher moments such as $\langle q^4\rangle$, nor the full shape of a
+non-Gaussian Wigner function.
+
+For one mode $X$, with
+
+$$
+\sigma_X=
+\begin{pmatrix}
+\langle(\delta q_X)^2\rangle &
+\tfrac12\langle\{\delta q_X,\delta p_X\}\rangle\\
+\tfrac12\langle\{\delta q_X,\delta p_X\}\rangle &
+\langle(\delta p_X)^2\rangle
+\end{pmatrix},
+$$
+
+the symplectic eigenvalue is
+
+$$
+\nu_X=\sqrt{\det\sigma_X}.
+$$
+
+Because $[q_X,p_X]=i$, the uncertainty principle requires
+
+$$
+\nu_X\ge\frac12.
+$$
+
+If a computation gives $\nu_X<1/2$ by more than rounding error, the state,
+operator matrices, or covariance convention is inconsistent.
+
+## 6. The Gaussian entropy function
+
+A Gaussian state is completely determined by its first and second moments.
+The one-mode Gaussian state having symplectic eigenvalue $\nu$ has entropy
+
+$$
+h(\nu)
+=\left(\nu+\frac12\right)\ln\left(\nu+\frac12\right)
+-\left(\nu-\frac12\right)\ln\left(\nu-\frac12\right).
+$$
+
+Useful checks are
+
+$$
+h\!\left(\frac12\right)=0,
+\qquad
+h(\nu)>0\quad\text{for}\quad\nu>\frac12.
+$$
+
+For a non-Gaussian state, $h(\nu_X)$ is **not automatically**
+$S(\rho_X)$. It is the entropy of the Gaussian state with the same local
+covariance.
+
+## 7. Two quantities that must not be confused
+
+### 7.1 Mutual information of the globally matched Gaussian state
+
+Let $\tau_{AB}$ be the Gaussian state with the same global first moments and
+the same $4\times4$ covariance matrix as $\rho_{AB}$. Its marginals
+$\tau_A$ and $\tau_B$ match the local covariances of $\rho_A$ and $\rho_B$.
+
+The two global symplectic eigenvalues $\nu_1,\nu_2$ are obtained from the
+positive eigenvalues of $$\lvert i\Omega\sigma\rvert$$, where
+
+$$
+\Omega=
+\begin{pmatrix}
+0&1&0&0\\
+-1&0&0&0\\
+0&0&0&1\\
+0&0&-1&0
+\end{pmatrix}.
+$$
+
+Then
+
+$$
+S(\tau_{AB})=h(\nu_1)+h(\nu_2)
+$$
+
+and
+
+$$
+\boxed{
+I(A:B)_\tau
+=h(\nu_A)+h(\nu_B)-h(\nu_1)-h(\nu_2)
+}.
+$$
+
+Even if $\rho_{AB}$ is pure, its covariance-matched Gaussian state
+$\tau_{AB}$ can be mixed. Consequently,
+
+$$
+I(A:B)_\tau\ne2h(\nu_A)
+$$
+
+in general.
+
+### 7.2 Local-covariance maximum-entropy bound
+
+Among all states with a fixed covariance, the Gaussian state has the largest
+entropy. Therefore
+
+$$
+S(\rho_A)\le S(\tau_A)=h(\nu_A).
+$$
+
+For a globally pure state,
+
+$$
+I(A:B)_\rho=2S(\rho_A),
+$$
+
+so
+
+$$
+\boxed{I(A:B)_\rho\le2h(\nu_A)}.
+$$
+
+The right-hand side is a local-covariance **upper bound**. It is not generally
+the exact mutual information and is not generally $I(A:B)_\tau$.
+
+## 8. Why the gap measures non-Gaussianity
+
+The quantum relative entropy is
+
+$$
+D(\rho\Vert\tau)
+=\operatorname{Tr}\!\left[\rho(\ln\rho-\ln\tau)\right].
+$$
+
+When $\tau$ is the Gaussian state matching the first and second moments of
+$\rho$, $\ln\tau$ is at most quadratic in the quadratures. Moment matching
+therefore gives
+
+$$
+\operatorname{Tr}(\rho\ln\tau)
+=\operatorname{Tr}(\tau\ln\tau).
+$$
+
+It follows that
+
+$$
+\delta_{\mathrm{NG}}(\rho)
+\equiv D(\rho\Vert\tau)
+=S(\tau)-S(\rho)\ge0.
+$$
+
+Apply this relation to $AB$, $A$, and $B$:
+
+$$
+S(\rho_X)=S(\tau_X)-\delta_{\mathrm{NG}}(\rho_X).
+$$
+
+Substitution into the definition of mutual information gives the exact
+identity
 
 $$
 \boxed{
@@ -123,118 +404,138 @@ I(A:B)_\rho
 }.
 $$
 
-For a general mixed state, the non-Gaussian correction to $I(A:B)_\tau$ has no fixed sign. Covariance reconstruction can overestimate or underestimate the exact mutual information depending on the balance of global and local non-Gaussianities.
+For a general mixed state, the correction has no fixed sign. A covariance-only
+reconstruction may overestimate or underestimate the true mutual information.
 
-## What the Gaussian mutual information actually is
-
-For one mode $X$, let
-
-$$
-\boldsymbol R_X=(q_X,p_X)^T
-$$
-
-and
+For a globally pure state, the local form is especially transparent:
 
 $$
-(\sigma_X)_{jk}
-=\frac12\langle
-\delta R_{X,j}\delta R_{X,k}
-+\delta R_{X,k}\delta R_{X,j}
-\rangle.
+S(\rho_A)=h(\nu_A)-\delta_{\mathrm{NG}}(\rho_A).
 $$
 
-Its symplectic eigenvalue is
-
-$$
-\nu_X=\sqrt{\det\sigma_X}\ge\frac12.
-$$
-
-The entropy of the covariance-matched one-mode Gaussian state is
-
-$$
-h(\nu)
-=\left(\nu+\frac12\right)
-\ln\left(\nu+\frac12\right)
--\left(\nu-\frac12\right)
-\ln\left(\nu-\frac12\right).
-$$
-
-If $\nu_1$ and $\nu_2$ are the two global symplectic eigenvalues of $\tau_{AB}$, then its mutual information is
-
-$$
-\boxed{
-I(A:B)_\tau
-=h(\nu_A)+h(\nu_B)-h(\nu_1)-h(\nu_2)
-}.
-$$
-
-Even when $\rho_{AB}$ is pure, its globally matched Gaussian state $\tau_{AB}$ is generally mixed. Consequently,
-
-$$
-I(A:B)_\tau\ne2h(\nu_A)
-$$
-
-in general. The quantity $2h(\nu_A)$ has a different meaning.
-
-## The local-covariance maximum-entropy bound
-
-Let $\rho_A^{G}=\tau_A$ be the one-mode Gaussian state with the same first moments and covariance as $\rho_A$. Gaussian states maximize entropy at fixed covariance, so
-
-$$
-S(\rho_A)\le S(\rho_A^G)=h(\nu_A).
-$$
-
-Since the global state is pure,
-
-$$
-I(A:B)_\rho=2S(\rho_A),
-$$
-
-and therefore
-
-$$
-I(A:B)_\rho\le2h(\nu_A).
-$$
-
-More strongly, covariance matching converts this inequality into the exact relative-entropy identity
+Therefore
 
 $$
 \boxed{
 2h(\nu_A)-I(A:B)_\rho
-=2D\!\left(\rho_A\middle\Vert\rho_A^G\right)
 =2\delta_{\mathrm{NG}}(\rho_A)
+=2D(\rho_A\Vert\tau_A)
 }.
 $$
 
-Thus $2h(\nu_A)$ is a **local-covariance maximum-entropy upper bound**. It is not the mutual information of the globally matched Gaussian state. Its excess over the exact pure-state mutual information is precisely twice the non-Gaussianity of the reduced state.
+This proves exactly what the covariance bound misses: the gap is twice the
+non-Gaussianity of the reduced state.
 
-This identity was also checked symbolically in Maxima 5.49.0: both the general Gaussian/non-Gaussian decomposition and its pure-state specialization reduce to zero residual.
+The algebraic step can be checked directly in Maxima without inserting any
+model-dependent numbers:
 
-## Finite-time calculation without Gaussian closure
+```maxima
+/* S(rho_X) = S(tau_X) - delta_X */
+SrA  : StA  - dA$
+SrB  : StB  - dB$
+SrAB : StAB - dAB$
 
-The numerical example uses
+Irho : SrA + SrB - SrAB$
+Itau : StA + StB - StAB$
+
+ratsimp(Irho - (Itau + dAB - dA - dB));
+/* 0 */
+
+/* Pure global state: SrAB=0 and SrA=SrB. */
+Ipure : 2 * SrA$
+ratsimp(2 * StA - Ipure - 2 * dA);
+/* 0 */
+```
+
+## 9. A zero-correlation example that catches the common mistake
+
+Suppose the initial state is a product of two pure non-Gaussian factors:
 
 $$
-g=0,
+|\Psi(0)\rangle=|\phi_+\rangle\otimes|\phi_-\rangle.
+$$
+
+Then
+
+$$
+\rho_A(0)=|\phi_+\rangle\langle\phi_+|,
 \qquad
-m_+=m_-=2,
-\qquad
+S(\rho_A(0))=0,
+$$
+
+and hence
+
+$$
+I(A:B)_\rho(0)=0.
+$$
+
+However, a pure non-Gaussian one-mode state may have
+$\det\sigma_A>1/4$, so $\nu_A>1/2$ and
+
+$$
+2h(\nu_A)>0.
+$$
+
+There is no contradiction. The exact mutual information is zero because the
+modes are uncorrelated. The positive covariance bound is the entropy of a
+different state—a mixed Gaussian state having the same covariance as the pure
+non-Gaussian factor.
+
+This is a useful unit test: any method that reports nonzero exact mutual
+information for a normalized product input is computing the wrong quantity or
+using the wrong subsystem partition.
+
+## 10. Add the information layer to the propagated state
+
+The propagation procedure and its cutoff diagnostics were constructed in the
+[preceding guide](/spectral-propagation-synchronization/). Its output at each
+time is a normalized coefficient array $C_N(t)$ together with the one-mode
+quadrature matrices. The singular values of $C_N$ give the exact
+finite-cutoff information
+
+$$
+I_N(t)=-2\sum_k s_k^2(t)\ln s_k^2(t).
+$$
+
+Independently, the quadrature matrices give $\sigma_A$, then
+$\nu_A=\sqrt{\det\sigma_A}$ and the bound $2h(\nu_A)$. These two calculations
+must remain separate: one uses the complete coefficient matrix and the other
+discards everything beyond second moments.
+
+For a square cutoff, the boundary population
+
+$$
+P_\partial(t)=
+\sum_{\substack{r=N-1\\\text{or }s=N-1}}|c_{rs}(t)|^2
+$$
+
+helps expose probability reaching the truncation edge. The information curve,
+the covariance bound, and the low moments must also be compared at increasing
+$N$.
+
+Norm preservation alone is not a convergence test: unitary evolution inside
+an inadequate truncated space preserves the norm perfectly.
+
+## 11. Worked benchmark and interpretation
+
+Consider
+
+$$
+g=0,\qquad
+m_+=m_-=2,\qquad
 \ell_+=\ell_-=0,
 $$
 
 with
 
 $$
-\Omega_+=\frac54,
-\qquad
-\Omega_-=\frac{17}{20},
-\qquad
-\omega_c=\frac34,
-\qquad
+\Omega_+=\frac54,\qquad
+\Omega_-=\frac{17}{20},\qquad
+\omega_c=\frac34,\qquad
 \omega_0=1.
 $$
 
-Both bare-confinement margins are positive:
+The bare-confinement margins are positive:
 
 $$
 \Omega_+^2-\omega_c^2=1,
@@ -242,31 +543,34 @@ $$
 \Omega_-^2-\omega_c^2=\frac4{25}.
 $$
 
-One-mode matrix elements were evaluated by 360-point Gauss-Hermite quadrature. The Hermitian projected Hamiltonian was spectrally propagated over $0\le t\le12$ with square cutoffs $N=30,34,38,42$. At each time, $I(A:B)_\rho$ came from the eigenvalues of $CC^\dagger$, while $2h(\nu_A)$ came only from the local covariance matrix.
+For this example, one-mode matrix elements were evaluated with 360-point
+Gauss-Hermite quadrature. The projected Hamiltonian was propagated on
+$0\le t\le12$ using square cutoffs $N=30,34,38,42$. Differences below are
+maximum absolute differences from the $N=42$ curve over the whole interval:
 
-The information-level cutoff comparison is:
-
-| $N$ | $\max|\Delta I|$ | $\max|\Delta[2h(\nu_A)]|$ | $\max P_\partial$ |
+| $N$ | $$\max\lvert\Delta I\rvert$$ | $$\max\lvert\Delta[2h(\nu_A)]\rvert$$ | $\max P_\partial$ |
 |---:|---:|---:|---:|
 | 30 | $3.49\times10^{-4}$ | $1.74\times10^{-3}$ | $1.01\times10^{-6}$ |
 | 34 | $2.39\times10^{-4}$ | $1.20\times10^{-3}$ | $5.15\times10^{-7}$ |
 | 38 | $1.58\times10^{-4}$ | $1.34\times10^{-3}$ | $1.59\times10^{-7}$ |
-| 42 | reference | reference | $1.04\times10^{-7}$ |
+| 42 | numerical reference | numerical reference | $1.04\times10^{-7}$ |
 
-The differences are maxima over the whole time interval relative to $N=42$. Their decrease is not perfectly monotonic for the covariance bound, which is why the individual observable diagnostics are reported rather than inferred from norm conservation. The $N=42$ overlap error is $1.71\times10^{-12}$, and its maximum norm error is $5.77\times10^{-15}$, but neither number alone proves physical convergence.
+The covariance-bound differences are not perfectly monotonic. Reporting them
+is more honest than inferring convergence from a small norm error. At $N=42$,
+the overlap-matrix error was $1.71\times10^{-12}$ and the maximum norm error
+was $5.77\times10^{-15}$; neither number alone certifies observable
+convergence.
 
-## What the curves say
-
-At $t=0$, the product state gives
-
-$$
-I(A:B)_\rho\simeq2.2\times10^{-15}\ \text{nats},
-$$
-
-which is numerical zero. Yet
+At $t=0$,
 
 $$
-2h(\nu_A)=0.174840637013\ldots,
+I(A:B)_\rho\simeq2.2\times10^{-15},
+$$
+
+which is numerical zero, while
+
+$$
+2h(\nu_A)=0.174840637013\ldots
 $$
 
 and
@@ -276,18 +580,18 @@ $$
 =0.0874203185065\ldots.
 $$
 
-The identity
+Thus
 
 $$
 2h(\nu_A)-I=2\delta_{\mathrm{NG}}(\rho_A)
 $$
 
-is already visible: the nonzero covariance bound at $t=0$ measures the entropy of a mixed Gaussian state matched to a pure non-Gaussian marginal, not correlations between the two modes.
+already holds at the product-state starting point.
 
-Over $0\le t\le12$, the $N=42$ reference curves give
+Over the stated time window, the $N=42$ calculation gives
 
 $$
-\max_t I(A:B)_\rho(t)=0.0433166\ \text{nats},
+\max_t I(A:B)_\rho(t)=0.0433166
 $$
 
 near $t=9.188$, while
@@ -296,32 +600,45 @@ $$
 0.173412\lesssim2h(\nu_A)\lesssim0.230489.
 $$
 
-The reduced non-Gaussianity ranges approximately from $0.079683$ to $0.102965$ nats. Using the tabulated data, the maximum residual in
+The reduced non-Gaussianity lies approximately between $0.079683$ and
+$0.102965$ nats. The maximum numerical residual in
 
 $$
 2h(\nu_A)-I-2\delta_{\mathrm{NG}}(\rho_A)
 $$
 
-is about $10^{-13}$, set by output precision and floating-point arithmetic.
+is about $10^{-13}$. This is a strong internal consistency check, not a proof
+of infinite-cutoff convergence.
 
-## Scope and limitations
+## 12. Conceptual result
 
-The information calculation supports several precise conclusions:
+The reduced density spectrum is the exact source of two-mode mutual
+information. For a pure state,
 
-- the rotated-mode mutual information is obtained from the reduced density spectrum, not inferred from covariance;
-- the global Gaussian mutual information $I(A:B)_\tau$ and the local bound $2h(\nu_A)$ are distinct quantities;
-- covariance determines the bound but not the reduced non-Gaussianity or the exact entropy;
-- the finite-time benchmark uses no Gaussian closure; and
-- “exact mutual information” means exact for the propagated finite-cutoff pure state, followed by an explicit convergence study.
+$$
+I(A:B)=2S(\rho_A).
+$$
 
-The reported cutoff study covers one stable parameter set and $0\le t\le12$. It does not prove uniform convergence for arbitrary coupling, excitation, or time, and it makes no stationary synchronization or equilibration claim. For $g\ne0$, every information result must again specify whether the chosen subsystems are the rotated $+:-$ modes or the laboratory $x:y$ modes.
+A covariance matrix has a narrower role. It defines a globally matched
+Gaussian comparison state and a local maximum-entropy bound, but those are
+different objects. The precise loss of information in the local covariance
+description is
 
-## Series navigation
+$$
+2h(\nu_A)-I(A:B)=2\delta_{\mathrm{NG}}(\rho_A).
+$$
 
-1. [Magnetic oscillator stability and rotated-coordinate reduction](/research/magnetic-oscillator-stability-reduction/)
-2. [Exceptional-Hermite preparation](/research/exceptional-hermite-preparation/)
-3. [Fixed-confinement angular quench](/research/fixed-confinement-angular-quench/)
-4. [Exact covariance response](/research/exact-covariance-response/)
-5. [Survival curvature](/research/survival-curvature/)
-6. [Spectral propagation and synchronization](/research/spectral-propagation-synchronization/)
-7. **[Non-Gaussian mutual information](/research/non-gaussian-mutual-information/)**
+In a truncated calculation these identities are exact for the propagated
+finite-dimensional state. Their interpretation as statements about the
+original continuous system depends on the convergence analysis carried
+forward from the spectral step.
+
+## Guided sequence
+
+1. [Magnetic oscillator stability and rotated-coordinate reduction](/magnetic-oscillator-stability-reduction/)
+2. [Exceptional-Hermite preparation](/exceptional-hermite-preparation/)
+3. [Fixed-confinement angular quench](/fixed-confinement-angular-quench/)
+4. [Exact covariance response](/exact-covariance-response/)
+5. [Survival curvature](/survival-curvature/)
+6. [Spectral propagation and synchronization](/spectral-propagation-synchronization/)
+7. **[Non-Gaussian mutual information](/non-gaussian-mutual-information/)**

@@ -1,5 +1,6 @@
 ---
 title: "I: Magnetic oscillator stability and rotated-coordinate reduction"
+description: "Derives the magnetic oscillator from minimal coupling, separates coordinate rotation from true phase-space dynamics, and establishes the confinement conditions."
 date: 2026-06-04 09:00:00 +0530
 categories: research
 tags:
@@ -11,97 +12,207 @@ tags:
 permalink: "/magnetic-oscillator-stability-reduction/"
 ---
 
-This article fixes the conventions and the static reduction behind our
-exceptional-Hermite angular-momentum quench. The central point is simple but
-easy to miss: rotating the coordinate quadratic form is not the same as
-diagonalizing the complete magnetic Hamiltonian in phase space. The rotation
-identifies useful preparation coordinates, while an angular-momentum term
-remains to couple them dynamically.
+This chapter develops a two-dimensional charged oscillator from the basic
+minimal-coupling rule. No prior magnetic-oscillator calculation is assumed.
+The central distinction is that a rotation can remove the $xy$ term from the
+potential, but it does not remove the magnetic angular-momentum coupling.
+Keeping those two operations separate is necessary for correct stability,
+state-preparation, and time-evolution calculations.
 
-## Conventions and the signed magnetic coupling
+## 1. Physical starting point
 
-We use
-
-$$
-\hbar=2M=1,
-$$
-
-and retain the speed of light only in the signed half-cyclotron frequency
+Consider a particle of mass $M$ and electric charge $q_{\mathrm e}$ moving in the
+$xy$ plane. Its position and canonical momentum operators are
 
 $$
-\omega_c=\frac{qB}{2Mc}.
+\boldsymbol r=(x,y)^{\mathsf T},
+\qquad
+\boldsymbol p=(p_x,p_y)^{\mathsf T},
 $$
 
-The sign of $\omega_c$ records the charge-field orientation. It must not be
-silently replaced by $|\omega_c|$: reversing the field changes the sign of the
-angular flow even though the diamagnetic contribution depends on
-$\omega_c^2$.
+with
 
-In the symmetric gauge, the anisotropic oscillator with coordinate coupling
-$g$ is
+$$
+[x,p_x]=[y,p_y]=\mathrm i\hbar,
+\qquad
+[x,y]=[p_x,p_y]=[x,p_y]=[y,p_x]=0.
+$$
+
+A uniform magnetic field points perpendicular to the plane,
+$\boldsymbol B=B\hat{\boldsymbol z}$. A vector potential is not unique, but a
+convenient symmetric-gauge choice is
+
+$$
+\boldsymbol A(x,y)=\frac{B}{2}(-y,x,0),
+\qquad
+\boldsymbol\nabla\times\boldsymbol A=B\hat{\boldsymbol z}.
+$$
+
+Minimal coupling replaces mechanical momentum by
+
+$$
+\boldsymbol p_{\mathrm{mech}}
+=\boldsymbol p-\frac{q_{\mathrm e}}{c}\boldsymbol A.
+$$
+
+The bare trap is allowed to be anisotropic and to have an $xy$ coupling:
+
+$$
+V_0(x,y)
+=\frac{M}{2}
+\left(\omega_x^2x^2+\omega_y^2y^2-2gxy\right).
+$$
+
+Here $\omega_x$ and $\omega_y$ are trap-frequency parameters, while $g$ has
+units of frequency squared. The starting Hamiltonian is therefore
+
+$$
+H_B
+=\frac{1}{2M}
+\left(\boldsymbol p-\frac{q_{\mathrm e}}{c}\boldsymbol A\right)^2
++V_0.
+$$
+
+This formula is already gauge invariant when states and canonical momenta
+are transformed consistently. The symmetric gauge is chosen only because it
+makes rotational structure visible.
+
+## 2. Units and the signed magnetic scale
+
+Set
+
+$$
+\hbar=2M=1.
+$$
+
+Thus $\hbar=1$, $M=1/2$, $p_j=-\mathrm i\,\partial_j$, and energy has the
+same dimension as frequency. Define the **signed half-cyclotron frequency**
+
+$$
+\omega_c=\frac{q_{\mathrm e}B}{2Mc}.
+$$
+
+The sign matters. Reversing either the charge or the magnetic field sends
+$\omega_c\mapsto-\omega_c$. Terms proportional to $\omega_c^2$ are
+unchanged, but the direction of angular circulation reverses.
+
+With these conventions,
+
+$$
+\frac{q_{\mathrm e}}{c}\boldsymbol A
+=\left(-\frac{\omega_c}{2}y,\frac{\omega_c}{2}x\right),
+$$
+
+so
 
 $$
 \begin{aligned}
-H_B={}&\left(p_x+\frac{\omega_c}{2}y\right)^2
-      +\left(p_y-\frac{\omega_c}{2}x\right)^2 \\
+H_B={}&
+\left(p_x+\frac{\omega_c}{2}y\right)^2
++\left(p_y-\frac{\omega_c}{2}x\right)^2\\
 &+\frac{\omega_x^2x^2}{4}
-  +\frac{\omega_y^2y^2}{4}
-  -\frac{g}{2}xy .
++\frac{\omega_y^2y^2}{4}
+-\frac{g}{2}xy.
 \end{aligned}
 $$
 
-With
+### Dimensional check
+
+In these units, $q$ has scale $\text{frequency}^{-1/2}$ and $p$ has scale
+$\text{frequency}^{1/2}$. Consequently,
 
 $$
-L_z=xp_y-yp_x,
+p^2,\quad \omega^2q^2,\quad gxy,\quad
+\omega_c(qp)
 $$
 
-expanding the two kinetic squares gives
+all have the dimension of energy. This quick check catches many missing
+factors of $\omega_c$ or $1/2$.
+
+## 3. Expanding the kinetic energy without guessing the sign
+
+Because $[y,p_x]=[x,p_y]=0$, no ordering correction appears:
 
 $$
+\left(p_x+\frac{\omega_c}{2}y\right)^2
+=p_x^2+\omega_cyp_x+\frac{\omega_c^2}{4}y^2,
+$$
+
+and
+
+$$
+\left(p_y-\frac{\omega_c}{2}x\right)^2
+=p_y^2-\omega_cxp_y+\frac{\omega_c^2}{4}x^2.
+$$
+
+Introduce the canonical angular momentum
+
+$$
+L_z=xp_y-yp_x.
+$$
+
+The two linear terms combine as
+
+$$
+\omega_cyp_x-\omega_cxp_y=-\omega_cL_z.
+$$
+
+Hence
+
+$$
+\boxed{
 H_B=p_x^2+p_y^2
 +\frac{\omega_x^2+\omega_c^2}{4}x^2
 +\frac{\omega_y^2+\omega_c^2}{4}y^2
 -\frac{g}{2}xy-\omega_cL_z.
+}
 $$
 
-Thus the same parameter enters in two logically different ways:
-$\omega_c^2$ dresses the coordinate confinement, while the signed
-$\omega_c$ multiplies the angular-momentum generator. The accompanying
-Maxima calculation expands the minimal-coupling expression and returns an
-identically zero residual against this form.
+The magnetic field has produced two different structures:
 
-## The coordinate quadratic form
+- the **diamagnetic term**, proportional to $\omega_c^2(x^2+y^2)$; and
+- the **chiral term**, $-\omega_cL_z$, which is sensitive to the sign of
+  $q_{\mathrm e}B$.
 
-Write the coordinate part as one quarter of a matrix quadratic form. Its
-matrix is
+Replacing $\omega_c$ by $$\lvert\omega_c\rvert$$ everywhere would therefore erase real
+dynamical information.
+
+## 4. Diagonalizing the coordinate quadratic form
+
+Separate the coordinate part from the momentum-dependent part:
+
+$$
+H_B=\boldsymbol p^{\mathsf T}\boldsymbol p
++\frac14\boldsymbol r^{\mathsf T}K\boldsymbol r
+-\omega_cL_z,
+$$
+
+where
 
 $$
 K=
 \begin{pmatrix}
-\omega_x^2+\omega_c^2 & -g \\
+\omega_x^2+\omega_c^2 & -g\\
 -g & \omega_y^2+\omega_c^2
 \end{pmatrix}.
 $$
 
-Introduce
+Since $K$ is real and symmetric, an orthogonal rotation diagonalizes it.
+Define
 
 $$
-\Delta=\sqrt{(\omega_x^2-\omega_y^2)^2+4g^2}
+\Delta=
+\sqrt{(\omega_x^2-\omega_y^2)^2+4g^2}.
 $$
 
-and the rotation
+For $\Delta>0$, choose the angle unambiguously through
 
 $$
-R(\theta)=
-\begin{pmatrix}
-\cos\theta&-\sin\theta\\
-\sin\theta&\cos\theta
-\end{pmatrix}.
+2\theta=
+\operatorname{atan2}\!\left(-2g,\omega_x^2-\omega_y^2\right).
 $$
 
-The tangent relation alone does not fix the eigenvector labels or quadrant.
-We therefore use the explicit branch
+Equivalently,
 
 $$
 \cos(2\theta)=\frac{\omega_x^2-\omega_y^2}{\Delta},
@@ -109,16 +220,21 @@ $$
 \sin(2\theta)=-\frac{2g}{\Delta}.
 $$
 
-For $\Delta>0$, this is equivalent to
+Using `atan2` rather than a one-argument arctangent prevents a quadrant error
+and keeps the $+$ and $-$ eigenvalue labels consistent. If $\Delta=0$, then
+$g=0$ and $\omega_x^2=\omega_y^2$; every rotation is equally valid.
+
+Let
 
 $$
-\tan(2\theta)=\frac{2g}{\omega_y^2-\omega_x^2}
+R(\theta)=
+\begin{pmatrix}
+\cos\theta&-\sin\theta\\
+\sin\theta&\cos\theta
+\end{pmatrix},
 $$
 
-together with the stated branch. When $\Delta=0$, the coordinate form is
-degenerate and the angle is immaterial.
-
-Apply the same orthogonal matrix to coordinates and momenta:
+and rotate coordinates **and momenta by the same matrix**:
 
 $$
 \begin{pmatrix}x\\y\end{pmatrix}
@@ -128,59 +244,184 @@ $$
 =R(\theta)\begin{pmatrix}p_+\\p_-\end{pmatrix}.
 $$
 
-This is a canonical rotation, and it yields
+Because $R^{\mathsf T}R=I$,
 
 $$
-R^{\mathsf T}KR=\operatorname{diag}(\Omega_+^2,\Omega_-^2),
+[q_\alpha,p_\beta]=\mathrm i\delta_{\alpha\beta}.
 $$
 
-where the ordered coordinate scales are
+The transformation is therefore canonical, not merely a change of labels.
+Direct multiplication gives
 
 $$
-\Omega_\pm^2=
-\frac{\omega_x^2+\omega_y^2+2\omega_c^2}{2}
+R^{\mathsf T}KR
+=\operatorname{diag}(\Omega_+^2,\Omega_-^2),
+$$
+
+with the ordered eigenvalues
+
+$$
+\boxed{
+\Omega_\pm^2
+=\frac{\omega_x^2+\omega_y^2+2\omega_c^2}{2}
 \pm\frac{\Delta}{2}.
+}
 $$
 
-Because an ordinary planar rotation preserves angular momentum,
+The same rotation leaves the oriented area form invariant, so
 
 $$
 L_z=q_+p_- - q_-p_+.
 $$
 
-The rotated Hamiltonian is consequently
+The Hamiltonian becomes
 
 $$
+\boxed{
 H_B=p_+^2+p_-^2
 +\frac{\Omega_+^2q_+^2}{4}
 +\frac{\Omega_-^2q_-^2}{4}
--\omega_c\left(q_+p_- - q_-p_+\right).
+-\omega_c(q_+p_- - q_-p_+).
+}
 $$
 
-The coordinate cross term has disappeared, but the two rotated degrees of
-freedom are still coupled by $L_z$.
+The $q_+q_-$ term is gone, but the two axes remain dynamically coupled.
 
-## Stability: dressed scales versus bare confinement
+## 5. Coordinate scales are not dynamical normal-mode frequencies
 
-The full minimal-coupling Hamiltonian is bounded below when the *bare* trap
-quadratic form is positive definite:
+If $\omega_c=0$, the last term vanishes and $\Omega_\pm$ are ordinary
+oscillator frequencies. If $\omega_c\ne0$, calling them the normal-mode
+frequencies is incorrect: they diagonalize only $K$, not the complete
+quadratic form in $(q_+,q_-,p_+,p_-)$.
+
+Hamilton's equations, which agree with the Heisenberg equations for this
+quadratic system, are
 
 $$
+\begin{aligned}
+\dot q_+&=2p_+ +\omega_cq_-,
+&
+\dot q_-&=2p_- -\omega_cq_+,\\
+\dot p_+&=-\frac{\Omega_+^2}{2}q_+ +\omega_cp_-,
+&
+\dot p_-&=-\frac{\Omega_-^2}{2}q_- -\omega_cp_+.
+\end{aligned}
+$$
+
+With
+
+$$
+J=
+\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+\qquad
+D=\operatorname{diag}(\Omega_+^2,\Omega_-^2),
+$$
+
+eliminating the momenta gives
+
+$$
+\ddot{\boldsymbol q}
++2\omega_cJ\dot{\boldsymbol q}
++(D-\omega_c^2I)\boldsymbol q=0.
+$$
+
+Try $\boldsymbol q(t)=\boldsymbol u e^{\mathrm i\nu t}$. A nonzero
+$\boldsymbol u$ exists only if
+
+$$
+\left[
+(\Omega_+^2-\omega_c^2)-\nu^2
+\right]
+\left[
+(\Omega_-^2-\omega_c^2)-\nu^2
+\right]
+-4\omega_c^2\nu^2=0.
+$$
+
+Define
+
+$$
+S=\Omega_+^2+\Omega_-^2+2\omega_c^2,
+\qquad
+P=(\Omega_+^2-\omega_c^2)
+  (\Omega_-^2-\omega_c^2).
+$$
+
+The two positive squared frequencies in the stable regime are
+
+$$
+\boxed{
+\nu_{\mathrm{high,low}}^2
+=\frac{S\pm\sqrt{S^2-4P}}{2}.
+}
+$$
+
+These $\nu$ values, not $\Omega_\pm$, describe the actual small-amplitude
+time scales. The associated eigenvectors are generally elliptically
+polarized combinations of both rotated coordinates.
+
+As a useful check, an isotropic bare trap with frequency $\omega_0$ has
+$\Omega_+^2=\Omega_-^2=\omega_0^2+\omega_c^2$, and the formula reduces to
+
+$$
+\nu_{\mathrm{high,low}}
+=\sqrt{\omega_0^2+\omega_c^2}\pm|\omega_c|.
+$$
+
+Changing the sign of $\omega_c$ reverses the polarization, even though these
+two positive frequency magnitudes are unchanged.
+
+## 6. Stability from the bare trap
+
+Before expanding the squares, the Hamiltonian was
+
+$$
+H_B=
+\left(p_x+\frac{\omega_c}{2}y\right)^2
++\left(p_y-\frac{\omega_c}{2}x\right)^2
++\frac14\boldsymbol r^{\mathsf T}K_0\boldsymbol r,
+$$
+
+where
+
+$$
+K_0=
+\begin{pmatrix}
+\omega_x^2&-g\\
+-g&\omega_y^2
+\end{pmatrix}.
+$$
+
+The covariant kinetic squares are nonnegative. A strictly confining trap
+therefore requires $K_0$ to be positive definite:
+
+$$
+\boxed{
 \omega_x^2>0,
 \qquad
 \omega_y^2>0,
 \qquad
 \omega_x^2\omega_y^2-g^2>0.
+}
 $$
 
-Why do the bare frequencies appear here even though $K$ contains
-$\omega_c^2$? At a fixed point in coordinate space, the canonical momenta can
-locally cancel the vector potential. The diamagnetic term cannot by itself
-stabilize an indefinite bare trap.
+For a real symmetric $2\times2$ matrix, positivity of one leading diagonal
+entry and the determinant is sufficient; both diagonal inequalities are
+written to make the physical requirement transparent.
 
-The same condition is especially transparent after the rotation. Since the
-diamagnetic contribution is proportional to the identity, the eigenvalues of
-the rotated bare confinement are
+Why is positivity tested on $K_0$, not on $K$? The extra
+$\omega_c^2I$ in $K$ came from expanding a kinetic square. A wave packet can
+be translated while its canonical momentum compensates the local vector
+potential, so that apparent coordinate term cannot repair a negative
+direction of the bare potential.
+
+Because
+
+$$
+K=K_0+\omega_c^2I,
+$$
+
+the eigenvalues of $K_0$ in the rotated basis are
 
 $$
 \Omega_+^2-\omega_c^2,
@@ -188,24 +429,68 @@ $$
 \Omega_-^2-\omega_c^2.
 $$
 
-Hence stability requires
+Thus the equivalent strict-confinement test is
 
 $$
-\boxed{\Omega_+^2>\omega_c^2,
-\qquad \Omega_-^2>\omega_c^2.}
+\boxed{
+\Omega_+^2>\omega_c^2,
+\qquad
+\Omega_-^2>\omega_c^2.
+}
 $$
 
-For the manuscript's finite-time benchmark,
+At equality, the Hamiltonian remains bounded below because it is a sum of
+nonnegative covariant kinetic and potential terms, but it is not a strictly
+confining two-dimensional trap. Here $P=0$, so the dynamical equation has
+$\nu_{\mathrm{low}}=0$ and a delocalized or infinitely degenerate direction. For
+localized state preparation and a discrete two-mode basis, use strict
+inequalities with a numerical safety margin.
+
+## 7. A complete worked parameter set
+
+Take
+
+$$
+\omega_c=\frac34,\qquad
+\omega_x^2=\frac{104}{125},\qquad
+\omega_y^2=\frac{41}{125},\qquad
+g=\frac{42}{125}.
+$$
+
+First,
+
+$$
+\Delta=\frac{21}{25},
+\qquad
+\cos(2\theta)=\frac35,
+\qquad
+\sin(2\theta)=-\frac45,
+$$
+
+so
+
+$$
+\theta=-0.463647609\ldots\ \mathrm{rad}
+=-26.565051^\circ.
+$$
+
+The dressed coordinate scales are
+
+$$
+\Omega_+^2=\frac{25}{16},
+\qquad
+\Omega_-^2=\frac{289}{400},
+$$
+
+or
 
 $$
 \Omega_+=\frac54,
 \qquad
-\Omega_-=\frac{17}{20},
-\qquad
-\omega_c=\frac34,
+\Omega_-=\frac{17}{20}.
 $$
 
-and the two Maxima-verified margins are
+The bare stability margins are
 
 $$
 \Omega_+^2-\omega_c^2=1,
@@ -213,37 +498,85 @@ $$
 \Omega_-^2-\omega_c^2=\frac4{25}.
 $$
 
-Both are positive, including the more restrictive minus-mode margin.
+The smaller margin is positive but close enough to the boundary to generate
+a slow dynamical mode. Indeed,
 
-## What this reduction does—and does not—establish
+$$
+S=\frac{341}{100},
+\qquad
+P=\frac4{25},
+$$
 
-The quantities $\Omega_\pm$ diagonalize only the static coordinate matrix
-$K$. They are not the complete phase-space normal-mode frequencies of the
-magnetic oscillator. A full symplectic transformation can diagonalize a
-purely quadratic magnetic Hamiltonian, but it generally turns a rational
-potential that is local in $q_+$ or $q_-$ into a phase-space-nonlocal
-operator. That is a different representation and a different preparation
-problem.
+and
 
-Our protocol therefore keeps the diamagnetically dressed confinement fixed.
-The exceptional-Hermite product state is engineered using the target scales
-$\Omega_\pm$, and at $t=0$ only the synthetic angular coupling
-$-\omega_cL_z$ is activated. This is not a literal switch of the entire
-electromagnetic field: changing a real magnetic field would also change the
-$\omega_c^2$ confinement term.
+$$
+\nu_{\mathrm{high,low}}^2
+=\frac{341\pm\sqrt{109881}}{200}.
+$$
 
-This distinction will remain in force throughout the series. Later
-fixed-coordinate commutators diagnose loss of additivity and stationarity in
-the preparation coordinates; they are not, by themselves, claims of
-entanglement, generic nonseparability, or the impossibility of every canonical
-diagonalization.
+Numerically,
 
-## Series navigation
+$$
+\nu_{\mathrm{high}}=1.8336889475\ldots,
+\qquad
+\nu_{\mathrm{low}}=0.2181395054\ldots.
+$$
 
-1. [Magnetic oscillator stability and reduction](/research/magnetic-oscillator-stability-reduction/) — current article
-2. [Exceptional-Hermite preparation](/research/exceptional-hermite-preparation/)
-3. [Fixed-confinement angular quench](/research/fixed-confinement-angular-quench/)
-4. [Exact covariance response](/research/exact-covariance-response/)
-5. [Survival curvature](/research/survival-curvature/)
-6. [Spectral propagation and synchronization](/research/spectral-propagation-synchronization/)
-7. [Non-Gaussian mutual information](/research/non-gaussian-mutual-information/)
+Neither frequency equals $\Omega_+$ or $\Omega_-$. This is the simplest
+numerical demonstration of why coordinate diagonalization and phase-space
+diagonalization must be kept separate.
+
+### Compact Maxima check
+
+```maxima
+kill(all)$
+wc:3/4$  wx2:104/125$  wy2:41/125$  g:42/125$
+
+Delta:radcan(sqrt((wx2-wy2)^2+4*g^2))$
+theta:atan2(-2*g,wx2-wy2)/2$
+Op2:radcan((wx2+wy2+2*wc^2+Delta)/2)$
+Om2:radcan((wx2+wy2+2*wc^2-Delta)/2)$
+margins:[radcan(Op2-wc^2),radcan(Om2-wc^2)]$
+
+S:radcan(Op2+Om2+2*wc^2)$
+P:radcan(margins[1]*margins[2])$
+nu:[sqrt((S+sqrt(S^2-4*P))/2),
+    sqrt((S-sqrt(S^2-4*P))/2)]$
+
+[Delta,float(theta),margins,ev(nu,numer)];
+```
+
+Maxima returns $\Delta=21/25$, the angle
+$-0.4636476090\ldots$, margins $[1,4/25]$, and the two numerical
+frequencies displayed above.
+
+For numerical work, the most informative diagnostics are the smaller bare
+margin and $\nu_{\mathrm{low}}$. As
+$\Omega_-^2-\omega_c^2\rightarrow0^+$ with the other margin fixed,
+$P\rightarrow0$ and
+
+$$
+\nu_{\mathrm{low}}^2
+=\frac{P}{S}+O(P^2).
+$$
+
+The slow period and spatial extent therefore grow near the stability
+boundary, making finite-basis calculations increasingly demanding.
+
+## Result carried forward
+
+The physical reduction supplies the next stage with canonical preparation
+coordinates $(q_\pm,p_\pm)$, fixed positive scales $\Omega_\pm$, and the
+strict stability condition $\Omega_\pm^2>\omega_c^2$. These scales
+diagonalize the coordinate confinement only; the signed angular generator
+$L_z=q_+p_- -q_-p_+$ remains a separate dynamical operator.
+
+## Research pathway
+
+1. [Magnetic oscillator stability and reduction](/magnetic-oscillator-stability-reduction/) — current chapter
+2. [Exceptional-Hermite preparation](/exceptional-hermite-preparation/)
+3. [Fixed-confinement angular quench](/fixed-confinement-angular-quench/)
+4. [Exact covariance response](/exact-covariance-response/)
+5. [Survival curvature](/survival-curvature/)
+6. [Spectral propagation and synchronization](/spectral-propagation-synchronization/)
+7. [Non-Gaussian mutual information](/non-gaussian-mutual-information/)
