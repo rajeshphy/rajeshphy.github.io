@@ -1,0 +1,77 @@
+/*
+  Born approximation
+  Maxima 5.49-compatible verification worksheet
+
+  Run with:
+      maxima --very-quiet -b born-approximation.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("BORN APPROXIMATION")$
+
+assume(q>0,r>0,lambda>0)$
+
+/* Elastic momentum-transfer identity. */
+q2_elastic : 2*k^2*(1-cos(theta))$
+q2_expected : 4*k^2*sin(theta/2)^2$
+q_residual :
+    trigsimp(q2_elastic-q2_expected)$
+print("q^2=4k^2 sin^2(theta/2) residual (must be 0):",
+      q_residual)$
+
+/* Angular Fourier transform of a central potential. */
+angular_integral :
+    2*%pi*integrate(cos(q*r*x),x,-1,1)$
+angular_expected : 4*%pi*sin(q*r)/(q*r)$
+angular_residual :
+    trigsimp(ratsimp(angular_integral-angular_expected))$
+print("Central-potential angular-integral residual (must be 0):",
+      angular_residual)$
+
+/* Yukawa or screened-Coulomb radial transform. */
+yukawa_integral :
+    integrate(exp(-lambda*r)*sin(q*r),r,0,inf)$
+yukawa_expected : q/(q^2+lambda^2)$
+yukawa_residual :
+    ratsimp(yukawa_integral-yukawa_expected)$
+print("Yukawa radial-integral residual (must be 0):",
+      yukawa_residual)$
+
+/* Finite spherical potential retained from the earlier note. */
+finite_sphere_integral :
+    integrate(r*sin(q*r),r,0,R)$
+finite_sphere_expected :
+    (sin(q*R)-q*R*cos(q*R))/q^2$
+finite_sphere_residual :
+    trigsimp(ratsimp(
+      finite_sphere_integral-finite_sphere_expected))$
+print("Finite-sphere radial-integral residual (must be 0):",
+      finite_sphere_residual)$
+
+f_sphere :
+    -2*mu*V0*(sin(q*R)-q*R*cos(q*R))
+    /(hbar^2*q^3)$
+f_sphere_forward :
+    limit(f_sphere,q,0,plus)$
+f_sphere_forward_expected :
+    -2*mu*V0*R^3/(3*hbar^2)$
+forward_residual :
+    ratsimp(f_sphere_forward-f_sphere_forward_expected)$
+print("Finite-sphere forward-limit residual (must be 0):",
+      forward_residual)$
+
+/* Coulomb limit of the Born result compared with Rutherford. */
+q_elastic : 2*k*sin(theta/2)$
+f_coulomb : -2*mu*kappa/(hbar^2*q_elastic^2)$
+Ekin : hbar^2*k^2/(2*mu)$
+rutherford :
+    (kappa/(4*Ekin))^2/sin(theta/2)^4$
+coulomb_residual :
+    ratsimp(f_coulomb^2-rutherford)$
+print("Born-Coulomb/Rutherford residual (must be 0):",
+      coulomb_residual)$
+
+quit();

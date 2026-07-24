@@ -1,0 +1,74 @@
+/* Klein-Gordon and Dirac algebra in natural units.
+   Run with: maxima -b relativistic-wave-equations.mac */
+
+kill(all)$
+display2d:false$
+fpprintprec:10$
+
+I4 : ident(4)$
+Z4 : zeromatrix(4,4)$
+
+g0 : matrix(
+  [1,0,0,0],
+  [0,1,0,0],
+  [0,0,-1,0],
+  [0,0,0,-1])$
+
+g1 : matrix(
+  [0,0,0,1],
+  [0,0,1,0],
+  [0,-1,0,0],
+  [-1,0,0,0])$
+
+g2 : matrix(
+  [0,0,0,-%i],
+  [0,0,%i,0],
+  [0,%i,0,0],
+  [-%i,0,0,0])$
+
+g3 : matrix(
+  [0,0,1,0],
+  [0,0,0,-1],
+  [-1,0,0,0],
+  [0,1,0,0])$
+
+gamma : [g0,g1,g2,g3]$
+eta : [1,-1,-1,-1]$
+
+/* Verify {gamma^mu,gamma^nu}=2 eta^(mu nu) I. */
+clifford_norm : 0$
+for mu : 1 thru 4 do
+  for nu : 1 thru 4 do block(
+    [target,residual],
+    target : if mu=nu then 2*eta[mu]*I4 else Z4,
+    residual : ratsimp(gamma[mu].gamma[nu]
+                        +gamma[nu].gamma[mu]-target),
+    for row : 1 thru 4 do
+      for col : 1 thru 4 do
+        clifford_norm : clifford_norm+residual[row,col]^2
+  )$
+print("Clifford-algebra residual =", ratsimp(clifford_norm))$
+
+/* Dirac Hamiltonian H=alpha.p+beta*m. */
+a1 : g0.g1$
+a2 : g0.g2$
+a3 : g0.g3$
+H : px*a1+py*a2+pz*a3+m*g0$
+p2 : px^2+py^2+pz^2$
+
+hamiltonian_square :
+  matrixmap(ratsimp,H.H-(p2+m^2)*I4)$
+print("H^2-(p^2+m^2)I =", hamiltonian_square)$
+
+characteristic :
+  factor(determinant(E*I4-H))$
+expected_characteristic : (E^2-p2-m^2)^2$
+print("Characteristic-polynomial residual =",
+      ratsimp(characteristic-expected_characteristic))$
+
+/* The Klein-Gordon plane wave has omega^2=k^2+m^2. */
+kg_plane_residual :
+  subst(kx^2+ky^2+kz^2+m^2,w^2,
+        -w^2+kx^2+ky^2+kz^2+m^2)$
+print("Klein-Gordon plane-wave residual =",
+      ratsimp(kg_plane_residual))$

@@ -1,0 +1,69 @@
+/*
+  Partial-wave analysis and phase shifts
+  Maxima 5.49-compatible verification worksheet
+
+  Run with:
+      maxima --very-quiet -b partial-wave-analysis.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("PARTIAL-WAVE ANALYSIS AND PHASE SHIFTS")$
+
+/* Equivalent forms of the partial-wave amplitude coefficient. */
+S_form :
+    (cos(2*d)+%i*sin(2*d)-1)/(2*%i)$
+phase_form :
+    (cos(d)+%i*sin(d))*sin(d)$
+coefficient_residual :
+    trigsimp(expand(S_form-phase_form))$
+print("(S_l-1)/(2i)-exp(i delta) sin(delta), residual:",
+      coefficient_residual)$
+
+/* Check Legendre orthogonality explicitly for l,l'=0,...,5. */
+max_l : 5$
+orthogonality_failures : 0$
+for l : 0 thru max_l do
+  for lp : 0 thru max_l do block(
+    [integral_value,expected,residual],
+    integral_value :
+      integrate(legendre_p(l,x)*legendre_p(lp,x),x,-1,1),
+    expected : if l=lp then 2/(2*l+1) else 0,
+    residual : ratsimp(integral_value-expected),
+    if residual # 0 then (
+      orthogonality_failures : orthogonality_failures+1,
+      print("Non-zero orthogonality residual at",l,lp,residual)
+    )
+  )$
+print("Legendre orthogonality failures (must be 0):",
+      orthogonality_failures)$
+
+/* A finite set of sample phase shifts. */
+k_num : 1.40$
+d0 : 0.92$
+d1 : 0.41$
+d2 : 0.12$
+
+sigma0 : 4*%pi/k_num^2*sin(d0)^2$
+sigma1 : 4*%pi/k_num^2*3*sin(d1)^2$
+sigma2 : 4*%pi/k_num^2*5*sin(d2)^2$
+sigma_sum : sigma0+sigma1+sigma2$
+im_f0 :
+    (sin(d0)^2+3*sin(d1)^2+5*sin(d2)^2)/k_num$
+optical_sigma : 4*%pi/k_num*im_f0$
+optical_residual : ratsimp(sigma_sum-optical_sigma)$
+
+print("Sample sigma_0 =",float(sigma0))$
+print("Sample sigma_1 =",float(sigma1))$
+print("Sample sigma_2 =",float(sigma2))$
+print("Sample total cross section =",float(sigma_sum))$
+print("Optical-theorem residual (must be 0):",optical_residual)$
+
+/* Channel unitarity bounds. */
+print("sigma_0 / bound_0 =",float(sin(d0)^2))$
+print("sigma_1 / bound_1 =",float(sin(d1)^2))$
+print("sigma_2 / bound_2 =",float(sin(d2)^2))$
+
+quit();

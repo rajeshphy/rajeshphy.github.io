@@ -1,0 +1,95 @@
+/* Pauli algebra and free Dirac spinors in natural units.
+   Run with: maxima -b dirac-spinors-and-spin.mac */
+
+kill(all)$
+display2d:false$
+fpprintprec:10$
+
+I2 : ident(2)$
+I4 : ident(4)$
+
+s1 : matrix([0,1],[1,0])$
+s2 : matrix([0,-%i],[%i,0])$
+s3 : matrix([1,0],[0,-1])$
+
+p2 : px^2+py^2+pz^2$
+sp : px*s1+py*s2+pz*s3$
+
+print("(sigma.p)^2-p^2 I =",
+      matrixmap(ratsimp,sp.sp-p2*I2))$
+print("[Sx,Sy]-i Sz =",
+      matrixmap(ratsimp,(s1.s2-s2.s1)/4-%i*s3/2))$
+print("S^2-(3/4)I in hbar=1 units =",
+      matrixmap(ratsimp,(s1.s1+s2.s2+s3.s3)/4-3*I2/4))$
+
+g0 : matrix(
+  [1,0,0,0],
+  [0,1,0,0],
+  [0,0,-1,0],
+  [0,0,0,-1])$
+
+g1 : matrix(
+  [0,0,0,1],
+  [0,0,1,0],
+  [0,-1,0,0],
+  [-1,0,0,0])$
+
+g2 : matrix(
+  [0,0,0,-%i],
+  [0,0,%i,0],
+  [0,%i,0,0],
+  [-%i,0,0,0])$
+
+g3 : matrix(
+  [0,0,1,0],
+  [0,0,0,-1],
+  [-1,0,0,0],
+  [0,1,0,0])$
+
+slashp : E*g0-px*g1-py*g2-pz*g3$
+
+u_up : matrix(
+  [1],
+  [0],
+  [pz/(E+m)],
+  [(px+%i*py)/(E+m)])$
+
+u_down : matrix(
+  [0],
+  [1],
+  [(px-%i*py)/(E+m)],
+  [-pz/(E+m)])$
+
+v_up : matrix(
+  [pz/(E+m)],
+  [(px+%i*py)/(E+m)],
+  [1],
+  [0])$
+
+v_down : matrix(
+  [(px-%i*py)/(E+m)],
+  [-pz/(E+m)],
+  [0],
+  [1])$
+
+/* Eliminate px^2 with E^2=px^2+py^2+pz^2+m^2. */
+onshell(expr) :=
+  ratsimp(ratsubst(E^2-m^2-py^2-pz^2,px^2,expr))$
+
+u_up_residual :
+  matrixmap(onshell,(slashp-m*I4).u_up)$
+u_down_residual :
+  matrixmap(onshell,(slashp-m*I4).u_down)$
+v_up_residual :
+  matrixmap(onshell,(slashp+m*I4).v_up)$
+v_down_residual :
+  matrixmap(onshell,(slashp+m*I4).v_down)$
+
+print("(slash(p)-m) u_up =", u_up_residual)$
+print("(slash(p)-m) u_down =", u_down_residual)$
+print("(slash(p)+m) v_up =", v_up_residual)$
+print("(slash(p)+m) v_down =", v_down_residual)$
+
+normalization_residual :
+  onshell((E+m)/(2*E)*(1+p2/(E+m)^2)-1)$
+print("Unit-normalization residual =", normalization_residual)$

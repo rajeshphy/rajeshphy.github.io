@@ -1,0 +1,68 @@
+/*
+  Alpha-particle and Rutherford scattering
+  Maxima 5.49-compatible verification worksheet
+
+  Run with:
+      maxima --very-quiet -b alpha-particle-rutherford-scattering.mac
+*/
+
+kill(all)$
+display2d:false$
+fpprintprec:12$
+
+print("ALPHA-PARTICLE AND RUTHERFORD SCATTERING")$
+
+/* Deflection law b=a*cot(theta/2), where a=kappa/(2E). */
+btheta : a*cot(theta/2)$
+dbtheta : diff(btheta,theta)$
+dsigma : trigsimp(
+    btheta*(-dbtheta)/sin(theta))$
+expected_dsigma : a^2/(4*sin(theta/2)^4)$
+cross_section_residual :
+    trigsimp(ratsimp(dsigma-expected_dsigma))$
+print("Rutherford differential-cross-section residual (must be 0):",
+      cross_section_residual)$
+
+/* Closest approach satisfies E*r^2-kappa*r-E*b^2=0. */
+kappa : 2*E*a$
+rmin : a+sqrt(a^2+b^2)$
+turning_point_residual :
+    radcan(E*rmin^2-kappa*rmin-E*b^2)$
+print("Closest-approach equation residual (must be 0):",
+      turning_point_residual)$
+
+/* Verify the angular-cutoff cross section by differentiation and boundary. */
+sigma_cut(t) := %pi*a^2*cot(t/2)^2$
+angular_integrand(t) :=
+    2*%pi*sin(t)*a^2/(4*sin(t/2)^4)$
+cutoff_derivative_residual :
+    trigsimp(diff(sigma_cut(theta),theta)
+             +angular_integrand(theta))$
+cutoff_boundary : trigsimp(sigma_cut(%pi))$
+print("Cutoff-cross-section derivative residual (must be 0):",
+      cutoff_derivative_residual)$
+print("sigma(theta_min=pi), which must be 0:",cutoff_boundary)$
+
+/* Numerical scale for a 5 MeV alpha particle incident on gold. */
+coulomb_MeV_fm : 1.43996448$
+Z1_num : 2.0$
+Z2_num : 79.0$
+m1_num : 4.0$
+m2_num : 197.0$
+Elab_num : 5.00$
+Ecm_num : m2_num/(m1_num+m2_num)*Elab_num$
+kappa_num : coulomb_MeV_fm*Z1_num*Z2_num$
+a_num : kappa_num/(2*Ecm_num)$
+theta_num : 30.0*%pi/180$
+dsigma_fm2_num :
+    a_num^2/(4*sin(theta_num/2)^4)$
+sigma_above_fm2_num :
+    %pi*a_num^2*cot(theta_num/2)^2$
+
+print("Coulomb length a=kappa/(2E_cm) (fm) =",float(a_num))$
+print("d sigma/d Omega at 30 degrees (barn/sr) =",
+      float(dsigma_fm2_num/100.0))$
+print("sigma for theta >= 30 degrees (barn) =",
+      float(sigma_above_fm2_num/100.0))$
+
+quit();
