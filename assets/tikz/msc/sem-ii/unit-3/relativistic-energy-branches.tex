@@ -19,8 +19,8 @@
   ymax=3.55,
   axis lines=middle,
   axis line style={draw=ink!75,->},
-  xlabel={$p/(mc)$},
-  ylabel={$E/(mc^2)$},
+  xlabel={$p_x/(mc)$},
+  ylabel={$\mathcal E/(mc^2)$},
   xlabel style={at={(axis description cs:0.98,0.47)},anchor=north east},
   ylabel style={at={(axis description cs:0.52,0.98)},anchor=north west},
   xtick={-3,-2,-1,0,1,2,3},
@@ -54,7 +54,9 @@
     {$2mc^2$};
 
   \node[font=\small,text=ink!70,fill=white,inner sep=2pt]
-    at (axis cs:-1.7,0.42) {no free on-shell states};
+    at (axis cs:-1.7,0.42) {$|\mathcal E|<mc^2$};
+  \node[font=\scriptsize,text=ink!65,fill=white,inner sep=2pt]
+    at (axis cs:1.9,-0.38) {$p_y=p_z=0$};
 \end{axis}
 \end{tikzpicture}
 \end{document}

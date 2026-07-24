@@ -1,0 +1,79 @@
+/* Symbolic checks for electron spin resonance. */
+kill(all)$
+display2d:false$
+
+print("ESR SYMBOLIC CHECKS")$
+
+Sx : hbar/2*matrix([0,1],[1,0])$
+Sy : hbar/2*matrix([0,-%i],[%i,0])$
+Sz : hbar/2*matrix([1,0],[0,-1])$
+up : matrix([1],[0])$
+down : matrix([0],[1])$
+
+comm_xy : Sx.Sy-Sy.Sx-%i*hbar*Sz$
+print("Spin commutator (1,1) residual =",
+      ratsimp(comm_xy[1,1]))$
+print("Spin commutator (1,2) residual =",
+      ratsimp(comm_xy[1,2]))$
+print("Spin commutator (2,1) residual =",
+      ratsimp(comm_xy[2,1]))$
+print("Spin commutator (2,2) residual =",
+      ratsimp(comm_xy[2,2]))$
+
+mx_flip : transpose(up).Sx.down$
+mz_flip : transpose(up).Sz.down$
+print("Transverse spin-flip matrix residual =",
+      ratsimp(mx_flip-hbar/2))$
+print("Longitudinal spin-flip matrix residual =",
+      ratsimp(mz_flip))$
+
+H0 : g*mu_B*B/hbar*Sz$
+E_plus : H0[1,1]$
+E_minus : H0[2,2]$
+print("Upper Zeeman energy residual =",
+      ratsimp(E_plus-g*mu_B*B/2))$
+print("Lower Zeeman energy residual =",
+      ratsimp(E_minus+g*mu_B*B/2))$
+print("Zeeman splitting residual =",
+      ratsimp(E_plus-E_minus-g*mu_B*B))$
+
+/* h nu = hbar omega = g mu_B B. */
+h_planck : 2*%pi*hbar$
+nu_res : g*mu_B*B/h_planck$
+omega_res : 2*%pi*nu_res$
+print("Frequency-conversion residual =",
+      ratsimp(hbar*omega_res-g*mu_B*B))$
+
+/* Boltzmann population difference. */
+population_identity :
+  exponentialize(
+    (exp(z)-exp(-z))/(exp(z)+exp(-z))-tanh(z))$
+print("Population tanh identity residual =",
+      ratsimp(population_identity))$
+print("High-temperature population residual =",
+      limit(tanh(z)/z,z,0)-1)$
+
+/* First-order hyperfine splitting at fixed m_I. */
+E_hf_plus : g*mu_B*B/2+A*m_I/2$
+E_hf_minus : -g*mu_B*B/2-A*m_I/2$
+print("Hyperfine transition residual =",
+      ratsimp(E_hf_plus-E_hf_minus-(g*mu_B*B+A*m_I)))$
+B_hf : (h_planck*nu-A*m_I)/(g*mu_B)$
+print("Hyperfine resonance-field residual =",
+      ratsimp(g*mu_B*B_hf+A*m_I-h_planck*nu))$
+
+/* Lorentzian HWHM in angular frequency and magnetic field. */
+L(dw) := (1/T2)/(dw^2+(1/T2)^2)$
+print("Lorentzian half-height residual =",
+      ratsimp(L(1/T2)-L(0)/2))$
+delta_B_half : hbar/(g*mu_B*T2)$
+print("Field HWHM residual =",
+      ratsimp(g*mu_B*delta_B_half/hbar-1/T2))$
+
+/* Numerical scale for X-band ESR. */
+h_SI : 6.62607015b-34$
+mu_B_SI : 9.2740100657b-24$
+B_Xband : bfloat(h_SI*9.5b9/(2.0023b0*mu_B_SI))$
+print("9.5 GHz free-electron resonance field in tesla =", B_Xband)$
+
+quit()$

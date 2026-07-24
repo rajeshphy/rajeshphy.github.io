@@ -90,6 +90,18 @@ print("(slash(p)-m) u_down =", u_down_residual)$
 print("(slash(p)+m) v_up =", v_up_residual)$
 print("(slash(p)+m) v_down =", v_down_residual)$
 
+/* A v(p)e^(+ip.x) mode has canonical momentum -p and energy -E. */
+a1 : g0.g1$
+a2 : g0.g2$
+a3 : g0.g3$
+H_minus_p : -px*a1-py*a2-pz*a3+m*g0$
+v_up_hamiltonian_residual :
+  matrixmap(onshell,(H_minus_p+E*I4).v_up)$
+v_down_hamiltonian_residual :
+  matrixmap(onshell,(H_minus_p+E*I4).v_down)$
+print("(H(-p)+E) v_up =",v_up_hamiltonian_residual)$
+print("(H(-p)+E) v_down =",v_down_hamiltonian_residual)$
+
 normalization_residual :
   onshell((E+m)/(2*E)*(1+p2/(E+m)^2)-1)$
 print("Unit-normalization residual =", normalization_residual)$

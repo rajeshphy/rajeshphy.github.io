@@ -1,6 +1,6 @@
 ---
 title: "Partial-Wave Analysis and Phase Shifts"
-summary: "Construction of the elastic scattering amplitude from angular-momentum channels, partial cross sections, unitarity, and the optical theorem."
+summary: "Construction of the elastic scattering amplitude from angular-momentum channels, phase shifts, partial cross sections, and unitarity."
 date: 2026-07-16 09:00:00 +0530
 categories:
   - notes
@@ -14,7 +14,6 @@ tags:
   - scattering
   - partial-wave-analysis
   - phase-shift
-  - optical-theorem
 permalink: /msc/sem-ii/partial-wave-analysis-and-phase-shifts/
 hidden: true
 ---
@@ -56,14 +55,29 @@ $$
 ## Incoming and outgoing parts
 
 For a central potential, distinct values of $l$ do not mix. Outside the potential, the $l$th radial wave is a superposition of incoming and outgoing spherical waves. If their amplitudes are $A_l^{(-)}$ and
-$A_l^{(+)}$, define
+$A_l^{(+)}$, write
 
 $$
-S_l=\frac{A_l^{(+)}}{A_l^{(-)}}.
+u_l(r)\sim
+A_l^{(-)}e^{-i\alpha}
++A_l^{(+)}e^{i\alpha},
+\qquad
+\alpha=kr-\frac{l\pi}{2}.
 $$
 
-Elastic probability conservation requires
-$|A_l^{(+)}|=|A_l^{(-)}|$, hence $|S_l|=1$. A unit-modulus complex number can be written
+The radial current of $Ae^{\pm ikr}/r$ is
+$j_r=\pm(\hbar k/\mu)|A|^2/r^2$. Elastic probability conservation
+therefore requires
+$|A_l^{(+)}|=|A_l^{(-)}|$. The regular free wave
+$\sin\alpha=(e^{i\alpha}-e^{-i\alpha})/(2i)$ has
+$A_l^{(+)}/A_l^{(-)}=-1$, so define the partial-wave scattering matrix by
+
+$$
+S_l=-\frac{A_l^{(+)}}{A_l^{(-)}}.
+$$
+
+This convention makes $S_l=1$ when there is no interaction. Conservation
+gives $|S_l|=1$, and a unit-modulus complex number can be written
 
 $$
 \boxed{
@@ -76,8 +90,49 @@ $$
   <figcaption>Elasticity confines \(S_l\) to the unit circle. The potential fixes \(2\delta_l\), while the chord \(S_l-1\) is the outgoing wave added to the free solution.</figcaption>
 </figure>
 
-The incoming part must match the incident plane wave. The free outgoing part corresponds to $S_l=1$; the extra outgoing coefficient is therefore $S_l-1$. Matching it to
-$f(\theta)e^{ikr}/r$ gives
+The large-$r$ spherical Bessel function is
+
+$$
+j_l(kr)
+\sim\frac{\sin\alpha}{kr}
+=\frac{e^{i\alpha}-e^{-i\alpha}}{2ikr}.
+$$
+
+Multiplication by $i^l=e^{il\pi/2}$ turns the free plane-wave channel into
+
+$$
+\psi_l^{(0)}
+\sim
+\frac{2l+1}{2ikr}P_l(\cos\theta)
+\left[e^{ikr}-(-1)^l e^{-ikr}\right].
+$$
+
+The second exponential is incoming and retains its plane-wave coefficient. The interaction multiplies the outgoing coefficient by $S_l$:
+
+$$
+\psi_l
+\sim
+\frac{2l+1}{2ikr}P_l(\cos\theta)
+\left[S_l e^{ikr}-(-1)^l e^{-ikr}\right].
+$$
+
+Subtracting the free channel,
+
+$$
+\psi_l-\psi_l^{(0)}
+\sim
+\frac{2l+1}{2ik}(S_l-1)P_l(\cos\theta)
+\frac{e^{ikr}}r.
+$$
+
+Comparison with $f_l(\theta)e^{ikr}/r$ identifies
+
+$$
+f_l(\theta)
+=\frac{2l+1}{2ik}(S_l-1)P_l(\cos\theta).
+$$
+
+Summing the channels,
 
 $$
 \boxed{
@@ -148,33 +203,4 @@ $$
 \sigma_l\leq\frac{4\pi}{k^2}(2l+1).
 $$
 
-## Forward amplitude and total scattering
-
-At $\theta=0$, $P_l(1)=1$. Expanding
-$e^{i\delta_l}\sin\delta_l$,
-
-$$
-f(0)
-=\frac1k\sum_l(2l+1)
-\left[
-\sin\delta_l\cos\delta_l+i\sin^2\delta_l
-\right].
-$$
-
-Its imaginary part is
-
-$$
-\operatorname{Im}f(0)
-=\frac1k\sum_l(2l+1)\sin^2\delta_l.
-$$
-
-Comparison with the integrated cross section produces the optical theorem:
-
-$$
-\boxed{
-\sigma_{\mathrm{tot}}
-=\frac{4\pi}{k}\operatorname{Im}f(0).
-}
-$$
-
-The coefficient identity, Legendre orthogonality, partial cross sections, and optical-theorem equality are verified in the [Maxima worksheet]({{ '/assets/maxima/msc/sem-ii/unit-2/partial-wave-analysis.mac' | relative_url }}).
+The coefficient identity, Legendre orthogonality, and partial-cross-section sum are verified in the [Maxima worksheet]({{ '/assets/maxima/msc/sem-ii/unit-2/partial-wave-analysis.mac' | relative_url }}).

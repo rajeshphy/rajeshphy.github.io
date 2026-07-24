@@ -1,0 +1,36 @@
+/* Infrared branch algebra and Raman sidebands/rotational shifts.
+   Run with:
+   maxima --very-quiet -b infrared-raman-selection.mac */
+
+kill(all)$
+display2d:false$
+
+/* Product-to-sum identity behind Stokes and anti-Stokes sidebands. */
+sideband_residual :
+  ratsimp(trigreduce(
+    cos(A)*cos(B)
+    -(cos(A+B)+cos(A-B))/2))$
+print("Raman sideband identity residual =",sideband_residual)$
+
+F(J) := B*J*(J+1)$
+raman_shift : ratsimp(F(J+2)-F(J))$
+raman_shift_residual :
+  ratsimp(raman_shift-2*B*(2*J+3))$
+raman_spacing_residual :
+  ratsimp(
+    subst(J+1,J,raman_shift)-raman_shift-4*B)$
+
+print("rotational Raman shift residual =",raman_shift_residual)$
+print("rotational Raman spacing residual =",raman_spacing_residual)$
+
+/* Anharmonic hot-band interval. */
+G(v) := we*(v+1/2)-wexe*(v+1/2)^2$
+hot_band_residual :
+  ratsimp(G(v+1)-G(v)-(we-2*wexe*(v+1)))$
+print("infrared hot-band interval residual =",hot_band_residual)$
+
+/* Q^2 contains the two-quantum operators a^2 and (a^dagger)^2. */
+q2_diagonal_coefficient : (v+1)+v$
+q2_expected_diagonal : 2*v+1$
+print("Q^2 diagonal coefficient residual =",
+      ratsimp(q2_diagonal_coefficient-q2_expected_diagonal))$

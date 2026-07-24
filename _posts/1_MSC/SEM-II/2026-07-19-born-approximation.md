@@ -26,7 +26,38 @@ $$
 =\frac{2\mu}{\hbar^2}V(\mathbf r)\psi(\mathbf r).
 $$
 
-The outgoing Green function
+For $\mathbf r\neq\mathbf r'$, set a radial Green function equal to
+$G=\chi(r)/r$. The free Helmholtz equation reduces to
+
+$$
+\chi''+k^2\chi=0.
+$$
+
+The outgoing condition selects
+
+$$
+G^{(+)}(r)=C\frac{e^{ikr}}r.
+$$
+
+To determine $C$, integrate
+$(\nabla^2+k^2)G^{(+)}=\delta^{(3)}(\mathbf r)$ over a sphere of radius $\epsilon$. The $k^2$ volume term vanishes as
+$\epsilon\to0$, while Gauss's theorem gives
+
+$$
+\begin{aligned}
+\int\nabla^2G^{(+)}\,d^3r
+&=\oint
+\frac{\partial}{\partial r}
+\left(C\frac{e^{ikr}}r\right)dS\\
+&\underset{\epsilon\to0}{\longrightarrow}
+\oint\left(-\frac{C}{\epsilon^2}\right)
+\epsilon^2d\Omega\\
+&=-4\pi C.
+\end{aligned}
+$$
+
+The delta function integrates to one, so
+$-4\pi C=1$ and $C=-1/(4\pi)$. Therefore the outgoing Green function is
 
 $$
 G^{(+)}(\mathbf r-\mathbf r')
@@ -35,7 +66,7 @@ G^{(+)}(\mathbf r-\mathbf r')
 {|\mathbf r-\mathbf r'|}
 $$
 
-satisfies
+and satisfies
 
 $$
 \left(\nabla^2+k^2\right)G^{(+)}
@@ -57,8 +88,8 @@ V(\mathbf r')\psi(\mathbf r')\,d^3r'.
 }
 $$
 
-This normalization contains one factor $1/(4\pi)$, through
-$G^{(+)}$, and the physical potential is kept as $V$ throughout.
+The coefficient $\mu/(2\pi\hbar^2)$ is the product of the source factor
+$2\mu/\hbar^2$ and the Green-function factor $1/(4\pi)$.
 
 ## Exact amplitude from the far field
 
@@ -148,7 +179,7 @@ $$
 
 <figure class="diagram-figure">
   <img src="{{ '/assets/images/msc/sem-ii/unit-2/born-momentum-transfer.png' | relative_url }}" alt="Elastic-scattering momentum triangle with equal incident and final wavevectors and their momentum-transfer chord" loading="lazy">
-  <figcaption>The momentum-transfer chord is \(q=2k\sin(\theta/2)\). The earlier cosine form has been removed.</figcaption>
+  <figcaption>Because \(|\mathbf k_i|=|\mathbf k_f|=k\), the momentum-transfer chord has length \(q=2k\sin(\theta/2)\).</figcaption>
 </figure>
 
 ## Spherically symmetric potential

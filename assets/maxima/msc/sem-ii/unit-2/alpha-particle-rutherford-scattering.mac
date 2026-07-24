@@ -11,39 +11,90 @@ display2d:false$
 fpprintprec:12$
 
 print("ALPHA-PARTICLE AND RUTHERFORD SCATTERING")$
+assume(a>0,b>0,E>0,mu>0,kappa>0,L>0,p>0)$
 
-/* Deflection law b=a*cot(theta/2), where a=kappa/(2E). */
+/* 1. The polar orbit satisfies the repulsive Binet equation. */
+u_expr : (ecc*cos(phi-phi0)-1)/p$
+binet_residual :
+    ratsimp(trigreduce(
+      diff(u_expr,phi,2)+u_expr+1/p))$
+print("Repulsive Binet-equation residual (must be 0):",
+      binet_residual)$
+
+/* The algebra inside the orbit-energy substitution. */
+energy_numerator :
+    ecc^2*sin(chi)^2+(ecc*cos(chi)-1)^2
+    +2*(ecc*cos(chi)-1)$
+energy_numerator_residual :
+    ratsimp(trigrat(energy_numerator-(ecc^2-1)))$
+print("Orbit-energy numerator residual (must be 0):",
+      energy_numerator_residual)$
+
+/* 2. Relations among a, b, eccentricity, p, and r_min. */
+ecc_ab : sqrt(a^2+b^2)/a$
+p_ab : b^2/a$
+rmin_ab : p_ab/(ecc_ab-1)$
+rmin_expected : a+sqrt(a^2+b^2)$
+rmin_residual : ratsimp(radcan(rmin_ab-rmin_expected))$
+print("Periapsis-distance residual (must be 0):",
+      rmin_residual)$
+
+/* dr/dphi=0 at phi=phi0, so the tangent is perpendicular to r_min. */
+r_orbit : p/(ecc*cos(phi-phi0)-1)$
+periapsis_derivative :
+    ratsimp(subst(phi=phi0,diff(r_orbit,phi)))$
+print("dr/dphi at periapsis (must be 0):",
+      periapsis_derivative)$
+
+/* Exact half-angle relations at the two asymptotes. */
+sin_half : a/sqrt(a^2+b^2)$
+cos_half : b/sqrt(a^2+b^2)$
+asymptote_residual : ratsimp(radcan(ecc_ab*sin_half-1))$
+impact_residual :
+    ratsimp(radcan(a*cos_half/sin_half-b))$
+print("Asymptote denominator residual (must be 0):",
+      asymptote_residual)$
+print("b-a*cot(theta/2) residual (must be 0):",
+      impact_residual)$
+
+/* 3. Rutherford differential cross section. */
 btheta : a*cot(theta/2)$
 dbtheta : diff(btheta,theta)$
 dsigma : trigsimp(
     btheta*(-dbtheta)/sin(theta))$
 expected_dsigma : a^2/(4*sin(theta/2)^4)$
 cross_section_residual :
-    trigsimp(ratsimp(dsigma-expected_dsigma))$
+    ratsimp(trigrat(dsigma-expected_dsigma))$
 print("Rutherford differential-cross-section residual (must be 0):",
       cross_section_residual)$
 
-/* Closest approach satisfies E*r^2-kappa*r-E*b^2=0. */
-kappa : 2*E*a$
-rmin : a+sqrt(a^2+b^2)$
-turning_point_residual :
-    radcan(E*rmin^2-kappa*rmin-E*b^2)$
-print("Closest-approach equation residual (must be 0):",
-      turning_point_residual)$
-
-/* Verify the angular-cutoff cross section by differentiation and boundary. */
+/* 4. Angular-cutoff cross section. */
 sigma_cut(t) := %pi*a^2*cot(t/2)^2$
 angular_integrand(t) :=
     2*%pi*sin(t)*a^2/(4*sin(t/2)^4)$
 cutoff_derivative_residual :
-    trigsimp(diff(sigma_cut(theta),theta)
-             +angular_integrand(theta))$
-cutoff_boundary : trigsimp(sigma_cut(%pi))$
+    ratsimp(trigrat(
+      diff(sigma_cut(theta),theta)
+      +angular_integrand(theta)))$
+cutoff_boundary : trigreduce(sigma_cut(%pi))$
 print("Cutoff-cross-section derivative residual (must be 0):",
       cutoff_derivative_residual)$
 print("sigma(theta_min=pi), which must be 0:",cutoff_boundary)$
 
-/* Numerical scale for a 5 MeV alpha particle incident on gold. */
+/* 5. Parameters used by the exact TikZ orbit. */
+a_plot : 3/5$
+b_plot : 2$
+ecc_plot : sqrt(1+(b_plot/a_plot)^2)$
+p_plot : b_plot^2/a_plot$
+theta_plot : 2*atan(a_plot/b_plot)$
+phi0_plot : (%pi+theta_plot)/2$
+rmin_plot : a_plot+sqrt(a_plot^2+b_plot^2)$
+print("TikZ a,b,e,p =",a_plot,b_plot,ecc_plot,p_plot)$
+print("TikZ theta (degrees) =",float(theta_plot*180/%pi))$
+print("TikZ phi0 (degrees) =",float(phi0_plot*180/%pi))$
+print("TikZ r_min =",float(rmin_plot))$
+
+/* Representative 5 MeV alpha-gold scale. */
 coulomb_MeV_fm : 1.43996448$
 Z1_num : 2.0$
 Z2_num : 79.0$

@@ -1,0 +1,87 @@
+/* Symbolic checks for nuclear magnetic resonance. */
+kill(all)$
+display2d:false$
+
+print("NMR SYMBOLIC CHECKS")$
+
+Ix : hbar/2*matrix([0,1],[1,0])$
+Iy : hbar/2*matrix([0,-%i],[%i,0])$
+Iz : hbar/2*matrix([1,0],[0,-1])$
+up : matrix([1],[0])$
+down : matrix([0],[1])$
+
+comm_xy : Ix.Iy-Iy.Ix-%i*hbar*Iz$
+print("Nuclear-spin commutator (1,1) residual =",
+      ratsimp(comm_xy[1,1]))$
+print("Nuclear-spin commutator (1,2) residual =",
+      ratsimp(comm_xy[1,2]))$
+print("Nuclear-spin commutator (2,1) residual =",
+      ratsimp(comm_xy[2,1]))$
+print("Nuclear-spin commutator (2,2) residual =",
+      ratsimp(comm_xy[2,2]))$
+
+/* Spin-1/2 Zeeman energies for signed gamma. */
+H0 : -gamma*B*Iz$
+E_mplus : H0[1,1]$
+E_mminus : H0[2,2]$
+print("m=+1/2 energy residual =",
+      ratsimp(E_mplus+gamma*hbar*B/2))$
+print("m=-1/2 energy residual =",
+      ratsimp(E_mminus-gamma*hbar*B/2))$
+print("Positive-gamma level-gap residual =",
+      ratsimp(E_mminus-E_mplus-gamma*hbar*B))$
+
+mx_flip : transpose(up).Ix.down$
+mz_flip : transpose(up).Iz.down$
+print("Transverse nuclear-spin matrix residual =",
+      ratsimp(mx_flip-hbar/2))$
+print("Longitudinal nuclear-spin matrix residual =",
+      ratsimp(mz_flip))$
+
+/* Classical Larmor equations with signed omega_L = gamma B. */
+omega_L : gamma*B$
+mu_x : A*cos(omega_L*t)$
+mu_y : -A*sin(omega_L*t)$
+print("Larmor x-equation residual =",
+      trigreduce(diff(mu_x,t)-gamma*B*mu_y))$
+print("Larmor y-equation residual =",
+      trigreduce(diff(mu_y,t)+gamma*B*mu_x))$
+mu_plus : A*exp(-%i*omega_L*t)$
+print("Complex Larmor equation residual =",
+      ratsimp(diff(mu_plus,t)+%i*omega_L*mu_plus))$
+
+/* The quantum Bohr angular frequency has the same magnitude. */
+delta_E_positive_gamma : gamma*hbar*B$
+print("Quantum-classical frequency residual =",
+      ratsimp(delta_E_positive_gamma/hbar-omega_L))$
+
+/* High-temperature equilibrium magnetization. */
+M_exact :
+  n_density*gamma*hbar/2
+  *tanh(hbar*gamma*B/(2*k_B*T))$
+M_slope_expected :
+  n_density*gamma^2*hbar^2/(4*k_B*T)$
+print("High-temperature magnetization residual =",
+      ratsimp(limit(M_exact/B,B,0)-M_slope_expected))$
+
+/* Shielded frequency for positive gamma. */
+nu_local : gamma*(1-sigma)*B/(2*%pi)$
+print("Shielded frequency residual =",
+      ratsimp(2*%pi*nu_local-gamma*(1-sigma)*B))$
+
+/* Longitudinal and transverse relaxation solutions. */
+M_z :
+  M_eq+(M_z_initial-M_eq)*exp(-t/T1)$
+print("T1 recovery ODE residual =",
+      ratsimp(diff(M_z,t)+(M_z-M_eq)/T1))$
+M_plus :
+  M_plus_initial*exp(-t/T2)*exp(-%i*omega_L*t)$
+print("T2 decay ODE residual =",
+      ratsimp(diff(M_plus,t)+(1/T2+%i*omega_L)*M_plus))$
+
+/* Numerical proton frequency scale. */
+gamma_p_over_2pi : 42.57747892b6$
+print("Proton frequency at 1 tesla in MHz =",
+      bfloat(gamma_p_over_2pi/1b6))$
+
+quit()$

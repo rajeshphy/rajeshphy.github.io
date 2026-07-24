@@ -216,6 +216,71 @@ $$
 
 It is positive on the positive-frequency branch and negative on the negative-frequency branch. Thus it cannot be a probability density for a single particle, because probability must be non-negative everywhere. In relativistic field theory the same current is instead interpreted as a charge current, whose sign may legitimately distinguish particles from antiparticles.
 
+## Nonrelativistic positive-frequency limit
+
+Remove the rapid positive-frequency rest-energy phase by writing
+
+$$
+\phi(\mathbf r,t)
+=e^{-imc^2t/\hbar}\psi(\mathbf r,t).
+$$
+
+The time derivatives are
+
+$$
+\frac{\partial\phi}{\partial t}
+=e^{-imc^2t/\hbar}
+\left(
+\frac{\partial\psi}{\partial t}
+-\frac{imc^2}{\hbar}\psi
+\right),
+$$
+
+and
+
+$$
+\frac{\partial^2\phi}{\partial t^2}
+=e^{-imc^2t/\hbar}
+\left(
+\frac{\partial^2\psi}{\partial t^2}
+-\frac{2imc^2}{\hbar}\frac{\partial\psi}{\partial t}
+-\frac{m^2c^4}{\hbar^2}\psi
+\right).
+$$
+
+Substitution in the Klein–Gordon equation cancels the two rest-mass
+terms and leaves
+
+$$
+\frac{1}{c^2}\frac{\partial^2\psi}{\partial t^2}
+-\frac{2im}{\hbar}\frac{\partial\psi}{\partial t}
+-\nabla^2\psi=0.
+$$
+
+Solving for the first time derivative gives
+
+$$
+i\hbar\frac{\partial\psi}{\partial t}
+=-\frac{\hbar^2}{2m}\nabla^2\psi
++\frac{\hbar^2}{2mc^2}
+\frac{\partial^2\psi}{\partial t^2}.
+$$
+
+If the envelope energy scale is
+$\varepsilon\ll mc^2$, then
+$\partial_t\psi\sim\varepsilon\psi/\hbar$ and the last term is smaller
+than the first-time-derivative term by order
+$\varepsilon/(mc^2)$. Neglecting it yields
+
+$$
+\boxed{
+i\hbar\frac{\partial\psi}{\partial t}
+=-\frac{\hbar^2}{2m}\nabla^2\psi,
+}
+$$
+
+the free Schrödinger equation.
+
 ## Merits and limitations
 
 The equation is Lorentz covariant, gives the correct relativistic dispersion relation, and describes free spin-zero particles and scalar fields. Its nonrelativistic positive-frequency limit reduces to the Schrödinger equation after the rapid rest-energy phase is removed.

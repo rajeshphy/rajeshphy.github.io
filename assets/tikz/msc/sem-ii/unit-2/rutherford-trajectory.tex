@@ -59,10 +59,10 @@
   \draw[rose!55,dashed] (-5.02,\incomingY)--(-4.58,\incomingY);
 
   \draw[teal,thick,->] (N)--(P)
-    node[midway,below left=1pt] {$r_{\min}$};
+    node[pos=.38,below left=2pt] {$r_{\min}$};
   \fill[rose] (P) circle (.075);
   \draw[teal!55,dashed] ($(P)+(-.7,-.21)$)--($(P)+(.7,.21)$);
-  \node[font=\scriptsize,teal,anchor=south west] at ($(P)+(.25,.1)$)
+  \node[font=\scriptsize,teal,anchor=south west] at ($(P)+(-2.25,.55)$)
     {tangent $\perp\,\mathbf r_{\min}$};
 
   \draw[ink!60,thick] ($(A)+(.62,0)$)
@@ -70,7 +70,7 @@
   \node at ($(A)+(.79,.28)$) {$\theta$};
 
   \node[draw=ink!20,fill=teal!8,rounded corners=4pt,
-        inner sep=6pt,align=center] at (2.9,.55)
+        inner sep=6pt,align=center] at (2.9,-1.55)
     {$\displaystyle
       r(\phi)=\frac{p}{e\cos(\phi-\phi_0)-1}$\\[3pt]
      $a=\kappa/(2E)$,\quad

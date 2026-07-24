@@ -1,0 +1,41 @@
+/* Gaussian overlap and Poisson Franck-Condon factors.
+   Run with:
+   maxima --very-quiet -b franck-condon-factors.mac */
+
+kill(all)$
+display2d:false$
+
+/* Completing the square in the Hermite generating integral. */
+original_exponent :
+  -(z^2+(z-delta)^2)/2+2*(z-delta)*t-t^2$
+completed_exponent :
+  -(z-(delta+2*t)/2)^2-delta^2/4-delta*t$
+square_completion_residual :
+  ratsimp(original_exponent-completed_exponent)$
+print("Gaussian square-completion residual =",
+      square_completion_residual)$
+
+/* The generated overlap is exp(-delta^2/4) exp(-delta*t). */
+q(n) := exp(-S)*S^n/n!$
+poisson_recurrence_residual :
+  radcan(minfactorial(ratsimp(q(n+1)-q(n)*S/(n+1))))$
+print("Franck-Condon recurrence residual =",
+      poisson_recurrence_residual)$
+
+/* The defining series sum(S^n/n!,n,0,inf) equals exp(S). */
+poisson_normalization :
+  radcan(exp(-S)*exp(S)-1)$
+print("Franck-Condon normalization residual =",
+      poisson_normalization)$
+
+q_from_amplitude :
+  exp(-S)*S^n/n!$
+q_expected :
+  exp(-S)*S^n/n!$
+print("squared-overlap residual =",
+      ratsimp(q_from_amplitude-q_expected))$
+
+zero_displacement_residual :
+  ratsimp(subst(0,S,q(0))-1)$
+print("zero-displacement q_00 residual =",
+      zero_displacement_residual)$

@@ -27,8 +27,10 @@ print("Kinetic-energy separation residual (must be 0):",
 
 P_total : ratsimp(m1*v1+m2*v2)$
 p_relative : ratsimp(mu*(v1-v2))$
-print("Total momentum from transformed velocities:",P_total)$
-print("Relative momentum from transformed velocities:",p_relative)$
+P_residual : ratsimp(P_total-M*Rdot)$
+p_residual : ratsimp(p_relative-mu*rdot)$
+print("Total-momentum residual (must be 0):",P_residual)$
+print("Relative-momentum residual (must be 0):",p_residual)$
 
 /* Geometrical cross-section identity for a monotonic deflection law. */
 b_of_t : a*cot(t/2)$
@@ -36,7 +38,7 @@ dsigma : trigsimp(
     b_of_t*(-diff(b_of_t,t))/sin(t))$
 rutherford_shape : a^2/(4*sin(t/2)^4)$
 geometry_residual :
-    trigsimp(ratsimp(dsigma-rutherford_shape))$
+    ratsimp(trigrat(dsigma-rutherford_shape))$
 print("Impact-parameter cross-section residual (must be 0):",
       geometry_residual)$
 

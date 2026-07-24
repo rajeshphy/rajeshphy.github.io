@@ -35,7 +35,36 @@ $$
 \psi_{\mathrm{in}}=e^{ikz}.
 $$
 
-Outside the finite interaction region the wave equation is free. Its outgoing spherical solutions vary as $e^{ikr}/r$, so the physical large-distance boundary condition is
+Outside the finite interaction region the equation is free. For its radial
+$l=0$ part, write $R(r)=\chi(r)/r$. Substitution into
+
+$$
+\frac1{r^2}\frac{d}{dr}
+\left(r^2\frac{dR}{dr}\right)+k^2R=0
+$$
+
+reduces it to
+
+$$
+\chi''+k^2\chi=0.
+$$
+
+Hence
+
+$$
+R(r)=\frac{Ae^{ikr}+Be^{-ikr}}r.
+$$
+
+With time dependence $e^{-iEt/\hbar}$, constant phase in
+$e^{i(kr-Et/\hbar)}$ moves toward increasing $r$, while the
+$e^{-ikr}$ term moves inward. The Sommerfeld condition
+
+$$
+\lim_{r\to\infty}r
+\left(\frac{\partial}{\partial r}-ik\right)\psi_{\mathrm{sc}}=0
+$$
+
+selects the outgoing term. Allowing its coefficient to depend on direction produces the physical large-distance boundary condition
 
 $$
 \boxed{
@@ -54,7 +83,41 @@ The coefficient $f(\theta,\phi)$ is the scattering amplitude. It contains both a
 
 ## Incident probability flux
 
-The probability-current density follows from the Schrödinger equation and its complex conjugate:
+Begin with the time-dependent Schrödinger equation and its conjugate:
+
+$$
+i\hbar\frac{\partial\psi}{\partial t}
+=-\frac{\hbar^2}{2\mu}\nabla^2\psi+V\psi,
+$$
+
+$$
+-i\hbar\frac{\partial\psi^*}{\partial t}
+=-\frac{\hbar^2}{2\mu}\nabla^2\psi^*+V\psi^*.
+$$
+
+Multiply the first by $\psi^*$, the second by $\psi$, and subtract. The real-potential terms cancel:
+
+$$
+\frac{\partial|\psi|^2}{\partial t}
+=-\frac{\hbar}{2\mu i}
+\left(\psi^*\nabla^2\psi-\psi\nabla^2\psi^*\right).
+$$
+
+Using
+
+$$
+\psi^*\nabla^2\psi-\psi\nabla^2\psi^*
+=\nabla\cdot
+\left(\psi^*\nabla\psi-\psi\nabla\psi^*\right),
+$$
+
+one obtains
+
+$$
+\frac{\partial|\psi|^2}{\partial t}+\nabla\cdot\mathbf j=0,
+$$
+
+with probability-current density
 
 $$
 \mathbf j

@@ -1,0 +1,71 @@
+/* Deslandres differences, combination differences, and isotope scaling.
+   Run with:
+   maxima --very-quiet -b electronic-band-analysis.mac */
+
+kill(all)$
+display2d:false$
+
+Gp(v) := wep*(v+1/2)-wexep*(v+1/2)^2$
+Gpp(v) := wepp*(v+1/2)-wexepp*(v+1/2)^2$
+band(vp,vpp) := Tel+Gp(vp)-Gpp(vpp)$
+
+upper_first_residual :
+  ratsimp(
+    band(vp+1,vpp)-band(vp,vpp)
+    -(wep-2*wexep*(vp+1)))$
+upper_second_residual :
+  ratsimp(
+    band(vp+2,vpp)-2*band(vp+1,vpp)+band(vp,vpp)
+    +2*wexep)$
+
+lower_first_residual :
+  ratsimp(
+    band(vp,vpp+1)-band(vp,vpp)
+    -(-wepp+2*wexepp*(vpp+1)))$
+lower_second_residual :
+  ratsimp(
+    band(vp,vpp+2)-2*band(vp,vpp+1)+band(vp,vpp)
+    -2*wexepp)$
+
+mixed_difference_residual :
+  ratsimp(
+    band(vp+1,vpp+1)-band(vp+1,vpp)
+    -band(vp,vpp+1)+band(vp,vpp))$
+
+print("upper first-difference residual =",upper_first_residual)$
+print("upper second-difference residual =",upper_second_residual)$
+print("lower first-difference residual =",lower_first_residual)$
+print("lower second-difference residual =",lower_second_residual)$
+print("mixed Deslandres difference =",mixed_difference_residual)$
+
+Fupper(J) := Bp*J*(J+1)$
+Flower(J) := Bpp*J*(J+1)$
+R(J) := nu0+Fupper(J+1)-Flower(J)$
+P(J) := nu0+Fupper(J-1)-Flower(J)$
+
+lower_combination_residual :
+  ratsimp(R(J)-P(J+2)-2*Bpp*(2*J+3))$
+upper_combination_residual :
+  ratsimp(R(J)-P(J)-2*Bp*(2*J+1))$
+
+print("lower-state combination-difference residual =",
+      lower_combination_residual)$
+print("upper-state combination-difference residual =",
+      upper_combination_residual)$
+
+branch(m) := nu0+(Bp+Bpp)*m+(Bp-Bpp)*m^2$
+mhead : -(Bp+Bpp)/(2*(Bp-Bpp))$
+head_derivative_residual :
+  ratsimp(subst(mhead,m,diff(branch(m),m)))$
+print("band-head derivative residual =",head_derivative_residual)$
+
+/* Squared vibrational and linear rotational isotope relations. */
+nua2 : C/mua$
+nub2 : C/mub$
+Ba : K/mua$
+Bb : K/mub$
+
+print("vibrational isotope-scaling residual =",
+      ratsimp(nub2*mub-nua2*mua))$
+print("rotational isotope-scaling residual =",
+      ratsimp(Bb*mub-Ba*mua))$

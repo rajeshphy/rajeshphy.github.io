@@ -141,7 +141,8 @@ For a normalized one-particle state, $\int\rho\,d^3x=1$. The electric charge cur
 
 ## Electromagnetic coupling and the Pauli limit
 
-In electromagnetic potentials $(\Phi,\mathbf A)$, introduce the kinetic momentum
+Use SI units throughout this section. In electromagnetic potentials
+$(\Phi,\mathbf A)$, introduce the kinetic momentum
 
 $$
 \boldsymbol\Pi=\mathbf p-q\mathbf A.
@@ -276,7 +277,7 @@ $$
 [\sigma_i,\sigma_j]=2i\epsilon_{ijk}\sigma_k.
 $$
 
-Define
+For the reduced two-component Pauli spinor $\varphi$, define
 
 $$
 \mathbf S=\frac{\hbar}{2}\boldsymbol\sigma.
@@ -323,6 +324,24 @@ s(s+1)=\frac{3}{4},
 \qquad
 \boxed{s=\frac{1}{2}}.
 $$
+
+On the original four-component Dirac spinor, the corresponding spin
+operator is
+
+$$
+\boxed{
+\mathbf S_D=\frac{\hbar}{2}\boldsymbol\Sigma,
+\qquad
+\Sigma_i=
+\begin{pmatrix}
+\sigma_i&0\\
+0&\sigma_i
+\end{pmatrix}.
+}
+$$
+
+Thus the same two Pauli-spin eigenvalues occur in both the upper and lower
+two-component sectors of a Dirac spinor.
 
 The field-dependent energy in the Pauli equation is
 

@@ -125,13 +125,13 @@ V_{\mathrm{eff},l}(r)
 $$
 
 <figure class="diagram-figure">
-  <img src="{{ '/assets/images/msc/sem-ii/unit-2/central-potential-channels.png' | relative_url }}" alt="Effective radial potentials for several angular-momentum channels formed from one finite-range attractive central potential" loading="lazy">
+  <img src="{{ '/assets/images/msc/sem-ii/unit-2/central-potential-channels.png' | relative_url }}" alt="Effective radial potentials for several angular-momentum channels formed from one localized attractive central potential" loading="lazy">
   <figcaption>The \(l=0\) curve is the attractive potential itself. Increasing \(l\) adds a positive centrifugal barrier and reduces penetration into the interaction region.</figcaption>
 </figure>
 
 ## Origin and exterior forms
 
-Near a nonsingular origin, the centrifugal term dominates. Trying
+For $l>0$ near a nonsingular origin, the centrifugal term dominates. Trying
 $u_l\propto r^\alpha$ in
 
 $$
@@ -145,7 +145,7 @@ $$
 $$
 
 The roots are $\alpha=l+1$ and $\alpha=-l$. The second makes
-$R_l=u_l/r$ singular, so the regular boundary condition is
+$R_l=u_l/r$ singular. For $l=0$ the centrifugal term is absent, but finiteness of $R_0=u_0/r$ requires $u_0(0)=0$, so $u_0\propto r$. Both cases are summarized by
 
 $$
 u_l(r)\propto r^{l+1}.

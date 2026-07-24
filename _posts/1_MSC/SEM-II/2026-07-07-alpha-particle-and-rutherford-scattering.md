@@ -156,7 +156,7 @@ $$
 
 <figure class="diagram-figure">
   <img src="{{ '/assets/images/msc/sem-ii/unit-2/rutherford-trajectory.png' | relative_url }}" alt="Exact repulsive Coulomb hyperbola with consistent incoming and outgoing asymptotes, impact parameter, scattering angle, and periapsis" loading="lazy">
-  <figcaption>The curve is generated from the displayed Coulomb orbit, not a schematic Bézier. Its asymptotes, impact parameter, deflection angle, and perpendicular periapsis tangent use the same \(a\) and \(b\).</figcaption>
+  <figcaption>The curve is the exact hyperbolic solution of the repulsive Coulomb orbit. Its asymptotes, impact parameter, deflection angle, and perpendicular periapsis tangent use the same \(a\) and \(b\).</figcaption>
 </figure>
 
 The denominator vanishes on the two asymptotes. Choose the incoming asymptote at $\phi=\pi$ and the outgoing one at $\phi=\theta$. Symmetry about the periapsis fixes

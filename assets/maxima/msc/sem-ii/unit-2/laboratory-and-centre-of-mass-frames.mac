@@ -12,6 +12,8 @@ fpprintprec:12$
 
 print("LABORATORY AND CENTRE-OF-MASS FRAMES")$
 
+assume(m1>0,m2>0)$
+
 M : m1+m2$
 mu : m1*m2/M$
 Vcm : m1*v/M$
@@ -38,14 +40,14 @@ speed_residual : ratsimp(speed_ratio-expected_speed_ratio)$
 print("Scattered-energy ratio residual (must be 0):",
       speed_residual)$
 
-/* Solid-angle Jacobian from cos(theta_lab). */
-g : m1/m2$
-D : 1+2*g*c+g^2$
-cos_lab : (c+g)/sqrt(D)$
+/* Solid-angle Jacobian, kept in an independent mass-ratio symbol. */
+assume(gamma>0)$
+D : 1+2*gamma*c+gamma^2$
+cos_lab : (c+gamma)/sqrt(D)$
 jacobian : ratsimp(diff(cos_lab,c))$
-jacobian_expected : (1+g*c)/D^(3/2)$
+jacobian_expected : (1+gamma*c)/D^(3/2)$
 jacobian_residual :
-    radcan(jacobian-jacobian_expected)$
+    ratsimp(radcan(jacobian-jacobian_expected))$
 print("Angular-Jacobian residual (must be 0):",
       jacobian_residual)$
 

@@ -1,0 +1,66 @@
+/* Rotational and vibrational algebra for a diatomic molecule.
+   Run with:
+   maxima --very-quiet -b rotational-vibrational-spectrum.mac */
+
+kill(all)$
+display2d:false$
+
+M : m1+m2$
+mu : m1*m2/M$
+
+com_mass_residual : ratsimp(m1+m2-M)$
+cross_term_residual :
+  ratsimp(m1*m2/M-m2*m1/M)$
+relative_mass_residual :
+  ratsimp(m1*(m2/M)^2+m2*(m1/M)^2-mu)$
+
+print("centre-of-mass coefficient residual =",com_mass_residual)$
+print("centre/relative cross-term residual =",cross_term_residual)$
+print("reduced-mass coefficient residual =",relative_mass_residual)$
+
+F(J) := B*J*(J+1)$
+rigid_line_residual :
+  ratsimp(F(J+1)-F(J)-2*B*(J+1))$
+print("rigid-rotor line-position residual =",rigid_line_residual)$
+
+Fd(J) := B*J*(J+1)-D*(J*(J+1))^2$
+distorted_line_residual :
+  ratsimp(Fd(J+1)-Fd(J)
+          -(2*B*(J+1)-4*D*(J+1)^3))$
+print("centrifugal-distortion line residual =",
+      distorted_line_residual)$
+
+/* Morse energy: De=A*lambda^2 and hbar*omega=2*A*lambda. */
+n : v+1/2$
+exact_morse_energy : A*lambda^2-A*(lambda-n)^2$
+spectroscopic_morse_energy : 2*A*lambda*n-A*n^2$
+morse_energy_residual :
+  ratsimp(exact_morse_energy-spectroscopic_morse_energy)$
+print("Morse-level expansion residual =",morse_energy_residual)$
+
+G(v) := we*(v+1/2)-wexe*(v+1/2)^2$
+morse_spacing_residual :
+  ratsimp(G(v+1)-G(v)-(we-2*wexe*(v+1)))$
+print("anharmonic adjacent-spacing residual =",morse_spacing_residual)$
+
+Rline : nu0+Bp*(J+1)*(J+2)-Bpp*J*(J+1)$
+Rcompact :
+  nu0+(Bp+Bpp)*(J+1)+(Bp-Bpp)*(J+1)^2$
+Pline : nu0+Bp*(J-1)*J-Bpp*J*(J+1)$
+Pcompact :
+  nu0-(Bp+Bpp)*J+(Bp-Bpp)*J^2$
+
+print("R-branch formula residual =",ratsimp(Rline-Rcompact))$
+print("P-branch formula residual =",ratsimp(Pline-Pcompact))$
+
+Rspacing_residual :
+  ratsimp(
+    subst(J+1,J,Rline)-Rline
+    -(Bp+Bpp+(Bp-Bpp)*(2*J+3)))$
+Pspacing_residual :
+  ratsimp(
+    Pline-subst(J+1,J,Pline)
+    -(Bp+Bpp-(Bp-Bpp)*(2*J+1)))$
+
+print("R-branch spacing residual =",Rspacing_residual)$
+print("P-branch outward-spacing residual =",Pspacing_residual)$

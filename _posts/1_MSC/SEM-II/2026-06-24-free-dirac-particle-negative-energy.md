@@ -18,7 +18,18 @@ permalink: /msc/sem-ii/free-dirac-particle-negative-energy/
 hidden: true
 ---
 
-For a free particle it is convenient to use natural units $\hbar=c=1$ and take $p^0=E>0$. The Dirac equation admits two kinds of plane-wave modes:
+For a free particle it is convenient to use natural units $\hbar=c=1$.
+Write
+
+$$
+p\cdot x=Et-\mathbf p\cdot\mathbf x,
+\qquad
+p^\mu=(E,\mathbf p),
+\qquad
+E>0.
+$$
+
+The Dirac equation admits two kinds of plane-wave modes:
 
 $$
 \psi^{(+)}_s(x)=u_s(\mathbf p)e^{-ip\cdot x},
@@ -86,10 +97,31 @@ A nonzero spinor therefore requires
 $$
 p^\mu p_\mu=m^2,
 \qquad
-E=\sqrt{\mathbf p^2+m^2}.
+E=\sqrt{\lvert\mathbf p\rvert^2+m^2}.
 $$
 
-The opposite signs in the exponential are frequency labels. Both $u_s$ and $v_s$ are written using the positive number $E$, which avoids mixing a negative Hamiltonian eigenvalue with a positive-energy four-momentum.
+The opposite signs in the exponential are frequency labels. Their
+one-particle energy and momentum eigenvalues make the distinction explicit:
+
+$$
+i\partial_t\psi_s^{(-)}=-E\psi_s^{(-)},
+\qquad
+-i\nabla\psi_s^{(-)}=-\mathbf p\,\psi_s^{(-)}.
+$$
+
+Consequently,
+
+$$
+\boxed{
+H_D(-\mathbf p)v_s(\mathbf p)=-E\,v_s(\mathbf p).
+}
+$$
+
+Thus $\mathbf p$ in $v_s(\mathbf p)e^{+ip\cdot x}$ is the spatial part of
+the positive-energy four-momentum label $p^\mu$, not the canonical momentum
+eigenvalue of that negative-frequency one-particle wave. This is also the
+standard label for the antiparticle created by this mode after field
+quantization.
 
 ## Explicit free spinors
 
@@ -141,17 +173,19 @@ $$
 &=\sigma_i\sigma_jp_ip_j\\
 &=\delta_{ij}p_ip_jI_2
 +i\epsilon_{ijk}\sigma_kp_ip_j\\
-&=p^2I_2.
+&=\lvert\mathbf p\rvert^2I_2.
 \end{aligned}
 $$
 
 The last term vanishes because $\epsilon_{ijk}$ is antisymmetric while $p_ip_j$ is symmetric. Hence
 
 $$
-\frac{E^2-m^2-p^2}{E+m}\phi_s=0,
+\frac{E^2-m^2-\lvert\mathbf p\rvert^2}{E+m}\phi_s=0,
 $$
 
-which vanishes because $E^2=p^2+m^2$. If $\xi_s$ is a normalized basis spinor, the positive-frequency solution is therefore
+which vanishes because
+$E^2=\lvert\mathbf p\rvert^2+m^2$. If $\xi_s$ is a normalized basis spinor,
+the positive-frequency solution is therefore
 
 $$
 u_s(\mathbf p)
@@ -185,7 +219,7 @@ $$
 Substitution into the second again leaves
 
 $$
-\frac{p^2-(E^2-m^2)}{E+m}\eta_s=0.
+\frac{\lvert\mathbf p\rvert^2-(E^2-m^2)}{E+m}\eta_s=0.
 $$
 
 Thus
@@ -211,15 +245,16 @@ u_s^\dagger u_s
 \xi_s^\dagger(\boldsymbol\sigma\cdot\mathbf p)^2\xi_s
 }{(E+m)^2}
 \right]\\
-&=N^2\left(1+\frac{p^2}{(E+m)^2}\right).
+&=N^2\left(1+\frac{\lvert\mathbf p\rvert^2}{(E+m)^2}\right).
 \end{aligned}
 $$
 
-Use $p^2=E^2-m^2=(E-m)(E+m)$:
+Use
+$\lvert\mathbf p\rvert^2=E^2-m^2=(E-m)(E+m)$:
 
 $$
 \begin{aligned}
-1+\frac{p^2}{(E+m)^2}
+1+\frac{\lvert\mathbf p\rvert^2}{(E+m)^2}
 &=
 \frac{(E+m)^2+(E-m)(E+m)}{(E+m)^2}\\
 &=\frac{2E}{E+m}.
@@ -269,8 +304,8 @@ $$
 Momentum mixes the upper and lower two-component sectors, but each branch retains two independent spin polarizations.
 
 <figure class="diagram-figure">
-  <img src="{{ '/assets/images/msc/sem-ii/unit-3/relativistic-energy-branches.png' | relative_url }}" alt="Positive and negative relativistic energy branches separated by the rest-energy gap" loading="lazy">
-  <figcaption>The free Dirac spectrum contains positive- and negative-frequency branches. At zero momentum their separation is $2mc^2$; after field quantization the negative-frequency modes are associated with antiparticles of positive physical energy.</figcaption>
+  <img src="{{ '/assets/images/msc/sem-ii/unit-3/relativistic-energy-branches.png' | relative_url }}" alt="Positive and negative relativistic energy eigenvalue branches as functions of one Cartesian momentum component, separated by the rest-energy gap" loading="lazy">
+  <figcaption>For the \(p_y=p_z=0\) slice, the free Dirac eigenvalues are \(\mathcal E_\pm=\pm\sqrt{p_x^2c^2+m^2c^4}\). At \(p_x=0\) their separation is \(2mc^2\); after field quantization the negative-frequency modes are associated with antiparticles of positive physical energy.</figcaption>
 </figure>
 
 ## Meaning of the negative-energy branch
@@ -278,23 +313,32 @@ Momentum mixes the upper and lower two-component sectors, but each branch retain
 For a free momentum eigenstate,
 
 $$
-H_D^2=(p^2c^2+m^2c^4)I_4.
+H_D^2=(\lvert\mathbf p\rvert^2c^2+m^2c^4)I_4.
 $$
 
 If $H_Dw=\mathcal Ew$, applying $H_D$ once more gives
 
 $$
 H_D^2w=\mathcal E^2w
-=(p^2c^2+m^2c^4)w.
+=(\lvert\mathbf p\rvert^2c^2+m^2c^4)w.
 $$
 
 Hence the first-quantized Hamiltonian has the two eigenvalue branches
 
 $$
-\mathcal E_\pm=\pm\sqrt{p^2c^2+m^2c^4}.
+\mathcal E_\pm
+=\pm\sqrt{\lvert\mathbf p\rvert^2c^2+m^2c^4}.
 $$
 
-At fixed $\mathbf p$, the factor $e^{-ip\cdot x}$ contains $e^{-iEt}$ and belongs to $+\mathcal E$. The factor $e^{+ip\cdot x}$ contains $e^{+iEt}=e^{-i(-E)t}$ and therefore appears as the $-\mathcal E$ branch in a one-particle wave equation. That lower branch seems to make an electron unstable because states of ever more negative energy are available. Dirac’s historical resolution was to regard all negative-energy electron states as filled; a missing electron in that sea behaves as a positively charged hole.
+The factor $e^{-ip\cdot x}$ contains $e^{-iEt}$ and has canonical
+eigenvalues $(E,\mathbf p)$. The factor $e^{+ip\cdot x}$ contains
+$e^{+iEt}=e^{-i(-E)t}$ and has canonical eigenvalues
+$(-E,-\mathbf p)$, as derived above. It therefore lies on the
+$-\mathcal E$ branch of the one-particle equation. That lower branch seems
+to make an electron unstable because states of ever more negative energy
+are available. Dirac’s historical resolution was to regard all
+negative-energy electron states as filled; a missing electron in that sea
+behaves as a positively charged hole.
 
 In quantum field theory the complete mode expansion has the structure
 
@@ -308,6 +352,15 @@ a_s(\mathbf p)u_s(\mathbf p)e^{-ip\cdot x}
 \right],
 $$
 
-apart from the conventional momentum normalization factor. The operator $a_s$ annihilates an electron. The coefficient of the negative-frequency mode is not another electron annihilation operator: $b_s^\dagger$ creates a positron. When the field Hamiltonian is expressed in these operators, both $a_s^\dagger a_s$ and $b_s^\dagger b_s$ carry the positive energy $E$. The two excitations have equal mass and opposite electric charge. Thus negative-frequency solutions remain essential to the relativistic field, but observable particles do not carry unbounded negative energy.
+apart from the conventional momentum normalization factor. The operator
+$a_s$ annihilates an electron. The coefficient of the negative-frequency
+mode is not another electron annihilation operator:
+$b_s^\dagger(\mathbf p)$ creates a positron whose physical momentum label
+is $\mathbf p$. When the field Hamiltonian and momentum operator are
+expressed in these operators, the antiparticle excitation carries positive
+energy $E$ and physical momentum $\mathbf p$. The two excitations have equal
+mass and opposite electric charge. Thus negative-frequency solutions remain
+essential to the relativistic field, but observable particles do not carry
+unbounded negative energy.
 
 [Maxima verification of the Pauli identity and free spinors]({{ '/assets/maxima/msc/sem-ii/unit-3/dirac-spinors-and-spin.mac' | relative_url }})
