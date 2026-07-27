@@ -6,7 +6,8 @@
       maxima --batch=supersymmetry-first-principles.mac
 
   The worksheet verifies the supersymmetric harmonic oscillator and writes
-  its partner-potential plot into the current working folder.
+  an energy-pairing diagram and a partner-potential plot into the current
+  working folder.
 */
 
 kill(all)$
@@ -59,6 +60,67 @@ print(
   radcan(ratsimp(expand(A(psi(0)))))
 )$
 
+/*
+  Energy-level diagram.  The even sector has f=0 and E=n; the odd sector has
+  f=1 and E=n+1.  Equal-height levels are related by the supercharges.
+*/
+draw2d(
+  terminal = pngcairo,
+  file_name = "supersymmetric-oscillator-pairing-maxima",
+  dimensions = [1000,720],
+  title = "Supersymmetry pairs equal-energy even and odd states",
+  xrange = [-1.8,1.8],
+  yrange = [-0.45,4.8],
+  xaxis = false,
+  yaxis = false,
+  xtics = none,
+  ytics = none,
+  key = "",
+
+  color = "#176B87",
+  line_width = 5,
+  points_joined = true,
+  point_type = none,
+  points([[-1.25,0],[-0.75,0]]),
+  points([[-1.25,1],[-0.75,1]]),
+  points([[-1.25,2],[-0.75,2]]),
+  points([[-1.25,3],[-0.75,3]]),
+  points([[-1.25,4],[-0.75,4]]),
+
+  color = "#B23A48",
+  points([[0.75,1],[1.25,1]]),
+  points([[0.75,2],[1.25,2]]),
+  points([[0.75,3],[1.25,3]]),
+  points([[0.75,4],[1.25,4]]),
+
+  color = "#6B7280",
+  line_width = 2,
+  head_length = 0.08,
+  head_angle = 25,
+  head_both = true,
+  vector([-0.68,1],[1.36,0]),
+  vector([-0.68,2],[1.36,0]),
+  vector([-0.68,3],[1.36,0]),
+  vector([-0.68,4],[1.36,0]),
+
+  color = black,
+  label(
+    ["Even sector: f=0",-1,4.55],
+    ["Odd sector: f=1",1,4.55],
+    ["|0,0>",-1.48,0],
+    ["|1,0>",-1.48,1],
+    ["|2,0>",-1.48,2],
+    ["|3,0>",-1.48,3],
+    ["|4,0>",-1.48,4],
+    ["|0,1>",1.48,1],
+    ["|1,1>",1.48,2],
+    ["|2,1>",1.48,3],
+    ["|3,1>",1.48,4],
+    ["unpaired zero mode",-1,-0.25],
+    ["Q and Q+",0,4.3]
+  )
+)$
+
 VB(x) := (x^2-1)/2$
 VF(x) := (x^2+1)/2$
 
@@ -83,3 +145,4 @@ draw2d(
 )$
 
 print("Plot written to supersymmetric-partner-potentials-maxima.png")$
+print("Pairing diagram written to supersymmetric-oscillator-pairing-maxima.png")$
