@@ -1,0 +1,169 @@
+/*
+  Spherical harmonics from first principles
+  Open a terminal in the folder containing this file and run:
+
+      maxima --batch=spherical-harmonics-research.mac
+
+  The script verifies representative identities and writes three PNG plots
+  into the current working folder.
+*/
+
+kill(all)$
+load(draw)$
+
+/* Angular variables: t = theta, p = phi. */
+assume(t > 0, t < %pi)$
+
+/* Normalized complex harmonics in the Condon--Shortley convention. */
+Y10 : sqrt(3/(4*%pi))*cos(t)$
+Y11 : -sqrt(3/(8*%pi))*sin(t)*exp(%i*p)$
+Y1m1 : sqrt(3/(8*%pi))*sin(t)*exp(-%i*p)$
+
+Y20 : sqrt(5/(16*%pi))*(3*cos(t)^2 - 1)$
+Y21 : -sqrt(15/(8*%pi))*sin(t)*cos(t)*exp(%i*p)$
+Y21c : -sqrt(15/(8*%pi))*sin(t)*cos(t)*exp(-%i*p)$
+
+Y31 : -sqrt(21/(64*%pi))*sin(t)*(5*cos(t)^2 - 1)*exp(%i*p)$
+
+/* Laplace--Beltrami operator on the unit sphere. */
+laplace_sphere(f) :=
+  1/sin(t)*diff(sin(t)*diff(f,t),t)
+  + 1/sin(t)^2*diff(f,p,2)$
+
+eigen_check :
+  trigsimp(ratsimp(laplace_sphere(Y21) + 6*Y21))$
+
+/* Normalization of Y_2^1. */
+normalization_check :
+  trigsimp(
+    integrate(
+      integrate(Y21c*Y21*sin(t),p,0,2*%pi),
+      t,0,%pi
+    )
+  )$
+
+/* Dimensionless raising operator L_+/hbar. */
+Lplus(f) :=
+  exp(%i*p)*(diff(f,t) + %i*cot(t)*diff(f,p))$
+
+ladder_check :
+  radcan(trigsimp(ratsimp(Lplus(Y20) - sqrt(6)*Y21)))$
+
+/*
+  Recurrence:
+  cos(theta) Y_l^m = a_(l+1,m) Y_(l+1)^m + a_(l,m) Y_(l-1)^m.
+  The following verifies l=2, m=1.
+*/
+aup : sqrt(8/35)$
+adown : sqrt(1/5)$
+
+recurrence_check :
+  radcan(
+    trigsimp(
+      ratsimp(
+        cos(t)*Y21 - aup*Y31 - adown*Y11
+      )
+    )
+  )$
+
+/* A representative Gaunt coefficient. */
+gaunt_101020 :
+  trigsimp(
+    integrate(
+      integrate(Y10*Y10*Y20*sin(t),p,0,2*%pi),
+      t,0,%pi
+    )
+  )$
+
+print("Laplace--Beltrami eigenvalue residual =", eigen_check)$
+print("Normalization integral for Y_2^1 =", normalization_check)$
+print("L_+ ladder residual =", ladder_check)$
+print("cos(theta) recurrence residual =", recurrence_check)$
+print("Integral Y_1^0 Y_1^0 Y_2^0 dOmega =", gaunt_101020)$
+
+/*
+  Real angular amplitudes used for the 3D illustrations.
+  The radius is |Y| and enhanced3d colors the surface by the signed Y value.
+*/
+f10(t,p) := sqrt(3/(4*%pi))*cos(t)$
+f20(t,p) := sqrt(5/(16*%pi))*(3*cos(t)^2 - 1)$
+f32(t,p) := sqrt(105/(16*%pi))*sin(t)^2*cos(t)*cos(2*p)$
+
+plot_dir : "."$
+
+draw3d(
+  terminal = pngcairo,
+  file_name = sconcat(plot_dir,"/Y10-maxima"),
+  dimensions = [900,760],
+  title = "Y_1^0: dipole harmonic",
+  background_color = white,
+  colorbox = false,
+  surface_hide = true,
+  axis_3d = false,
+  xtics = none,
+  ytics = none,
+  ztics = none,
+  proportional_axes = xyz,
+  view = [68,32],
+  xu_grid = 70,
+  yv_grid = 100,
+  enhanced3d = [f10(t,p),t,p],
+  parametric_surface(
+    abs(f10(t,p))*sin(t)*cos(p),
+    abs(f10(t,p))*sin(t)*sin(p),
+    abs(f10(t,p))*cos(t),
+    t,0,%pi,p,0,2*%pi
+  )
+)$
+
+draw3d(
+  terminal = pngcairo,
+  file_name = sconcat(plot_dir,"/Y20-maxima"),
+  dimensions = [900,760],
+  title = "Y_2^0: quadrupole harmonic",
+  background_color = white,
+  colorbox = false,
+  surface_hide = true,
+  axis_3d = false,
+  xtics = none,
+  ytics = none,
+  ztics = none,
+  proportional_axes = xyz,
+  view = [68,32],
+  xu_grid = 70,
+  yv_grid = 100,
+  enhanced3d = [f20(t,p),t,p],
+  parametric_surface(
+    abs(f20(t,p))*sin(t)*cos(p),
+    abs(f20(t,p))*sin(t)*sin(p),
+    abs(f20(t,p))*cos(t),
+    t,0,%pi,p,0,2*%pi
+  )
+)$
+
+draw3d(
+  terminal = pngcairo,
+  file_name = sconcat(plot_dir,"/Y32-real-maxima"),
+  dimensions = [900,760],
+  title = "Real Y_3^2: octupole tesseral harmonic",
+  background_color = white,
+  colorbox = false,
+  surface_hide = true,
+  axis_3d = false,
+  xtics = none,
+  ytics = none,
+  ztics = none,
+  proportional_axes = xyz,
+  view = [68,32],
+  xu_grid = 80,
+  yv_grid = 120,
+  enhanced3d = [f32(t,p),t,p],
+  parametric_surface(
+    abs(f32(t,p))*sin(t)*cos(p),
+    abs(f32(t,p))*sin(t)*sin(p),
+    abs(f32(t,p))*cos(t),
+    t,0,%pi,p,0,2*%pi
+  )
+)$
+
+print("3D plots written to", plot_dir)$
