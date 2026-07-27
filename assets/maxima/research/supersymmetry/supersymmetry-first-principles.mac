@@ -1,0 +1,85 @@
+/*
+  Supersymmetry from first principles
+
+  Open a terminal in the folder containing this file and run:
+
+      maxima --batch=supersymmetry-first-principles.mac
+
+  The worksheet verifies the supersymmetric harmonic oscillator and writes
+  its partner-potential plot into the current working folder.
+*/
+
+kill(all)$
+load(draw)$
+
+/* Dimensionless coordinate and the superpotential W(x)=x. */
+W : x$
+
+/* First-order partner operators. */
+A(f) := (diff(f,x) + W*f)/sqrt(2)$
+Adag(f) := (-diff(f,x) + W*f)/sqrt(2)$
+
+/* Bosonic and fermionic Hamiltonians. */
+HB(f) := ratsimp(Adag(A(f)))$
+HF(f) := ratsimp(A(Adag(f)))$
+
+/* Normalized harmonic-oscillator wavefunction. */
+psi(n) :=
+  hermite(n,x)*exp(-x^2/2)
+  /(sqrt(2^n*n!)*%pi^(1/4))$
+
+print("Partner potentials:")$
+print("V_B(x) =", ratsimp((W^2-diff(W,x))/2))$
+print("V_F(x) =", ratsimp((W^2+diff(W,x))/2))$
+
+/* Verify H_B psi_n = n psi_n for n=0,...,4. */
+for n : 0 thru 4 do
+  print(
+    "H_B residual for n =", n, "is",
+    radcan(ratsimp(expand(HB(psi(n)) - n*psi(n))))
+  )$
+
+/* Verify H_F psi_n = (n+1) psi_n for n=0,...,4. */
+for n : 0 thru 4 do
+  print(
+    "H_F residual for n =", n, "is",
+    radcan(ratsimp(expand(HF(psi(n)) - (n+1)*psi(n))))
+  )$
+
+/* Verify the supercharge pairing A psi_n = sqrt(n) psi_(n-1). */
+for n : 1 thru 4 do
+  print(
+    "A-pairing residual for n =", n, "is",
+    radcan(ratsimp(expand(A(psi(n)) - sqrt(n)*psi(n-1))))
+  )$
+
+/* Verify that the bosonic zero mode is annihilated by A. */
+print(
+  "Zero-mode residual A psi_0 =",
+  radcan(ratsimp(expand(A(psi(0)))))
+)$
+
+VB(x) := (x^2-1)/2$
+VF(x) := (x^2+1)/2$
+
+draw2d(
+  terminal = pngcairo,
+  file_name = "supersymmetric-partner-potentials-maxima",
+  dimensions = [1000,680],
+  title = "Supersymmetric harmonic oscillator: partner potentials",
+  xlabel = "x",
+  ylabel = "V(x)",
+  xrange = [-3,3],
+  yrange = [-0.7,5.2],
+  grid = true,
+  key = "V_B=(x^2-1)/2",
+  color = "#176B87",
+  line_width = 4,
+  explicit(VB(x),x,-3,3),
+  key = "V_F=(x^2+1)/2",
+  color = "#B23A48",
+  line_width = 4,
+  explicit(VF(x),x,-3,3)
+)$
+
+print("Plot written to supersymmetric-partner-potentials-maxima.png")$
