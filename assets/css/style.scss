@@ -19,3 +19,14 @@
 @import "public-links";
 @import "mobile";
 @import "comments";
+
+
+.diagram-pan {
+    overflow: hidden;
+}
+
+.diagram-pan img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
