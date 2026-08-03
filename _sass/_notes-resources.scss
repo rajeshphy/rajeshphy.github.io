@@ -124,7 +124,7 @@
 }
 
 .notes-auto-board {
-  grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
   align-items: start;
 }
 
@@ -228,7 +228,7 @@
 
 .board-more-panel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
   gap: 14px;
   width: 100%;
   margin-top: 14px;

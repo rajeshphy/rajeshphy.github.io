@@ -1,5 +1,6 @@
 {% assign board = include.board %}
-{% assign visible_limit = board.visible_limit | default: 4 %}
+{% assign visible_limit = board.visible_limit | default: 8 %}
+{% assign mobile_visible_limit = board.mobile_visible_limit | default: 2 %}
 
 {% assign total_count = 0 %}
 
@@ -26,7 +27,7 @@
       {% assign total_count = total_count | plus: 1 %}
 
       {% if total_count <= visible_limit %}
-        <details class="semester-box {{ board.item_class }}">
+        <details class="semester-box {{ board.item_class }}" data-board-order="{{ total_count }}">
           <summary>
             <span>{{ group_label }}</span>
             <strong>{{ board.item_type }}</strong>
@@ -70,7 +71,7 @@
       {% if running_count > visible_limit %}
         {% assign extra_count = extra_count | plus: 1 %}
 
-        <details class="semester-box {{ board.item_class }}">
+        <details class="semester-box {{ board.item_class }}" data-board-order="{{ running_count }}">
           <summary>
             <span>{{ group_label }}</span>
             <strong>{{ board.item_type }}</strong>
@@ -90,7 +91,12 @@
 {% assign full_board = visible_board | append: extra_board | strip %}
 
 {% if full_board != "" %}
-  <section class="notice-board {{ board.board_class }} notes-auto-board" aria-label="{{ board.aria_label }}">
+  <section
+    class="notice-board {{ board.board_class }} notes-auto-board"
+    aria-label="{{ board.aria_label }}"
+    data-mobile-visible-limit="{{ mobile_visible_limit }}"
+    data-desktop-visible-limit="{{ visible_limit }}"
+  >
     {% if board.board_class contains "current-board" %}
       <div class="board-pin pin-left"></div>
       <div class="board-pin pin-right"></div>
@@ -102,7 +108,7 @@
 
     {{ visible_board }}
 
-    {% if extra_board != "" %}
+    {% if total_count > mobile_visible_limit %}
       <details class="board-more">
         <summary>
           <span>More</span>

@@ -9,3 +9,5 @@ permalink: /notes-archive/
     {% include notes-board.html board=board %}
   {% endfor %}
 </section>
+
+<script src="{{ '/assets/js/notes-board.js' | relative_url }}" defer></script>

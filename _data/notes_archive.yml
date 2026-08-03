@@ -4,7 +4,8 @@ boards:
     board_class: "current-board"
     item_class: ""
     item_type: "Lecture notes"
-    visible_limit: 4
+    visible_limit: 8
+    mobile_visible_limit: 2
     items:
       - category: "bsc-i"
         label: "Sem-I"
@@ -28,7 +29,8 @@ boards:
     board_class: "old-board"
     item_class: ""
     item_type: "Lecture notes"
-    visible_limit: 4
+    visible_limit: 8
+    mobile_visible_limit: 2
     items:
       - category: "msc-i"
         label: "Sem-I"
@@ -44,7 +46,8 @@ boards:
     board_class: "docs-board"
     item_class: ""
     item_type: "Practical"
-    visible_limit: 4
+    visible_limit: 8
+    mobile_visible_limit: 2
     items:
       - category: "practical-ug-i"
         label: "UG-I"
@@ -76,7 +79,8 @@ boards:
     board_class: "docs-board"
     item_class: ""
     item_type: "Dissertation"
-    visible_limit: 4
+    visible_limit: 8
+    mobile_visible_limit: 2
     items:
       - category: "dissertation-2026"
         label: "2026"
@@ -86,7 +90,8 @@ boards:
     board_class: "docs-board"
     item_class: "exam-box"
     item_type: "Exam practice"
-    visible_limit: 4
+    visible_limit: 8
+    mobile_visible_limit: 2
     items:
       - category: "exam-mathematical"
         label: "Mathematical"
@@ -124,7 +129,8 @@ boards:
     board_class: "docs-board"
     item_class: ""
     item_type: "Documentation"
-    visible_limit: 5
+    visible_limit: 8
+    mobile_visible_limit: 2
     items:
       - category: "doc-jekyll"
         label: "Jekyll"
