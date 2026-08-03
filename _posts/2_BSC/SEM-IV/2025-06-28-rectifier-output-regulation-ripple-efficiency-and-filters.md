@@ -54,14 +54,12 @@ $$\eta_r=\frac{P_{dc}}{P_{ac}}.$$
 If diode resistance and transformer losses are neglected,
 
 $$
-\boxed{\eta_{r,\rm half}=\frac4{\pi^2}=0.406},
+\boxed{\eta_{r,\rm half}=\frac4{\pi^2}=0.405},
 \qquad
-\boxed{\eta_{r,\rm full}=\frac8{\pi^2}=0.812}.
+\boxed{\eta_{r,\rm full}=\frac8{\pi^2}=0.811}.
 $$
 
 These are limiting values, not percentages of voltage converted.
-
-The exact integrals and identities are checked in [rectifier-check.mac]({{ '/assets/maxima/bsc/sem-iv/mj-7/rectifier-check.mac' | relative_url }}); every displayed residual is zero.
 
 ## Voltage regulation
 
@@ -93,3 +91,91 @@ $$
 $R_LC$ has units seconds, so the expression is dimensionless. The approximation fails for large ripple, rapidly changing load, or significant source resistance.
 
 A series inductor has reactance $X_L=2\pi f_rL$: it passes dc but opposes ripple current. A shunt capacitor has $X_C=1/(2\pi f_rC)$ and bypasses ripple across the load. LC and $\pi$ filters combine these actions; their useful smoothing requires $X_L$ large and $X_C$ small at the ripple frequency while dc voltage and component current ratings remain adequate.
+
+## Solved Problems
+
+### 1. Complete ideal full-wave output calculation
+
+An ideal full-wave rectifier supplies $R_L=500\,\Omega$ from a sinusoidal load peak $V_m=18.0\,\mathrm V$.
+
+$$
+V_{dc}=\frac{2V_m}{\pi}=\frac{36.0}{\pi}=11.46\,\mathrm V,
+\qquad
+V_{rms}=\frac{18.0}{\sqrt2}=12.73\,\mathrm V.
+$$
+
+Therefore
+
+$$
+I_{dc}=22.92\,\mathrm{mA},
+\qquad
+I_{rms}=25.46\,\mathrm{mA}.
+$$
+
+The output powers are
+
+$$
+P_{dc}=\frac{V_{dc}^2}{R_L}=0.2626\,\mathrm W,
+\qquad
+P_{ac}=\frac{V_{rms}^2}{R_L}=0.3240\,\mathrm W.
+$$
+
+Hence $\eta_r=P_{dc}/P_{ac}=8/\pi^2=0.8106$ exactly within the stated ideal model. Units and the inequality $P_{dc}<P_{ac}$ provide useful checks.
+
+### 2. Capacitor-filter ripple
+
+A full-wave rectifier operates from $50.0\,\mathrm{Hz}$ mains, so $f_r=100\,\mathrm{Hz}$. With $I_L=40.0\,\mathrm{mA}$ and $C=1000\,\mu\mathrm F$,
+
+$$
+V_{r,pp}\simeq\frac{0.0400}{(100)(1000\times10^{-6})}=0.400\,\mathrm V,
+$$
+
+$$
+V_{r,rms}\simeq\frac{0.400}{2\sqrt3}=0.1155\,\mathrm V.
+$$
+
+If $V_{dc}=12.0\,\mathrm V$, then $r=0.1155/12.0=0.00962$, or $0.962\%$. The small ratio supports the approximation used.
+
+### 3. Load regulation
+
+A supply gives $V_{NL}=13.2\,\mathrm V$ with no load and $V_{FL}=12.0\,\mathrm V$ at rated current. Thus
+
+$$
+\%\text{ regulation}
+=\frac{13.2-12.0}{12.0}\times100=10.0\%.
+$$
+
+The positive sign means the terminal voltage falls as load is applied; a smaller value would indicate a stiffer source.
+
+## Descriptive Questions
+
+1. Derive the average and RMS output values of ideal half-wave and full-wave rectifiers.
+2. Derive ripple factor from the separation of dc and ac RMS components.
+3. Define rectification efficiency and voltage regulation, explaining why they measure different properties.
+4. Explain the operation and design conditions of capacitor, inductor, LC, and $\pi$ filters.
+
+## Numerical Problems
+
+1. A rectifier supply reads $15.0\,\mathrm V$ at no load and $13.5\,\mathrm V$ while delivering $0.300\,\mathrm A$. Model its droop by a constant series resistance. Infer that resistance, predict the output at $0.200\,\mathrm A$, and find the load regulation at the new operating point.
+
+   **Final answer:** $R_{int}=(15.0-13.5)/0.300=5.00\,\Omega$. At $0.200\,\mathrm A$, $V_o=15.0-(0.200)(5.00)=14.0\,\mathrm V$, giving regulation $[(15.0-14.0)/14.0]\times100=7.143\%$.
+
+2. A rectifier output has dc component $V_{dc}=12.0\,\mathrm V$ and ripple factor $r=4.00\%$ across $R_L=600\,\Omega$. Without assuming a half-wave or full-wave shape, find the RMS ripple voltage, total RMS output voltage, dc load power, and ac ripple power.
+
+   **Final answer:** $V_{ac,rms}=rV_{dc}=0.480\,\mathrm V$, $V_{rms}=\sqrt{V_{dc}^2+V_{ac,rms}^2}=12.010\,\mathrm V$, $P_{dc}=V_{dc}^2/R_L=0.240\,\mathrm W$, and $P_{ac}=V_{ac,rms}^2/R_L=0.384\,\mathrm{mW}$.
+
+3. A capacitor-input supply operates from $50.0\,\mathrm{Hz}$ mains and gives $V_{dc}=12.0\,\mathrm V$ across $R_L=600\,\Omega$. With $C=1000\,\mu\mathrm F$, the measured peak-to-peak ripple is $0.200\,\mathrm V$. Use the small-ripple model to infer the ripple frequency, identify whether the rectification is half-wave or full-wave, and find the ripple factor.
+
+   **Final answer:** $I_L=V_{dc}/R_L=20.0\,\mathrm{mA}$ and $f_r=I_L/(CV_{r,pp})=100\,\mathrm{Hz}$, so the circuit is full-wave. Also $V_{r,rms}=0.200/(2\sqrt3)=57.7\,\mathrm{mV}$ and $r=V_{r,rms}/V_{dc}=0.00481$, or $0.481\%$.
+
+4. At $f_r=100\,\mathrm{Hz}$, find $X_L$ for $L=2.00\,\mathrm H$ and $X_C$ for $C=47.0\,\mu\mathrm F$.
+
+   **Final answer:** $X_L=2\pi f_rL=1.257\,\mathrm{k\Omega}$ and $X_C=1/(2\pi f_rC)=33.86\,\Omega$, giving large series and small shunt ripple impedances.
+
+The waveform integrals, ripple and efficiency identities, filter estimates, and all numerical values are reproducible in [rectifier-output-filter-check.mac]({{ '/assets/maxima/bsc/sem-iv/mj-7/rectifier-output-filter-check.mac' | relative_url }}); every printed residual is zero.
+
+## References
+
+1. [Wikipedia, “Capacitor-input filter”](https://en.wikipedia.org/wiki/Capacitor-input_filter).
+2. [NPTEL, IIT Bombay, Basic Electronics: Rectifiers and Filters](https://onlinecourses-archive.nptel.ac.in/noc18_ee10/preview).
+3. [MIT OpenCourseWare 6.002, Circuits and Electronics](https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/).

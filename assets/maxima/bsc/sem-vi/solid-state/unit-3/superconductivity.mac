@@ -18,3 +18,48 @@ print("residual_critical_field_Tc =",residual_critical_tc)$
 gap:3.53*kB*Tc$
 residual_bcs_gap:ratsimp(gap/(kB*Tc)-3.53)$
 print("residual_bcs_gap_ratio =",residual_bcs_gap)$
+
+/* Enhancement-pass solved and numerical problems. */
+Bc_problem:(2/25)*(1-(7/12)^2)$
+check_critical_field_problem:ratsimp(Bc_problem-19/360)$
+check_penetration_ratio:ratsimp(exp(-100/50)-exp(-2))$
+check_isotope_ratio:ratsimp((sqrt(200/208))^2-200/208)$
+print("check_critical_field_problem =",check_critical_field_problem)$
+print("check_two_penetration_depths =",check_penetration_ratio)$
+print("check_isotope_mass_ratio =",check_isotope_ratio)$
+
+check_pair_density:ratsimp((2*me)/(mu0*(2*e)^2*lambda^2)-me/(2*mu0*e^2*lambda^2))$
+check_GL_parameter:ratsimp(140/20-7)$
+check_wire_current:ratsimp(2*%pi*r*Bc/mu0-(2*%pi*r*Bc/mu0))$
+print("check_london_pair_density =",check_pair_density)$
+print("check_GL_parameter =",check_GL_parameter)$
+print("check_wire_critical_current =",check_wire_current)$
+
+mu0SI:4*%pi*1.0b-7$
+kBSI:1.380649b-23$
+hSI:6.62607015b-34$
+eSI:1.602176634b-19$
+meSI:9.1093837139b-31$
+Bc_num:0.0800b0*(1-(4.20b0/7.20b0)^2)$
+condensation_energy_num:Bc_num^2/(2*mu0SI)$
+B_depth_num:0.0200b0*exp(-100.0b-9/50.0b-9)$
+screening_current_num:B_depth_num/(mu0SI*50.0b-9)$
+isotope_Tc_num:7.20b0*sqrt(200.0b0/208.0b0)$
+bcs_gap_meV_num:(3.53b0/2)*kBSI*9.20b0/eSI*1000$
+pair_density_num:(2*meSI)/(mu0SI*(2*eSI)^2*(120b-9)^2)$
+flux_quantum_num:hSI/(2*eSI)$
+vortex_density_num:2.00b0/flux_quantum_num$
+year_seconds:365.25b0*24*3600$
+resistance_bound_num:-2.00b-6*log(0.99b0)/year_seconds$
+wire_current_num:2*%pi*(0.500b-3)*(0.100b0)/mu0SI$
+print("answer_critical_field_T =",bfloat(Bc_num))$
+print("answer_condensation_energy_J_per_m3 =",bfloat(condensation_energy_num))$
+print("answer_field_at_100nm_T =",bfloat(B_depth_num))$
+print("answer_screening_current_A_per_m2 =",bfloat(screening_current_num))$
+print("answer_isotope_shifted_Tc_K =",bfloat(isotope_Tc_num))$
+print("answer_BCS_gap_meV =",bfloat(bcs_gap_meV_num))$
+print("answer_pair_density_per_m3 =",bfloat(pair_density_num))$
+print("answer_flux_quantum_Wb =",bfloat(flux_quantum_num))$
+print("answer_vortex_density_per_m2 =",bfloat(vortex_density_num))$
+print("answer_resistance_bound_ohm =",bfloat(resistance_bound_num))$
+print("answer_wire_critical_current_A =",bfloat(wire_current_num))$

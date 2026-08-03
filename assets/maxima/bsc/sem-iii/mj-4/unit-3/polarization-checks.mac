@@ -63,4 +63,77 @@ phiL : 2*%pi*nL*l/lambda$
 phiR : 2*%pi*nR*l/lambda$
 check("Optical rotation", (phiL-phiR)/2-%pi*l*(nL-nR)/lambda)$
 
+/* Enhancement problems: reflection, double refraction, and the Nicol prism. */
+check("Problem Brewster angle centidegrees",
+      round(100*float(180*atan(3/2)/%pi))-5631)$
+check("Problem Brewster refracted angle centidegrees",
+      round(100*float(90-180*atan(3/2)/%pi))-3369)$
+
+no45 : 829/500$
+ne45 : 743/500$
+n45 : sqrt(2*no45^2*ne45^2/(no45^2+ne45^2))$
+check("Problem extraordinary index at 45 degrees",
+      round(1000*float(n45))-1565)$
+
+rp45 : (sqrt(2)*cos(%pi/4)-cos(%pi/6))
+       /(sqrt(2)*cos(%pi/4)+cos(%pi/6))$
+check("Numerical oblique p-Fresnel amplitude exact",
+      rp45-(7-4*sqrt(3)))$
+check("Numerical oblique p-Fresnel amplitude rounded",
+      round(10000*float(rp45))-718)$
+check("Numerical oblique p-Fresnel reflectance rounded",
+      round(10^5*float(rp45^2))-515)$
+check("Numerical Nicol-interface critical angle",
+      round(100*float(180*asin(155/166)/%pi))-6902)$
+
+no_mat : 8/5$
+ne_mat : 3/2$
+check("Numerical ordinary relative permittivity",
+      no_mat^2-64/25)$
+check("Numerical extraordinary relative permittivity",
+      ne_mat^2-9/4)$
+check("Numerical negative-crystal index ordering",
+      no_mat-ne_mat-1/10)$
+check("Numerical calcite ordinary speed",
+      round(float((3*10^8)/(166/100)/(10^6)))-181)$
+check("Numerical calcite extraordinary speed",
+      round(float((3*10^8)/(149/100)/(10^6)))-201)$
+
+/* Enhancement problems: retardation plates and the Babinet compensator. */
+dq_um : ratsimp(600/(4*(9/1000))/1000)$
+check("Problem quarter-wave thickness exact", dq_um-50/3)$
+check("Problem quarter-wave thickness rounded micrometres",
+      round(100*float(dq_um))-1667)$
+check("Problem half-wave output azimuth", 2*35-20-50)$
+check("Problem half-wave polarization rotation", 50-20-30)$
+
+check("Numerical plate retardation",
+      2*%pi*(1/100)*(75*1000)/500-3*%pi)$
+check("Numerical equivalent half-wave retardation",
+      3*%pi-2*%pi-%pi)$
+qwp_jx : 1/sqrt(2)$
+qwp_jy : (%i/sqrt(2))*(-%i)$
+check("Numerical QWP circular-to-linear component", qwp_jy-qwp_jx)$
+check("Numerical QWP output normalization", qwp_jx^2+qwp_jy^2-1)$
+check("Numerical Babinet retardation radians",
+      2*%pi*(9/1000)*(20*1000)/600-(3/5)*%pi)$
+check("Numerical Babinet retardation degrees", (3/5)*180-108)$
+check("Numerical ellipse analyzer ratio", 4^2/3^2-16/9)$
+
+/* Enhancement problems: production, detection, and optical activity. */
+check("Problem polarizer-analyzer intensity",
+      12*(1/2)*(3/4)-9/2)$
+check("Problem specific rotation", (66/5)/(2*(1/5))-33)$
+check("Problem predicted optical rotation", 33*3*(1/10)-99/10)$
+check("Numerical analyzer extinction rotation",
+      (167-15)-180-(-28))$
+check("Numerical circular analyzer intensity", 8/2-4)$
+check("Numerical elliptical analyzer ratio", 3^2/1^2-9)$
+
+alpha_num : %pi*(1/10)/(5/10^7)*(2/10^6)$
+check("Numerical circular-birefringence rotation radians",
+      alpha_num-(2/5)*%pi)$
+check("Numerical circular-birefringence rotation degrees",
+      (2/5)*180-72)$
+
 print("ALL POLARIZATION RESIDUALS ARE ZERO")$

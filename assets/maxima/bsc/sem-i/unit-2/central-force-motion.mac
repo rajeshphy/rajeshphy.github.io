@@ -33,4 +33,55 @@ print("Effective-radial-force residual (must be 0):",
 print("Centrifugal-form residual (must be 0):",
   ratsimp(ev(m*r*omega^2-L^2/(m*r^3),L=m*r^2*omega)))$
 
+/* Solved problem 1: instantaneous radial/transverse decomposition. */
+sp1_L : 2*(1/2)*3$
+sp1_areal : sp1_L/(2*2)$
+sp1_E : (2/2)*((-1)^2+3^2)$
+sp1_Erad : (2/2)*(-1)^2+sp1_L^2/(2*2*(1/2)^2)$
+print("Solved 1 answers [L, areal velocity, E]:",
+  [sp1_L,sp1_areal,sp1_E])$
+print("Solved 1 check (must be 0):",
+  ratsimp((sp1_L-3)+(sp1_areal-3/4)
+    +(sp1_E-10)+(sp1_Erad-10)))$
+
+/* Solved problem 2: circular orbit for F=-k r. */
+sp2_m : 1/2$
+sp2_k : 8$
+sp2_L : 1$
+sp2_rc : (sp2_L^2/(sp2_m*sp2_k))^(1/4)$
+sp2_omega : sp2_L/(sp2_m*sp2_rc^2)$
+sp2_E : sp2_k*sp2_rc^2/2
+  +sp2_L^2/(2*sp2_m*sp2_rc^2)$
+sp2_curvature : sp2_k+3*sp2_L^2/(sp2_m*sp2_rc^4)$
+print("Solved 2 answers [radius, omega, energy, curvature]:",
+  [sp2_rc,sp2_omega,sp2_E,sp2_curvature])$
+print("Solved 2 check (must be 0):",
+  radcan((sp2_rc-1/sqrt(2))+(sp2_omega-4)
+    +(sp2_E-4)+(sp2_curvature-32)))$
+
+/* Numerical problems. */
+n1_tau : 3*(-8)-4*(-6)$
+print("Numerical 1 answer, torque:",n1_tau)$
+print("Numerical 1 check (must be 0):",n1_tau)$
+
+n2_Lz : (1/2)*((3/5)*(3/2)-(4/5)*(-2))$
+print("Numerical 2 answer, Lz:",n2_Lz)$
+print("Numerical 2 check (must be 0):",ratsimp(n2_Lz-5/4))$
+
+n3_time : 3/( (12/5)/(2*(6/5)) )$
+print("Numerical 3 answer, time:",n3_time)$
+print("Numerical 3 check (must be 0):",ratsimp(n3_time-3))$
+
+n4_Veff : -18/2+4^2/(2*2*2^2)$
+print("Numerical 4 answer, effective potential:",n4_Veff)$
+print("Numerical 4 check (must be 0):",ratsimp(n4_Veff+8))$
+
+n5_Fcf : (3/10)*4^2*(1/2)$
+print("Numerical 5 answer, centrifugal force:",n5_Fcf)$
+print("Numerical 5 check (must be 0):",ratsimp(n5_Fcf-12/5))$
+
+n6_ar : -30/2+6^2/(2^2*3^3)$
+print("Numerical 6 answer, radial acceleration:",n6_ar)$
+print("Numerical 6 check (must be 0):",ratsimp(n6_ar+44/3))$
+
 quit();

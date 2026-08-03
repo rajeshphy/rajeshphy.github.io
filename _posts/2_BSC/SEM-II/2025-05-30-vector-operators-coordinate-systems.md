@@ -27,6 +27,8 @@ $$
 
 and the area normal to $\hat{\mathbf e}_1$ is $dS_1=h_2h_3dq_2dq_3$, with cyclic analogues.
 
+The components $A_i$ below are physical components along the local orthonormal vectors $\hat{\mathbf e}_i$. Unlike Cartesian unit vectors, these basis vectors may vary with position; the scale-factor formulas already include that variation.
+
 ## General orthogonal formulas
 
 Comparing $d\phi=\sum_i\phi_{q_i}dq_i$ with $d\phi=\nabla\phi\cdot d\mathbf r$ gives
@@ -41,7 +43,7 @@ $$
 \boxed{
 \nabla\cdot\mathbf A
 =\frac1{h_1h_2h_3}
-\sum_{\rm cyclic}\frac{\partial}{\partial q_1}(h_2h_3A_1)}.
+\sum_{\mathrm{cyclic}}\frac{\partial}{\partial q_1}(h_2h_3A_1)}.
 $$
 
 The circulation around the $q_1q_2$ face gives
@@ -72,7 +74,7 @@ $$
 \boxed{
 \nabla^2\phi
 =\frac1{h_1h_2h_3}
-\sum_{\rm cyclic}\frac{\partial}{\partial q_1}
+\sum_{\mathrm{cyclic}}\frac{\partial}{\partial q_1}
 \left(\frac{h_2h_3}{h_1}\frac{\partial\phi}{\partial q_1}\right)}.
 $$
 
@@ -125,6 +127,18 @@ d\mathbf r=d\rho\,\hat{\boldsymbol\rho}
 $$
 
 so $(h_\rho,h_\varphi,h_z)=(1,\rho,1)$. Therefore
+
+$$
+dV=\rho\,d\rho\,d\varphi\,dz,
+\qquad
+dS_\rho=\rho\,d\varphi\,dz,
+\qquad
+dS_\varphi=d\rho\,dz,
+\qquad
+dS_z=\rho\,d\rho\,d\varphi.
+$$
+
+Substitution into the general formulas gives
 
 $$
 \boxed{\nabla\phi
@@ -188,6 +202,20 @@ $$
 so $(h_r,h_\theta,h_\varphi)=(1,r,r\sin\theta)$. Hence
 
 $$
+dV=r^2\sin\theta\,dr\,d\theta\,d\varphi,
+\qquad
+dS_r=r^2\sin\theta\,d\theta\,d\varphi,
+$$
+
+$$
+dS_\theta=r\sin\theta\,dr\,d\varphi,
+\qquad
+dS_\varphi=r\,dr\,d\theta.
+$$
+
+Substitution gives
+
+$$
 \boxed{\nabla\phi
 =\hat{\mathbf r}\phi_r+\hat{\boldsymbol\theta}\frac1r\phi_\theta
 +\hat{\boldsymbol\varphi}\frac1{r\sin\theta}\phi_\varphi},
@@ -220,6 +248,180 @@ $$
 +\frac1{r^2\sin^2\theta}\phi_{\varphi\varphi}}.
 $$
 
-The scale factors contain the coordinate geometry. Every gradient term has units $[\phi]/{\rm m}$ and every Laplacian term $[\phi]/{\rm m^2}$.
+The scale factors contain the coordinate geometry. Every gradient term has units $[\phi]/\mathrm{m}$ and every Laplacian term $[\phi]/\mathrm{m^2}$.
+
+The cylindrical formulas are used on coordinate patches with $\rho>0$ and the spherical formulas with $r>0$ and $0<\theta<\pi$. Their factors $1/\rho$ and $1/\sin\theta$ mark coordinate singularities, not necessarily singular physical fields. A smooth field on an axis or at the origin must have component limits that are independent of the undefined azimuthal direction.
 
 Sample Cartesian-to-cylindrical and Cartesian-to-spherical Laplacian transformations are checked in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-ii/unit-1/unit-1-coordinate-checks.mac' | relative_url }}); every reported residual is zero.
+
+## Solved Problems
+
+1. In cylindrical coordinates let $\phi=\rho^2z\cos\varphi$. Find $\nabla\phi$ and $\nabla^2\phi$, and evaluate both at $(\rho,\varphi,z)=(2,0,3)$.
+
+   The three physical components of the gradient are
+
+   $$
+   \begin{aligned}
+   \nabla\phi
+   &=\hat{\boldsymbol\rho}(2\rho z\cos\varphi)
+   +\hat{\boldsymbol\varphi}\frac1\rho(-\rho^2z\sin\varphi)
+   +\hat{\mathbf z}(\rho^2\cos\varphi)\\
+   &=2\rho z\cos\varphi\,\hat{\boldsymbol\rho}
+   -\rho z\sin\varphi\,\hat{\boldsymbol\varphi}
+   +\rho^2\cos\varphi\,\hat{\mathbf z}.
+   \end{aligned}
+   $$
+
+   At the specified point,
+
+   $$
+   \boxed{\nabla\phi=12\hat{\boldsymbol\rho}+4\hat{\mathbf z}}.
+   $$
+
+   For the Laplacian,
+
+   $$
+   \begin{aligned}
+   \nabla^2\phi
+   &=\frac1\rho\frac{\partial}{\partial\rho}
+   (2\rho^2z\cos\varphi)
+   +\frac1{\rho^2}(-\rho^2z\cos\varphi)+0\\
+   &=4z\cos\varphi-z\cos\varphi
+   =3z\cos\varphi.
+   \end{aligned}
+   $$
+
+   Thus $\boxed{\nabla^2\phi=9}$ at $(2,0,3)$. Each gradient component has units $[\phi]/\mathrm{m}$, and each Laplacian term has units $[\phi]/\mathrm{m^2}$.
+
+2. For
+
+   $$
+   \mathbf A=\rho^2\hat{\boldsymbol\rho}
+   +\rho z\hat{\boldsymbol\varphi}
+   +z^2\hat{\mathbf z},
+   $$
+
+   find divergence and curl in cylindrical coordinates, then evaluate them at $\rho=2$, $z=1$.
+
+   The divergence is
+
+   $$
+   \begin{aligned}
+   \nabla\cdot\mathbf A
+   &=\frac1\rho\frac{\partial(\rho^3)}{\partial\rho}
+   +\frac1\rho\frac{\partial(\rho z)}{\partial\varphi}
+   +\frac{\partial z^2}{\partial z}\\
+   &=3\rho+2z.
+   \end{aligned}
+   $$
+
+   The curl components are
+
+   $$
+   (\nabla\times\mathbf A)_\rho
+   =\frac1\rho\frac{\partial z^2}{\partial\varphi}
+   -\frac{\partial(\rho z)}{\partial z}=-\rho,
+   $$
+
+   $$
+   (\nabla\times\mathbf A)_\varphi
+   =\frac{\partial\rho^2}{\partial z}
+   -\frac{\partial z^2}{\partial\rho}=0,
+   $$
+
+   $$
+   (\nabla\times\mathbf A)_z
+   =\frac1\rho\left[
+   \frac{\partial(\rho^2z)}{\partial\rho}
+   -\frac{\partial\rho^2}{\partial\varphi}\right]=2z.
+   $$
+
+   Hence
+
+   $$
+   \boxed{\nabla\cdot\mathbf A=8},
+   \qquad
+   \boxed{\nabla\times\mathbf A=-2\hat{\boldsymbol\rho}
+   +2\hat{\mathbf z}}
+   $$
+
+   at the stated point. Divergence and curl both carry one inverse-length factor relative to $\mathbf A$.
+
+3. In spherical coordinates, show that $\phi=K/r$ is harmonic for $r>0$ and that the inverse-square radial field
+
+   $$
+   \mathbf B=B_0\left(\frac Rr\right)^2\hat{\mathbf r}
+   $$
+
+   is divergence-free there.
+
+   Because $\phi$ depends only on $r$,
+
+   $$
+   \nabla\phi=\frac{d}{dr}\left(\frac Kr\right)\hat{\mathbf r}
+   =-\frac K{r^2}\hat{\mathbf r}.
+   $$
+
+   Its Laplacian is
+
+   $$
+   \nabla^2\phi
+   =\frac1{r^2}\frac{d}{dr}
+   \left(r^2\frac{d}{dr}\frac Kr\right)
+   =\frac1{r^2}\frac{d(-K)}{dr}
+   =\boxed{0}.
+   $$
+
+   Similarly,
+
+   $$
+   \nabla\cdot\mathbf B
+   =\frac1{r^2}\frac{d}{dr}
+   \left[r^2B_0\left(\frac Rr\right)^2\right]
+   =\frac1{r^2}\frac{d(B_0R^2)}{dr}
+   =\boxed{0}.
+   $$
+
+   Here $K$ has dimensions $[\phi]\,\mathrm{m}$, while $B_0$ carries the field units. Both results approach zero fields at large $r$, but neither calculation includes $r=0$, where the coordinate expressions and the physical inverse-power fields are singular.
+
+## Descriptive Questions
+
+1. Starting from orthogonal scale factors, derive the general formulas for gradient, divergence, curl, and the scalar Laplacian.
+2. Derive the cylindrical scale factors and use them to obtain its line, area, and volume elements and all four differential operators.
+3. Derive the spherical scale factors and use them to obtain its line, area, and volume elements and all four differential operators.
+4. Explain why cylindrical and spherical unit vectors vary with position and distinguish coordinate singularities from singular physical fields.
+
+## Numerical Problems
+
+1. For $\phi=\rho z\sin\varphi$, find $\nabla\phi$ at $(\rho,\varphi,z)=(2,\pi/2,3)$.
+
+   **Answer:** $3\hat{\boldsymbol\rho}+2\hat{\mathbf z}$.
+
+2. For $\mathbf A=\rho z\hat{\boldsymbol\rho}+\rho\sin\varphi\hat{\boldsymbol\varphi}+z^2\hat{\mathbf z}$, find $\nabla\cdot\mathbf A$ at $\varphi=0$, $z=1$.
+
+   **Answer:** $5$.
+
+3. Find $\nabla\times\mathbf A$ at $\rho=2$ for $\mathbf A=\rho^2\hat{\boldsymbol\varphi}$.
+
+   **Answer:** $6\hat{\mathbf z}$.
+
+4. For $\phi=r^2\cos\theta$, find $\nabla\phi$ at $r=2$, $\theta=\pi/3$.
+
+   **Answer:** $2\hat{\mathbf r}-\sqrt3\hat{\boldsymbol\theta}$.
+
+5. Find the divergence of $\mathbf A=r\sin\theta\,\hat{\boldsymbol\theta}$ at $\theta=\pi/3$.
+
+   **Answer:** $1$.
+
+6. Evaluate $\nabla^2\phi$ at $r=2$, $\theta=\pi/3$ for $\phi=r^3\cos\theta$.
+
+   **Answer:** $10$.
+
+All symbolic reductions and numerical answers are checked in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-ii/unit-1/unit-1-coordinate-checks.mac' | relative_url }}); every printed residual is zero.
+
+## References
+
+1. [Del in cylindrical and spherical coordinates — Wikipedia](https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates)
+2. [MIT Mathematics, Chapter 13: Gradient, Divergence, Curl and Laplacian in Spherical, Cylindrical and General Coordinates](https://math.mit.edu/~djk/18_022/chapter13/contents.html)
+3. George B. Arfken, Hans J. Weber, and Frank E. Harris, *Mathematical Methods for Physicists*, 7th ed., Chapter 3, §3.10.
+4. Mary L. Boas, *Mathematical Methods in the Physical Sciences*, 3rd ed., Chapter 6.

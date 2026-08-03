@@ -12,7 +12,7 @@ hidden: true
 Write a second-order linear equation as
 
 $$
-y''+P(x)y'+Q(x)y=0.
+y^{\prime\prime}+P(x)y^{\prime}+Q(x)y=0.
 $$
 
 A point $x_0$ is ordinary if $P$ and $Q$ are analytic there. It is a regular
@@ -39,9 +39,9 @@ $$
 Then
 
 $$
-y'=\sum_{n=0}^{\infty}(n+r)a_nz^{n+r-1},
+y^{\prime}=\sum_{n=0}^{\infty}(n+r)a_nz^{n+r-1},
 \qquad
-y''=\sum_{n=0}^{\infty}(n+r)(n+r-1)a_nz^{n+r-2}.
+y^{\prime\prime}=\sum_{n=0}^{\infty}(n+r)(n+r-1)a_nz^{n+r-2}.
 $$
 
 The coefficient of the lowest power $z^{r-2}$ is
@@ -56,15 +56,26 @@ $$
 \boxed{r(r-1)+p_0r+q_0=0.}
 $$
 
-Higher powers determine $a_n$ recursively. Equal roots, or roots differing
-by an integer, can require a logarithmic second solution.
+For $n\ge1$, the coefficient of $z^{n+r-2}$ gives the explicit recursion
+
+$$
+\begin{aligned}
+&[(n+r)(n+r-1)+p_0(n+r)+q_0]a_n\\
+&\qquad+
+\sum_{j=1}^{n}[p_j(n-j+r)+q_j]a_{n-j}=0.
+\end{aligned}
+$$
+
+Thus the indicial root fixes the leading power and the higher equations fix
+$a_n$ successively. Equal roots, or roots differing by an integer, can
+require a logarithmic second solution.
 
 ## Bessel equation as a Frobenius construction
 
 For
 
 $$
-x^2y''+xy'+(x^2-\nu^2)y=0,
+x^2y^{\prime\prime}+xy^{\prime}+(x^2-\nu^2)y=0,
 $$
 
 $x=0$ is a regular singular point. Substitute
@@ -115,7 +126,7 @@ J_{n-1}(x)+J_{n+1}(x)=\frac{2n}{x}J_n(x),
 $$
 
 $$
-J_{n-1}(x)-J_{n+1}(x)=2J_n'(x).
+J_{n-1}(x)-J_{n+1}(x)=2J_n^{\prime}(x).
 $$
 
 For the regular order $\nu\ge0$, let $\alpha_{\nu m}$ be the $m$th positive
@@ -131,13 +142,13 @@ gives, after multiplying two solutions by one another and subtracting,
 $$
 (\alpha_m^2-\alpha_n^2)
 \int_0^1xJ_\nu(\alpha_mx)J_\nu(\alpha_nx)dx
-=\left[x(y_my_n'-y_ny_m')\right]_0^1=0.
+=\left[x(y_my_n^{\prime}-y_ny_m^{\prime})\right]_0^1=0.
 $$
 
 The regular behavior $J_\nu(\alpha x)\sim x^\nu$ makes the $x=0$ boundary
 term vanish, while both functions vanish at $x=1$. Thus distinct modes are
 orthogonal. Taking the coincident-root limit and using
-$J_\nu'(\alpha_{\nu n})=-J_{\nu+1}(\alpha_{\nu n})$ gives
+$J_\nu^{\prime}(\alpha_{\nu n})=-J_{\nu+1}(\alpha_{\nu n})$ gives
 
 $$
 \boxed{
@@ -151,7 +162,7 @@ $$
 Legendre's equation is
 
 $$
-\frac d{dx}\left[(1-x^2)y'\right]+l(l+1)y=0,
+\frac d{dx}\left[(1-x^2)y^{\prime}\right]+l(l+1)y=0,
 \qquad -1\le x\le1.
 $$
 
@@ -184,7 +195,7 @@ gives
 
 $$
 [l(l+1)-m(m+1)]\int_{-1}^{1}P_lP_mdx
-=\left[(1-x^2)(P_lP_m'-P_mP_l')\right]_{-1}^{1}=0.
+=\left[(1-x^2)(P_lP_m^{\prime}-P_mP_l^{\prime})\right]_{-1}^{1}=0.
 $$
 
 The norm follows from Rodrigues' formula
@@ -213,7 +224,7 @@ $$
 Hermite's equation is
 
 $$
-y''-2xy'+2ny=0.
+y^{\prime\prime}-2xy^{\prime}+2ny=0.
 $$
 
 Its generating function
@@ -225,7 +236,7 @@ $$
 gives, by differentiating with respect to $x$ and $t$,
 
 $$
-H_n'=2nH_{n-1},
+H_n^{\prime}=2nH_{n-1},
 \qquad
 H_{n+1}=2xH_n-2nH_{n-1}.
 $$
@@ -255,7 +266,7 @@ $$
 Laguerre's equation is
 
 $$
-xy''+(1-x)y'+ny=0,
+xy^{\prime\prime}+(1-x)y^{\prime}+ny=0,
 \qquad 0\le x<\infty.
 $$
 
@@ -303,5 +314,163 @@ $$
   <figcaption>Representative functions are plotted directly from the differential-equation solutions and polynomial formulas stated above.</figcaption>
 </figure>
 
-The differential-equation residuals, recurrence relations, and normalization
-integrals are checked in the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-17/unit-3/special-functions.mac' | relative_url }}); every printed residual is zero.
+## Solved Problems
+
+### 1. A regular Frobenius solution
+
+Find the solution of
+
+$$
+x^2y^{\prime\prime}+2xy^{\prime}+x^2y=0
+$$
+
+that remains finite at $x=0$. In normalized form,
+$P(x)=2/x$ and $Q(x)=1$, so $xP=2$ and $x^2Q=x^2$ are analytic at the
+origin: $x=0$ is a regular singular point.
+
+Insert $y=\sum_{n=0}^{\infty}a_nx^{n+r}$. After shifting the second sum,
+
+$$
+\sum_{n=0}^{\infty}(n+r)(n+r+1)a_nx^{n+r}
++\sum_{n=2}^{\infty}a_{n-2}x^{n+r}=0.
+$$
+
+The indicial equation is $r(r+1)=0$. The root $r=0$ gives the finite
+solution. The $n=1$ equation is $2a_1=0$, and for $n\ge2$,
+
+$$
+a_n=-\frac{a_{n-2}}{n(n+1)}.
+$$
+
+Consequently all odd coefficients vanish and
+
+$$
+a_2=-\frac{a_0}{3!},\qquad
+a_4=\frac{a_0}{5!},\qquad
+a_6=-\frac{a_0}{7!},\ldots
+$$
+
+Thus
+
+$$
+\boxed{
+y(x)=a_0\left(1-\frac{x^2}{3!}+\frac{x^4}{5!}-\cdots\right)
+=a_0\frac{\sin x}{x}.
+}
+$$
+
+Although the closed form contains $1/x$, the limit is
+$\lim_{x\to0}\sin x/x=1$, so $y(0)=a_0$ is finite. The independent solution
+associated with the other root is singular at the origin.
+
+### 2. Expansion in Legendre polynomials
+
+Expand $x^2$ in Legendre polynomials on $[-1,1]$. Orthogonality gives the
+coefficient of $P_l$ as
+
+$$
+A_l=\frac{2l+1}{2}\int_{-1}^{1}x^2P_l(x)\,dx.
+$$
+
+Parity removes all odd $l$, and a polynomial of degree two requires only
+$P_0$ and $P_2$. Their coefficients are
+
+$$
+A_0=\frac12\int_{-1}^{1}x^2dx=\frac13,
+$$
+
+$$
+\begin{aligned}
+A_2&=\frac52\int_{-1}^{1}x^2\frac{3x^2-1}{2}\,dx\\
+&=\frac54\left(3\frac25-\frac23\right)=\frac23.
+\end{aligned}
+$$
+
+Therefore
+
+$$
+\boxed{x^2=\frac13P_0(x)+\frac23P_2(x).}
+$$
+
+At $x=0$ the right side is $1/3-(2/3)(1/2)=0$, and at $x=\pm1$ it is
+$1$, so both the centre and endpoint limits agree with $x^2$.
+
+### 3. Reducing a higher Bessel order
+
+Express $J_3(x)$ using only $J_0(x)$ and $J_1(x)$. The recurrence
+$J_{n-1}+J_{n+1}=2nJ_n/x$ gives, for $n=1$,
+
+$$
+J_2=\frac2xJ_1-J_0.
+$$
+
+For $n=2$,
+
+$$
+\begin{aligned}
+J_3&=\frac4xJ_2-J_1\\
+&=\boxed{\left(\frac8{x^2}-1\right)J_1-\frac4xJ_0}.
+\end{aligned}
+$$
+
+The apparent inverse powers cancel at the origin. Indeed,
+
+$$
+J_0=1-\frac{x^2}{4}+\frac{x^4}{64}+O(x^6),
+\qquad
+J_1=\frac x2-\frac{x^3}{16}+\frac{x^5}{384}+O(x^7),
+$$
+
+so substitution gives $J_3=x^3/48+O(x^5)$, the regular behavior expected
+from the Frobenius leading power $x^3$.
+
+## Descriptive Questions
+
+1. How are ordinary, regular singular, and irregular points distinguished, and why can an integer difference between indicial roots introduce a logarithm?
+2. How does the Bessel generating function produce the two standard recurrence relations, and which boundary behavior selects the regular solution?
+3. How does self-adjoint form make the boundary term responsible for Legendre and Bessel orthogonality vanish?
+4. How do the generating functions, weight functions, domains, and normalization integrals differ for Hermite and Laguerre polynomials?
+
+## Numerical Problems
+
+1. Classify $x=0$ for (a) $y^{\prime\prime}+xy^{\prime}+y=0$, (b)
+$y^{\prime\prime}+x^{-1}y^{\prime}+y=0$, and (c)
+$y^{\prime\prime}+x^{-3}y^{\prime}+y=0$.
+
+   **Final answer:** (a) ordinary, (b) regular singular, and (c) irregular singular.
+
+2. For $x^2y^{\prime\prime}+3xy^{\prime}+(x^2-4)y=0$, find the indicial roots and the
+Frobenius coefficient recurrence.
+
+   **Final answer:** $r=-1\pm\sqrt5$, $a_1=0$, and
+$a_n=-a_{n-2}/[(n+r)^2+2(n+r)-4]$ for $n\ge2$.
+
+3. Use $P_4(x)=(35x^4-30x^2+3)/8$ to evaluate $P_4(1/2)$.
+
+   **Final answer:** $-37/128$.
+
+4. Use the first four terms of the Frobenius series for $J_0(x)$ to
+approximate $J_0(1)$.
+
+   **Final answer:** $1-1/4+1/64-1/2304=1763/2304$.
+
+5. Generate $H_4(x)$ from the Hermite recurrence and evaluate it at the
+origin.
+
+   **Final answer:** $H_4(x)=16x^4-48x^2+12$ and $H_4(0)=12$.
+
+6. Evaluate $L_3(2)$ from the polynomial stated above.
+
+   **Final answer:** $-1/3$.
+
+The Frobenius recurrences, differential equations, orthogonality integrals,
+all solved results, and every final answer are checked in the
+[Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-17/unit-3/special-functions.mac' | relative_url }}); every printed residual is zero.
+
+## References
+
+1. [Frobenius method — Wikipedia](https://en.wikipedia.org/wiki/Frobenius_method)
+2. [NIST Digital Library of Mathematical Functions, §2.7: Differential Equations and Fuchs–Frobenius Theory](https://dlmf.nist.gov/2.7)
+3. NIST Digital Library of Mathematical Functions: [Chapter 10, Bessel Functions](https://dlmf.nist.gov/10) and [Chapter 14, Legendre and Related Functions](https://dlmf.nist.gov/14).
+4. [NIST Digital Library of Mathematical Functions, Chapter 18: Orthogonal Polynomials](https://dlmf.nist.gov/18)
+5. G. B. Arfken, H. J. Weber and F. E. Harris, *Mathematical Methods for Physicists*, 7th ed., chapters on series solutions and special functions.

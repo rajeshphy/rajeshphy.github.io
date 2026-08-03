@@ -1,0 +1,63 @@
+/* UG-VII MJ-18 Unit III: perturbation problem checks. */
+kill(all)$
+
+dagger(M) := transpose(conjugate(M))$
+vres(V) := radcan(sum(V[i,1]*conjugate(V[i,1]),i,1,length(V)))$
+round_to(x,n) := round(float(x)*10^n)/10^n$
+
+/* Solved problem 1: three-level nondegenerate corrections. */
+E2corr : g^2/(0-Delta)+(2*g)^2/(0-3*Delta)$
+print("three-level second-order residual = ",ratsimp(E2corr+7*g^2/(3*Delta)))$
+ketcorr : matrix([-g/Delta],[-2*g/(3*Delta)])$
+print("three-level ket coefficient 1 residual = ",ratsimp(ketcorr[1,1]+g/Delta))$
+print("three-level ket coefficient 2 residual = ",ratsimp(ketcorr[2,1]+2*g/(3*Delta)))$
+
+/* Solved problem 2: degenerate subspace. */
+Vd : matrix([3,4],[4,-3])$
+vp : matrix([2],[1])/sqrt(5)$
+vm : matrix([1],[-2])/sqrt(5)$
+print("degenerate characteristic residual = ",expand(determinant(Vd-eps*ident(2))-(eps^2-25)))$
+print("positive degenerate eigenvector residual = ",vres(Vd.vp-5*vp))$
+print("negative degenerate eigenvector residual = ",vres(Vd.vm+5*vm))$
+degenerate_overlap : dagger(vp).vm$
+print("degenerate eigenvector overlap residual = ",radcan(degenerate_overlap))$
+
+/* Solved problem 3: constant pulse. */
+hbarev : 658212/10^21$
+dE : 1/10$
+Vfi : 1/50$
+T : %pi*hbarev/dE$
+phase : dE*T/(2*hbarev)$
+Ppulse : 4*Vfi^2/dE^2*sin(phase)^2$
+print("constant-pulse phase residual = ",radcan(phase-%pi/2))$
+print("constant-pulse probability residual = ",radcan(Ppulse-4/25))$
+print("constant-pulse duration rounding residual = ",round_to(T*10^15,2)-517/25)$
+
+/* Numerical problems. */
+a0 : 529177/10^16$
+Efield : 5*10^4$
+stark_micro_eV : 3*a0*Efield*10^6$
+print("Stark upper-shift residual = ",ratsimp(stark_micro_eV-1587531/200000))$
+print("Stark separation residual = ",ratsimp(2*stark_micro_eV-1587531/100000))$
+print("Stark upper-shift rounding residual = ",round_to(stark_micro_eV,5)-396883/50000)$
+print("Stark separation rounding residual = ",round_to(2*stark_micro_eV,4)-158753/10000)$
+
+li : 1$ mi : 0$ lf : 2$ mf : 0$
+print("dipole delta-l residual = ",lf-li-1)$
+print("z-polarized delta-m residual = ",mf-mi)$
+
+omega : 2/hbarev$
+freq : omega/(2*%pi)$
+print("resonant angular-frequency identity residual = ",ratsimp(omega*hbarev-2))$
+print("ordinary-frequency identity residual = ",ratsimp(2*%pi*freq-omega))$
+print("angular-frequency rounding residual = ",round_to(omega/10^15,5)-303853/100000)$
+print("ordinary-frequency rounding residual = ",round_to(freq/10^14,5)-241799/50000)$
+
+W : 2/1000$
+rho : 5$
+Gamma : 2*%pi/hbarev*W^2*rho$
+tau : 1/Gamma$
+print("golden-rule rate identity residual = ",ratsimp(Gamma*hbarev-2*%pi*W^2*rho))$
+print("golden-rule lifetime identity residual = ",ratsimp(Gamma*tau-1))$
+print("golden-rule rate rounding residual = ",round_to(Gamma/10^11,5)-190917/100000)$
+print("golden-rule lifetime rounding residual = ",round_to(tau*10^12,5)-130947/25000)$

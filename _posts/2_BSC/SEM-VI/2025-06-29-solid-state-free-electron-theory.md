@@ -54,7 +54,15 @@ $$
 \boxed{\sigma(\omega)=\frac{ne^2\tau/m}{1-i\omega\tau}}.
 $$
 
-The static result is recovered when $\omega\tau\ll1$; at higher frequency the current lags the field.
+Equivalently,
+
+$$
+\sigma(\omega)=\sigma_0\frac{1+i\omega\tau}{1+(\omega\tau)^2}
+=\lvert\sigma(\omega)\rvert e^{i\phi},
+\qquad \phi=\tan^{-1}(\omega\tau)>0.
+$$
+
+The static result is recovered when $\omega\tau\ll1$. Under the stated $e^{-i\omega t}$ phasor convention, the positive phase means that the current leads the field by $\phi$.
 
 ## Classical thermal conductivity
 
@@ -201,4 +209,99 @@ $$
 
 This is the Wiedemann-Franz law with Lorenz number $L_0\simeq2.44\times10^{-8}\ \mathrm{W\,\Omega\,K^{-2}}$. Its simple form assumes the same relaxation time governs charge and heat currents near the Fermi surface.
 
+## Solved Problems
+
+### 1. Determine the Fermi scales from electron density
+
+A monovalent metal has conduction-electron density $n=8.50\times10^{28}\ \mathrm{m^{-3}}$. Find $k_F$, $E_F$, $v_F$, and $T_F$ using $m=m_e$.
+
+The occupied-state count gives
+
+$$
+\begin{aligned}
+k_F
+&=(3\pi^2n)^{1/3}\\
+&=\boxed{1.360\times10^{10}\ \mathrm{m^{-1}}}.
+\end{aligned}
+$$
+
+Using $\hbar=1.054571817\times10^{-34}\ \mathrm{J\,s}$ and $m_e=9.1093837015\times10^{-31}\ \mathrm{kg}$,
+
+$$
+\begin{aligned}
+E_F
+&=\frac{\hbar^2k_F^2}{2m_e}
+=1.1294\times10^{-18}\ \mathrm J\\
+&=\boxed{7.049\ \mathrm{eV}},\\[4pt]
+v_F
+&=\frac{\hbar k_F}{m_e}
+=\boxed{1.575\times10^6\ \mathrm{m\,s^{-1}}},\\[4pt]
+T_F
+&=\frac{E_F}{k_B}
+=\boxed{8.180\times10^4\ \mathrm K}.
+\end{aligned}
+$$
+
+The dimensional checks are $[k_F]=\mathrm{m^{-1}}$, $[\hbar^2k_F^2/m]=\mathrm J$, and $[\hbar k_F/m]=\mathrm{m\,s^{-1}}$. Since ordinary temperatures satisfy $T\ll T_F$, the gas is strongly degenerate, consistent with the Sommerfeld approximation.
+
+### 2. Infer relaxation time and mean free path
+
+For the same metal, take resistivity $\rho=1.70\times10^{-8}\ \Omega\,\mathrm m$. Find the Drude relaxation time and the Sommerfeld mean free path.
+
+From $\rho=m/(ne^2\tau)$,
+
+$$
+\begin{aligned}
+\tau
+&=\frac{m_e}{ne^2\rho}\\
+&=\frac{9.1094\times10^{-31}}
+{(8.50\times10^{28})(1.60218\times10^{-19})^2(1.70\times10^{-8})}\\
+&=\boxed{2.456\times10^{-14}\ \mathrm s}.
+\end{aligned}
+$$
+
+The quantum model uses the speed of active electrons near the Fermi surface:
+
+$$
+\ell=v_F\tau
+=(1.575\times10^6)(2.456\times10^{-14})
+=\boxed{3.867\times10^{-8}\ \mathrm m=38.67\ \mathrm{nm}}.
+$$
+
+The electron charge enters as $e^2$, so the conductivity is positive even though electron drift is opposite to $\mathbf E$. Dimensionally, $v_F\tau$ is a length; as $\rho\to0$ at fixed $n$, the model gives $\tau,\ell\to\infty$, its collisionless limit.
+
+## Descriptive Questions
+
+1. How are the Drude dc and ac conductivities derived from the relaxation-time equation, including the current direction for negative carriers?
+2. How does counting spin-degenerate states in a Fermi sphere yield $k_F$, $E_F$, and the three-dimensional density of states?
+3. Why do only electrons within an energy of order $k_BT$ of $E_F$ contribute appreciably to low-temperature heat capacity?
+4. How is the Wiedemann-Franz law derived, and under what assumptions is the Sommerfeld Lorenz number obtained?
+
+## Numerical Problems
+
+1. A metal has $n=8.0\times10^{28}\ \mathrm{m^{-3}}$ and $E_F=7.0\ \mathrm{eV}$. Find its density of states per unit volume at $E_F$, expressed per electronvolt.
+
+   **Answer:** $g(E_F)/V=1.714\times10^{28}\ \mathrm{eV^{-1}m^{-3}}$.
+2. At $300\ \mathrm K$, find the Fermi-Dirac occupation of a state at $E=\mu+k_BT$.
+
+   **Answer:** $f=1/(e+1)=0.268941$.
+3. For $E_F=5.5\ \mathrm{eV}$ at $T=300\ \mathrm K$, estimate the low-temperature shift of the chemical potential.
+
+   **Answer:** $E_F-\mu=9.99\times10^{-5}\ \mathrm{eV}$; $\mu\simeq5.499900\ \mathrm{eV}$.
+4. For the Drude ac response with $\omega\tau=2$, find $\lvert\sigma(\omega)\rvert/\sigma_0$ and the current phase lead under the $e^{-i\omega t}$ convention.
+
+   **Answer:** $1/\sqrt5=0.447214$; lead $\tan^{-1}2=63.435^\circ$.
+5. Estimate the molar electronic heat capacity at $300\ \mathrm K$ for $E_F=7.0\ \mathrm{eV}$.
+
+   **Answer:** $C_{V,e}=0.152\ \mathrm{J\,mol^{-1}K^{-1}}$.
+6. Using the Sommerfeld Lorenz number, estimate $\kappa$ at $300\ \mathrm K$ for $\rho=1.70\times10^{-8}\ \Omega\,\mathrm m$.
+
+   **Answer:** $\kappa=L_0T/\rho=431.1\ \mathrm{W\,m^{-1}K^{-1}}$.
+
 [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-vi/solid-state/unit-2/free-electron-theory.mac' | relative_url }})
+
+## References
+
+1. [Free electron model](https://en.wikipedia.org/wiki/Free_electron_model).
+2. Charles Kittel, *Introduction to Solid State Physics*, 8th ed., Chapter 6, Wiley.
+3. Neil W. Ashcroft and N. David Mermin, *Solid State Physics*, Chapters 1–3, Holt, Rinehart and Winston.

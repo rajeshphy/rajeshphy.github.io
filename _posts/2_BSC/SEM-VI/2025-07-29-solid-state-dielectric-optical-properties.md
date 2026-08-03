@@ -126,21 +126,21 @@ Write $\epsilon_r=\epsilon^{\prime}+i\epsilon^{\prime\prime}$. Multiplying by th
 
 $$
 \boxed{
-\epsilon'=\epsilon_\infty+
+\epsilon^{\prime}=\epsilon_\infty+
 \frac{\Omega^2(\omega_0^2-\omega^2)}
 {(\omega_0^2-\omega^2)^2+\gamma^2\omega^2}},
 $$
 
 $$
 \boxed{
-\epsilon''=\frac{\Omega^2\gamma\omega}
+\epsilon^{\prime\prime}=\frac{\Omega^2\gamma\omega}
 {(\omega_0^2-\omega^2)^2+\gamma^2\omega^2}}.
 $$
 
 $\epsilon^{\prime\prime}>0$ represents loss. The mean absorbed power density is
 
 $$
-\boxed{\langle p\rangle=\frac12\omega\epsilon_0\epsilon''\lvert E_0\rvert^2}
+\boxed{\langle p\rangle=\frac12\omega\epsilon_0\epsilon^{\prime\prime}\lvert E_0\rvert^2}
 $$
 
 in $\mathrm{W\,m^{-3}}$.
@@ -193,15 +193,15 @@ $$
 where $\kappa$ is the extinction coefficient. For a nonmagnetic solid,
 
 $$
-(n+i\kappa)^2=\epsilon'+i\epsilon'',
+(n+i\kappa)^2=\epsilon^{\prime}+i\epsilon^{\prime\prime},
 $$
 
 so
 
 $$
-\boxed{n^2-\kappa^2=\epsilon'},
+\boxed{n^2-\kappa^2=\epsilon^{\prime}},
 \qquad
-\boxed{2n\kappa=\epsilon''}.
+\boxed{2n\kappa=\epsilon^{\prime\prime}}.
 $$
 
 A wave propagating along $z$ contains
@@ -226,4 +226,183 @@ $$
 
 Thus $n$ controls phase velocity and refraction, while $\kappa$ controls attenuation; both follow from the same complex dielectric response.
 
+## Solved Problems
+
+### 1. Relative permittivity from molecular polarizability
+
+For a cubic dielectric, the dimensionless combination $N\alpha/(3\epsilon_0)$ is $0.200$. Find $\epsilon_r$ using the Clausius--Mossotti relation.
+
+Set
+
+$$
+x=\frac{N\alpha}{3\epsilon_0}=0.200.
+$$
+
+Then
+
+$$
+\frac{\epsilon_r-1}{\epsilon_r+2}=x.
+$$
+
+Cross-multiplication gives
+
+$$
+\epsilon_r-1=x\epsilon_r+2x,
+$$
+
+so
+
+$$
+\epsilon_r(1-x)=1+2x.
+$$
+
+Therefore
+
+$$
+\boxed{\epsilon_r=\frac{1+2x}{1-x}
+=\frac{1.400}{0.800}=1.75}.
+$$
+
+Both $x$ and $\epsilon_r$ are dimensionless. The result satisfies $\epsilon_r\to1$ when $N\alpha\to0$. The pole at $x=1$ warns that the independent-polarizable-unit model cannot be continued without accounting for collective response.
+
+### 2. Loss at a Lorentz resonance
+
+A dielectric follows one Lorentz oscillator with $\epsilon_\infty=2.25$, $\Omega=1.00\times10^{15}\ \mathrm{s^{-1}}$, $\omega_0=2.00\times10^{15}\ \mathrm{s^{-1}}$, and $\gamma=1.00\times10^{14}\ \mathrm{s^{-1}}$. At resonance, find $\epsilon^{\prime}$ and $\epsilon^{\prime\prime}$, and find the mean absorbed power density for $\lvert E_0\rvert=100\ \mathrm{V\,m^{-1}}$.
+
+At $\omega=\omega_0$, the dispersive numerator vanishes, so
+
+$$
+\epsilon^{\prime}(\omega_0)=\epsilon_\infty=2.25.
+$$
+
+For the loss part,
+
+$$
+\epsilon^{\prime\prime}(\omega_0)
+=\frac{\Omega^2\gamma\omega_0}{\gamma^2\omega_0^2}
+=\frac{\Omega^2}{\gamma\omega_0}
+=\frac{(1.00\times10^{15})^2}
+{(1.00\times10^{14})(2.00\times10^{15})}
+=5.00.
+$$
+
+With the $e^{-i\omega t}$ convention, positive $\epsilon^{\prime\prime}$ gives positive absorption:
+
+$$
+\begin{aligned}
+\langle p\rangle
+&=\frac12\omega_0\epsilon_0\epsilon^{\prime\prime}\lvert E_0\rvert^2\\
+&=\frac12(2.00\times10^{15})(8.854\times10^{-12})
+(5.00)(100)^2\\
+&=4.43\times10^8\ \mathrm{W\,m^{-3}}.
+\end{aligned}
+$$
+
+Thus
+
+$$
+\boxed{\epsilon^{\prime}=2.25,\quad\epsilon^{\prime\prime}=5.00,\quad
+\langle p\rangle=4.43\times10^8\ \mathrm{W\,m^{-3}}}.
+$$
+
+The units are $(\mathrm{s^{-1}})(\mathrm{F\,m^{-1}})(\mathrm{V^2\,m^{-2}})=\mathrm{W\,m^{-3}}$. The absorbed power vanishes with the field amplitude, while decreasing $\gamma$ sharpens and raises the idealized resonance peak.
+
+### 3. Optical constants from complex permittivity
+
+At wavelength $600\ \mathrm{nm}$, a nonmagnetic material has $\epsilon^{\prime}=3.75$ and $\epsilon^{\prime\prime}=1.50$. Find $n$, $\kappa$, the absorption coefficient, and the intensity penetration depth $1/\alpha$.
+
+Because
+
+$$
+n^2-\kappa^2=\epsilon^{\prime},
+\qquad
+2n\kappa=\epsilon^{\prime\prime},
+$$
+
+squaring and adding gives
+
+$$
+(n^2+\kappa^2)^2=(\epsilon^{\prime})^2+(\epsilon^{\prime\prime})^2.
+$$
+
+Choose the passive-medium branches $n>0$ and $\kappa>0$. With
+
+$$
+\lvert\epsilon\rvert=\sqrt{(3.75)^2+(1.50)^2}=4.0389,
+$$
+
+we obtain
+
+$$
+n=\sqrt{\frac{\lvert\epsilon\rvert+\epsilon^{\prime}}{2}}
+=1.973,
+$$
+
+$$
+\kappa=\sqrt{\frac{\lvert\epsilon\rvert-\epsilon^{\prime}}{2}}
+=0.3800.
+$$
+
+Therefore
+
+$$
+\alpha=\frac{4\pi\kappa}{\lambda}
+=\frac{4\pi(0.3800)}{600\times10^{-9}}
+=7.96\times10^6\ \mathrm{m^{-1}},
+$$
+
+and
+
+$$
+\boxed{n=1.973,\quad \kappa=0.3800,\quad
+\alpha=7.96\times10^6\ \mathrm{m^{-1}},\quad
+\alpha^{-1}=1.26\times10^{-7}\ \mathrm{m}}.
+$$
+
+$n$ and $\kappa$ are dimensionless, while $\alpha$ has inverse-length units. If $\epsilon^{\prime\prime}\to0^+$ with $\epsilon^{\prime}>0$, then $\kappa\to0$ and the absorption length diverges, as required for a transparent dielectric.
+
+## Descriptive Questions
+
+1. Derive the Lorentz local field and hence the Clausius--Mossotti relation for an isotropic cubic dielectric.
+2. Starting from the orientational partition function, obtain the Langevin--Debye equation and state its weak-field and temperature assumptions.
+3. Derive the real and imaginary parts of the Lorentz dielectric function for the $e^{-i\omega t}$ convention and explain normal and anomalous dispersion.
+4. Establish the relations among complex permittivity, complex refractive index, reflectance, and the intensity absorption coefficient.
+
+## Numerical Problems
+
+1. A permanent molecular dipole is $3.00\ \mathrm{D}$ in a local field $1.00\times10^5\ \mathrm{V\,m^{-1}}$ at $300\ \mathrm{K}$. Check the weak-field condition and find $\langle\cos\theta\rangle$.
+
+   **Answer:** $x=p_0E/(k_BT)=2.42\times10^{-4}\ll1$ and $\langle\cos\theta\rangle\simeq x/3=8.05\times10^{-5}$.
+
+2. At one frequency, $\epsilon^{\prime}=4.20$ and $\epsilon^{\prime\prime}=0.210$. Find the loss tangent and loss angle.
+
+   **Answer:** $\tan\delta=\epsilon^{\prime\prime}/\epsilon^{\prime}=0.0500$ and $\delta=2.86^\circ$.
+
+3. Find the normal-incidence reflectance from vacuum for $n=1.80$ and $\kappa=0.120$.
+
+   **Answer:**
+   $$
+   R=\frac{(n-1)^2+\kappa^2}{(n+1)^2+\kappa^2}=0.0833,
+   $$
+   or $8.33\%$.
+
+4. A transparent solid obeys $n=A+B/\lambda^2$ with $A=1.500$, $B=0.00400\ \mathrm{\mu m^2}$, and $\lambda$ in micrometres. Find $n$ at $0.500\ \mathrm{\mu m}$ and $0.700\ \mathrm{\mu m}$.
+
+   **Answer:** $n(0.500\ \mathrm{\mu m})=1.5160$ and $n(0.700\ \mathrm{\mu m})=1.50816$.
+
+5. Find the cycle-averaged electric energy density {::nomarkdown}\(u=\tfrac12\epsilon_0\epsilon_rE_{\rm rms}^2\){:/nomarkdown} for a lossless dielectric with {::nomarkdown}\(\epsilon_r=5.00\){:/nomarkdown} and rms electric field {::nomarkdown}\(E_{\rm rms}=2.00\times10^5\ \mathrm{V\,m^{-1}}\){:/nomarkdown}.
+
+   **Answer:** {::nomarkdown}\(u=\tfrac12\epsilon_0\epsilon_rE_{\rm rms}^2=0.885\ \mathrm{J\,m^{-3}}\){:/nomarkdown}.
+
+6. Find the phase velocity of light in a transparent nonmagnetic solid with refractive index $2.40$.
+
+   **Answer:** $v_p=c/n=1.25\times10^8\ \mathrm{m\,s^{-1}}$.
+
 [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-vi/solid-state/unit-3/dielectric-optical-properties.mac' | relative_url }})
+
+## References
+
+1. [Dielectric, Wikipedia](https://en.wikipedia.org/wiki/Dielectric)
+2. Charles Kittel, *Introduction to Solid State Physics*, 8th ed., Chapters 15--16: “Optical Processes and Excitons” and “Dielectrics and Ferroelectrics.”
+3. David B. Tanner, *Optical Effects in Solids*, Cambridge University Press, 2019, Chapters 3--4: “The Complex Dielectric Function and Refractive Index” and “Classical Theories for the Dielectric Function.”
+4. [MIT OpenCourseWare, 6.007 Electromagnetic Energy, lectures on the Lorentz oscillator and lossy electromagnetic waves](https://ocw.mit.edu/courses/6-007-electromagnetic-energy-from-motors-to-lasers-spring-2011/pages/lecture-notes/)

@@ -85,4 +85,36 @@ print("alternating-side decrement residual =",res_delta_alt)$
 print("weak-damping arctangent-limit residual =",res_weak_angle)$
 print("two decrement-convention correction residual =",res_correction_mapping)$
 
+/* Enhancement checks: solved problems and numerical answers. */
+M_solenoid_12 : mu_core*N1*N2*Area/len$
+M_solenoid_21 : mu_core*N2*N1*Area/len$
+res_solenoid_reciprocity : ratsimp(M_solenoid_12-M_solenoid_21)$
+
+Id_inside : Icharge*rcap^2/Rcap^2$
+B_inside : mu0*Icharge*rcap/(2*%pi*Rcap^2)$
+B_outside : mu0*Icharge/(2*%pi*rcap)$
+res_displacement_total :
+  ratsimp(subst(Rcap,rcap,Id_inside)-Icharge)$
+res_capacitor_B_boundary :
+  ratsimp(subst(Rcap,rcap,B_inside)-subst(Rcap,rcap,B_outside))$
+
+print("enhancement coaxial-solenoid reciprocity residual =",res_solenoid_reciprocity)$
+print("enhancement capacitor displacement-current residual =",res_displacement_total)$
+print("enhancement capacitor magnetic-boundary residual =",res_capacitor_B_boundary)$
+
+emf_num : 200*(3/1000)/(2/100)$
+energy_num : (1/2)*(1/2)*3^2$
+torque_num : 50*(1/5)*(4/10^4)*(3/10)*(1/2)$
+charge_num :
+  ((2/10^7)*4*(8/100))/(2*%pi*100*(2/10^4)*(1/5))$
+res_num_emf : ratsimp(emf_num-30)$
+res_num_energy : ratsimp(100*energy_num-225)$
+res_num_torque : ratsimp(10^4*torque_num-6)$
+res_num_charge : round(bfloat(10^8*charge_num))-255$
+
+print("enhancement numerical induced-emf residual =",res_num_emf)$
+print("enhancement numerical magnetic-energy residual =",res_num_energy)$
+print("enhancement numerical loop-torque residual =",res_num_torque)$
+print("enhancement numerical ballistic-charge residual =",res_num_charge)$
+
 quit()$

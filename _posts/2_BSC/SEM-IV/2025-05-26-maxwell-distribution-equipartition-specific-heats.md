@@ -43,7 +43,11 @@ $$
 
 with $\int_0^\infty f(v)\,dv=1$ and units $(\mathrm{m\,s^{-1}})^{-1}$.
 
-![Normalized Maxwell speed distributions at three temperatures]({{ '/assets/images/bsc/sem-iv/mj-6/maxwell-speed-distribution.png' | relative_url }})
+<div class="diagram-pan" role="region" aria-label="Scrollable diagram" tabindex="0">
+<figure class="diagram-figure">
+  <img src="{{ '/assets/images/bsc/sem-iv/mj-6/maxwell-speed-distribution.png' | relative_url }}" alt="Normalized Maxwell speed distributions at three temperatures">
+</figure>
+</div>
 
 For the nonzero maximum, $df/dv=0$ gives
 
@@ -125,4 +129,81 @@ $$C_{V,m}=\frac52R,\qquad C_{P,m}=\frac72R,\qquad \gamma=\frac75.$$
 
 Molar heat capacities have units $\mathrm{J\,mol^{-1}K^{-1}}$; division by molar mass gives mass-specific heat in $\mathrm{J\,kg^{-1}K^{-1}}$. A rotational or vibrational mode whose energy spacing is much larger than $k_{\mathrm B}T$ is effectively frozen and does not contribute its classical value.
 
-The linked [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-iv/mj-6/unit-i-checks.mac' | relative_url }}) verifies the nontrivial real-gas identities used in the next lecture.
+The classical distribution requires non-relativistic particles, dilute-gas conditions, equilibrium, and negligible quantum degeneracy. Its $T\to0$ limit is therefore not physical: quantum statistics and discrete rotational or vibrational levels enter before that limit. Normalization is dimensionless, while every $r$th speed moment has units $(\mathrm{m\,s^{-1}})^r$.
+
+## Solved Problems
+
+### 1. Obtain a general moment of the Maxwell speed distribution
+
+Put $A=m/(2k_{\mathrm B}T)$. The normalized density becomes
+
+$$f(v)=\frac{4}{\sqrt\pi}A^{3/2}v^2e^{-Av^2}.$$
+
+For $r>-3$, use the Gaussian integral stated above:
+
+$$
+\begin{aligned}
+\langle v^r\rangle
+&=\frac{4}{\sqrt\pi}A^{3/2}
+\int_0^\infty v^{r+2}e^{-Av^2}\,dv\\
+&=\frac{2}{\sqrt\pi}A^{-r/2}
+\Gamma\!\left(\frac{r+3}{2}\right).
+\end{aligned}
+$$
+
+For $r=0$ this gives $1$, checking normalization. For $r=1$ and $2$ it gives $\bar v=2/(\sqrt{\pi A})$ and $\langle v^2\rangle=3/(2A)$. Thus
+
+$$v_{\mathrm{mp}}^2:\bar v^2:v_{\mathrm{rms}}^2
+=2:\frac8\pi:3,$$
+
+so $v_{\mathrm{mp}}<\bar v<v_{\mathrm{rms}}$. The factor $A^{-r/2}$ supplies the required speed-to-the-$r$ dimensions.
+
+### 2. Heat capacities when only two vibration modes of a linear triatomic molecule are active
+
+A linear triatomic molecule has three translations, two rotations, and $3N-5=4$ normal vibration modes. Suppose only two vibration modes satisfy $k_{\mathrm B}T$ large compared with their level spacings. Each active vibration supplies two quadratic terms, so
+
+$$g=3+2+2(2)=9.$$
+
+For one mole,
+
+$$C_{V,m}=\frac92R,\qquad
+C_{P,m}=C_{V,m}+R=\frac{11}{2}R,$$
+
+and therefore
+
+$$\boxed{\gamma=\frac{C_{P,m}}{C_{V,m}}=\frac{11}{9}}.$$
+
+The result lies between the rigid-molecule value $7/5$ and the value obtained when all four vibrations are active. It assumes ideal-gas behaviour and classical equipartition for the stated active modes.
+
+## Descriptive Questions
+
+1. Why do isotropy and statistical independence force the Cartesian velocity distributions to be Gaussian?
+2. Distinguish a velocity distribution from a speed distribution, including their domains and units.
+3. Explain why a vibrational normal mode contributes twice as much classical energy as one translational coordinate.
+4. Why can measured heat capacities depart from equipartition predictions at low temperature?
+
+## Numerical Problems
+
+1. Find the most probable speed of oxygen molecules at $300\ \mathrm K$, taking $M=0.032\ \mathrm{kg\,mol^{-1}}$.
+
+   **Final answer:** $v_{\mathrm{mp}}=\sqrt{2RT/M}=394.8\ \mathrm{m\,s^{-1}}$.
+
+2. Find the rms speed of helium at $400\ \mathrm K$ for $M=0.004\ \mathrm{kg\,mol^{-1}}$.
+
+   **Final answer:** $v_{\mathrm{rms}}=1.579\times10^3\ \mathrm{m\,s^{-1}}$.
+
+3. Two moles of a monatomic ideal gas are heated through $50\ \mathrm K$ at constant volume. Calculate $\Delta U$.
+
+   **Final answer:** $\Delta U=(3/2)nR\Delta T=1.247\times10^3\ \mathrm J$.
+
+4. A classical ideal gas has $\gamma=1.40$. Infer its number $g$ of active quadratic degrees of freedom.
+
+   **Final answer:** $g=2/(\gamma-1)=5$.
+
+The [Maxwell and equipartition Maxima worksheet]({{ '/assets/maxima/bsc/sem-iv/mj-6/maxwell-equipartition-checks.mac' | relative_url }}) verifies normalization, the first two moments, heat-capacity identities, and every numerical answer above.
+
+## References
+
+1. [Maxwell-Boltzmann distribution](https://en.wikipedia.org/wiki/Maxwell%E2%80%93Boltzmann_distribution), Wikipedia.
+2. F. Reif, *Fundamentals of Statistical and Thermal Physics*, McGraw-Hill, 1965, chapters 6-7.
+3. F. W. Sears and G. L. Salinger, *Thermodynamics, Kinetic Theory, and Statistical Thermodynamics*, 3rd ed., Addison-Wesley, 1975, chapters 9-10.

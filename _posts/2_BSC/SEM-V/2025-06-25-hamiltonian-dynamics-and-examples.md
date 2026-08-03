@@ -279,3 +279,120 @@ $$
 $$
 
 with $\omega_0$ measured in $\mathrm{s^{-1}}$.
+
+## Solved Problems
+
+### 1. Circular orbit in an attractive inverse-square field
+
+For the central potential $V(r)=-\kappa/r$, find the radius and energy of a circular orbit with non-zero angular momentum $\ell$, and test its radial stability.
+
+The planar Hamiltonian is
+
+$$
+H=\frac{p_r^2}{2m}+V_{\mathrm{eff}}(r),
+\qquad
+V_{\mathrm{eff}}(r)=\frac{\ell^2}{2mr^2}-\frac{\kappa}{r}.
+$$
+
+A circular orbit has $p_r=0$ and constant $r=r_0$, so $\dot p_r=-dV_{\mathrm{eff}}/dr=0$. Therefore
+
+$$
+-\frac{\ell^2}{mr_0^3}+\frac{\kappa}{r_0^2}=0,
+$$
+
+which gives
+
+$$
+\boxed{r_0=\frac{\ell^2}{m\kappa}}.
+$$
+
+Substitution into the Hamiltonian gives
+
+$$
+E_0=\frac{\ell^2}{2mr_0^2}-\frac{\kappa}{r_0}
+=\frac{\kappa}{2r_0}-\frac{\kappa}{r_0}
+=\boxed{-\frac{\kappa}{2r_0}
+=-\frac{m\kappa^2}{2\ell^2}}.
+$$
+
+The second derivative is
+
+$$
+\frac{d^2V_{\mathrm{eff}}}{dr^2}
+=\frac{3\ell^2}{mr^4}-\frac{2\kappa}{r^3}.
+$$
+
+Using $\ell^2/m=\kappa r_0$,
+
+$$
+\left.\frac{d^2V_{\mathrm{eff}}}{dr^2}\right\rvert_{r_0}
+=\frac{3\kappa}{r_0^3}-\frac{2\kappa}{r_0^3}
+=\frac{\kappa}{r_0^3}>0.
+$$
+
+The circular orbit is therefore a stable minimum of $V_{\mathrm{eff}}$. The small radial angular frequency is $\sqrt{\kappa/(mr_0^3)}$, which for $\kappa=GMm$ reduces to $\sqrt{GM/r_0^3}$.
+
+### 2. Compound pendulum released from a finite angle
+
+A compound pendulum has $M=2.0\ \mathrm{kg}$, $a=0.25\ \mathrm m$, and $I=0.18\ \mathrm{kg\,m^2}$. It is released from rest at $\theta_0=60^\circ$. Find its angular speed at the bottom and its small-oscillation period.
+
+Because the Hamiltonian has no explicit time dependence,
+
+$$
+H=\frac{p_\theta^2}{2I}+Mga(1-\cos\theta)
+$$
+
+is conserved. At release, $p_\theta=0$, so
+
+$$
+H_0=Mga(1-\cos\theta_0).
+$$
+
+At the bottom, $\theta=0$ and $p_\theta=I\dot\theta$, hence
+
+$$
+\frac12 I\dot\theta_{\mathrm b}^{\,2}
+=Mga(1-\cos\theta_0).
+$$
+
+Thus
+
+$$
+\dot\theta_{\mathrm b}
+=\sqrt{\frac{2Mga(1-\cos\theta_0)}{I}}
+=\sqrt{\frac{2(2.0)(9.81)(0.25)(1-0.5)}{0.18}}
+=\boxed{5.220\ \mathrm{s^{-1}}}.
+$$
+
+For $\lvert\theta\rvert\ll1$, the period is
+
+$$
+T_0=2\pi\sqrt{\frac{I}{Mga}}
+=2\pi\sqrt{\frac{0.18}{(2.0)(9.81)(0.25)}}
+=\boxed{1.204\ \mathrm s}.
+$$
+
+The finite-angle release determines the bottom speed, whereas the displayed period is the small-angle limit; using it at large amplitude would neglect the nonlinearity of $\sin\theta$.
+
+## Descriptive Questions
+
+1. Derive Hamilton's equations as a Legendre transform of a regular Lagrangian, stating what fails when the velocity Hessian is singular.
+2. Explain how cyclic coordinates encode translational or rotational symmetries and derive the corresponding conservation law.
+3. Construct the Hamiltonian in spherical coordinates from the kinetic energy, carefully identifying all scale-factor terms.
+4. Distinguish canonical and mechanical momentum for a charged particle and explain why the Hamiltonian is gauge-dependent while the Lorentz force is not.
+
+## Numerical Problems
+
+1. A one-dimensional oscillator has $m=0.50\ \mathrm{kg}$ and $\omega=4.0\ \mathrm{s^{-1}}$. At one instant $q=0.10\ \mathrm m$ and $p=0.60\ \mathrm{kg\,m\,s^{-1}}$. Find its energy and amplitude. **Answer:** $0.4000\ \mathrm J$, $0.3162\ \mathrm m$.
+2. A two-dimensional oscillator has $\omega_x=2.0\ \mathrm{s^{-1}}$ and $\omega_y=3.0\ \mathrm{s^{-1}}$. Find the two periods and the least positive time at which both phase-space pairs return simultaneously. **Answer:** $T_x=3.142\ \mathrm s$, $T_y=2.094\ \mathrm s$, $T_{\mathrm{return}}=6.283\ \mathrm s$.
+3. For $m=0.020\ \mathrm{kg}$, $q=0.010\ \mathrm C$, $\mathbf A=0.40\hat{\mathbf y}\ \mathrm{T\,m}$, $\phi=3.0\ \mathrm V$, and $\mathbf p=(0.10\hat{\mathbf x}+0.080\hat{\mathbf y})\ \mathrm{kg\,m\,s^{-1}}$, find $\dot x$, $\dot y$, and $H$. **Answer:** $5.000\ \mathrm{m\,s^{-1}}$, $3.800\ \mathrm{m\,s^{-1}}$, $0.4244\ \mathrm J$.
+4. A free particle of mass $2.0\ \mathrm{kg}$ has cylindrical phase-space data $\rho=0.50\ \mathrm m$, $p_\rho=0.40\ \mathrm{kg\,m\,s^{-1}}$, $p_\phi=0.30\ \mathrm{kg\,m^2\,s^{-1}}$, and $p_z=0$. Find $\dot\rho$, $\dot\phi$, and $\dot p_\rho$. **Answer:** $0.200\ \mathrm{m\,s^{-1}}$, $0.600\ \mathrm{s^{-1}}$, $0.360\ \mathrm N$.
+
+[Maxima verification: central-orbit residuals and all solved/numerical values]({{ '/assets/maxima/bsc/sem-v/mj-10/unit-ii/hamiltonian-problems.mac' | relative_url }}).
+
+## References
+
+1. [Hamiltonian mechanics — Wikipedia](https://en.wikipedia.org/wiki/Hamiltonian_mechanics)
+2. H. Goldstein, C. Poole, and J. Safko, *Classical Mechanics*, 3rd ed., Chapters 3 and 8, Pearson (2002).
+3. L. D. Landau and E. M. Lifshitz, *Mechanics*, 3rd ed., Sections 40–45, Butterworth-Heinemann (1976).
+4. J. R. Taylor, *Classical Mechanics*, Chapter 13, University Science Books (2005).

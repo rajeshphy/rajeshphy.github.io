@@ -1,0 +1,286 @@
+/* MJ-8 worked-example and numerical-answer verification.
+   Every printed check must be zero. Numerical tolerances only cover rounding
+   in the displayed answers; identities are checked symbolically where useful. */
+kill(all)$
+
+eps0 : 8.8541878128e-12$
+mu0 : 4*%pi*1e-7$
+c0 : 299792458.0$
+eta0 : sqrt(mu0/eps0)$
+
+check_close(actual, stated, tolerance) :=
+  if abs(float(actual-stated)) < tolerance then 0 else 1$
+
+/* 2025-05-15: Maxwell equations, displacement current, and potentials. */
+m1_eps : 2*eps0$
+m1_dedt : 4e8$
+m1_r : 0.01$
+m1_jd : m1_eps*m1_dedt$
+m1_h : m1_jd*m1_r/2$
+m1_chi : a*x*t$
+m1_ax : diff(m1_chi,x)$
+m1_phi : -diff(m1_chi,t)$
+m1_ex : -diff(m1_phi,x)-diff(m1_ax,t)$
+m1_bz : diff(B0*x,x)-diff(m1_ax,y)$
+m1_j_num : 3e-6/(20e-4*5e-6)$
+m1_i_num : 2*%pi*2e6*150e-12*40$
+m1_q_num : 0.80e-6*4*%pi*0.05^2$
+m1_a_num : 2.0e-7$
+m1_k_num : 0.5$
+m1_f_num : 1.0e7$
+m1_e_num : 2*%pi*m1_f_num*m1_a_num$
+m1_b_num : m1_k_num*m1_a_num$
+
+print("M1 solved displacement-current H check =", check_close(m1_h,3.54168e-5,1e-10))$
+print("M1 gauge electric-field residual =", ratsimp(m1_ex))$
+print("M1 gauge magnetic-field residual =", ratsimp(m1_bz-B0))$
+print("M1 numerical current-density check =", check_close(m1_j_num,300,1e-9))$
+print("M1 numerical capacitor-current check =", check_close(m1_i_num,0.0753982,1e-7))$
+print("M1 numerical enclosed-charge check =", check_close(m1_q_num,25.1327e-9,1e-13))$
+print("M1 numerical potential-derived E check =",
+      check_close(m1_e_num,12.5663706,1.0e-6))$
+print("M1 numerical potential-derived B check =",
+      check_close(m1_b_num,1.0e-7,1.0e-15))$
+
+/* 2025-05-16: boundaries, dielectric waves, and Poynting flow. */
+b1_rhos : eps0*(5*1600-2*3000)$
+b1_eta : eta0/2$
+b1_h0 : 120/b1_eta$
+b1_s : 120*b1_h0/2$
+b1_u : (4*eps0)*120^2/2$
+b1_ratio : b1_s/b1_u$
+b1_k_y : -3$
+b1_e2 : 2.5*800/5$
+b1_v : c0/3$
+b1_s_num : 50^2/(2*250)$
+
+print("B1 solved surface-charge check =", check_close(b1_rhos,17.7084e-9,1e-13))$
+print("B1 solved impedance check =", check_close(b1_eta,188.365,1e-3))$
+print("B1 solved magnetic-field check =", check_close(b1_h0,0.63706,1e-5))$
+print("B1 solved Poynting-flux check =", check_close(b1_s,38.2236,1e-3))$
+print("B1 solved energy-density check =", check_close(b1_u,2.55001e-7,1e-12))$
+print("B1 solved energy-velocity check =", check_close(b1_ratio,c0/2,1))$
+print("B1 numerical sheet-current check =", check_close(b1_k_y,-3,1e-12))$
+print("B1 numerical normal-field check =", check_close(b1_e2,400,1e-12))$
+print("B1 numerical wave-speed check =", check_close(b1_v,9.99308193e7,1))$
+print("B1 numerical intensity check =", check_close(b1_s_num,5,1e-12))$
+
+/* 2025-06-15: plane waves in unbounded media. */
+p1_f : 100e6$
+p1_n : 2$
+p1_v : c0/p1_n$
+p1_lambda : p1_v/p1_f$
+p1_k : 2*%pi/p1_lambda$
+p1_eta : eta0/p1_n$
+p1_h : 100/p1_eta$
+p1_s : 100^2/(2*p1_eta)$
+p1_n2 : 1.5$
+p1_eta2 : eta0/p1_n2$
+p1_e2 : sqrt(2*p1_eta2*20)$
+p1_h2 : p1_e2/p1_eta2$
+p1_u2 : 20/(c0/p1_n2)$
+p1_lambda_num : 600e-9/1.5$
+p1_eps_num : 2.2^2$
+p1_eta_num : eta0/1.5$
+p1_b_num : 90/(c0/1.5)$
+
+print("P1 solved wavelength check =", check_close(p1_lambda,1.49896,1e-5))$
+print("P1 solved wave-number check =", check_close(p1_k,4.19169,1e-5))$
+print("P1 solved H-field check =", check_close(p1_h,0.53088,1e-5))$
+print("P1 solved intensity check =", check_close(p1_s,26.5442,1e-3))$
+print("P1 solved inverse-intensity E check =", check_close(p1_e2,100.23,1e-2))$
+print("P1 solved inverse-intensity H check =", check_close(p1_h2,0.3991,1e-4))$
+print("P1 solved inverse-intensity energy check =", check_close(p1_u2,1.00069e-7,1e-12))$
+print("P1 numerical wavelength check =", check_close(p1_lambda_num,400e-9,1e-15))$
+print("P1 numerical permittivity check =", check_close(p1_eps_num,4.84,1e-12))$
+print("P1 numerical impedance check =", check_close(p1_eta_num,251.154,1e-3))$
+print("P1 numerical B-field check =", check_close(p1_b_num,4.50312e-7,1e-12))$
+
+/* 2025-06-16: conducting media. */
+c1_sigma : 5.8e7$
+c1_f : 1e6$
+c1_delta : sqrt(2/(2*%pi*c1_f*mu0*c1_sigma))$
+c1_alpha : 1/c1_delta$
+c1_amp3 : exp(-3)$
+c1_int3 : exp(-6)$
+c1_tau : 80*eps0/0.02$
+c1_rho : 5*exp(-0.1e-6/c1_tau)$
+c1_ratio : 4/(2*%pi*1e9*80*eps0)$
+c1_zmag : sqrt(2*%pi*1e6*mu0/c1_sigma)$
+c1_f_delta : 1/(%pi*mu0*c1_sigma*(1e-3)^2)$
+
+print("C1 solved skin-depth check =", check_close(c1_delta,66.085e-6,1e-9))$
+print("C1 solved attenuation-constant check =", check_close(c1_alpha,15132.9,1))$
+print("C1 solved three-depth amplitude check =", check_close(c1_amp3,0.0497871,1e-7))$
+print("C1 solved three-depth intensity check =", check_close(c1_int3,0.00247875,1e-8))$
+print("C1 solved relaxation-time check =", check_close(c1_tau,35.4168e-9,1e-12))$
+print("C1 solved residual-charge check =", check_close(c1_rho,0.296982,1e-6))$
+print("C1 numerical conductor-ratio check =", check_close(c1_ratio,0.898755,1e-6))$
+print("C1 numerical surface-impedance check =", check_close(c1_zmag,0.000368961,1e-9))$
+print("C1 numerical target-depth frequency check =", check_close(c1_f_delta,4367.29,1e-2))$
+
+/* 2025-06-17: Fresnel reflection and refraction. */
+f1_n1 : 1$
+f1_n2 : 1.5$
+f1_r0 : (f1_n1-f1_n2)/(f1_n1+f1_n2)$
+f1_t0 : 2*f1_n1/(f1_n1+f1_n2)$
+f1_R0 : f1_r0^2$
+f1_T0 : f1_n2/f1_n1*f1_t0^2$
+f1_tb : atan(f1_n2/f1_n1)$
+f1_tt_b : %pi/2-f1_tb$
+f1_rs_b : (f1_n1*cos(f1_tb)-f1_n2*cos(f1_tt_b))/(f1_n1*cos(f1_tb)+f1_n2*cos(f1_tt_b))$
+f1_rp_b : (f1_n2*cos(f1_tb)-f1_n1*cos(f1_tt_b))/(f1_n2*cos(f1_tb)+f1_n1*cos(f1_tt_b))$
+f1_theta_water : asin(sin(%pi/6)/(4/3))$
+f1_r_low : ((1.33-1.50)/(1.33+1.50))^2$
+f1_i45 : %pi/4$
+f1_t45 : asin(sin(f1_i45)/1.5)$
+f1_rs45 : (cos(f1_i45)-1.5*cos(f1_t45))/(cos(f1_i45)+1.5*cos(f1_t45))$
+f1_rp45 : (1.5*cos(f1_i45)-cos(f1_t45))/(1.5*cos(f1_i45)+cos(f1_t45))$
+
+print("F1 solved normal-reflection check =", check_close(f1_R0,0.04,1e-12))$
+print("F1 solved normal-transmission check =", check_close(f1_T0,0.96,1e-12))$
+print("F1 solved reflected-field check =", check_close(200*f1_r0,-40,1e-12))$
+print("F1 solved transmitted-field check =", check_close(200*f1_t0,160,1e-12))$
+print("F1 solved Brewster-angle check =", check_close(180*f1_tb/%pi,56.3099,1e-4))$
+print("F1 solved Brewster p residual =", check_close(f1_rp_b,0,1e-12))$
+print("F1 solved Brewster s-reflectance check =", check_close(f1_rs_b^2,0.147929,1e-6))$
+print("F1 numerical Snell-angle check =", check_close(180*f1_theta_water/%pi,22.0243,1e-4))$
+print("F1 numerical low-contrast reflectance check =", check_close(100*f1_r_low,0.3608,1e-4))$
+print("F1 numerical 45-degree s reflectance check =", check_close(f1_rs45^2,0.0920134,1e-6))$
+print("F1 numerical 45-degree p reflectance check =", check_close(f1_rp45^2,0.00846646,1e-7))$
+
+/* 2025-06-18: planar dielectric waveguides. */
+w1_n1 : 1.50$
+w1_n2 : 1.45$
+w1_a : 2e-6$
+w1_lambda : 1.30e-6$
+w1_neff : 1.475$
+w1_k0 : 2*%pi/w1_lambda$
+w1_beta : w1_neff*w1_k0$
+w1_h : sqrt(w1_n1^2*w1_k0^2-w1_beta^2)$
+w1_q : sqrt(w1_beta^2-w1_n2^2*w1_k0^2)$
+w1_u : w1_h*w1_a$
+w1_w : w1_q*w1_a$
+w1_V : w1_k0*w1_a*sqrt(w1_n1^2-w1_n2^2)$
+w1_decay : 1/w1_q$
+w1_n : 1.5$
+w1_kappa_fraction : 0.6$
+w1_beta2 : 0.8*w1_n*omega/c0$
+w1_vp : omega/w1_beta2$
+w1_vg : c0^2*w1_beta2/(w1_n^2*omega)$
+w1_tc : asin(1.46/1.52)$
+w1_ev : exp(-2e5*10e-6)$
+w1_theta : 80*%pi/180$
+w1_gamma : sqrt(sin(w1_theta)^2-(1.45/1.50)^2)$
+w1_phase_s : -2*atan(w1_gamma/cos(w1_theta))$
+
+print("W1 solved propagation-constant check =", check_close(w1_beta,7.12899e6,10))$
+print("W1 solved transverse-h check =", check_close(w1_h,1.31810e6,10))$
+print("W1 solved cladding-q check =", check_close(w1_q,1.30698e6,10))$
+print("W1 solved normalized-identity residual =", check_close((w1_u^2+w1_w^2)/w1_V^2,1,1e-12))$
+print("W1 solved decay-length check =", check_close(w1_decay,0.765122e-6,1e-10))$
+print("W1 solved phase-velocity check =", check_close(w1_vp,c0/1.2,1e-4))$
+print("W1 solved group-velocity check =", check_close(w1_vg,0.8*c0/1.5,1e-4))$
+print("W1 solved velocity-product residual =", check_close(w1_vp*w1_vg/(c0/w1_n)^2,1,1e-12))$
+print("W1 numerical critical-angle check =", check_close(180*w1_tc/%pi,73.8478,1e-4))$
+print("W1 numerical evanescent-amplitude check =", check_close(w1_ev,0.135335,1e-6))$
+print("W1 numerical TIR-phase check =", check_close(180*w1_phase_s/%pi,-94.5918,1e-3))$
+
+/* 2025-06-19: optical fibres. */
+o1_n1 : 1.48$
+o1_n2 : 1.46$
+o1_na : sqrt(o1_n1^2-o1_n2^2)$
+o1_theta : asin(o1_na)$
+o1_v : 2*%pi*4e-6*o1_na/1.30e-6$
+o1_modes : o1_v^2/2$
+o1_amax : 2.405*1.55e-6/(2*%pi*0.12)$
+o1_delta : (1.50^2-1.47^2)/(2*1.50^2)$
+o1_water : asin(0.20/1.33)$
+o1_graded_modes : 20^2/4$
+o1_cutoff : 2*%pi*4.5e-6*0.13/2.405$
+
+print("O1 solved numerical-aperture check =", check_close(o1_na,0.242487,1e-6))$
+print("O1 solved acceptance-angle check =", check_close(180*o1_theta/%pi,14.033,1e-3))$
+print("O1 solved V-number check =", check_close(o1_v,4.68797,1e-5))$
+print("O1 solved mode-count check =", check_close(o1_modes,10.9885,1e-4))$
+print("O1 solved maximum-radius check =", check_close(o1_amax,4.944e-6,1e-9))$
+print("O1 numerical relative-index check =", check_close(100*o1_delta,1.98,1e-12))$
+print("O1 numerical water-acceptance check =", check_close(180*o1_water/%pi,8.6487,1e-3))$
+print("O1 numerical graded-mode check =", check_close(o1_graded_modes,100,1e-12))$
+print("O1 numerical cutoff-wavelength check =", check_close(o1_cutoff,1.528e-6,1e-9))$
+
+/* 2025-07-15: linear, circular, and elliptical polarization. */
+z1_A : 4$
+z1_B : 3$
+z1_d : %pi/3$
+z1_theta : atan2(2*z1_A*z1_B*cos(z1_d),z1_A^2-z1_B^2)/2$
+z1_chi : asin(2*z1_A*z1_B*sin(z1_d)/(z1_A^2+z1_B^2))/2$
+z1_circle_mag : trigsimp(cos(psi)^2+sin(psi)^2)$
+z1_linear_slope : -5/5$
+z1_axis_ratio : 2/6$
+z1_theta_num : atan2(2*5*2*cos(%pi/4),5^2-2^2)/2$
+z1_chi_num : asin(2*5*2*sin(%pi/4)/(5^2+2^2))/2$
+
+print("Z1 solved ellipse-azimuth check =", check_close(180*z1_theta/%pi,29.872,1e-3))$
+print("Z1 solved ellipticity-angle check =", check_close(180*z1_chi/%pi,28.1206,1e-3))$
+print("Z1 solved circular-magnitude residual =", ratsimp(z1_circle_mag-1))$
+print("Z1 numerical linear-slope check =", check_close(z1_linear_slope,-1,1e-12))$
+print("Z1 numerical axis-ratio check =", check_close(z1_axis_ratio,1/3,1e-12))$
+print("Z1 numerical azimuth check =", check_close(180*z1_theta_num/%pi,16.9789,1e-3))$
+print("Z1 numerical ellipticity check =", check_close(180*z1_chi_num/%pi,14.5934,1e-3))$
+
+/* 2025-07-16: anisotropic crystals and Nicol prism. */
+x1_no : 1.658$
+x1_ne : 1.486$
+x1_angle : %pi/4$
+x1_neff : 1/sqrt(cos(x1_angle)^2/x1_no^2+sin(x1_angle)^2/x1_ne^2)$
+x1_i : 75*%pi/180$
+x1_lower : x1_ne*sin(x1_i)$
+x1_upper : x1_no*sin(x1_i)$
+x1_neff30 : 1/sqrt(cos(%pi/6)^2/1.544^2+sin(%pi/6)^2/1.553^2)$
+x1_class : 1.65-1.60$
+x1_critical : asin(1.50/1.62)$
+
+print("X1 solved 45-degree extraordinary-index check =", check_close(x1_neff,1.56496,1e-5))$
+print("X1 solved Nicol lower-window check =", check_close(x1_lower,1.43537,1e-5))$
+print("X1 solved Nicol upper-window check =", check_close(x1_upper,1.60151,1e-5))$
+print("X1 numerical 30-degree index check =", check_close(x1_neff30,1.54624,1e-5))$
+print("X1 numerical crystal-sign check =", check_close(x1_class,0.05,1e-12))$
+print("X1 numerical critical-angle check =", check_close(180*x1_critical/%pi,67.8084,1e-4))$
+
+/* 2025-07-17: retardation plates, Babinet compensation, and analysis. */
+r1_qwp : 589e-9/(4*0.009)$
+r1_hwp : 589e-9/(2*0.009)$
+r1_s0 : 10$
+r1_s1 : 8$
+r1_s2 : 0$
+r1_s3 : 6$
+r1_azimuth : atan2(r1_s2,r1_s1)/2$
+r1_ellipticity : asin(r1_s3/r1_s0)/2$
+r1_delta_plate : 2*%pi*0.012*24.5e-6/588e-9$
+r1_rotation : -2*17$
+r1_babinet : 2*%pi*0.009*10e-6/600e-9$
+r1_malus : 80*cos(%pi/6)^2$
+
+print("R1 solved quarter-wave thickness check =", check_close(r1_qwp,16.3611e-6,1e-10))$
+print("R1 solved half-wave thickness check =", check_close(r1_hwp,32.7222e-6,1e-10))$
+print("R1 solved Stokes identity residual =", ratsimp(r1_s0^2-r1_s1^2-r1_s2^2-r1_s3^2))$
+print("R1 solved Stokes azimuth check =", check_close(180*r1_azimuth/%pi,0,1e-12))$
+print("R1 solved Stokes ellipticity check =", check_close(180*r1_ellipticity/%pi,18.4349,1e-4))$
+print("R1 numerical half-wave classification residual =", check_close(r1_delta_plate,%pi,1e-12))$
+print("R1 numerical half-wave rotation check =", check_close(r1_rotation,-34,1e-12))$
+print("R1 numerical Babinet retardance check =", check_close(180*r1_babinet/%pi,54,1e-12))$
+print("R1 numerical Malus-law check =", check_close(r1_malus,60,1e-12))$
+
+/* 2025-07-18: optical rotation. */
+t1_alpha : 66.5*2*0.120$
+t1_dn : (2.5*%pi/180)*589e-9/(%pi*0.10)$
+t1_add : 13.2-4.7$
+t1_wave : 12*(546/436)^2$
+t1_concentration : 6.30/(52.5*1.5)$
+
+print("T1 solved specific-rotation angle check =", check_close(t1_alpha,15.96,1e-12))$
+print("T1 solved circular-birefringence check =", check_close(t1_dn,8.18056e-8,1e-13))$
+print("T1 numerical additive-rotation check =", check_close(t1_add,8.5,1e-12))$
+print("T1 numerical wavelength-law check =", check_close(t1_wave,18.8189,1e-4))$
+print("T1 numerical concentration check =", check_close(t1_concentration,0.0800,1e-12))$

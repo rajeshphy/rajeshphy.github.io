@@ -108,3 +108,96 @@ The exact algebra is recorded in the [editable Maxima worksheet]({{ '/assets/max
 lu_residual       = matrix([0,0,0],[0,0,0],[0,0,0])
 solution_residual = matrix([0],[0],[0])
 ~~~
+
+## Solved Problems
+
+### 1. Elimination when the first pivot vanishes
+
+Solve
+
+$$
+\begin{aligned}
+0x+2y&=4,\\
+x+3y&=5.
+\end{aligned}
+$$
+
+The first pivot is zero, so division by $a_{11}$ is impossible. Interchange the two rows:
+
+$$
+\left(
+\begin{array}{cc|c}
+1&3&5\\
+0&2&4
+\end{array}
+\right).
+$$
+
+The system is already upper triangular. Back substitution gives
+
+$$y=\frac42=2,$$
+
+and then
+
+$$x=5-3y=5-6=-1.$$
+
+Thus
+
+$$\boxed{(x,y)=(-1,2)}.$$
+
+Substitution in the original order gives $2y=4$ and $x+3y=5$, so both residuals vanish. The row interchange changes the order of equations, not their solution set.
+
+### 2. Doolittle factorization and triangular solves
+
+Let
+
+$$A=\begin{pmatrix}2&1\\4&3\end{pmatrix},\qquad
+\mathbf b=\begin{pmatrix}1\\2\end{pmatrix}.$$
+
+The multiplier is $m_{21}=4/2=2$. Therefore
+
+$$L=\begin{pmatrix}1&0\\2&1\end{pmatrix},\qquad
+U=\begin{pmatrix}2&1\\0&1\end{pmatrix},$$
+
+and direct multiplication confirms $LU=A$. Forward substitution in $L\mathbf y=\mathbf b$ gives
+
+$$y_1=1,\qquad2y_1+y_2=2\Longrightarrow y_2=0.$$
+
+Back substitution in $U\mathbf x=\mathbf y$ gives
+
+$$x_2=0,\qquad2x_1+x_2=1\Longrightarrow x_1=\frac12.$$
+
+Hence
+
+$$\boxed{\mathbf x=(1/2,0)^T}.$$
+
+The exact residual $A\mathbf x-\mathbf b$ is the zero vector.
+
+## Descriptive Questions
+
+1. Derive the elimination multiplier and the back-substitution formula for a general linear system.
+2. Explain why partial pivoting is required for a zero pivot and useful for a small pivot.
+3. Show how Gaussian-elimination multipliers form the lower-triangular factor in Doolittle decomposition.
+4. Compare the work required to solve several right-hand sides by repeated elimination and by one $LU$ factorization.
+
+## Numerical Problems
+
+1. Solve $2x+y=5$, $x+3y=6$ by elimination.
+   **Answer:** $x=9/5=1.8$, $y=7/5=1.4$.
+
+2. Find the Doolittle factors of $A=\begin{pmatrix}3&1\\6&5\end{pmatrix}$.
+   **Answer:** $L=\begin{pmatrix}1&0\\2&1\end{pmatrix}$, $U=\begin{pmatrix}3&1\\0&3\end{pmatrix}$.
+
+3. In a partial-pivoting step, the available pivot-column entries are $-0.01$, $2$, and $-3$. Which row is selected?
+   **Answer:** the row containing $-3$, because its pivot magnitude $3$ is largest.
+
+4. Gaussian elimination of $A=\begin{pmatrix}0&2\\3&4\end{pmatrix}$ uses one row interchange and produces $U=\begin{pmatrix}3&4\\0&2\end{pmatrix}$. Find $\det A$ from the pivots, including the interchange sign.
+   **Answer:** $\det A=(-1)(3)(2)=-6$.
+
+The factorizations, solutions, and original-system residuals are checked in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-9/unit-i-problem-checks.mac' | relative_url }}); every displayed residual is zero.
+
+## References
+
+1. [Gaussian elimination — Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination).
+2. Richard L. Burden, J. Douglas Faires, and Annette M. Burden, *Numerical Analysis*, 10th ed., Chapter 6, “Direct Methods for Solving Linear Systems.”
+3. Steven C. Chapra and Raymond P. Canale, *Numerical Methods for Engineers*, 8th ed., Chapters 9–10, “Gauss Elimination” and “LU Decomposition and Matrix Inversion.”

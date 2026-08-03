@@ -1,0 +1,52 @@
+/* BJT dc load line, Q point, saturation tests, and all worked values. */
+kill(all)$
+
+load_current(vcc,vce,rc) := (vcc-vce)/rc$
+print("symbolic load-line residual =", ratsimp(vce+load_current(vcc,vce,rc)*rc-vcc))$
+
+/* Solved problem 1. */
+vcc1 : 12$ rc1 : 2000$ b1 : 80$ ib1 : 40/1000000$
+ic1 : b1*ib1$ vce1 : vcc1-ic1*rc1$ p1 : vce1*ic1$
+print("solved 1 collector-current residual =", ratsimp(ic1-2/625))$
+print("solved 1 VCE residual =", ratsimp(vce1-28/5))$
+print("solved 1 power residual =", ratsimp(p1-56/3125))$
+print("solved 1 KVL residual =", ratsimp(vce1+ic1*rc1-vcc1))$
+
+/* Solved problem 2: Thevenin collector network. */
+vs2 : 12$ rtop2 : 4000$ rbottom2 : 12000$
+vth2 : vs2*rbottom2/(rtop2+rbottom2)$
+rth2 : rtop2*rbottom2/(rtop2+rbottom2)$
+print("solved 2 Thevenin-voltage residual =", ratsimp(vth2-9))$
+print("solved 2 Thevenin-resistance residual =", ratsimp(rth2-3000))$
+print("solved 2 voltage-axis-intercept residual =", ratsimp(vth2-9))$
+print("solved 2 current-axis-intercept residual =", ratsimp(vth2/rth2-3/1000))$
+
+/* Solved problem 3. */
+vcc3 : 9$ vces3 : 1/5$ ic3 : 1/500$
+vce3 : (vcc3+vces3)/2$ rc3 : (vcc3-vce3)/ic3$
+print("solved 3 VCE residual =", ratsimp(vce3-23/5))$
+print("solved 3 resistor residual =", ratsimp(rc3-2200))$
+print("solved 3 equal-margin residual =", ratsimp(vcc3-vce3-(vce3-vces3)))$
+
+/* Numerical problems. */
+print("numerical 1 current-intercept residual =", ratsimp(15/3000-1/200))$
+print("numerical 1 slope residual =", ratsimp(-1/3000+1/3000))$
+vce1_n2 : 2$ ic1_n2 : 1/250$
+vce2_n2 : 8$ ic2_n2 : 1/1000$
+slope_n2 : (ic2_n2-ic1_n2)/(vce2_n2-vce1_n2)$
+rc_n2 : -1/slope_n2$
+vcc_n2 : vce1_n2+ic1_n2*rc_n2$
+print("numerical 2 inferred-resistance residual =", ratsimp(rc_n2-2000))$
+print("numerical 2 inferred-supply residual =", ratsimp(vcc_n2-10))$
+print("numerical 2 second-point KVL residual =", ratsimp(vce2_n2+ic2_n2*rc_n2-vcc_n2))$
+
+vlow3 : 4$ vhigh3 : 8$ vcc3n : 12$ rc3n : 2000$
+ilow3 : (vcc3n-vlow3)/rc3n$ ihigh3 : (vcc3n-vhigh3)/rc3n$
+print("numerical 3 low-voltage current residual =", ratsimp(ilow3-4/1000))$
+print("numerical 3 high-voltage current residual =", ratsimp(ihigh3-2/1000))$
+print("numerical 3 low-power-boundary residual =", ratsimp(vlow3*ilow3-16/1000))$
+print("numerical 3 high-power-boundary residual =", ratsimp(vhigh3*ihigh3-16/1000))$
+print("numerical 3 midpoint-violation residual =", ratsimp(6*((12-6)/2000)-18/1000))$
+
+ic4 : 3/1000$
+print("numerical 4 VCE residual =", ratsimp(12-ic4*(2000+1000)-3))$

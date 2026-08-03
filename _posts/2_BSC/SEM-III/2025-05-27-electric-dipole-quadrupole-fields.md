@@ -9,27 +9,27 @@ permalink: /bsc/sem-iii/electric-dipole-quadrupole-fields/
 hidden: true
 ---
 
-For localized point charges $q_a$ at positions $\mathbf r'_a$,
+For localized point charges $q_a$ at positions $\mathbf r^{\prime}_a$,
 
 $$
 V(\mathbf r)=\frac{1}{4\pi\epsilon_0}
-\sum_a\frac{q_a}{\lvert\mathbf r-\mathbf r'_a\rvert}.
+\sum_a\frac{q_a}{\lvert\mathbf r-\mathbf r^{\prime}_a\rvert}.
 $$
 
-When $r\gg r'_a$, put $u=r'_a/r$ and let $\gamma_a$ be the angle between $\mathbf r$ and $\mathbf r'_a$. Then
+When $r\gg r^{\prime}_a$, put $u=r^{\prime}_a/r$ and let $\gamma_a$ be the angle between $\mathbf r$ and $\mathbf r^{\prime}_a$. Then
 
 $$
-\frac{1}{\lvert\mathbf r-\mathbf r'_a\rvert}
+\frac{1}{\lvert\mathbf r-\mathbf r^{\prime}_a\rvert}
 =\frac{1}{r}\left(1-2u\cos\gamma_a+u^2\right)^{-1/2}.
 $$
 
 Keeping terms through $u^2$,
 
 $$
-\frac{1}{\lvert\mathbf r-\mathbf r'_a\rvert}
+\frac{1}{\lvert\mathbf r-\mathbf r^{\prime}_a\rvert}
 =\frac{1}{r}
-+\frac{r'_a\cos\gamma_a}{r^2}
-+\frac{r_a'^2}{2r^3}\left(3\cos^2\gamma_a-1\right)
++\frac{r^{\prime}_a\cos\gamma_a}{r^2}
++\frac{r_a^{\prime 2}}{2r^3}\left(3\cos^2\gamma_a-1\right)
 +O(r^{-4}).
 $$
 
@@ -49,14 +49,14 @@ where
 
 $$
 Q=\sum_aq_a,\qquad
-\mathbf p=\sum_aq_a\mathbf r'_a,
+\mathbf p=\sum_aq_a\mathbf r^{\prime}_a,
 $$
 
 and, with the traceless convention,
 
 $$
 Q_{ij}=\sum_aq_a
-\left(3x'_{a,i}x'_{a,j}-r_a'^2\delta_{ij}\right).
+\left(3x^{\prime}_{a,i}x^{\prime}_{a,j}-r_a^{\prime 2}\delta_{ij}\right).
 $$
 
 The dipole moment has SI unit $\mathrm{C\,m}$, and $Q_{ij}$ has unit $\mathrm{C\,m^2}$.
@@ -162,4 +162,104 @@ The quadrupole potential decreases as $r^{-3}$, one power faster than the dipole
   <figcaption>The source geometries fix the signs; the curves plot $V_{\mathrm{dip}}/V_0=\cos\theta$ and $V_{\mathrm{quad}}/V_0=(3\cos^2\theta-1)/2$ at fixed radius.</figcaption>
 </figure>
 
-The series coefficients and both field-component derivations are verified with exact zero residuals in the [Unit I multipoles worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-1/multipoles.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Dipole field at an off-axis point
+
+An electric dipole $\mathbf p=p\hat{\mathbf z}$ is at the origin. Find its field at the point $(s,0,s)$.
+
+**Solution.** At this point,
+
+$$
+r=\sqrt2s,\qquad
+\hat{\mathbf r}=\frac{\hat{\mathbf x}+\hat{\mathbf z}}{\sqrt2},
+\qquad
+\mathbf p\cdot\hat{\mathbf r}=\frac{p}{\sqrt2}.
+$$
+
+Insert these in the invariant dipole field:
+
+$$
+\mathbf E=\frac{1}{4\pi\epsilon_0r^3}
+\left[3(\mathbf p\cdot\hat{\mathbf r})\hat{\mathbf r}-\mathbf p\right].
+$$
+
+The vector in brackets becomes
+
+$$
+\frac{3p}{2}(\hat{\mathbf x}+\hat{\mathbf z})-p\hat{\mathbf z}
+=\frac{p}{2}(3\hat{\mathbf x}+\hat{\mathbf z}).
+$$
+
+Since $r^3=2\sqrt2s^3$,
+
+$$
+\boxed{\mathbf E(s,0,s)=
+\frac{p}{16\sqrt2\pi\epsilon_0s^3}
+(3\hat{\mathbf x}+\hat{\mathbf z})}.
+$$
+
+Differentiating $V=pz/[4\pi\epsilon_0(x^2+z^2)^{3/2}]$ gives the same two components.
+
+### 2. Nodal cone of an axial quadrupole
+
+For $V=A(3\cos^2\theta-1)/r^3$, find the cone on which $V=0$ and determine the field there.
+
+**Solution.** The nodal condition is
+
+$$
+3\cos^2\theta_0-1=0
+\quad\Longrightarrow\quad
+\boxed{\cos\theta_0=\pm\frac{1}{\sqrt3}}.
+$$
+
+On either cone the radial component
+
+$$
+E_r=\frac{3A}{r^4}(3\cos^2\theta-1)
+$$
+
+vanishes. In the upper hemisphere, $\sin\theta_0=\sqrt{2/3}$, so
+
+$$
+E_\theta=\frac{6A}{r^4}\sin\theta_0\cos\theta_0
+=\boxed{\frac{2\sqrt2A}{r^4}}.
+$$
+
+Thus zero potential on the cone does not mean zero electric field; the field is tangent to the sphere there.
+
+## Descriptive Questions
+
+1. Why does the leading nonzero multipole term depend on the lower moments that vanish?
+2. How do the radial dependences of monopole, dipole, and quadrupole potentials differ?
+3. Why is the dipole field on the equatorial plane opposite to the dipole moment?
+4. What physical information is encoded in the traceless quadrupole tensor?
+
+## Numerical Problems
+
+### 1. Axial dipole field
+
+A dipole has $p=2.00\times10^{-8}\,\mathrm{C\,m}$. Find its field on the axis at $r=0.300\,\mathrm m$.
+
+**Answer:** $E=1.33\times10^4\,\mathrm{N\,C^{-1}}$, along $\mathbf p$.
+
+### 2. Equatorial dipole field
+
+For the same dipole, find the field magnitude on its equatorial plane at $r=0.200\,\mathrm m$.
+
+**Answer:** $E=2.25\times10^4\,\mathrm{N\,C^{-1}}$, opposite to $\mathbf p$.
+
+### 3. Axial quadrupole potential
+
+An axial quadrupole has outer charges $q=5.00\,\mathrm{nC}$ at $z=\pm a$, with $a=1.00\,\mathrm{cm}$. Find the far-field potential at $r=0.200\,\mathrm m$ on its axis.
+
+**Answer:** $V=1.12\,\mathrm V$.
+
+The symbolic solutions and all printed numerical answers are verified in the [Unit I multipoles worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-1/multipoles.mac' | relative_url }}).
+
+## References
+
+1. [Multipole expansion: Wikipedia](https://en.wikipedia.org/wiki/Multipole_expansion)
+2. David J. Griffiths, *Introduction to Electrodynamics*, 4th ed., Cambridge University Press, 2017.
+3. John D. Jackson, *Classical Electrodynamics*, 3rd ed., Wiley, 1998.
+4. Edward M. Purcell and David J. Morin, *Electricity and Magnetism*, 3rd ed., Cambridge University Press, 2013.

@@ -191,6 +191,25 @@ $$
 
 where $k=\omega/c$ and $Z_0=\sqrt{\mu_0/\epsilon_0}=\mu_0c$.
 
+Integrating $\sin^2\theta$ over solid angle gives
+$\int\sin^2\theta\,d\Omega=8\pi/3$, so the average radiated power of the
+current element is
+
+$$
+\langle P\rangle=\frac{Z_0I_0^2(k\ell)^2}{12\pi}.
+$$
+
+If $I_0$ is the peak current, define its radiation resistance by
+$\langle P\rangle=I_0^2R_{\rm r}/2$. Hence
+
+$$
+\boxed{R_{\rm r}=\frac{Z_0(k\ell)^2}{6\pi}
+\simeq20(k\ell)^2\ \Omega.}
+$$
+
+This is the resistance that would dissipate the same average power; it is not
+an ohmic loss. The current-element approximation requires $k\ell\ll1$.
+
 For a thin, centre-fed linear antenna of total length $L$ on the $z$-axis,
 take the standing current
 
@@ -276,5 +295,119 @@ the single-element intensity multiplied by $\lvert AF\rvert^2$.
   <figcaption>The dipole pattern follows \(\sin^2\theta\). The four-element broadside array uses \(d=\lambda/2\), \(\delta=0\), and the normalized factor \(\lvert AF/N\rvert^2\).</figcaption>
 </figure>
 
-The angular integrals, Larmor limits, and array-factor identity are checked in
-the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-16/unit-1/radiation-antennas.mac' | relative_url }}); every printed residual is zero.
+## Solved Problems
+
+### 1. Fraction of Larmor power in an equatorial belt
+
+What fraction of the nonrelativistic radiation lies between
+$60^\circ\le\theta\le120^\circ$, where $\theta$ is measured from the
+acceleration axis?
+
+Because $dP/d\Omega=C\sin^2\theta$ and
+$d\Omega=\sin\theta\,d\theta\,d\phi$, the required fraction is
+
+$$
+f=\frac{2\pi\displaystyle\int_{\pi/3}^{2\pi/3}\sin^3\theta\,d\theta}
+{2\pi\displaystyle\int_0^\pi\sin^3\theta\,d\theta}.
+$$
+
+Use
+
+$$
+\int\sin^3\theta\,d\theta
+=-\cos\theta+\frac13\cos^3\theta.
+$$
+
+The denominator integral is $4/3$. Symmetry about $\pi/2$ gives
+
+$$
+\int_{\pi/3}^{2\pi/3}\sin^3\theta\,d\theta
+=2\left[0-\left(-\frac12+\frac1{24}\right)\right]
+=\frac{11}{12}.
+$$
+
+Therefore
+
+$$
+\boxed{f=\frac{11/12}{4/3}=\frac{11}{16}=0.6875.}
+$$
+
+The result is dimensionless and lies between zero and one. It also expresses
+the physical suppression of radiation along the acceleration axis.
+
+### 2. Half-power beamwidth of a half-wave antenna
+
+For $L=\lambda/2$, find the half-power directions and the half-power
+beamwidth in the plane containing the antenna.
+
+After normalization to its broadside value, the power pattern is
+
+$$
+G(\theta)=\left[
+\frac{\cos\!\left((\pi/2)\cos\theta\right)}{\sin\theta}
+\right]^2,
+\qquad G\!\left(\frac\pi2\right)=1.
+$$
+
+In the first half-plane the amplitude is positive, so $G=1/2$ requires
+
+$$
+g(\theta)\equiv
+\frac{\cos\!\left((\pi/2)\cos\theta\right)}{\sin\theta}
+=\frac1{\sqrt2}.
+$$
+
+Writing $a=\pi/2$, the derivative needed for Newton iteration is
+
+$$
+g^{\prime}(\theta)=
+\frac{a\sin(a\cos\theta)\sin^2\theta
+-\cos(a\cos\theta)\cos\theta}{\sin^2\theta}.
+$$
+
+Starting with $\theta_0=0.900\ \mathrm{rad}$ and using
+$\theta_{n+1}=\theta_n-[g(\theta_n)-1/\sqrt2]/g^{\prime}(\theta_n)$ gives
+
+$$
+\theta_1=0.8894022,\qquad
+\theta_2=0.8894397,\qquad
+\theta_3=0.8894397\ \mathrm{rad}.
+$$
+
+Thus symmetry gives
+
+$$
+\theta_{\rm HP}=50.961^\circ,\ 129.039^\circ,
+\qquad
+\boxed{\mathrm{HPBW}=78.078^\circ.}
+$$
+
+Substitution gives $G=0.500000$ at either boundary. The result concerns the
+far-zone power pattern; it does not specify near-field structure.
+
+## Descriptive Questions
+
+1. Derive the angular power distribution of an arbitrarily moving point charge, including the conversion from observation time to retarded emission time.
+2. Obtain the Larmor and Liénard powers and explain why parallel and perpendicular accelerations carry different powers of $\gamma$.
+3. Derive the radiation fields and average power of an oscillating electric dipole, stating the source-size, speed, and radiation-zone approximations.
+4. Starting from the current distribution of a centre-fed linear antenna, derive its pattern factor and then obtain the array factor for equally spaced phased elements.
+
+## Numerical Problems
+
+1. Find the Larmor power of an electron whose nonrelativistic acceleration is $2.00\times10^{17}\ \mathrm{m\,s^{-2}}$.
+2. A singly charged particle has $\beta=0.800$ and acceleration $5.00\times10^{15}\ \mathrm{m\,s^{-2}}$ perpendicular to its velocity. Find its instantaneous Liénard power.
+3. An electric dipole has peak moment $p_0=3.00\times10^{-12}\ \mathrm{C\,m}$ and frequency $50.0\ \mathrm{MHz}$. Find its average radiated power.
+4. A current element has peak current $I_0=2.00\ \mathrm A$, length $\ell=2.00\ \mathrm{cm}$, and frequency $300\ \mathrm{MHz}$. Find its average radiated power and radiation resistance.
+5. Six identical elements form a linear array with $d=\lambda/2$ and feed phase $\delta=-\pi/3$. Find the principal maximum, its two adjacent nulls, and the peak value of $\lvert AF\rvert^2$.
+
+**Answers:** 1. $2.283\times10^{-19}\ \mathrm W$; 2. $1.101\times10^{-21}\ \mathrm W$; 3. $9.748\times10^{-6}\ \mathrm W$; 4. $0.6321\ \mathrm W$, $R_{\rm r}=0.3160\ \Omega$; 5. principal maximum at $\theta=70.529^\circ$, adjacent nulls at $48.190^\circ$ and $90.000^\circ$, and $\lvert AF\rvert^2_{\max}=36$.
+
+The angular integrals, half-power root, radiation-resistance relation, array
+factor, and all printed numerical answers are checked in the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-16/unit-1/radiation-antennas.mac' | relative_url }}); every printed residual is zero.
+
+## References
+
+- [Larmor formula](https://en.wikipedia.org/wiki/Larmor_formula)
+- David J. Griffiths, *Introduction to Electrodynamics*, 4th ed., Chapter 11, “Radiation.”
+- John D. Jackson, *Classical Electrodynamics*, 3rd ed., Chapter 14, “Radiation by Moving Charges.”
+- Constantine A. Balanis, *Antenna Theory: Analysis and Design*, 4th ed., Chapter 4, “Linear Wire Antennas.”

@@ -132,4 +132,163 @@ print("U2-26 grating Rayleigh residual =", r26)$
 r27 : ratsimp(lam/dlam_rayleigh-m*Nlines)$
 print("U2-27 grating resolving-power residual =", r27)$
 
+/* Post 2025-06-27: solved problems and numerical answers. */
+sp_visibility_Imax : (sqrt(9)+sqrt(4))^2$
+r28 : ratsimp(sp_visibility_Imax-25)$
+print("U2-28 solved visibility Imax residual =", r28)$
+
+sp_visibility_Imin : (sqrt(9)-sqrt(4))^2$
+r29 : ratsimp(sp_visibility_Imin-1)$
+print("U2-29 solved visibility Imin residual =", r29)$
+
+sp_visibility : (sp_visibility_Imax-sp_visibility_Imin)
+                /(sp_visibility_Imax+sp_visibility_Imin)$
+r30 : ratsimp(sp_visibility-12/13)$
+print("U2-30 solved visibility residual =", r30)$
+print("U2-A01 solved visibility answer =", sp_visibility)$
+
+sp_newton_nm : (((5/1000)^2-(3/1000)^2)/(4*10))*10^9$
+r31 : ratsimp(sp_newton_nm-400)$
+print("U2-31 solved Newton wavelength residual =", r31)$
+print("U2-A02 solved Newton wavelength answer (nm) =", sp_newton_nm)$
+
+n_wedge_mm : ((600/10^9)/(2*(1/2000)))*1000$
+r32 : ratsimp(n_wedge_mm-3/5)$
+print("U2-32 wedge-spacing numerical residual =", r32)$
+print("U2-A03 wedge-spacing answer (mm) =", n_wedge_mm)$
+
+n_film_nm : (600/(4*(3/2)))$
+r33 : ratsimp(n_film_nm-100)$
+print("U2-33 film-thickness numerical residual =", r33)$
+print("U2-A04 film-thickness answer (nm) =", n_film_nm)$
+
+n_liquid_index : ((42/10)/(35/10))^2$
+r34 : ratsimp(n_liquid_index-36/25)$
+print("U2-34 Newton liquid-index numerical residual =", r34)$
+print("U2-A05 Newton liquid-index answer =", n_liquid_index)$
+
+n_ring_order : (4/1000)^2/(4*(500/10^9))$
+r35 : ratsimp(n_ring_order-8)$
+print("U2-35 Newton ring-order numerical residual =", r35)$
+print("U2-A06 Newton ring-order answer =", n_ring_order)$
+
+/* Post 2025-06-28: solved problems and numerical answers. */
+sp_doublet_nm : 600^2/(2*180000)$
+r36 : ratsimp(sp_doublet_nm-1)$
+print("U2-36 solved doublet-separation residual =", r36)$
+print("U2-A07 solved doublet-separation answer (nm) =", sp_doublet_nm)$
+
+sp_airy_min : 1/(1+4*Rf/(1-Rf)^2)$
+r37 : ratsimp(sp_airy_min-((1-Rf)/(1+Rf))^2)$
+print("U2-37 solved Airy-minimum identity residual =", r37)$
+
+sp_airy_R08 : ev(sp_airy_min,Rf=4/5)$
+r38 : ratsimp(sp_airy_R08-1/81)$
+print("U2-38 solved Airy-minimum numerical residual =", r38)$
+print("U2-A08 solved Airy-minimum answer =", sp_airy_R08)$
+
+n_mirror_mm : (400*(500/10^9)/2)*1000$
+r39 : ratsimp(n_mirror_mm-1/10)$
+print("U2-39 Michelson mirror-motion numerical residual =", r39)$
+print("U2-A09 Michelson mirror-motion answer (mm) =", n_mirror_mm)$
+
+n_cell_index : 1+120*(600/10^9)/(2*(5/100))$
+r40 : ratsimp(n_cell_index-12509/12500)$
+print("U2-40 Michelson cell-index numerical residual =", r40)$
+print("U2-A10 Michelson cell-index answer =", n_cell_index)$
+
+n_ether_shift : 2*11*(30000)^2/((500/10^9)*(3*10^8)^2)$
+r41 : ratsimp(n_ether_shift-11/25)$
+print("U2-41 ether-shift numerical residual =", r41)$
+print("U2-A11 ether-shift answer (fringe) =", n_ether_shift)$
+
+n_fsr_hz : (3*10^8)/(2*(3/200))$
+r42 : ratsimp(n_fsr_hz-10^10)$
+print("U2-42 Fabry-Perot free-spectral-range residual =", r42)$
+print("U2-A12 Fabry-Perot free-spectral-range answer (GHz) =",
+      n_fsr_hz/10^9)$
+
+/* Post 2025-06-29: solved problems and numerical answers. */
+sp_zone_area : %pi*(n*b*lam-(n-1)*b*lam)$
+r43 : ratsimp(sp_zone_area-%pi*b*lam)$
+print("U2-43 solved equal-zone-area residual =", r43)$
+
+sp_slit_intensity : (1^2+1^2)/16$
+r44 : ratsimp(sp_slit_intensity-1/8)$
+print("U2-44 solved Babinet slit-intensity residual =", r44)$
+
+sp_wire_intensity : (3^2+(-1)^2)/16$
+r45 : ratsimp(sp_wire_intensity-5/8)$
+print("U2-45 solved Babinet wire-intensity residual =", r45)$
+print("U2-A13 solved Babinet answers (slit, wire) =",
+      sp_slit_intensity, sp_wire_intensity)$
+
+n_fresnel_u : (1/2000)*sqrt(2/((500/10^9)*1))$
+r46 : radcan(n_fresnel_u-1)$
+print("U2-46 Fresnel-coordinate numerical residual =", r46)$
+print("U2-A14 Fresnel-coordinate answer =", n_fresnel_u)$
+
+n_zone10_mm : sqrt(10*(500/10^9))*1000$
+r47 : radcan(n_zone10_mm-sqrt(5))$
+print("U2-47 tenth-zone-radius numerical residual =", r47)$
+print("U2-A15 tenth-zone-radius answer (mm) =", n_zone10_mm)$
+
+n_zone_f1 : (1/2000)^2/(500/10^9)$
+n_zone_f3 : n_zone_f1/3$
+r48a : ratsimp(n_zone_f1-1/2)$
+r48b : ratsimp(n_zone_f3-1/6)$
+print("U2-48a zone-plate principal-focus residual =", r48a)$
+print("U2-48b zone-plate third-focus residual =", r48b)$
+print("U2-A16 zone-plate answers f1,f3 (m) =", n_zone_f1, n_zone_f3)$
+
+n_edge_boundary : Iedge(0,0)$
+r49 : ratsimp(n_edge_boundary-1/4)$
+print("U2-49 edge-boundary numerical residual =", r49)$
+print("U2-A17 edge-boundary intensity answer =", n_edge_boundary)$
+
+n_slit_fresnel : ((4/5)^2+(3/5)^2)/2$
+r50 : ratsimp(n_slit_fresnel-1/2)$
+print("U2-50 Fresnel-slit numerical residual =", r50)$
+print("U2-A18 Fresnel-slit intensity answer =", n_slit_fresnel)$
+
+/* Post 2025-06-30: solved problems and numerical answers. */
+missing_sine : p*lam/a$
+r51a : ratsimp(a*missing_sine-p*lam)$
+r51b : ratsimp(3*a*missing_sine-3*p*lam)$
+print("U2-51a solved missing-order slit residual =", r51a)$
+print("U2-51b solved missing-order interference residual =", r51b)$
+
+theta_arcsec : %pi/648000$
+sp_telescope_D : (61/50)*(550/10^9)/theta_arcsec$
+r52 : ratsimp(sp_telescope_D*theta_arcsec-(61/50)*(550/10^9))$
+print("U2-52 solved telescope-aperture residual =", r52)$
+print("U2-A19 solved telescope-aperture answer (m) =",
+      float(sp_telescope_D))$
+
+n_slit_angle : (500/10^9)/(2/10000)$
+r53 : ratsimp(n_slit_angle-1/400)$
+print("U2-53 single-slit-angle numerical residual =", r53)$
+print("U2-A20 single-slit-angle answer (rad) =", n_slit_angle)$
+
+n_double_angle : (600/10^9)/(5/10000)$
+r54 : ratsimp(n_double_angle-3/2500)$
+print("U2-54 double-slit-spacing numerical residual =", r54)$
+print("U2-A21 double-slit-spacing answer (rad) =", n_double_angle)$
+
+n_grating_sine : (500/10^9)/(1/600000)$
+n_grating_angle : asin(n_grating_sine)$
+r55 : trigsimp(sin(n_grating_angle)-3/10)$
+print("U2-55 grating-angle numerical residual =", r55)$
+print("U2-A22 grating-angle answer (degree) =",
+      float(180*n_grating_angle/%pi))$
+
+n_grating_power : 2*25000$
+n_grating_dlam_nm : 600/n_grating_power$
+r56a : ratsimp(n_grating_power-50000)$
+r56b : ratsimp(n_grating_dlam_nm-3/250)$
+print("U2-56a grating-power numerical residual =", r56a)$
+print("U2-56b grating-interval numerical residual =", r56b)$
+print("U2-A23 grating answers (power, delta lambda nm) =",
+      n_grating_power, n_grating_dlam_nm)$
+
 quit()$

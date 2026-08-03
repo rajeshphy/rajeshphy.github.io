@@ -36,7 +36,7 @@ $$n_x\ne n_y\ne n_z,$$
 
 and two optic-axis directions along which the two permitted refractive indices coincide.
 
-<figure class="post-figure">
+<figure class="diagram-figure diagram-pan" tabindex="0">
   <img src="{{ '/assets/images/bsc/sem-v/mj-8/unit-iii/crystals-nicol.png' | relative_url }}" alt="Uniaxial refractive-index surfaces and Nicol prism separating ordinary and extraordinary rays" loading="lazy">
   <figcaption>The wave-normal index surfaces meet along the optic axis; the Nicol prism removes the ordinary ray by total internal reflection. Editable <a href="{{ '/assets/tikz/bsc/sem-v/mj-8/unit-iii/crystals-nicol.tex' | relative_url }}">TikZ source</a>.</figcaption>
 </figure>
@@ -99,3 +99,75 @@ $$\boxed{\theta_{c,o}=\sin^{-1}\!\left(\frac{n_b}{n_o}\right)
 The prism cut makes the ordinary-ray incidence exceed this value, so the ordinary ray is totally internally reflected toward the side and removed.
 
 The extraordinary ray has an effective index near $n_e<n_b$ for the intended geometry. It passes into the balsam rather than undergoing total internal reflection, crosses the second calcite half, and emerges. The output contains one extraordinary eigenpolarization and is therefore plane polarized.
+
+## Solved Problems
+
+### 1. Direction-dependent extraordinary index of calcite
+
+For calcite, take $n_o=1.658$ and principal $n_e=1.486$. Find the extraordinary-wave index when the wave normal makes $45.0^\circ$ with the optic axis, and interpret the result.
+
+**Solution.** With $\vartheta$ measured from the optic axis,
+
+$$\frac1{n_e^2(\vartheta)}
+=\frac{\cos^2\vartheta}{n_o^2}
++\frac{\sin^2\vartheta}{n_e^2}.$$
+
+At $45.0^\circ$,
+
+$$n_e(45^\circ)=
+\left[\frac{1/2}{1.658^2}+\frac{1/2}{1.486^2}\right]^{-1/2}
+=1.565.$$
+
+Therefore
+
+$$\boxed{n_e(45^\circ)=1.565}.$$
+
+The value lies between the two principal indices, as it must. Because $n_e<n_o$, calcite is negative uniaxial. Refractive index is dimensionless. The limiting checks are $n_e(0)=n_o$ (no splitting along the optic axis) and $n_e(90^\circ)=n_e$.
+
+### 2. Index window for selective removal in a Nicol-type interface
+
+At a calcite-cement interface, let both rays strike at $i=75.0^\circ$. Use $n_o=1.658$ and an effective extraordinary index $n_e=1.486$. Determine the range of cement index $n_b$ for which the ordinary ray is totally internally reflected while the extraordinary ray is transmitted. Test $n_b=1.55$.
+
+**Solution.** For incidence from an index $n$ toward $n_b$, total internal reflection occurs when
+
+$$n\sin i>n_b.$$
+
+Selective operation therefore requires
+
+$$n_e\sin i<n_b<n_o\sin i.$$
+
+At $75.0^\circ$,
+
+$$n_e\sin i=1.486\sin75^\circ=1.435,$$
+
+$$n_o\sin i=1.658\sin75^\circ=1.602.$$
+
+Hence
+
+$$\boxed{1.435<n_b<1.602}.$$
+
+The value $n_b=1.55$ lies inside this interval: the ordinary ray meets the TIR condition, while the extraordinary ray does not. All quantities in the inequality are dimensionless, and the sign convention only labels which ray is rejected. If birefringence vanished so that $n_o=n_e$, the interval would collapse and selective removal would be impossible.
+
+## Descriptive Questions
+
+1. Distinguish the optical indicatrix from the wave-normal index surface for a uniaxial crystal.
+2. Explain why the extraordinary ray can have nonparallel wave-normal and energy-flow directions.
+3. How does double refraction produce two orthogonally polarized rays from one incident beam?
+4. Describe the construction and working of a Nicol prism, including the role of the Canada-balsam layer.
+
+## Numerical Problems
+
+1. A positive uniaxial crystal has $n_o=1.544$ and $n_e=1.553$. Find the extraordinary index at $\vartheta=30.0^\circ$.
+   **Final answer:** $\boxed{n_e(30^\circ)=1.54624}$.
+2. Principal indices are $1.60$, $1.60$, and $1.65$. Classify the crystal.
+   **Final answer:** $\boxed{\text{positive uniaxial, with }n_e-n_o=0.050}$.
+3. Find the critical angle for light incident from a crystal of index $1.62$ onto cement of index $1.50$.
+   **Final answer:** $\boxed{\theta_c=67.81^\circ}$.
+
+Every worked and numerical result is checked in the [MJ-8 problem-verification worksheet]({{ '/assets/maxima/bsc/sem-v/mj-8/problem-checks.mac' | relative_url }}); every printed check is zero.
+
+## References
+
+1. [Birefringence - Wikipedia](https://en.wikipedia.org/wiki/Birefringence)
+2. [RP Photonics Encyclopedia, Birefringence](https://www.rp-photonics.com/birefringence.html)
+3. Eugene Hecht, *Optics*, 5th ed., Chapter 8, “Polarization,” sections on birefringence and polarizing prisms.

@@ -56,12 +56,12 @@ $$
 \quad n=1,2,3,\ldots
 $$
 
-For two free ends, $X'(0)=0$ selects $X=C\cos kx$, and $X'(L)=0$ again gives $k_n=n\pi/L$. The $n=0$ solution is a rigid translation with zero frequency; the vibrational modes have $n\ge1$ and the same frequencies $nv/(2L)$.
+For two free ends, $X^{\prime}(0)=0$ selects $X=C\cos kx$, and $X^{\prime}(L)=0$ again gives $k_n=n\pi/L$. The $n=0$ solution is a rigid translation with zero frequency; the vibrational modes have $n\ge1$ and the same frequencies $nv/(2L)$.
 
 For a fixed end at $x=0$ and a free end at $x=L$, $X=C\sin kx$ and
 
 $$
-X'(L)=Ck\cos kL=0.
+X^{\prime}(L)=Ck\cos kL=0.
 $$
 
 Therefore
@@ -208,4 +208,102 @@ In a nondispersive medium $\omega=vk$, hence $v_p=v_g=v$. In a dispersive medium
   <figcaption>The string panels satisfy the displayed boundary conditions; the packet separates carrier phase from envelope motion.</figcaption>
 </figure>
 
-The boundary spectra, energy identities, and carrier-envelope algebra are checked in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-1/mj4-unit-1-checks.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Fundamental and next allowed mode of a fixed-free string
+
+A string of length $L=0.800\,\mathrm{m}$ has tension $100\,\mathrm{N}$ and linear density $1.00\times10^{-2}\,\mathrm{kg\,m^{-1}}$. One end is fixed and the other is free. Find its fundamental frequency and the next allowed frequency.
+
+**Step 1: Find the wave speed.**
+
+$$
+v=\sqrt{\frac{T}{\mu}}
+=\sqrt{\frac{100}{0.0100}}
+=100\,\mathrm{m\,s^{-1}}.
+$$
+
+**Step 2: Apply the fixed-free spectrum.** Only odd harmonics occur:
+
+$$
+f_n=\frac{(2n-1)v}{4L}.
+$$
+
+Therefore
+
+$$
+f_1=\frac{100}{4(0.800)}=31.25\,\mathrm{Hz},
+$$
+
+and the next allowed frequency is
+
+$$
+f_2=3f_1=93.75\,\mathrm{Hz}.
+$$
+
+The ratio $f_2/f_1=3$ confirms the odd-harmonic boundary condition.
+
+### 2. Energy density and power of a progressive string wave
+
+A sinusoidal wave on a string has $\mu=5.00\times10^{-3}\,\mathrm{kg\,m^{-1}}$, $v=80.0\,\mathrm{m\,s^{-1}}$, amplitude $A=2.00\,\mathrm{mm}$, and frequency $f=50.0\,\mathrm{Hz}$. Find its time-averaged energy per unit length and power.
+
+**Step 1: Write the angular frequency.**
+
+$$
+\omega=2\pi f=100\pi\,\mathrm{rad\,s^{-1}}.
+$$
+
+**Step 2: Evaluate the mean energy density.**
+
+$$
+\begin{aligned}
+\langle u\rangle
+&=\frac12\mu A^2\omega^2\\
+&=\frac12(0.00500)(0.00200)^2(100\pi)^2\\
+&=10^{-4}\pi^2\,\mathrm{J\,m^{-1}}
+\simeq9.87\times10^{-4}\,\mathrm{J\,m^{-1}}.
+\end{aligned}
+$$
+
+**Step 3: Evaluate the power.**
+
+$$
+\langle P\rangle=v\langle u\rangle
+=0.008\pi^2\,\mathrm{W}
+\simeq7.90\times10^{-2}\,\mathrm{W}.
+$$
+
+The equality $\langle P\rangle/v=\langle u\rangle$ provides an independent dimensional and numerical check.
+
+## Descriptive Questions
+
+1. Why does reflection at a fixed end reverse displacement while reflection at a free end does not?
+2. How do displacement and particle velocity vary with position and time in a standing wave?
+3. Why is the time-averaged energy flux of an ideal standing wave zero?
+4. Under what condition are phase velocity and group velocity equal?
+
+## Numerical Problems
+
+1. A string fixed at both ends has length $1.20\,\mathrm{m}$ and wave speed $240\,\mathrm{m\,s^{-1}}$. Find its fundamental and fourth-harmonic frequencies.
+
+   **Answer:** $f_1=100\,\mathrm{Hz}$ and $f_4=400\,\mathrm{Hz}$.
+
+2. A standing wave has wavelength $0.800\,\mathrm{m}$. Find the separation of adjacent nodes and the distance from a node to the nearest antinode.
+
+   **Answer:** $0.400\,\mathrm{m}$ and $0.200\,\mathrm{m}$, respectively.
+
+3. A dispersive mode obeys $\omega=ak^2$, where $a=0.500\,\mathrm{m^2\,s^{-1}}$. Find $v_p$ and $v_g$ at $k=4.00\,\mathrm{m^{-1}}$.
+
+   **Answer:** $v_p=2.00\,\mathrm{m\,s^{-1}}$ and $v_g=4.00\,\mathrm{m\,s^{-1}}$.
+
+4. For $y=(4.00\,\mathrm{mm})\sin(5\pi x)\cos(200\pi t)$ in SI units, find the antinode amplitude, node spacing, and frequency.
+
+   **Answer:** $4.00\,\mathrm{mm}$, $0.200\,\mathrm{m}$, and $100\,\mathrm{Hz}$.
+
+The solved results and all numerical answers are verified by exact residuals in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-1/mj4-unit-1-checks.mac' | relative_url }}).
+
+## References
+
+1. [Standing wave - Wikipedia](https://en.wikipedia.org/wiki/Standing_wave)
+2. F. S. Crawford Jr., *Waves*, Berkeley Physics Course, Vol. 3, McGraw-Hill, sections on normal modes and wave packets.
+3. H. J. Pain, *The Physics of Vibrations and Waves*, Wiley, chapters on vibrating strings and energy transport.
+4. A. P. French, *Vibrations and Waves*, MIT Introductory Physics Series, W. W. Norton, chapters on standing waves and dispersion.

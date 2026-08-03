@@ -29,4 +29,59 @@ round_trip_at_threshold : R1*R2*exp(2*(gth-alpha)*L)$
 print("laser-threshold round-trip residual =",
       radcan(round_trip_at_threshold-1))$
 
+/* Worked-problem and exercise values. */
+fpprintprec : 12$
+h_si : 6.62607015b-34$
+c_si : 2.99792458b8$
+qe_si : 1.602176634b-19$
+
+gth_num : 0.0200b0+log(1/(0.990b0*0.950b0))/(2*0.400b0)$
+print("Numerical threshold gain (m^-1) =",bfloat(gth_num))$
+print("Threshold-formula check =",
+      ratsimp(gth-(alpha+log(1/(R1*R2))/(2*L))))$
+
+fraction_100ns : (4b6/(2*4b6+1b7))*
+                 (1-exp(-(2*4b6+1b7)*100b-9))$
+steady_fraction : 4b6/(2*4b6+1b7)$
+print("Two-level transient and steady fractions =",
+      bfloat(fraction_100ns),bfloat(steady_fraction))$
+fraction_sym(t) := Ws/(2*Ws+As)*(1-exp(-(2*Ws+As)*t))$
+print("Two-level solution check =",
+      ratsimp(diff(fraction_sym(t),t)-
+              (Ws-(2*Ws+As)*fraction_sym(t))))$
+
+lambda_HeNe : 632.8b-9$
+nu_HeNe : c_si/lambda_HeNe$
+E_HeNe_eV : h_si*nu_HeNe/qe_si$
+print("He-Ne frequency (Hz) and photon energy (eV) =",
+      bfloat(nu_HeNe),bfloat(E_HeNe_eV))$
+E_photon_sym : hs*nus$
+print("Photon dispersion check =",
+      ratsimp(E_photon_sym-hs*nus))$
+
+mode_spacing : c_si/(2*0.500b0)$
+mode_intervals : 1.50b9/mode_spacing$
+print("Cavity spacing (Hz) and bandwidth intervals =",
+      bfloat(mode_spacing),bfloat(mode_intervals))$
+spacing_sym : cs/(2*ns*Ls)$
+print("Longitudinal-mode check =",
+      ratsimp(2*ns*Ls*spacing_sym-cs))$
+
+pulse_power : 0.800b0/(8.00b-9)$
+print("Q-switched average pulse power (W) =",bfloat(pulse_power))$
+P_sym : Esym/ts$
+print("Pulse-energy check =",
+      ratsimp(P_sym*ts-Esym))$
+
+tau_num : 230b-9$
+A_num : 1/tau_num$
+linewidth_num : 1/(2*%pi*tau_num)$
+print("Spontaneous A (s^-1) and linewidth (Hz) =",
+      bfloat(A_num),bfloat(linewidth_num))$
+A_sym : 1/tau_s$
+linewidth_sym : 1/(2*%pi*tau_s)$
+print("Lifetime-rate check =",ratsimp(A_sym*tau_s-1))$
+print("Lifetime-linewidth check =",
+      ratsimp(2*%pi*tau_s*linewidth_sym-1))$
+
 quit()$

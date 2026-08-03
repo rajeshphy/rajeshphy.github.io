@@ -13,7 +13,9 @@ $$I=\int_a^b f(x)\,dx$$
 
 by a weighted sum of sampled values. The weights follow by integrating an interpolating polynomial, rather than by guessing the area.
 
-![Trapezoidal approximation and one-step ODE geometry]({{ '/assets/images/bsc/sem-v/mj-9/quadrature-ode.png' | relative_url }})
+<figure class="diagram-figure diagram-pan" tabindex="0">
+  <img src="{{ '/assets/images/bsc/sem-v/mj-9/quadrature-ode.png' | relative_url }}" alt="Trapezoidal approximation and one-step ODE geometry" loading="lazy" decoding="async">
+</figure>
 
 The construction is available as [editable TikZ]({{ '/assets/tikz/bsc/sem-v/mj-9/quadrature-ode.tex' | relative_url }}).
 
@@ -36,7 +38,7 @@ f_0+2\sum_{i=1}^{n-1}f_i+f_n\right]}.$$
 
 For a sufficiently smooth function,
 
-$$I-I_T=-\frac{b-a}{12}h^2 f''(\xi),$$
+$$I-I_T=-\frac{b-a}{12}h^2 f^{\prime\prime}(\xi),$$
 
 for some $\xi\in(a,b)$. Halving $h$ therefore reduces the leading error by about a factor of four.
 
@@ -111,3 +113,89 @@ The [Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-9/quadrature-ode-fit-chec
 simpson_residual = 0
 gauss_residual   = 0
 ~~~
+
+## Solved Problems
+
+### 1. Composite trapezoidal rule for a convex function
+
+Approximate
+
+$$I=\int_0^1x^2\,dx$$
+
+with four equal subintervals. Here $h=1/4$ and
+
+$$f_0=0,\quad f_1=\frac1{16},\quad f_2=\frac14,
+\quad f_3=\frac9{16},\quad f_4=1.$$
+
+The composite trapezoidal rule gives
+
+$$
+\begin{aligned}
+I_T&=\frac{1/4}{2}
+\left[0+2\left(\frac1{16}+\frac14+\frac9{16}\right)+1\right]\\
+&=\frac18\left(\frac{11}{4}\right)\\
+&=\boxed{\frac{11}{32}=0.34375}.
+\end{aligned}
+$$
+
+The exact integral is $1/3$, so
+
+$$I_T-I=\frac{11}{32}-\frac13=\frac1{96}
+\approx0.0104167.$$
+
+The positive signed error is physically consistent with the chords lying above the convex curve $x^2$.
+
+### 2. Two-point Gaussian quadrature on a general interval
+
+Evaluate
+
+$$I=\int_0^2(x^3+x^2+1)\,dx$$
+
+with the two-point Gaussian rule. The map $x=1+t$ sends $[0,2]$ to $[-1,1]$ and has $dx=dt$. Therefore
+
+$$I_G=f\!\left(1-\frac1{\sqrt3}\right)
++f\!\left(1+\frac1{\sqrt3}\right).$$
+
+Put $u=1/\sqrt3$. By symmetry,
+
+$$
+\begin{aligned}
+f(1-u)+f(1+u)
+&=[(1-u)^3+(1+u)^3]\\
+&\quad+[(1-u)^2+(1+u)^2]+2\\
+&=(2+6u^2)+(2+2u^2)+2\\
+&=6+8\left(\frac13\right)\\
+&=\boxed{\frac{26}{3}}.
+\end{aligned}
+$$
+
+Direct integration also gives $4+8/3+2=26/3$. Exact agreement is expected because the integrand is cubic.
+
+## Descriptive Questions
+
+1. Derive the trapezoidal rule by integrating a linear interpolant.
+2. Derive Simpson's one-third weights and explain why the composite rule requires an even number of subintervals.
+3. Derive the nodes and weights of two-point Gaussian quadrature from polynomial exactness.
+4. Compare the degree of exactness and leading composite error of the trapezoidal and Simpson rules.
+
+## Numerical Problems
+
+1. Apply one Simpson panel to $\int_0^2x^4\,dx$ and compare with the exact result.
+   **Answer:** $I_S=20/3\approx6.66667$; exact $I=32/5=6.4$; error $I_S-I=4/15\approx0.26667$.
+
+2. Apply one trapezoidal panel to $\int_1^3(3x+2)\,dx$.
+   **Answer:** $I_T=(2/2)[5+11]=16$, exactly.
+
+3. On $[0,3]$ with step $h=0.5$, decide whether the composite Simpson one-third rule is admissible.
+   **Answer:** $n=(3-0)/0.5=6$, which is even, so it is admissible.
+
+4. Apply two-point Gaussian quadrature to $\int_{-1}^{1}t^4\,dt$ and find the signed error $I_G-I$.
+   **Answer:** $I_G=2/9$, exact $I=2/5$, and $I_G-I=-8/45$.
+
+The panel sums, mapped nodes, and exactness comparisons are checked in the [Unit II Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-9/unit-ii-problem-checks.mac' | relative_url }}); every displayed residual is zero.
+
+## References
+
+1. [Numerical integration — Wikipedia](https://en.wikipedia.org/wiki/Numerical_integration).
+2. Richard L. Burden, J. Douglas Faires, and Annette M. Burden, *Numerical Analysis*, 10th ed., Chapter 4, “Numerical Differentiation and Integration.”
+3. Steven C. Chapra and Raymond P. Canale, *Numerical Methods for Engineers*, 8th ed., Chapter 21, “Newton-Cotes Integration Formulas.”

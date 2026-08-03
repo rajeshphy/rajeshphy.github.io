@@ -1,0 +1,19 @@
+/* MJ-6: T-dS, response functions, Joule-Kelvin limit, and answers. */
+kill(all)$
+p : R*T/(v-b)-a/v^2$
+pT : diff(p,T)$
+pv : diff(p,v)$
+dvdT_p : ratsimp(-pT/pv)$
+print("implicit_derivative_residual =", ratsimp(pT+pv*dvdT_p))$
+cpdcv : ratsimp(-T*pT^2/pv)$
+print("vdW_heat_capacity_residual =", ratsimp(cpdcv-R/(1-2*a*(v-b)^2/(R*T*v^3))))$
+muCp : ratsimp(T*dvdT_p-v)$
+print("dilute_JT_residual =", ratsimp(limit(muCp,v,inf)-(2*a/(R*T)-b)))$
+print("ideal_JT_residual =", ratsimp(subst([a=0,b=0],muCp)))$
+R0 : 8.314462618$
+print("Mayer_numeric_rounding_residual =", round(1000*R0)-8314)$
+print("response_numeric_rounding_residual =", round(10*(300*.01*.003^2/1e-5))-27)$
+mu0 : (2*.364/(R0*300)-4.27e-5)/37.1$
+print("CO2_JT_rounding_residual =", round(mu0*1e8)-672)$
+print("inversion_temperature_rounding_residual =", round(2*.364/(R0*4.27e-5))-2051)$
+print("throttle_temperature_residual =", ratsimp(.25*(-20)-(-5)))$

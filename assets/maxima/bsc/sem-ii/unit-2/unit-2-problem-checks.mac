@@ -1,0 +1,285 @@
+/* UG-II, Unit II: enhancement problem checks.
+   Run with: maxima -q -b unit-2-problem-checks.mac
+   Every labelled check must print the literal value 0. */
+kill(all)$
+display2d:false$
+print("UG-II UNIT II: ENHANCEMENT PROBLEM CHECKS")$
+
+round_check(label,expr,scale,target) :=
+    block([got],got:round(scale*float(expr)),
+          print(label,"=",got-target))$
+tolerance_check(label,expr,tol) :=
+    print(label,"=",if abs(float(expr))<tol then 0 else 1)$
+
+/* 2025-06-16: ratio-homogeneous and first-order linear equations. */
+y16a : 2*x/(2-x)$
+print("16 solved 1 ODE residual =",
+      ratsimp(diff(y16a,x)-(y16a/x)^2))$
+print("16 solved 1 initial residual =",ratsimp(subst(x=1,y16a)-2))$
+
+y16b : (x^4+3)/(4*x)$
+print("16 solved 2 ODE residual =",
+      ratsimp(diff(y16b,x)+y16b/x-x^2))$
+print("16 solved 2 initial residual =",ratsimp(subst(x=1,y16b)-1))$
+
+print("16 numerical 1 slope residual =",
+      (2*0-0^2-0)+(2*1-1^2-1))$
+q16 : 15-13*exp(-2*t/5)$
+print("16 numerical 2 ODE residual =",
+      ratsimp(diff(q16,t)+2*q16/5-6))$
+print("16 numerical 2 initial residual =",subst(t=0,q16)-2)$
+round_check("16 numerical 2 rounded value",subst(t=5,q16),10000,132406)$
+y16n3 : (x^5-1)/(5*x^2)$
+print("16 numerical 3 ODE residual =",
+      ratsimp(diff(y16n3,x)+2*y16n3/x-x^2))$
+print("16 numerical 3 initial residual =",subst(x=1,y16n3))$
+print("16 numerical 3 value residual =",ratsimp(subst(x=2,y16n3)-31/20))$
+k16 : 3*log(2)/4$
+print("16 numerical 4 decay residual =",radcan(exp(-4*k16)-1/8))$
+round_check("16 numerical 4 rate",k16,100000,51986)$
+print("16 numerical 4 half-life residual =",ratsimp(log(2)/k16-4/3))$
+
+/* 2025-06-18: exact equations and integrating factors. */
+psi18a : x^2+x*y+y^2$
+print("18 solved 1 M residual =",diff(psi18a,x)-(2*x+y))$
+print("18 solved 1 N residual =",diff(psi18a,y)-(x+2*y))$
+y18point : (-1+sqrt(13))/4$
+print("18 solved 1 level residual =",
+      radcan(subst([x=1/2,y=y18point],psi18a)-1))$
+round_check("18 solved 1 rounded branch",y18point,100000,65139)$
+
+y18b : 2*x^(-1/3)$
+print("18 solved 2 ODE residual =",ratsimp(y18b+3*x*diff(y18b,x)))$
+print("18 solved 2 initial residual =",subst(x=1,y18b)-2)$
+psi18b : x*y^3$
+print("18 solved 2 potential M residual =",diff(psi18b,x)-y^3)$
+print("18 solved 2 potential N residual =",diff(psi18b,y)-3*x*y^2)$
+
+psi18n1 : x^3+2*x*y+y^4$
+print("18 numerical 1 M residual =",
+      diff(psi18n1,x)-(3*x^2+2*y))$
+print("18 numerical 1 N residual =",
+      diff(psi18n1,y)-(2*x+4*y^3))$
+print("18 numerical 1 constant residual =",
+      subst([x=1,y=1],psi18n1)-4)$
+print("18 numerical 2 path-independent value residual =",
+      subst([x=1,y=2],psi18a)-subst([x=0,y=0],psi18a)-7)$
+psi18n3 : x^4*y$
+print("18 numerical 3 multiplied-M residual =",
+      diff(psi18n3,x)-4*x^3*y)$
+print("18 numerical 3 multiplied-N residual =",
+      diff(psi18n3,y)-x^4)$
+print("18 numerical 3 value residual =",subst(x=2,16/x^4)-1)$
+circle_integrand :
+    (-sin(s))*(-sin(s))+cos(s)*cos(s)$
+print("18 numerical 4 closed-integral residual =",
+      trigsimp(integrate(circle_integrand,s,0,2*%pi)-2*%pi))$
+
+/* 2025-06-20: constant-coefficient homogeneous equations. */
+y20a : 2*cosh(x)-1$
+print("20 solved 1 ODE residual =",ratsimp(diff(y20a,x,3)-diff(y20a,x)))$
+print("20 solved 1 y(0) residual =",subst(x=0,y20a)-1)$
+print("20 solved 1 y'(0) residual =",subst(x=0,diff(y20a,x)))$
+print("20 solved 1 y''(0) residual =",subst(x=0,diff(y20a,x,2))-2)$
+
+y20b : exp(-x)*(cos(2*x)+sin(2*x)/2)$
+print("20 solved 2 ODE residual =",
+      trigsimp(diff(y20b,x,2)+2*diff(y20b,x)+5*y20b))$
+print("20 solved 2 y(0) residual =",subst(x=0,y20b)-1)$
+print("20 solved 2 y'(0) residual =",subst(x=0,diff(y20b,x)))$
+
+print("20 numerical 1 characteristic residual =",
+      ratsimp(rectform((3+2*%i)^2-6*(3+2*%i)+13)))$
+round_check("20 numerical 1 envelope",exp(3),10000,200855)$
+y20n2 : (2+3*x)*exp(-3*x)$
+print("20 numerical 2 ODE residual =",
+      ratsimp(diff(y20n2,x,2)+6*diff(y20n2,x)+9*y20n2))$
+print("20 numerical 2 initial-y residual =",subst(x=0,y20n2)-2)$
+print("20 numerical 2 initial-slope residual =",
+      subst(x=0,diff(y20n2,x))+3)$
+round_check("20 numerical 2 rounded value",subst(x=1,y20n2),100000,24894)$
+round_check("20 numerical 3 period",2*%pi/5,100000,125664)$
+print("20 numerical 4 polynomial residual =",
+      expand((m+2)^2*(m-1))-(m^3+3*m^2-4))$
+
+/* 2025-06-22: Cauchy-Euler and simultaneous systems. */
+y22a : 4*x^2+x^(-2)$
+print("22 solved 1 ODE residual =",
+      ratsimp(x^2*diff(y22a,x,2)+x*diff(y22a,x)-4*y22a))$
+print("22 solved 1 y(1) residual =",subst(x=1,y22a)-5)$
+print("22 solved 1 y'(1) residual =",subst(x=1,diff(y22a,x))-6)$
+
+x22b : (exp(3*t)+exp(-t))/2$
+y22b : exp(3*t)-exp(-t)$
+print("22 solved 2 x-system residual =",
+      ratsimp(diff(x22b,t)-x22b-y22b))$
+print("22 solved 2 y-system residual =",
+      ratsimp(diff(y22b,t)-4*x22b-y22b))$
+print("22 solved 2 x(0) residual =",subst(t=0,x22b)-1)$
+print("22 solved 2 y(0) residual =",subst(t=0,y22b))$
+
+x22c : (cos(sqrt(2)*t)+cos(2*t))/2$
+y22c : (cos(sqrt(2)*t)-cos(2*t))/2$
+print("22 solved 3 x-system residual =",
+      trigsimp(diff(x22c,t,2)+3*x22c-y22c))$
+print("22 solved 3 y-system residual =",
+      trigsimp(diff(y22c,t,2)+3*y22c-x22c))$
+print("22 solved 3 x(0) residual =",subst(t=0,x22c)-1)$
+print("22 solved 3 y(0) residual =",subst(t=0,y22c))$
+print("22 solved 3 x'(0) residual =",subst(t=0,diff(x22c,t)))$
+print("22 solved 3 y'(0) residual =",subst(t=0,diff(y22c,t)))$
+
+print("22 numerical 1 root residual =",(-3*%i)^2+9)$
+round_check("22 numerical 1 scale factor",exp(2*%pi/3),10000,81205)$
+print("22 numerical 2 growth-rate residual =",
+      (5^2-4*5-5)+((-1)^2-4*(-1)-5))$
+print("22 numerical 3 frequency residual =",
+      (sqrt(3)^2-3)+(sqrt(7)^2-7))$
+y22n4 : x^3*(2+log(x))$
+print("22 numerical 4 ODE residual =",
+      ratsimp(x^2*diff(y22n4,x,2)-5*x*diff(y22n4,x)+9*y22n4))$
+print("22 numerical 4 y(1) residual =",subst(x=1,y22n4)-2)$
+print("22 numerical 4 y'(1) residual =",subst(x=1,diff(y22n4,x))-7)$
+round_check("22 numerical 4 rounded value",subst(x=2,y22n4),10000,215452)$
+
+/* 2025-06-24: two- and three-variable Laplace problems. */
+assume(a>0,b>0,cbox>0,L>0)$
+B5_1 : 2/a*integrate(V0*sin(%pi*x/a),x,0,a)$
+B5_2 : 2/a*integrate(V0*sin(2*%pi*x/a),x,0,a)$
+print("24 solved 1 first coefficient residual =",radcan(B5_1-4*V0/%pi))$
+print("24 solved 1 second coefficient residual =",radcan(B5_2))$
+u24top : 4*V0/(3*%pi)*sinh(3*%pi*y/a)/sinh(3*%pi*b/a)
+         *sin(3*%pi*x/a)$
+print("24 solved 1 mode PDE residual =",
+      trigsimp(diff(u24top,x,2)+diff(u24top,y,2)))$
+print("24 solved 1 x=0 residual =",subst(x=0,u24top))$
+print("24 solved 1 x=a residual =",trigsimp(subst(x=a,u24top)))$
+print("24 solved 1 y=0 residual =",subst(y=0,u24top))$
+
+gamma24 : sqrt((%pi/a)^2+(2*%pi/b)^2)$
+u24box : V0*sin(%pi*x/a)*sin(2*%pi*y/b)
+         *sinh(gamma24*z)/sinh(gamma24*cbox)$
+print("24 solved 2 box PDE residual =",
+      radcan(trigsimp(diff(u24box,x,2)+diff(u24box,y,2)
+                     +diff(u24box,z,2))))$
+print("24 solved 2 z=0 residual =",subst(z=0,u24box))$
+print("24 solved 2 z=c residual =",
+      radcan(subst(z=cbox,u24box)
+             -V0*sin(%pi*x/a)*sin(2*%pi*y/b)))$
+
+u24n1 : 100*sinh(%pi/4)/sinh(%pi/2)$
+round_check("24 numerical 1 potential",u24n1,10000,377470)$
+B24n2_1 : 2*integrate(x*(1-x)*sin(%pi*x),x,0,1)$
+B24n2_2 : 2*integrate(x*(1-x)*sin(2*%pi*x),x,0,1)$
+print("24 numerical 2 B1 residual =",radcan(B24n2_1-8/%pi^3))$
+print("24 numerical 2 B2 residual =",radcan(B24n2_2))$
+gamma24n3 : %pi*sqrt((2/(3/10))^2+(1/(2/5))^2)$
+round_check("24 numerical 3 gamma",gamma24n3,10000,223681)$
+round_check("24 numerical 4 amplitude",
+            sinh(%pi/2)/sinh(%pi),1000000,199268)$
+
+/* 2025-06-26: fixed string and rectangular membrane. */
+Atri(nv) := 2/L*
+    (integrate(2*h*x/L*sin(nv*%pi*x/L),x,0,L/2)
+     +integrate(2*h*(1-x/L)*sin(nv*%pi*x/L),x,L/2,L))$
+print("26 solved 1 A1 residual =",trigsimp(radcan(Atri(1)-8*h/%pi^2)))$
+print("26 solved 1 A2 residual =",trigsimp(radcan(Atri(2))))$
+print("26 solved 1 A3 residual =",
+      trigsimp(radcan(Atri(3)+8*h/(9*%pi^2))))$
+
+f26_12 : 60*sqrt((1/(3/5))^2+(2/(3/5))^2)$
+round_check("26 solved 2 square frequency",f26_12,1000,223607)$
+print("26 solved 2 degeneracy residual =",
+      ratsimp(60*sqrt((1/(3/5))^2+(2/(3/5))^2)
+              -60*sqrt((2/(3/5))^2+(1/(3/5))^2)))$
+
+print("26 numerical 1 frequency residual =",180/(2*(3/4))-120)$
+print("26 numerical 2 frequency residual =",5*120-600)$
+node26 : sin(5*%pi*(3/20)/(3/4))^2
+         +sin(5*%pi*(3/10)/(3/4))^2
+         +sin(5*%pi*(9/20)/(3/4))^2
+         +sin(5*%pi*(3/5)/(3/4))^2$
+print("26 numerical 2 node residual =",trigsimp(node26))$
+B26n3 : (1/5)/(200*%pi)$
+round_check("26 numerical 3 velocity coefficient",B26n3,10^9,318310)$
+f26n4 : 60*sqrt((2/(4/5))^2+(3/(3/5))^2)$
+round_check("26 numerical 4 membrane frequency",f26n4,1000,335410)$
+
+/* 2025-06-28: circular membrane and Bessel zeros. */
+root01 : find_root(bessel_j(0,z),z,2,3)$
+root02 : find_root(bessel_j(0,z),z,5,6)$
+root11 : find_root(bessel_j(1,z),z,3,4)$
+root12 : find_root(bessel_j(1,z),z,7,8)$
+tolerance_check("28 root J0-1 residual",bessel_j(0,root01),10.0^(-12))$
+tolerance_check("28 root J0-2 residual",bessel_j(0,root02),10.0^(-12))$
+tolerance_check("28 root J1-1 residual",bessel_j(1,root11),10.0^(-12))$
+tolerance_check("28 root J1-2 residual",bessel_j(1,root12),10.0^(-12))$
+round_check("28 printed alpha01",root01,10^10,24048255577)$
+round_check("28 printed alpha02",root02,10^10,55200781103)$
+round_check("28 printed alpha11",root11,10^10,38317059702)$
+round_check("28 printed alpha12",root12,10^10,70155866698)$
+
+round_check("28 solved 1 frequency",
+            90*root01/(2*%pi*(1/4)),1000,137786)$
+round_check("28 solved 1 angular frequency",
+            90*root01/(1/4),1000,865737)$
+round_check("28 solved 2 frequency",
+            100*root12/(2*%pi*(2/5)),1000,279141)$
+round_check("28 solved 2 nodal radius",
+            (2/5)*root11/root12,10^6,218468)$
+tolerance_check("28 solved 2 fixed-rim residual",
+                bessel_j(1,root12),10.0^(-12))$
+round_check("28 numerical 1 frequency ratio",
+            root02/root01,10^5,229542)$
+a28n3 : 1/5$
+j28n3 : bessel_j(1,root01)$
+A28n3 : sqrt(2)/(a28n3*abs(j28n3))$
+round_check("28 numerical 3 printed J1",j28n3,10^10,5191474973)$
+round_check("28 numerical 3 normalization amplitude",
+            A28n3,10^4,136205)$
+tolerance_check("28 numerical 3 radial normalization residual",
+                A28n3^2*a28n3^2*j28n3^2/2-1,10.0^(-12))$
+angular28 :
+    sqrt(3)*cos(2*phi)+sin(2*phi)-2*cos(2*phi-%pi/6)$
+print("28 numerical 4 angular identity residual =",
+      ratsimp(sqrt(3)*cos(2*phi)+sin(2*phi)
+              -2*(cos(2*phi)*cos(%pi/6)
+                  +sin(2*phi)*sin(%pi/6))))$
+print("28 numerical 4 first node residual =",
+      trigsimp(subst(phi=%pi/3,angular28
+                    +2*cos(2*phi-%pi/6))))$
+print("28 numerical 4 second node residual =",
+      trigsimp(subst(phi=5*%pi/6,angular28
+                    +2*cos(2*phi-%pi/6))))$
+
+/* 2025-06-30: one-dimensional heat flow. */
+B30_1 : 2/L*integrate(T0*sin(%pi*x/L),x,0,L)$
+B30_2 : 2/L*integrate(T0*sin(2*%pi*x/L),x,0,L)$
+print("30 solved 1 B1 residual =",radcan(B30_1-4*T0/%pi))$
+print("30 solved 1 B2 residual =",radcan(B30_2))$
+
+T30 : 20+60*x+10*sin(%pi*x)*exp(-%pi^2*t/100)$
+print("30 solved 2 PDE residual =",
+      trigsimp(diff(T30,t)-diff(T30,x,2)/100))$
+print("30 solved 2 left-boundary residual =",subst(x=0,T30)-20)$
+print("30 solved 2 right-boundary residual =",subst(x=1,T30)-80)$
+print("30 solved 2 initial-profile residual =",
+      trigsimp(subst(t=0,T30)-(20+60*x+10*sin(%pi*x))))$
+round_check("30 solved 2 midpoint temperature",
+            subst([x=1/2,t=2],T30),10000,582087)$
+
+t30half : (1/2)^2*log(2)/((12/10^6)*%pi^2)$
+round_check("30 numerical 1 half-life seconds",t30half,100,146314)$
+round_check("30 numerical 1 half-life minutes",t30half/60,10000,243856)$
+ratio30 : exp(-8*(1/100)*%pi^2*2)$
+round_check("30 numerical 2 mode ratio",ratio30,10^6,206153)$
+B30n3 : 2*100*integrate(x*(1-x)*sin(%pi*x),x,0,1)$
+print("30 numerical 3 coefficient-form residual =",
+      radcan(B30n3-800/%pi^3))$
+round_check("30 numerical 3 coefficient value",B30n3,10000,258012)$
+t30n4 : (2/5)^2*log(100)/(4*(2/10^5)*%pi^2)$
+round_check("30 numerical 4 decay seconds",t30n4,1000,933203)$
+round_check("30 numerical 4 decay minutes",t30n4/60,10000,155534)$
+
+print("UG-II UNIT II: ALL ENHANCEMENT CHECKS COMPLETE")$
+quit();

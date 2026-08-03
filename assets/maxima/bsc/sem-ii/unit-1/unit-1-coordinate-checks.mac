@@ -48,4 +48,217 @@ spherical_laplacian_residual :
         lap_cart_sph)),p),th))$
 print("spherical-Laplacian residual =",spherical_laplacian_residual)$
 
+/* Post 1 enhancement: gradient and directional-derivative problems. */
+p1_s1_direction_residual : ratsimp((4*2+1*(-1)+(-2)*2)/3-1)$
+p1_s1_magnitude_residual : ratsimp(4^2+1^2+(-2)^2-21)$
+p1_s1_plane_residual : ratsimp(4*1+2-2*(-1)-8)$
+p1_s2_direct_residual : ratsimp(subst(t=1,diff(t^4+1-t,t))-3)$
+p1_s2_chain_residual : ratsimp(2*1+1*2+1*(-1)-3)$
+print("post-1 solved-1 directional residual =",p1_s1_direction_residual)$
+print("post-1 solved-1 magnitude residual =",p1_s1_magnitude_residual)$
+print("post-1 solved-1 tangent-plane residual =",p1_s1_plane_residual)$
+print("post-1 solved-2 direct-chain residual =",p1_s2_direct_residual)$
+print("post-1 solved-2 gradient-chain residual =",p1_s2_chain_residual)$
+
+p1_n1_residual : ratsimp(4*3/5+(-6)*4/5+12/5)$
+p1_n2_direction_norm_residual : radcan((1^2+1^2+(-2)^2)/6-1)$
+p1_n2_rate_residual : radcan(sqrt(1^2+1^2+(-2)^2)-sqrt(6))$
+p1_n3_residual : ratsimp(1+2*1+3*1-6)$
+p1_n4_residual : ratsimp((4*2+(-2)*(-2)+(-2)*1)/3-10/3)$
+p1_n5_residual : trigrat(subst(s=%pi,diff(cos(s)^2+sin(s)^2+s^2,s))-2*%pi)$
+p1_n6_residual : radcan((2+2+2)/sqrt(3)-2*sqrt(3))$
+print("post-1 numerical-1 residual =",p1_n1_residual)$
+print("post-1 numerical-2 direction residual =",p1_n2_direction_norm_residual)$
+print("post-1 numerical-2 rate residual =",p1_n2_rate_residual)$
+print("post-1 numerical-3 residual =",p1_n3_residual)$
+print("post-1 numerical-4 residual =",p1_n4_residual)$
+print("post-1 numerical-5 residual =",p1_n5_residual)$
+print("post-1 numerical-6 residual =",p1_n6_residual)$
+
+/* Post 2 enhancement: divergence, curl, line, surface, and volume integrals. */
+p2_s1_div_residual : ratsimp(diff(2*x-y,x)+diff(x+2*y,y)+diff(-z,z)-3)$
+p2_s1_curl_residual : ratsimp(diff(x+2*y,x)-diff(2*x-y,y)-2)$
+p2_s2_work_residual : ratsimp(integrate(t-t^2,t,0,1)-1/6)$
+p2_s2_force_curl_residual : ratsimp(diff(-x,x)-diff(y,y)+2)$
+p2_s3_flux_residual : ratsimp(integrate(integrate(1,y,0,1-x),x,0,1)-1/2)$
+print("post-2 solved-1 divergence residual =",p2_s1_div_residual)$
+print("post-2 solved-1 curl residual =",p2_s1_curl_residual)$
+print("post-2 solved-2 work residual =",p2_s2_work_residual)$
+print("post-2 solved-2 force-curl residual =",p2_s2_force_curl_residual)$
+print("post-2 solved-3 flux residual =",p2_s3_flux_residual)$
+
+p2_n1_divergence_form_residual :
+    ratsimp(diff(a*x^2,x)+diff(-x*y,y)+diff(-x*z,z)-2*x*(a-1))$
+p2_n1_solenoidal_parameter_residual :
+    ratsimp(subst(a=1,diff(a*x^2,x)+diff(-x*y,y)+diff(-x*z,z)))$
+p2_n2_curl_from_circulation_residual :
+    ratsimp((12/10000)/(4/10000)-3)$
+p2_n2_predicted_circulation_residual :
+    ratsimp(3*(15/100000)-45/100000)$
+p2_n3_potential_x_residual :
+    ratsimp(diff(k*(x*y+x*z+y*z),x)-k*(y+z))$
+p2_n3_potential_y_residual :
+    ratsimp(diff(k*(x*y+x*z+y*z),y)-k*(x+z))$
+p2_n3_potential_z_residual :
+    ratsimp(diff(k*(x*y+x*z+y*z),z)-k*(x+y))$
+p2_n3_endpoint_work_residual :
+    ratsimp(subst([x=1,y=2,z=3,k=1],k*(x*y+x*z+y*z))
+      -subst([x=1,y=0,z=0,k=1],k*(x*y+x*z+y*z))-11)$
+p2_n4_residual :
+    trigrat(integrate(4*(cos(t)+sin(t)),t,0,%pi/2)-8)$
+p2_n5_surface_area_residual :
+    radcan(2*%pi*integrate(r*sqrt(1+4*r^2),r,0,1)
+      -%pi*(5*sqrt(5)-1)/6)$
+p2_n6_residual :
+    ratsimp(integrate(integrate(integrate(
+      rho0*(1+x/L),x,0,L),y,0,L),z,0,L)-3*rho0*L^3/2)$
+print("post-2 numerical-1 divergence-form residual =",
+      p2_n1_divergence_form_residual)$
+print("post-2 numerical-1 solenoidal-parameter residual =",
+      p2_n1_solenoidal_parameter_residual)$
+print("post-2 numerical-2 circulation-to-curl residual =",
+      p2_n2_curl_from_circulation_residual)$
+print("post-2 numerical-2 predicted-circulation residual =",
+      p2_n2_predicted_circulation_residual)$
+print("post-2 numerical-3 potential-x residual =",p2_n3_potential_x_residual)$
+print("post-2 numerical-3 potential-y residual =",p2_n3_potential_y_residual)$
+print("post-2 numerical-3 potential-z residual =",p2_n3_potential_z_residual)$
+print("post-2 numerical-3 endpoint-work residual =",
+      p2_n3_endpoint_work_residual)$
+print("post-2 numerical-4 residual =",p2_n4_residual)$
+print("post-2 numerical-5 surface-area residual =",
+      p2_n5_surface_area_residual)$
+print("post-2 numerical-6 residual =",p2_n6_residual)$
+
+/* Post 3 enhancement: Gauss, Green, Stokes, and conservation. */
+p3_s1_volume_residual :
+    ratsimp(integrate(integrate(integrate(
+      2*(x+y+z),x,0,1),y,0,1),z,0,1)-3)$
+p3_s1_surface_residual : ratsimp(1+1+1-3)$
+p3_s2_green_residual :
+    ratsimp(integrate(integrate(2*x+2*y,y,0,1),x,0,2)-6)$
+p3_s3_stokes_residual : ratsimp(1/2-1/2)$
+print("post-3 solved-1 volume residual =",p3_s1_volume_residual)$
+print("post-3 solved-1 surface residual =",p3_s1_surface_residual)$
+print("post-3 solved-2 Green residual =",p3_s2_green_residual)$
+print("post-3 solved-3 Stokes residual =",p3_s3_stokes_residual)$
+
+p3_n1_unit_source_flux_residual :
+    ratsimp(4*%pi*integrate(r^4,r,0,2)-128*%pi/5)$
+p3_n1_source_parameter_residual :
+    ratsimp((256*%pi/5)/(128*%pi/5)-2)$
+p3_n1_measured_flux_residual :
+    ratsimp(2*(128*%pi/5)-256*%pi/5)$
+p3_n2_residual :
+    ratsimp(6*integrate(r^2,r,0,1)
+      *integrate(sin(th),th,0,%pi)
+      *integrate(1,p,0,2*%pi)-8*%pi)$
+p3_n3_x : 2*cos(t)^3$
+p3_n3_y : 2*sin(t)^3$
+p3_n3_astroid_area_residual :
+    trigrat(integrate(
+      (p3_n3_x*diff(p3_n3_y,t)-p3_n3_y*diff(p3_n3_x,t))/2,
+      t,0,2*%pi)-3*%pi/2)$
+p3_n4_residual :
+    ratsimp(integrate(integrate(3*r^3,r,0,1),p,0,2*%pi)-3*%pi/2)$
+p3_n5_curl_x_residual : ratsimp(diff(y,y)-diff(x,z)-1)$
+p3_n5_curl_y_residual : ratsimp(diff(z,z)-diff(y,x)-1)$
+p3_n5_curl_z_residual : ratsimp(diff(x,x)-diff(z,y)-1)$
+p3_n5_boundary_residual :
+    trigrat(integrate(cos(t)^2,t,0,2*%pi)-%pi)$
+p3_n5_hemisphere_residual :
+    trigrat(integrate(integrate(
+      (sin(th)*cos(p)+sin(th)*sin(p)+cos(th))*sin(th),
+      p,0,2*%pi),th,0,%pi/2)-%pi)$
+p3_n6_residual : ratsimp(-(-1/5*5)-1)$
+print("post-3 numerical-1 unit-source-flux residual =",
+      p3_n1_unit_source_flux_residual)$
+print("post-3 numerical-1 source-parameter residual =",
+      p3_n1_source_parameter_residual)$
+print("post-3 numerical-1 measured-flux residual =",
+      p3_n1_measured_flux_residual)$
+print("post-3 numerical-2 residual =",p3_n2_residual)$
+print("post-3 numerical-3 astroid-area residual =",
+      p3_n3_astroid_area_residual)$
+print("post-3 numerical-4 residual =",p3_n4_residual)$
+print("post-3 numerical-5 curl-x residual =",p3_n5_curl_x_residual)$
+print("post-3 numerical-5 curl-y residual =",p3_n5_curl_y_residual)$
+print("post-3 numerical-5 curl-z residual =",p3_n5_curl_z_residual)$
+print("post-3 numerical-5 boundary residual =",p3_n5_boundary_residual)$
+print("post-3 numerical-5 hemisphere residual =",p3_n5_hemisphere_residual)$
+print("post-3 numerical-6 residual =",p3_n6_residual)$
+
+/* Post 4 enhancement: orthogonal-coordinate operator problems. */
+p4_s1_grad_rho_residual :
+    ratsimp(subst([rho=2,p=0,z=3],diff(rho^2*z*cos(p),rho))-12)$
+p4_s1_grad_phi_residual :
+    trigrat(subst([rho=2,p=0,z=3],
+      diff(rho^2*z*cos(p),p)/rho))$
+p4_s1_grad_z_residual :
+    ratsimp(subst([rho=2,p=0,z=3],diff(rho^2*z*cos(p),z))-4)$
+p4_s1_lap_general_residual :
+    trigrat(1/rho*diff(rho*diff(rho^2*z*cos(p),rho),rho)
+      +1/rho^2*diff(rho^2*z*cos(p),p,2)
+      +diff(rho^2*z*cos(p),z,2)-3*z*cos(p))$
+p4_s1_lap_value_residual :
+    ratsimp(subst([z=3,p=0],3*z*cos(p))-9)$
+p4_s2_div_residual :
+    ratsimp(1/rho*diff(rho*rho^2,rho)+diff(z^2,z)-(3*rho+2*z))$
+p4_s2_curl_rho_residual : ratsimp(-diff(rho*z,z)-(-rho))$
+p4_s2_curl_z_residual :
+    ratsimp(1/rho*diff(rho*(rho*z),rho)-2*z)$
+p4_s2_value_div_residual : ratsimp(subst([rho=2,z=1],3*rho+2*z)-8)$
+p4_s2_value_curl_rho_residual : ratsimp(subst(rho=2,-rho)+2)$
+p4_s2_value_curl_z_residual : ratsimp(subst(z=1,2*z)-2)$
+p4_s3_lap_residual : ratsimp(1/r^2*diff(r^2*diff(K/r,r),r))$
+p4_s3_div_residual :
+    ratsimp(1/r^2*diff(r^2*B0*(RR/r)^2,r))$
+print("post-4 solved-1 gradient-rho residual =",p4_s1_grad_rho_residual)$
+print("post-4 solved-1 gradient-phi residual =",p4_s1_grad_phi_residual)$
+print("post-4 solved-1 gradient-z residual =",p4_s1_grad_z_residual)$
+print("post-4 solved-1 Laplacian-form residual =",p4_s1_lap_general_residual)$
+print("post-4 solved-1 Laplacian-value residual =",p4_s1_lap_value_residual)$
+print("post-4 solved-2 divergence-form residual =",p4_s2_div_residual)$
+print("post-4 solved-2 curl-rho residual =",p4_s2_curl_rho_residual)$
+print("post-4 solved-2 curl-z residual =",p4_s2_curl_z_residual)$
+print("post-4 solved-2 divergence-value residual =",p4_s2_value_div_residual)$
+print("post-4 solved-2 curl-rho-value residual =",p4_s2_value_curl_rho_residual)$
+print("post-4 solved-2 curl-z-value residual =",p4_s2_value_curl_z_residual)$
+print("post-4 solved-3 Laplacian residual =",p4_s3_lap_residual)$
+print("post-4 solved-3 divergence residual =",p4_s3_div_residual)$
+
+p4_n1_rho_residual :
+    ratsimp(subst([rho=2,p=%pi/2,z=3],diff(rho*z*sin(p),rho))-3)$
+p4_n1_phi_residual :
+    trigrat(subst([rho=2,p=%pi/2,z=3],diff(rho*z*sin(p),p)/rho))$
+p4_n1_z_residual :
+    ratsimp(subst([rho=2,p=%pi/2,z=3],diff(rho*z*sin(p),z))-2)$
+p4_n2_residual :
+    trigrat(subst([p=0,z=1],
+      1/rho*diff(rho*(rho*z),rho)
+      +1/rho*diff(rho*sin(p),p)+diff(z^2,z))-5)$
+p4_n3_residual :
+    ratsimp(subst(rho=2,1/rho*diff(rho*rho^2,rho))-6)$
+p4_n4_r_residual :
+    trigrat(subst([r=2,th=%pi/3],diff(r^2*cos(th),r))-2)$
+p4_n4_theta_residual :
+    radcan(trigreduce(subst([r=2,th=%pi/3],
+      diff(r^2*cos(th),th)/r))+sqrt(3))$
+p4_n5_residual :
+    trigrat(subst(th=%pi/3,
+      1/(r*sin(th))*diff(sin(th)*r*sin(th),th))-1)$
+p4_n6_residual :
+    trigrat(subst([r=2,th=%pi/3],
+      1/r^2*diff(r^2*diff(r^3*cos(th),r),r)
+      +1/(r^2*sin(th))*diff(sin(th)*diff(r^3*cos(th),th),th))-10)$
+print("post-4 numerical-1 rho residual =",p4_n1_rho_residual)$
+print("post-4 numerical-1 phi residual =",p4_n1_phi_residual)$
+print("post-4 numerical-1 z residual =",p4_n1_z_residual)$
+print("post-4 numerical-2 residual =",p4_n2_residual)$
+print("post-4 numerical-3 residual =",p4_n3_residual)$
+print("post-4 numerical-4 radial residual =",p4_n4_r_residual)$
+print("post-4 numerical-4 theta residual =",p4_n4_theta_residual)$
+print("post-4 numerical-5 residual =",p4_n5_residual)$
+print("post-4 numerical-6 residual =",p4_n6_residual)$
+
 quit();

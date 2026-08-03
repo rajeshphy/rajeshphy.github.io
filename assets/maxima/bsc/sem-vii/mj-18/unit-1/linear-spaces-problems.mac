@@ -1,0 +1,77 @@
+/* UG-VII MJ-18 Unit I: solved and numerical problem checks. */
+kill(all)$
+
+dagger(M) := transpose(conjugate(M))$
+mres(M) := radcan(sum(sum(M[i,j]*conjugate(M[i,j]),j,1,length(M[1])),i,1,length(M)))$
+vres(V) := radcan(sum(V[i,1]*conjugate(V[i,1]),i,1,length(V)))$
+
+/* Solved problem 1: basis and coordinates. */
+B : matrix([1,1,0],[%i,-%i,0],[0,0,1])$
+psi3 : matrix([2],[2*%i],[3])$
+coords : matrix([2],[0],[3])$
+print("basis determinant residual = ",radcan(determinant(B)+2*%i))$
+print("nonorthogonal coordinate residual = ",vres(B.coords-psi3))$
+
+/* Solved problem 2: projector. */
+u : matrix([1],[%i])/sqrt(2)$
+psi2 : matrix([2],[%i])/sqrt(5)$
+P : u.dagger(u)$
+amp_matrix : dagger(u).psi2$
+amp : amp_matrix$
+prob_matrix : dagger(psi2).P.psi2$
+print("projector idempotence residual = ",mres(P.P-P))$
+print("projector amplitude residual = ",radcan(amp-3/sqrt(10)))$
+print("projector probability residual = ",radcan(prob_matrix-9/10))$
+
+/* Solved problem 3: Hermitian spectrum and expectation. */
+M : matrix([2,%i],[-%i,3])$
+print("Hermitian matrix residual = ",mres(dagger(M)-M))$
+print("characteristic polynomial residual = ",ratsimp(determinant(M-lam*ident(2))-(lam^2-5*lam+5)))$
+state : matrix([1],[%i])/sqrt(2)$
+expectation_matrix : dagger(state).M.state$
+print("Hermitian expectation residual = ",radcan(expectation_matrix-3/2))$
+
+/* Numerical problems. */
+u3 : matrix([1],[%i],[-1])$
+v3 : matrix([2],[0],[%i])$
+answer1 : matrix([5-%i],[1+%i],[-1+3*%i])$
+print("closure combination residual = ",vres((1-%i)*u3+2*v3-answer1))$
+
+phi : matrix([1],[%i],[1])/sqrt(3)$
+chi : matrix([1],[-%i],[1])/sqrt(3)$
+ov_matrix : dagger(phi).chi$
+ov : ov_matrix$
+print("inner product residual = ",radcan(ov-1/3))$
+print("overlap probability residual = ",radcan(ov*conjugate(ov)-1/9))$
+
+e1 : matrix([1],[1],[0])/sqrt(2)$
+e2 : matrix([1],[-1],[0])/sqrt(2)$
+e3 : matrix([0],[0],[1])$
+psin : matrix([2],[0],[%i])/sqrt(5)$
+c1_matrix : dagger(e1).psin$
+c2_matrix : dagger(e2).psin$
+c3_matrix : dagger(e3).psin$
+c : matrix([c1_matrix],[c2_matrix],[c3_matrix])$
+c_expected : matrix([sqrt(2/5)],[sqrt(2/5)],[%i/sqrt(5)])$
+coordinate_norm_matrix : dagger(c).c$
+print("orthonormal coordinates residual = ",vres(c-c_expected))$
+print("coordinate norm residual = ",radcan(coordinate_norm_matrix-1))$
+
+uo : matrix([1],[0])$
+vo : matrix([1],[%i])/sqrt(2)$
+Ao : uo.dagger(vo)$
+xo : matrix([2],[-%i])$
+print("outer-product matrix residual = ",mres(Ao-matrix([1,-%i],[0,0])/sqrt(2)))$
+print("outer-product action residual = ",vres(Ao.xo-matrix([1/sqrt(2)],[0])))$
+
+A : matrix([0,1],[1,0])$
+C : matrix([1,0],[0,-1])$
+print("operator commutator residual = ",mres(A.C-C.A-matrix([0,-2],[2,0])))$
+
+U : matrix([1,%i],[%i,1])/sqrt(2)$
+x0 : matrix([1],[0])$
+Ux0 : U.x0$
+unitary_norm_matrix : dagger(Ux0).Ux0$
+print("unitarity residual = ",mres(dagger(U).U-ident(2)))$
+print("unitary image residual = ",vres(Ux0-matrix([1],[%i])/sqrt(2)))$
+print("unitary norm residual = ",radcan(unitary_norm_matrix-1))$

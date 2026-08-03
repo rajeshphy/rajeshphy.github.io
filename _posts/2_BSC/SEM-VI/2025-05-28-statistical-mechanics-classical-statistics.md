@@ -37,7 +37,17 @@ $$
 
 so
 
-$$U=-\frac{\partial\ln Z}{\partial\beta},\qquad F=-k_BT\ln Z,qquad S=-\left(\frac{\partial F}{\partial T}\right)_{V,N}.$$
+$$U=-\frac{\partial\ln Z}{\partial\beta},\qquad F=-k_BT\ln Z,\qquad S=-\left(\frac{\partial F}{\partial T}\right)_{V,N}.$$
+
+The second derivative measures canonical energy fluctuations:
+
+$$
+\left\langle(\Delta E)^2\right\rangle
+=\frac{\partial^2\ln Z}{\partial\beta^2}
+=k_BT^2C_V.
+$$
+
+For an extensive system $C_V\propto N$, while $U\propto N$, so $\sqrt{\langle(\Delta E)^2\rangle}/U\propto N^{-1/2}$. This is why canonical and microcanonical predictions agree for macroscopic matter even though energy fluctuates in the canonical ensemble.
 
 ## Maxwell-Boltzmann distribution
 
@@ -148,4 +158,85 @@ $$
 
 Each independent quadratic term contributes $k_BT/2$. A monatomic ideal gas has three translational momentum terms, hence $U=3Nk_BT/2$ and $C_V=3Nk_B/2$. A classical rigid diatomic molecule adds two rotational terms, predicting $C_V=5Nk_B/2$; a fully excited vibrational mode adds two more quadratic terms and contributes $Nk_B$. The law fails when level spacings are not small compared with $k_BT$, because quantum coordinates then cannot explore energy continuously.
 
+## Solved Problems
+
+### 1. Characteristic molecular speeds
+
+Find the most probable, mean, and root-mean-square speeds of nitrogen molecules at $300\ \mathrm K$. Use $m_{N_2}=28.0134\ \mathrm u$.
+
+The molecular mass is
+
+$$m=(28.0134)(1.66053906660\times10^{-27})
+=4.65173\times10^{-26}\ \mathrm{kg}.$$
+
+Moments of the normalized Maxwell distribution give
+
+$$
+v_{mp}=\sqrt{\frac{2k_BT}{m}},\qquad
+\bar v=\sqrt{\frac{8k_BT}{\pi m}},\qquad
+v_{rms}=\sqrt{\frac{3k_BT}{m}}.
+$$
+
+At $300\ \mathrm K$,
+
+$$v_{mp}=421.997\ \mathrm{m\,s^{-1}},$$
+
+$$\bar v=476.173\ \mathrm{m\,s^{-1}},\qquad
+v_{rms}=516.839\ \mathrm{m\,s^{-1}}.$$
+
+Their order $v_{mp}<\bar v<v_{rms}$ reflects the long high-speed tail. Each expression has units $\sqrt{\mathrm{J/kg}}=\mathrm{m\,s^{-1}}$.
+
+### 2. Testing the classical-gas condition
+
+Helium gas at $300\ \mathrm K$ has number density $n=2.45\times10^{25}\ \mathrm{m^{-3}}$. For $m=4.002602\ \mathrm u$, calculate $\lambda_T$ and $n\lambda_T^3$.
+
+The translational thermal wavelength is
+
+$$
+\lambda_T=\frac{h}{\sqrt{2\pi mk_BT}}
+=5.03811\times10^{-11}\ \mathrm m=0.0503811\ \mathrm{nm}.
+$$
+
+Thus
+
+$$
+n\lambda_T^3=(2.45\times10^{25})
+(5.03811\times10^{-11})^3
+=3.13307\times10^{-6}.
+$$
+
+This dimensionless parameter is much smaller than unity, so wave packets overlap negligibly and Maxwell-Boltzmann statistics is self-consistent. The classical limit is approached as $T$ increases or $n$ decreases.
+
+## Descriptive Questions
+
+1. Derive the canonical probability distribution by treating the heat reservoir multiplicity to first order in the subsystem energy.
+2. Starting from $W=N!\prod_i g_i^{n_i}/n_i!$, obtain the Maxwell-Boltzmann occupation law under fixed-$N$ and fixed-energy constraints.
+3. Explain the roles of $h^{3N}$ and $N!$ in classical phase-space counting and show how indistinguishability restores extensive entropy.
+4. Compare the microcanonical, canonical, and grand-canonical ensembles in terms of fixed variables and permitted exchanges; identify the appropriate equilibrium extremum in each case: maximum entropy for an isolated system, minimum Helmholtz free energy at fixed $N,V,T$, and minimum grand potential at fixed $\mu,V,T$.
+
+## Numerical Problems
+
+1. Find $U$ and $H$ for $2.00\ \mathrm{mol}$ of a monatomic ideal gas at $400\ \mathrm K$.
+
+   **Answer:** $U=9.97736\ \mathrm{kJ}$ and $H=16.6289\ \mathrm{kJ}$.
+
+2. One mole of ideal gas expands isothermally and reversibly from $V$ to $2V$. Find its entropy change.
+
+   **Answer:** $\Delta S=R\ln2=5.76315\ \mathrm{J\,K^{-1}}$.
+
+3. For a monatomic ideal gas containing $N=1.00\times10^{20}$ particles, find the canonical relative rms energy fluctuation $\sigma_E/U$.
+
+   **Answer:** $\sigma_E/U=\sqrt{2/(3N)}=8.16497\times10^{-11}$.
+
+4. One mole of a rigid diatomic ideal gas is heated through $100\ \mathrm K$ while vibration remains frozen. Find the heat absorbed at constant volume.
+
+   **Answer:** $Q_V=(5/2)R\Delta T=2.07862\ \mathrm{kJ}$.
+
 [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-vi/statistical/unit-1/classical-statistics.mac' | relative_url }})
+
+## References
+
+1. [Maxwell-Boltzmann statistics — Wikipedia](https://en.wikipedia.org/wiki/Maxwell%E2%80%93Boltzmann_statistics)
+2. F. Reif, *Fundamentals of Statistical and Thermal Physics*, chapters 6–9 on ensembles, canonical distributions, and ideal gases.
+3. R. K. Pathria and P. D. Beale, *Statistical Mechanics*, 3rd ed., chapters 1, 3, and 4 on ensembles and classical gases.
+4. K. Huang, *Statistical Mechanics*, 2nd ed., chapters 6–9 on classical ensembles, ideal gases, and the Gibbs paradox.

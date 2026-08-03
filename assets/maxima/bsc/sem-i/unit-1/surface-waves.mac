@@ -35,4 +35,104 @@ cmin4 : 4*g^2/kc2$
 print("Minimum-speed residual (must be 0):",
   ratsimp(cmin4-4*g*gamma/rho))$
 
+/* Finite depth and group velocity. */
+phi_fd : Phi*cosh(k*(z+h))/cosh(k*h)$
+dphi_fd : diff(phi_fd,z)$
+print("Finite-depth bottom-condition residual (must be 0):",
+  ratsimp(ev(dphi_fd,z=-h)))$
+print("Finite-depth surface-gradient residual (must be 0):",
+  trigsimp(ev(dphi_fd,z=0)
+    -k*tanh(k*h)*ev(phi_fd,z=0)))$
+
+omega2_fd : (g*k+(gamma/rho)*k^3)*tanh(k*h)$
+print("Finite-depth deep-limit form residual (must be 0):",
+  ratsimp(ev(omega2_fd,tanh(k*h)=1)-omega2))$
+print("Finite-depth shallow-limit form residual (must be 0):",
+  ratsimp(ev(omega2_fd,tanh(k*h)=k*h)
+    -(g*h*k^2+(gamma/rho)*h*k^4)))$
+
+omega_deep : sqrt(omega2)$
+cg_deep : diff(omega_deep,k)$
+cg_deep_expected : (g+3*gamma*k^2/rho)/(2*omega_deep)$
+print("Deep-water group-velocity residual (must be 0):",
+  radcan(cg_deep-cg_deep_expected))$
+cg_phase_ratio : radcan(cg_deep/(omega_deep/k))$
+print("Gravity group-to-phase ratio residual (must be 0):",
+  ratsimp(ev(cg_phase_ratio,gamma=0)-1/2))$
+print("Capillary group-to-phase ratio residual (must be 0):",
+  ratsimp(ev(cg_phase_ratio,g=0)-3/2))$
+
+/* Solved problem 1. */
+rho1 : 1000$
+gamma1 : 9/125$
+g1 : 981/100$
+kc1 : sqrt(rho1*g1/gamma1)$
+lambda1 : 2*%pi/kc1$
+cmin1 : (4*g1*gamma1/rho1)^(1/4)$
+omega1 : sqrt(2*g1*kc1)$
+freq1 : omega1/(2*%pi)$
+print("Solved 1 crossover-balance residual (must be 0):",
+  ratsimp(g1*kc1-gamma1*kc1^3/rho1))$
+print("Solved 1 minimum-speed identity residual (must be 0):",
+  ratsimp(cmin1^4-4*g1*gamma1/rho1))$
+print("Solved 1 displayed wave-number check (must be 0):",
+  round(float(10*kc1))-3691)$
+print("Solved 1 displayed wavelength check (must be 0):",
+  round(float(100000*lambda1))-1702)$
+print("Solved 1 displayed minimum-speed check (must be 0):",
+  round(float(10000*cmin1))-2306)$
+print("Solved 1 displayed frequency check (must be 0):",
+  round(float(100*freq1))-1354)$
+
+/* Solved problem 2. */
+lambda2 : 20$
+h2 : 1$
+g2 : 981/100$
+k2 : 2*%pi/lambda2$
+omega2n : sqrt(g2*k2*tanh(k2*h2))$
+c2n : omega2n/k2$
+cg2n : c2n/2*(1+2*k2*h2/sinh(2*k2*h2))$
+csh2 : sqrt(g2*h2)$
+x : k*h$
+cg_finite_a : c/2*(1+x/(sinh(x)*cosh(x)))$
+cg_finite_b : c/2*(1+2*x/sinh(2*x))$
+print("Finite-depth group-form identity residual (must be 0):",
+  ratsimp(cg_finite_a
+    -subst(2*sinh(x)*cosh(x),sinh(2*x),cg_finite_b)))$
+print("Solved 2 displayed omega check (must be 0):",
+  round(float(10000*omega2n))-9683)$
+print("Solved 2 displayed phase-speed check (must be 0):",
+  round(float(1000*c2n))-3082)$
+print("Solved 2 displayed group-speed check (must be 0):",
+  round(float(1000*cg2n))-2985)$
+print("Solved 2 displayed shallow-speed check (must be 0):",
+  round(float(1000*csh2))-3132)$
+
+/* Six numerical problems. */
+n1_c : sqrt((981/100)*4/(2*%pi))$
+print("Numerical 1 displayed gravity speed check (must be 0):",
+  round(float(1000*n1_c))-2499)$
+
+n2_c : sqrt(2*%pi*(73/1000)/(1000*(4/1000)))$
+print("Numerical 2 displayed capillary speed check (must be 0):",
+  round(float(10000*n2_c))-3386)$
+
+n3_lambda : 2/100$
+n3_c : sqrt((981/100)*n3_lambda/(2*%pi)
+  +2*%pi*(9/125)/(1000*n3_lambda))$
+print("Numerical 3 displayed combined speed check (must be 0):",
+  round(float(10000*n3_c))-2320)$
+
+n4_cg : (3/2)*(2/5)$
+print("Numerical 4 capillary group-speed residual (must be 0):",
+  ratsimp(n4_cg-3/5))$
+
+n5_depth : (12/100)/(2*%pi)$
+print("Numerical 5 displayed decay-depth check (must be 0):",
+  round(float(10000*n5_depth))-191)$
+
+n6_c : sqrt((981/100)*2)$
+print("Numerical 6 displayed shallow speed check (must be 0):",
+  round(float(1000*n6_c))-4429)$
+
 quit();

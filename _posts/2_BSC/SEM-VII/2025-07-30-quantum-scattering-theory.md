@@ -61,8 +61,8 @@ e^{-i\hbar k^2t/(2\mu)}d^3k,
 $$
 
 where the scattering states use the plane-wave convention
-$\langle\psi_{\mathbf k}^{(+)}\mid\psi_{\mathbf k'}^{(+)}\rangle
-=(2\pi)^3\delta^3(\mathbf k-\mathbf k')$. Thus $a(\mathbf k)$ is concentrated
+$\langle\psi_{\mathbf k}^{(+)}\mid\psi_{\mathbf k^{\prime}}^{(+)}\rangle
+=(2\pi)^3\delta^3(\mathbf k-\mathbf k^{\prime})$. Thus $a(\mathbf k)$ is concentrated
 near $\mathbf k_0$ and $\int\lvert a(\mathbf k)\rvert^2d^3k=1$. Before collision, the
 incoming part is localized;
 after collision, the outgoing packet separates spatially. The stationary
@@ -81,8 +81,8 @@ $$
 Define the outgoing Green function by
 
 $$
-(E-H_0)G^{(+)}(\mathbf r-\mathbf r')
-=\delta^3(\mathbf r-\mathbf r').
+(E-H_0)G^{(+)}(\mathbf r-\mathbf r^{\prime})
+=\delta^3(\mathbf r-\mathbf r^{\prime}).
 $$
 
 Since
@@ -105,28 +105,28 @@ Adding a free incident solution gives the Lippmann-Schwinger equation
 $$
 \psi(\mathbf r)=e^{i\mathbf k\cdot\mathbf r}
 -\frac{\mu}{2\pi\hbar^2}
-\int\frac{e^{ik\lvert\mathbf r-\mathbf r'\rvert}}
-{\lvert\mathbf r-\mathbf r'\rvert}
-V(\mathbf r')\psi(\mathbf r')d^3r'.
+\int\frac{e^{ik\lvert\mathbf r-\mathbf r^{\prime}\rvert}}
+{\lvert\mathbf r-\mathbf r^{\prime}\rvert}
+V(\mathbf r^{\prime})\psi(\mathbf r^{\prime})d^3r^{\prime}.
 $$
 
 For $r$ much larger than the range of the potential,
 
 $$
-\lvert\mathbf r-\mathbf r'\rvert\simeq r-\hat{\mathbf r}\cdot\mathbf r',
+\lvert\mathbf r-\mathbf r^{\prime}\rvert\simeq r-\hat{\mathbf r}\cdot\mathbf r^{\prime},
 \qquad
-\frac1{\lvert\mathbf r-\mathbf r'\rvert}\simeq\frac1r.
+\frac1{\lvert\mathbf r-\mathbf r^{\prime}\rvert}\simeq\frac1r.
 $$
 
 Comparison with the asymptotic definition identifies
-$\mathbf k'=k\hat{\mathbf r}$ and
+$\mathbf k^{\prime}=k\hat{\mathbf r}$ and
 
 $$
 \boxed{
-f(\mathbf k',\mathbf k)
+f(\mathbf k^{\prime},\mathbf k)
 =-\frac{\mu}{2\pi\hbar^2}
-\int e^{-i\mathbf k'\cdot\mathbf r'}
-V(\mathbf r')\psi(\mathbf r')d^3r'.
+\int e^{-i\mathbf k^{\prime}\cdot\mathbf r^{\prime}}
+V(\mathbf r^{\prime})\psi(\mathbf r^{\prime})d^3r^{\prime}.
 }
 $$
 
@@ -136,21 +136,21 @@ integral.
 ## Born approximation
 
 When the scattered wave is small inside the interaction region, replace
-$\psi(\mathbf r')$ by the incident plane wave. The first Born amplitude is
+$\psi(\mathbf r^{\prime})$ by the incident plane wave. The first Born amplitude is
 
 $$
 \boxed{
 f_B(\mathbf q)
 =-\frac{\mu}{2\pi\hbar^2}
 \int e^{-i\mathbf q\cdot\mathbf r}V(\mathbf r)d^3r,
-\qquad \mathbf q=\mathbf k'-\mathbf k.
+\qquad \mathbf q=\mathbf k^{\prime}-\mathbf k.
 }
 $$
 
-Elastic scattering has $\lvert\mathbf k'\rvert=\lvert\mathbf k\rvert=k$, so
+Elastic scattering has $\lvert\mathbf k^{\prime}\rvert=\lvert\mathbf k\rvert=k$, so
 
 $$
-q^2=\lvert\mathbf k'-\mathbf k\rvert^2
+q^2=\lvert\mathbf k^{\prime}-\mathbf k\rvert^2
 =2k^2(1-\cos\theta)=4k^2\sin^2\frac\theta2.
 $$
 
@@ -212,7 +212,7 @@ $$
 
 the incident plane wave contains, in each $l$ channel, equal incoming and
 outgoing radial flux. Outside the potential range, the radial solution obeys
-$u_l''+[k^2-l(l+1)/r^2]u_l=0$ and may be written
+$u_l^{\prime\prime}+[k^2-l(l+1)/r^2]u_l=0$ and may be written
 
 $$
 \boxed{
@@ -249,8 +249,8 @@ $$
 Legendre orthogonality,
 
 $$
-\int P_l(\cos\theta)P_{l'}(\cos\theta)d\Omega
-=\frac{4\pi}{2l+1}\delta_{ll'},
+\int P_l(\cos\theta)P_{l^{\prime}}(\cos\theta)d\Omega
+=\frac{4\pi}{2l+1}\delta_{ll^{\prime}},
 $$
 
 then gives
@@ -302,7 +302,7 @@ f_0(k)=\frac{e^{2i\delta_0}-1}{2ik}
 $$
 
 At zero energy and outside the potential range, the radial equation is
-$u_0''=0$. Normalize its solution as
+$u_0^{\prime\prime}=0$. Normalize its solution as
 
 $$
 u_0(r)\longrightarrow1-\frac ra.
@@ -341,6 +341,141 @@ The integral terminates effectively outside the interaction range because the
 two terms then coincide. Substitution into $f_0(k)$ describes the leading
 finite-energy correction to scattering-length behavior.
 
-The outgoing Green equation for $r>0$, screened-Coulomb transform,
-Rutherford form, partial-wave optical theorem, and scattering-length limit
-are checked in the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-18/unit-3/quantum-scattering.mac' | relative_url }}); every printed residual is zero.
+## Solved Problems
+
+### 1. First Born scattering from a Gaussian potential
+
+Let
+
+$$
+V(r)=V_0e^{-r^2/a^2}.
+$$
+
+Choose the $z$ axis along $\mathbf q$. The three-dimensional Fourier
+integral may be evaluated as a product of Cartesian Gaussian integrals:
+
+$$
+\begin{aligned}
+\int e^{-i\mathbf q\cdot\mathbf r}e^{-r^2/a^2}d^3r
+&=\prod_{j=x,y,z}\int_{-\infty}^{\infty}
+e^{-x_j^2/a^2-iq_jx_j}dx_j\\
+&=(\sqrt\pi a)^3
+\exp\left(-\frac{a^2q^2}{4}\right).
+\end{aligned}
+$$
+
+Substitution into the Born formula gives
+
+$$
+\boxed{
+f_B(q)=-\frac{\mu V_0\sqrt\pi a^3}{2\hbar^2}
+e^{-a^2q^2/4},
+\qquad q=2k\sin\frac\theta2.}
+$$
+
+Therefore
+
+$$
+\boxed{
+\frac{d\sigma_B}{d\Omega}
+=\frac{\pi\mu^2V_0^2a^6}{4\hbar^4}
+\exp\left(-\frac{a^2q^2}{2}\right).}
+$$
+
+$\mu V_0a^3/\hbar^2$ has units of length, so the cross section has units of
+area. The forward value is largest, the angular width decreases as $ka$
+increases, and the result vanishes continuously as $V_0\to0$.
+
+### 2. Partial waves and the optical theorem
+
+Suppose only $l=0$ and $l=1$ contribute, with
+$\delta_0=30^\circ$, $\delta_1=10^\circ$, and
+$k=2.00\,\mathrm{nm^{-1}}$. The total cross section is
+
+$$
+\begin{aligned}
+\sigma_{\rm tot}
+&=\frac{4\pi}{k^2}
+[\sin^2\delta_0+3\sin^2\delta_1]\\
+&=\pi[0.25+3(0.0301537)]\,\mathrm{nm^2}\\
+&=\boxed{1.06959\,\mathrm{nm^2}}.
+\end{aligned}
+$$
+
+The imaginary part of the forward amplitude is
+
+$$
+\operatorname{Im}f(0)
+=\frac1k[\sin^2\delta_0+3\sin^2\delta_1]
+=0.170231\,\mathrm{nm}.
+$$
+
+Consequently
+
+$$
+\frac{4\pi}{k}\operatorname{Im}f(0)
+=1.06959\,\mathrm{nm^2}=\sigma_{\rm tot},
+$$
+
+which verifies the optical theorem with consistent length and area units.
+If both phase shifts tend to zero, the cross section tends to zero.
+
+### 3. Effective-range correction at low energy
+
+Take scattering length $a=5.00\,\mathrm{fm}$, effective range
+$r_e=1.50\,\mathrm{fm}$, and $k=0.100\,\mathrm{fm^{-1}}$. To order $k^2$,
+
+$$
+k\cot\delta_0
+=-\frac1a+\frac12r_ek^2
+=-0.200+0.00750
+=-0.19250\,\mathrm{fm^{-1}}.
+$$
+
+Thus
+
+$$
+f_0(k)=\frac1{-0.19250-i(0.100)}\,\mathrm{fm},
+$$
+
+and the $s$-wave cross section is
+
+$$
+\begin{aligned}
+\sigma_0
+&=4\pi\lvert f_0\rvert^2
+=\frac{4\pi}{(0.19250)^2+(0.100)^2}\,\mathrm{fm^2}\\
+&=\boxed{267.050\,\mathrm{fm^2}}.
+\end{aligned}
+$$
+
+The denominator has units $\mathrm{fm^{-2}}$, so the result has units of
+area. As $k\to0$, the effective-range term and $ik$ vanish and the formula
+reduces to $4\pi a^2=314.159\,\mathrm{fm^2}$.
+
+## Descriptive Questions
+
+1. Explain why a localized incident wave packet is physically required and how the stationary differential cross section emerges in its narrow-momentum limit.
+2. Derive the outgoing Green function and the Lippmann-Schwinger equation, keeping the normalization, sign, and outgoing boundary condition explicit.
+3. Obtain the first Born amplitude, state its regime of validity, and explain why a screened limit is needed before transforming the Coulomb potential.
+4. Derive the partial-wave amplitude, total cross section, optical theorem, and effective-range expansion for a short-range central potential.
+
+## Numerical Problems
+
+1. If $f(\theta)=0.400\cos\theta\,\mathrm{nm}$, calculate $d\sigma/d\Omega$ at $\theta=60^\circ$ and the total cross section.
+2. A normalized momentum-space packet has $a(\mathbf k)=C\exp[-\lvert\mathbf k-\mathbf k_0\rvert^2/(4s^2)]$ with $s=0.200\,\mathrm{nm^{-1}}$. Find $C$ from $\int\lvert a\rvert^2d^3k=1$.
+3. For elastic scattering with $k=5.00\,\mathrm{nm^{-1}}$ and $\theta=60^\circ$, find the momentum-transfer magnitude $q$.
+4. Evaluate the Rutherford differential cross section for $\kappa_C=1.44\,\mathrm{eV\,nm}$, $E=1.00\,\mathrm{keV}$, and $\theta=30^\circ$.
+
+**Final answers:** 1. $0.0400\,\mathrm{nm^2\,sr^{-1}}$ and $0.670206\,\mathrm{nm^2}$; 2. $C=(2\pi s^2)^{-3/4}=2.817\,\mathrm{nm^{3/2}}$; 3. $q=5.00\,\mathrm{nm^{-1}}$; 4. $2.88815\times10^{-5}\,\mathrm{nm^2\,sr^{-1}}$.
+
+The core derivations and all problem answers are checked in the
+[original Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-18/unit-3/quantum-scattering.mac' | relative_url }})
+and the [problems worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-18/unit-3/scattering-problems.mac' | relative_url }}); every printed residual is zero.
+
+## References
+
+1. [Scattering theory](https://en.wikipedia.org/wiki/Scattering_theory).
+2. J. J. Sakurai and J. Napolitano, *Modern Quantum Mechanics*, 3rd ed., Chapter 6, “Scattering Theory.”
+3. D. J. Griffiths and D. F. Schroeter, *Introduction to Quantum Mechanics*, 3rd ed., Chapter 11, “Scattering.”
+4. J. R. Taylor, *Scattering Theory: The Quantum Theory of Nonrelativistic Collisions*, Dover ed., Chapters 1–3.

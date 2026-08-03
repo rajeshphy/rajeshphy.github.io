@@ -1,3 +1,4 @@
+kill(all)$
 display2d:false$
 
 dot(u,v):=sum(u[i]*v[i],i,1,3)$
@@ -26,3 +27,37 @@ v_recip:abs(determinant(matrix(b1,b2,b3)))$
 residual_cell_volume:ratsimp(v_direct*v_recip-(2*%pi)^3)$
 print("residual_cell_volume =",residual_cell_volume)$
 
+/* Solved problem 1: density of fcc copper for a = 0.3615 nm. */
+density_cu : 4*63.546/(6.02214076*10^23*(0.3615*10^(-7))^3)$
+density_cu_check : round(float(density_cu)*1000)-8935$
+print("fcc copper density rounding check =",density_cu_check)$
+
+/* Solved problem 2: first-order (200) reflection for a and lambda in nm. */
+theta_200 : asin(0.154/0.352)$
+two_theta_200_check : round(float(2*theta_200*180/%pi)*1000)-51889$
+index_200_check : round(float((2*0.352*sin(51.89*%pi/360)/0.154)^2)*1000)-4000$
+print("(200) two-theta rounding check =",two_theta_200_check)$
+print("Bragg-index identification check =",index_200_check)$
+
+/* Exercise answers: cell volume, reciprocal quantities, packing and zone edge. */
+exercise_cell_volume_check : determinant(matrix([3/10,0,0],[1/10,2/5,0],[0,1/20,1/2]))-3/50$
+g111 : 2*%pi*sqrt(3)/0.408$
+d111 : 0.408/sqrt(3)$
+g111_check : round(float(g111)*1000)-26674$
+d111_check : round(float(d111)*10000)-2356$
+fcc_radius : 0.408/sqrt(8)$
+fcc_radius_check : round(float(fcc_radius)*1000)-144$
+fcc_packing_check : round(float(%pi/(3*sqrt(2)))*10000)-7405$
+fcc_210_check : 1-1+1-1$
+fcc_311_check : 1+1+1+1-4$
+bz_edge_check : round(float(%pi/0.25)*1000)-12566$
+bz_width_check : round(float(2*%pi/0.25)*1000)-25133$
+print("primitive-cell volume check (nm^3) =",exercise_cell_volume_check)$
+print("G_111 rounding check (nm^-1) =",g111_check)$
+print("d_111 rounding check (nm) =",d111_check)$
+print("fcc radius rounding check (nm) =",fcc_radius_check)$
+print("fcc packing-fraction rounding check =",fcc_packing_check)$
+print("fcc (210) extinction check =",fcc_210_check)$
+print("fcc (311) amplitude check =",fcc_311_check)$
+print("one-dimensional zone-edge check (nm^-1) =",bz_edge_check)$
+print("one-dimensional zone-width check (nm^-1) =",bz_width_check)$

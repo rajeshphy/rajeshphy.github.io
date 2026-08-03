@@ -47,4 +47,71 @@ print("Pauli-susceptibility coefficient residual =",
       ratsimp(mu0*muB^2*gF(EF)/V
               -3*mu0*(Nfermi/V)*muB^2/(2*EF)))$
 
+/* Worked-problem and exercise values. */
+fpprintprec : 12$
+kB_si : 1.380649b-23$
+h_si : 6.62607015b-34$
+hbar_si : h_si/(2*%pi)$
+c_si : 2.99792458b8$
+qe_si : 1.602176634b-19$
+u_si : 1.66053906660b-27$
+me_si : 9.1093837139b-31$
+mu0_si : 4*%pi*1b-7$
+muB_si : 9.2740100657b-24$
+
+mRb : 86.909180531b0*u_si$
+nRb : 1b20$
+zeta32 : 2.61237534868549b0$
+TcRb : 2*%pi*hbar_si^2/(mRb*kB_si)*(nRb/zeta32)^(2/3)$
+frac_half : 1-(1/2)^(3/2)$
+print("Rb-87 critical temperature (K) and half-Tc fraction =",
+      bfloat(TcRb),bfloat(frac_half))$
+Tc_sym : 2*%pi*hbars^2/(ms*kBs)*(ns/zeta_s)^(2/3)$
+print("BEC critical-temperature check =",
+      ratsimp(Tc_sym-
+              2*%pi*hbars^2/(ms*kBs)*(ns/zeta_s)^(2/3)))$
+
+nmetal : 8.5b28$
+kF_num : (3*%pi^2*nmetal)^(1/3)$
+EF_num : hbar_si^2*kF_num^2/(2*me_si)$
+TF_num : EF_num/kB_si$
+P_num : (2/5)*nmetal*EF_num$
+print("Metal kF (m^-1), EF (eV), TF (K), P0 (Pa) =",
+      bfloat(kF_num),bfloat(EF_num/qe_si),
+      bfloat(TF_num),bfloat(P_num))$
+kF_sym : (3*%pi^2*ns)^(1/3)$
+EF_sym : hbars^2*kF_sym^2/(2*ms)$
+print("Fermi state-count check =",
+      radcan(kF_sym^3-3*%pi^2*ns))$
+print("Degeneracy-pressure check =",
+      ratsimp((2/5)*ns*EF_sym-(2/3)*(3/5)*ns*EF_sym))$
+
+nBE2 : 1/(exp(2)-1)$
+nFD2 : 1/(exp(2)+1)$
+nMB2 : exp(-2)$
+print("BE, FD and MB occupations at two kT =",
+      bfloat(nBE2),bfloat(nFD2),bfloat(nMB2))$
+print("Quantum-to-classical limit check =",
+      ratsimp(limit(exp(y)/(exp(y)-1),y,inf)-1))$
+
+AR_si : 4*%pi*qe_si*me_si*kB_si^2/h_si^3$
+J_therm : AR_si*2500b0^2*
+          exp(-(4.50b0*qe_si)/(kB_si*2500b0))$
+print("Ideal thermionic current density (A/m^2) =",bfloat(J_therm))$
+Jsym : ARs*Ts^2*exp(-phis/(kBs*Ts))$
+print("Richardson-Dushman formula check =",
+      ratsimp(Jsym-ARs*Ts^2*exp(-phis/(kBs*Ts))))$
+
+K_photo_eV : h_si*c_si/(400b-9*qe_si)-2.30b0$
+print("Photoelectron maximum energy (eV) =",bfloat(K_photo_eV))$
+Ksym : hs*cs/lambdas-phis$
+print("Photoelectric energy-balance check =",
+      ratsimp(Ksym+phis-hs*cs/lambdas))$
+
+chi_num : 3*mu0_si*5b28*muB_si^2/(2*(5.50b0*qe_si))$
+print("Pauli spin susceptibility =",bfloat(chi_num))$
+chisym : 3*mu0s*ns*muBs^2/(2*EFs)$
+print("Pauli-susceptibility check =",
+      ratsimp(chisym-3*mu0s*ns*muBs^2/(2*EFs)))$
+
 quit()$

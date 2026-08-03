@@ -26,3 +26,39 @@ residual_ode : trigsimp(diff(y,t,2)+omega^2*y-F0/m)$
 print("oscillator differential-equation residual = ",residual_ode)$
 print("oscillator initial-displacement residual = ",at(y,t=0))$
 print("oscillator initial-velocity residual = ",at(diff(y,t),t=0))$
+
+/* Enhanced solved-problem and final-answer checks. */
+ramp_integral : integrate(t*exp(-s*t),t,0,T)$
+ramp_transform : ramp_integral/(1-exp(-s*T))$
+ramp_expected : 1/s^2-T/(s*(exp(s*T)-1))$
+print("periodic-ramp transform residual = ",radcan(exponentialize(ramp_transform-ramp_expected)))$
+print("periodic-ramp large-s leading-term residual = ",radcan(limit(s^2*ramp_expected,s,inf)-1))$
+
+inverse_fraction : (2*s+7)/(s^2+4*s+13)$
+inverse_decomposition : 2*(s+2)/((s+2)^2+9)+3/((s+2)^2+9)$
+inverse_function : exp(-2*t)*(2*cos(3*t)+sin(3*t))$
+print("completed-square decomposition residual = ",ratsimp(inverse_fraction-inverse_decomposition))$
+print("completed-square inverse-transform residual = ",ratsimp(laplace(inverse_function,t,s)-inverse_fraction))$
+print("completed-square initial-value residual = ",radcan(at(inverse_function,t=0)-2))$
+
+impulse_y : v0*exp(-2*t)*sin(t)$
+print("impulse-response transform residual = ",ratsimp(laplace(impulse_y,t,s)-v0/((s+2)^2+1)))$
+print("impulse-response differential-equation residual = ",radcan(exponentialize(diff(impulse_y,t,2)+4*diff(impulse_y,t)+5*impulse_y)))$
+print("impulse-response displacement residual = ",at(impulse_y,t=0))$
+print("impulse-response velocity-jump residual = ",radcan(at(diff(impulse_y,t),t=0)-v0))$
+
+problem_1 : laplace(exp(-8*t),t,s)$
+problem_2 : 2*exp(-s)-3*exp(-4*s)$
+problem_3 : integrate(exp(-s*t),t,0,1)/(1-exp(-3*s))$
+problem_4 : integrate(t-u,u,0,t)$
+problem_5 : (1-cos(2*t))/2$
+problem_6 : 3-2*exp(-2*t)$
+print("scale-theorem numerical residual = ",ratsimp(problem_1-1/(s+8)))$
+print("shifted-delta numerical residual = ",radcan(problem_2-(2*exp(-s)-3*exp(-4*s))))$
+print("periodic-pulse numerical residual = ",radcan(exponentialize(problem_3-(1-exp(-s))/(s*(1-exp(-3*s))))))$
+print("causal-convolution numerical residual = ",ratsimp(problem_4-t^2/2))$
+print("convolution-transform numerical residual = ",ratsimp(laplace(problem_4,t,s)-1/s^3))$
+print("integral-definition numerical residual = ",trigsimp(diff(problem_5,t)-sin(2*t)))$
+print("integral-theorem numerical residual = ",ratsimp(laplace(problem_5,t,s)-2/(s*(s^2+4))))$
+print("first-order IVP differential-equation residual = ",radcan(diff(problem_6,t)+2*problem_6-6))$
+print("first-order IVP initial-value residual = ",radcan(at(problem_6,t=0)-1))$

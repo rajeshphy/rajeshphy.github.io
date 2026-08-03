@@ -30,6 +30,8 @@ $$\boxed{\bar n_{BE}=\frac1{e^{\beta(\epsilon-\mu)}-1}},\qquad
 
 The minus sign permits any boson occupation; the plus sign enforces fermion occupation $0$ or $1$. When $e^{\beta(\epsilon-\mu)}\gg1$, both reduce to Maxwell-Boltzmann statistics, $\bar n\simeq e^{-\beta(\epsilon-\mu)}$.
 
+The degeneracy parameter $n\lambda_T^3$ locates this crossover: $n\lambda_T^3\ll1$ is classical, whereas values of order unity require quantum statistics. For bosons the denominator must remain positive, so $\mu$ cannot exceed the one-particle ground-state energy; choosing that energy as zero gives $\mu\le0$. Fermions have no analogous upper bound because Pauli exclusion already limits each state occupation.
+
 ## Bose gas and condensation
 
 For free particles in three dimensions, the density of states is
@@ -127,7 +129,7 @@ Only electrons within about $k_BT$ of $E_F$ can change occupation. The Sommerfel
 $$
 \int_0^\infty\Phi(\epsilon)f(\epsilon)d\epsilon
 =\int_0^\mu\Phi(\epsilon)d\epsilon
-+\frac{\pi^2}{6}(k_BT)^2\Phi'(\mu)+\cdots
++\frac{\pi^2}{6}(k_BT)^2\Phi^{\prime}(\mu)+\cdots
 $$
 
 first applied to $N$ fixes the chemical potential, and then applied to $U$ gives
@@ -200,4 +202,95 @@ $$M=\mu_B(N_+-N_-)/V,\qquad
 
 Unlike Curie paramagnetism, $\chi_P$ is nearly temperature independent for $T\ll T_F$.
 
+## Solved Problems
+
+### 1. Bose condensation temperature and condensate fraction
+
+An ideal gas of $^{87}\mathrm{Rb}$ atoms has number density $n=1.00\times10^{20}\ \mathrm{m^{-3}}$. Using $m=86.9091805\ \mathrm u$ and $\zeta(3/2)=2.61237535$, find $T_c$ and the condensate fraction at $T=T_c/2$.
+
+At the transition, the excited states hold all particles:
+
+$$
+n=\frac{\zeta(3/2)}{\lambda_{T_c}^3}.
+$$
+
+Solving for temperature gives
+
+$$
+T_c=\frac{2\pi\hbar^2}{mk_B}
+\left[\frac{n}{\zeta(3/2)}\right]^{2/3}
+=3.98331\times10^{-7}\ \mathrm K.
+$$
+
+Thus $T_c=398.331\ \mathrm{nK}$. Below $T_c$,
+
+$$
+\frac{N_0}{N}=1-\left(\frac{T}{T_c}\right)^{3/2}
+=1-\left(\frac12\right)^{3/2}=0.646447.
+$$
+
+About $64.6\%$ is condensed in the ideal-gas model. The fraction approaches one as $T\to0$ and vanishes continuously as $T\to T_c^-$.
+
+### 2. Fermi scales and degeneracy pressure of conduction electrons
+
+A metal has conduction-electron density $n=8.50\times10^{28}\ \mathrm{m^{-3}}$. Treat the electrons as a zero-temperature free Fermi gas and find $k_F$, $E_F$, $T_F$, and $P_0$.
+
+State counting gives
+
+$$
+k_F=(3\pi^2n)^{1/3}=1.36023\times10^{10}\ \mathrm{m^{-1}}.
+$$
+
+Therefore
+
+$$
+E_F=\frac{\hbar^2k_F^2}{2m_e}
+=1.12941\times10^{-18}\ \mathrm J=7.04936\ \mathrm{eV},
+$$
+
+$$
+T_F=\frac{E_F}{k_B}=8.18044\times10^4\ \mathrm K,
+$$
+
+and
+
+$$
+P_0=\frac25nE_F=3.84007\times10^{10}\ \mathrm{Pa}.
+$$
+
+Room temperature is far below $T_F$, so the electrons are strongly degenerate. The pressure remains nonzero at $T=0$ because Pauli exclusion, not thermal motion, fills momentum states up to $k_F$.
+
+## Descriptive Questions
+
+1. Derive the Bose-Einstein and Fermi-Dirac occupation functions from their single-state grand partition factors, identifying where the sign difference enters.
+2. Explain why a conserved ideal Bose gas condenses in three dimensions and derive the $T^{3/2}$ excited fraction below $T_c$.
+3. Use the Sommerfeld expansion to explain why the electronic heat capacity is linear in $T$ and much smaller than the classical equipartition value.
+4. Derive Pauli spin susceptibility from the field-induced transfer of electrons at the Fermi surface and contrast its temperature dependence with Curie's law.
+
+## Numerical Problems
+
+1. At an energy $\epsilon-\mu=2k_BT$, calculate the Bose-Einstein, Fermi-Dirac, and Maxwell-Boltzmann mean occupations of one state.
+
+   **Answer:** $\bar n_{BE}=0.156518$, $\bar n_{FD}=0.119203$, and $\bar n_{MB}=0.135335$.
+
+2. Estimate the ideal Richardson-Dushman current density from a metal with work function $4.50\ \mathrm{eV}$ at $2500\ \mathrm K$. Use $A_R=1.20173229\times10^6\ \mathrm{A\,m^{-2}\,K^{-2}}$.
+
+   **Answer:** $J=6.36923\times10^3\ \mathrm{A\,m^{-2}}$.
+
+3. Light of wavelength $400\ \mathrm{nm}$ illuminates a metal with work function $2.30\ \mathrm{eV}$. Find the maximum photoelectron energy and stopping potential.
+
+   **Answer:** $K_{max}=0.799605\ \mathrm{eV}$ and $V_s=0.799605\ \mathrm V$.
+
+4. Estimate the Pauli spin susceptibility for $n=5.00\times10^{28}\ \mathrm{m^{-3}}$ and $E_F=5.50\ \mathrm{eV}$.
+
+   **Answer:** $\chi_P=9.19884\times10^{-6}$ in SI units.
+
 [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-vi/statistical/unit-3/quantum-statistics.mac' | relative_url }})
+
+## References
+
+1. [Particle statistics — Wikipedia](https://en.wikipedia.org/wiki/Particle_statistics)
+2. R. K. Pathria and P. D. Beale, *Statistical Mechanics*, 3rd ed., chapters 6–8 on ideal Bose and Fermi gases.
+3. C. Kittel and H. Kroemer, *Thermal Physics*, 2nd ed., chapters 6–8 on ideal gases, Fermi systems, and Bose systems.
+4. N. W. Ashcroft and N. D. Mermin, *Solid State Physics*, chapters 2 and 31 on the free-electron gas and conduction-electron paramagnetism.
+5. C. J. Pethick and H. Smith, *Bose-Einstein Condensation in Dilute Gases*, 2nd ed., chapter 2 on the ideal Bose gas.

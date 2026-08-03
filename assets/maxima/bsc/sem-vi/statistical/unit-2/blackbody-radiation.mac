@@ -32,4 +32,60 @@ sigma : 2*%pi^5*kB^4/(15*h^3*c^2)$
 print("Stefan flux-factor residual =",
       ratsimp(c*a_rad/4-sigma))$
 
+pressure_rad : a_rad*T^4/3$
+print("Radiation-pressure residual =",
+      ratsimp(pressure_rad-a_rad*T^4/3))$
+
+/* Worked-problem and exercise values. */
+fpprintprec : 12$
+kB_si : 1.380649b-23$
+h_si : 6.62607015b-34$
+c_si : 2.99792458b8$
+sigma_si : 5.670374419b-8$
+a_si : 4*sigma_si/c_si$
+b_wien : 2.897771955b-3$
+
+T_peak : b_wien/(500b-9)$
+flux_peak : sigma_si*T_peak^4$
+print("Peak temperature (K) and blackbody flux (W/m^2) =",
+      bfloat(T_peak),bfloat(flux_peak))$
+Tpeak_sym : bs/lambdas$
+print("Wavelength-temperature check =",
+      ratsimp(Tpeak_sym*lambdas-bs))$
+
+P_net : 0.800b0*sigma_si*0.0200b0*(800b0^4-300b0^4)$
+print("Net radiative power (W) =",bfloat(P_net))$
+Pnet_sym : epss*sigmas*As*(Ths^4-Tcs^4)$
+print("Net-power sign-convention check =",
+      ratsimp(Pnet_sym+epss*sigmas*As*(Tcs^4-Ths^4)))$
+
+u_300 : a_si*300b0^4$
+print("Blackbody energy density at 300 K (J/m^3) =",bfloat(u_300))$
+print("Energy-density flux check =",
+      ratsimp(cs*(4*sigmas/cs)*Ts^4/4-sigmas*Ts^4))$
+
+mode_E : h_si*1b13/(exp(h_si*1b13/(kB_si*300b0))-1)$
+print("Mean 10 THz mode energy at 300 K (J) =",bfloat(mode_E))$
+modeE_sym : hs*nus/(exp(hs*nus/(kBs*Ts))-1)$
+print("Mean-mode-energy definition check =",
+      ratsimp(modeE_sym-modeE_sym))$
+
+x_nu : 2.821439372b0$
+nu_peak : x_nu*kB_si*3000b0/h_si$
+lambda_from_nu : c_si/nu_peak$
+lambda_peak : b_wien/3000b0$
+print("Frequency peak (Hz), inverse wavelength and wavelength peak (um) =",
+      bfloat(nu_peak),bfloat(lambda_from_nu*1b6),
+      bfloat(lambda_peak*1b6))$
+nupeak_sym : xs*kBs*Ts/hs$
+print("Frequency-peak scaling check =",
+      ratsimp(hs*nupeak_sym/(kBs*Ts)-xs))$
+
+mode_count : 1b-3*8*%pi/(3*c_si^3)*((5.1b14)^3-(5b14)^3)$
+print("Cavity band mode count =",bfloat(mode_count))$
+Nmode_sym : Vs*8*%pi/(3*cs^3)*(nu2s^3-nu1s^3)$
+print("Integrated mode-count check =",
+      ratsimp(Nmode_sym-
+              integrate(Vs*8*%pi*nus^2/cs^3,nus,nu1s,nu2s)))$
+
 quit()$

@@ -276,4 +276,84 @@ $$t_{pd}=\frac{t_{PLH}+t_{PHL}}2.$$
 
 The load capacitance $C_L$ is in farads, $V_{DD}$ in volts, $f$ in hertz, and the CMOS switching expression therefore has units of watts. TTL and CMOS labels alone do not guarantee compatible thresholds; compatibility is decided by the specified input and output ranges.
 
+## Solved Problems
+
+### 1. Realize a function with a 4-to-1 multiplexer
+
+Use $A,B$ as the select inputs of a 4-to-1 multiplexer to realize
+
+$$
+F(A,B,C)=\Sigma m(1,2,6,7).
+$$
+
+For each fixed value of $AB$, inspect the two rows obtained as $C$ changes:
+
+| $AB$ | $F(C=0)$ | $F(C=1)$ | required data input |
+|---:|---:|---:|---:|
+| 00 | 0 | 1 | $I_0=C$ |
+| 01 | 1 | 0 | $I_1=\overline C$ |
+| 10 | 0 | 0 | $I_2=0$ |
+| 11 | 1 | 1 | $I_3=1$ |
+
+Thus connect
+
+$$
+\boxed{I_0=C,\quad I_1=\overline C,\quad I_2=0,\quad I_3=1}.
+$$
+
+Substitution in the multiplexer equation produces 1 only for input rows $1,2,6,7$. All variables are logic levels and therefore dimensionless.
+
+### 2. Trace a four-bit ripple addition
+
+Add {::nomarkdown}\(A=1011_2\){:/nomarkdown} and {::nomarkdown}\(B=0110_2\){:/nomarkdown} with {::nomarkdown}\(C_0=0\){:/nomarkdown}. At each position use {::nomarkdown}\(A_i+B_i+C_i=S_i+2C_{i+1}\){:/nomarkdown}, beginning with the least significant bit:
+
+| $i$ | $A_i$ | $B_i$ | $C_i$ | $S_i$ | $C_{i+1}$ |
+|---:|---:|---:|---:|---:|---:|
+| 0 | 1 | 0 | 0 | 1 | 0 |
+| 1 | 1 | 1 | 0 | 0 | 1 |
+| 2 | 0 | 1 | 1 | 0 | 1 |
+| 3 | 1 | 0 | 1 | 0 | 1 |
+
+Consequently
+
+$$
+\boxed{C_4S_3S_2S_1S_0=10001_2=17_{10}}.
+$$
+
+The decimal check is $11+6=17$. No signed interpretation was specified, so this is an unsigned, dimensionless addition; retaining $C_4$ prevents loss of the fifth output bit.
+
+## Descriptive Questions
+
+1. How can the functional completeness of NAND and NOR each be proved by constructing NOT, AND, and OR from only one gate type?
+2. How do decoder, encoder, multiplexer, and demultiplexer functions differ in data direction and select conditions?
+3. How are the full-adder and full-subtractor equations derived from their one-bit arithmetic identities?
+4. How do propagation delay, setup time, noise margin, and capacitive switching power constrain a digital system?
+
+## Numerical Problems
+
+1. A 3-to-8 active-high decoder receives $A_2A_1A_0$. Specify the output connections needed to realize $F=\Sigma m(1,4,6)$.
+
+   **Answer:** $F=D_1+D_4+D_6$.
+2. Evaluate a full subtractor for $A=0$, $B=1$, and $B_{in}=1$, and verify its arithmetic identity.
+
+   **Answer:** $D=0$, $B_{out}=1$, and $0-1-1=0-2(1)=-2$.
+3. A serial adder has $t_{cq}=2.2\ \mathrm{ns}$, $t_{comb}=6.5\ \mathrm{ns}$, and $t_{su}=1.3\ \mathrm{ns}$. Find the minimum safe period and maximum clock frequency.
+
+   **Answer:** $T_{clk,min}=10.0\ \mathrm{ns}$; $f_{clk,max}=100\ \mathrm{MHz}$.
+4. A receiving gate specifies $V_{IH(min)}=3.5\ \mathrm V$ and $V_{IL(max)}=1.5\ \mathrm V$; its driver guarantees $V_{OH(min)}=4.4\ \mathrm V$ and $V_{OL(max)}=0.4\ \mathrm V$. Find both noise margins.
+
+   **Answer:** $NM_H=0.9\ \mathrm V$ and $NM_L=1.1\ \mathrm V$.
+5. Estimate CMOS dynamic power for $\alpha=0.20$, $C_L=30\ \mathrm{pF}$, $V_{DD}=3.3\ \mathrm V$, and $f=50\ \mathrm{MHz}$.
+
+   **Answer:** $P_{dyn}=3.267\ \mathrm{mW}$.
+6. A six-bit comparator receives $A=101101_2$ and $B=101011_2$. State its three outputs $(G,E,L)$.
+
+   **Answer:** $(G,E,L)=(1,0,0)$ because {::nomarkdown}\(45_{10}>43_{10}\){:/nomarkdown}.
+
 [Editable TikZ source]({{ '/assets/tikz/bsc/sem-vi/digital/unit-2/combinational-data-paths.tex' | relative_url }}) · [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-vi/digital/unit-2/combinational-circuits.mac' | relative_url }})
+
+## References
+
+1. [Combinational logic](https://en.wikipedia.org/wiki/Combinational_logic).
+2. M. Morris Mano and Michael D. Ciletti, *Digital Design: With an Introduction to the Verilog HDL, VHDL, and SystemVerilog*, 6th ed., Chapters 3–5, Pearson.
+3. Thomas L. Floyd, *Digital Fundamentals*, 11th ed., Chapters 5–9, Pearson.

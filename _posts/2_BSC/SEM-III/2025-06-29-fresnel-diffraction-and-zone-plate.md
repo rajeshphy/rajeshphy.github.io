@@ -173,4 +173,104 @@ Away from the undeviated geometrical beam, $E_0$ contributes no diffracted field
   <figcaption>Zone boundaries use $r_n\simeq\sqrt{n\lambda b}$; every plotted edge, slit, and wire curve uses the displayed normalized Fresnel-integral formula.</figcaption>
 </figure>
 
-The zone radii, focal orders, and Fresnel normalization limits are checked in the [Unit II Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-2/mj4-unit-2-checks.mac' | relative_url }}).
+## Solved Problems
+
+### Problem 1: Equal areas of paraxial half-period zones
+
+Show that successive half-period zones for a plane wave have approximately equal area.
+
+For observation distance $b$,
+
+$$
+r_n^2\simeq n\lambda b,
+\qquad
+r_{n-1}^2\simeq(n-1)\lambda b.
+$$
+
+The area of the $n$th annulus is therefore
+
+$$
+\begin{aligned}
+A_n
+&=\pi(r_n^2-r_{n-1}^2)\\
+&=\pi\big[n\lambda b-(n-1)\lambda b\big]\\
+&=\boxed{\pi\lambda b}.
+\end{aligned}
+$$
+
+It is independent of $n$. This equal-area result explains why neighboring zone amplitudes change slowly and nearly cancel because their phases differ by $\pi$.
+
+### Problem 2: A Babinet-complement amplitude
+
+At one observation point, suppose a slit transmits the normalized complex field
+
+$$
+\frac{E_{\mathrm{slit}}}{E_0}=\frac{1+i}{4}.
+$$
+
+Find the complementary wire field and both normalized intensities.
+
+Babinet's amplitude relation gives
+
+$$
+\frac{E_{\mathrm{wire}}}{E_0}
+=1-\frac{E_{\mathrm{slit}}}{E_0}
+=1-\frac{1+i}{4}
+=\frac{3-i}{4}.
+$$
+
+Thus
+
+$$
+\frac{I_{\mathrm{slit}}}{I_0}
+=\left\lvert\frac{1+i}{4}\right\rvert^2
+=\frac{1^2+1^2}{16}
+=\boxed{\frac18},
+$$
+
+$$
+\frac{I_{\mathrm{wire}}}{I_0}
+=\left\lvert\frac{3-i}{4}\right\rvert^2
+=\frac{3^2+(-1)^2}{16}
+=\boxed{\frac58}.
+$$
+
+The intensities need not add to one; Babinet's relation is a complex-amplitude relation.
+
+## Descriptive Questions
+
+1. What additional amplitude and phase assumptions does Fresnel add to Huygens's construction?
+2. How does cancellation between successive half-period zones explain approximate rectilinear propagation?
+3. Why does an amplitude zone plate have several odd-order foci and strong chromatic aberration?
+4. How does a Cornu-spiral chord describe straight-edge, slit, and wire diffraction?
+
+## Numerical Problems
+
+1. For a plane wave, take $x=0.500\,\mathrm{mm}$, $b=1.00\,\mathrm m$, and $\lambda=500\,\mathrm{nm}$. Evaluate $u=x\sqrt{2/(\lambda b)}$.
+
+   **Answer:** $\boldsymbol{u=1.00}$.
+
+2. Find the paraxial radius of the 10th half-period zone for $b=1.00\,\mathrm m$ and $\lambda=500\,\mathrm{nm}$.
+
+   **Answer:** $\boldsymbol{r_{10}=\sqrt5\,\mathrm{mm}\simeq2.236\,\mathrm{mm}}$.
+
+3. A zone plate has first-zone radius $r_1=0.500\,\mathrm{mm}$ at $\lambda=500\,\mathrm{nm}$. Find its principal and third-order focal distances.
+
+   **Answer:** $\boldsymbol{f_1=0.500\,\mathrm m,\quad f_3=0.1667\,\mathrm m}$.
+
+4. Evaluate the normalized straight-edge intensity exactly at the geometrical boundary, where $u=0$.
+
+   **Answer:** $\boldsymbol{I_{\mathrm{edge}}/I_0=1/4=0.250}$.
+
+5. For a Fresnel slit, the endpoint differences are
+$C(u_2)-C(u_1)=0.80$ and $S(u_2)-S(u_1)=0.60$. Evaluate the normalized intensity.
+
+   **Answer:** $\boldsymbol{I_{\mathrm{slit}}/I_0=0.500}$.
+
+The zone radii, focal orders, Fresnel normalization limits, Babinet example, and all worked answers are checked in the [Unit II Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-2/mj4-unit-2-checks.mac' | relative_url }}).
+
+## References
+
+1. [Fresnel diffraction — Wikipedia](https://en.wikipedia.org/wiki/Fresnel_diffraction)
+2. [Ajoy Ghatak, *Optics*, 8th ed. — McGraw Hill](https://www.mheducation.co.in/optics-9789355328595-india)
+3. [Francis A. Jenkins and Harvey E. White, *Fundamentals of Optics* — Google Books bibliographic record](https://books.google.com/books/about/Fundamentals_of_Optics.html?id=4SPCJ0wtFSUC)

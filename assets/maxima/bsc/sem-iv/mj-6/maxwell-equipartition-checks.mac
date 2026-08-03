@@ -1,0 +1,14 @@
+/* MJ-6: Maxwell distribution, moments, equipartition, and printed answers. */
+kill(all)$
+assume(A>0)$
+f : 4*%pi*(A/%pi)^(3/2)*v^2*exp(-A*v^2)$
+print("normalization_residual =", ratsimp(integrate(f,v,0,inf)-1))$
+print("mean_speed_residual =", ratsimp(integrate(v*f,v,0,inf)-2/(sqrt(%pi)*sqrt(A))))$
+print("mean_square_speed_residual =", ratsimp(integrate(v^2*f,v,0,inf)-3/(2*A)))$
+print("speed_order_residual =", ratsimp(3/2-8/(2*%pi)-(3/2-4/%pi)))$
+print("gamma_degrees_residual =", ratsimp((g+2)/g-(1+2/g)))$
+R0 : 8.314462618$
+print("oxygen_vmp_rounding_residual =", round(10*sqrt(2*R0*300/0.032))-3948)$
+print("helium_vrms_rounding_residual =", round(sqrt(3*R0*400/0.004))-1579)$
+print("monatomic_deltaU_rounding_residual =", round((3/2)*2*R0*50)-1247)$
+print("degrees_from_gamma_residual =", ratsimp(2/(7/5-1)-5))$

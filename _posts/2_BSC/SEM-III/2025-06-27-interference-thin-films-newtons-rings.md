@@ -180,4 +180,88 @@ Every diameter must be measured in the same length unit; then the ratios are dim
   <figcaption>The film phase convention is shown explicitly; the ring radii are generated from $r_m=\sqrt{m\lambda R/\mu}$, so the decreasing radial spacing is physical.</figcaption>
 </figure>
 
-The intensity, visibility, film phase, wedge spacing, and ring-diameter identities are checked in the [Unit II Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-2/mj4-unit-2-checks.mac' | relative_url }}).
+## Solved Problems
+
+### Problem 1: Visibility for unequal beams
+
+Two coherent beams have intensities $I_1=9I_0$ and $I_2=4I_0$. Find the extreme intensities and fringe visibility.
+
+The interference extremes are
+
+$$
+I_{\max}=(\sqrt{I_1}+\sqrt{I_2})^2
+=(3+2)^2I_0=25I_0,
+$$
+
+$$
+I_{\min}=(\sqrt{I_1}-\sqrt{I_2})^2
+=(3-2)^2I_0=I_0.
+$$
+
+Therefore
+
+$$
+\mathcal V=\frac{I_{\max}-I_{\min}}{I_{\max}+I_{\min}}
+=\frac{25-1}{25+1}
+=\boxed{\frac{12}{13}}.
+$$
+
+The check $0<12/13<1$ is consistent with unequal but coherent beams.
+
+### Problem 2: Wavelength from Newton's rings
+
+For an air film with lens curvature radius $R=1.00\,\mathrm m$, the diameters of the 10th and 20th dark rings are $3.00\,\mathrm{mm}$ and $5.00\,\mathrm{mm}$. Find the wavelength.
+
+For orders separated by $p=10$,
+
+$$
+\lambda=\frac{D_{m+p}^2-D_m^2}{4pR}.
+$$
+
+Using SI units,
+
+$$
+\begin{aligned}
+\lambda
+&=\frac{(5.00\times10^{-3})^2-(3.00\times10^{-3})^2}
+{4(10)(1.00)}\\
+&=\frac{16.0\times10^{-6}}{40}
+=4.00\times10^{-7}\,\mathrm m.
+\end{aligned}
+$$
+
+Thus $\boxed{\lambda=400\,\mathrm{nm}}$. Substitution gives
+$D_{20}^2-D_{10}^2=4(10)\lambda R=16.0\,\mathrm{mm^2}$, matching the data.
+
+## Descriptive Questions
+
+1. How do division of wavefront and division of amplitude produce coherent beams, and what is one example of each?
+2. Why does reflection from a lower-index medium to a higher-index medium reverse the electric-field phase?
+3. How do Haidinger fringes differ from Fizeau fringes in geometry and localization?
+4. Why is the point of contact dark in reflected Newton's rings, and why is $D_m^2$ linear in order $m$?
+
+## Numerical Problems
+
+1. A wedge-shaped air film has angle $\alpha=0.50\,\mathrm{mrad}$ and is illuminated normally with $\lambda=600\,\mathrm{nm}$. Since $\beta=\lambda/(2\alpha)$,
+
+   **Answer:** $\boldsymbol{\beta=0.600\,\mathrm{mm}}$.
+
+2. A film of index $\mu=1.50$ has one reflection phase reversal. Find its least non-zero thickness for a reflected maximum at $\lambda=600\,\mathrm{nm}$, using $2\mu t=\lambda/2$.
+
+   **Answer:** $\boldsymbol{t=100\,\mathrm{nm}}$.
+
+3. The same Newton-ring order has diameter $4.20\,\mathrm{mm}$ in air and $3.50\,\mathrm{mm}$ after a liquid is introduced. Use $\mu=D_{\mathrm{air}}^2/D_{\ell}^2$.
+
+   **Answer:** $\boldsymbol{\mu=1.44}$.
+
+4. An air-film Newton ring has diameter $4.00\,\mathrm{mm}$ for $\lambda=500\,\mathrm{nm}$ and $R=1.00\,\mathrm m$. Find its dark-ring order from $D_m^2=4m\lambda R$.
+
+   **Answer:** $\boldsymbol{m=8}$.
+
+The intensity, visibility, film phase, wedge spacing, ring-diameter identities, and all worked answers are checked in the [Unit II Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-2/mj4-unit-2-checks.mac' | relative_url }}).
+
+## References
+
+1. [Thin-film interference — Wikipedia](https://en.wikipedia.org/wiki/Thin-film_interference)
+2. [Interference in Thin Films — OpenStax, *University Physics Volume 3*](https://openstax.org/books/university-physics-volume-3/pages/3-4-interference-in-thin-films)
+3. [Ajoy Ghatak, *Optics*, 8th ed. — McGraw Hill](https://www.mheducation.co.in/optics-9789355328595-india)

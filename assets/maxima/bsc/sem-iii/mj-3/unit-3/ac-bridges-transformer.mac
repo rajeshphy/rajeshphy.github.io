@@ -98,4 +98,70 @@ res_Xeq : ratsimp(Xeq-X1-a^2*Xsec)$
 print("primary-referred resistance residual =",res_Req)$
 print("primary-referred reactance residual =",res_Xeq)$
 
+/* Enhancement checks: solved problems and numerical answers. */
+L_design : 1/(w_design^2*C_design)$
+R_design : 1/(w_design*C_design*Q_design)$
+res_design_resonance :
+  ratsimp(w_design^2*L_design*C_design-1)$
+res_design_Q :
+  ratsimp(w_design*L_design/R_design-Q_design)$
+
+den_eff : xload*Pout+Pcore+xload^2*Pcu_full$
+eta_load : xload*Pout/den_eff$
+res_efficiency_derivative :
+  ratsimp(diff(eta_load,xload)
+    -Pout*(Pcore-xload^2*Pcu_full)/den_eff^2)$
+
+print("enhancement series-LCR design resonance residual =",res_design_resonance)$
+print("enhancement series-LCR design Q residual =",res_design_Q)$
+print("enhancement transformer-efficiency derivative residual =",res_efficiency_derivative)$
+
+Rs_num : 20$
+Ls_num : 1/5$
+Cs_num : 1/20000$
+ws_num : 1/sqrt(Ls_num*Cs_num)$
+fs_num : ws_num/(2*%pi)$
+Qs_num : ws_num*Ls_num/Rs_num$
+df_num : (Rs_num/Ls_num)/(2*%pi)$
+res_num_series_f : round(bfloat(10*fs_num))-503$
+res_num_series_Q : round(bfloat(100*Qs_num))-316$
+res_num_series_df : round(bfloat(10*df_num))-159$
+
+Rp_num : 2000$
+Lp_num : 1/10$
+Cp_num : 1/100000$
+wp_num : 1/sqrt(Lp_num*Cp_num)$
+fp_num : wp_num/(2*%pi)$
+Qp_num_value : wp_num*Rp_num*Cp_num$
+dwp_num : 1/(Rp_num*Cp_num)$
+res_num_parallel_f : round(bfloat(fp_num))-159$
+res_num_parallel_Q : ratsimp(Qp_num_value-20)$
+res_num_parallel_dw : ratsimp(dwp_num-50)$
+
+Cx_micro_num : (1/5)*600/400$
+carey_num : (1/50)*(47-35)$
+Rx_num : 100*200/500$
+Lx_num : (1/10^6)*(100/500)*(200*500+50*(200+500))$
+Vs_num : 230*200/1000$
+Ip_num : 10*200/1000$
+res_num_desauty : ratsimp(10*Cx_micro_num-3)$
+res_num_carey : ratsimp(100*carey_num-24)$
+res_num_anderson_R : ratsimp(Rx_num-40)$
+res_num_anderson_L : ratsimp(1000*Lx_num-27)$
+res_num_transformer_V : ratsimp(Vs_num-46)$
+res_num_transformer_I : ratsimp(Ip_num-2)$
+
+print("enhancement numerical series-resonance-frequency residual =",res_num_series_f)$
+print("enhancement numerical series-Q residual =",res_num_series_Q)$
+print("enhancement numerical series-bandwidth residual =",res_num_series_df)$
+print("enhancement numerical parallel-resonance-frequency residual =",res_num_parallel_f)$
+print("enhancement numerical parallel-Q residual =",res_num_parallel_Q)$
+print("enhancement numerical parallel-bandwidth residual =",res_num_parallel_dw)$
+print("enhancement numerical De-Sauty residual =",res_num_desauty)$
+print("enhancement numerical Carey-Foster residual =",res_num_carey)$
+print("enhancement numerical Anderson-resistance residual =",res_num_anderson_R)$
+print("enhancement numerical Anderson-inductance residual =",res_num_anderson_L)$
+print("enhancement numerical transformer-voltage residual =",res_num_transformer_V)$
+print("enhancement numerical transformer-current residual =",res_num_transformer_I)$
+
 quit()$

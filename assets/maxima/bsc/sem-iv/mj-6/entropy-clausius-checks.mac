@@ -1,0 +1,13 @@
+/* MJ-6: perfect-gas entropy, entropy generation, and printed answers. */
+kill(all)$
+dS_V : n*Cv*log(T2/T1)+n*R*log(V2/V1)$
+dS_p : n*(Cv+R)*log(T2/T1)-n*R*log(p2/p1)$
+/* p2/p1=(T2/T1)(V1/V2) for an ideal gas. */
+print("entropy_form_residual =", ratsimp(logcontract(subst(p2/p1=(T2/T1)*(V1/V2),dS_p-dS_V))))$
+Tf : (Ta+Tb)/2$
+print("two_body_entropy_residual =", ratsimp(logcontract(C*log(Tf/Ta)+C*log(Tf/Tb)-C*log(Tf^2/(Ta*Tb)))))$
+R0 : 8.314462618$
+print("isochoric_entropy_rounding_residual =", round(1000*(2*(3/2)*R0*log(450/300)))-10114)$
+print("isothermal_entropy_rounding_residual =", round(1000*R0*log(2))-5763)$
+print("reservoir_entropy_rounding_residual =", round(10000*500*(1/300-1/400))-4167)$
+print("free_expansion_rounding_residual =", round(1000*0.5*R0*log(3))-4567)$

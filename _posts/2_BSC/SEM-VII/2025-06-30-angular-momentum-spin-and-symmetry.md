@@ -137,9 +137,9 @@ $$
 Set $u_l=rR_l$. Since
 
 $$
-r^2\frac{dR_l}{dr}=ru_l'-u_l,
+r^2\frac{dR_l}{dr}=ru_l^{\prime}-u_l,
 \qquad
-\frac1{r^2}\frac d{dr}(ru_l'-u_l)=\frac{u_l''}{r},
+\frac1{r^2}\frac d{dr}(ru_l^{\prime}-u_l)=\frac{u_l^{\prime\prime}}{r},
 $$
 
 division of the Schrödinger equation by $Y_l^m/r$ gives
@@ -307,5 +307,159 @@ expectation reverses the two levels.
   <figcaption>For \(l=1\) and \(\xi_{n1}>0\), \(\langle\mathbf L\cdot\mathbf S\rangle/\hbar^2=1/2\) for \(j=3/2\) and \(-1\) for \(j=1/2\); the ordering reverses when \(\xi_{n1}<0\).</figcaption>
 </figure>
 
-The Pauli algebra, central-field radial substitution, singlet-triplet
-normalization, and spin-orbit eigenvalues are verified in the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-18/unit-2/angular-momentum-spin.mac' | relative_url }}); every printed residual is zero.
+## Solved Problems
+
+### 1. Spin components from a normalized Pauli spinor
+
+For
+
+$$
+\lvert\psi\rangle=
+\begin{pmatrix}\sqrt3/2\\i/2\end{pmatrix},
+$$
+
+normalization follows from $3/4+1/4=1$. A measurement of $S_z$ gives
+$+\hbar/2$ with probability $3/4$ and $-\hbar/2$ with probability $1/4$.
+Hence
+
+$$
+\langle S_z\rangle
+=\frac\hbar2\left(\frac34-\frac14\right)=\frac\hbar4.
+$$
+
+For the other components,
+
+$$
+\langle S_i\rangle=\frac\hbar2
+\langle\psi\rvert\sigma_i\lvert\psi\rangle.
+$$
+
+Direct matrix multiplication gives
+
+$$
+\langle\sigma_x\rangle=0,
+\qquad
+\langle\sigma_y\rangle=\frac{\sqrt3}{2},
+\qquad
+\langle\sigma_z\rangle=\frac12,
+$$
+
+so
+
+$$
+\boxed{
+\langle\mathbf S\rangle
+=\left(0,\frac{\sqrt3\hbar}{4},\frac\hbar4\right),
+\qquad
+\left\lvert\langle\mathbf S\rangle\right\rvert=\frac\hbar2.}
+$$
+
+Every component has units of angular momentum. The maximal magnitude
+$\hbar/2$ shows that this pure spinor points along the unit direction
+$(0,\sqrt3/2,1/2)$.
+
+### 2. Regular radial behavior at the origin
+
+Suppose $V(r)$ remains finite at $r=0$. Near the origin the centrifugal term
+dominates the radial equation for $l>0$:
+
+$$
+-\frac{\hbar^2}{2\mu}u_l^{\prime\prime}
++\frac{\hbar^2l(l+1)}{2\mu r^2}u_l\simeq0.
+$$
+
+With $u_l\sim r^p$, cancellation of the common factor $r^{p-2}$ gives
+
+$$
+p(p-1)-l(l+1)=0,
+$$
+
+whose roots are $p=l+1$ and $p=-l$. For $l=2$,
+
+$$
+u_2(r)\sim C_1r^3+C_2r^{-2}.
+$$
+
+Because the radial norm is $\int_0^\infty\lvert u_l(r)\rvert^2dr$, the
+$r^{-2}$ branch produces a divergent integral at the origin. Therefore
+
+$$
+\boxed{u_2(r)\propto r^3,
+\qquad R_2(r)=u_2(r)/r\propto r^2\quad(r\to0).}
+$$
+
+The coefficient carries the units needed by the normalization; the power law
+itself is independent of the particle mass and of the finite value $V(0)$.
+
+### 3. Coupling $l=1$ to spin $1/2$
+
+The unique state with maximum $m$ is
+
+$$
+\left\lvert\frac32,\frac32\right\rangle
+=\lvert1,1\rangle\left\lvert\frac12,\frac12\right\rangle.
+$$
+
+Apply $J_-=L_-+S_-$. On the coupled state,
+
+$$
+J_-\left\lvert\frac32,\frac32\right\rangle
+=\hbar\sqrt3\left\lvert\frac32,\frac12\right\rangle.
+$$
+
+On the uncoupled product,
+
+$$
+(L_-+S_-)\lvert1,1\rangle\lvert+\rangle
+=\hbar\sqrt2\lvert1,0\rangle\lvert+\rangle
++\hbar\lvert1,1\rangle\lvert-\rangle.
+$$
+
+Dividing by $\hbar\sqrt3$ gives
+
+$$
+\boxed{
+\left\lvert\frac32,\frac12\right\rangle
+=\sqrt{\frac23}\lvert1,0\rangle\lvert+\rangle
++\sqrt{\frac13}\lvert1,1\rangle\lvert-\rangle.}
+$$
+
+The normalized orthogonal combination with the same total $m=1/2$ is
+
+$$
+\boxed{
+\left\lvert\frac12,\frac12\right\rangle
+=\sqrt{\frac13}\lvert1,0\rangle\lvert+\rangle
+-\sqrt{\frac23}\lvert1,1\rangle\lvert-\rangle.}
+$$
+
+The squared coefficients in either line add to one, and every product ket
+has $m_l+m_s=1/2$, providing normalization and selection-rule checks.
+
+## Descriptive Questions
+
+1. Starting from the angular-momentum commutators, derive the allowed values of $j$ and $m$ and the normalized action of $J_\pm$.
+2. Derive the radial Schrödinger equation for a central potential, stating both endpoint boundary conditions and the origin of the centrifugal term.
+3. Explain how translation, rotation, time-translation, and parity invariance lead to their corresponding conservation laws, noting why parity is a discrete symmetry.
+4. For two identical electrons, relate exchange symmetry of the spatial and spin factors to the exclusion principle and to the singlet-triplet classification.
+
+## Numerical Problems
+
+1. For $j=5/2$ and $m=-3/2$, find the eigenvalues of $J^2$ and $J_z$ and the magnitude $\sqrt{\langle J^2\rangle}$.
+2. Evaluate $J_+\lvert2,-1\rangle$, including its numerical coefficient and final magnetic quantum number.
+3. Find the centrifugal energy $\hbar^2l(l+1)/(2m_er^2)$ for an electron with $l=2$ at $r=0.200\,\mathrm{nm}$. Use $\hbar^2/(2m_e)=3.80998\,\mathrm{eV\,\mathring A^2}$.
+4. Couple $j_1=3/2$ and $j_2=1$. List all allowed $j$ values and verify the number of product states from the dimensions of the coupled multiplets.
+5. For $l=3$, $s=1/2$, and $\xi_{nl}\hbar^2=0.800\,\mathrm{meV}$, calculate both spin-orbit shifts and their separation.
+6. Two normalized one-particle orbitals have real overlap $S=1/3$. Find the normalization constants multiplying $\phi_a(1)\phi_b(2)\pm\phi_b(1)\phi_a(2)$.
+
+**Final answers:** 1. $J^2=35\hbar^2/4$, $J_z=-3\hbar/2$, magnitude $\sqrt{35}\hbar/2$; 2. $J_+\lvert2,-1\rangle=\sqrt6\hbar\lvert2,0\rangle$; 3. $5.71497\,\mathrm{eV}$; 4. $j=1/2,3/2,5/2$ and $2+4+6=12=(2j_1+1)(2j_2+1)$; 5. $+1.200\,\mathrm{meV}$ for $j=7/2$, $-1.600\,\mathrm{meV}$ for $j=5/2$, separation $2.800\,\mathrm{meV}$; 6. $N_+=3/\sqrt{20}$ and $N_-=3/4$.
+
+The core derivations and all problem answers are verified in the
+[original Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-18/unit-2/angular-momentum-spin.mac' | relative_url }})
+and the [problems worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-18/unit-2/angular-momentum-problems.mac' | relative_url }}); every printed residual is zero.
+
+## References
+
+1. [Angular momentum operator](https://en.wikipedia.org/wiki/Angular_momentum_operator).
+2. J. J. Sakurai and J. Napolitano, *Modern Quantum Mechanics*, 3rd ed., Chapters 3, 4, and 7.
+3. D. J. Griffiths and D. F. Schroeter, *Introduction to Quantum Mechanics*, 3rd ed., Chapters 4 and 5.

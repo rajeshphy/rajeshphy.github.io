@@ -20,3 +20,62 @@ print("residual_dielectric_imaginary_part =",residual_imag)$
 
 residual_index_real:expand((n+%i*kappa)^2)-(n^2-kappa^2+2*%i*n*kappa)$
 print("residual_complex_index =",residual_index_real)$
+
+/* Enhancement-pass solved and numerical problems. */
+xcm:1/5$
+eps_problem:(1+2*xcm)/(1-xcm)$
+check_cm_problem:ratsimp((eps_problem-1)/(eps_problem+2)-xcm)$
+print("check_cm_problem =",check_cm_problem)$
+
+check_resonance_real:ratsimp(ev(real_expected,w=w0))$
+check_resonance_imag:ratsimp(ev(imag_expected,w=w0)-Omega2/(gamma*w0))$
+print("check_lorentz_resonance_real =",check_resonance_real)$
+print("check_lorentz_resonance_imag =",check_resonance_imag)$
+
+eps1s:15/4$
+eps2s:3/2$
+epsabs:sqrt(eps1s^2+eps2s^2)$
+n2s:(epsabs+eps1s)/2$
+k2s:(epsabs-eps1s)/2$
+check_index_difference:ratsimp(n2s-k2s-eps1s)$
+check_index_product_sq:radcan(4*n2s*k2s-eps2s^2)$
+print("check_index_difference =",check_index_difference)$
+print("check_index_product_squared =",check_index_product_sq)$
+
+check_loss_tangent:ratsimp((21/100)/(21/5)-1/20)$
+check_cauchy_500:ratsimp(3/2+(1/250)/(1/2)^2-379/250)$
+check_cauchy_700:ratsimp(3/2+(1/250)/(7/10)^2-18475/12250)$
+print("check_loss_tangent =",check_loss_tangent)$
+print("check_cauchy_500nm =",check_cauchy_500)$
+print("check_cauchy_700nm =",check_cauchy_700)$
+
+eps0SI:8.8541878128b-12$
+kBSI:1.380649b-23$
+cSI:299792458.0b0$
+debyeSI:3.33564b-30$
+epsilon2_resonance:(1.00b15)^2/(1.00b14*2.00b15)$
+absorbed_power:0.5b0*2.00b15*eps0SI*epsilon2_resonance*(100.0b0)^2$
+eps1num:3.75b0$
+eps2num:1.50b0$
+epsabsnum:sqrt(eps1num^2+eps2num^2)$
+nnum:sqrt((epsabsnum+eps1num)/2)$
+kappanum:sqrt((epsabsnum-eps1num)/2)$
+absorption_num:4*%pi*kappanum/(600b-9)$
+orientation_x:3.00b0*debyeSI*1.00b5/(kBSI*300.0b0)$
+reflectance_num:((1.80b0-1)^2+0.120b0^2)/((1.80b0+1)^2+0.120b0^2)$
+electric_field_rms:2.00b5$
+cycle_averaged_electric_energy_density_num:
+  0.5b0*eps0SI*5.00b0*electric_field_rms^2$
+phase_velocity_num:cSI/2.40b0$
+print("answer_resonance_epsilon_double_prime =",bfloat(epsilon2_resonance))$
+print("answer_resonance_power_W_per_m3 =",bfloat(absorbed_power))$
+print("answer_refractive_index =",bfloat(nnum))$
+print("answer_extinction_coefficient =",bfloat(kappanum))$
+print("answer_absorption_per_m =",bfloat(absorption_num))$
+print("answer_intensity_penetration_m =",bfloat(1/absorption_num))$
+print("answer_orientation_x =",bfloat(orientation_x))$
+print("answer_mean_orientation =",bfloat(orientation_x/3))$
+print("answer_reflectance =",bfloat(reflectance_num))$
+print("answer_cycle_averaged_energy_density_for_E_rms_J_per_m3 =",
+  bfloat(cycle_averaged_electric_energy_density_num))$
+print("answer_phase_velocity_m_per_s =",bfloat(phase_velocity_num))$

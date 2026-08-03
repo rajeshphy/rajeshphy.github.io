@@ -24,4 +24,72 @@ T2_from_area : 4*%pi^2*a^2*(a^2*(1-e^2))
 print("Kepler-third-law residual (must be 0):",
   ratsimp(T2_from_area-4*%pi^2*a^3/mu))$
 
+/* Solved problem 1: ellipse reconstructed from p and e. */
+sp1_p : 120000000000$
+sp1_e : 1/4$
+sp1_a : sp1_p/(1-sp1_e^2)$
+sp1_b : sp1_a*sqrt(1-sp1_e^2)$
+sp1_rp : sp1_p/(1+sp1_e)$
+sp1_ra : sp1_p/(1-sp1_e)$
+print("Solved 1 answers [a, b, perihelion, aphelion]:",
+  [sp1_a,sp1_b,sp1_rp,sp1_ra])$
+print("Solved 1 check (must be 0):",
+  radcan((sp1_a-128000000000)
+    +(sp1_b-32000000000*sqrt(15))
+    +(sp1_rp-96000000000)+(sp1_ra-160000000000)))$
+
+/* Solved problem 2: central mass from a and T. */
+sp2_G : 66743/1000000000000000$
+sp2_a : 149600000000$
+sp2_T : 36525/100*86400$
+sp2_M : 4*%pi^2*sp2_a^3/(sp2_G*sp2_T^2)$
+print("Solved 2 answer, central mass:",float(sp2_M))$
+print("Solved 2 check (must be 0):",
+  ratsimp(sp2_G*sp2_M*sp2_T^2-4*%pi^2*sp2_a^3))$
+
+/* Numerical problems. */
+n1_h : 75000000000$
+n1_mu : 398600000000000$
+n1_p : n1_h^2/n1_mu$
+print("Numerical 1 answer, semi-latus rectum:",float(n1_p))$
+print("Numerical 1 check (must be 0):",
+  ratsimp(n1_p*n1_mu-n1_h^2))$
+
+n2_p : 12000000$
+n2_e : 1/5$
+n2_r : n2_p/(1+n2_e*cos(%pi/3))$
+print("Numerical 2 answer, radius:",n2_r)$
+print("Numerical 2 check (must be 0):",
+  ratsimp(n2_r-120000000/11))$
+
+n3_rp : 80000000000$
+n3_ra : 120000000000$
+n3_a : (n3_rp+n3_ra)/2$
+n3_e : (n3_ra-n3_rp)/(n3_ra+n3_rp)$
+n3_p : n3_a*(1-n3_e^2)$
+print("Numerical 3 answers [a, e, p]:",[n3_a,n3_e,n3_p])$
+print("Numerical 3 check (must be 0):",
+  ratsimp((n3_a-100000000000)+(n3_e-1/5)
+    +(n3_p-96000000000)))$
+
+n4_h : 50000000000$
+n4_dt : 4*86400$
+n4_area : n4_h*n4_dt/2$
+print("Numerical 4 answer, swept area:",n4_area)$
+print("Numerical 4 check (must be 0):",
+  ratsimp(n4_area-8640000000000000))$
+
+n5_ratio : 4^(3/2)$
+print("Numerical 5 answer, period ratio:",n5_ratio)$
+print("Numerical 5 check (must be 0):",ratsimp(n5_ratio-8))$
+
+n6_a : 200000000000$
+n6_e : 3/5$
+n6_b : n6_a*sqrt(1-n6_e^2)$
+n6_area : %pi*n6_a*n6_b$
+print("Numerical 6 answers [b, area]:",[n6_b,n6_area])$
+print("Numerical 6 check (must be 0):",
+  ratsimp((n6_b-160000000000)
+    +(n6_area-32000000000000000000000*%pi)))$
+
 quit();

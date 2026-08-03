@@ -88,4 +88,119 @@ print("U1-17 cardinal nodal-offset residual =", r17)$
 r18 : ratsimp(n2/f2+n1/f1)$
 print("U1-18 front-rear focal-power residual =", r18)$
 
+/* Enhancement problems: progressive waves and superposition. */
+r19 : ratsimp(3^2+4^2-5^2)$
+print("U1-P1 resultant 3-4-5 amplitude residual =", r19)$
+
+r20 : ratsimp(3*(4/3)-4)$
+print("U1-P2 resultant phase-ratio residual =", r20)$
+
+r21 : round(100*float(180*atan(4/3)/%pi))-5313$
+print("U1-P3 resultant phase centidegree residual =", r21)$
+
+r22 : trigsimp(sin(%pi/6)^2-1/4)$
+print("U1-P4 Lissajous intercept residual =", r22)$
+
+r23 : ratsimp(64/(1/100)-80^2)$
+print("U1-P5 string-speed numerical residual =", r23)$
+
+r24 : ratsimp(80/(2/5)-200)$
+print("U1-P6 progressive frequency numerical residual =", r24)$
+
+r25 : ratsimp(3*2/5-6/5)$
+print("U1-P7 spherical amplitude numerical residual =", r25)$
+
+r26 : ratsimp((2/5)^2-4/25)$
+print("U1-P8 spherical intensity-ratio residual =", r26)$
+
+r27 : ratsimp((260-256)-4)$
+print("U1-P9 beat-frequency numerical residual =", r27)$
+
+r28 : ratsimp(1/4-1/4)$
+print("U1-P10 beat-period numerical residual =", r28)$
+
+r29 : ratsimp((3/2)*200-300)$
+print("U1-P11 Lissajous frequency-ratio residual =", r29)$
+
+/* Enhancement problems: standing waves, energy, and velocities. */
+r30 : ratsimp(100/(1/100)-100^2)$
+print("U1-S1 fixed-free wave-speed residual =", r30)$
+
+r31 : ratsimp(100/(4*(4/5))-125/4)$
+print("U1-S2 fixed-free fundamental residual =", r31)$
+
+r32 : ratsimp(3*(125/4)-375/4)$
+print("U1-S3 fixed-free next-mode residual =", r32)$
+
+u_problem : ratsimp((1/2)*(1/200)*(1/500)^2*(100*%pi)^2)$
+r33 : ratsimp(u_problem-%pi^2/10000)$
+print("U1-S4 mean string-energy residual =", r33)$
+
+r34 : ratsimp(80*u_problem-%pi^2/125)$
+print("U1-S5 mean string-power residual =", r34)$
+
+r35 : round(10^6*float(u_problem))-987$
+print("U1-S6 rounded string-energy residual =", r35)$
+
+r36 : round(10^4*float(80*u_problem))-790$
+print("U1-S7 rounded string-power residual =", r36)$
+
+r37 : ratsimp(240/(2*(6/5))-100)$
+print("U1-S8 fixed-fixed fundamental residual =", r37)$
+
+r38 : ratsimp(4*100-400)$
+print("U1-S9 fourth-harmonic residual =", r38)$
+
+r39 : ratsimp((4/5)/2-2/5)$
+print("U1-S10 adjacent-node spacing residual =", r39)$
+
+r40 : ratsimp((4/5)/4-1/5)$
+print("U1-S11 node-antinode spacing residual =", r40)$
+
+r41 : ratsimp((1/2)*4-2)$
+print("U1-S12 quadratic-dispersion phase-speed residual =", r41)$
+
+r42 : ratsimp(2*(1/2)*4-4)$
+print("U1-S13 quadratic-dispersion group-speed residual =", r42)$
+
+r43 : ratsimp(%pi/(5*%pi)-1/5)$
+print("U1-S14 displayed standing-wave node-spacing residual =", r43)$
+
+r44 : ratsimp((200*%pi)/(2*%pi)-100)$
+print("U1-S15 displayed standing-wave frequency residual =", r44)$
+
+/* Enhancement problems: wavefronts, Fermat principle, and Gaussian optics. */
+r45 : ratsimp((1/2)*(1/(1/5)-1/(-1/5))-5)$
+print("U1-W1 symmetric-lens power residual =", r45)$
+
+r46 : ratsimp(1/(3/5)-1/(-3/10)-1/(1/5))$
+print("U1-W2 thin-lens image-distance residual =", r46)$
+
+r47 : trigsimp(sin(%pi/6)-(3/2)*(1/3))$
+print("U1-W3 refraction Snell residual =", r47)$
+
+r48 : round(100*float(180*asin(1/3)/%pi))-1947$
+print("U1-W4 refracted-angle centidegree residual =", r48)$
+
+r49 : ratsimp(1/(2*10^6)-1/(2*10^6))$
+print("U1-W5 coherence-time residual =", r49)$
+
+r50 : ratsimp(3*10^8/(2*10^6)-150)$
+print("U1-W6 coherence-length residual =", r50)$
+
+r51 : ratsimp(300/(3*10^8)-1/10^6)$
+print("U1-W7 electromagnetic amplitude residual =", r51)$
+
+r52 : ratsimp(1/(-3/10)+1/(-3/5)-1/(-1/5))$
+print("U1-W8 concave-mirror image residual =", r52)$
+
+r53 : ratsimp(-1/4-(-1/4))$
+print("U1-W9 front-focal-length residual =", r53)$
+
+r54 : ratsimp(3/8-3/8)$
+print("U1-W10 rear-focal-length residual =", r54)$
+
+r55 : ratsimp((3/2-1)/4-1/8)$
+print("U1-W11 nodal-offset residual =", r55)$
+
 quit()$

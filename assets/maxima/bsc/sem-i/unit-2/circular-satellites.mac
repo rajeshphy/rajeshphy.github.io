@@ -28,4 +28,82 @@ rgeo3 : mu/OmegaE^2$
 print("Geostationary-radius residual (must be 0):",
   ratsimp(rgeo3*OmegaE^2-mu))$
 
+muE : 398600441800000$
+RE : 6371000$
+
+/* Solved problem 1: 400 km circular orbit. */
+sp1_r : RE+400000$
+sp1_v : sqrt(muE/sp1_r)$
+sp1_T : 2*%pi*sqrt(sp1_r^3/muE)$
+sp1_eps : -muE/(2*sp1_r)$
+print("Solved 1 answers [speed, period, specific energy]:",
+  [float(sp1_v),float(sp1_T),float(sp1_eps)])$
+print("Solved 1 check (must be 0):",
+  radcan((sp1_v^2*sp1_r-muE)
+    +(sp1_T^2*muE-4*%pi^2*sp1_r^3)
+    +(sp1_eps+muE/(2*sp1_r))))$
+
+/* Solved problem 2: geostationary orbit. */
+sp2_T : 86164$
+sp2_r : (muE*sp2_T^2/(4*%pi^2))^(1/3)$
+sp2_h : sp2_r-RE$
+sp2_v : sqrt(muE/sp2_r)$
+print("Solved 2 answers [radius, altitude, speed]:",
+  [float(sp2_r),float(sp2_h),float(sp2_v)])$
+print("Solved 2 check (must be 0):",
+  radcan((4*%pi^2*sp2_r^3-muE*sp2_T^2)
+    +(sp2_h-sp2_r+RE)+(sp2_v^2*sp2_r-muE)))$
+
+/* Numerical problems. */
+n1_v : 7500$
+n1_r : muE/n1_v^2$
+n1_h : n1_r-RE$
+print("Numerical 1 answers [radius, altitude]:",
+  [float(n1_r),float(n1_h)])$
+print("Numerical 1 check (must be 0):",
+  ratsimp((n1_r*n1_v^2-muE)+(n1_h-n1_r+RE)))$
+
+n2_r : 9000000$
+n2_hs : sqrt(muE*n2_r)$
+print("Numerical 2 answer, specific angular momentum:",float(n2_hs))$
+print("Numerical 2 check (must be 0):",
+  radcan(n2_hs^2-muE*n2_r))$
+
+n3_rA : 8000000$
+n3_rB : 18000000$
+n3_Tratio : sqrt(n3_rB^3/n3_rA^3)$
+n3_vratio : sqrt(n3_rA/n3_rB)$
+print("Numerical 3 answers [period ratio, speed ratio]:",
+  [n3_Tratio,n3_vratio])$
+print("Numerical 3 period-ratio check (must be 0):",
+  radcan(n3_Tratio-27/8))$
+print("Numerical 3 speed-ratio check (must be 0):",
+  radcan(n3_vratio-2/3))$
+print("Numerical 3 Kepler-scaling check (must be 0):",
+  radcan(n3_Tratio^2*n3_rA^3-n3_rB^3))$
+print("Numerical 3 speed-scaling check (must be 0):",
+  radcan(n3_vratio^2*n3_rB-n3_rA))$
+
+n4_m : 500$
+n4_r1 : 7000000$
+n4_r2 : 14000000$
+n4_dE : muE*n4_m/2*(1/n4_r1-1/n4_r2)$
+print("Numerical 4 answer, energy increase:",float(n4_dE))$
+print("Numerical 4 check (must be 0):",
+  ratsimp(n4_dE-muE*n4_m/28000000))$
+
+n5_r : 8000000$
+n5_g : muE/n5_r^2$
+n5_Fg : 80*n5_g$
+n5_N : 0$
+print("Numerical 5 answers [g, gravity force, normal force]:",
+  [float(n5_g),float(n5_Fg),n5_N])$
+print("Numerical 5 check (must be 0):",
+  ratsimp((n5_g*n5_r^2-muE)+(n5_Fg-80*n5_g)+n5_N))$
+
+n6_angle : 360*6000/86164$
+print("Numerical 6 answer, Earth rotation in degrees:",float(n6_angle))$
+print("Numerical 6 check (must be 0):",
+  ratsimp(n6_angle-540000/21541))$
+
 quit();

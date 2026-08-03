@@ -1,0 +1,40 @@
+/* MJ-5 Unit I: impulse example, inference data, motion and uncertainty. */
+kill(all)$
+
+solved_impulse:2*(4-1)$
+solved_force:solved_impulse/2$
+solved_impulse_check:solved_impulse-6$
+solved_force_check:solved_force-3$
+
+support_fraction:76/80$
+counterexamples:80-76$
+support_check:support_fraction-19/20$
+counterexample_check:counterexamples-4$
+
+position:2*t^3-3*t^2+4*t$
+velocity:diff(position,t)$
+acceleration:diff(velocity,t)$
+velocity_check:subst(2,t,velocity)-16$
+acceleration_check:subst(2,t,acceleration)-18$
+
+delta_x:780/100-120/100$
+delta_x_uncertainty:sqrt((2/100)^2+(3/100)^2)$
+average_velocity:delta_x/3$
+velocity_uncertainty:delta_x_uncertainty/3$
+delta_x_check:delta_x-33/5$
+delta_x_uncertainty_check:radcan(delta_x_uncertainty^2-13/10000)$
+average_velocity_check:average_velocity-11/5$
+velocity_uncertainty_check:radcan(velocity_uncertainty^2-13/90000)$
+
+print("solved_impulse_check =",solved_impulse_check)$
+print("solved_force_check =",solved_force_check)$
+print("support_check =",support_check)$
+print("counterexample_check =",counterexample_check)$
+print("velocity_check =",velocity_check)$
+print("acceleration_check =",acceleration_check)$
+print("delta_x_check =",delta_x_check)$
+print("delta_x_uncertainty_check =",delta_x_uncertainty_check)$
+print("average_velocity_check =",average_velocity_check)$
+print("velocity_uncertainty_check =",velocity_uncertainty_check)$
+print("average_velocity_m_s =",float(average_velocity))$
+print("velocity_uncertainty_m_s =",float(velocity_uncertainty))$

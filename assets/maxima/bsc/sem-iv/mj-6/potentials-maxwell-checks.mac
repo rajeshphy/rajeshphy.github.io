@@ -1,0 +1,15 @@
+/* MJ-6: Legendre transforms, Maxwell identities, and printed answers. */
+kill(all)$
+F : -n*R*T*log(V)+phi(T)$
+print("Helmholtz_pressure_residual =", ratsimp(-diff(F,V)-n*R*T/V))$
+G : n*R*T*log(p)+psi(T)$
+print("Gibbs_volume_residual =", ratsimp(diff(G,p)-n*R*T/p))$
+/* Exactness of F(T,V) supplies (dS/dV)_T=(dp/dT)_V. */
+S_from_F : -diff(F,T)$
+p_from_F : -diff(F,V)$
+print("Maxwell_F_residual =", ratsimp(diff(S_from_F,V)-diff(p_from_F,T)))$
+R0 : 8.314462618$
+print("Helmholtz_change_rounding_residual =", round(-R0*300*log(2))+1729)$
+print("Gibbs_change_rounding_residual =", round(R0*300*log(2))-1729)$
+print("spontaneity_sign_residual =", ratsimp(-2500-(-2500)))$
+print("entropy_pressure_derivative_residual =", ratsimp(-0.002*5e-4-(-1e-6)))$

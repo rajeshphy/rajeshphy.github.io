@@ -1,0 +1,88 @@
+/* Zener regulator constraints, current balance, and every worked value. */
+kill(all)$
+
+isource(vs,vz,rs) := (vs-vz)/rs$
+iload(vz,rl) := vz/rl$
+izener(vs,vz,rs,rl) := isource(vs,vz,rs)-iload(vz,rl)$
+print("symbolic node-current residual =",
+      ratsimp(isource(vs,vz,rs)-iload(vz,rl)-izener(vs,vz,rs,rl)))$
+
+/* Solved problem 1. */
+is1 : isource(12,51/10,330)$
+il1 : iload(51/10,1000)$
+iz1 : is1-il1$ pz1 : (51/10)*iz1$
+print("solved 1 source-current rounded residual =",
+      round(ev(is1*10^6,numer))-20909)$
+print("solved 1 load-current residual =", ratsimp(il1-51/10000))$
+print("solved 1 Zener-current rounded residual =",
+      round(ev(iz1*10^6,numer))-15809)$
+print("solved 1 power rounded residual =",
+      round(ev(pz1*10^6,numer))-80626)$
+print("solved 1 node residual =", ratsimp(is1-il1-iz1))$
+
+/* Solved problem 2. */
+rs_upper : (9-6)/((20/1000)+(5/1000))$
+izmax2 : (1/2)/6$
+rs_lower : (15-6)/izmax2$
+rs2 : 110$
+iz_low2 : (9-6)/rs2-20/1000$
+iz_high2 : (15-6)/rs2$
+print("solved 2 upper-resistance residual =", ratsimp(rs_upper-120))$
+print("solved 2 maximum-current residual =", ratsimp(izmax2-1/12))$
+print("solved 2 lower-resistance residual =", ratsimp(rs_lower-108))$
+print("solved 2 low-limit current rounded residual =",
+      round(ev(iz_low2*10^6,numer))-7273)$
+print("solved 2 high-limit current rounded residual =",
+      round(ev(iz_high2*10^6,numer))-81818)$
+print("solved 2 high-limit power residual =",
+      ratsimp(6*iz_high2-27/55))$
+
+/* Numerical problems. */
+is_trial_n1 : isource(8,51/10,330)$
+il_trial_n1 : iload(51/10,470)$
+iz_trial_n1 : is_trial_n1-il_trial_n1$
+vo_off_n1 : 8*470/(330+470)$
+il_off_n1 : vo_off_n1/470$
+print("numerical 1 trial-source-current rounded residual =",
+      round(ev(is_trial_n1*10^6,numer))-8788)$
+print("numerical 1 negative-trial-current rounded residual =",
+      round(ev(iz_trial_n1*10^6,numer))+2063)$
+print("numerical 1 off-state output residual =", ratsimp(vo_off_n1-47/10))$
+print("numerical 1 off-state current residual =", ratsimp(il_off_n1-1/100))$
+print("numerical 1 off-state KVL residual =",
+      ratsimp(il_off_n1*330+vo_off_n1-8))$
+
+gain_n2 : (50/1000)/(255/100)$
+rparallel_n2 : gain_n2*500/(1-gain_n2)$
+rz_n2 : rparallel_n2*1000/(1000-rparallel_n2)$
+print("numerical 2 measured-gain residual =", ratsimp(gain_n2-1/51))$
+print("numerical 2 parallel-resistance residual =",
+      ratsimp(rparallel_n2-10))$
+print("numerical 2 dynamic-resistance residual =",
+      ratsimp(rz_n2-1000/99))$
+print("numerical 2 parallel-combination identity residual =",
+      ratsimp(1/(1/rz_n2+1/1000)-rparallel_n2))$
+print("numerical 2 divider-gain identity residual =",
+      ratsimp(rparallel_n2/(500+rparallel_n2)-gain_n2))$
+
+field_a_n3 : (24/5)/(80/10^9)$
+field_b_n3 : 12/(8/10^7)$
+print("numerical 3 narrow-junction field residual =",
+      ratsimp(field_a_n3-6*10^7))$
+print("numerical 3 wide-junction field residual =",
+      ratsimp(field_b_n3-15*10^6))$
+print("numerical 3 field-ratio residual =",
+      ratsimp(field_a_n3/field_b_n3-4))$
+
+rout_n4 : 1/(1/470+1/10)$
+diload_n4 : 2/1000$
+dvo_n4 : -rout_n4*diload_n4$
+vnew_n4 : 28/5+dvo_n4$
+print("numerical 4 output-resistance residual =",
+      ratsimp(rout_n4-235/24))$
+print("numerical 4 load-step relation residual =",
+      ratsimp(dvo_n4+rout_n4*diload_n4))$
+print("numerical 4 output-change residual =",
+      ratsimp(dvo_n4+47/2400))$
+print("numerical 4 new-output residual =",
+      ratsimp(vnew_n4-13393/2400))$

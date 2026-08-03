@@ -63,7 +63,7 @@ Let $A=A^T$. Choose a large off-diagonal element $a_{pq}$ and rotate only the $p
 
 $$R=\begin{pmatrix}\cos\theta&-\sin\theta\\
 \sin\theta&\cos\theta\end{pmatrix},\qquad
-A'=R^TAR.$$
+A^{\prime}=R^TAR.$$
 
 For the corresponding $2\times2$ block
 
@@ -71,10 +71,10 @@ $$\begin{pmatrix}a_{pp}&a_{pq}\\a_{pq}&a_{qq}\end{pmatrix},$$
 
 the transformed off-diagonal element is
 
-$$a'_{pq}=a_{pq}\cos2\theta
+$$a^{\prime}_{pq}=a_{pq}\cos2\theta
 +\frac{a_{qq}-a_{pp}}2\sin2\theta.$$
 
-Setting $a'_{pq}=0$ gives
+Setting $a^{\prime}_{pq}=0$ gives
 
 $$\boxed{\tan2\theta=\frac{2a_{pq}}{a_{pp}-a_{qq}}}.$$
 
@@ -97,3 +97,96 @@ The [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-v/mj-9/linear-eig
 eigen_residual_1 = matrix([0],[0])
 eigen_residual_2 = matrix([0],[0])
 ~~~
+
+An approximate eigenpair must also be judged by its residual
+
+$$\mathbf r=A\mathbf v-\lambda\mathbf v.$$
+
+The change in successive eigenvalue estimates can be small even when the eigenvector is not yet accurate; requiring $\lVert\mathbf r\rVert$ to be small tests the defining equation itself.
+
+## Solved Problems
+
+### 1. Two power iterations and a Rayleigh quotient
+
+Take
+
+$$A=\begin{pmatrix}4&1\\1&2\end{pmatrix},\qquad
+\mathbf x^{(0)}=\begin{pmatrix}1\\0\end{pmatrix},$$
+
+and normalize each iterate by its largest component. The first multiplication gives
+
+$$A\mathbf x^{(0)}=\begin{pmatrix}4\\1\end{pmatrix},\qquad
+\mathbf x^{(1)}=\begin{pmatrix}1\\1/4\end{pmatrix}.$$
+
+The second gives
+
+$$A\mathbf x^{(1)}
+=\begin{pmatrix}17/4\\3/2\end{pmatrix},\qquad
+\mathbf x^{(2)}=\begin{pmatrix}1\\6/17\end{pmatrix}.$$
+
+Scaling by $17$ does not change the Rayleigh quotient, so use $\mathbf v=(17,6)^T$:
+
+$$
+\begin{aligned}
+\lambda^{(2)}
+&=\frac{\mathbf v^TA\mathbf v}{\mathbf v^T\mathbf v}\\
+&=\frac{17(74)+6(29)}{17^2+6^2}\\
+&=\frac{1432}{325}\\
+&\approx\boxed{4.40615}.
+\end{aligned}
+$$
+
+The exact dominant eigenvalue is $3+\sqrt2\approx4.41421$, so the estimate is approaching it from below.
+
+### 2. One exact Jacobi rotation
+
+For
+
+$$A=\begin{pmatrix}5&2\\2&2\end{pmatrix},$$
+
+the rotation condition is
+
+$$\tan2\theta=\frac{2a_{12}}{a_{11}-a_{22}}=\frac43.$$
+
+Choose $\cos\theta=2/\sqrt5$ and $\sin\theta=1/\sqrt5$; then $\tan\theta=1/2$ and
+
+$$\tan2\theta=\frac{2\tan\theta}{1-\tan^2\theta}=\frac43.$$
+
+Thus
+
+$$R=\frac1{\sqrt5}\begin{pmatrix}2&-1\\1&2\end{pmatrix}.$$
+
+Direct multiplication gives
+
+$$R^TAR=\begin{pmatrix}6&0\\0&1\end{pmatrix}.$$
+
+Therefore the eigenvalues are $6$ and $1$, and the normalized eigenvectors are the columns of $R$. The trace $7$ and determinant $6$ are unchanged, providing two independent invariance checks.
+
+## Descriptive Questions
+
+1. Derive the power method from an expansion of the starting vector in eigenvectors.
+2. Explain how the ratio $\lvert\lambda_2/\lambda_1\rvert$ controls power-method convergence.
+3. Derive the Jacobi rotation angle that annihilates one off-diagonal element of a symmetric matrix.
+4. Explain why the Rayleigh quotient and eigenpair residual should both be monitored.
+
+## Numerical Problems
+
+1. For $A=\operatorname{diag}(7,2,-1)$ and a starting vector with non-zero components in all eigendirections, which eigenvalue does power iteration select?
+   **Answer:** $\lambda=7$, the eigenvalue of largest magnitude.
+
+2. If the two largest eigenvalue magnitudes are $5$ and $2$, by what asymptotic factor is the unwanted component reduced per power iteration?
+   **Answer:** $\lvert\lambda_2/\lambda_1\rvert=2/5=0.4$.
+
+3. Calculate the Rayleigh quotient of $A=\begin{pmatrix}3&1\\1&3\end{pmatrix}$ at $\mathbf x=(1,0)^T$.
+   **Answer:** $\lambda_R=3$.
+
+4. Find a Jacobi rotation angle and the eigenvalues of $\begin{pmatrix}4&1\\1&4\end{pmatrix}$.
+   **Answer:** $\theta=\pi/4$; eigenvalues $5$ and $3$.
+
+The iterations, Rayleigh quotients, rotation, and eigenpairs are checked in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-9/unit-i-problem-checks.mac' | relative_url }}); every displayed residual is zero.
+
+## References
+
+1. [Power iteration — Wikipedia](https://en.wikipedia.org/wiki/Power_iteration).
+2. Richard L. Burden, J. Douglas Faires, and Annette M. Burden, *Numerical Analysis*, 10th ed., Chapter 9, “Approximating Eigenvalues.”
+3. Gene H. Golub and Charles F. Van Loan, *Matrix Computations*, 4th ed., Chapters 7–8, “The Unsymmetric Eigenvalue Problem” and “The Symmetric Eigenvalue Problem.”

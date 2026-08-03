@@ -33,3 +33,74 @@ vf2 : (vA^2+cs^2+D)/2$
 vs2 : (vA^2+cs^2-D)/2$
 print("magnetosonic root-sum residual = ",ratsimp(vf2+vs2-vA^2-cs^2))$
 print("magnetosonic root-product residual = ",radcan(vf2*vs2-vA^2*cs^2*C^2))$
+
+/* Link between Debye length, plasma frequency, and thermal speed. */
+lambdaD_sq : epss*kBT/(ns*qs^2)$
+omegaP_sq : ns*qs^2/(ms*epss)$
+print("Debye-plasma thermal-scale residual = ",
+ ratsimp(lambdaD_sq*omegaP_sq-kBT/ms))$
+
+/* Numerical checks; rounding matches the precision printed in the post. */
+eps0n : 8.8541878128e-12$
+mu0n : 1.25663706212e-6$
+en : 1.602176634e-19$
+men : 9.1093837139e-31$
+mpn : 1.67262192595e-27$
+
+/* Solved problem 1. */
+lambda_num : sqrt(eps0n*2/(1e18*en))$
+ND_num : (4*%pi/3)*1e18*lambda_num^3$
+shield_ratio : exp(-3)$
+print("Debye collective-test numerical residual = ",
+ (round((2*en)*1e24)-320435)^2
+ +(round(lambda_num*1e9)-10513)^2+(round(ND_num)-4867)^2
+ +(round(shield_ratio*1e5)-4979)^2)$
+
+/* Solved problem 2. */
+vAn : 200.0$
+csn : 100.0$
+costn : 0.5$
+Dn : sqrt((vAn^2+csn^2)^2-4*vAn^2*csn^2*costn^2)$
+vfn : sqrt((vAn^2+csn^2+Dn)/2)$
+vsn : sqrt((vAn^2+csn^2-Dn)/2)$
+vshn : vAn*costn$
+print("oblique MHD-wave numerical residual = ",
+ (round(Dn*10)-458258)^2
+ +(round(vfn*1000)-218890)^2+(round(vsn*1000)-45685)^2
+ +(round(vshn*1000)-100000)^2)$
+
+/* Numerical problem 1. */
+omega_pe_num : sqrt(5e17*en^2/(men*eps0n))$
+f_pe_num : omega_pe_num/(2*%pi)$
+print("electron-plasma-frequency numerical residual = ",
+ (round(omega_pe_num/1e7)-3989)^2
+ +(round(f_pe_num/1e6)-6349)^2)$
+
+/* Numerical problem 2. */
+omega_cp_num : en*0.200/mpn$
+rL_num : 3e5/omega_cp_num$
+print("proton-gyro numerical residual = ",
+ (round(omega_cp_num/1e4)-1916)^2+(round(rL_num*1e6)-15660)^2)$
+
+/* Numerical problem 3. */
+alpha_mirror : asin(sqrt(0.200/1.80))*180/%pi$
+print("magnetic-mirror numerical residual = ",
+ (round(alpha_mirror*1000)-19471)^2)$
+
+/* Numerical problem 4.  x cross z = -y, hence -u cross B = +y. */
+Eideal_y : 2e4*5e-2$
+print("ideal-MHD electric-field numerical residual = ",
+ (round(Eideal_y)-1000)^2)$
+
+/* Numerical problem 5. */
+rho_alfven : 1e18*mpn$
+vA_num : 1e-2/sqrt(mu0n*rho_alfven)$
+fA_num : vA_num/10.0$
+print("parallel Alfven-wave numerical residual = ",
+ (round(vA_num/100)-2181)^2+(round(fA_num/10)-2181)^2)$
+
+/* Numerical problem 6. */
+p_num : 1e19*5*en$
+energy_num : 3*p_num/2$
+print("electron-pressure numerical residual = ",
+ (round(p_num*1000)-8011)^2+(round(energy_num*1000)-12016)^2)$

@@ -1,0 +1,21 @@
+/* MJ-5 Unit II: proper time, cyclic scale factor, and decoherence. */
+kill(all)$
+
+/* Constant-speed inertial motion: 10 y at 0.8c gives 6 y proper time. */
+print("proper_time_residual =",ratsimp(10*sqrt(1-(4/5)^2)-6))$
+
+/* a(eta)=a0+A(1-cos eta), with a0=2 and A=3. */
+a(eta):=2+3*(1-cos(eta))$
+print("cycle_first_derivative_residual =",
+      trigsimp(diff(a(eta),eta)-3*sin(eta)))$
+print("cycle_second_derivative_residual =",
+      trigsimp(diff(a(eta),eta,2)-3*cos(eta)))$
+print("cycle_minimum_residual =",trigsimp(a(0)-2))$
+print("cycle_maximum_residual =",trigsimp(a(%pi)-8))$
+print("cycle_endpoint_residual =",trigsimp(a(2*%pi)-a(0)))$
+print("bounce_curvature_residual =",
+      trigsimp(subst(0,eta,diff(a(eta),eta,2))-3))$
+
+/* Independent short exercises. */
+print("coherence_rounding_residual =",round(10000*0.95^50)-769)$
+print("cycle_redshift_residual =",ratsimp(5/1-1-4))$

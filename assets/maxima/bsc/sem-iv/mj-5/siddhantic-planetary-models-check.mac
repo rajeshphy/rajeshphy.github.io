@@ -1,0 +1,46 @@
+/* MJ-5 Unit I: longitude, correction, vector and period checks. */
+kill(all)$
+
+mean_longitude:40+360*50/225$
+mean_longitude_check:mean_longitude-120$
+
+epsilon:8/100$
+correction_rad:epsilon*sin(%pi/3)$
+correction_deg:correction_rad*180/%pi$
+correction_check:radcan(correction_rad-sqrt(3)/25)$
+corrected_longitude_check:radcan((mean_longitude+correction_deg)-(120+36*sqrt(3)/(5*%pi)))$
+
+exact_correction_deg:atan2(epsilon*sin(%pi/3),1+epsilon*cos(%pi/3))*180/%pi$
+exact_correction_check:radcan(tan(exact_correction_deg*%pi/180)-sqrt(3)/26)$
+
+planet_sun:[(1/2)*cos(2*%pi/3),(1/2)*sin(2*%pi/3)]$
+planet_earth:[1,0]+planet_sun$
+planet_distance:sqrt(planet_earth[1]^2+planet_earth[2]^2)$
+planet_vector_check:
+    radcan((planet_earth[1]-3/4)^2+(planet_earth[2]-sqrt(3)/4)^2)$
+planet_distance_check:radcan(planet_distance-sqrt(3)/2)$
+
+synodic:1/abs(1/(2247/10)-1/(36525/100))$
+synodic_check:ratsimp(synodic-1094289/1874)$
+
+minimum_rate:1/2-2*(2/5)$
+minimum_rate_check:minimum_rate+3/10$
+
+parallax_rad:6371/384400$
+parallax_deg:parallax_rad*180/%pi$
+parallax_check:384400*parallax_rad-6371$
+
+print("mean_longitude_check =",mean_longitude_check)$
+print("correction_check =",correction_check)$
+print("corrected_longitude_check =",corrected_longitude_check)$
+print("exact_correction_check =",exact_correction_check)$
+print("planet_vector_check =",planet_vector_check)$
+print("planet_distance_check =",planet_distance_check)$
+print("synodic_check =",synodic_check)$
+print("minimum_rate_check =",minimum_rate_check)$
+print("parallax_check =",parallax_check)$
+print("correction_deg =",float(correction_deg))$
+print("exact_correction_deg =",float(exact_correction_deg))$
+print("synodic_days =",float(synodic))$
+print("parallax_rad =",float(parallax_rad))$
+print("parallax_deg =",float(parallax_deg))$

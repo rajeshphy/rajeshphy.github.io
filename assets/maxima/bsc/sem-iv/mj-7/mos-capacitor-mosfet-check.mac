@@ -1,0 +1,91 @@
+/* MOS electrostatics, channel integration, continuity, and all worked values. */
+kill(all)$
+
+cox(eps_ox,t_ox) := eps_ox/t_ox$
+vfb(phi_ms,q_ox,c_ox) := phi_ms-q_ox/c_ox$
+id_triode(k,vov,vds) := k*(vov*vds-vds^2/2)$
+id_sat(k,vov) := k*vov^2/2$
+
+/* Series capacitance and channel integration. */
+cg : 1/(1/cox_s+1/cd_s)$
+print("series-capacitance residual =", ratsimp(cg-cox_s*cd_s/(cox_s+cd_s)))$
+channel_integral : integrate(vov-v,v,0,vds)$
+print("channel-integration residual =", ratsimp(channel_integral-(vov*vds-vds^2/2)))$
+print("current-boundary residual =", ratsimp(subst(vov,vds,id_triode(k,vov,vds))-id_sat(k,vov)))$
+print("slope-boundary residual =", ratsimp(subst(vov,vds,diff(id_triode(k,vov,vds),vds))))$
+
+/* Solved problem 1. */
+eps0 : 8854/10^15$
+cox1 : cox((39/10)*eps0,10/10^9)$
+vfb1 : vfb(-1/10,2/10000,cox1)$
+print("solved 1 Cox rounded residual =", round(cox1*10^6)-3453)$
+print("solved 1 flat-band rounded residual =", round(vfb1*10000)+1579)$
+
+/* Solved problem 2. */
+vt2 : 2585/100000$ na2 : 10^22$ ni2 : 10^16$
+phi2 : vt2*log(na2/ni2)$
+epss2 : (117/10)*eps0$
+dep2 : sqrt(4*(1602/10^22)*epss2*na2*phi2)/cox1$
+vth2 : -1/5+2*phi2+dep2$
+print("solved 2 Fermi-potential rounded residual =", round(ev(phi2*10000,numer))-3571)$
+print("solved 2 depletion-term rounded residual =", round(ev(dep2*10000,numer))-1410)$
+print("solved 2 threshold rounded residual =", round(ev(vth2*10000,numer))-6553)$
+
+/* Solved problem 3. */
+k3 : (5/100)*(3/1000)*10$
+id3_tri : id_triode(k3,5/2,1)$
+id3_sat : id_sat(k3,5/2)$
+print("solved 3 K residual =", ratsimp(k3-3/2000))$
+print("solved 3 triode-current residual =", ratsimp(id3_tri-3/1000))$
+print("solved 3 saturation-current residual =", ratsimp(id3_sat-3/640))$
+print("solved 3 boundary residual =", ratsimp(id_triode(k3,5/2,5/2)-id3_sat))$
+
+/* Numerical problem 1: infer depletion capacitance and width from C-V data. */
+cmin_n1 : 12/10000$
+cox_n1 : 3/1000$
+cd_n1 : 1/(1/cmin_n1-1/cox_n1)$
+epss_n1 : 104/10^12$
+xd_n1 : epss_n1/cd_n1$
+print("numerical 1 extracted-depletion-capacitance residual =", ratsimp(cd_n1-2/1000))$
+print("numerical 1 maximum-depletion-width residual =", ratsimp(xd_n1*10^9-52))$
+print("numerical 1 series-capacitance reconstruction residual =", ratsimp(1/(1/cox_n1+1/cd_n1)-cmin_n1))$
+
+/* Numerical problem 2: infer oxide charge from flat-band shift. */
+phi_ms_n2 : -1/10$
+vfb_n2 : -1/4$
+cox_n2 : 4/1000$
+qox_n2 : cox_n2*(phi_ms_n2-vfb_n2)$
+print("numerical 2 extracted-oxide-charge residual =", ratsimp(qox_n2-6/10000))$
+print("numerical 2 flat-band reconstruction residual =", ratsimp(vfb(phi_ms_n2,qox_n2,cox_n2)-vfb_n2))$
+
+/* Numerical problem 3: extract depletion charge and width from threshold data. */
+vth_n3 : 4/5$ vfb_n3 : -1/10$ phi_n3 : 3/10$
+cox_n3 : 25/10000$ q_n3 : 16/10^20$ na_n3 : 2*10^22$
+qd_n3 : cox_n3*(vth_n3-vfb_n3-2*phi_n3)$
+xd_n3 : qd_n3/(q_n3*na_n3)$
+print("numerical 3 extracted-depletion-charge residual =", ratsimp(qd_n3-75/100000))$
+print("numerical 3 extracted-depletion-width residual =", ratsimp(xd_n3*10^6-15/64))$
+print("numerical 3 threshold reconstruction residual =", ratsimp(vfb_n3+2*phi_n3+qd_n3/cox_n3-vth_n3))$
+
+/* Numerical problem 4: local and integrated inversion-channel charge. */
+cox_n4 : 2/1000$ width_n4 : 20/10^6$ length_n4 : 2/10^6$
+vov_n4 : 2$ vds_n4 : 1$
+qsource_n4 : -cox_n4*vov_n4$
+qdrain_n4 : -cox_n4*(vov_n4-vds_n4)$
+qchannel_n4 : -width_n4*length_n4*cox_n4*(vov_n4-vds_n4/2)$
+print("numerical 4 source-charge-density residual =", ratsimp(qsource_n4+4/1000))$
+print("numerical 4 drain-charge-density residual =", ratsimp(qdrain_n4+2/1000))$
+print("numerical 4 integrated-channel-charge residual =", ratsimp(qchannel_n4+12/10^14))$
+print("numerical 4 trapezoidal-charge reconstruction residual =", ratsimp(qchannel_n4-width_n4*length_n4*(qsource_n4+qdrain_n4)/2))$
+
+/* Numerical problem 5: finite-area MOS gate charge and stored energy. */
+width_n5 : 100/10^6$ length_n5 : 10/10^6$ cox_n5 : 25/10000$
+vg_n5 : 33/10$
+area_n5 : width_n5*length_n5$
+cg_n5 : cox_n5*area_n5$
+qg_n5 : cg_n5*vg_n5$
+ug_n5 : cg_n5*vg_n5^2/2$
+print("numerical 5 gate-area residual =", ratsimp(area_n5-1/10^9))$
+print("numerical 5 gate-capacitance residual =", ratsimp(cg_n5*10^12-5/2))$
+print("numerical 5 gate-charge residual =", ratsimp(qg_n5*10^12-33/4))$
+print("numerical 5 stored-energy rounded residual =", round(100*ug_n5*10^12)-1361)$

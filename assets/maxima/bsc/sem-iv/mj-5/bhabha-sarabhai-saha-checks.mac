@@ -1,0 +1,33 @@
+/* MJ-5 Unit III: shower, orbit, and Saha-equation calculations. */
+kill(all)$
+
+/* Heitler shower after ten equal splittings of 100 GeV. */
+print("shower_multiplicity_residual =",2^10-1024)$
+print("shower_energy_rounding_residual =",round(1000*(100e3/2^10))-97656)$
+
+/* Circular geosynchronous orbit: r=42164 km. */
+mu_E:3.986004418e14$
+r_geo:42164e3$
+period:2*%pi*sqrt(r_geo^3/mu_E)$
+print("geosynchronous_period_rounding_residual =",round(period)-86164)$
+
+/* Hydrogen at T=10000 K, n_H=1e20 m^-3, U_p=1 and U_H=2. */
+m_e:9.1093837015e-31$
+k_B:1.380649e-23$
+h:6.62607015e-34$
+eV:1.602176634e-19$
+chi:13.6*eV$
+T:10000$
+S:(2*%pi*m_e*k_B*T/h^2)^(3/2)*exp(-chi/(k_B*T))$
+y:S/1e20$
+x:(sqrt(y^2+4*y)-y)/2$
+print("saha_constant_rounding_residual =",round(S/1e16)-33788)$
+print("ionization_fraction_rounding_residual =",round(1e6*x)-807172)$
+ys:'ys$
+xs:(sqrt(ys^2+4*ys)-ys)/2$
+print("charge_neutrality_residual =",radcan(xs^2-ys*(1-xs)))$
+
+/* Independent numerical exercises. */
+print("muon_threshold_residual =",round(1e6*(2*105.6583755))-211316751)$
+ratio:(6/5)^(3/2)*exp(chi/k_B*(1/10000-1/12000))$
+print("saha_temperature_ratio_rounding_residual =",round(1e5*ratio)-1824406)$

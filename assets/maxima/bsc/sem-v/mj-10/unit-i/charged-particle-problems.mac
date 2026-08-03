@@ -1,0 +1,59 @@
+/* MJ-10: charged-particle solved and numerical problems.
+   zcheck returns zero only when a rounded value agrees within tolerance.
+   Every printed check is exactly zero. */
+kill(all)$
+zcheck(actual, reported, tolerance) :=
+  if abs(float(actual-reported)) < tolerance then 0 else 1$
+
+qe : 1.602176634b-19$
+me : 9.1093837139b-31$
+mp : 1.67262192369b-27$
+malpha : 6.6446573357b-27$
+
+/* Solved problem 1: electron helix. */
+B1 : 0.20b0$ vp1 : 3.0b6$ vz1 : 1.2b6$
+Omega1 : qe*B1/me$
+r1 : me*vp1/(qe*B1)$
+T1 : 2*%pi/Omega1$
+pitch1 : vz1*T1$
+print("electron gyroradius check =", zcheck(r1,8.528b-5,5b-9))$
+print("electron gyroperiod check =", zcheck(T1,1.786b-10,5b-14))$
+print("electron pitch check =", zcheck(pitch1,2.143b-4,5b-8))$
+
+/* Solved problem 2: proton in crossed fields. */
+E2 : 3.0b4$ B2 : 0.15b0$ vy2 : 4.0b5$
+vD2 : -E2/B2$
+u2 : vy2-vD2$
+Omega2 : qe*B2/mp$
+r2 : u2/Omega2$
+print("crossed-field drift check =", zcheck(vD2,-2.000b5,1b1))$
+print("crossed-field relative speed check =", zcheck(u2,6.000b5,1b1))$
+print("proton gyroradius check =", zcheck(r2,4.176b-2,5b-6))$
+
+/* Numerical problem 1: proton accelerated by a uniform electric field. */
+E3 : 2.5b4$ t3 : 2.0b-6$
+a3 : qe*E3/mp$ v3 : a3*t3$ s3 : a3*t3^2/2$
+print("electric acceleration check =", zcheck(a3,2.395b12,5b8))$
+print("electric final-speed check =", zcheck(v3,4.789b6,5b2))$
+print("electric displacement check =", zcheck(s3,4.789b0,5b-4))$
+
+/* Numerical problem 2: electron cyclotron radius and frequency. */
+B4 : 0.080b0$ v4 : 2.0b6$
+r4 : me*v4/(qe*B4)$ f4 : qe*B4/(2*%pi*me)$
+print("electron radius check =", zcheck(r4,1.421b-4,5b-8))$
+print("electron frequency check =", zcheck(f4,2.239b9,5b5))$
+
+/* Numerical problem 3: alpha-particle helix. */
+B5 : 0.30b0$ vp5 : 5.0b5$ vz5 : 8.0b5$
+Omega5 : 2*qe*B5/malpha$
+r5 : vp5/Omega5$ pitch5 : 2*%pi*vz5/Omega5$
+print("alpha radius check =", zcheck(r5,3.456b-2,5b-6))$
+print("alpha pitch check =", zcheck(pitch5,3.474b-1,5b-5))$
+
+/* Numerical problem 4: signed crossed-field drift and relative gyration. */
+E6 : 1.8b4$ B6 : 0.12b0$ v0y6 : -3.0b5$
+vDy6 : -E6/B6$ uy6 : v0y6-vDy6$
+r6 : mp*abs(uy6)/(qe*B6)$
+print("guiding-centre y-component check =", zcheck(vDy6,-1.500b5,1b1))$
+print("relative y-velocity check =", zcheck(uy6,-1.500b5,1b1))$
+print("relative gyroradius check =", zcheck(r6,1.305b-2,5b-6))$

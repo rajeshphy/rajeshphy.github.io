@@ -53,4 +53,46 @@ res_Quincke : ratsimp(Fmag-Fhyd)$
 
 print("Quincke force-balance residual =",res_Quincke)$
 
+/* Enhancement checks: solved problems and numerical answers. */
+H_solenoid : nturn*Icur$
+M_solenoid : chi_sol*H_solenoid$
+B_solenoid : mu0*(H_solenoid+M_solenoid)$
+res_solenoid_B :
+  ratsimp(B_solenoid-mu0*(1+chi_sol)*nturn*Icur)$
+
+P_hyst : freq*A_BH*volume$
+res_hysteresis_power : ratsimp(P_hyst/freq-A_BH*volume)$
+
+print("enhancement magnetic-solenoid constitutive residual =",res_solenoid_B)$
+print("enhancement hysteresis-power residual =",res_hysteresis_power)$
+
+mu0_si : 4*%pi/10^7$
+moment_num : 24/10000$
+volume_num : 3/10^6$
+H_meas_num : 2*10^5$
+M_meas_num : moment_num/volume_num$
+chi_meas_num : M_meas_num/H_meas_num$
+mu_rel_meas_num : 1+chi_meas_num$
+chi_T_num : (12/10000)*300/450$
+chi_Quincke_num :
+  2*mu0_si*1000*(981/100)*(4/1000)/(4/5)^2$
+x_num : 3/2$
+L_num : coth(x_num)-1/x_num$
+M_langevin_num : (5*10^27)*(2/10^23)*L_num$
+res_num_M : ratsimp(M_meas_num-800)$
+res_num_chi : ratsimp(1000*chi_meas_num-4)$
+res_num_mu_rel : ratsimp(1000*mu_rel_meas_num-1004)$
+res_num_Curie : ratsimp(10^4*chi_T_num-8)$
+res_num_Quincke : round(bfloat(10^6*chi_Quincke_num))-154$
+res_num_Langevin : round(bfloat(1000*L_num))-438$
+res_num_finite_M : round(bfloat(M_langevin_num/100))-438$
+
+print("enhancement numerical measured-magnetization residual =",res_num_M)$
+print("enhancement numerical measured-susceptibility residual =",res_num_chi)$
+print("enhancement numerical measured-relative-permeability residual =",res_num_mu_rel)$
+print("enhancement numerical Curie-scaling residual =",res_num_Curie)$
+print("enhancement numerical Quincke residual =",res_num_Quincke)$
+print("enhancement numerical finite-field Langevin-function residual =",res_num_Langevin)$
+print("enhancement numerical finite-field magnetization residual =",res_num_finite_M)$
+
 quit()$

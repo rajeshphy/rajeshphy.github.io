@@ -15,4 +15,52 @@ print("negative light-ray residual (must be 0):",
   radcan(subst(x=-c*t,xp+c*tp)))$
 interval : c^2*tp^2-xp^2$
 print("interval residual (must be 0):",ratsimp(radcan(interval-(c^2*t^2-x^2))))$
+
+/* Solved problems and numerical problems. */
+c0 : 3*10^8$
+
+p1_b : 3/5$ p1_g : 5/4$ p1_x : 600$ p1_t : 3*10^-6$
+p1_xp : p1_g*(p1_x-p1_b*c0*p1_t)$
+p1_tp : p1_g*(p1_t-p1_b*p1_x/c0)$
+print("solved 1 position residual (must be 0):",ratsimp(p1_xp-75))$
+print("solved 1 time residual (must be 0):",ratsimp(p1_tp-9*10^-6/4))$
+print("solved 1 interval residual (must be 0):",
+  ratsimp(c0^2*p1_tp^2-p1_xp^2-(c0^2*p1_t^2-p1_x^2)))$
+
+p2_b1 : 3/5$ p2_b2 : 4/5$
+p2_b : (p2_b1+p2_b2)/(1+p2_b1*p2_b2)$
+p2_g : (5/4)*(5/3)*(1+p2_b1*p2_b2)$
+print("solved 2 composed-speed residual (must be 0):",ratsimp(p2_b-35/37))$
+print("solved 2 composed-gamma residual (must be 0):",ratsimp(p2_g-37/12))$
+print("solved 2 gamma-normalization residual (must be 0):",
+  radcan(p2_g-1/sqrt(1-p2_b^2)))$
+
+q1_ct : 500$ q1_x : 500/3$
+q1_b : 2*q1_ct*q1_x/(q1_ct^2+q1_x^2)$
+q1_g : 1/sqrt(1-q1_b^2)$
+q1_ctp : q1_g*(q1_ct-q1_b*q1_x)$
+q1_xp : q1_g*(q1_x-q1_b*q1_ct)$
+print("numerical 1 nonzero-boost residual (must be 0):",ratsimp(q1_b-3/5))$
+print("numerical 1 unchanged-time residual (must be 0):",
+  radcan(q1_ctp-q1_ct))$
+print("numerical 1 transformed-position residual (must be 0):",
+  radcan(q1_xp+500/3))$
+q2_b : 3/5$ q2_g : 5/4$ q2_xp : 120$ q2_tp : 10^-6$
+q2_x : q2_g*(q2_xp+q2_b*c0*q2_tp)$
+q2_t : q2_g*(q2_tp+q2_b*q2_xp/c0)$
+print("numerical 2 inverse-position residual (must be 0):",ratsimp(q2_x-375))$
+print("numerical 2 inverse-time residual (must be 0):",ratsimp(q2_t-31*10^-6/20))$
+print("numerical 3 gamma residual (must be 0):",
+  radcan(1/sqrt(1-(24/25)^2)-25/7))$
+q4_xp : (5/3)*(900-(4/5)*c0*3*10^-6)$
+q4_tp : (5/3)*(3*10^-6-(4/5)*900/c0)$
+print("numerical 4 light-position residual (must be 0):",ratsimp(q4_xp-300))$
+print("numerical 4 light-time residual (must be 0):",ratsimp(q4_tp-10^-6))$
+q5_s2 : 500^2-300^2$
+q5_tau : sqrt(q5_s2)/c0$
+print("numerical 5 interval residual (must be 0):",ratsimp(q5_s2-160000))$
+print("numerical 5 proper-time residual (must be 0):",
+  radcan(q5_tau-4*10^-6/3))$
+q6_b : (480/(2*10^-6))/c0$
+print("numerical 6 moving-origin residual (must be 0):",ratsimp(q6_b-4/5))$
 quit();

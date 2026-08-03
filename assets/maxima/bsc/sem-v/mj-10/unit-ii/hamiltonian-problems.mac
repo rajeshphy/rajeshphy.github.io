@@ -1,0 +1,52 @@
+/* MJ-10: Hamiltonian solved and numerical problems.
+   Every printed residual/check is exactly zero. */
+kill(all)$
+zcheck(actual, reported, tolerance) :=
+  if abs(float(actual-reported)) < tolerance then 0 else 1$
+
+/* Circular orbit in V=-kappa/r. */
+Veff : ell^2/(2*m*r^2)-kappa/r$
+r0 : ell^2/(m*kappa)$
+E0 : -m*kappa^2/(2*ell^2)$
+print("circular-orbit force residual =",
+      ratsimp(subst(r=r0,diff(Veff,r))))$
+print("circular-orbit energy residual =",
+      ratsimp(subst(r=r0,Veff)-E0))$
+print("circular-orbit stability residual =",
+      ratsimp(subst(r=r0,diff(Veff,r,2))-kappa/r0^3))$
+
+/* Compound pendulum released from rest at theta0. */
+omega_bottom : sqrt(2*M*g*a*(1-cos(theta0))/I)$
+Tsmall : 2*%pi*sqrt(I/(M*g*a))$
+omega_num : subst([M=2,g=9.81b0,a=0.25b0,I=0.18b0,theta0=%pi/3],omega_bottom)$
+T_num : subst([M=2,g=9.81b0,a=0.25b0,I=0.18b0],Tsmall)$
+print("compound-pendulum bottom-speed check =", zcheck(omega_num,5.220b0,5b-4))$
+print("compound-pendulum small-period check =", zcheck(T_num,1.204b0,5b-4))$
+
+/* Numerical problem 1: oscillator energy and amplitude. */
+E1 : 0.60b0^2/(2*0.50b0)+0.50b0*0.50b0*4.0b0^2*0.10b0^2$
+A1 : sqrt(2*E1/(0.50b0*4.0b0^2))$
+print("oscillator energy check =", zcheck(E1,0.4000b0,5b-8))$
+print("oscillator amplitude check =", zcheck(A1,0.3162b0,5b-5))$
+
+/* Numerical problem 2: anisotropic oscillator recurrence. */
+Tx : 2*%pi/2$ Ty : 2*%pi/3$ Trecur : 2*%pi$
+print("x-period check =", zcheck(Tx,3.142b0,5b-4))$
+print("y-period check =", zcheck(Ty,2.094b0,5b-4))$
+print("recurrence-time check =", zcheck(Trecur,6.283b0,5b-4))$
+
+/* Numerical problem 3: electromagnetic Hamiltonian. */
+mechanical2 : 0.10b0^2+(0.080b0-0.010b0*0.40b0)^2$
+H3 : mechanical2/(2*0.020b0)+0.010b0*3.0b0$
+vx3 : 0.10b0/0.020b0$ vy3 : (0.080b0-0.010b0*0.40b0)/0.020b0$
+print("electromagnetic vx check =", zcheck(vx3,5.000b0,5b-8))$
+print("electromagnetic vy check =", zcheck(vy3,3.800b0,5b-8))$
+print("electromagnetic Hamiltonian check =", zcheck(H3,0.4244b0,5b-7))$
+
+/* Numerical problem 4: free particle in cylindrical coordinates. */
+rhodot : 0.40b0/2.0b0$
+phidot : 0.30b0/(2.0b0*0.50b0^2)$
+prhodot : 0.30b0^2/(2.0b0*0.50b0^3)$
+print("cylindrical radial-speed check =", zcheck(rhodot,0.2000b0,5b-8))$
+print("cylindrical angular-speed check =", zcheck(phidot,0.6000b0,5b-8))$
+print("cylindrical radial-momentum-rate check =", zcheck(prhodot,0.3600b0,5b-8))$

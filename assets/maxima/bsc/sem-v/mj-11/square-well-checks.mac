@@ -23,6 +23,15 @@ Einside:-V0+hbar^2*k^2/(2*m)$
 Eoutside:-hbar^2*kap^2/(2*m)$
 energy_identity_residual:ratsimp(Einside-Eoutside)$
 
+/* Parameters used by the editable finite-well figure. */
+figure_ka:4/5$
+figure_kappa_a:figure_ka*tan(figure_ka)$
+figure_energy_ratio:-(figure_kappa_a^2)/(figure_ka^2+figure_kappa_a^2)$
+figure_matching_residual:trigsimp(
+  figure_ka*tan(figure_ka)-figure_kappa_a)$
+figure_energy_ratio_residual:ratsimp(
+  figure_energy_ratio+figure_kappa_a^2/(figure_ka^2+figure_kappa_a^2))$
+
 print("even_inside_ode_residual =",even_inside_ode_residual)$
 print("even_outside_ode_residual =",even_outside_ode_residual)$
 print("even_value_residual =",even_value_residual)$
@@ -32,4 +41,6 @@ print("odd_outside_ode_residual =",odd_outside_ode_residual)$
 print("odd_value_residual =",odd_value_residual)$
 print("odd_derivative_residual =",odd_derivative_residual)$
 print("energy_identity_residual =",energy_identity_residual)$
+print("figure_matching_residual =",figure_matching_residual)$
+print("figure_energy_ratio_residual =",figure_energy_ratio_residual)$
 quit();

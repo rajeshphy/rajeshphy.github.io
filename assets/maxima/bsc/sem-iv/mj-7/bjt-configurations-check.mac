@@ -1,0 +1,56 @@
+/* CB, CE, and CC gain identities and all worked values. */
+kill(all)$
+
+a : b/(b+1)$
+g : b+1$
+print("beta-alpha identity residual =", ratsimp(b-a/(1-a)))$
+print("gamma-alpha identity residual =", ratsimp(g-1/(1-a)))$
+print("gamma-beta identity residual =", ratsimp(g-b-1))$
+
+/* Solved problem 1: common-collector buffering. */
+vs1 : 1$ rs1 : 100000$ rl1 : 1000$ rin1 : 1000000$ av1 : 49/50$
+vdirect1 : vs1*rl1/(rs1+rl1)$
+vb1 : vs1*rin1/(rs1+rin1)$
+vload1 : av1*vb1$
+improvement1 : vload1/vdirect1$
+print("solved 1 direct-load-voltage residual =", ratsimp(vdirect1-1/101))$
+print("solved 1 buffered-base-voltage residual =", ratsimp(vb1-10/11))$
+print("solved 1 buffered-load-voltage residual =", ratsimp(vload1-49/55))$
+print("solved 1 improvement-factor rounded residual =", round(10*improvement1)-900)$
+
+/* Solved problem 2: common-base voltage and power gain. */
+rin2 : 50$ die2 : 1/5000$ a2 : 49/50$ rl2 : 5000$
+vin2 : rin2*die2$ dic2 : a2*die2$ vout2 : dic2*rl2$
+av2 : vout2/vin2$ gp2 : dic2^2*rl2/(die2^2*rin2)$
+print("solved 2 input-voltage residual =", ratsimp(vin2-1/100))$
+print("solved 2 collector-current residual =", ratsimp(dic2-49/250000))$
+print("solved 2 output-voltage residual =", ratsimp(vout2-49/50))$
+print("solved 2 voltage-gain residual =", ratsimp(av2-98))$
+print("solved 2 power-gain residual =", ratsimp(gp2-2401/25))$
+
+/* Numerical problem 1: signed CE voltage gain. */
+dvin_n1 : 12/1000$
+dvout_n1 : -36/25$
+av_n1 : dvout_n1/dvin_n1$
+print("numerical 1 signed-voltage-gain residual =", ratsimp(av_n1+120))$
+
+/* Numerical problem 2: extract Early voltage from two output points. */
+vce1_n2 : 2$ ic1_n2 : 1/500$
+vce2_n2 : 10$ ic2_n2 : 27/12500$
+ratio_n2 : ic2_n2/ic1_n2$
+va_n2 : (vce2_n2-ratio_n2*vce1_n2)/(ratio_n2-1)$
+print("numerical 2 Early-voltage residual =", ratsimp(va_n2-98))$
+print("numerical 2 characteristic-ratio residual =", ratsimp((va_n2+vce2_n2)/(va_n2+vce1_n2)-ratio_n2))$
+
+ib_n3 : 3/100000$ ic_n3 : 3/1250$
+dib_n3 : 5/1000000$ dic_n3 : 55/100000$
+bdc_n3 : ic_n3/ib_n3$ binc_n3 : dic_n3/dib_n3$
+percent_n3 : 100*(binc_n3-bdc_n3)/bdc_n3$
+print("numerical 3 dc-gain residual =", ratsimp(bdc_n3-80))$
+print("numerical 3 incremental-gain residual =", ratsimp(binc_n3-110))$
+print("numerical 3 gain-difference-percent residual =", ratsimp(percent_n3-75/2))$
+
+dvin_n4 : 12/1000$ dib_n4 : 10/1000000$
+dvout_n4 : 4$ dic_n4 : 8/100000$
+print("numerical 4 input-resistance residual =", ratsimp(dvin_n4/dib_n4-1200))$
+print("numerical 4 output-resistance residual =", ratsimp(dvout_n4/dic_n4-50000))$

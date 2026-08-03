@@ -1,0 +1,21 @@
+/* MJ-6: virial expansion, critical point, stability, and printed answers. */
+kill(all)$
+p : R*T/(v-b)-a/v^2$
+vc : 3*b$
+Tc : 8*a/(27*R*b)$
+pc : a/(27*b^2)$
+print("critical_pressure_residual =", ratsimp(subst([v=vc,T=Tc],p)-pc))$
+print("critical_slope_residual =", ratsimp(subst([v=vc,T=Tc],diff(p,v))))$
+print("critical_curvature_residual =", ratsimp(subst([v=vc,T=Tc],diff(p,v,2))))$
+pr : 8*Tr/(3*vr-1)-3/vr^2$
+print("reduced_critical_slope_residual =", ratsimp(subst([Tr=1,vr=1],diff(pr,vr))))$
+print("reduced_critical_curvature_residual =", ratsimp(subst([Tr=1,vr=1],diff(pr,vr,2))))$
+print("Boyle_leading_order_residual =", ratsimp(subst(v=R*TB/p,C/v^2)-C*(p/(R*TB))^2))$
+R0 : 8.314462618$
+a0 : 0.364$
+b0 : 4.27e-5$
+print("second_virial_rounding_residual =", round(1e7*(b0-a0/(R0*350)))+824)$
+print("Boyle_temperature_rounding_residual =", round(a0/(R0*b0))-1025)$
+print("critical_temperature_rounding_residual =", round(8*a0/(27*R0*b0))-304)$
+print("critical_pressure_rounding_residual =", round((a0/(27*b0^2))/1000)-7394)$
+print("reduced_pressure_residual =", ratsimp(subst([Tr=6/5,vr=2],pr)-117/100))$

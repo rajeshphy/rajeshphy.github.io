@@ -89,7 +89,9 @@ $$
 Thus the reflected and refracted rays are perpendicular at $i_B$. The reflected beam contains no $p$ component, so reflection of unpolarized light at this angle produces completely $s$-polarized reflected light.
 
 <figure class="diagram-figure">
-  <img src="{{ '/assets/images/bsc/sem-iii/mj-4/unit-3/brewster-reflection.png' | relative_url }}" alt="Brewster-angle reflection showing perpendicular reflected and refracted rays and the s and p polarization directions" loading="lazy">
+  <div class="diagram-pan" role="region" aria-label="Scrollable Brewster-reflection diagram" tabindex="0">
+    <img src="{{ '/assets/images/bsc/sem-iii/mj-4/unit-3/brewster-reflection.png' | relative_url }}" alt="Brewster-angle reflection showing perpendicular reflected and refracted rays and the s and p polarization directions" loading="lazy">
+  </div>
   <figcaption>At the Brewster angle the Fresnel coefficient $r_p$ is zero and $i_B+r_B=90^\circ$.</figcaption>
 </figure>
 
@@ -184,8 +186,98 @@ $$
 The prism is cut so that the ordinary ray meets the cement layer at an angle greater than $\theta_c$ and is totally internally reflected into a blackened side. The extraordinary ray has the smaller effective index and crosses the balsam layer instead of undergoing total internal reflection. The emerging beam therefore contains only the extraordinary vibration and is plane polarized. Reversing the role of the prism makes it an analyzer.
 
 <figure class="diagram-figure">
-  <img src="{{ '/assets/images/bsc/sem-iii/mj-4/unit-3/double-refraction-nicol.png' | relative_url }}" alt="Ordinary and extraordinary refractive-index surfaces beside the ray paths through a Nicol prism" loading="lazy">
+  <div class="diagram-pan" role="region" aria-label="Scrollable double-refraction-and-Nicol-prism diagram" tabindex="0">
+    <img src="{{ '/assets/images/bsc/sem-iii/mj-4/unit-3/double-refraction-nicol.png' | relative_url }}" alt="Ordinary and extraordinary refractive-index surfaces beside the ray paths through a Nicol prism" loading="lazy">
+  </div>
   <figcaption>The ordinary index is direction-independent; the Nicol geometry removes that ray by total internal reflection and transmits the extraordinary ray.</figcaption>
 </figure>
 
-The Brewster and extraordinary-index identities are checked with zero residuals in the [Unit III polarization Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-3/polarization-checks.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Brewster angle for an air-glass boundary
+
+Unpolarized light is incident from air on glass of refractive index $1.50$. Find the Brewster angle and the corresponding refracted angle.
+
+**Step 1: Apply Brewster's law.**
+
+$$
+\tan i_B=\frac{n_2}{n_1}=1.50.
+$$
+
+Therefore
+
+$$
+i_B=\tan^{-1}(1.50)\simeq56.31^\circ.
+$$
+
+**Step 2: Use ray orthogonality at the Brewster condition.**
+
+$$
+r_B=90^\circ-i_B\simeq33.69^\circ.
+$$
+
+**Step 3: Check Snell's law.** Because $r_B=90^\circ-i_B$,
+
+$$
+n_2\sin r_B=n_2\cos i_B
+=n_1\sin i_B,
+$$
+
+where the last equality follows from $\tan i_B=n_2/n_1$. The reflected and refracted rays are therefore exactly perpendicular.
+
+### 2. Extraordinary index at $45^\circ$ to the optic axis
+
+For calcite, take $n_o=1.658$ and $n_e=1.486$. Find the extraordinary phase index for a wave normal at $\theta=45^\circ$ to the optic axis.
+
+**Step 1: Substitute into the directional-index relation.**
+
+$$
+\frac1{n_{\rm ex}^2}
+=\frac{\cos^245^\circ}{n_o^2}
++\frac{\sin^245^\circ}{n_e^2}
+=\frac12\left(\frac1{n_o^2}+\frac1{n_e^2}\right).
+$$
+
+**Step 2: Invert the relation.**
+
+$$
+n_{\rm ex}
+=\sqrt{\frac{2n_o^2n_e^2}{n_o^2+n_e^2}}
+\simeq1.565.
+$$
+
+This lies between $n_e$ and $n_o$, as required for an intermediate propagation direction.
+
+## Descriptive Questions
+
+1. How do the Fresnel boundary conditions lead to Brewster's law for the $p$ component?
+2. Why is the ordinary refractive index independent of direction in a uniaxial crystal while the extraordinary index is not?
+3. Why is there no double refraction for propagation along the optic axis?
+4. How does a Nicol prism remove the ordinary ray and transmit a plane-polarized extraordinary ray?
+
+## Numerical Problems
+
+1. Light is incident at $45^\circ$ from air on a dielectric of index $\sqrt2$, for which Snell's law gives $r=30^\circ$. Use the displayed $p$-polarized Fresnel coefficient to find the reflected field-amplitude ratio and intensity fraction.
+
+   **Answer:** $r_p=7-4\sqrt3\simeq0.0718$ and $\mathcal R_p=r_p^2\simeq5.15\times10^{-3}$.
+
+2. A ray travels from a crystal of index $1.66$ toward a cement layer of index $1.55$. Find the critical angle at their boundary.
+
+   **Answer:** $\theta_c=\sin^{-1}(1.55/1.66)\simeq69.02^\circ$.
+
+3. A uniaxial crystal has principal indices $n_o=1.60$ and $n_e=1.50$. Find $\epsilon_\perp/\epsilon_0$ and $\epsilon_\parallel/\epsilon_0$, and classify the crystal as positive or negative.
+
+   **Answer:** $\epsilon_\perp/\epsilon_0=2.56$, $\epsilon_\parallel/\epsilon_0=2.25$; the crystal is negative because $n_e<n_o$.
+
+4. For principal indices $n_o=1.66$ and $n_e=1.49$, find the corresponding principal phase speeds using $c=3.00\times10^8\,\mathrm{m\,s^{-1}}$.
+
+   **Answer:** $v_o\simeq1.81\times10^8\,\mathrm{m\,s^{-1}}$ and $v_e\simeq2.01\times10^8\,\mathrm{m\,s^{-1}}$.
+
+The solved results and all numerical answers are verified by exact residuals in the [Unit III polarization Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-3/polarization-checks.mac' | relative_url }}).
+
+## References
+
+1. [Brewster's angle - Wikipedia](https://en.wikipedia.org/wiki/Brewster%27s_angle)
+2. F. A. Jenkins and H. E. White, *Fundamentals of Optics*, McGraw-Hill, sections on polarization by reflection and double refraction.
+3. Max Born and Emil Wolf, *Principles of Optics*, Cambridge University Press, sections on Fresnel coefficients and crystal optics.
+4. Ajoy Ghatak, *Optics*, McGraw Hill Education, chapters on polarization and Nicol prisms.

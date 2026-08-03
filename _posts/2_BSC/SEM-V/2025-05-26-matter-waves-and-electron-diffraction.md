@@ -136,3 +136,93 @@ $$
 in agreement within the experimental and crystal-spacing precision.
 
 The detector records localized electron impacts, yet many impacts form the diffraction distribution of a wave amplitude. Wave-particle duality therefore does not mean that an electron is alternately a classical particle and a classical wave. Propagation and interference are described by amplitudes, whereas detection transfers localized quanta of energy and momentum.
+
+## Solved Problems
+
+### 1. Relativistic de Broglie wavelength at 100 kV
+
+An electron is accelerated from rest through $100\ \mathrm{kV}$. Calculate its relativistic de Broglie wavelength and compare it with the non-relativistic value.
+
+**Solution.** The electron gains kinetic energy $K=eV>0$. Relativistic energy and momentum obey
+
+$$
+(pc)^2=(K+m_ec^2)^2-m_e^2c^4
+=K(K+2m_ec^2).
+$$
+
+Therefore
+
+$$
+\lambda_{\rm rel}
+=\frac{hc}{\sqrt{eV(eV+2m_ec^2)}}
+=\boxed{3.701\ \mathrm{pm}}.
+$$
+
+The non-relativistic expression gives
+
+$$
+\lambda_{\rm nr}
+=\frac{h}{\sqrt{2m_e eV}}
+=\boxed{3.878\ \mathrm{pm}}.
+$$
+
+Thus the approximation overestimates the wavelength by
+
+$$
+\frac{\lambda_{\rm nr}-\lambda_{\rm rel}}{\lambda_{\rm rel}}\times100\%
+=\boxed{4.78\%}.
+$$
+
+Both formulas have dimensions of length because momentum occupies the denominator of $h/p$. Relativity increases the momentum associated with a given accelerating voltage, so the corrected wavelength is shorter. When $eV\ll m_ec^2$, the factor $eV+2m_ec^2$ approaches $2m_ec^2$ and the relativistic expression reduces to the non-relativistic one.
+
+### 2. Predicting a first-order electron-diffraction maximum
+
+Electrons accelerated through $150\ \mathrm V$ strike crystal planes separated by $d=0.100\ \mathrm{nm}$. Find the first-order Bragg glancing angle, using the non-relativistic approximation.
+
+**Solution.** Since $150\ \mathrm{eV}\ll511\ \mathrm{keV}$, the non-relativistic wavelength is adequate:
+
+$$
+\lambda=\frac{h}{\sqrt{2m_e eV}}
+=0.100137\ \mathrm{nm}.
+$$
+
+With $\theta$ measured from the planes and $n=1$, constructive interference requires
+
+$$
+2d\sin\theta=\lambda.
+$$
+
+The positive glancing angle is therefore
+
+$$
+\theta=\sin^{-1}\!\left(\frac{0.100137}{2(0.100)}\right)
+=\boxed{30.05^\circ}.
+$$
+
+The ratio $\lambda/(2d)$ is dimensionless and is less than one, so a real first-order maximum exists. Increasing $V$ decreases $\lambda$ and hence decreases this glancing angle. In the limiting case $\lambda>2d$, no first-order solution is possible because it would require $\sin\theta>1$.
+
+## Descriptive Questions
+
+1. Why is the de Broglie wavelength a property of momentum rather than of particle charge?
+2. Distinguish phase velocity from group velocity and explain which one follows the motion of a localized free particle.
+3. How does the Davisson-Germer experiment establish wave-particle duality without implying that an electron is a classical material wave?
+4. Why must the reported detector angle be converted carefully before it is inserted into a Bragg-law convention?
+
+## Numerical Problems
+
+1. Find the non-relativistic de Broglie wavelength of a proton with kinetic energy $1.00\ \mathrm{keV}$.<br>
+   **Final answer:** $\boxed{\lambda=0.905\ \mathrm{pm}}$.
+2. A neutron has de Broglie wavelength $0.180\ \mathrm{nm}$. Find its speed.<br>
+   **Final answer:** $\boxed{v=2.20\times10^3\ \mathrm{m\,s^{-1}}}$.
+3. For a non-relativistic free particle moving at $2.00\times10^6\ \mathrm{m\,s^{-1}}$, find the phase and group velocities after removal of the rest-energy phase.<br>
+   **Final answer:** $\boxed{v_p=1.00\times10^6\ \mathrm{m\,s^{-1}},\quad v_g=2.00\times10^6\ \mathrm{m\,s^{-1}}}$.
+4. A relativistic particle moves at $0.800c$. Find its matter-wave phase and group velocities.<br>
+   **Final answer:** $\boxed{v_p=1.25c,\quad v_g=0.800c}$.
+
+Every added wavelength, velocity, and diffraction value is checked in the [MJ-11 problem-verification worksheet]({{ '/assets/maxima/bsc/sem-v/mj-11/problem-checks.mac' | relative_url }}); every printed residual and check is zero.
+
+## References
+
+1. [Wikipedia: Matter wave](https://en.wikipedia.org/wiki/Matter_wave)
+2. [OpenStax, *University Physics Volume 3*, Section 6.5: De Broglie's Matter Waves](https://openstax.org/books/university-physics-volume-3/pages/6-5-de-broglies-matter-waves)
+3. [MIT OpenCourseWare 8.04, lecture notes: Lectures 3-4 on matter waves and phase/group velocity](https://www.ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2016/pages/lecture-notes/)

@@ -1,0 +1,19 @@
+/* MJ-5 Unit III: historical mathematical checks. */
+kill(all)$
+
+/* Modern notation illustrating an instantaneous-rate argument. */
+s(t):=30*t-5*t^2$
+turning_solution:solve(diff(s(t),t)=0,t)[1]$
+print("turning_time_residual =",ratsimp(rhs(turning_solution)-3))$
+print("turning_position_residual =",ratsimp(s(3)-45))$
+
+/* Aryabhata's pi approximation: rounded error measures. */
+pi_a:62832/20000$
+print("pi_absolute_error_rounding_residual =",
+      round(1e12*abs(pi_a-%pi))-7346410)$
+print("pi_percent_error_rounding_residual =",
+      round(1e10*100*abs(pi_a-%pi)/%pi)-2338435)$
+
+/* Angular speed implied by one rotation in a sidereal day. */
+omega:2*%pi/86164$
+print("sidereal_omega_rounding_residual =",round(1e10*omega)-729212)$

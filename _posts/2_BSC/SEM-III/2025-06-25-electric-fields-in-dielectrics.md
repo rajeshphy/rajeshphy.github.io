@@ -20,24 +20,24 @@ with SI unit $\mathrm{C\,m^{-2}}$.
 
 ## Polarization and bound charge
 
-A volume element $\mathrm d\tau'$ has dipole moment $\mathbf P(\mathbf r')\,\mathrm d\tau'$. Its potential at $\mathbf r$ is
+A volume element $\mathrm d\tau^{\prime}$ has dipole moment $\mathbf P(\mathbf r^{\prime})\,\mathrm d\tau^{\prime}$. Its potential at $\mathbf r$ is
 
 $$
 \mathrm dV
 =\frac{1}{4\pi\epsilon_0}
-\mathbf P(\mathbf r')\cdot
-\boldsymbol\nabla'\!\left(\frac{1}{\lvert\mathbf r-\mathbf r'\rvert}\right)
-\mathrm d\tau'.
+\mathbf P(\mathbf r^{\prime})\cdot
+\boldsymbol\nabla^{\prime}\!\left(\frac{1}{\lvert\mathbf r-\mathbf r^{\prime}\rvert}\right)
+\mathrm d\tau^{\prime}.
 $$
 
 Use
 
 $$
-\boldsymbol\nabla'\cdot
-\left(\frac{\mathbf P}{\lvert\mathbf r-\mathbf r'\rvert}\right)
-=\frac{\boldsymbol\nabla'\cdot\mathbf P}{\lvert\mathbf r-\mathbf r'\rvert}
-+\mathbf P\cdot\boldsymbol\nabla'
-\left(\frac{1}{\lvert\mathbf r-\mathbf r'\rvert}\right).
+\boldsymbol\nabla^{\prime}\cdot
+\left(\frac{\mathbf P}{\lvert\mathbf r-\mathbf r^{\prime}\rvert}\right)
+=\frac{\boldsymbol\nabla^{\prime}\cdot\mathbf P}{\lvert\mathbf r-\mathbf r^{\prime}\rvert}
++\mathbf P\cdot\boldsymbol\nabla^{\prime}
+\left(\frac{1}{\lvert\mathbf r-\mathbf r^{\prime}\rvert}\right).
 $$
 
 Integration over the polarized body and the divergence theorem give
@@ -46,9 +46,9 @@ $$
 V(\mathbf r)=\frac{1}{4\pi\epsilon_0}
 \left[
 \oint_S\frac{\mathbf P\cdot\hat{\mathbf n}}
-{\lvert\mathbf r-\mathbf r'\rvert}\,\mathrm da'
-+\int_V\frac{-\boldsymbol\nabla'\cdot\mathbf P}
-{\lvert\mathbf r-\mathbf r'\rvert}\,\mathrm d\tau'
+{\lvert\mathbf r-\mathbf r^{\prime}\rvert}\,\mathrm da^{\prime}
++\int_V\frac{-\boldsymbol\nabla^{\prime}\cdot\mathbf P}
+{\lvert\mathbf r-\mathbf r^{\prime}\rvert}\,\mathrm d\tau^{\prime}
 \right].
 $$
 
@@ -191,4 +191,91 @@ $$
 
 The derivation assumes a linear, homogeneous, isotropic or cubic, nonpolar dielectric whose molecules can be treated as weakly interacting polarizable units. Strong correlations, anisotropy, permanent-dipole orientation, or large fields require a more detailed model.
 
-The bound-charge identity, interface relations, and Clausius-Mossotti algebra are verified with exact zero residuals in the [Unit II dielectric worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-2/dielectrics.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Linear dielectric between charged parallel plates
+
+Large plates carry free surface charge densities $+\sigma_f$ and $-\sigma_f$. A linear dielectric of relative permittivity $\epsilon_r$ fills the gap. Find $\mathbf D$, $\mathbf E$, and $\mathbf P$ away from the edges.
+
+**Solution.** A pillbox enclosing either free plate gives
+
+$$
+\boxed{\mathbf D=\sigma_f\hat{\mathbf n}},
+$$
+
+where $\hat{\mathbf n}$ points from the positive to the negative plate. Since $\mathbf D=\epsilon_0\epsilon_r\mathbf E$,
+
+$$
+\boxed{\mathbf E=\frac{\sigma_f}{\epsilon_0\epsilon_r}\hat{\mathbf n}}.
+$$
+
+Using $\mathbf P=\epsilon_0(\epsilon_r-1)\mathbf E$,
+
+$$
+\boxed{\mathbf P=\sigma_f\left(1-\frac1{\epsilon_r}\right)\hat{\mathbf n}}.
+$$
+
+The dielectric faces therefore carry bound densities $\sigma_b=\pm P$, with the negative bound charge facing the positive free plate. Substitution confirms $\epsilon_0\mathbf E+\mathbf P=\mathbf D$.
+
+### 2. Two dielectric layers in series
+
+Two linear dielectric slabs of thicknesses $d_1,d_2$ and permittivities $\epsilon_1,\epsilon_2$ fill a parallel-plate gap held at potential difference $V$. There is no free charge at their interface. Find the fields.
+
+**Solution.** The normal component of $\mathbf D$ is the same in both layers:
+
+$$
+D_1=D_2=D.
+$$
+
+Hence $E_1=D/\epsilon_1$ and $E_2=D/\epsilon_2$. The applied voltage is
+
+$$
+V=E_1d_1+E_2d_2
+=D\left(\frac{d_1}{\epsilon_1}+\frac{d_2}{\epsilon_2}\right).
+$$
+
+Therefore
+
+$$
+\boxed{D=\frac{V}{d_1/\epsilon_1+d_2/\epsilon_2}},
+\qquad
+\boxed{E_i=\frac{D}{\epsilon_i}}.
+$$
+
+The layer with the smaller permittivity has the larger electric field.
+
+## Descriptive Questions
+
+1. How are polarization and molecular polarizability distinguished?
+2. Why does the normal boundary condition for $\mathbf D$ contain only free surface charge?
+3. Under what assumptions does $\epsilon_r=1+\chi_e$ hold?
+4. Which microscopic assumptions enter the Clausius-Mossotti equation?
+
+## Numerical Problems
+
+### 1. Polarization and displacement
+
+A dielectric has $\chi_e=3.20$ in a field $E=2.00\times10^5\,\mathrm{V\,m^{-1}}$. Find $P$ and $D$.
+
+**Answer:** $P=5.67\times10^{-6}\,\mathrm{C\,m^{-2}}$ and $D=7.44\times10^{-6}\,\mathrm{C\,m^{-2}}$.
+
+### 2. Clausius-Mossotti parameter
+
+For a material, $x=N\alpha/(3\epsilon_0)=0.200$. Find $\epsilon_r$.
+
+**Answer:** $\epsilon_r=1.75$.
+
+### 3. Bound charge from nonuniform polarization
+
+Inside a sphere of radius $R=0.100\,\mathrm m$, the polarization is $\mathbf P=kr\hat{\mathbf r}$ with $k=2.00\,\mathrm{\mu C\,m^{-3}}$. Find the bound volume density, the bound surface density, and the net bound charge.
+
+**Answer:** $\rho_b=-6.00\,\mathrm{\mu C\,m^{-3}}$, $\sigma_b=0.200\,\mathrm{\mu C\,m^{-2}}$, and $Q_b^{\mathrm{net}}=0$.
+
+The symbolic solutions and all printed numerical answers are verified in the [Unit II dielectric worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-2/dielectrics.mac' | relative_url }}).
+
+## References
+
+1. [Dielectric: Wikipedia](https://en.wikipedia.org/wiki/Dielectric)
+2. David J. Griffiths, *Introduction to Electrodynamics*, 4th ed., Cambridge University Press, 2017.
+3. B. I. Bleaney and B. Bleaney, *Electricity and Magnetism*, 3rd ed., Oxford University Press, 1976.
+4. Charles Kittel, *Introduction to Solid State Physics*, 8th ed., Wiley, 2004.

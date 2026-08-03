@@ -27,7 +27,9 @@ $$
 
 where $Y$ is Young's modulus. Stress has dimension $[ML^{-1}T^{-2}]$ and strain is dimensionless, so every elastic modulus has the dimension of pressure.
 
-![Stress-strain curve and the longitudinal and transverse strains of a stretched rod]({{ '/assets/images/bsc/sem-i/unit-1/stress-strain-elasticity.png' | relative_url }})
+<div class="diagram-pan" tabindex="0" role="region" aria-label="Scrollable elasticity diagram">
+  <img src="{{ '/assets/images/bsc/sem-i/unit-1/stress-strain-elasticity.png' | relative_url }}" alt="Stress-strain curve and the longitudinal and transverse strains of a stretched rod" loading="lazy">
+</div>
 
 On the stress-strain diagram, $O$ to $P$ is the straight-line or proportional region, with slope
 
@@ -158,4 +160,176 @@ $$
 }.
 $$
 
-The relations are independently checked in the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-i/unit-1/elastic-constants.mac' | relative_url }}); every displayed residual is zero.
+## Elastic strain energy
+
+Loading a linearly elastic specimen quasistatically from zero stress to $\sigma$ stores work per unit volume equal to the area under the stress--strain line:
+
+$$
+u=\int_0^{\epsilon_l}\sigma\,d\epsilon_l
+=\int_0^{\epsilon_l}Y\epsilon_l\,d\epsilon_l.
+$$
+
+Hence
+
+$$
+\boxed{
+u=\frac12\sigma\epsilon_l
+=\frac{\sigma^2}{2Y}
+=\frac12Y\epsilon_l^2
+}.
+$$
+
+For a uniform rod of volume $AL$, this gives
+
+$$
+U=uAL=\frac12F\Delta L.
+$$
+
+The factor $1/2$ is essential: during gradual loading the force rises from zero to $F$, so its average value is $F/2$. This expression applies only while unloading retraces the linear elastic path.
+
+## Solved Problems
+
+### 1. Extension, lateral contraction and stored energy of a wire
+
+A wire has length $L=2.00\ \mathrm{m}$, diameter $d=1.00\ \mathrm{mm}$, Young's modulus $Y=2.00\times10^{11}\ \mathrm{Pa}$ and Poisson's ratio $\nu=0.300$. It is pulled by $F=100\ \mathrm{N}$ within its elastic range. Find its longitudinal extension, change in diameter and stored elastic energy.
+
+The original cross-sectional area is
+
+$$
+A=\frac{\pi d^2}{4}
+=\frac{\pi(1.00\times10^{-3})^2}{4}
+=7.854\times10^{-7}\ \mathrm{m^2}.
+$$
+
+Therefore
+
+$$
+\sigma=\frac{F}{A}=1.273\times10^8\ \mathrm{Pa},
+\qquad
+\epsilon_l=\frac{\sigma}{Y}=6.366\times10^{-4}.
+$$
+
+The extension is
+
+$$
+\boxed{\Delta L=\epsilon_lL
+=1.273\times10^{-3}\ \mathrm{m}
+=1.273\ \mathrm{mm}}.
+$$
+
+The transverse strain carries the contraction sign:
+
+$$
+\epsilon_t=-\nu\epsilon_l
+=-1.910\times10^{-4},
+$$
+
+so
+
+$$
+\boxed{\Delta d=\epsilon_td
+=-1.910\times10^{-7}\ \mathrm{m}
+=-0.191\ \mathrm{\mu m}}.
+$$
+
+Finally,
+
+$$
+\boxed{U=\frac12F\Delta L=6.366\times10^{-2}\ \mathrm{J}}.
+$$
+
+The negative $\Delta d$ denotes contraction, not a negative diameter. As checks, $\sigma/Y$ is dimensionless and $2U=F\Delta L$.
+
+### 2. Recovering $Y$ and $\nu$ from $K$ and $G$
+
+An isotropic solid has bulk modulus $K=75.0\ \mathrm{GPa}$ and shear modulus $G=30.0\ \mathrm{GPa}$. Determine Young's modulus and Poisson's ratio, and test whether the constants describe a stable isotropic solid.
+
+Using the equivalent forms,
+
+$$
+\begin{aligned}
+Y
+&=\frac{9KG}{3K+G}\\
+&=\frac{9(75.0)(30.0)}{3(75.0)+30.0}\ \mathrm{GPa}\\
+&=79.41\ \mathrm{GPa},
+\end{aligned}
+$$
+
+and
+
+$$
+\begin{aligned}
+\nu
+&=\frac{3K-2G}{2(3K+G)}\\
+&=\frac{3(75.0)-2(30.0)}{2[3(75.0)+30.0]}\\
+&=0.3235.
+\end{aligned}
+$$
+
+Thus
+
+$$
+\boxed{Y=79.41\ \mathrm{GPa},\qquad \nu=0.3235}.
+$$
+
+Both $K$ and $G$ are positive, and $-1<0.3235<1/2$, so the stability conditions are satisfied. Substitution into $Y=2G(1+\nu)$ returns $79.41\ \mathrm{GPa}$, providing an independent consistency check.
+
+## Descriptive Questions
+
+1. Distinguish the proportional limit, elastic limit, yield point and ultimate tensile point on an engineering stress--strain curve.
+2. Derive $Y=3K(1-2\nu)$ by superposing three mutually perpendicular normal stresses.
+3. Explain why only two elastic constants are independent for a homogeneous isotropic solid.
+4. Show from positivity of $K$ and $G$ why the admissible range of Poisson's ratio is $-1<\nu<1/2$.
+
+## Numerical Problems
+
+1. An isotropic block of initial volume $250\ \mathrm{cm^3}$ is subjected to a uniaxial tensile stress of $30.0\ \mathrm{MPa}$. If $Y=3.00\ \mathrm{GPa}$ and $\nu=0.400$, find its first-order change in volume.
+
+   **Final answer:**
+
+   $$
+   \begin{aligned}
+   \frac{\Delta V}{V}
+   &=\epsilon_l+2\epsilon_t
+   =(1-2\nu)\frac{\sigma}{Y}
+   =2.00\times10^{-3},\\
+   \Delta V&=+0.500\ \mathrm{cm^3}.
+   \end{aligned}
+   $$
+
+2. A liquid of volume $0.0200\ \mathrm{m^3}$ has bulk modulus $2.20\ \mathrm{GPa}$. Find its volume change when the external pressure increases by $5.00\ \mathrm{MPa}$.
+
+   **Final answer:** $\Delta V=-4.55\times10^{-5}\ \mathrm{m^3}=-45.5\ \mathrm{cm^3}$.
+
+3. A cube of side $0.100\ \mathrm{m}$ is sheared by a tangential force of $12.0\ \mathrm{kN}$ on its top face. If $G=30.0\ \mathrm{GPa}$, find the top-face displacement.
+
+   **Final answer:** $x=4.00\ \mathrm{\mu m}$.
+
+4. An isotropic material has $Y=70.0\ \mathrm{GPa}$ and $\nu=0.350$. Calculate $G$ and $K$.
+
+   **Final answer:** $G=25.93\ \mathrm{GPa}$, $K=77.78\ \mathrm{GPa}$.
+
+5. Find the elastic energy density in a specimen stressed uniaxially to $120\ \mathrm{MPa}$ if $Y=200\ \mathrm{GPa}$.
+
+   **Final answer:** $u=3.60\times10^4\ \mathrm{J\,m^{-3}}$.
+
+6. A cube is subjected to mutually perpendicular normal stresses $\sigma_x=+100\ \mathrm{MPa}$, $\sigma_y=+40.0\ \mathrm{MPa}$ and $\sigma_z=-20.0\ \mathrm{MPa}$, where positive stress denotes tension. If $Y=200\ \mathrm{GPa}$ and $\nu=0.300$, find the normal strain along $x$.
+
+   **Final answer:**
+
+   $$
+   \begin{aligned}
+   \epsilon_x
+   &=\frac{\sigma_x-\nu(\sigma_y+\sigma_z)}{Y}\\
+   &=+4.70\times10^{-4}
+   \quad\text{(elongation)}.
+   \end{aligned}
+   $$
+
+All symbolic identities and numerical answers above are checked in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-i/unit-1/elastic-constants.mac' | relative_url }}).
+
+## References
+
+1. [Elasticity (physics) -- Wikipedia](https://en.wikipedia.org/wiki/Elasticity_%28physics%29).
+2. [OpenStax, *University Physics Volume 1*, Section 12.3: Stress, Strain, and Elastic Modulus](https://openstax.org/books/university-physics-volume-1/pages/12-3-stress-strain-and-elastic-modulus).
+3. [R. P. Feynman, R. B. Leighton and M. Sands, *The Feynman Lectures on Physics*, Vol. II, Chapter 38: Elasticity](https://www.feynmanlectures.caltech.edu/II_38.html).

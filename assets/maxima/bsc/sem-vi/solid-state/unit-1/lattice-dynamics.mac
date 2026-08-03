@@ -1,3 +1,4 @@
+kill(all)$
 display2d:false$
 
 mono_residual:ratsimp(trigreduce(2*C*(1-cos(k*a))-4*C*sin(k*a/2)^2))$
@@ -21,3 +22,46 @@ print("residual_einstein_high_temperature =",residual_einstein_high)$
 Ulow:3*%pi^4*N*kB*T^4/(5*thetaD^3)$
 residual_debye_t3:ratsimp(diff(Ulow,T)-12*%pi^4*N*kB*T^3/(5*thetaD^3))$
 print("residual_debye_T3 =",residual_debye_t3)$
+
+/* Solved problem 1: monatomic mode and group velocity at k = pi/(2a). */
+worked_C : 40$
+worked_M : 4*10^(-26)$
+worked_a : 25*10^(-11)$
+worked_k : %pi/(2*worked_a)$
+worked_omega : 2*sqrt(worked_C/worked_M)*sin(worked_k*worked_a/2)$
+worked_vg : worked_a*sqrt(worked_C/worked_M)*cos(worked_k*worked_a/2)$
+worked_omega_check : round(float(worked_omega/10^10))-4472$
+worked_vg_check : round(float(worked_vg))-5590$
+print("worked monatomic frequency rounding check =",worked_omega_check)$
+print("worked group-velocity rounding check =",worked_vg_check)$
+
+/* Solved problem 2: zone-centre diatomic optical mode. */
+worked_M1 : 4*10^(-26)$
+worked_M2 : 2*10^(-26)$
+worked_C2 : 40$
+worked_optical : sqrt(2*worked_C2*(1/worked_M1+1/worked_M2))$
+worked_optical_check : round(float(worked_optical/10^10))-7746$
+worked_amplitude_check : -worked_M1/worked_M2-(-2)$
+print("worked optical-frequency rounding check =",worked_optical_check)$
+print("worked optical amplitude-ratio check =",worked_amplitude_check)$
+
+/* Exercise answers: allowed k values, phonon energy and heat-capacity models. */
+delta_k : 2*%pi/(1000*0.25*10^(-9))$
+delta_k_check : round(float(delta_k/10^4))-2513$
+phonon_mev : 6.62607015*10^(-34)*5*10^12/(1.602176634*10^(-22))$
+phonon_energy_check : round(float(phonon_mev)*1000)-20678$
+branch_total_check : 3*4-12$
+branch_optical_check : 3*4-3-9$
+einstein_x : 220/150$
+einstein_molar : 3*8.314462618*einstein_x^2*exp(einstein_x)/(exp(einstein_x)-1)^2$
+einstein_molar_check : round(float(einstein_molar)*1000)-20915$
+debye_molar : 12*%pi^4*8.314462618*(20/343)^3/5$
+debye_molar_check : round(float(debye_molar)*1000)-385$
+debye_mode_count_check : 3*(8*10^22)/8-3*10^22$
+print("allowed-k spacing rounding check (m^-1) =",delta_k_check)$
+print("5 THz phonon-energy rounding check (meV) =",phonon_energy_check)$
+print("four-atom total-branch check =",branch_total_check)$
+print("four-atom optical-branch check =",branch_optical_check)$
+print("Einstein molar-heat rounding check =",einstein_molar_check)$
+print("Debye molar-heat rounding check =",debye_molar_check)$
+print("Debye half-cutoff mode-count check =",debye_mode_count_check)$

@@ -1,0 +1,28 @@
+/* MJ-5 Unit I: aggregation arithmetic and modern atomic comparisons. */
+kill(all)$
+
+avogadro:602214076*10^15$
+
+triad_atoms:3*2$
+triad_check:triad_atoms-6$
+four_triads_check:4*triad_atoms-24$
+chain_length:10^9*(25/100)*10^(-9)$
+chain_length_check:ratsimp(chain_length-1/4)$
+
+copper_solved:(635/100)/(63546/1000)*avogadro$
+copper_solved_check:ratsimp(63546*copper_solved-6350*avogadro)$
+
+scale_ratio:10^(-10)/10^(-15)$
+scale_ratio_check:scale_ratio-10^5$
+
+mean_spacing:(1/(25*10^27))^(1/3)$
+mean_spacing_check:radcan(25*10^27*mean_spacing^3-1)$
+
+print("triad_check =",triad_check)$
+print("four_triads_check =",four_triads_check)$
+print("chain_length_check =",chain_length_check)$
+print("copper_solved_check =",copper_solved_check)$
+print("scale_ratio_check =",scale_ratio_check)$
+print("mean_spacing_check =",mean_spacing_check)$
+print("copper_6.35_g =",float(copper_solved))$
+print("mean_spacing_m =",float(mean_spacing))$

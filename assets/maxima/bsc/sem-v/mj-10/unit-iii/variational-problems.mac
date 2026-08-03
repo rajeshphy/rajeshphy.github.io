@@ -1,0 +1,47 @@
+/* MJ-10: variational-principle and constrained-motion problems.
+   Every printed residual/check is exactly zero. */
+kill(all)$
+zcheck(actual, reported, tolerance) :=
+  if abs(float(actual-reported)) < tolerance then 0 else 1$
+
+/* Rolling hoop: acceleration, friction, and no-slip threshold. */
+accel : g*sin(alpha)/2$
+friction : M*g*sin(alpha)/2$
+mumin : tan(alpha)/2$
+print("rolling translation residual =",
+      ratsimp(M*g*sin(alpha)-friction-M*accel))$
+print("rolling torque residual =",
+      ratsimp(friction*R-M*R^2*(accel/R)))$
+print("rolling acceleration check =",
+      zcheck(subst([g=9.81b0,alpha=%pi/6],accel),2.4525b0,5b-7))$
+print("rolling friction-ratio check =",
+      zcheck(subst(alpha=%pi/6,mumin),0.2887b0,5b-5))$
+
+/* Pendulum released from theta0. */
+v2 : 2*g*l*(cos(theta)-cos(theta0))$
+tension : m*g*(3*cos(theta)-2*cos(theta0))$
+print("pendulum energy residual =",
+      ratsimp(v2/l-2*g*(cos(theta)-cos(theta0))))$
+print("pendulum bottom-tension check =",
+      zcheck(subst([m=0.20b0,g=9.81b0,theta=0,theta0=%pi/3],tension),3.924b0,5b-7))$
+
+/* Numerical problem 1: y''-y=0 boundary-value extremal. */
+yhalf : sinh(0.50b0)/sinh(1.0b0)$
+print("boundary-value extremal check =", zcheck(yhalf,0.4434b0,5b-5))$
+
+/* Numerical problem 2: free-particle stationary action. */
+vfree : 6.0b0/2.0b0$ Sfree : 0.5b0*3.0b0*vfree^2*2.0b0$
+print("free-particle speed check =", zcheck(vfree,3.000b0,5b-8))$
+print("free-particle action check =", zcheck(Sfree,27.00b0,5b-8))$
+
+/* Numerical problem 3: phase-space oscillator quarter period. */
+tquarter : %pi/(2*3.0b0)$
+qquarter : 0.40b0*sin(3.0b0*tquarter)$
+pquarter : 2.0b0*3.0b0*0.40b0*cos(3.0b0*tquarter)$
+print("quarter-period time check =", zcheck(tquarter,0.5236b0,5b-5))$
+print("quarter-period coordinate check =", zcheck(qquarter,0.4000b0,5b-8))$
+print("quarter-period momentum check =", zcheck(pquarter,0.0000b0,5b-8))$
+
+/* Numerical problem 4: small-oscillation pendulum period. */
+Tp : 2*%pi*sqrt(0.75b0/9.81b0)$
+print("small-pendulum period check =", zcheck(Tp,1.737b0,5b-4))$

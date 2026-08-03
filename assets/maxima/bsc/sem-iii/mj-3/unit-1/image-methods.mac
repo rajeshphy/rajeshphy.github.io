@@ -53,4 +53,34 @@ res_sphere_force : ratsimp(image_force-force_expected)$
 
 print("grounded-sphere force residual =",res_sphere_force)$
 
+/* Enhancement checks: solved problems and numerical answers. */
+deltaV_cap : Qcap/(4*%pi*eps0)*(1/ra-1/rb)$
+C_cap : Qcap/deltaV_cap$
+C_cap_expected : 4*%pi*eps0*ra*rb/(rb-ra)$
+res_spherical_capacitance : radcan(C_cap-C_cap_expected)$
+
+U_plane : -q^2/(16*%pi*eps0*ha)$
+F_plane_from_U : -diff(U_plane,ha)$
+F_plane_expected : -q^2/(16*%pi*eps0*ha^2)$
+res_plane_energy_force : ratsimp(F_plane_from_U-F_plane_expected)$
+
+print("enhancement spherical-capacitance residual =",res_spherical_capacitance)$
+print("enhancement plane energy-force residual =",res_plane_energy_force)$
+
+eps0_si : 88541878128/10^22$
+C_parallel_num_pf :
+  eps0_si*(150/10000)/(15/10000)*10^12$
+pressure_num : eps0_si*(3*10^6)^2/2$
+q_image_num_nc : -6*(1/10)/(3/10)$
+b_image_num_cm : ((1/10)^2/(3/10))*100$
+res_num_capacitance : round(bfloat(10*C_parallel_num_pf))-885$
+res_num_pressure : round(bfloat(10*pressure_num))-398$
+res_num_image_charge : ratsimp(q_image_num_nc+2)$
+res_num_image_position : round(bfloat(100*b_image_num_cm))-333$
+
+print("enhancement numerical parallel-capacitance residual =",res_num_capacitance)$
+print("enhancement numerical electrostatic-pressure residual =",res_num_pressure)$
+print("enhancement numerical sphere-image-charge residual =",res_num_image_charge)$
+print("enhancement numerical sphere-image-position residual =",res_num_image_position)$
+
 quit()$

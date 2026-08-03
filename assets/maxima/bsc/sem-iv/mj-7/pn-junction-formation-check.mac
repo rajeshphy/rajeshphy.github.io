@@ -1,0 +1,93 @@
+/* Abrupt p-n junction electrostatics and every worked value. */
+kill(all)$
+
+w0 : sqrt((2*eps*vbi/q)*(1/na+1/nd))$
+xp : nd*w0/(na+nd)$
+xn : na*w0/(na+nd)$
+print("symbolic depletion-charge residual =", ratsimp(na*xp-nd*xn))$
+print("symbolic width residual =", ratsimp(xp+xn-w0))$
+print("symbolic barrier residual =",
+      radcan(q*(na*xp^2+nd*xn^2)/(2*eps)-vbi))$
+print("symbolic peak-field residual =",
+      ratsimp(q*na*xp/eps-2*vbi/w0))$
+
+q0 : 1602/10^22$
+eps0 : 8854/10^15$
+eps_si : (117/10)*eps0$
+
+/* Solved problem 1. */
+na1 : 10^23$ nd1 : 10^22$ ni1 : 10^16$ vt1 : 2585/100000$
+vbi1 : vt1*log(na1*nd1/ni1^2)$
+w1 : subst([eps=eps_si,vbi=vbi1,q=q0,na=na1,nd=nd1],w0)$
+xp1 : nd1*w1/(na1+nd1)$
+xn1 : na1*w1/(na1+nd1)$
+print("solved 1 barrier rounded residual =",
+      round(ev(vbi1*10000,numer))-7738)$
+print("solved 1 width rounded residual =",
+      round(ev(w1*10^10,numer))-3318)$
+print("solved 1 p-width rounded residual =",
+      round(ev(xp1*10^11,numer))-3016)$
+print("solved 1 n-width rounded residual =",
+      round(ev(xn1*10^10,numer))-3016)$
+print("solved 1 charge-neutrality residual =", ratsimp(na1*xp1-nd1*xn1))$
+
+/* Solved problem 2. */
+n2 : 5*10^22$ vb2 : 7/10$
+w2 : sqrt(4*eps_si*vb2/(q0*n2))$
+em2 : 2*vb2/w2$
+print("solved 2 width rounded residual =",
+      round(ev(w2*10^10,numer))-1903)$
+print("solved 2 half-width rounded residual =",
+      round(ev((w2/2)*10^10,numer))-951)$
+print("solved 2 peak-field rounded residual =",
+      round(ev(em2/1000,numer))-7357)$
+print("solved 2 field-formula residual =",
+      radcan(q0*n2*(w2/2)/eps_si-em2))$
+
+/* Numerical problems. */
+xp_n1 : 12/10^8$ xn_n1 : 48/10^8$ nd_n1 : 25*10^20$
+na_n1 : 10^22$ ns_n1 : 12*10^14$ sigma_n1 : 2403/12500000$
+print("numerical 1 inferred-acceptor residual =",
+      ratsimp(na_n1-nd_n1*xn_n1/xp_n1))$
+print("numerical 1 depletion-neutrality residual =",
+      ratsimp(na_n1*xp_n1-nd_n1*xn_n1))$
+print("numerical 1 p-side sheet-density residual =",
+      ratsimp(ns_n1-na_n1*xp_n1))$
+print("numerical 1 n-side sheet-density residual =",
+      ratsimp(ns_n1-nd_n1*xn_n1))$
+print("numerical 1 sheet-charge residual =",
+      ratsimp(sigma_n1-q0*ns_n1))$
+
+eps_n2 : 1/10^10$ na_n2 : 2*10^22$ nd_n2 : 4*10^22$
+xp_n2 : 3/10^7$ xn_n2 : 15/10^8$
+ep_n2 : -q0*na_n2*((-1/10^7)+xp_n2)/eps_n2$
+en_n2 : q0*nd_n2*((5/10^8)-xn_n2)/eps_n2$
+e0p_n2 : -q0*na_n2*xp_n2/eps_n2$
+e0n_n2 : -q0*nd_n2*xn_n2/eps_n2$
+print("numerical 2 depletion-neutrality residual =",
+      ratsimp(na_n2*xp_n2-nd_n2*xn_n2))$
+print("numerical 2 p-side field residual =", ratsimp(ep_n2+6408*1000))$
+print("numerical 2 n-side field residual =", ratsimp(en_n2+6408*1000))$
+print("numerical 2 interface-continuity residual =",
+      ratsimp(e0p_n2-e0n_n2))$
+print("numerical 2 interface-field residual =",
+      ratsimp(e0p_n2+9612*1000))$
+
+dv_n3 : log(2)/10$ vnew_n3 : 31/50+log(2)/10$
+print("numerical 3 implant-increment residual =",
+      radcan(dv_n3-(1/40)*log(16)))$
+print("numerical 3 new-barrier identity residual =",
+      radcan(vnew_n3-31/50-dv_n3))$
+print("numerical 3 increment rounded residual =",
+      round(ev(dv_n3*10^5,numer))-6931)$
+print("numerical 3 new-barrier rounded residual =",
+      round(ev(vnew_n3*10^4,numer))-6893)$
+
+xp_n4 : 15/10^8$ xn_n4 : 45/10^8$ vb_n4 : 21/25$
+vp_n4 : 21/100$ vn_n4 : 63/100$
+print("numerical 4 potential-partition residual =",
+      ratsimp(vp_n4/vn_n4-xp_n4/xn_n4))$
+print("numerical 4 total-barrier residual =",
+      ratsimp(vp_n4+vn_n4-vb_n4))$
+print("numerical 4 p-side potential residual =",
+      ratsimp(vp_n4-vb_n4*xp_n4/(xp_n4+xn_n4)))$

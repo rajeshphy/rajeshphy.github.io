@@ -1,0 +1,16 @@
+/* MJ-6: first-law signs, response identities, and printed answers. */
+kill(all)$
+print("first_law_numeric_residual =", subst([Q=500,W=120,dU=380],Q-W-dU))$
+Ustate : C*T+Lambda*Vv^2/2$
+print("state_temperature_derivative_residual =", ratsimp(diff(Ustate,T)-C))$
+print("state_volume_derivative_residual =", ratsimp(diff(Ustate,Vv)-Lambda*Vv))$
+V(T,p) := n*R*T/p$
+alpha : ratsimp(diff(V(T,p),T)/V(T,p))$
+kappa : ratsimp(-diff(V(T,p),p)/V(T,p))$
+print("ideal_alpha_residual =", ratsimp(alpha-1/T))$
+print("ideal_kappa_residual =", ratsimp(kappa-1/p))$
+print("Mayer_response_residual =", ratsimp(T*V(T,p)*alpha^2/kappa-n*R))$
+print("compression_volume_residual =", ratsimp(-(2/1000)*(5/10^10)*(2*10^7)-(-2/10^5)))$
+print("thermal_volume_residual =", ratsimp((15/10000)*(3/10000)*80-36/10^6))$
+print("response_heat_capacity_rounding_residual =", round(10*(300*1e-3*(1e-3)^2/1e-6))-3)$
+print("rigid_stirring_residual =", subst([Q=-100,W=-500,dU=400],Q-W-dU))$

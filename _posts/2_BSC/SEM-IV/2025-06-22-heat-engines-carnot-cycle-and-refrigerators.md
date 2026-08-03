@@ -36,7 +36,11 @@ For $n$ moles of ideal gas with constant heat capacities, the Carnot engine cons
 3. $3\to4$: isothermal compression at $T_c$, rejecting $Q_c$;
 4. $4\to1$: adiabatic compression from $T_c$ to $T_h$.
 
-![Correctly joined pressure-volume and temperature-entropy diagrams for a Carnot engine]({{ '/assets/images/bsc/sem-iv/mj-6/carnot-cycle.png' | relative_url }})
+<div class="diagram-pan" role="region" aria-label="Scrollable diagram" tabindex="0">
+<figure class="diagram-figure">
+  <img src="{{ '/assets/images/bsc/sem-iv/mj-6/carnot-cycle.png' | relative_url }}" alt="Correctly joined pressure-volume and temperature-entropy diagrams for a Carnot engine">
+</figure>
+</div>
 
 The two isothermal steps give
 
@@ -102,3 +106,66 @@ $$
 The linked [Unit II Maxima worksheet]({{ '/assets/maxima/bsc/sem-iv/mj-6/unit-ii-checks.mac' | relative_url }}) verifies
 
 $$\eta_{\mathrm C}-\left(1-\frac{T_c}{T_h}\right)=0.$$
+
+## Solved Problems
+
+### 1. Derive Carnot efficiency from reservoir entropy balance
+
+Over one reversible cycle the working substance has zero net entropy change. The hot reservoir loses $Q_h/T_h$ and the cold reservoir gains $Q_c/T_c$. Reversibility requires zero entropy generation, hence
+
+$$-\frac{Q_h}{T_h}+\frac{Q_c}{T_c}=0.$$
+
+Therefore $Q_c/Q_h=T_c/T_h$. With $W=Q_h-Q_c$,
+
+$$
+\boxed{\eta=\frac{W}{Q_h}=1-\frac{T_c}{T_h}}.
+$$
+
+No ideal-gas equation has been used, demonstrating why Carnot efficiency is independent of working substance. If either heat transfer occurred through a finite temperature difference, entropy generation would be positive and the efficiency would be smaller.
+
+### 2. Couple an engine directly to a refrigerator
+
+Let an engine of efficiency $\eta_E$ absorb $Q_h^{(E)}$. Its work output is
+
+$$W_E=\eta_EQ_h^{(E)}.$$
+
+If all of this work drives a refrigerator of coefficient of performance $\mathrm{COP}_R$, the heat removed from the refrigerator's cold space is
+
+$$
+\boxed{Q_c^{(R)}=\mathrm{COP}_R\,\eta_EQ_h^{(E)}}.
+$$
+
+The refrigerator rejects $Q_h^{(R)}=Q_c^{(R)}+W_E$. These relations separately conserve energy in both cyclic devices; they do not imply reversibility unless each device reaches its corresponding Carnot bound.
+
+## Descriptive Questions
+
+1. Show logically why the Kelvin-Planck and Clausius statements of the second law are equivalent.
+2. Why must all temperatures in Carnot formulae be thermodynamic temperatures rather than Celsius temperatures?
+3. State Carnot's theorem and explain which step would fail for an irreversible comparison engine.
+4. Distinguish thermal efficiency, refrigerator COP, and heat-pump COP.
+
+## Numerical Problems
+
+1. Find the maximum efficiency of an engine operating between $600\ \mathrm K$ and $300\ \mathrm K$.
+
+   **Final answer:** $\eta_C=1-300/600=0.500$ or $50.0\%$.
+
+2. Such a reversible engine absorbs $1.20\ \mathrm{kJ}$ per cycle. Find its work output and rejected heat.
+
+   **Final answer:** $W=0.600\ \mathrm{kJ}$ and $Q_c=0.600\ \mathrm{kJ}$.
+
+3. Find the maximum refrigerator COP between $270\ \mathrm K$ and a room at $300\ \mathrm K$.
+
+   **Final answer:** $\mathrm{COP}_{R,C}=270/(300-270)=9.00$.
+
+4. A real engine absorbs $2.00\ \mathrm{kJ}$ and rejects $1.30\ \mathrm{kJ}$ per cycle. Find its efficiency.
+
+   **Final answer:** $\eta=(2.00-1.30)/2.00=0.350$ or $35.0\%$.
+
+The [Carnot and refrigerator Maxima worksheet]({{ '/assets/maxima/bsc/sem-iv/mj-6/carnot-refrigerator-checks.mac' | relative_url }}) verifies the heat-sign convention, energy balances, efficiency and COP identities, and all numerical answers.
+
+## References
+
+1. [Carnot cycle](https://en.wikipedia.org/wiki/Carnot_cycle), Wikipedia.
+2. H. B. Callen, *Thermodynamics and an Introduction to Thermostatistics*, 2nd ed., Wiley, 1985, chapter 4.
+3. M. W. Zemansky and R. H. Dittman, *Heat and Thermodynamics*, 7th ed., McGraw-Hill, 1997, chapters “The second law” and “Ideal engines.”

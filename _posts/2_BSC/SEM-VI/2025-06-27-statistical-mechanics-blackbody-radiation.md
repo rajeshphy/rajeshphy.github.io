@@ -68,7 +68,13 @@ $$u(T)=aT^4,\qquad a=\frac{8\pi^5k_B^4}{15h^3c^3}.$$
 
 Isotropic radiation carries outward flux $c/4$ times its energy density, hence
 
-$$j^\star=\frac c4u=\sigma T^4,qquad \sigma=\frac{2\pi^5k_B^4}{15h^3c^2}.$$
+$$j^\star=\frac c4u=\sigma T^4,\qquad \sigma=\frac{2\pi^5k_B^4}{15h^3c^2}.$$
+
+The same angular average gives spectral radiance $B_\nu=cu_\nu/(4\pi)$ and spectral exitance $M_\nu=\pi B_\nu=cu_\nu/4$. Photon momentum transfer also produces the equilibrium radiation pressure
+
+$$p_{rad}=\frac13u=\frac13aT^4.$$
+
+The factors $1/4$ and $1/3$ come from different angular averages: outward energy flux weights one direction cosine over a hemisphere, whereas isotropic pressure weights its square over the full sphere.
 
 ## Wien displacement law
 
@@ -99,4 +105,80 @@ which is the basis of optical pyrometry and the first temperature estimate from 
   <figcaption>Planck spectra generated from $u_\lambda$ for $3000$, $4500$, and $6000$ K. Peak positions obey $\lambda_{max}T=2.8978\times10^{-3}\,\mathrm{m\,K}$.</figcaption>
 </figure>
 
+## Solved Problems
+
+### 1. Temperature and radiant exitance from a spectral peak
+
+A nearly black surface has wavelength peak $\lambda_{max}=500\ \mathrm{nm}$. Estimate its temperature and total radiant exitance.
+
+Wien's displacement law gives
+
+$$
+T=\frac{2.897771955\times10^{-3}\ \mathrm{m\,K}}
+{500\times10^{-9}\ \mathrm m}
+=5.79554\times10^3\ \mathrm K.
+$$
+
+For a black surface,
+
+$$
+j^\star=\sigma T^4
+=(5.670374419\times10^{-8})(5795.54)^4
+=6.39718\times10^7\ \mathrm{W\,m^{-2}}.
+$$
+
+The peak wavelength fixes a color temperature; the flux result assumes emissivity one at all wavelengths. Dimensional checks give kelvin from $b/\lambda$ and $\mathrm{W\,m^{-2}}$ from $\sigma T^4$.
+
+### 2. Net radiative cooling in finite-temperature surroundings
+
+A surface of area $0.0200\ \mathrm{m^2}$ and emissivity $0.800$ is at $800\ \mathrm K$ in surroundings at $300\ \mathrm K$. Neglect conduction and convection. Find the net radiative power leaving it.
+
+Emission and absorption must both be retained:
+
+$$
+P_{net}=\varepsilon\sigma A(T^4-T_0^4).
+$$
+
+Thus
+
+$$
+P_{net}=(0.800)(5.670374419\times10^{-8})(0.0200)
+\left(800^4-300^4\right)
+=364.265\ \mathrm W.
+$$
+
+The positive sign denotes outward power because $T>T_0$. The expression vanishes in the equilibrium limit $T\to T_0$ and reverses sign if the surroundings are hotter.
+
+## Descriptive Questions
+
+1. Derive the electromagnetic mode density $g(\nu)=8\pi\nu^2/c^3$, including the octant and polarization factors.
+2. Obtain Planck's mean oscillator energy from the single-mode partition function and explain the physical assumption behind the discrete energies.
+3. Derive the Rayleigh-Jeans and Wien limits of Planck's law and identify why the classical result produces the ultraviolet catastrophe.
+4. Starting from Planck's spectrum, derive the Stefan-Boltzmann law and explain the geometrical origin of the $c/4$ flux factor.
+
+## Numerical Problems
+
+1. Find the total blackbody energy density in a cavity at $300\ \mathrm K$.
+
+   **Answer:** $u=aT^4=6.12824\times10^{-6}\ \mathrm{J\,m^{-3}}$.
+
+2. Find the mean thermal energy of a $10.0\ \mathrm{THz}$ cavity mode at $300\ \mathrm K$, excluding the zero-point term.
+
+   **Answer:** $\bar E=1.67673\times10^{-21}\ \mathrm J$.
+
+3. The frequency form of Planck's law peaks at $x=h\nu/(k_BT)=2.821439$. At $3000\ \mathrm K$, calculate $\nu_{max}$ and $c/\nu_{max}$. Compare it with the wavelength-form peak.
+
+   **Answer:** $\nu_{max}=1.76368\times10^{14}\ \mathrm{Hz}$ and $c/\nu_{max}=1.69981\ \mu\mathrm m$, whereas $\lambda_{max}=0.965924\ \mu\mathrm m$; the two peaks are not related by direct inversion.
+
+4. A cavity has volume $1.00\times10^{-3}\ \mathrm{m^3}$. How many electromagnetic modes lie between $5.00\times10^{14}$ and $5.10\times10^{14}\ \mathrm{Hz}$?
+
+   **Answer:** $N=2.37889\times10^{15}$ modes.
+
 [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-vi/statistical/unit-2/blackbody-radiation.mac' | relative_url }})
+
+## References
+
+1. [Planck's law — Wikipedia](https://en.wikipedia.org/wiki/Planck%27s_law)
+2. F. Reif, *Fundamentals of Statistical and Thermal Physics*, chapter 9 on blackbody radiation and the photon gas.
+3. R. K. Pathria and P. D. Beale, *Statistical Mechanics*, 3rd ed., chapter 7 sections on photons and blackbody radiation.
+4. R. Eisberg and R. Resnick, *Quantum Physics of Atoms, Molecules, Solids, Nuclei, and Particles*, 2nd ed., chapter 1 on thermal radiation and Planck's hypothesis.

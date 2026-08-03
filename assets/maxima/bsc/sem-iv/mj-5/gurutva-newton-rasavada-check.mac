@@ -1,0 +1,53 @@
+/* MJ-5 Unit I: projectile, gravity and mass-balance checks. */
+kill(all)$
+
+g:49/5$
+u:20$
+theta:%pi/6$
+flight_time:2*u*sin(theta)/g$
+projectile_range:u^2*sin(2*theta)/g$
+maximum_height:u^2*sin(theta)^2/(2*g)$
+flight_time_check:ratsimp(flight_time-100/49)$
+range_check:radcan(projectile_range-1000*sqrt(3)/49)$
+height_check:ratsimp(maximum_height-250/49)$
+
+G:667430/10^16$
+earth_mass:5972*10^21$
+earth_radius:6371*10^3$
+surface_g:G*earth_mass/earth_radius^2$
+surface_g_check:ratsimp(surface_g*earth_radius^2-G*earth_mass)$
+weight_check:ratsimp((2*surface_g)*earth_radius^2-2*G*earth_mass)$
+
+accounted_mass:185/10+42/10$
+missing_mass:25-accounted_mass$
+recovery:100*accounted_mass/25$
+missing_mass_check:missing_mass-23/10$
+recovery_check:recovery-454/5$
+
+orbit_radius:6771*10^3$
+orbit_speed:sqrt(G*earth_mass/orbit_radius)$
+orbit_speed_check:radcan(orbit_speed^2*orbit_radius-G*earth_mass)$
+
+heating_energy:2*385*500$
+heating_energy_check:heating_energy-385000$
+
+sulfur_mass:10*(3206/100)/(20059/100)$
+hgs_mass:10+sulfur_mass$
+sulfur_mass_check:ratsimp(20059*sulfur_mass-32060)$
+hgs_mass_check:ratsimp(hgs_mass-(10+32060/20059))$
+
+print("flight_time_check =",flight_time_check)$
+print("range_check =",range_check)$
+print("height_check =",height_check)$
+print("surface_g_check =",surface_g_check)$
+print("weight_check =",weight_check)$
+print("missing_mass_check =",missing_mass_check)$
+print("recovery_check =",recovery_check)$
+print("orbit_speed_check =",orbit_speed_check)$
+print("heating_energy_check =",heating_energy_check)$
+print("sulfur_mass_check =",sulfur_mass_check)$
+print("hgs_mass_check =",hgs_mass_check)$
+print("surface_g_m_s2 =",float(surface_g))$
+print("orbit_speed_m_s =",float(orbit_speed))$
+print("sulfur_mass_g =",float(sulfur_mass))$
+print("hgs_mass_g =",float(hgs_mass))$

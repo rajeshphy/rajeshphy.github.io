@@ -13,7 +13,7 @@ permalink: /bsc/sem-v/mj-10/variational-principles-constraints/
 Consider the functional
 
 $$
-J[y]=\int_{x_1}^{x_2}F(x,y,y')\,dx.
+J[y]=\int_{x_1}^{x_2}F(x,y,y^{\prime})\,dx.
 $$
 
 Vary the curve as $y(x,\epsilon)=y(x)+\epsilon\eta(x)$ while holding its endpoints fixed:
@@ -28,7 +28,7 @@ $$
 \delta J
 =\int_{x_1}^{x_2}\left(
 \frac{\partial F}{\partial y}\eta
-+\frac{\partial F}{\partial y'}\eta'
++\frac{\partial F}{\partial y^{\prime}}\eta^{\prime}
 \right)dx.
 $$
 
@@ -36,10 +36,10 @@ After integration by parts,
 
 $$
 \delta J
-=\left[\frac{\partial F}{\partial y'}\eta\right]_{x_1}^{x_2}
+=\left[\frac{\partial F}{\partial y^{\prime}}\eta\right]_{x_1}^{x_2}
 +\int_{x_1}^{x_2}\left[
 \frac{\partial F}{\partial y}
--\frac{d}{dx}\left(\frac{\partial F}{\partial y'}\right)
+-\frac{d}{dx}\left(\frac{\partial F}{\partial y^{\prime}}\right)
 \right]\eta\,dx.
 $$
 
@@ -47,7 +47,7 @@ The boundary term vanishes because the endpoints are fixed. Since $\eta$ is othe
 
 $$
 \boxed{
-\frac{d}{dx}\left(\frac{\partial F}{\partial y'}\right)
+\frac{d}{dx}\left(\frac{\partial F}{\partial y^{\prime}}\right)
 -\frac{\partial F}{\partial y}=0}.
 $$
 
@@ -79,7 +79,24 @@ $$
 \delta q_j(t_1)=\delta q_j(t_2)=0,
 $$
 
-then integration by parts gives
+then integrating D'Alembert's equation and reversing the time derivative by parts gives
+
+$$
+\begin{aligned}
+0
+&=\int_{t_1}^{t_2}\sum_j\left[
+\frac{\partial L}{\partial q_j}
+-\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_j}\right)
+\right]\delta q_j\,dt\\
+&=\int_{t_1}^{t_2}\sum_j\left[
+\frac{\partial L}{\partial q_j}\delta q_j
++\frac{\partial L}{\partial\dot q_j}\delta\dot q_j
+\right]dt
+-\left[\sum_j\frac{\partial L}{\partial\dot q_j}\delta q_j\right]_{t_1}^{t_2}.
+\end{aligned}
+$$
+
+The boundary term vanishes, and the remaining integral is the first variation of the action. Hence
 
 $$
 \boxed{
@@ -226,3 +243,126 @@ W=\int_{q_1}^{q_2}\sum_i p_i\,dq_i}.
 $$
 
 The name "least action" is traditional. The required value is stationary and need not always be a minimum.
+
+## Solved Problems
+
+### 1. Friction required for a hoop to roll without slipping
+
+A thin hoop rolls down an incline of angle $\alpha$ without slipping. Find its acceleration, the static-friction force, and the minimum coefficient of static friction. Evaluate the acceleration and coefficient for $\alpha=30^\circ$.
+
+Let $s$ increase down the plane. Static friction $f$ acts up the plane, so translation gives
+
+$$
+Mg\sin\alpha-f=M\ddot s.
+$$
+
+The hoop has $I=MR^2$. Taking angular acceleration in the rolling sense as positive,
+
+$$
+fR=I\ddot\theta,
+\qquad
+\ddot s=R\ddot\theta.
+$$
+
+Therefore
+
+$$
+fR=MR^2\frac{\ddot s}{R},
+\qquad
+f=M\ddot s.
+$$
+
+Substitution into the translational equation yields
+
+$$
+2M\ddot s=Mg\sin\alpha,
+$$
+
+so
+
+$$
+\boxed{\ddot s=\frac12g\sin\alpha},
+\qquad
+\boxed{f=\frac12Mg\sin\alpha}.
+$$
+
+The normal reaction is $N=Mg\cos\alpha$. The no-slip condition $f\leq\mu_sN$ requires
+
+$$
+\boxed{\mu_s\geq\frac12\tan\alpha}.
+$$
+
+At $\alpha=30^\circ$,
+
+$$
+\ddot s=\frac12(9.81)\sin30^\circ
+=2.4525\ \mathrm{m\,s^{-2}},
+$$
+
+$$
+\mu_{s,\min}=\frac12\tan30^\circ=0.2887.
+$$
+
+Static friction supplies angular acceleration but does no work at the instantaneous point of contact. The result applies only while the inequality above is satisfied.
+
+### 2. Tension in a pendulum released from rest
+
+A simple pendulum of mass $m$, length $l$, and release angle $\theta_0$ starts from rest. Use the constraint-force result and energy conservation to obtain the tension at any later angle $\theta$. Then find the bottom tension for $m=0.20\ \mathrm{kg}$ and $\theta_0=60^\circ$.
+
+With the lowest point as zero potential, energy conservation gives
+
+$$
+\frac12ml^2\dot\theta^2+mgl(1-\cos\theta)
+=mgl(1-\cos\theta_0).
+$$
+
+Hence
+
+$$
+l\dot\theta^2=2g(\cos\theta-\cos\theta_0).
+$$
+
+The inward radial equation, equivalently obtained from the multiplier, is
+
+$$
+T-mg\cos\theta=ml\dot\theta^2.
+$$
+
+Eliminating $\dot\theta$ gives
+
+$$
+\boxed{T(\theta)=mg(3\cos\theta-2\cos\theta_0)}.
+$$
+
+At the bottom, $\theta=0$, so
+
+$$
+T_{\mathrm b}=mg(3-2\cos\theta_0)
+=(0.20)(9.81)(3-1)
+=\boxed{3.924\ \mathrm N}.
+$$
+
+At release, the same expression gives $T_0=mg\cos\theta_0$, as required because the initial radial speed is zero. The string can enforce the assumed constraint only where $T\geq0$.
+
+## Descriptive Questions
+
+1. Derive the Euler-Lagrange equation for a functional $J[y]=\int F(x,y,y^{\prime})\,dx$, including the endpoint conditions on admissible variations.
+2. Compare Hamilton's configuration-space principle with the modified Hamilton principle in phase space, stating which endpoint variations vanish in each.
+3. Explain how Lagrange multipliers represent generalized constraint forces and why the sign of a multiplier depends on the chosen constraint convention.
+4. Distinguish Hamilton's fixed-time stationary action from Maupertuis' fixed-energy abbreviated action.
+
+## Numerical Problems
+
+1. For $J[y]=\tfrac12\int_0^1\big[(y^{\prime})^2+y^2\big]\,dx$ with $y(0)=0$ and $y(1)=1$, the extremal obeys $y^{\prime\prime}-y=0$. Find $y(0.5)$. **Answer:** $y(x)=\sinh x/\sinh(1)$, so $y(0.5)=0.4434$.
+2. A free particle of mass $3.0\ \mathrm{kg}$ follows the stationary path from $x=0$ at $t=0$ to $x=6.0\ \mathrm m$ at $t=2.0\ \mathrm s$. Find its speed and action $S=\int L\,dt$. **Answer:** $3.000\ \mathrm{m\,s^{-1}}$, $27.00\ \mathrm{J\,s}$.
+3. The phase-space action has $H=p^2/(2m)+m\omega^2q^2/2$. For $m=2.0\ \mathrm{kg}$, $\omega=3.0\ \mathrm{s^{-1}}$, $q(0)=0$, and $p(0)=m\omega A$ with $A=0.40\ \mathrm m$, find $t$, $q$, and $p$ after one-quarter period. **Answer:** $0.5236\ \mathrm s$, $0.4000\ \mathrm m$, $0$.
+4. Linearize the multiplier equation for a simple pendulum of length $0.75\ \mathrm m$ and find its small-oscillation period for $g=9.81\ \mathrm{m\,s^{-2}}$. **Answer:** $1.737\ \mathrm s$.
+
+[Maxima verification: rolling and pendulum residuals, with all numerical values]({{ '/assets/maxima/bsc/sem-v/mj-10/unit-iii/variational-problems.mac' | relative_url }}).
+
+## References
+
+1. [Calculus of variations — Wikipedia](https://en.wikipedia.org/wiki/Calculus_of_variations)
+2. H. Goldstein, C. Poole, and J. Safko, *Classical Mechanics*, 3rd ed., Chapters 2 and 8, Pearson (2002).
+3. L. D. Landau and E. M. Lifshitz, *Mechanics*, 3rd ed., Sections 2 and 44, Butterworth-Heinemann (1976).
+4. I. M. Gelfand and S. V. Fomin, *Calculus of Variations*, Chapters 1–2, Dover (2000).

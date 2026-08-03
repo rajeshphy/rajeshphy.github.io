@@ -1,0 +1,64 @@
+/* UG-VII MJ-18 Unit II: solved and numerical problem checks. */
+kill(all)$
+
+dagger(M) := transpose(conjugate(M))$
+vres(V) := radcan(sum(V[i,1]*conjugate(V[i,1]),i,1,length(V)))$
+
+/* Solved problem 1: Pauli-spin expectation values. */
+sx : matrix([0,1],[1,0])$
+sy : matrix([0,-%i],[%i,0])$
+sz : matrix([1,0],[0,-1])$
+psi : matrix([sqrt(3)/2],[%i/2])$
+norm_matrix : dagger(psi).psi$
+ex_matrix : dagger(psi).sx.psi$
+ey_matrix : dagger(psi).sy.psi$
+ez_matrix : dagger(psi).sz.psi$
+ex : radcan(ex_matrix)$
+ey : radcan(ey_matrix)$
+ez : radcan(ez_matrix)$
+print("spinor normalization residual = ",radcan(norm_matrix-1))$
+print("sigma-x expectation residual = ",radcan(ex))$
+print("sigma-y expectation residual = ",radcan(ey-sqrt(3)/2))$
+print("sigma-z expectation residual = ",radcan(ez-1/2))$
+print("spin-vector magnitude residual = ",radcan(ex^2+ey^2+ez^2-1))$
+
+/* Solved problem 2: indicial roots for l=2. */
+indicial : expand(p*(p-1)-2*(2+1))$
+print("regular radial root residual = ",at(indicial,p=3))$
+print("singular radial root residual = ",at(indicial,p=-2))$
+
+/* Solved problem 3: l=1 coupled to s=1/2. */
+j32 : matrix([sqrt(2/3)],[sqrt(1/3)])$
+j12 : matrix([sqrt(1/3)],[-sqrt(2/3)])$
+j32_norm : dagger(j32).j32$
+j12_norm : dagger(j12).j12$
+j_overlap : dagger(j32).j12$
+print("j=3/2 state normalization residual = ",radcan(j32_norm-1))$
+print("j=1/2 state normalization residual = ",radcan(j12_norm-1))$
+print("coupled-state orthogonality residual = ",radcan(j_overlap))$
+print("lowering coefficient residual = ",radcan(sqrt(3)*j32[1,1]-sqrt(2)))$
+
+/* Numerical problems. */
+print("j=5/2 Casimir residual = ",ratsimp((5/2)*(5/2+1)-35/4))$
+print("j=5/2 magnetic residual = ",ratsimp(-3/2+3/2))$
+print("j=2 ladder coefficient residual = ",radcan(sqrt(2*(2+1)-(-1)*0)-sqrt(6)))$
+
+centrifugal_eV : (380998/100000)*2*(2+1)/(2^2)$
+print("centrifugal energy residual = ",ratsimp(centrifugal_eV-571497/100000))$
+
+dimension_sum : (2*(1/2)+1)+(2*(3/2)+1)+(2*(5/2)+1)$
+print("coupled-space dimension residual = ",ratsimp(dimension_sum-(2*(3/2)+1)*(2*1+1)))$
+
+ls(j,l,s) := (j*(j+1)-l*(l+1)-s*(s+1))/2$
+C : 4/5$
+upper : ratsimp(C*ls(7/2,3,1/2))$
+lower : ratsimp(C*ls(5/2,3,1/2))$
+print("l=3 upper spin-orbit residual = ",ratsimp(upper-6/5))$
+print("l=3 lower spin-orbit residual = ",ratsimp(lower+8/5))$
+print("l=3 spin-orbit separation residual = ",ratsimp(upper-lower-14/5))$
+
+S : 1/3$
+Nplus : 1/sqrt(2*(1+S^2))$
+Nminus : 1/sqrt(2*(1-S^2))$
+print("symmetric normalization residual = ",radcan(Nplus-3/sqrt(20)))$
+print("antisymmetric normalization residual = ",radcan(Nminus-3/4))$

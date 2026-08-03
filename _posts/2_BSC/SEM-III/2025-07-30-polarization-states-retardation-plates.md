@@ -67,7 +67,9 @@ This equation classifies the polarization:
 Linear and circular polarization are therefore limiting cases of elliptical polarization.
 
 <figure class="diagram-figure">
-  <img src="{{ '/assets/images/bsc/sem-iii/mj-4/unit-3/polarization-ellipse.png' | relative_url }}" alt="Equation-generated electric-field trajectories for linear, circular, and two elliptical polarization states" loading="lazy">
+  <div class="diagram-pan" role="region" aria-label="Scrollable polarization-trajectory diagram" tabindex="0">
+    <img src="{{ '/assets/images/bsc/sem-iii/mj-4/unit-3/polarization-ellipse.png' | relative_url }}" alt="Equation-generated electric-field trajectories for linear, circular, and two elliptical polarization states" loading="lazy">
+  </div>
   <figcaption>Each trajectory is generated parametrically from $E_x=a\cos\psi$ and $E_y=b\cos(\psi-\delta)$.</figcaption>
 </figure>
 
@@ -143,8 +145,91 @@ $$
 Sliding one wedge changes $t_1-t_2$ continuously. At the position where $t_1=t_2$, the two retardations cancel. The compensator can therefore supply a continuously adjustable retardation of either sign, unlike a fixed quarter- or half-wave plate. An unknown retardation is measured by adjusting the compensator until an analyzer shows the chosen compensation condition; the calibrated wedge displacement then gives $t_1-t_2$.
 
 <figure class="diagram-figure">
-  <img src="{{ '/assets/images/bsc/sem-iii/mj-4/unit-3/retarders-babinet.png' | relative_url }}" alt="Fast and slow components through quarter-wave and half-wave plates and the crossed-axis wedges of a Babinet compensator" loading="lazy">
+  <div class="diagram-pan" role="region" aria-label="Scrollable retarders-and-Babinet-compensator diagram" tabindex="0">
+    <img src="{{ '/assets/images/bsc/sem-iii/mj-4/unit-3/retarders-babinet.png' | relative_url }}" alt="Fast and slow components through quarter-wave and half-wave plates and the crossed-axis wedges of a Babinet compensator" loading="lazy">
+  </div>
   <figcaption>Fixed plates supply selected phase delays; crossed wedges make the net delay proportional to their local thickness difference.</figcaption>
 </figure>
 
-The ellipse elimination, wave-plate special cases, and half-wave rotation are checked with zero residuals in the [Unit III polarization Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-3/polarization-checks.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Minimum thickness of a quarter-wave plate
+
+A birefringent material has $n_s-n_f=0.00900$ at wavelength $600\,\mathrm{nm}$. Find the least thickness that acts as a quarter-wave plate.
+
+**Step 1: Set the least quarter-wave retardation.** For $m=0$,
+
+$$
+\frac{2\pi}{\lambda}(n_s-n_f)d=\frac{\pi}{2}.
+$$
+
+**Step 2: Solve for the thickness.**
+
+$$
+\begin{aligned}
+d&=\frac{\lambda}{4(n_s-n_f)}\\
+&=\frac{600\times10^{-9}}{4(0.00900)}\,\mathrm{m}\\
+&=1.667\times10^{-5}\,\mathrm{m}
+=16.67\,\mu\mathrm{m}.
+\end{aligned}
+$$
+
+Substitution gives $2\pi(0.00900)(16.67\,\mu\mathrm{m})/(600\,\mathrm{nm})=\pi/2$ to the stated precision.
+
+### 2. Rotation by a half-wave plate
+
+The incident plane-polarization azimuth is $\theta=20^\circ$, and the fast axis of a half-wave plate is at $\phi=35^\circ$ in the same reference frame. Find the output azimuth and the rotation of the plane.
+
+**Step 1: Use the half-wave mapping.**
+
+$$
+\theta_{\rm out}=2\phi-\theta.
+$$
+
+**Step 2: Substitute the angles.**
+
+$$
+\theta_{\rm out}=2(35^\circ)-20^\circ=50^\circ.
+$$
+
+The polarization-plane rotation is therefore
+
+$$
+\theta_{\rm out}-\theta=50^\circ-20^\circ=30^\circ.
+$$
+
+The incident and output directions make equal and opposite angles, $-15^\circ$ and $+15^\circ$, with the plate axis, which checks the reflection-like azimuth rule.
+
+## Descriptive Questions
+
+1. How is the polarization ellipse obtained by eliminating the common phase from two perpendicular field components?
+2. Under what input conditions does a quarter-wave plate produce circular rather than elliptical polarization?
+3. Why does a half-wave plate rotate a plane-polarized vibration through twice its angle with the plate axis?
+4. How does a Babinet compensator provide a continuously adjustable retardation of either sign?
+
+## Numerical Problems
+
+1. A plate has thickness $75.0\,\mu\mathrm{m}$ and $n_s-n_f=0.0100$ at $\lambda=500\,\mathrm{nm}$. Find its retardation and identify its equivalent first-order action.
+
+   **Answer:** $\delta=3\pi\,\mathrm{rad}$, equivalent modulo $2\pi$ to a half-wave plate.
+
+2. Right-circularly polarized light has normalized Jones vector $\mathbf J_{\mathrm{in}}=2^{-1/2}(1,i)^{\mathsf T}$. It enters a quarter-wave plate whose fast axis is $x$ and slow axis is $y$; take the slow-component phase factor as $e^{-i\pi/2}=-i$. Find the output Jones vector and identify the polarization.
+
+   **Answer:** $\mathbf J_{\mathrm{out}}=2^{-1/2}(1,1)^{\mathsf T}$; the output is linearly polarized at $+45^\circ$ to the fast axis.
+
+3. A Babinet compensator has $n_s-n_f=0.00900$, local thickness difference $t_1-t_2=20.0\,\mu\mathrm{m}$, and $\lambda=600\,\mathrm{nm}$. Find its net retardation.
+
+   **Answer:** $\delta_B=0.600\pi\,\mathrm{rad}=108^\circ$.
+
+4. A field has components $E_x=3\cos\psi$ and $E_y=4\sin\psi$ in common amplitude units. Identify the polarization and give the maximum-to-minimum transmitted-intensity ratio for an analyzer aligned successively with the principal axes.
+
+   **Answer:** Elliptical polarization with semiaxes $3$ and $4$; $I_{\max}/I_{\min}=16/9$.
+
+The solved results and all numerical answers are verified by exact residuals in the [Unit III polarization Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-3/polarization-checks.mac' | relative_url }}).
+
+## References
+
+1. [Waveplate - Wikipedia](https://en.wikipedia.org/wiki/Waveplate)
+2. F. A. Jenkins and H. E. White, *Fundamentals of Optics*, McGraw-Hill, sections on retardation plates and compensators.
+3. Max Born and Emil Wolf, *Principles of Optics*, Cambridge University Press, sections on polarization states and birefringent plates.
+4. Ajoy Ghatak, *Optics*, McGraw Hill Education, chapters on wave plates and polarization analysis.

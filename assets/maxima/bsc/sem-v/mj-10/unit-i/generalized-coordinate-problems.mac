@@ -1,0 +1,43 @@
+/* MJ-10: generalized-coordinate, virtual-work, and D'Alembert problems.
+   Every printed residual/check is exactly zero. */
+kill(all)$
+zcheck(actual, reported, tolerance) :=
+  if abs(float(actual-reported)) < tolerance then 0 else 1$
+
+/* Rotating smooth rod: x=r cos(Omega t), y=r sin(Omega t). */
+x : r(t)*cos(Omega*t)$
+y : r(t)*sin(Omega*t)$
+radial_acceleration :
+  trigsimp(diff(x,t,2)*cos(Omega*t)+diff(y,t,2)*sin(Omega*t))$
+transverse_acceleration :
+  trigsimp(-diff(x,t,2)*sin(Omega*t)+diff(y,t,2)*cos(Omega*t))$
+print("rotating-rod radial residual =",
+      ratsimp(radial_acceleration-(diff(r(t),t,2)-Omega^2*r(t))))$
+print("rotating-rod transverse residual =",
+      ratsimp(transverse_acceleration-2*Omega*diff(r(t),t)))$
+
+/* Atwood machine with m2 descending and m1 ascending. */
+a : (m2-m1)*g/(m1+m2)$
+T : 2*m1*m2*g/(m1+m2)$
+print("Atwood mass-1 residual =", ratsimp(T-m1*g-m1*a))$
+print("Atwood mass-2 residual =", ratsimp(m2*g-T-m2*a))$
+
+/* Numerical problem 1: cylindrical-coordinate speed. */
+v_cyl : sqrt(0.30b0^2+(0.40b0*2.0b0)^2+(-0.20b0)^2)$
+print("cylindrical speed check =", zcheck(v_cyl,0.8775b0,5b-5))$
+
+/* Numerical problem 2: spherical-coordinate speed. */
+v_sph : sqrt(0.40b0^2+(2.0b0*0.20b0)^2
+             +(2.0b0*sin(%pi/3)*0.50b0)^2)$
+print("spherical speed check =", zcheck(v_sph,1.034b0,5b-4))$
+
+/* Numerical problem 3: Atwood machine. */
+a_num : subst([m1=2,m2=3,g=9.81b0],a)$
+T_num : subst([m1=2,m2=3,g=9.81b0],T)$
+print("Atwood acceleration check =", zcheck(a_num,1.962b0,5b-7))$
+print("Atwood tension check =", zcheck(T_num,23.544b0,5b-6))$
+
+/* Numerical problem 4: bead on y=a0*x^2. */
+a0 : 0.50b0$ xx : 0.40b0$ vx : 0.60b0$ gg : 9.81b0$
+ax : -(4*a0^2*xx*vx^2+2*a0*gg*xx)/(1+4*a0^2*xx^2)$
+print("parabolic-wire acceleration check =", zcheck(ax,-3.507b0,5b-4))$

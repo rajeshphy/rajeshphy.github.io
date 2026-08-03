@@ -48,4 +48,56 @@ print("2p_1/2 Lande-factor residual =",
 print("2p_3/2 Lande-factor residual =",
       ratsimp(lande(3/2,1,1/2)-4/3))$
 
+/* Worked-problem and exercise values. */
+fpprintprec : 12$
+h_si : 6.62607015b-34$
+c_si : 2.99792458b8$
+qe_si : 1.602176634b-19$
+hbar_si : h_si/(2*%pi)$
+me_si : 9.1093837139b-31$
+muB_eV : 5.7883817982b-5$
+
+RH : 1.0967758b7$
+lambda_Ha : 1/(RH*(1/4-1/9))$
+E_Ha_J : h_si*c_si/lambda_Ha$
+E_Ha_eV : E_Ha_J/qe_si$
+print("Balmer-alpha wavelength (nm) =",bfloat(lambda_Ha*1b9))$
+print("Balmer-alpha photon energy (J) =",bfloat(E_Ha_J))$
+print("Balmer-alpha photon energy (eV) =",bfloat(E_Ha_eV))$
+print("Balmer-alpha wavenumber check =",
+      ratsimp(1/lambda_Ha-RH*(1/4-1/9)))$
+print("Balmer-alpha unit-conversion check =",
+      ratsimp(E_Ha_J-E_Ha_eV*qe_si))$
+
+g_2p32 : lande(3/2,1,1/2)$
+zeeman_eV : muB_eV*g_2p32*(3/2)*0.8b0$
+print("2p_3/2 Zeeman shift (eV) =",bfloat(zeeman_eV))$
+print("Zeeman-shift check =",
+      ratsimp(zeeman_eV-muB_eV*(4/3)*(3/2)*0.8b0))$
+
+rmin_fm : 79*2*1.43996448b0/5$
+print("Gold head-on closest approach (fm) =",bfloat(rmin_fm))$
+print("Closest-approach energy check =",
+      ratsimp(5*rmin_fm-79*2*1.43996448b0))$
+
+xi_hbar2 : 2b-5$
+shift_32 : xi_hbar2*sofactor(3/2,1,1/2)$
+shift_12 : xi_hbar2*sofactor(1/2,1,1/2)$
+so_gap : shift_32-shift_12$
+print("2p spin-orbit shifts and gap (eV) =",
+      bfloat(shift_32),bfloat(shift_12),bfloat(so_gap))$
+print("Spin-orbit gap check =",
+      ratsimp(so_gap-3*xi_hbar2/2))$
+
+muB_si : qe_si*hbar_si/(2*me_si)$
+stern_force : muB_si*20$
+print("Stern-Gerlach force (N) =",bfloat(stern_force))$
+print("Stern-Gerlach force check =",
+      ratsimp(stern_force-20*qe_si*hbar_si/(2*me_si)))$
+
+Kalpha_keV : 13.6b0*(29-1)^2*(1-1/4)/1000$
+print("Copper K-alpha energy (keV) =",bfloat(Kalpha_keV))$
+print("Moseley-energy check =",
+      ratsimp(1000*Kalpha_keV-13.6b0*28^2*3/4))$
+
 quit()$

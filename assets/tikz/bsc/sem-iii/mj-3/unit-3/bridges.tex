@@ -84,7 +84,7 @@
     \foreach \P/\lab/\pos in {A/A/above,B/B/left,D/D/below,F/F/right,E/E/above}
       \fill[ink] (\P) circle (1.3pt) node[\pos] {\scriptsize\lab};
 
-    \draw[ink,thick,rounded corners] (7.95,.55) rectangle (13.2,5.08);
+    \draw[ink,thick,rounded corners] (7.95,-.25) rectangle (13.2,5.08);
     \node[font=\bfseries,ink] at (10.58,4.72) {at null: \(V_B=V_E\)};
     \node[ink,align=center,font=\normalsize] at (10.58,3.82)
       {$\displaystyle \frac{V_B}{V}=
@@ -92,11 +92,11 @@
     \node[ink,align=center,font=\normalsize] at (10.58,2.78)
       {$\displaystyle \frac{V_E}{V}=
         \frac{R_4}{R_3+R_4+j\omega C A_R}$};
-    \node[ink,font=\normalsize] at (10.58,1.98)
+    \node[ink,font=\normalsize] at (10.58,2.02)
       {$A_R=R_3R_4+r(R_3+R_4)$};
-    \node[teal,font=\normalsize] at (10.58,1.28)
+    \node[teal,font=\normalsize] at (10.58,1.25)
       {$\displaystyle R_x=\frac{R_2R_3}{R_4}$};
-    \node[teal,font=\normalsize] at (10.58,.82)
+    \node[teal,font=\normalsize] at (10.58,.46)
       {$\displaystyle L_x=\frac{CR_2A_R}{R_4}$};
   \end{scope}
 \end{tikzpicture}

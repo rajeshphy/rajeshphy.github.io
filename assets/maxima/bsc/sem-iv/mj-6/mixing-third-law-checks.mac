@@ -1,0 +1,23 @@
+/* MJ-6: mixing, T-S areas, third-law integral, and printed answers. */
+kill(all)$
+Smix : -nt*R*(x*log(x)+(1-x)*log(1-x))$
+print("equal_mixture_residual =", ratsimp(subst([nt=1,x=1/2],Smix)-R*log(2)))$
+print("mixing_stationary_residual =", ratsimp(subst(x=1/2,diff(Smix,x))))$
+print("mixing_curvature_residual =", ratsimp(subst(x=1/2,diff(Smix,x,2))+4*nt*R))$
+Qh : Th*dS$
+Qc : Tc*dS$
+print("TS_area_residual =", ratsimp((Qh-Qc)-(Th-Tc)*dS))$
+Cp : beta*T^3$
+print("third_law_integral_residual =", ratsimp(integrate(Cp/T,T,0,Tf)-beta*Tf^3/3))$
+R0 : 8.314462618$
+print("unequal_mixing_rounding_residual =", round(1000*(-3*R0*((1/3)*log(1/3)+(2/3)*log(2/3))))-15877)$
+Tf_bodies : (400+300)/2$
+Sgen_bodies : 500*log(Tf_bodies/400)+500*log(Tf_bodies/300)$
+print("two_body_final_temperature_residual =", Tf_bodies-350)$
+print("two_body_entropy_identity_residual =",
+      ratsimp(logcontract(Sgen_bodies-500*log(49/48))))$
+print("two_body_entropy_rounding_residual =",
+      round(1000*Sgen_bodies)-10310)$
+print("TS_work_residual =", ratsimp((500-300)*4-800))$
+print("TS_hot_heat_residual =", ratsimp(500*4-2000))$
+print("calorimetric_entropy_residual =", ratsimp(0.002*10^3/3-2/3))$

@@ -10,4 +10,72 @@ print("p=Ev/c^2 residual (must be 0):",ratsimp(p-E*v/c^2))$
 Emassless : pm*c$
 print("massless E=pc residual (must be 0):",ratsimp(Emassless^2-pm^2*c^2))$
 print("massless speed dE/dp residual (must be 0):",ratsimp(diff(Emassless,pm)-c))$
+
+/* Solved problems and numerical problems. */
+c0 : 299792458$
+
+p1_rest : 938272/1000$ p1_b : 4/5$ p1_g : 5/3$
+p1_E : p1_g*p1_rest$
+p1_K : (p1_g-1)*p1_rest$
+p1_pc : p1_g*p1_b*p1_rest$
+print("solved 1 mass-ratio residual (must be 0):",ratsimp(p1_g-5/3))$
+print("solved 1 total-energy rounding residual (must be 0):",
+  round(float(p1_E*100))-156379)$
+print("solved 1 kinetic-energy rounding residual (must be 0):",
+  round(float(p1_K*1000))-625515)$
+print("solved 1 momentum rounding residual (must be 0):",
+  round(float(p1_pc*100))-125103)$
+print("solved 1 invariant residual (must be 0):",
+  ratsimp(p1_E^2-p1_pc^2-p1_rest^2))$
+
+h0 : 662607015*10^-42$ lambda0 : 500*10^-9$ e0 : 1602176634*10^-28$
+p2_E : h0*c0/lambda0$
+p2_px : -h0/lambda0$
+p2_mrel : p2_E/c0^2$
+print("solved 2 photon-energy rounding residual (must be 0):",
+  round(float(p2_E*10^24))-397289)$
+print("solved 2 photon-eV rounding residual (must be 0):",
+  round(float((p2_E/e0)*10^5))-247968)$
+print("solved 2 photon-momentum rounding residual (must be 0):",
+  round(float((-p2_px)*10^32))-132521)$
+print("solved 2 relativistic-mass rounding residual (must be 0):",
+  round(float(p2_mrel*10^41))-442044)$
+print("solved 2 massless-invariant residual (must be 0):",
+  ratsimp(p2_E^2-p2_px^2*c0^2))$
+
+print("numerical 1 mass-ratio residual (must be 0):",
+  radcan(1/sqrt(1-(3/5)^2)-5/4))$
+q2_pratio : 3/4$
+q2_Eratio : sqrt(1+q2_pratio^2)$
+q2_Kratio : q2_Eratio-1$
+q2_b : q2_pratio/q2_Eratio$
+print("numerical 2 total-energy residual (must be 0):",
+  radcan(q2_Eratio-5/4))$
+print("numerical 2 kinetic-energy residual (must be 0):",
+  radcan(q2_Kratio-1/4))$
+print("numerical 2 speed residual (must be 0):",radcan(q2_b-3/5))$
+q3_b : sqrt(1-1/2^2)$
+print("numerical 3 speed residual (must be 0):",radcan(q3_b-sqrt(3)/2))$
+q4_pc : sqrt(5^2-3^2)$
+print("numerical 4 momentum residual (must be 0):",radcan(q4_pc-4))$
+q5_energy : 10^-6*(3*10^8)^2$
+print("numerical 5 mass-defect residual (must be 0):",
+  ratsimp(q5_energy-9*10^10))$
+q6_px : 3$ q6_py : 4$
+q6_p : sqrt(q6_px^2+q6_py^2)$
+q6_E : q6_p$
+q6_vx_over_c : q6_px/q6_p$
+q6_vy_over_c : q6_py/q6_p$
+print("numerical 6 momentum-magnitude residual (must be 0):",
+  radcan(q6_p-5))$
+print("numerical 6 energy residual (must be 0):",
+  radcan(q6_E-5))$
+print("numerical 6 massless-invariant residual (must be 0):",
+  radcan(q6_E^2-q6_px^2-q6_py^2))$
+print("numerical 6 x-velocity residual (must be 0):",
+  radcan(q6_vx_over_c-3/5))$
+print("numerical 6 y-velocity residual (must be 0):",
+  radcan(q6_vy_over_c-4/5))$
+print("numerical 6 light-speed residual (must be 0):",
+  radcan(q6_vx_over_c^2+q6_vy_over_c^2-1))$
 quit();

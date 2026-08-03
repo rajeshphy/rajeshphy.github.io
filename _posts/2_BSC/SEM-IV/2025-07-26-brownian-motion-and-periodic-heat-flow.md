@@ -97,7 +97,11 @@ $$
 \boxed{q=\sqrt{\frac{\omega}{2\alpha}}}.
 $$
 
-![Decay and phase lag of a periodic temperature wave in a metal rod]({{ '/assets/images/bsc/sem-iv/mj-6/periodic-heat-flow.png' | relative_url }})
+<div class="diagram-pan" role="region" aria-label="Scrollable diagram" tabindex="0">
+<figure class="diagram-figure">
+  <img src="{{ '/assets/images/bsc/sem-iv/mj-6/periodic-heat-flow.png' | relative_url }}" alt="Decay and phase lag of a periodic temperature wave in a metal rod">
+</figure>
+</div>
 
 The amplitude decreases as $A(x)=A_0e^{-qx}$ and the phase lags by $qx$. At two positions $x_1<x_2$, let $\Delta x=x_2-x_1$, amplitudes be $A_1,A_2$, and the later temperature maximum lag by $\Delta t$. Then
 
@@ -124,3 +128,84 @@ Finally,
 $$\boxed{K=\rho c\alpha}.$$
 
 The method assumes constant $K$, $\rho$, and $c$, one-dimensional conduction, a rod long compared with the penetration depth $1/q$, negligible or corrected lateral heat loss, and measurements taken after the initial transient has died away. The [Unit III Maxima worksheet]({{ '/assets/maxima/bsc/sem-iv/mj-6/unit-iii-checks.mac' | relative_url }}) also verifies the periodic heat-wave differential-equation residual as zero.
+
+## Solved Problems
+
+### 1. Derive the one-dimensional Brownian mean-square displacement
+
+Let the normalized probability density $P(x,t)$ obey
+
+$$
+\frac{\partial P}{\partial t}
+=D_B\frac{\partial^2P}{\partial x^2}.
+$$
+
+Assume $P$, $xP$, and their required derivatives vanish as $x\to\pm\infty$. Then
+
+$$
+\begin{aligned}
+\frac{d}{dt}\langle x^2\rangle
+&=D_B\int_{-\infty}^{\infty}x^2
+\frac{\partial^2P}{\partial x^2}\,dx\\
+&=-2D_B\int_{-\infty}^{\infty}x
+\frac{\partial P}{\partial x}\,dx\\
+&=2D_B\int_{-\infty}^{\infty}P\,dx
+=2D_B.
+\end{aligned}
+$$
+
+For a particle localized at the origin at $t=0$, $\langle x^2\rangle_0=0$, so
+
+$$\boxed{\langle x^2\rangle=2D_Bt}.$$
+
+The result is diffusive rather than ballistic and applies only after the velocity-relaxation time.
+
+### 2. Interpret the thermal penetration depth
+
+Write the periodic solution as
+
+$$
+\theta=A_0e^{-x/\delta}
+\cos\!\left(\omega t-\frac{x}{\delta}\right),
+\qquad
+\delta=\sqrt{\frac{2\alpha}{\omega}}=\frac1q.
+$$
+
+At $x=\delta$, the amplitude is
+
+$$A(\delta)=A_0e^{-1},$$
+
+and the phase lag is one radian. Thus $\delta$ is simultaneously the $e$-folding depth and the distance that produces one radian of phase lag. Its units follow from $[\alpha/\omega]=\mathrm{m^2}$, and the boundedness condition selects the decaying rather than growing exponential.
+
+## Descriptive Questions
+
+1. Why is the mean Brownian displacement zero while its mean-square displacement grows?
+2. State the hydrodynamic assumptions behind the Stokes-Einstein relation.
+3. Derive the one-dimensional heat equation from Fourier's law and local energy conservation.
+4. Explain how amplitude attenuation and phase lag provide independent measurements of thermal diffusivity.
+
+## Numerical Problems
+
+1. A Brownian particle has $D_B=0.50\ \mu\mathrm{m^2\,s^{-1}}$. Find its one-dimensional rms displacement after $10\ \mathrm s$.
+
+   **Final answer:** $x_{\mathrm{rms}}=\sqrt{2D_Bt}=3.162\ \mu\mathrm m$.
+
+2. Estimate $D_B$ at $300\ \mathrm K$ for a sphere of radius $0.50\ \mu\mathrm m$ in a fluid of viscosity $1.00\times10^{-3}\ \mathrm{Pa\,s}$.
+
+   **Final answer:** $D_B=4.39\times10^{-13}\ \mathrm{m^2\,s^{-1}}$.
+
+3. A metal has $K=200\ \mathrm{W\,m^{-1}K^{-1}}$, $\rho=8900\ \mathrm{kg\,m^{-3}}$, and $c=385\ \mathrm{J\,kg^{-1}K^{-1}}$. Find its thermal diffusivity.
+
+   **Final answer:** $\alpha=K/(\rho c)=5.837\times10^{-5}\ \mathrm{m^2\,s^{-1}}$.
+
+4. In a periodic-flow experiment, $P=600\ \mathrm s$, $\Delta x=0.100\ \mathrm m$, and $A_1/A_2=2.00$. Find $\alpha$ from attenuation.
+
+   **Final answer:** $\alpha=\pi(\Delta x)^2/[P(\ln2)^2]=1.090\times10^{-4}\ \mathrm{m^2\,s^{-1}}$.
+
+The [Brownian and periodic-flow Maxima worksheet]({{ '/assets/maxima/bsc/sem-iv/mj-6/brownian-periodic-flow-checks.mac' | relative_url }}) verifies the diffusion moment, bounded heat-wave solution, penetration-depth interpretation, and every numerical answer.
+
+## References
+
+1. [Brownian motion](https://en.wikipedia.org/wiki/Brownian_motion), Wikipedia.
+2. A. Einstein, *Investigations on the Theory of the Brownian Movement*, Dover, 1956, chapters 1-3.
+3. H. S. Carslaw and J. C. Jaeger, *Conduction of Heat in Solids*, 2nd ed., Oxford University Press, 1959, chapters 1-2.

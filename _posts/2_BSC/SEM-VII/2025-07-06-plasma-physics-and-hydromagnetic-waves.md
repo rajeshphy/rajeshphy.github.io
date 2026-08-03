@@ -111,6 +111,14 @@ $$
 }
 $$
 
+Here the collisional energy-transfer density is
+
+$$
+\boxed{Q_s=\frac{m_s}{2}\int v^2C_s\,d^3v,}
+$$
+
+with units $\mathrm{J\,m^{-3}\,s^{-1}}$ under the stated convention for
+$C_s$. The heat flux $\mathbf q_s$ carries units $\mathrm{W\,m^{-2}}$.
 The magnetic force does no work because
 $\mathbf u_s\cdot(\mathbf u_s\times\mathbf B)=0$.
 
@@ -176,10 +184,10 @@ $$
 -\frac{\phi}{\lambda_D^2}=0.
 $$
 
-Writing $u=r\phi$ reduces this to $u''-u/\lambda_D^2=0$. The boundary
+Writing $u=r\phi$ reduces this to $u^{\prime\prime}-u/\lambda_D^2=0$. The boundary
 condition $\phi\to0$ at infinity removes the growing exponential. Integrating
 Poisson's equation over a vanishing sphere fixes
-$-4\pi r^2\epsilon_0\phi'(r)\to Q$, so
+$-4\pi r^2\epsilon_0\phi^{\prime}(r)\to Q$, so
 
 $$
 \boxed{
@@ -189,6 +197,20 @@ $$
 
 Shielding is collective when a Debye sphere contains many particles,
 $N_D=(4\pi/3)n_0\lambda_D^3\gg1$.
+
+The shielding and oscillation scales are linked. With the explicitly defined
+electron thermal speed $v_{Te}=\sqrt{k_BT_e/m_e}$,
+
+$$
+\lambda_D\omega_{pe}
+=\sqrt{\frac{\epsilon_0k_BT_e}{n_0e^2}}
+\sqrt{\frac{n_0e^2}{m_e\epsilon_0}}
+=\boxed{v_{Te}}.
+$$
+
+Thus an electron moving at the thermal-speed scale crosses one Debye length
+in approximately one inverse plasma frequency. Both sides have SI units of
+metres per second.
 
 ## Magnetic confinement and magnetoplasma motion
 
@@ -359,5 +381,117 @@ Alfvén frequencies vanish in ideal MHD.
   <figcaption>The plotted branches use \(c_s=0.6v_A\) and the exact dispersion relations above, from parallel to perpendicular propagation.</figcaption>
 </figure>
 
-The plasma-frequency relation, shielding equation, gyro-speed conservation,
-mirror condition, and MHD dispersion determinant are checked in the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-16/unit-3/plasma-hydromagnetic-waves.mac' | relative_url }}); every printed residual is zero.
+## Solved Problems
+
+### 1. Debye length and the collective-plasma test
+
+An electron plasma has $n_0=1.00\times10^{18}\ \mathrm{m^{-3}}$ and
+$k_BT_e=2.00\ \mathrm{eV}$. Find $\lambda_D$, the number of electrons in a
+Debye sphere, and the screened-to-unscreened potential ratio at
+$r=3\lambda_D$.
+
+Convert the thermal energy before using SI units:
+
+$$
+k_BT_e=(2.00)(1.602176634\times10^{-19})
+=3.20435\times10^{-19}\ \mathrm J.
+$$
+
+Then
+
+$$
+\begin{aligned}
+\lambda_D
+&=\sqrt{\frac{\epsilon_0k_BT_e}{n_0e^2}}\\
+&=\sqrt{\frac{(8.85419\times10^{-12})(3.20435\times10^{-19})}
+{(1.00\times10^{18})(1.60218\times10^{-19})^2}}\\
+&=1.0513\times10^{-5}\ \mathrm m=10.513\ \mathrm{\mu m}.
+\end{aligned}
+$$
+
+The argument of the square root has units $\mathrm{m^2}$. The Debye-sphere
+population is
+
+$$
+N_D=\frac{4\pi}{3}n_0\lambda_D^3
+=4.867\times10^3\gg1,
+$$
+
+so the collective description is self-consistent. At $r=3\lambda_D$,
+
+$$
+\frac{\phi_{\rm screened}}{\phi_{\rm Coulomb}}
+=e^{-r/\lambda_D}=e^{-3}=0.04979.
+$$
+
+Screening has reduced the potential to about five per cent of its Coulomb
+value, while the linearized Boltzmann treatment still additionally requires
+$\lvert e\phi\rvert\ll k_BT_e$.
+
+### 2. Oblique magnetohydrodynamic wave speeds
+
+For $v_A=200\ \mathrm{km\,s^{-1}}$, $c_s=100\ \mathrm{km\,s^{-1}}$, and
+$\theta=60.0^\circ$, calculate the fast, slow, and shear-Alfvén phase speeds.
+
+Here $\cos\theta=1/2$. The discriminant in the magnetosonic formula is
+
+$$
+\begin{aligned}
+D&=\sqrt{(v_A^2+c_s^2)^2
+-4v_A^2c_s^2\cos^2\theta}\\
+&=\sqrt{(50000)^2-4(200^2)(100^2)\left(\frac12\right)^2}\\
+&=45825.8\ \mathrm{(km\,s^{-1})^2}.
+\end{aligned}
+$$
+
+Therefore
+
+$$
+v_f=\sqrt{\frac{50000+45825.8}{2}}
+=218.890\ \mathrm{km\,s^{-1}},
+$$
+
+$$
+v_s=\sqrt{\frac{50000-45825.8}{2}}
+=45.685\ \mathrm{km\,s^{-1}}.
+$$
+
+The shear mode has
+
+$$
+v_{\rm shear}=v_A\lvert\cos\theta\rvert
+=100.000\ \mathrm{km\,s^{-1}}.
+$$
+
+All three speeds are real because the equilibrium is ideal and the
+discriminant is nonnegative. The results approach the stated parallel and
+perpendicular limits as $\theta$ tends to $0$ and $\pi/2$.
+
+## Descriptive Questions
+
+1. Obtain the continuity, momentum, and energy equations as successive velocity moments of the Boltzmann equation, identifying every vanishing surface term and collisional moment.
+2. Derive the cold electron plasma frequency from a small charge displacement and state precisely why thermal pressure and ion motion may be neglected.
+3. Derive the Debye-screened potential from the linearized Boltzmann density, including the boundary condition at infinity and the point-charge condition at the origin.
+4. Linearize the ideal magnetohydrodynamic equations about a uniform equilibrium and distinguish the polarization and propagation limits of shear-Alfvén, fast, and slow waves.
+
+## Numerical Problems
+
+1. Find $\omega_{pe}$ and $f_{pe}$ for an electron plasma with $n_e=5.00\times10^{17}\ \mathrm{m^{-3}}$.
+2. A proton with $v_\perp=3.00\times10^5\ \mathrm{m\,s^{-1}}$ moves in $B_0=0.200\ \mathrm T$. Find its angular gyrofrequency and Larmor radius.
+3. A magnetic mirror has $B_0=0.200\ \mathrm T$ and $B_m=1.80\ \mathrm T$. Find the minimum entry pitch angle for confinement.
+4. In an ideal plasma, $\mathbf u=2.00\times10^4\hat{\mathbf x}\ \mathrm{m\,s^{-1}}$ and $\mathbf B=5.00\times10^{-2}\hat{\mathbf z}\ \mathrm T$. Find $\mathbf E$.
+5. A proton plasma has $n_i=1.00\times10^{18}\ \mathrm{m^{-3}}$ and $B_0=1.00\times10^{-2}\ \mathrm T$. Find $v_A$ and the frequency of a parallel shear-Alfvén wave of wavelength $10.0\ \mathrm m$.
+6. Isotropic electrons have $n_e=1.00\times10^{19}\ \mathrm{m^{-3}}$ and $k_BT_e=5.00\ \mathrm{eV}$. Find their scalar pressure and internal-energy density.
+
+**Answers:** 1. $\omega_{pe}=3.989\times10^{10}\ \mathrm{rad\,s^{-1}}$, $f_{pe}=6.349\ \mathrm{GHz}$; 2. $\omega_{cp}=1.916\times10^7\ \mathrm{rad\,s^{-1}}$, $r_{Lp}=1.566\times10^{-2}\ \mathrm m$; 3. $\alpha_{0,\min}=19.471^\circ$; 4. $\mathbf E=+1.00\times10^3\hat{\mathbf y}\ \mathrm{V\,m^{-1}}$; 5. $v_A=2.181\times10^5\ \mathrm{m\,s^{-1}}$, $f=2.181\times10^4\ \mathrm{Hz}$; 6. $p_e=8.011\ \mathrm{Pa}$, $\varepsilon_e=12.016\ \mathrm{J\,m^{-3}}$.
+
+The plasma-frequency relation, shielding equation, thermal-scale identity,
+gyro-speed conservation, mirror condition, MHD dispersion determinant, and all
+printed numerical answers are checked in the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-16/unit-3/plasma-hydromagnetic-waves.mac' | relative_url }}); every printed residual is zero.
+
+## References
+
+- [Plasma (physics)](https://en.wikipedia.org/wiki/Plasma_%28physics%29)
+- Francis F. Chen, *Introduction to Plasma Physics and Controlled Fusion*, 3rd ed., Chapters 1–4.
+- Dwight R. Nicholson, *Introduction to Plasma Theory*, Chapters 1–4.
+- [Richard Fitzpatrick, *Plasma Physics*, University of Texas at Austin](https://farside.ph.utexas.edu/teaching/plasma/Plasmahtml/Plasmahtml.html)

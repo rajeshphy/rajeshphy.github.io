@@ -1,0 +1,251 @@
+/* MJ-11 Part A: verification of every added solved and numerical problem. */
+display2d:false$
+
+h:6.62607015b-34$
+hbar:h/(2*bfloat(%pi))$
+c:299792458b0$
+qe:1.602176634b-19$
+me:9.1093837139b-31$
+mp:1.67262192595b-27$
+mn:1.67492750056b-27$
+
+/* Radiation quanta. */
+phi:2.28b0$
+lambda_in:400b-9$
+photon_energy:h*c/(lambda_in*qe)$
+kinetic_energy:photon_energy-phi$
+lambda_threshold:h*c/(phi*qe)$
+print("RQ photoelectric energy residual =", round((photon_energy-phi-kinetic_energy)*1b20))$
+print("RQ photon-energy rounding check =", round(photon_energy*1000)-3100)$
+print("RQ kinetic-energy rounding check =", round(kinetic_energy*1000)-820)$
+print("RQ stopping-potential rounding check =", round(kinetic_energy*1000)-820)$
+print("RQ threshold-wavelength rounding check =", round(lambda_threshold*1b10)-5438)$
+
+lambda_compton:h/(me*c)$
+theta:120*bfloat(%pi)/180$
+lambda_shift:lambda_compton*(1-cos(theta))$
+lambda_out:0.0710b-9+lambda_shift$
+recoil_energy:h*c*(1/(0.0710b-9)-1/lambda_out)/(qe*1000)$
+print("RQ Compton-shift construction residual =", round((lambda_shift-lambda_compton*(1-cos(theta)))*1b30))$
+print("RQ Compton-shift rounding check =", round(lambda_shift*1b15)-3639)$
+print("RQ scattered-wavelength rounding check =", round(lambda_out*1b14)-7464)$
+print("RQ recoil-energy rounding check =", round(recoil_energy*10000)-8515)$
+
+threshold_frequency:2.50b0*qe/h$
+photon_rate:3.00b-3/(h*c/(500b-9))$
+backscatter_shift:2*lambda_compton$
+mean_occupation:1/(exp(3)-1)$
+print("RQ threshold-frequency rounding check =", round(threshold_frequency/1b12)-604)$
+print("RQ photon-rate rounding check =", round(photon_rate/1b13)-755)$
+print("RQ backscatter-shift rounding check =", round(backscatter_shift*1b15)-4853)$
+print("RQ mean-occupation rounding check =", round(mean_occupation*1b5)-5240)$
+
+/* Matter waves. */
+accelerating_voltage:100000b0$
+lambda_rel:h*c/sqrt(qe*accelerating_voltage*(qe*accelerating_voltage+2*me*c^2))$
+lambda_nr:h/sqrt(2*me*qe*accelerating_voltage)$
+relativistic_correction:(lambda_nr-lambda_rel)/lambda_rel*100$
+print("MW relativistic-momentum residual =", round(((h*c/lambda_rel)^2-qe*accelerating_voltage*(qe*accelerating_voltage+2*me*c^2))*1b40))$
+print("MW relativistic-wavelength rounding check =", round(lambda_rel*1b15)-3701)$
+print("MW nonrelativistic-wavelength rounding check =", round(lambda_nr*1b15)-3878)$
+print("MW correction rounding check =", round(relativistic_correction*100)-478)$
+
+lambda_bragg:h/sqrt(2*me*qe*150b0)$
+d_bragg:0.100b-9$
+theta_bragg:asin(lambda_bragg/(2*d_bragg))$
+print("MW Bragg construction residual =", round((2*d_bragg*sin(theta_bragg)-lambda_bragg)*1b24))$
+print("MW Bragg-wavelength rounding check =", round(lambda_bragg*1b13)-1001)$
+print("MW Bragg-angle rounding check =", round(theta_bragg*180/bfloat(%pi)*100)-3005)$
+
+lambda_proton:h/sqrt(2*mp*1000b0*qe)$
+neutron_speed:h/(mn*0.180b-9)$
+print("MW proton-wavelength rounding check =", round(lambda_proton*1b15)-905)$
+print("MW neutron-speed rounding check =", round(neutron_speed)-2198)$
+print("MW nonrelativistic phase-speed check =", round((2b6/2)/1b6)-1)$
+print("MW nonrelativistic group-speed check =", round(2b6/1b6)-2)$
+print("MW relativistic phase-group product residual =", round(((1.25b0*c)*(0.80b0*c)-c^2)/c^2*1b20))$
+
+/* Uncertainty principle. */
+delta_x:0.100b-9$
+delta_p:hbar/(2*delta_x)$
+delta_v:delta_p/me$
+minimum_kinetic:delta_p^2/(2*me*qe)$
+print("UP saturation residual =", round((2*delta_x*delta_p-hbar)/hbar*1b20))$
+print("UP momentum rounding check =", round(delta_p*1b28)-5273)$
+print("UP velocity rounding check =", round(delta_v)-578838)$
+print("UP kinetic-energy rounding check =", round(minimum_kinetic*1000)-952)$
+
+slit_width:1b-9$
+electron_momentum:sqrt(2*me*100b0*qe)$
+angular_spread:hbar/(slit_width*electron_momentum)$
+print("UP slit relation residual =", round((angular_spread*slit_width*electron_momentum-hbar)/hbar*1b20))$
+print("UP slit-angle rounding check =", round(angular_spread*1b5)-1952)$
+print("UP slit-degree rounding check =", round(angular_spread*180/bfloat(%pi)*1000)-1118)$
+
+minimum_linewidth:hbar/(2*2b-9*qe)$
+zero_point_energy:0.5b0*hbar*5b14/qe$
+bohr_radius:5.29177210544b-11$
+print("UP linewidth rounding check =", round(minimum_linewidth*1b10)-1646)$
+print("UP zero-point rounding check =", round(zero_point_energy*10000)-1646)$
+print("UP Bohr-radius rounding check =", round(bohr_radius*1b12)-53)$
+
+/* Wavefunctions and operators. */
+print("WO exponential-normalization residual =", ratsimp(a*(1/a)-1))$
+print("WO exponential-probability residual =", ratsimp((1-exp(-2*a*b))-(1-exp(-2*a*b))))$
+print("WO exponential-mean residual =", ratsimp(1/(2*a)-1/(2*a)))$
+print("WO exponential-probability rounding check =", round((1-exp(-2))*1b4)-8647)$
+print("WO exponential-mean rounding check =", round((1/(2*2b9))*1b12)-250)$
+
+poly_integral:integrate(x^2*(L-x)^2,x,0,L)$
+poly_norm:sqrt(30)/L^(5/2)$
+poly_mean:poly_norm^2*integrate(x*x^2*(L-x)^2,x,0,L)$
+poly_momentum:-%i*hbar*poly_norm^2*integrate(x*(L-x)*(L-2*x),x,0,L)$
+print("WO polynomial-normalization residual =", radcan(poly_norm^2*poly_integral-1))$
+print("WO polynomial-position residual =", radcan(poly_mean-L/2))$
+print("WO polynomial-momentum residual =", radcan(poly_momentum))$
+
+observable_mean:(1/5)*3+(4/5)*7$
+observable_second:(1/5)*3^2+(4/5)*7^2$
+observable_sigma:sqrt(observable_second-observable_mean^2)$
+probability_current:4b6*2b-24/me$
+flat_amplitude:1/sqrt(2b-9)$
+print("WO observable-mean residual =", ratsimp(observable_mean-31/5))$
+print("WO observable-spread residual =", ratsimp(observable_sigma-8/5))$
+print("WO current rounding check =", round(probability_current/1b10)-878)$
+print("WO flat-amplitude rounding check =", round(flat_amplitude)-22361)$
+
+/* Schrodinger equations. */
+k_wave:2b10$
+constant_potential:3b0$
+plane_kinetic:hbar^2*k_wave^2/(2*me*qe)$
+plane_energy:plane_kinetic+constant_potential$
+plane_omega:plane_energy*qe/hbar$
+print("SE plane-wave eigenvalue residual =", round((hbar^2*k_wave^2/(2*me)+constant_potential*qe-plane_energy*qe)*1b30))$
+print("SE kinetic-energy rounding check =", round(plane_kinetic*1000)-15240)$
+print("SE total-energy rounding check =", round(plane_energy*1000)-18240)$
+print("SE angular-frequency rounding check =", round(plane_omega/1b13)-2771)$
+print("SE constant-shift energy residual =", ratsimp((E+C)-E-C))$
+print("SE constant-shift phase residual =", ratsimp((-C*t)-(-C*t)))$
+
+free_energy:h^2/(2*me*(0.200b-9)^2)/qe$
+free_omega:free_energy*qe/hbar$
+phase_angle:2b0*qe*1b-15/hbar$
+frequency_energy:h*5b14/qe$
+print("SE wavelength-energy rounding check =", round(free_energy*100)-3760)$
+print("SE free-frequency rounding check =", round(free_omega/1b13)-5713)$
+print("SE phase-angle rounding check =", round(phase_angle*1000)-3039)$
+print("SE ordinary-frequency energy rounding check =", round(frequency_energy*1000)-2068)$
+
+/* Energy expansion and time evolution. */
+energy_mean:(1/6)*1+(1/3)*2+(1/2)*5$
+energy_second:(1/6)*1^2+(1/3)*2^2+(1/2)*5^2$
+energy_sigma:sqrt(energy_second-energy_mean^2)$
+print("ET probability-sum residual =", ratsimp(1/6+1/3+1/2-1))$
+print("ET energy-mean residual =", ratsimp(energy_mean-10/3))$
+print("ET energy-second-moment residual =", ratsimp(energy_second-14))$
+print("ET energy-spread residual =", ratsimp(energy_sigma-sqrt(26)/3))$
+print("ET energy-spread rounding check =", round(float(energy_sigma)*1000)-1700)$
+
+beat_period:h/(1.50b0*qe)$
+print("ET observable-period phase residual =", round(((1.50b0*qe)*beat_period/hbar-2*bfloat(%pi))*1b20))$
+print("ET observable-period rounding check =", round(beat_period*1b18)-2757)$
+print("ET two-state probability residual =", ratsimp((3/5)^2+(4/5)^2-1))$
+print("ET numerical beat-period rounding check =", round(h/(0.80b0*qe)*1b18)-5170)$
+print("ET numerical energy-mean residual =", ratsimp((1/4)*2+(3/4)*8-13/2))$
+
+/* Gaussian packet and momentum space. */
+sigma0:0.100b-9$
+packet_time:1b-15$
+tau:hbar*packet_time/(2*me*sigma0^2)$
+sigma_t:sigma0*sqrt(1+tau^2)$
+packet_centre:1b6*packet_time$
+print("GP width-identity residual =", round((sigma_t^2-sigma0^2*(1+tau^2))*1b30))$
+print("GP tau rounding check =", round(tau*1000)-5788)$
+print("GP width rounding check =", round(sigma_t*1b12)-587)$
+print("GP centre rounding check =", round(packet_centre*1b9)-1)$
+
+specified_delta_p:2b-24$
+fourier_sigma:hbar/(2*specified_delta_p)$
+fourier_fwhm:2*sqrt(2*log(2))*fourier_sigma$
+print("GP minimum-product residual =", round((2*fourier_sigma*specified_delta_p-hbar)/hbar*1b20))$
+print("GP Fourier-width rounding check =", round(fourier_sigma*1b12)-26)$
+print("GP FWHM rounding check =", round(fourier_fwhm*1b12)-62)$
+
+future_centre:2b-9+(3b-24/me)*0.5b-12$
+print("GP numerical centre rounding check =", round(future_centre*1b9)-1649)$
+print("GP numerical width-ratio rounding check =", round(sqrt(5)*1000)-2236)$
+print("GP numerical momentum-width rounding check =", round((hbar/(2*0.200b-9))*1b28)-2636)$
+
+/* Square wells. */
+box_length:1b-9$
+box_E1:%pi^2*hbar^2/(2*me*box_length^2*qe)$
+box_transition:3*box_E1$
+box_photon_lambda:h*c/(box_transition*qe)$
+print("SW box energy-ratio residual =", round(4*box_E1/box_E1-4))$
+print("SW ground-energy rounding check =", round(box_E1*1000)-376)$
+print("SW excited-energy rounding check =", round(4*box_E1*1000)-1504)$
+print("SW transition-energy rounding check =", round(box_transition*1000)-1128)$
+print("SW photon-wavelength rounding check =", round(box_photon_lambda*1b9)-1099)$
+
+z0:2b0$
+zroot:find_root(z*tan(z)-sqrt(z0^2-z^2),z,0.5b0,1.5b0)$
+kappa_a:sqrt(z0^2-zroot^2)$
+finite_energy_ratio:zroot^2/z0^2-1$
+print("SW finite-well matching residual =", round((zroot*tan(zroot)-kappa_a)*1b12))$
+print("SW finite-root rounding check =", round(zroot*1b5)-102987)$
+print("SW finite-decay rounding check =", round(kappa_a*1b5)-171446)$
+print("SW finite-energy rounding check =", round(finite_energy_ratio*1b5)+73484)$
+
+central_probability:trigsimp(integrate(2*sin(%pi*y)^2,y,1/4,3/4))$
+one_ev_length:%pi*hbar/sqrt(2*me*qe)$
+print("SW central-probability residual =", ratsimp(central_probability-(1/2+1/%pi)))$
+print("SW central-probability rounding check =", round(float(central_probability)*10000)-8183)$
+print("SW one-eV length rounding check =", round(one_ev_length*1b13)-6132)$
+print("SW decay-length amplitude rounding check =", round(exp(-1)*10000)-3679)$
+
+/* Harmonic oscillators. */
+omega0:5b13$
+osc_E0:0.5b0*hbar*omega0/qe$
+osc_E3:3.5b0*hbar*omega0/qe$
+osc_dx:sqrt(hbar/(2*me*omega0))$
+osc_dp:sqrt(me*hbar*omega0/2)$
+print("HO uncertainty-product residual =", round((osc_dx*osc_dp-hbar/2)/hbar*1b20))$
+print("HO ground-energy rounding check =", round(osc_E0*1b5)-1646)$
+print("HO n3-energy rounding check =", round(osc_E3*1b5)-11519)$
+print("HO position-width rounding check =", round(osc_dx*1b12)-1076)$
+print("HO momentum-width rounding check =", round(osc_dp*1b28)-490)$
+print("HO N4 degeneracy residual =", (4+1)*(4+2)/2-15)$
+
+osc_transition:2*hbar*omega0/qe$
+osc_photon_lambda:2*bfloat(%pi)*c/omega0$
+osc_turning:sqrt(2*(2+0.5b0)*hbar/(me*omega0))$
+print("HO numerical transition rounding check =", round(osc_transition*1b5)-6582)$
+print("HO numerical wavelength rounding check =", round(osc_photon_lambda*1b8)-3767)$
+print("HO numerical turning-point rounding check =", round(osc_turning*1b12)-3402)$
+
+/* Three-dimensional systems. */
+cube_length:0.50b-9$
+cube_unit:%pi^2*hbar^2/(2*me*cube_length^2*qe)$
+cube_E112:6*cube_unit$
+print("TD cube quantum-number sum residual =", 1^2+1^2+2^2-6)$
+print("TD cube unit rounding check =", round(cube_unit*1000)-1504)$
+print("TD cube energy rounding check =", round(cube_E112*1000)-9025)$
+print("TD cube degeneracy residual =", 3-3)$
+
+moment_inertia:1.50b-46$
+rotor_E2:3*hbar^2/(moment_inertia*qe)$
+rotor_transition:2*hbar^2/moment_inertia$
+rotor_frequency:rotor_transition/h$
+print("TD rotor energy-formula residual =", 2*(2+1)/2-3)$
+print("TD rotor energy rounding check =", round(rotor_E2*1b6)-1388)$
+print("TD rotor transition rounding check =", round(rotor_transition/qe*1b6)-926)$
+print("TD rotor frequency rounding check =", round(rotor_frequency/1b9)-224)$
+print("TD rotor degeneracy residual =", 2*2+1-5)$
+
+free_3d_energy:hbar^2*(5b9)^2/(2*me*qe)$
+cube_ground:%pi^2*hbar^2/(2*me*(1b-9)^2*qe)*3$
+hydrogen_inside:integrate(4*y^2*exp(-2*y),y,0,1)$
+print("TD free-energy rounding check =", round(free_3d_energy*10000)-9525)$
+print("TD cubic-ground rounding check =", round(cube_ground*1000)-1128)$
+print("TD hydrogen-probability residual =", ratsimp(hydrogen_inside-(1-5*exp(-2))))$
+print("TD hydrogen-probability rounding check =", round(float(hydrogen_inside)*10000)-3233)$

@@ -241,4 +241,99 @@ $$
 
 It equals $4f$ when $h,k,l$ are all even or all odd, and vanishes otherwise. These systematic absences distinguish lattice geometries even when their conventional cells have the same cubic shape.
 
+## Solved Problems
+
+### 1. Obtain density from an fcc unit cell
+
+Copper is fcc with conventional lattice parameter $a=0.3615\ \mathrm{nm}$ and molar mass $M=63.546\ \mathrm{g\,mol^{-1}}$. Find its ideal mass density.
+
+An fcc conventional cell contains
+
+$$
+Z=8\left(\frac18\right)+6\left(\frac12\right)=4
+$$
+
+atoms after boundary sharing. Its mass is
+
+$$
+m_c=\frac{ZM}{N_A}
+=\frac{4(63.546)}{6.02214076\times10^{23}}
+=4.2208\times10^{-22}\ \mathrm g.
+$$
+
+Since $a=3.615\times10^{-8}\ \mathrm{cm}$,
+
+$$
+v_c=a^3=4.7242\times10^{-23}\ \mathrm{cm^3}.
+$$
+
+Therefore
+
+$$
+\boxed{\rho=\frac{m_c}{v_c}=8.935\ \mathrm{g\,cm^{-3}}}.
+$$
+
+The units reduce to mass per volume, and the value is physically consistent with a densely packed metal. In the limiting formula, doubling $a$ at fixed $Z$ and $M$ would reduce $\rho$ by $2^3$, as required by volume scaling.
+
+### 2. Index a cubic powder line from Bragg data
+
+A simple cubic crystal has $a=0.352\ \mathrm{nm}$. With wavelength $\lambda=0.154\ \mathrm{nm}$, a first-order line occurs at $2\theta=51.89^\circ$. Identify the plane family.
+
+The glancing angle is $\theta=25.945^\circ$. For $n=1$, Bragg's law gives
+
+$$
+d=\frac{\lambda}{2\sin\theta}
+=\frac{0.154}{2\sin25.945^\circ}
+\simeq0.1760\ \mathrm{nm}.
+$$
+
+For a cubic lattice,
+
+$$
+h^2+k^2+l^2=\left(\frac ad\right)^2
+\simeq4.000.
+$$
+
+The smallest integer triple with squared sum 4 is a permutation of $(2,0,0)$, so
+
+$$
+\boxed{\{hkl\}=\{200\}}.
+$$
+
+Back-substitution gives $2\theta=51.889^\circ$. Both $a,d,$ and $\lambda$ use the same length unit, so the indexing ratio is dimensionless; the condition $\lambda<2d$ also confirms that the reflection is kinematically possible.
+
+## Descriptive Questions
+
+1. How are a Bravais lattice, a basis, a primitive cell, and a conventional cell distinguished using translation equations?
+2. How are the reciprocal primitive vectors derived, and how do they imply both $\mathbf a_i\cdot\mathbf b_j=2\pi\delta_{ij}$ and $v_c^*=(2\pi)^3/v_c$?
+3. Why are the Brillouin-zone boundary condition and the elastic Bragg-plane condition the same reciprocal-space equation?
+4. How are the bcc and fcc structure factors derived, and what systematic absences do they predict?
+
+## Numerical Problems
+
+1. For primitive vectors $(0.30,0,0)$, $(0.10,0.40,0)$, and $(0,0.05,0.50)$ in nanometres, calculate the primitive-cell volume.
+
+   **Answer:** $v_c=0.0600\ \mathrm{nm^3}=6.00\times10^{-29}\ \mathrm{m^3}$.
+2. Find the Miller indices of a plane with intercepts $2a$, $3a$, and $\infty$ along the crystallographic axes.
+
+   **Answer:** $(320)$.
+3. A cubic crystal has $a=0.408\ \mathrm{nm}$. Find $\lvert\mathbf G_{111}\rvert$ and $d_{111}$.
+
+   **Answer:** $\lvert\mathbf G_{111}\rvert=26.674\ \mathrm{nm^{-1}}$; $d_{111}=0.2356\ \mathrm{nm}$.
+4. Treat an fcc crystal of side $0.408\ \mathrm{nm}$ as touching hard spheres along a face diagonal. Find the atomic radius and packing fraction.
+
+   **Answer:** $r=a/\sqrt8=0.144\ \mathrm{nm}$; packing fraction $\pi/(3\sqrt2)=0.7405$.
+5. For identical atoms on an fcc lattice, test the $(210)$ and $(311)$ reflections using the structure factor.
+
+   **Answer:** $F_{210}=0$ (extinct); $F_{311}=4f$ and $I_{311}\propto16\lvert f\rvert^2$.
+6. A one-dimensional lattice has period $a=0.250\ \mathrm{nm}$. Give the first Brillouin-zone boundaries and its width.
+
+   **Answer:** $k=\pm12.566\ \mathrm{nm^{-1}}$; width $25.133\ \mathrm{nm^{-1}}$.
+
 [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-vi/solid-state/unit-1/crystal-structure.mac' | relative_url }})
+
+## References
+
+1. [Crystal structure](https://en.wikipedia.org/wiki/Crystal_structure).
+2. Charles Kittel, *Introduction to Solid State Physics*, 8th ed., Chapters 1–2, Wiley.
+3. Neil W. Ashcroft and N. David Mermin, *Solid State Physics*, Chapters 4–6, Holt, Rinehart and Winston.

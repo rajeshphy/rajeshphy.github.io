@@ -1,9 +1,107 @@
-/* Carrier equilibrium identities. Every printed residual must be zero. */
+/* Fermi-Dirac carrier equilibrium. Every printed residual/check is 0. */
 kill(all)$
-assume(Nc>0,Nv>0,k>0,T>0)$
+assume(z>0,Nc>0,Nv>0,k>0,T>0,m>0,hbar>0)$
+
+/* Fermi-function identities. */
+f(x) := 1/(1+exp(x/z))$
+print("Fermi-midpoint residual =", ratsimp(f(0)-1/2))$
+print("Fermi-symmetry residual =", ratsimp(f(x)+f(-x)-1))$
+print("Fermi-slope residual =", ratsimp(at(diff(f(x),x),x=0)+1/(4*z)))$
+
+/* Gamma-integral coefficient and effective density of states. */
+A : (1/(2*%pi^2))*(2*m/hbar^2)^(3/2)$
+I : (k*T)^(3/2)*sqrt(%pi)/2$
+h : 2*%pi*hbar$
+Nc_integral : A*I$
+Nc_standard : 2*(2*%pi*m*k*T/h^2)^(3/2)$
+print("effective-DOS coefficient residual =", radcan(Nc_integral-Nc_standard))$
+
+/* Equilibrium concentrations and intrinsic level. */
 n : Nc*exp(-(Ec-Ef)/(k*T))$
 p : Nv*exp(-(Ef-Ev)/(k*T))$
 ni2 : Nc*Nv*exp(-(Ec-Ev)/(k*T))$
 print("mass-action residual =", ratsimp(n*p-ni2))$
 Ef_i : (Ec+Ev)/2 + k*T*log(Nv/Nc)/2$
-print("intrinsic neutrality residual =", ratsimp(subst(Ef_i,Ef,n)-subst(Ef_i,Ef,p)))$
+print("intrinsic-neutrality residual =", ratsimp(subst(Ef_i,Ef,n)-subst(Ef_i,Ef,p)))$
+Ef_mass : (Ec+Ev)/2 + 3*k*T*log(mp/mn)/4$
+Nv_mass : C*mp^(3/2)$
+Nc_mass : C*mn^(3/2)$
+Ef_dos : (Ec+Ev)/2+k*T*log(Nv_mass/Nc_mass)/2$
+assume(mp>0,mn>0,C>0)$
+print("intrinsic-mass-form residual =", radcan(Ef_dos-Ef_mass))$
+
+kb_ev : 8.617333262145e-5$
+T0 : 300$
+kT0 : kb_ev*T0$
+
+/* Solved problem 1. */
+fplus1 : 1/(1+exp(0.100/kT0))$
+fminus1 : 1/(1+exp(-0.100/kT0))$
+print("solved-1 upper-occupation check =", round(1e5*fplus1)-2047)$
+print("solved-1 lower-occupation check =", round(1e5*fminus1)-97953)$
+print("solved-1 probability-sum check =", ratsimp(fplus1+fminus1-1))$
+
+/* Solved problem 2. */
+Nc2 : 2.80e25$
+Nv2 : 1.04e25$
+Eg2 : 1.120$
+ni2_num : sqrt(Nc2*Nv2)*exp(-Eg2/(2*kT0))$
+offset2 : kT0*log(Nv2/Nc2)/2$
+shift2 : 0.250$
+n2 : ni2_num*exp(shift2/kT0)$
+p2 : ni2_num*exp(-shift2/kT0)$
+print("solved-2 intrinsic-density check =", round(1000*ni2_num/1e15)-6676)$
+print("solved-2 intrinsic-offset check =", round(1e5*offset2)+1280)$
+print("solved-2 electron-density check =", round(1000*n2/1e20)-1058)$
+print("solved-2 hole-density check =", round(1000*p2/1e11)-4214)$
+print("solved-2 mass-action-value check =", round(1000*(n2*p2)/1e31)-4457)$
+print("solved-2 mass-action-identity check =", ratsimp(n2*p2-ni2_num^2))$
+
+/* Numerical problem 1: infer temperature from the Fermi-edge slope. */
+kb_n1 : 861733/10000000000$
+slope_n1 : -8$
+T_n1 : -1/(4*kb_n1*slope_n1)$
+print("numerical-1 inferred-temperature check =", round(10*T_n1)-3626)$
+print("numerical-1 slope-reconstruction residual =", ratsimp(-1/(4*kb_n1*T_n1)-slope_n1))$
+
+/* Numerical problem 2. */
+offset_n2 : -kT0*log(9)$
+print("numerical-2 energy-offset check =", round(1e5*offset_n2)+5680)$
+
+/* Numerical problem 3: full width at half maximum of the Fermi-edge sensitivity. */
+kb_exact_n3 : 8617333262145/10^17$
+kT_n3 : 300*kb_exact_n3$
+u_half_n3 : (1+sqrt(2))^2$
+x_half_n3 : 2*log(1+sqrt(2))$
+fwhm_n3 : 2*kT_n3*x_half_n3$
+sensitivity_ratio_n3 : 4*u_half_n3/(1+u_half_n3)^2$
+print("numerical-3 sensitivity-FWHM check =", round(10^5*fwhm_n3)-9114)$
+print("numerical-3 half-maximum residual =", radcan(sensitivity_ratio_n3-1/2))$
+print("numerical-3 width-reconstruction residual =", ratsimp(fwhm_n3-4*kT_n3*log(1+sqrt(2))))$
+
+/* Numerical problem 4. */
+q0 : 1.602176634e-19$
+kb_si : 1.380649e-23$
+h0 : 6.62607015e-34$
+m0 : 9.1093837015e-31$
+Nc_n4 : 2*(2*%pi*0.26*m0*kb_si*T0/h0^2)^(3/2)$
+print("numerical-4 effective-DOS check =", round(1000*Nc_n4/1e24)-3327)$
+
+/* Numerical problem 5: mode and mean of the equilibrium excess-energy distribution. */
+kb_exact_n5 : 8617333262145/10^17$
+kT_n5 : 300*kb_exact_n5$
+epsilon_mp_n5 : kT_n5/2$
+epsilon_mean_n5 : 3*kT_n5/2$
+log_weight_n5 : log(epsilon_n5)/2-epsilon_n5/kT_n5$
+mean_gamma_n5 : kT_n5*gamma(5/2)/gamma(3/2)$
+print("numerical-5 most-probable-energy check =", round(10^5*epsilon_mp_n5)-1293)$
+print("numerical-5 mean-energy check =", round(10^5*epsilon_mean_n5)-3878)$
+print("numerical-5 mode-stationarity residual =", ratsimp(at(diff(log_weight_n5,epsilon_n5),epsilon_n5=epsilon_mp_n5)))$
+print("numerical-5 mode-curvature residual =", ratsimp(at(diff(log_weight_n5,epsilon_n5,2),epsilon_n5=epsilon_mp_n5)+2/kT_n5^2))$
+print("numerical-5 gamma-mean residual =", radcan(mean_gamma_n5-epsilon_mean_n5))$
+print("numerical-5 mean-to-mode ratio check =", ratsimp(epsilon_mean_n5/epsilon_mp_n5-3))$
+
+/* Numerical problem 6: infer the effective-mass ratio from an intrinsic-level shift. */
+offset_n6 : 0.0100$
+mass_ratio_n6 : exp(4*offset_n6/(3*kT0))$
+print("numerical-6 inferred-mass-ratio check =", round(1000*mass_ratio_n6)-1675)$

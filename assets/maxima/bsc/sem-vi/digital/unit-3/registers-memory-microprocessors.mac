@@ -17,7 +17,7 @@ jk_residuals : makelist(
   block([j:bit(n,2),k:bit(n,1),q:bit(n,0)],
     jk_equation(j,k,q)-jk_expected(j,k,q)),
   n,0,7)$
-print("JK characteristic-equation residuals =", jk_residuals)$
+print("JK characteristic-equation check =",sum(abs(jk_residuals[i]),i,1,8))$
 
 /* Active-high SR characteristic equation over its three allowed inputs. */
 sr_residuals : makelist(
@@ -27,7 +27,7 @@ sr_residuals : makelist(
       expected:if s=1 then 1 elseif r=1 then 0 else q,
       bor2(s,band2(bnot(r),q))-expected)),
   n,0,7)$
-print("allowed-state SR residuals =", sr_residuals)$
+print("allowed-state SR check =",sum(abs(sr_residuals[i]),i,1,8))$
 
 /* A clock-counting timer: N/f seconds = 1000N/f milliseconds. */
 clock_hz : 10^6$
@@ -51,7 +51,8 @@ q2 : shift(q1,0)$
 q3 : shift(q2,1)$
 q4 : shift(q3,1)$
 shift_register_residuals : q4-[1,1,0,1]$
-print("four-shift register residuals =", shift_register_residuals)$
+print("four-shift register check =",
+  sum(abs(shift_register_residuals[i]),i,1,4))$
 
 /* Address-space and word-range checks. */
 address_8085_residual : 2^16-65536$
@@ -71,3 +72,44 @@ offset : 22136$      /* 5678H */
 physical : mod(16*segment+offset,2^20)$
 segmentation_residual : physical-96696$  /* 179B8H */
 print("8086 segment:offset residual =", segmentation_residual)$
+
+/* Solved problem 1: JK commands set, hold, toggle, reset, toggle. */
+worked_jk_pairs : [[1,0],[0,0],[1,1],[0,1],[1,1]]$
+worked_jk_expected : [1,1,0,0,1]$
+worked_q : 0$
+worked_jk_check : 0$
+for i:1 thru length(worked_jk_pairs) do (
+  worked_q : jk_equation(worked_jk_pairs[i][1],worked_jk_pairs[i][2],worked_q),
+  worked_jk_check : worked_jk_check+abs(worked_q-worked_jk_expected[i]))$
+print("worked JK state-sequence check =", worked_jk_check)$
+
+/* Solved problem 2: 2A3C:4F20 gives physical address 2F2E0H. */
+worked_segment : 10812$    /* 2A3CH */
+worked_offset : 20256$     /* 4F20H */
+worked_physical : mod(16*worked_segment+worked_offset,2^20)$
+worked_address_check : worked_physical-193248$ /* 2F2E0H */
+worked_alias_check : worked_physical-16*12078$ /* 2F2EH:0000H */
+print("worked 8086 address check =", worked_address_check)$
+print("worked 8086 alias check =", worked_alias_check)$
+
+/* Exercise answers: synchronization, timing, state count, shifting and memory. */
+synchronizer_resolution_check : 20-2-3/2-33/2$
+counter_overflow_ms_check : 1000*2^16/(2*10^6)-4096/125$
+mod10_stage_check : ceiling(log(10)/log(2))-4$
+mod10_unused_check : 2^4-10-6$
+exercise_q0 : [0,1,0,1]$
+exercise_q1 : shift(exercise_q0,1)$
+exercise_q2 : shift(exercise_q1,0)$
+exercise_q3 : shift(exercise_q2,1)$
+exercise_shift_check : sum(abs((exercise_q3-[1,0,1,0])[i]),i,1,4)$
+ram_address_check : 2^15-32768$
+ram_bit_check : 2^15*8-262144$
+memory_map_check : 32768+8192-1-40959$ /* 8000H + 8 KiB - 1 = 9FFFH */
+print("synchronizer resolution-time check (ns) =", synchronizer_resolution_check)$
+print("16-bit timer overflow check (ms) =", counter_overflow_ms_check)$
+print("mod-10 stage-count check =", mod10_stage_check)$
+print("mod-10 unused-state check =", mod10_unused_check)$
+print("exercise shift-register check =", exercise_shift_check)$
+print("32K memory address-count check =", ram_address_check)$
+print("32K x 8 memory bit-count check =", ram_bit_check)$
+print("8085 memory-map endpoint check =", memory_map_check)$

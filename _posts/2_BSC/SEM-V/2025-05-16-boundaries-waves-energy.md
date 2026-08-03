@@ -157,4 +157,87 @@ $$\boxed{\langle\mathbf S\rangle
 =\frac{E_0H_0}{2}\hat{\mathbf z}
 =\frac{E_0^2}{2\eta}\hat{\mathbf z}}.$$
 
-The dispersion, wave-speed, impedance, equal-energy, and Poynting identities are independently checked in the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-8/maxwell-wave-energy.mac' | relative_url }}); every printed residual is zero.
+## Solved Problems
+
+### 1. Free surface charge at a dielectric boundary
+
+Medium 1 has $\epsilon_{r1}=2.00$ and medium 2 has $\epsilon_{r2}=5.00$. The unit normal points from 1 to 2. Immediately at the interface,
+
+$$E_{1n}=3.00\ \mathrm{kV\,m^{-1}},
+\qquad
+E_{2n}=1.60\ \mathrm{kV\,m^{-1}},$$
+
+with both normal components directed along $+\hat{\mathbf n}$. Find the free surface-charge density.
+
+**Solution.** The signed normal boundary condition is
+
+$$\rho_s=\hat{\mathbf n}\cdot(\mathbf D_2-\mathbf D_1)
+=\epsilon_0(\epsilon_{r2}E_{2n}-\epsilon_{r1}E_{1n}).$$
+
+Substitution gives
+
+$$\rho_s=\epsilon_0[5.00(1600)-2.00(3000)]
+=1.771\times10^{-8}\ \mathrm{C\,m^{-2}}.$$
+
+Thus
+
+$$\boxed{\rho_s=+17.7\ \mathrm{nC\,m^{-2}}}.$$
+
+The positive sign means free positive charge resides on the interface for the chosen normal. Each term $\epsilon E$ has unit $\mathrm{C\,m^{-2}}$. If the two normal displacement components become equal, the expression correctly tends to $\rho_s=0$ even when the electric-field components differ.
+
+### 2. Energy and power in a dielectric plane wave
+
+A nonmagnetic, lossless dielectric has $\epsilon_r=4.00$. A $+z$-travelling plane wave has peak electric field $E_0=120\ \mathrm{V\,m^{-1}}$ along $+x$. Find $H_0$, the average Poynting flux, and the average total energy density.
+
+**Solution.** For $\mu_r=1$,
+
+$$\eta=\frac{\eta_0}{\sqrt{\epsilon_r}}
+=\frac{376.73}{2}=188.37\ \Omega.$$
+
+The right-handed orientation $\mathbf E\times\mathbf H\parallel+\hat{\mathbf z}$ fixes $\mathbf H$ along $+y$:
+
+$$H_0=\frac{E_0}{\eta}=0.6371\ \mathrm{A\,m^{-1}}.$$
+
+For peak amplitudes,
+
+$$\langle S\rangle=\frac{E_0^2}{2\eta}
+=38.22\ \mathrm{W\,m^{-2}}.$$
+
+The electric and magnetic energies are equal, so their cycle-averaged sum is
+
+$$\langle u\rangle=\frac{\epsilon E_0^2}{2}
+=2.550\times10^{-7}\ \mathrm{J\,m^{-3}}.$$
+
+Therefore
+
+$$\boxed{\mathbf H_0=0.6371\hat{\mathbf y}\ \mathrm{A\,m^{-1}},\quad
+\langle\mathbf S\rangle=38.22\hat{\mathbf z}\ \mathrm{W\,m^{-2}},\quad
+\langle u\rangle=2.550\times10^{-7}\ \mathrm{J\,m^{-3}}}.$$
+
+The ratio $\langle S\rangle/\langle u\rangle=1.499\times10^8\ \mathrm{m\,s^{-1}}$ equals the wave speed. This also checks dimensions because $\mathrm{(W\,m^{-2})/(J\,m^{-3})=m\,s^{-1}}$. As $E_0\to0$, both power and stored energy vanish quadratically.
+
+## Descriptive Questions
+
+1. Derive the four electromagnetic boundary conditions from pillbox and rectangular-loop constructions, stating which sources can create jumps.
+2. Why can $E_n$ and $B_t$ change across a source-free material boundary even when $D_n$ and $H_t$ are continuous combinations?
+3. Explain the local and integral meanings of every term in Poynting's theorem, including its sign convention.
+4. Under what assumptions are the electric and magnetic energy densities of a plane wave equal instantaneously?
+
+## Numerical Problems
+
+1. With $\hat{\mathbf n}=\hat{\mathbf z}$, $\mathbf H_1=4\hat{\mathbf x}\ \mathrm{A\,m^{-1}}$ and $\mathbf H_2=1\hat{\mathbf x}\ \mathrm{A\,m^{-1}}$. Find the free sheet current.
+   **Final answer:** $\boxed{\mathbf K=-3\hat{\mathbf y}\ \mathrm{A\,m^{-1}}}$.
+2. No free surface charge exists between dielectrics with $\epsilon_{r1}=2.50$ and $\epsilon_{r2}=5.00$. If $E_{1n}=800\ \mathrm{V\,m^{-1}}$, find $E_{2n}$.
+   **Final answer:** $\boxed{E_{2n}=400\ \mathrm{V\,m^{-1}}}$.
+3. Find the wave speed in a nonmagnetic dielectric with $\epsilon_r=9.00$.
+   **Final answer:** $\boxed{v=9.993\times10^7\ \mathrm{m\,s^{-1}}}$.
+4. A lossless plane wave has peak $E_0=50.0\ \mathrm{V\,m^{-1}}$ in a medium of impedance $250\ \Omega$. Find its mean intensity.
+   **Final answer:** $\boxed{\langle S\rangle=5.00\ \mathrm{W\,m^{-2}}}$.
+
+The wave identities are checked in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-8/maxwell-wave-energy.mac' | relative_url }}), and every worked and numerical value above is checked in the [MJ-8 problem-verification worksheet]({{ '/assets/maxima/bsc/sem-v/mj-8/problem-checks.mac' | relative_url }}); every printed residual and check is zero.
+
+## References
+
+1. [Maxwell's equations: boundary conditions - Wikipedia](https://en.wikipedia.org/wiki/Maxwell%27s_equations#Boundary_conditions)
+2. [MIT 6.013, Summary of Maxwell's Integral Laws and Continuity Conditions](https://web.mit.edu/6.013_book/www/chapter1/1.8.html)
+3. [MIT 6.013, Poynting's Theorem](https://web.mit.edu/6.013_book/www/chapter11/11.2.html)

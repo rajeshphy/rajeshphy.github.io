@@ -23,3 +23,54 @@ print("retarded-time derivative residual = ",residual_retarded_time)$
 /* dR/dt and grad R combine with kappa exactly. */
 residual_grad_R : ratsimp(1+b/kappa-1/kappa)$
 print("retarded-distance gradient residual = ",residual_grad_R)$
+
+/* Solved problem 1: transverse retarded event. */
+c0 : 299792458.0$
+eps0 : 8.8541878128e-12$
+kC : 1/(4*%pi*eps0)$
+gamma08 : 1/sqrt(1-0.8^2)$
+tr_ns : gamma08*0.300/c0*1e9$
+R08 : gamma08*0.300$
+kappa08 : 1-0.8^2$
+phi08 : kC*1e-9/(kappa08*R08)$
+retarded_event_residual :
+ (round(tr_ns*1000)-1668)^2+(round(R08*1000)-500)^2
+ +(round(kappa08*1000)-360)^2+(round(phi08*100)-4993)^2$
+print("transverse retarded-event numerical residual = ",retarded_event_residual)$
+
+/* Solved problem 2: flux of the uniform-motion field. */
+a_flux : 1-beta^2$
+flux_primitive : u_flux/(a_flux*sqrt(a_flux+beta^2*u_flux^2))$
+flux_integral : subst(1,u_flux,flux_primitive)-subst(-1,u_flux,flux_primitive)$
+flux_residual : radcan(a_flux*flux_integral-2)$
+print("uniform-motion electric-flux residual = ",flux_residual)$
+
+/* Numerical-problem answer checks; rounding matches the printed precision. */
+phi_static : kC*4e-9/0.500$
+E_static : kC*4e-9/0.500^2$
+print("static-limit numerical residual = ",
+ (round(phi_static*100)-7190)^2+(round(E_static*10)-1438)^2)$
+
+gamma09 : 1/sqrt(1-0.9^2)$
+print("uniform-field anisotropy numerical residual = ",
+ (round(gamma09*1000)-2294)^2
+ +(round((1-0.9^2)*10000)-1900)^2
+ +(round(gamma09^3*100)-1207)^2)$
+
+beta_ob : 0.600$
+theta_ob : %pi/3$
+s_ob : 0.400$
+den_ob : (cos(theta_ob)^2+(1-beta_ob^2)*sin(theta_ob)^2)^(3/2)$
+E_ob : kC*2e-9*(1-beta_ob^2)/(s_ob^2*den_ob)$
+B_ob : beta_ob*E_ob*sin(theta_ob)/c0$
+print("oblique uniform-field numerical residual = ",
+ (round(E_ob*10)-1153)^2+(round(B_ob*1e10)-1998)^2)$
+
+R_cross : c0^2/3e16$
+print("velocity-acceleration crossover numerical residual = ",
+ (round(R_cross*1000)-2996)^2)$
+
+E_acc : kC*1e-6*1e12*sin(%pi/6)/(c0^2*100)$
+B_acc : E_acc/c0$
+print("acceleration-field numerical residual = ",
+ (round(E_acc*1e7)-5000)^2+(round(B_acc*1e15)-1668)^2)$

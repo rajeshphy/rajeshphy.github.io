@@ -31,4 +31,58 @@ print("negative light-speed residual (must be 0):",ratsimp(subst(u=-c,up)+c))$
 sumrule : (w+v)/(1+w*v/c^2)$
 gap_identity : (1-w^2/c^2)*(1-v^2/c^2)/(1+w*v/c^2)^2$
 print("subluminal identity residual (must be 0):",ratsimp(1-sumrule^2/c^2-gap_identity))$
+
+/* Solved problems and numerical problems. */
+c0 : 3*10^8$
+
+p1_b : 4/5$ p1_g : 5/3$ p1_dt : 10^-6$ p1_dx : 900$
+p1_dtp : p1_g*(p1_dt-p1_b*p1_dx/c0)$
+p1_dxp : p1_g*(p1_dx-p1_b*c0*p1_dt)$
+p1_s2 : (c0*p1_dt)^2-p1_dx^2$
+print("solved 1 time-order residual (must be 0):",ratsimp(p1_dtp+7*10^-6/3))$
+print("solved 1 position residual (must be 0):",ratsimp(p1_dxp-1100))$
+print("solved 1 interval residual (must be 0):",
+  ratsimp((c0*p1_dtp)^2-p1_dxp^2-p1_s2))$
+print("solved 1 simultaneous-frame residual (must be 0):",
+  ratsimp(c0*p1_dt/p1_dx-1/3))$
+
+p2_b : 3/5$ p2_g : 5/4$ p2_uxp : 3/10$ p2_uyp : 2/5$
+p2_ux : (p2_uxp+p2_b)/(1+p2_uxp*p2_b)$
+p2_uy : p2_uyp/(p2_g*(1+p2_uxp*p2_b))$
+p2_speed2 : p2_ux^2+p2_uy^2$
+print("solved 2 longitudinal-component residual (must be 0):",
+  ratsimp(p2_ux-45/59))$
+print("solved 2 transverse-component residual (must be 0):",
+  ratsimp(p2_uy-16/59))$
+print("solved 2 speed-squared residual (must be 0):",
+  ratsimp(p2_speed2-2281/3481))$
+
+q1_dtp : (5/4)*(-(3/5)*600/c0)$
+print("numerical 1 simultaneity-offset residual (must be 0):",
+  ratsimp(q1_dtp+3*10^-6/2))$
+q2_dt : 3*10^-6$ q2_dx : 600$
+q2_signal_ratio : q2_dx/(c0*q2_dt)$
+q2_s2 : (c0*q2_dt)^2-q2_dx^2$
+q2_min_time_bracket : q2_dt-q2_dx/c0$
+print("numerical 2 signal-speed residual (must be 0):",
+  ratsimp(q2_signal_ratio-2/3))$
+print("numerical 2 timelike-interval residual (must be 0):",
+  ratsimp(q2_s2-450000))$
+print("numerical 2 limiting-time-bracket residual (must be 0):",
+  ratsimp(q2_min_time_bracket-10^-6))$
+q3_u : ((7/10)+(3/5))/(1+(7/10)*(3/5))$
+print("numerical 3 velocity-sum residual (must be 0):",ratsimp(q3_u-65/71))$
+q4_up : ((1/2)-(4/5))/(1-(1/2)*(4/5))$
+print("numerical 4 inverse-direction residual (must be 0):",ratsimp(q4_up+1/2))$
+q5_uxp : ((3/5)-(3/5))/(1-(3/5)^2)$
+q5_uyp : (4/5)/((5/4)*(1-(3/5)^2))$
+print("numerical 5 light-x residual (must be 0):",ratsimp(q5_uxp))$
+print("numerical 5 light-y residual (must be 0):",ratsimp(q5_uyp-1))$
+q6_ux : 4/5$ q6_uy : (3/5)/(5/3)$ q6_speed2 : q6_ux^2+q6_uy^2$
+print("numerical 6 laboratory-x residual (must be 0):",ratsimp(q6_ux-4/5))$
+print("numerical 6 laboratory-y residual (must be 0):",ratsimp(q6_uy-9/25))$
+print("numerical 6 speed-squared residual (must be 0):",
+  ratsimp(q6_speed2-481/625))$
+print("numerical 6 speed rounding residual (must be 0):",
+  round(float(sqrt(q6_speed2)*10000))-8773)$
 quit();

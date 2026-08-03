@@ -1,0 +1,26 @@
+/* MJ-6: reversible/irreversible process identities and printed answers. */
+kill(all)$
+assume(V1>0)$
+print("adiabatic_numeric_identity =", subst(T2=T1*(V1/V2)^(gamma-1),T2-T1*(V1/V2)^(gamma-1)))$
+Tad : T1*(V1/V)^(gamma-1)$
+pad : n*R*Tad/V$
+print("adiabatic_invariant_residual =", ratsimp(diff(pad*V^gamma,V)))$
+Wrev : n*R*T*log(2)$
+Wirr : n*R*T/2$
+print("isothermal_integral_residual =", radcan(logcontract(integrate(n*R*T/V,V,V1,2*V1)-Wrev)))$
+print("reversible_advantage_residual =", ratsimp((Wrev-Wirr)-n*R*T*(log(2)-1/2)))$
+print("constant_pressure_energy_residual =", subst(T2=T1-pext*(V2-V1)/Cv,Cv*(T1-T2)-pext*(V2-V1)))$
+R0 : 8.314462618$
+print("isothermal_work_rounding_residual =", round(R0*300*log(2))-1729)$
+print("constant_external_work_residual =", ratsimp(1e5*(0.020-0.010)-1000))$
+print("adiabatic_final_temperature_rounding_residual =", round(300*2^(-2/5))-227)$
+vdw_work : R0*300*log((0.0200-4.27e-5)/(0.0100-4.27e-5))
+           +0.364*(1/0.0200-1/0.0100)$
+print("van_der_Waals_work_rounding_residual =", round(vdw_work)-1716)$
+paddle_work_by_gas : -3000$
+paddle_delta_U : 0-paddle_work_by_gas$
+paddle_delta_T : paddle_delta_U/(2*(3*R0/2))$
+print("paddle_wheel_first_law_residual =",
+      ratsimp(paddle_delta_U-(0-paddle_work_by_gas)))$
+print("paddle_wheel_temperature_rounding_residual =",
+      round(10*paddle_delta_T)-1203)$

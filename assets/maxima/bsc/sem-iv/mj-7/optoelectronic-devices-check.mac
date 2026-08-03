@@ -1,0 +1,83 @@
+/* Photon, responsivity, solar-cell, laser-cavity, and every worked value. */
+kill(all)$
+
+lambda_um(eg_ev) := (31/25)/eg_ev$
+responsivity(etaq,lambda_um_value) := etaq*lambda_um_value/(31/25)$
+q0 : 1602/10^22$
+
+/* Solved problem 1. */
+lam1 : lambda_um(19/10)$
+pel1 : 2*(20/1000)$
+eff1 : (15/1000)/pel1$
+print("solved 1 wavelength rounded residual =",
+      round(ev(lam1*1000,numer))-653)$
+print("solved 1 electrical-power residual =", ratsimp(pel1-1/25))$
+print("solved 1 efficiency residual =", ratsimp(eff1-3/8))$
+
+/* Solved problem 2. */
+r2 : responsivity(4/5,85/100)$
+iph2 : r2*(200/10^6)$
+print("solved 2 responsivity rounded residual =",
+      round(ev(r2*10000,numer))-5484)$
+print("solved 2 photocurrent rounded residual =",
+      round(ev(iph2*10^7,numer))-1097)$
+
+/* Solved problem 3. */
+pmax3 : (1/2)*(72/100)$
+ff3 : pmax3/((62/100)*(8/10))$
+eff3 : pmax3/(3/2)$
+print("solved 3 maximum-power residual =", ratsimp(pmax3-9/25))$
+print("solved 3 fill-factor rounded residual =",
+      round(ev(ff3*10000,numer))-7258)$
+print("solved 3 efficiency residual =", ratsimp(eff3-6/25))$
+
+/* Numerical problems. */
+photon_energy_n1 : q0*(31/25)/(62/100)$
+photon_rate_n1 : (124/10000)/photon_energy_n1$
+electron_rate_n1 : (25/1000)/q0$
+eta_ext_n1 : photon_rate_n1/electron_rate_n1$
+print("numerical 1 photon-energy residual =",
+      ratsimp(photon_energy_n1-2*q0))$
+print("numerical 1 photon-rate rounded residual =",
+      round(ev(photon_rate_n1/10^13,numer))-3870)$
+print("numerical 1 injection-rate rounded residual =",
+      round(ev(electron_rate_n1/10^14,numer))-1561)$
+print("numerical 1 external-efficiency residual =",
+      ratsimp(eta_ext_n1-31/125))$
+
+flux_n2 : 5*10^12$ eta_n2 : 3/4$ lambda_n2 : 85/100$
+collected_rate_n2 : eta_n2*flux_n2$
+iph_n2 : q0*collected_rate_n2$
+popt_n2 : flux_n2*q0*(31/25)/lambda_n2$
+print("numerical 2 collected-rate residual =",
+      ratsimp(collected_rate_n2-(15/4)*10^12))$
+print("numerical 2 photocurrent rounded residual =",
+      round(ev(iph_n2*10^10,numer))-6008)$
+print("numerical 2 optical-power rounded residual =",
+      round(ev(popt_n2*10^9,numer))-1169)$
+print("numerical 2 responsivity identity residual =",
+      ratsimp(iph_n2/popt_n2-responsivity(eta_n2,lambda_n2)))$
+
+length_n3 : 3/100$ reflectivity_n3 : 8/25$
+alpha_n3 : 10$ gamma_n3 : 3/10$
+mirror_loss_n3 : log(1/reflectivity_n3^2)/(2*length_n3)$
+gain_n3 : (alpha_n3+mirror_loss_n3)/gamma_n3$
+print("numerical 3 threshold-gain identity residual =",
+      ratsimp(gamma_n3*gain_n3-alpha_n3-mirror_loss_n3))$
+print("numerical 3 threshold-gain rounded residual =",
+      round(ev(gain_n3*100,numer))-15994)$
+
+iph_n4 : 35/100$ i0_n4 : 1/10^9$
+eta_n4 : 13/10$ vt_n4 : 259/10000$
+voc_n4 : eta_n4*vt_n4*log(1+iph_n4/i0_n4)$
+print("numerical 4 open-circuit equation residual =",
+      radcan(i0_n4*(exp(voc_n4/(eta_n4*vt_n4))-1)-iph_n4))$
+print("numerical 4 voltage rounded residual =",
+      round(ev(voc_n4*10000,numer))-6624)$
+print("numerical 4 eighteen-cell voltage rounded residual =",
+      round(ev(18*voc_n4*1000,numer))-11923)$
+print("numerical 4 nineteen-cell voltage rounded residual =",
+      round(ev(19*voc_n4*1000,numer))-12586)$
+dl5 : (850/10^9)^2/(2*(7/2)*(300/10^6))$
+print("numerical 5 mode-spacing rounded residual =",
+      round(ev(dl5*10^12,numer))-344)$

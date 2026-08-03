@@ -144,7 +144,7 @@ The image is a mathematical device: it lies outside the physical solution region
 Let a grounded sphere have radius $R$, centred at the origin, and place $q$ at $z=a$, with $a>R$. Put
 
 $$
-\boxed{q'=-\frac{R}{a}q},
+\boxed{q^\prime=-\frac{R}{a}q},
 \qquad
 \boxed{b=\frac{R^2}{a}}
 $$
@@ -158,14 +158,14 @@ $$
 is its squared distance from $q$, while
 
 $$
-s'^2=b^2+R^2-2bR\cos\theta
+s^{\prime 2}=b^2+R^2-2bR\cos\theta
 =\frac{R^2}{a^2}s^2.
 $$
 
-Thus $s'=(R/a)s$, and
+Thus $s^{\prime}=(R/a)s$, and
 
 $$
-\frac{q}{s}+\frac{q'}{s'}
+\frac{q}{s}+\frac{q^\prime}{s^\prime}
 =\frac{q}{s}-\frac{Rq/a}{(R/a)s}=0.
 $$
 
@@ -176,7 +176,7 @@ $$
 V(\mathbf r)=\frac{1}{4\pi\epsilon_0}
 \left(
 \frac{q}{\lvert\mathbf r-a\hat{\mathbf z}\rvert}
-+\frac{q'}{\lvert\mathbf r-b\hat{\mathbf z}\rvert}
++\frac{q^\prime}{\lvert\mathbf r-b\hat{\mathbf z}\rvert}
 \right)},\qquad r\ge R.
 $$
 
@@ -189,7 +189,7 @@ $$
 {4\pi R\left(a^2+R^2-2aR\cos\theta\right)^{3/2}}}.
 $$
 
-Its integral is $q'=-qR/a$, as required by the far field. The attraction on $q$ is
+Its integral is $q^\prime=-qR/a$, as required by the far field. The attraction on $q$ is
 
 $$
 \boxed{
@@ -207,4 +207,89 @@ These results apply to a **grounded** sphere. For an isolated neutral sphere, a 
   <figcaption>The dashed conductor boundaries enclose the fictitious images, while the real charges remain in the physical regions where the image potentials solve Laplace's equation.</figcaption>
 </figure>
 
-The plane boundary, sphere-distance identity, induced-charge integrals, and force simplifications are verified with exact zero residuals in the [Unit I image-method worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-1/image-methods.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Capacitance of concentric spherical conductors
+
+Two concentric conducting spheres have radii $a<b$. The inner carries $+Q$ and the outer $-Q$. Find their capacitance.
+
+**Solution.** A Gaussian sphere in the dielectric region $a<r<b$ encloses $Q$, so
+
+$$
+E(r)=\frac{Q}{4\pi\epsilon_0r^2}.
+$$
+
+The potential difference from the inner to the outer conductor is
+
+$$
+V_a-V_b=\int_a^b E(r)\,\mathrm dr
+=\frac{Q}{4\pi\epsilon_0}
+\left(\frac1a-\frac1b\right).
+$$
+
+Consequently,
+
+$$
+\boxed{C=\frac{Q}{V_a-V_b}
+=4\pi\epsilon_0\frac{ab}{b-a}}.
+$$
+
+The limit $b\to\infty$ gives the isolated-sphere capacitance $4\pi\epsilon_0a$.
+
+### 2. Energy and force for a charge above a grounded plane
+
+A charge $q$ is a height $a$ above a grounded infinite conducting plane. Find its interaction energy and recover the force by differentiation.
+
+**Solution.** The image is $-q$ a distance $2a$ from the real charge. The physical electrostatic energy contains one-half of $q$ times the induced potential:
+
+$$
+U=\frac12q\left[
+\frac{-q}{4\pi\epsilon_0(2a)}
+\right]
+=\boxed{-\frac{q^2}{16\pi\epsilon_0a}}.
+$$
+
+The vertical force is
+
+$$
+F_z=-\frac{\mathrm dU}{\mathrm da}
+=\boxed{-\frac{q^2}{16\pi\epsilon_0a^2}}.
+$$
+
+The negative sign means attraction toward the plane. The factor $1/2$ belongs in the energy, not in the force obtained from the image field.
+
+## Descriptive Questions
+
+1. Why must an electrostatic conductor be equipotential throughout its volume and surface?
+2. Why is the force on surface charge determined by the average of the limiting fields?
+3. What does a negative off-diagonal capacitance coefficient mean physically?
+4. Why must every image charge lie outside the region in which the constructed potential is used?
+
+## Numerical Problems
+
+### 1. Parallel-plate capacitance
+
+Two large conducting plates have overlap area $150\,\mathrm{cm^2}$ and vacuum separation $1.50\,\mathrm{mm}$. Neglect fringing and find their capacitance.
+
+**Answer:** $C=88.5\,\mathrm{pF}$.
+
+### 2. Electrostatic pressure
+
+The field immediately outside a conductor is $3.00\times10^6\,\mathrm{V\,m^{-1}}$. Find the electrostatic pressure.
+
+**Answer:** $p_e=39.8\,\mathrm{Pa}$.
+
+### 3. Image for a grounded conducting sphere
+
+A grounded conducting sphere has radius $R=10.0\,\mathrm{cm}$. A charge $q=6.00\,\mathrm{nC}$ is placed $a=30.0\,\mathrm{cm}$ from its centre. Find the image charge and its distance from the centre.
+
+**Answer:** $q^\prime=-2.00\,\mathrm{nC}$ and $b=3.33\,\mathrm{cm}$.
+
+The symbolic solutions and all printed numerical answers are verified in the [Unit I image-method worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-1/image-methods.mac' | relative_url }}).
+
+## References
+
+1. [Method of image charges: Wikipedia](https://en.wikipedia.org/wiki/Method_of_image_charges)
+2. David J. Griffiths, *Introduction to Electrodynamics*, 4th ed., Cambridge University Press, 2017.
+3. William R. Smythe, *Static and Dynamic Electricity*, 3rd ed., McGraw-Hill, 1968.
+4. Edward M. Purcell and David J. Morin, *Electricity and Magnetism*, 3rd ed., Cambridge University Press, 2013.

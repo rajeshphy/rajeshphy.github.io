@@ -25,4 +25,84 @@ print("Torsional-pendulum ODE residual (must be 0):",
 print("Torsional-pendulum period residual (must be 0):",
   ratsimp(4*%pi^2/(kappa/I0)-4*%pi^2*I0/kappa))$
 
+/* Compound-pendulum minimum. */
+leq_of_d : d+kg^2/d$
+print("Minimum-stationarity residual (must be 0):",
+  ratsimp(subst(kg,d,diff(leq_of_d,d))))$
+print("Minimum-curvature-form residual (must be 0):",
+  ratsimp(subst(kg,d,diff(leq_of_d,d,2))-2/kg))$
+print("Minimum-equivalent-length residual (must be 0):",
+  ratsimp(subst(kg,d,leq_of_d)-2*kg))$
+
+/* Solved problem 1: uniform rod. */
+sp1_L : 6/5$
+sp1_d : 2/5$
+sp1_kg2 : sp1_L^2/12$
+sp1_leq : sp1_d+sp1_kg2/sp1_d$
+sp1_T : 2*%pi*sqrt(sp1_leq/(49/5))$
+print("Solved 1 answers [equivalent length, period]:",
+  [sp1_leq,float(sp1_T)])$
+print("Solved 1 check (must be 0):",
+  radcan((sp1_leq-7/10)+(sp1_T-2*%pi/sqrt(14))))$
+
+/* Solved problem 2: added ring on torsional platform. */
+sp2_I0 : 1/50$
+sp2_T0 : 1$
+sp2_kappa : 4*%pi^2*sp2_I0/sp2_T0^2$
+sp2_Iring : 1*(1/5)^2$
+sp2_I : sp2_I0+sp2_Iring$
+sp2_T : 2*%pi*sqrt(sp2_I/sp2_kappa)$
+print("Solved 2 answers [kappa, ring I, new period]:",
+  [float(sp2_kappa),sp2_Iring,float(sp2_T)])$
+print("Solved 2 check (must be 0):",
+  radcan((sp2_kappa-2*%pi^2/25)+(sp2_Iring-1/25)
+    +(sp2_T-sqrt(3))))$
+
+/* Numerical problems. */
+n1_T : 2*%pi*sqrt((81/100)/(49/5))$
+print("Numerical 1 answer, simple-pendulum period:",float(n1_T))$
+print("Numerical 1 check (must be 0):",
+  radcan(n1_T-9*%pi*sqrt(5)/35))$
+
+n2_l : (49/5)*((3/2)/(2*%pi))^2$
+print("Numerical 2 answer, simple-pendulum length:",float(n2_l))$
+print("Numerical 2 check (must be 0):",
+  ratsimp(n2_l-441/(80*%pi^2)))$
+
+n3_kg : 3/10$
+n3_d1 : 1/5$
+n3_leq1 : n3_d1+n3_kg^2/n3_d1$
+n3_discriminant : sqrt(n3_leq1^2-4*n3_kg^2)$
+n3_d2 : (n3_leq1+n3_discriminant)/2$
+n3_leq2 : n3_d2+n3_kg^2/n3_d2$
+n3_T : 2*%pi*sqrt(n3_leq2/(49/5))$
+print("Numerical 3 answers [second pivot, equivalent length, period]:",
+  [n3_d2,n3_leq2,float(n3_T)])$
+print("Numerical 3 second-pivot check (must be 0):",
+  radcan(n3_d2-9/20))$
+print("Numerical 3 equal-period check (must be 0):",
+  radcan(n3_leq2-n3_leq1))$
+print("Numerical 3 conjugate-pivot check (must be 0):",
+  radcan(n3_d1*n3_d2-n3_kg^2))$
+print("Numerical 3 period check (must be 0):",
+  radcan(n3_T-%pi*sqrt(13)/7))$
+
+n4_kg : 3/10$
+n4_d : n4_kg$
+n4_Tmin : 2*%pi*sqrt(2*n4_kg/(981/100))$
+print("Numerical 4 answers [pivot distance, minimum period]:",
+  [n4_d,float(n4_Tmin)])$
+print("Numerical 4 check (must be 0):",
+  radcan((n4_d-3/10)+(n4_Tmin-4*%pi*sqrt(5)/sqrt(327))))$
+
+n5_T : 2*%pi*sqrt((3/250)/(3/10))$
+print("Numerical 5 answer, torsional period:",float(n5_T))$
+print("Numerical 5 check (must be 0):",
+  radcan(n5_T-2*%pi/5))$
+
+n6_wmax : (1/10)*sqrt((2/5)/(1/100))$
+print("Numerical 6 answer, maximum angular speed:",float(n6_wmax))$
+print("Numerical 6 check (must be 0):",
+  radcan(n6_wmax-sqrt(10)/5))$
+
 quit();

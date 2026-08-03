@@ -1,0 +1,60 @@
+/* BJT operation, current relations, regions, and all worked values. */
+kill(all)$
+
+alpha_of_beta : beta/(beta+1)$
+print("gain identity residual =", ratsimp(beta-alpha_of_beta/(1-alpha_of_beta)))$
+
+/* Solved problem 1: alpha = 0.985, IE = 4.00 mA. */
+a1 : 197/200$
+ie1 : 4/1000$
+ic1 : a1*ie1$
+ib1 : ie1-ic1$
+print("solved 1 collector-current residual =", ratsimp(ic1-197/50000))$
+print("solved 1 base-current residual =", ratsimp(ib1-3/50000))$
+print("solved 1 beta residual =", ratsimp(ic1/ib1-197/3))$
+print("solved 1 KCL residual =", ratsimp(ic1+ib1-ie1))$
+
+/* Solved problem 2: voltages in volts, currents in amperes. */
+ve2 : 0$ vb2 : 18/25$ vc2 : 5$
+ic2 : 1/400$ ib2 : 1/20000$ ie2 : ic2+ib2$
+print("solved 2 VBE residual =", ratsimp(vb2-ve2-18/25))$
+print("solved 2 VBC residual =", ratsimp(vb2-vc2+107/25))$
+print("solved 2 emitter-current residual =", ratsimp(ie2-51/20000))$
+print("solved 2 alpha residual =", ratsimp(ic2/ie2-50/51))$
+print("solved 2 beta residual =", ratsimp(ic2/ib2-50))$
+
+/* Numerical problem 1: resolve physical injection and recombination currents. */
+ielectron_n1 : 49/10000$
+ihole_n1 : 1/10000$
+recomb_fraction_n1 : 1/50$
+icn1 : ielectron_n1*(1-recomb_fraction_n1)$
+ibn1 : ihole_n1+ielectron_n1*recomb_fraction_n1$
+ien1 : ielectron_n1+ihole_n1$
+print("numerical 1 collector-current residual =", ratsimp(icn1-2401/500000))$
+print("numerical 1 base-current residual =", ratsimp(ibn1-99/500000))$
+print("numerical 1 emitter-injection-efficiency residual =", ratsimp(ielectron_n1/ien1-49/50))$
+print("numerical 1 base-transport-factor residual =", ratsimp(1-recomb_fraction_n1-49/50))$
+print("numerical 1 physical-current KCL residual =", ratsimp(icn1+ibn1-ien1))$
+
+/* Numerical problem 2: extract collector-base leakage. */
+ien2 : 1/500$
+icn2 : 197/100000$
+an2 : 49/50$
+icbo_n2 : icn2-an2*ien2$
+ibn2 : ien2-icn2$
+print("numerical 2 extracted-leakage residual =", ratsimp(icbo_n2-1/100000))$
+print("numerical 2 base-current residual =", ratsimp(ibn2-3/100000))$
+print("numerical 2 leakage-model reconstruction residual =", ratsimp(an2*ien2+icbo_n2-icn2))$
+
+/* Numerical problem 3: design the collector-bias margin. */
+ven3 : 1/5$ vbn3 : 9/10$ reverse_margin_n3 : 2$
+vcn3 : vbn3+reverse_margin_n3$
+print("numerical 3 minimum-collector-voltage residual =", ratsimp(vcn3-29/10))$
+print("numerical 3 minimum-VCE residual =", ratsimp(vcn3-ven3-27/10))$
+print("numerical 3 forward-VBE residual =", ratsimp(vbn3-ven3-7/10))$
+
+vcc4 : 5$ vces4 : 1/5$ rc4 : 1000$ ib4 : 1/10000$ beta4 : 80$
+ic_active4 : beta4*ib4$ ic_limit4 : (vcc4-vces4)/rc4$
+print("numerical 4 active-current residual =", ratsimp(ic_active4-1/125))$
+print("numerical 4 circuit-limit residual =", ratsimp(ic_limit4-3/625))$
+print("numerical 4 forced-beta residual =", ratsimp(ic_limit4/ib4-48))$

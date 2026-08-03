@@ -166,4 +166,154 @@ $$
 
 The gap closes at $T_c$, while an applied field or excessive current can also destroy coherence. The phonon energy scale in the pairing interaction explains why $T_c$ inherits the isotopic-mass dependence.
 
+## Solved Problems
+
+### 1. Critical field and condensation-energy density
+
+A type-I superconductor has $T_c=7.20\ \mathrm{K}$ and $B_c(0)=0.0800\ \mathrm{T}$. Find $B_c$ at $4.20\ \mathrm{K}$ and the corresponding condensation-energy density $B_c^2/(2\mu_0)$.
+
+Since $B_c=\mu_0H_c$, the same normalized temperature law applies:
+
+$$
+B_c(T)=B_c(0)\left[1-\left(\frac{T}{T_c}\right)^2\right].
+$$
+
+Thus
+
+$$
+\begin{aligned}
+B_c(4.20\ \mathrm{K})
+&=0.0800\left[1-\left(\frac{4.20}{7.20}\right)^2\right]\\
+&=5.278\times10^{-2}\ \mathrm{T}.
+\end{aligned}
+$$
+
+The magnetic free-energy density difference is
+
+$$
+u_c=\frac{B_c^2}{2\mu_0}
+=\frac{(5.278\times10^{-2})^2}
+{2(4\pi\times10^{-7})}
+=1.11\times10^3\ \mathrm{J\,m^{-3}}.
+$$
+
+Therefore
+
+$$
+\boxed{B_c=5.28\times10^{-2}\ \mathrm{T}},
+\qquad
+\boxed{u_c=1.11\times10^3\ \mathrm{J\,m^{-3}}}.
+$$
+
+$B^2/\mu_0$ has energy-density units. The field tends to $B_c(0)$ at $T=0$ and to zero as $T\to T_c^-$, so the condensation energy also vanishes at the transition in this model.
+
+### 2. London field and screening current inside a surface
+
+A semi-infinite superconductor occupies $x>0$. A field $B_0=20.0\ \mathrm{mT}$ points along $+z$ at $x=0$, and $\lambda_L=50.0\ \mathrm{nm}$. Find $B$ and the screening-current density at $x=100\ \mathrm{nm}$.
+
+The boundary conditions $B(0)=B_0$ and $B(\infty)=0$ select
+
+$$
+B_z(x)=B_0e^{-x/\lambda_L}.
+$$
+
+At two penetration depths,
+
+$$
+B_z(100\ \mathrm{nm})=(20.0\ \mathrm{mT})e^{-2}
+=2.707\ \mathrm{mT}.
+$$
+
+For this geometry, Ampere's law gives
+
+$$
+(\nabla\times\mathbf B)_y=-\frac{dB_z}{dx}
+=\frac{B_z}{\lambda_L}=\mu_0j_y.
+$$
+
+Hence
+
+$$
+j_y=\frac{2.707\times10^{-3}}
+{(4\pi\times10^{-7})(50.0\times10^{-9})}
+=4.31\times10^{10}\ \mathrm{A\,m^{-2}}.
+$$
+
+Thus
+
+$$
+\boxed{B_z=2.707\ \mathrm{mT}},
+\qquad
+\boxed{\mathbf j_s=4.31\times10^{10}\hat{\mathbf y}\ \mathrm{A\,m^{-2}}}.
+$$
+
+The current direction follows the stated surface normal and field direction; reversing $B_0$ reverses the current. The ratio $B/B_0=e^{-2}$ is dimensionless, and both $B$ and $j_s$ vanish deep in the bulk.
+
+### 3. Isotope shift of the transition temperature
+
+An isotope of mass number $200$ has $T_c=7.20\ \mathrm{K}$. Assuming isotope coefficient $\alpha=1/2$, predict $T_c$ for mass number $208$.
+
+The isotope law is
+
+$$
+T_cM^{1/2}=\text{constant}.
+$$
+
+Therefore
+
+$$
+T_{c,2}=T_{c,1}\left(\frac{M_1}{M_2}\right)^{1/2}
+=7.20\sqrt{\frac{200}{208}}
+=7.060\ \mathrm{K}.
+$$
+
+Thus
+
+$$
+\boxed{T_{c,2}=7.06\ \mathrm{K}}.
+$$
+
+Only the mass ratio enters, so the isotope mass units cancel. The heavier isotope has the lower lattice-frequency scale and hence the lower $T_c$ in this approximation; when $M_2\to M_1$, the original transition temperature is recovered.
+
+## Descriptive Questions
+
+1. Explain why zero resistivity alone does not imply the Meissner effect, and distinguish a superconductor from a hypothetical perfect conductor by their magnetic histories.
+2. Derive both London equations and obtain the exponential penetration of a static magnetic field into a planar superconducting surface.
+3. Compare type-I and type-II superconductors in terms of their critical fields, Meissner and mixed states, and quantized vortices.
+4. Describe the phonon-mediated BCS pairing mechanism, the energy gap, and the physical significance of the isotope effect.
+
+## Numerical Problems
+
+1. A weak-coupling BCS superconductor has $T_c=9.20\ \mathrm{K}$. Find its zero-temperature single-particle gap $\Delta(0)$.
+
+   **Answer:** $\Delta(0)=3.53k_BT_c/2=1.40\ \mathrm{meV}$.
+
+2. Treat the carriers as pairs with $m_s=2m_e$ and $q=2e$. Find $n_s$ when $\lambda_L=120\ \mathrm{nm}$.
+
+   **Answer:** $n_s=m_s/(\mu_0q^2\lambda_L^2)=9.81\times10^{26}\ \mathrm{m^{-3}}$.
+
+3. Find the vortex areal density in a mixed state whose mean induction is $2.00\ \mathrm{T}$.
+
+   **Answer:** $n_v=B/\Phi_0=9.67\times10^{14}\ \mathrm{m^{-2}}$.
+
+4. The Ginzburg--Landau parameter is $\kappa_{\rm GL}=\lambda/\xi$. Classify a superconductor with $\lambda=140\ \mathrm{nm}$ and $\xi=20.0\ \mathrm{nm}$.
+
+   **Answer:** $\kappa_{\rm GL}=7.00>1/\sqrt2$, so it is type II.
+
+5. A ring of inductance $2.00\ \mathrm{\mu H}$ loses less than $1.00\%$ of its persistent current in one year. Using $I(t)=I_0e^{-Rt/L}$, find the upper bound on its resistance.
+
+   **Answer:** $R<-L\ln(0.99)/t=6.37\times10^{-16}\ \Omega$.
+
+6. A long superconducting wire of radius $0.500\ \mathrm{mm}$ loses superconductivity when its surface field reaches $0.100\ \mathrm{T}$. Neglect field penetration and find the corresponding current.
+
+   **Answer:** $I_c=2\pi rB_c/\mu_0=2.50\times10^2\ \mathrm{A}$.
+
 [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-vi/solid-state/unit-3/superconductivity.mac' | relative_url }})
+
+## References
+
+1. [Superconductivity, Wikipedia](https://en.wikipedia.org/wiki/Superconductivity)
+2. Charles Kittel, *Introduction to Solid State Physics*, 8th ed., Chapter 10: “Superconductivity.”
+3. Michael Tinkham, *Introduction to Superconductivity*, 2nd ed., Chapters 1--3.
+4. [MIT OpenCourseWare, 6.763 Applied Superconductivity, lecture notes](https://ocw.mit.edu/courses/6-763-applied-superconductivity-fall-2005/pages/lecture-notes/)
+5. [J. Bardeen, L. N. Cooper, and J. R. Schrieffer, “Theory of Superconductivity,” *Physical Review* 108 (1957)](https://doi.org/10.1103/PhysRev.108.1175)

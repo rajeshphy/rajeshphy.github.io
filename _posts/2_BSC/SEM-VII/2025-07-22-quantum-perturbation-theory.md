@@ -208,7 +208,7 @@ $$
 \boxed{
 c_f^{(1)}(t)
 =-\frac{i}{\hbar}\int_0^t
-V_{fi}(t')e^{i\omega_{fi}t'}dt',
+V_{fi}(t^{\prime})e^{i\omega_{fi}t^{\prime}}dt^{\prime},
 \qquad f\ne i.
 }
 $$
@@ -321,6 +321,139 @@ components $\Delta m=0,\pm1$.
   <figcaption>The \(n=2\) hydrogen subspace splits by \(\pm3ea_0\mathcal E\); a finite interaction time produces the exact squared-sinc energy profile.</figcaption>
 </figure>
 
-The stationary perturbation expansion, Stark integrals and eigenvectors,
-constant-pulse amplitude, and parity-forbidden diagonal element are checked
-in the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-18/unit-3/quantum-perturbation.mac' | relative_url }}); every printed residual is zero.
+## Solved Problems
+
+### 1. Corrections to a three-level nondegenerate state
+
+Let the unperturbed energies be
+$E_0^{(0)}=0$, $E_1^{(0)}=\Delta$, and $E_2^{(0)}=3\Delta$, with
+$\Delta>0$. Suppose the real perturbation elements connected to
+$\lvert0\rangle$ are
+
+$$
+V_{00}=\alpha,
+\qquad V_{10}=g,
+\qquad V_{20}=2g.
+$$
+
+The first-order shift is immediately
+
+$$
+\boxed{E_0^{(1)}=\alpha.}
+$$
+
+Both excited levels lie above the state of interest, so both denominators in
+the second-order shift are negative:
+
+$$
+\begin{aligned}
+E_0^{(2)}
+&=\frac{g^2}{0-\Delta}
++\frac{(2g)^2}{0-3\Delta}\\
+&=-\frac{g^2}{\Delta}-\frac{4g^2}{3\Delta}
+=\boxed{-\frac{7g^2}{3\Delta}}.
+\end{aligned}
+$$
+
+The first-order ket correction is
+
+$$
+\boxed{
+\lvert0^{(1)}\rangle
+=-\frac g\Delta\lvert1\rangle
+-\frac{2g}{3\Delta}\lvert2\rangle.}
+$$
+
+$\alpha$, $g$, and $\Delta$ have units of energy, so the ket coefficients
+are dimensionless and $g^2/\Delta$ has units of energy. The negative
+second-order sign reflects level repulsion from states above $E_0^{(0)}$;
+the expansion requires $\lvert g/\Delta\rvert\ll1$.
+
+### 2. A twofold degenerate perturbation
+
+Within a degenerate subspace, let
+
+$$
+V_d=\begin{pmatrix}3&4\\4&-3\end{pmatrix}\mathrm{meV}.
+$$
+
+The first-order shifts satisfy
+
+$$
+\det(V_d-\varepsilon I)
+=(3-\varepsilon)(-3-\varepsilon)-16
+=\varepsilon^2-25=0.
+$$
+
+Thus $\varepsilon_+=5\,\mathrm{meV}$ and
+$\varepsilon_-=-5\,\mathrm{meV}$. For the positive shift,
+$-2c_1+4c_2=0$, so $c_1=2c_2$; for the negative shift,
+$8c_1+4c_2=0$, so $c_2=-2c_1$. After normalization,
+
+$$
+\boxed{
+\lvert+\rangle=\frac{2\lvert1\rangle+\lvert2\rangle}{\sqrt5},
+\qquad
+\lvert-\rangle=\frac{\lvert1\rangle-2\lvert2\rangle}{\sqrt5}.}
+$$
+
+The states are orthonormal. The two shifts sum to zero, equal to
+$\operatorname{tr}V_d$, and their separation is $10\,\mathrm{meV}$.
+
+### 3. Transition probability under a constant pulse
+
+A constant matrix element $\lvert V_{fi}\rvert=0.0200\,\mathrm{eV}$ acts
+between levels separated by $\Delta E=E_f-E_i=0.100\,\mathrm{eV}$. Choose
+
+$$
+T=\frac{\pi\hbar}{\Delta E}=20.68\,\mathrm{fs}.
+$$
+
+Since $\omega_{fi}=\Delta E/\hbar$, the phase in the probability is
+
+$$
+\frac{\omega_{fi}T}{2}=\frac{\Delta E}{2\hbar}
+\frac{\pi\hbar}{\Delta E}=\frac\pi2.
+$$
+
+Therefore
+
+$$
+\begin{aligned}
+P_{i\to f}(T)
+&=\frac{4\lvert V_{fi}\rvert^2}{\Delta E^2}
+\sin^2\left(\frac{\Delta E T}{2\hbar}\right)\\
+&=4\left(\frac{0.0200}{0.100}\right)^2
+=\boxed{0.160}.
+\end{aligned}
+$$
+
+The ratio of energies and the sine are dimensionless. The probability is
+below unity and tends to zero with $V_{fi}$, as first-order perturbation
+theory requires.
+
+## Descriptive Questions
+
+1. Derive the first- and second-order energy corrections for a nondegenerate level, stating the normalization convention and the small-denominator limitation.
+2. Explain why the perturbation must be diagonalized within a degenerate subspace before ordinary nondegenerate formulas can be used outside that subspace.
+3. Derive the linear Stark matrix for the hydrogen $n=2$ manifold, including the sign of the electron's potential energy and all angular selection rules.
+4. Starting from the first-order time-dependent amplitude, obtain the constant- and harmonic-perturbation probabilities and the continuum limit leading to Fermi's golden rule.
+
+## Numerical Problems
+
+1. Calculate the first-order $n=2$ hydrogen Stark shifts and their separation for $\mathcal E=5.00\times10^4\,\mathrm{V\,m^{-1}}$, using $a_0=5.29177\times10^{-11}\,\mathrm m$.
+2. For a $z$-polarized electric-dipole perturbation, identify which of the final states $\lvert3,2,m^{\prime}\rangle$ can couple to an initial $\lvert2,1,0\rangle$ state at first order.
+3. Find the resonant angular frequency and ordinary frequency for absorption across a $2.00\,\mathrm{eV}$ gap. Use $\hbar=6.58212\times10^{-16}\,\mathrm{eV\,s}$.
+4. A continuum has $\rho(E_f)=5.00\,\mathrm{eV^{-1}}$ and $\lvert W_{fi}\rvert=2.00\,\mathrm{meV}$. Calculate the golden-rule transition rate and lifetime.
+
+**Final answers:** 1. shifts $\pm7.93766\,\mu\mathrm{eV}$ and separation $15.8753\,\mu\mathrm{eV}$; 2. only $m^{\prime}=0$; 3. $\omega=3.03853\times10^{15}\,\mathrm{s^{-1}}$ and $f=4.83598\times10^{14}\,\mathrm{Hz}$; 4. $\Gamma=1.90917\times10^{11}\,\mathrm{s^{-1}}$ and $\tau=5.23788\,\mathrm{ps}$.
+
+The core derivations and all problem answers are checked in the
+[original Maxima worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-18/unit-3/quantum-perturbation.mac' | relative_url }})
+and the [problems worksheet]({{ '/assets/maxima/bsc/sem-vii/mj-18/unit-3/perturbation-problems.mac' | relative_url }}); every printed residual is zero.
+
+## References
+
+1. [Perturbation theory in quantum mechanics](https://en.wikipedia.org/wiki/Perturbation_theory_%28quantum_mechanics%29).
+2. J. J. Sakurai and J. Napolitano, *Modern Quantum Mechanics*, 3rd ed., Chapter 5, “Approximation Methods.”
+3. D. J. Griffiths and D. F. Schroeter, *Introduction to Quantum Mechanics*, 3rd ed., Chapters 6 and 9.

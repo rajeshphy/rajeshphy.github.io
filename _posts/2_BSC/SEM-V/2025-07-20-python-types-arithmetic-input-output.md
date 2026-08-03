@@ -126,3 +126,76 @@ for x in range(1, 4):
 ~~~
 
 the width and alignment specifications keep columns readable. Formatting rounds only the displayed text; subsequent calculations still use the original floating-point value.
+
+## Solved Problems
+
+### 1. Division, quotient, and remainder
+
+For positive integers $a=7$ and $b=2$, Python evaluates
+
+~~~python
+a / b       # 3.5
+a // b      # 3
+a % b       # 1
+~~~
+
+The `/` result is a `float`, whereas `//` and `%` return integer quotient and remainder here. The identity
+
+$$a=b\left\lfloor\frac ab\right\rfloor+(a\bmod b)$$
+
+becomes
+
+$$7=2(3)+1,$$
+
+which verifies that quotient and remainder are consistent. The remainder has no physical unit unless the operands represent a dimensioned counting convention.
+
+### 2. Typed input, unit conversion, and formatted output
+
+Convert a user-supplied Celsius temperature to kelvin:
+
+~~~python
+celsius = float(input("Temperature in degree Celsius: "))
+kelvin = celsius + 273.15
+print(f"Temperature = {kelvin:.2f} K")
+~~~
+
+For input `25`, `float(...)` creates $25.0$ before arithmetic. Then
+
+$$T_K=25.0+273.15=298.15\,\mathrm K,$$
+
+and the exact displayed line is
+
+~~~text
+Temperature = 298.15 K
+~~~
+
+The additive conversion must be made before formatting. The format `.2f` controls only the displayed decimal places and does not alter the stored value.
+
+## Descriptive Questions
+
+1. Distinguish Python integers and floating-point values in scientific calculations.
+2. Explain real division, floor division, remainder, exponentiation, and operator grouping.
+3. Explain typecasting and distinguish truncation by `int()` from rounding to the nearest integer.
+4. Explain why calculated floating-point values should be compared with tolerances rather than exact equality.
+
+## Numerical Problems
+
+1. What value is produced by `int(-3.9)`?
+   **Answer:** `-3`; conversion truncates toward zero.
+
+2. Evaluate `2**3**2` using Python's exponentiation associativity.
+   **Answer:** `512`, because the expression is $2^{(3^2)}=2^9$.
+
+3. Format `0.00456789` with the specification `.3e`.
+   **Answer:** `4.568e-03`.
+
+4. Evaluate `math.isclose(1.0e-14, 0.0, rel_tol=1.0e-9, abs_tol=1.0e-12)`.
+   **Answer:** `True`, because $10^{-14}\le10^{-12}$.
+
+The exact arithmetic and tolerance comparisons are checked in the [Unit III Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-9/unit-iii-problem-checks.mac' | relative_url }}); the Python formatting outputs were independently executed, and every displayed Maxima residual is zero.
+
+## References
+
+1. [Python (programming language) — Wikipedia](https://en.wikipedia.org/wiki/Python_(programming_language)).
+2. [Python tutorial: An Informal Introduction to Python](https://docs.python.org/3/tutorial/introduction.html), Python Software Foundation, sections 3.1–3.2.
+3. Allen B. Downey, *Think Python: How to Think Like a Computer Scientist*, 2nd ed., Chapter 2, “Variables, Expressions and Statements.”

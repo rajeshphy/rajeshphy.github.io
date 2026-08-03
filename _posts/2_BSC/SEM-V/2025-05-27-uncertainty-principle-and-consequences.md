@@ -145,3 +145,88 @@ $$
 Such an energy is incompatible with a low-energy electron pre-existing inside an ordinary nucleus. Electrons emitted in beta decay are created in the decay process rather than released from nuclear confinement.
 
 The stationary-width, zero-point-energy, and atomic-scale substitutions are verified in the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-11/uncertainty-checks.mac' | relative_url }}).
+
+## Solved Problems
+
+### 1. Minimum velocity spread caused by electron localization
+
+An electron is prepared with position uncertainty $\Delta x=0.100\ \mathrm{nm}$. Find the minimum momentum spread, the corresponding velocity spread, and the minimum kinetic-energy contribution.
+
+**Solution.** Standard deviations are non-negative, and equality gives the smallest allowed spread:
+
+$$
+\Delta p_{\min}=\frac{\hbar}{2\Delta x}
+=\frac{1.05457\times10^{-34}}
+{2(1.00\times10^{-10})}
+=5.273\times10^{-25}\ \mathrm{kg\,m\,s^{-1}}.
+$$
+
+No sign is assigned to a spread: momentum components occur on both sides of the mean. Since the result is non-relativistic,
+
+$$
+\Delta v_{\min}=\frac{\Delta p_{\min}}{m_e}
+=\boxed{5.79\times10^5\ \mathrm{m\,s^{-1}}}.
+$$
+
+For a state with zero mean momentum, the least kinetic contribution compatible with this spread is
+
+$$
+K_{\min}=\frac{(\Delta p_{\min})^2}{2m_e}
+=\boxed{0.952\ \mathrm{eV}}.
+$$
+
+The product $\Delta x\,\Delta p$ has units $\mathrm{J\,s}$, matching $\hbar$, and $\Delta v/c=1.93\times10^{-3}$ validates the non-relativistic step. As $\Delta x\to\infty$, both lower bounds approach zero; as $\Delta x\to0$, they diverge, which prevents simultaneous sharp position and momentum.
+
+### 2. Diffraction spread and the loss of a sharp microscopic path
+
+A beam of $100\ \mathrm{eV}$ electrons passes through a slit of width $b=1.00\ \mathrm{nm}$. Estimate the minimum angular spread of the emerging beam.
+
+**Solution.** Take the transverse position uncertainty as $\Delta y\simeq b/2$. The uncertainty principle then gives
+
+$$
+\Delta p_y\gtrsim\frac{\hbar}{2\Delta y}
+=\frac{\hbar}{b}.
+$$
+
+The incident longitudinal momentum is positive in the beam direction:
+
+$$
+p_x=\sqrt{2m_eK}.
+$$
+
+For a small diffraction angle, $\Delta\theta\simeq\Delta p_y/p_x$, so
+
+$$
+\begin{aligned}
+\Delta\theta_{\min}
+&\simeq\frac{\hbar}{b\sqrt{2m_eK}}\\
+&=0.01952\ \mathrm{rad}
+=\boxed{1.118^\circ}.
+\end{aligned}
+$$
+
+The quotient is dimensionless because both numerator and denominator reduce to angular momentum. The spread occurs to both sides of the forward direction, not at a signed deflection of only $+1.118^\circ$. For $b\to\infty$ the lower bound tends to zero, while narrowing the slit broadens the angular distribution and destroys the notion of one exact path.
+
+## Descriptive Questions
+
+1. Why is the uncertainty principle a statement about a quantum state rather than only about disturbance by a measuring device?
+2. How does position-momentum uncertainty prevent an exact microscopic trajectory while still allowing a classical path approximation for macroscopic bodies?
+3. Explain why localization energy prevents atomic collapse and why its radial dependence dominates the Coulomb attraction at small radius.
+4. Why must a nuclear-confinement estimate for an electron be treated relativistically?
+
+## Numerical Problems
+
+1. A state lasts for $2.00\ \mathrm{ns}$. Using the textbook lifetime--linewidth estimate $\Delta E\,\Delta t\geq\hbar/2$, where $\Delta t$ is the characteristic lifetime rather than an operator uncertainty, find the lower-bound energy linewidth.<br>
+   **Final answer:** $\boxed{\Delta E_{\min}=1.65\times10^{-7}\ \mathrm{eV}}$.
+2. Find the uncertainty-principle zero-point energy of an oscillator with $\omega=5.00\times10^{14}\ \mathrm{rad\,s^{-1}}$.<br>
+   **Final answer:** $\boxed{E_0=0.1646\ \mathrm{eV}}$.
+3. Evaluate $4\pi\varepsilon_0\hbar^2/(m_e e^2)$, the atomic length scale obtained from the uncertainty estimate.<br>
+   **Final answer:** $\boxed{a_0=0.0529\ \mathrm{nm}}$.
+
+Every added uncertainty product, bound, and numerical value is checked in the [MJ-11 problem-verification worksheet]({{ '/assets/maxima/bsc/sem-v/mj-11/problem-checks.mac' | relative_url }}); every printed residual and check is zero.
+
+## References
+
+1. [Wikipedia: Uncertainty principle](https://en.wikipedia.org/wiki/Uncertainty_principle)
+2. [OpenStax, *University Physics Volume 3*, Section 7.2: The Heisenberg Uncertainty Principle](https://openstax.org/books/university-physics-volume-3/pages/7-2-the-heisenberg-uncertainty-principle)
+3. [The Feynman Lectures on Physics, Vol. III, Chapter 2: The Relation of Wave and Particle Viewpoints](https://www.feynmanlectures.caltech.edu/III_02.html)

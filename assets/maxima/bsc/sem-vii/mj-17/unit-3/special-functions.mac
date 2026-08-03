@@ -35,3 +35,45 @@ print("Laguerre L2 equation residual = ",laguerre_residual(L2,2))$
 print("Laguerre L3 recurrence residual = ",ratsimp(3*L3-(5-x)*L2+2*L1))$
 print("Laguerre L3 norm residual = ",radcan(integrate(exp(-x)*L3^2,x,0,inf)-1))$
 print("Laguerre L2-L3 orthogonality residual = ",radcan(integrate(exp(-x)*L2*L3,x,0,inf)))$
+
+/* Enhanced solved-problem and final-answer checks. */
+frobenius_regular : sin(x)/x$
+print("regular Frobenius closed-form residual = ",radcan(exponentialize(x^2*diff(frobenius_regular,x,2)+2*x*diff(frobenius_regular,x)+x^2*frobenius_regular)))$
+print("regular Frobenius origin-limit residual = ",radcan(limit(frobenius_regular,x,0)-1))$
+print("regular Frobenius a2 residual = ",radcan((-1/6)+1/(2*3)))$
+print("regular Frobenius a4 residual = ",radcan(1/120-(-1/6)/(4*5)*(-1)))$
+
+legendre_A0 : integrate(x^2*P0,x,-1,1)/2$
+legendre_A2 : 5*integrate(x^2*P2,x,-1,1)/2$
+print("Legendre expansion A0 residual = ",radcan(legendre_A0-1/3))$
+print("Legendre expansion A2 residual = ",radcan(legendre_A2-2/3))$
+print("Legendre expansion polynomial residual = ",ratsimp(x^2-(P0/3+2*P2/3)))$
+
+J2_reduced : 2*J1s/x-J0s$
+J3_reduced : 4*J2_reduced/x-J1s$
+J3_expected : (8/x^2-1)*J1s-4*J0s/x$
+print("Bessel J3 recurrence-reduction residual = ",ratsimp(J3_reduced-J3_expected))$
+J0_truncated : 1-x^2/4+x^4/64$
+J1_truncated : x/2-x^3/16+x^5/384$
+J3_truncated : (8/x^2-1)*J1_truncated-4*J0_truncated/x$
+print("Bessel J3 leading-series residual = ",ratsimp(ratdisrep(taylor(J3_truncated,x,0,3))-x^3/48))$
+
+print("ordinary-point P-limit residual = ",limit(x,x,0))$
+print("ordinary-point Q-limit residual = ",radcan(limit(1,x,0)-1))$
+print("regular-singular xP residual = ",ratsimp(x*(1/x)-1))$
+print("regular-singular x2Q residual = ",limit(x^2,x,0))$
+print("irregular-singular pole-order residual = ",ratsimp(x*(1/x^3)-1/x^2))$
+
+indicial(r) := r^2+2*r-4$
+print("positive indicial-root residual = ",radcan(indicial(-1+sqrt(5))))$
+print("negative indicial-root residual = ",radcan(indicial(-1-sqrt(5))))$
+print("Frobenius recurrence-denominator residual = ",ratsimp((n+r)*(n+r-1)+3*(n+r)-4-((n+r)^2+2*(n+r)-4)))$
+
+P4 : (35*x^4-30*x^2+3)/8$
+J0_four_terms_at_1 : 1-1/4+1/64-1/2304$
+H4 : 2*x*H3-6*H2$
+print("Legendre P4(1/2) residual = ",radcan(ev(P4,x=1/2)+37/128))$
+print("Bessel J0 four-term residual = ",radcan(J0_four_terms_at_1-1763/2304))$
+print("Hermite H4 polynomial residual = ",ratsimp(H4-(16*x^4-48*x^2+12)))$
+print("Hermite H4 origin residual = ",radcan(ev(H4,x=0)-12))$
+print("Laguerre L3(2) residual = ",radcan(ev(L3,x=2)+1/3))$

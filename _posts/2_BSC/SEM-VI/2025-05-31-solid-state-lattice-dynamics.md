@@ -274,4 +274,111 @@ $$
 
 This is Debye's $T^3$ law. It succeeds because low-temperature heat is carried by the long-wavelength acoustic modes whose three-dimensional density of states is proportional to $\omega^2$.
 
+## Solved Problems
+
+### 1. Evaluate a monatomic mode and its group velocity
+
+A monatomic chain has $C=40\ \mathrm{N\,m^{-1}}$, $M=4.0\times10^{-26}\ \mathrm{kg}$, and $a=0.250\ \mathrm{nm}$. Find $\omega$ and $v_g=d\omega/dk$ at $k=\pi/(2a)$.
+
+This wave number lies in the positive half of the first zone, so $\sin(ka/2)>0$ and the absolute value can be removed locally:
+
+$$
+\omega=2\sqrt{\frac CM}\sin\frac{ka}{2}.
+$$
+
+Here $ka/2=\pi/4$, hence
+
+$$
+\begin{aligned}
+\omega
+&=2\sqrt{\frac{40}{4.0\times10^{-26}}}\sin\frac{\pi}{4}\\
+&=\boxed{4.472\times10^{13}\ \mathrm{rad\,s^{-1}}}.
+\end{aligned}
+$$
+
+Differentiating before substitution,
+
+$$
+v_g=a\sqrt{\frac CM}\cos\frac{ka}{2},
+$$
+
+so
+
+$$
+\begin{aligned}
+v_g
+&=(2.50\times10^{-10})
+\sqrt{\frac{40}{4.0\times10^{-26}}}\cos\frac{\pi}{4}\\
+&=\boxed{5.590\times10^3\ \mathrm{m\,s^{-1}}}.
+\end{aligned}
+$$
+
+The factor $\sqrt{C/M}$ has unit $\mathrm{s^{-1}}$, which checks both results. Also $v_g=v_s/\sqrt2<v_s$ here and tends to zero at the zone boundary, consistent with the flattening dispersion.
+
+### 2. Resolve the zone-centre modes of a diatomic chain
+
+At $k=0$, take $M_1=4.0\times10^{-26}\ \mathrm{kg}$, $M_2=2.0\times10^{-26}\ \mathrm{kg}$, and $C=40\ \mathrm{N\,m^{-1}}$. Find both frequencies and the optical amplitude ratio $V/U$.
+
+The exact branch formula at $k=0$ gives
+
+$$
+\omega_{ac}=0,
+$$
+
+and
+
+$$
+\begin{aligned}
+\omega_{op}
+&=\sqrt{2C\left(\frac1{M_1}+\frac1{M_2}\right)}\\
+&=\sqrt{80\left(\frac1{4.0\times10^{-26}}+
+\frac1{2.0\times10^{-26}}\right)}\\
+&=\boxed{7.746\times10^{13}\ \mathrm{rad\,s^{-1}}}.
+\end{aligned}
+$$
+
+For the acoustic translation no spring changes length, so $U=V$. In the optical mode the centre of mass of a cell is stationary:
+
+$$
+M_1U+M_2V=0
+\quad\Longrightarrow\quad
+\boxed{\frac VU=-\frac{M_1}{M_2}=-2}.
+$$
+
+The minus sign denotes opposite sublattice motion, and the lighter mass has twice the displacement amplitude. The zero acoustic frequency is the required translational-invariance limit.
+
+## Descriptive Questions
+
+1. How is the monatomic-chain dispersion derived from nearest-neighbour force equations, and what are its zone-centre and zone-boundary limits?
+2. How is the diatomic secular equation obtained, and how do its eigenvectors explain the acoustic-optical branch split?
+3. Why does a crystal with $r$ atoms per primitive cell have three acoustic and $3r-3$ optical branches?
+4. How do the assumptions and low- and high-temperature limits of the Dulong-Petit, Einstein, and Debye heat capacities compare?
+
+## Numerical Problems
+
+1. A ring contains $N=1000$ atoms separated by $a=0.250\ \mathrm{nm}$. Find the spacing of allowed wave numbers under Born-von Karman boundary conditions.
+
+   **Answer:** $\Delta k=2\pi/(Na)=2.513\times10^7\ \mathrm{m^{-1}}$.
+2. Find the energy in millielectronvolts of a phonon with ordinary frequency $5.00\ \mathrm{THz}$.
+
+   **Answer:** $E=hf=20.678\ \mathrm{meV}$.
+3. How many phonon branches occur when a three-dimensional primitive cell contains four atoms?
+
+   **Answer:** $12$ branches: $3$ acoustic and $9$ optical.
+4. Use the Einstein model to find the molar heat capacity for $\Theta_E=220\ \mathrm K$ at $T=150\ \mathrm K$.
+
+   **Answer:** $C_{V,E}=20.915\ \mathrm{J\,mol^{-1}K^{-1}}$.
+5. A solid has $\Theta_D=343\ \mathrm K$. Estimate its molar heat capacity at $20.0\ \mathrm K$ using the Debye low-temperature law.
+
+   **Answer:** $C_{V,D}=0.385\ \mathrm{J\,mol^{-1}K^{-1}}$.
+6. In the Debye model, a specimen contains $N=8.0\times10^{22}$ atoms. How many modes have $\omega\leq\omega_D/2$?
+
+   **Answer:** $3N(1/2)^3=3.0\times10^{22}$ modes.
+
 [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-vi/solid-state/unit-1/lattice-dynamics.mac' | relative_url }})
+
+## References
+
+1. [Phonon](https://en.wikipedia.org/wiki/Phonon).
+2. Charles Kittel, *Introduction to Solid State Physics*, 8th ed., Chapters 4–5, Wiley.
+3. Neil W. Ashcroft and N. David Mermin, *Solid State Physics*, Chapters 22–25, Holt, Rinehart and Winston.

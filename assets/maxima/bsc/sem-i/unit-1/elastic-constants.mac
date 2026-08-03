@@ -20,4 +20,105 @@ print("nu=Y/(2G)-1 residual (must be 0):",
 print("nu=(3K-Y)/(6K) residual (must be 0):",
   ratsimp(nu_KG-(3*K-Y_KG)/(6*K)))$
 
+/* Elastic strain energy. */
+u_sigma : sigma^2/(2*Y)$
+u_eps : Y*eps^2/2$
+print("Strain-energy density identity residual (must be 0):",
+  ratsimp(ev(u_sigma,sigma=Y*eps)-u_eps))$
+
+deltaL_rod : F*L/(A*Y)$
+U_density : ev(u_sigma,sigma=F/A)*A*L$
+print("Uniform-rod energy residual (must be 0):",
+  ratsimp(U_density-F*deltaL_rod/2))$
+
+/* Solved problem 1. */
+d1 : 1/1000$
+L1 : 2$
+F1 : 100$
+Y1 : 200000000000$
+nu1 : 3/10$
+A1 : %pi*d1^2/4$
+dl1 : ratsimp(F1*L1/(A1*Y1))$
+dd1 : ratsimp(-nu1*(dl1/L1)*d1)$
+U1 : ratsimp(F1*dl1/2)$
+print("Solved 1 extension exact residual (must be 0):",
+  ratsimp(dl1-1/(250*%pi)))$
+print("Solved 1 diameter-change exact residual (must be 0):",
+  ratsimp(dd1+3/(5000000*%pi)))$
+print("Solved 1 energy exact residual (must be 0):",
+  ratsimp(U1-1/(5*%pi)))$
+print("Solved 1 displayed extension rounding check (must be 0):",
+  round(float(1000000*dl1))-1273)$
+print("Solved 1 displayed contraction rounding check (must be 0):",
+  round(float(1000000000*dd1))+191)$
+print("Solved 1 displayed energy rounding check (must be 0):",
+  round(float(100000*U1))-6366)$
+
+/* Solved problem 2. */
+K2 : 75000000000$
+G2 : 30000000000$
+Y2 : ratsimp(9*K2*G2/(3*K2+G2))$
+nu2 : ratsimp((3*K2-2*G2)/(2*(3*K2+G2)))$
+print("Solved 2 Young-modulus residual (must be 0):",
+  ratsimp(Y2-1350000000000/17))$
+print("Solved 2 Poisson-ratio residual (must be 0):",
+  ratsimp(nu2-11/34))$
+print("Solved 2 constitutive consistency residual (must be 0):",
+  ratsimp(Y2-2*G2*(1+nu2)))$
+print("Solved 2 displayed Y rounding check (must be 0):",
+  round(float(Y2/10000000))-7941)$
+print("Solved 2 displayed nu rounding check (must be 0):",
+  round(float(10000*nu2))-3235)$
+
+/* Six numerical problems. */
+n1_V : 250/1000000$
+n1_sigma : 30000000$
+n1_Y : 3000000000$
+n1_nu : 2/5$
+n1_eps_l : n1_sigma/n1_Y$
+n1_eps_t : -n1_nu*n1_eps_l$
+n1_eps_V : ratsimp(n1_eps_l+2*n1_eps_t)$
+n1_dV : ratsimp(n1_V*n1_eps_V)$
+print("Numerical 1 volume-strain residual (must be 0):",
+  ratsimp(n1_eps_V-1/500))$
+print("Numerical 1 volume-change residual (must be 0):",
+  ratsimp(n1_dV-1/2000000))$
+print("Numerical 1 cm3 conversion residual (must be 0):",
+  ratsimp(1000000*n1_dV-1/2))$
+
+n2_dV : -5000000*(1/50)/2200000000$
+print("Numerical 2 volume-change residual (must be 0):",
+  ratsimp(n2_dV+1/22000))$
+print("Numerical 2 displayed cm3 rounding check (must be 0):",
+  round(float(-n2_dV*1000000*10))-455)$
+
+n3_x : (12000/(1/100))*1/30000000000*(1/10)$
+print("Numerical 3 shear-displacement residual (must be 0):",
+  ratsimp(n3_x-1/250000))$
+
+n4_G : 70000000000/(2*(1+35/100))$
+n4_K : 70000000000/(3*(1-2*35/100))$
+print("Numerical 4 shear-modulus residual (must be 0):",
+  ratsimp(n4_G-700000000000/27))$
+print("Numerical 4 bulk-modulus residual (must be 0):",
+  ratsimp(n4_K-700000000000/9))$
+print("Numerical 4 displayed G rounding check (must be 0):",
+  round(float(n4_G/10000000))-2593)$
+print("Numerical 4 displayed K rounding check (must be 0):",
+  round(float(n4_K/10000000))-7778)$
+
+n5_u : 120000000^2/(2*200000000000)$
+print("Numerical 5 energy-density residual (must be 0):",
+  ratsimp(n5_u-36000))$
+
+n6_sigma_x : 100000000$
+n6_sigma_y : 40000000$
+n6_sigma_z : -20000000$
+n6_Y : 200000000000$
+n6_nu : 3/10$
+n6_eps_x : ratsimp((n6_sigma_x
+  -n6_nu*(n6_sigma_y+n6_sigma_z))/n6_Y)$
+print("Numerical 6 multiaxial-strain residual (must be 0):",
+  ratsimp(n6_eps_x-47/100000))$
+
 quit();

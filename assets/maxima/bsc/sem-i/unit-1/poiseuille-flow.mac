@@ -23,4 +23,96 @@ eta_collected : %pi*a^4*Pmeas*t/(8*l*V)-rho*V/(8*%pi*l*t)$
 print("Collected-volume correction residual (must be 0):",
   ratsimp(ev(Pcorrect,q=V/t,eta=eta_collected)-Pmeas))$
 
+/* Hydraulic resistance and radial shear. */
+Rh : 8*eta*l/(%pi*a^4)$
+print("Hydraulic-resistance residual (must be 0):",
+  ratsimp(Rh*Qpois-dpv))$
+
+tau_r : ratsimp(-eta*diff(v(r),r))$
+print("Radial shear-stress residual (must be 0):",
+  ratsimp(tau_r-dpv*r/(2*l)))$
+print("Wall shear-stress residual (must be 0):",
+  ratsimp(ev(tau_r,r=a)-dpv*a/(2*l)))$
+
+/* Solved problem 1. */
+a1 : 1/2000$
+l1 : 1/5$
+dp1 : 800$
+eta1 : 1/1000$
+rho1 : 1000$
+Q1 : %pi*a1^4*dp1/(8*eta1*l1)$
+vb1 : ratsimp(Q1/(%pi*a1^2))$
+vm1 : 2*vb1$
+tw1 : dp1*a1/(2*l1)$
+Re1 : 2*rho1*a1*vb1/eta1$
+print("Solved 1 volume-rate residual (must be 0):",
+  ratsimp(Q1-%pi/32000000))$
+print("Solved 1 mean-speed residual (must be 0):",
+  ratsimp(vb1-1/8))$
+print("Solved 1 centre-speed residual (must be 0):",
+  ratsimp(vm1-1/4))$
+print("Solved 1 wall-shear residual (must be 0):",
+  ratsimp(tw1-1))$
+print("Solved 1 Reynolds-number residual (must be 0):",
+  ratsimp(Re1-125))$
+print("Solved 1 displayed Q rounding check (must be 0):",
+  round(float(Q1*100000000000))-9817)$
+
+/* Solved problem 2. */
+a2 : 1/2500$
+l2 : 1/2$
+P2 : 20000$
+t2 : 60$
+V2 : 1/50000$
+rho2 : 1000$
+eta_app2 : %pi*a2^4*P2*t2/(8*l2*V2)$
+eta_corr2 : rho2*V2/(8*%pi*l2*t2)$
+eta2 : ratsimp(eta_app2-eta_corr2)$
+print("Solved 2 corrected-pressure residual (must be 0):",
+  ratsimp(ev(Pcorrect,q=V2/t2,eta=eta2,rho=rho2,
+    a=a2,l=l2)-P2))$
+print("Solved 2 displayed apparent-viscosity check (must be 0):",
+  round(float(eta_app2*10000000))-12064)$
+print("Solved 2 displayed correction check (must be 0):",
+  round(float(eta_corr2*1000000000))-26526)$
+print("Solved 2 displayed corrected-viscosity check (must be 0):",
+  round(float(eta2*10000000))-11798)$
+print("Solved 2 displayed percentage check (must be 0):",
+  round(float(10000*eta_corr2/eta2))-225)$
+
+/* Six numerical problems. */
+n1_Qcore : integrate(v(r)*2*%pi*r,r,0,a/2)$
+n1_fraction : ratsimp(n1_Qcore/Qint)$
+print("Numerical 1 core-flow fraction residual (must be 0):",
+  ratsimp(n1_fraction-7/16))$
+print("Numerical 1 core-flow percentage residual (must be 0):",
+  ratsimp(100*n1_fraction-175/4))$
+
+n2_grad : 8*(8/100)*(1/5)/(6/10000)^2$
+print("Numerical 2 pressure-gradient residual (must be 0):",
+  ratsimp(n2_grad-3200000/9))$
+print("Numerical 2 displayed gradient check (must be 0):",
+  round(float(n2_grad/1000))-356)$
+
+n3_ratio : (300/250)^4$
+print("Numerical 3 radius-ratio residual (must be 0):",
+  ratsimp(n3_ratio-1296/625))$
+
+n4_Q : %pi*(1/2000)^4*6000/(8*(1/50)*(3/10))$
+n4_t : (1/20000)/n4_Q$
+print("Numerical 4 displayed seconds check (must be 0):",
+  round(float(n4_t))-2037)$
+print("Numerical 4 displayed minutes check (must be 0):",
+  round(float(100*n4_t/60))-3395)$
+
+n5_tau : 1200*(1/5000)/(2*(1/4))$
+print("Numerical 5 shear-stress residual (must be 0):",
+  ratsimp(n5_tau-12/25))$
+
+n6_Q : 25/1000000000$
+n6_a : 3/10000$
+n6_ratio : 900*(n6_Q/(%pi*n6_a^2))^2/5000$
+print("Numerical 6 displayed kinetic-fraction check (must be 0):",
+  round(float(100000*n6_ratio))-141)$
+
 quit();

@@ -1,20 +1,74 @@
-/* MJ-5 Unit I: exact checks for Sulba geometry and Madhava series. */
+/* MJ-5 Unit I: place value, Sulba, Madhava, light and sound checks. */
 kill(all)$
 assume(a>0,b>0)$
+
+place_value:((((5*10+0)*10+7)*10+0)*10+4)$
+place_value_check:place_value-50704$
+
 c:sqrt(a^2+b^2)$
 pythagorean_residual:ratsimp(c^2-a^2-b^2)$
-print("pythagorean_residual =",pythagorean_residual)$
 
 /* The Baudhayana approximation 577/408 is a Pell approximant to sqrt(2). */
 sulba_pell_residual:577^2-2*408^2-1$
-print("sulba_pell_residual =",sulba_pell_residual)$
-print("sulba_sqrt2_approximation =",float(577/408))$
+sulba_error_identity_check:
+    radcan((577/408-sqrt(2))*(577/408+sqrt(2))-1/408^2)$
+solved_diagonal:10*577/408$
+solved_diagonal_check:ratsimp(solved_diagonal-2885/204)$
 
 /* Differentiate the first five terms of the sine series. */
 s5:x-x^3/3!+x^5/5!-x^7/7!+x^9/9!$
 derivative_residual:ratsimp(diff(s5,x)-(1-x^2/2!+x^4/4!-x^6/6!+x^8/8!))$
-print("derivative_residual =",derivative_residual)$
 
-/* Madhava's arctangent series at x=1, truncated after n=4. */
-pi_approx:4*sum((-1)^n/(2*n+1),n,0,4)$
-print("pi_5_term =",float(pi_approx))$
+/* Five terms at 1/sqrt(3), with the first-omitted-term bound. */
+x0:1/sqrt(3)$
+pi_fast:6*sum((-1)^n*x0^(2*n+1)/(2*n+1),n,0,4)$
+pi_fast_check:
+    radcan(pi_fast-6*(x0-x0^3/3+x0^5/5-x0^7/7+x0^9/9))$
+pi_fast_bound:6*x0^11/11$
+
+gregory_terms:200$
+gregory_bound:4/(2*(gregory_terms-1)+3)$
+gregory_count_check:gregory_terms-200$
+gregory_bound_check:401*gregory_bound-4$
+
+/* Conditional unit conversions; one mile is exactly 1609.344 m. */
+mile_m:201168/125$
+light_time:8/75$
+v9_mps:2202*9*mile_m/light_time$
+v9_check:ratsimp(5*v9_mps-1495030284)$
+v8_mps:2202*8*mile_m/light_time$
+v8_check:ratsimp(5*v8_mps-1328915808)$
+
+astronomical_unit:149597870700$
+light_speed:299792458$
+au_light_time:astronomical_unit/light_speed$
+au_light_time_check:light_speed*au_light_time-astronomical_unit$
+
+wavelength:340/512$
+wavelength_check:ratsimp(wavelength-85/128)$
+intensity_ratio:2^2$
+intensity_check:intensity_ratio-4$
+
+print("place_value_check =",place_value_check)$
+print("pythagorean_residual =",pythagorean_residual)$
+print("sulba_pell_residual =",sulba_pell_residual)$
+print("sulba_error_identity_check =",sulba_error_identity_check)$
+print("solved_diagonal_check =",solved_diagonal_check)$
+print("derivative_residual =",derivative_residual)$
+print("pi_fast_check =",pi_fast_check)$
+print("gregory_count_check =",gregory_count_check)$
+print("gregory_bound_check =",gregory_bound_check)$
+print("v9_check =",v9_check)$
+print("v8_check =",v8_check)$
+print("au_light_time_check =",au_light_time_check)$
+print("wavelength_check =",wavelength_check)$
+print("intensity_check =",intensity_check)$
+print("sulba_sqrt2_approximation =",float(577/408))$
+print("sulba_error =",float(577/408-sqrt(2)))$
+print("pi_fast =",float(pi_fast))$
+print("pi_fast_error =",float(pi_fast-%pi))$
+print("pi_fast_bound =",float(pi_fast_bound))$
+print("gregory_bound =",float(gregory_bound))$
+print("v9_m_s =",float(v9_mps))$
+print("v8_m_s =",float(v8_mps))$
+print("au_light_time_s =",float(au_light_time))$

@@ -1,0 +1,75 @@
+/* Energy bands and density of states. Every printed residual/check is 0. */
+kill(all)$
+assume(m>0,hbar>0,D>0,E>Ec,gd>0,md_single>0)$
+
+/* Effective-mass curvature. */
+Eband : Ec+hbar^2*k^2/(2*m)$
+print("effective-mass curvature residual =", ratsimp(diff(Eband,k,2)-hbar^2/m))$
+
+/* Three-dimensional state count and its density-of-states derivative. */
+Nvol : (1/(3*%pi^2))*(2*m/hbar^2)^(3/2)*(E-Ec)^(3/2)$
+gdos : (1/(2*%pi^2))*(2*m/hbar^2)^(3/2)*sqrt(E-Ec)$
+print("DOS derivative residual =", radcan(diff(Nvol,E)-gdos))$
+Ninterval : (1/(3*%pi^2))*(2*m/hbar^2)^(3/2)*D^(3/2)$
+gedge : (1/(2*%pi^2))*(2*m/hbar^2)^(3/2)*sqrt(D)$
+print("integrated-state residual =", radcan(Ninterval-(2/3)*gedge*D))$
+
+/* Valley degeneracy expressed through an equivalent DOS mass. */
+md_total : gd^(2/3)*md_single$
+print("valley-mass residual =", radcan(md_total^(3/2)-gd*md_single^(3/2)))$
+
+q0 : 1.602176634e-19$
+hbar0 : 1.054571817e-34$
+m0 : 9.1093837015e-31$
+
+/* Solved problem 1. */
+mratio1 : 0.0380998/0.500$
+print("solved-1 effective-mass check =", round(1e5*mratio1)-7620)$
+print("solved-1 curvature-back-check =", round(1e6*(0.0380998/mratio1))-500000)$
+
+/* Solved problem 2. */
+ms2 : 0.26*m0$
+Ds2 : 0.100*q0$
+Ns2 : (1/(3*%pi^2))*(2*ms2/hbar0^2)^(3/2)*Ds2^(3/2)$
+gs2_j : (1/(2*%pi^2))*(2*ms2/hbar0^2)^(3/2)*sqrt(Ds2)$
+gs2_evcm : gs2_j*q0/1e6$
+print("solved-2 integrated-states check =", round(1000*Ns2/1e25)-1904)$
+print("solved-2 DOS-joule check =", round(1000*gs2_j/1e45)-1783)$
+print("solved-2 DOS-eV-cm check =", round(1000*gs2_evcm/1e20)-2856)$
+print("solved-2 integral relation check =", round(1000*((2/3)*gs2_evcm*0.100)/1e19)-1904)$
+
+/* Numerical problem 1: group velocity from the first band derivative. */
+A_n1 : 0.400$
+k_nm_n1 : 0.500$
+vg_n1 : 2*A_n1*k_nm_n1*q0*1e-9/hbar0$
+print("numerical-1 group-velocity check =", round(1000*vg_n1/1e5)-6077)$
+
+/* Numerical problem 2. */
+k_n2 : sqrt(2*0.20*m0*0.0800*q0)/hbar0$
+print("numerical-2 wavevector check =", round(1000*k_n2/1e8)-6480)$
+print("numerical-2 inverse-nanometre check =", round(1e4*k_n2/1e9)-6480)$
+
+/* Numerical problem 3: direct finite-volume k-space state count. */
+volume_n3 : (100e-9)^3$
+k0_n3 : 1.00e9$
+states_n3 : volume_n3*k0_n3^3/(3*%pi^2)$
+print("numerical-3 finite-volume state-count check =", round(1000*states_n3/1e4)-3377)$
+
+/* Numerical problem 4: infer a band edge from two DOS measurements. */
+E1_n4 : 11/10$ g1_n4 : 2$
+E2_n4 : 14/10$ g2_n4 : 4$
+ratio2_n4 : (g2_n4/g1_n4)^2$
+Ec_n4 : (ratio2_n4*E1_n4-E2_n4)/(ratio2_n4-1)$
+B_n4 : g1_n4^2/(E1_n4-Ec_n4)$
+print("numerical-4 inferred-band-edge check =", ratsimp(Ec_n4-1))$
+print("numerical-4 second-DOS-point reconstruction residual =", ratsimp(B_n4*(E2_n4-Ec_n4)-g2_n4^2))$
+
+/* Numerical problem 5. */
+g_n5 : 6*4.00e19$
+md_n5 : 6^(2/3)*0.320$
+print("numerical-5 total-DOS check =", round(100*g_n5/1e20)-240)$
+print("numerical-5 equivalent-mass check =", round(1000*md_n5)-1057)$
+
+/* Numerical problem 6. */
+ratio_n6 : (0.50/0.25)^(3/2)$
+print("numerical-6 DOS-ratio check =", round(1000*ratio_n6)-2828)$

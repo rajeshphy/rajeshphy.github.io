@@ -18,7 +18,7 @@ res_D_linear : ratsimp(D-eps0*(1+chi_e)*E)$
 res_eps_r    : ratsimp((1+chi_e)-eps_r)$
 
 print("linear D-field residual =",res_D_linear)$
-print("epsilon_r=1+chi_e residual (under eps_r=1+chi_e) =",
+print("epsilon_r=1+chi_e substitution residual =",
       subst(1+chi_e,eps_r,res_eps_r))$
 
 /* Lorentz local field and Clausius-Mossotti equation. */
@@ -41,5 +41,46 @@ res_E_boundary : ratsimp(E2t-E1t)$
 
 print("normal-D boundary residual =",res_D_boundary)$
 print("tangential-E boundary residual =",res_E_boundary)$
+
+/* Enhancement checks: solved problems and numerical answers. */
+E_plate : sigma_free/(eps0*eps_rel)$
+P_plate : eps0*(eps_rel-1)*E_plate$
+D_plate : eps0*E_plate+P_plate$
+res_plate_D : ratsimp(D_plate-sigma_free)$
+
+D_layers : Vapp/(d1/ep1+d2/ep2)$
+E_layer_1 : D_layers/ep1$
+E_layer_2 : D_layers/ep2$
+res_layer_voltage :
+  ratsimp(E_layer_1*d1+E_layer_2*d2-Vapp)$
+
+print("enhancement dielectric-filled-plate D residual =",res_plate_D)$
+print("enhancement layered-dielectric voltage residual =",res_layer_voltage)$
+
+eps0_si : 88541878128/10^22$
+P_num : eps0_si*(16/5)*(2*10^5)$
+D_num : eps0_si*(21/5)*(2*10^5)$
+eps_rel_num : (1+2*(1/5))/(1-(1/5))$
+res_num_P : round(bfloat(P_num*10^8))-567$
+res_num_D : round(bfloat(D_num*10^8))-744$
+res_num_eps_rel : ratsimp(100*eps_rel_num-175)$
+
+k_pol_num : 2/10^6$
+R_pol_num : 1/10$
+rho_bound_num : -3*k_pol_num$
+sigma_bound_num : k_pol_num*R_pol_num$
+Q_bound_net_num :
+  rho_bound_num*4*%pi*R_pol_num^3/3
+  +sigma_bound_num*4*%pi*R_pol_num^2$
+res_num_bound_volume : ratsimp(10^6*rho_bound_num+6)$
+res_num_bound_surface : ratsimp(10^6*sigma_bound_num-1/5)$
+res_num_bound_net : ratsimp(Q_bound_net_num)$
+
+print("enhancement numerical polarization residual =",res_num_P)$
+print("enhancement numerical displacement residual =",res_num_D)$
+print("enhancement numerical Clausius-Mossotti residual =",res_num_eps_rel)$
+print("enhancement numerical bound-volume-charge residual =",res_num_bound_volume)$
+print("enhancement numerical bound-surface-charge residual =",res_num_bound_surface)$
+print("enhancement numerical net-bound-charge residual =",res_num_bound_net)$
 
 quit()$

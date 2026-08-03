@@ -17,3 +17,39 @@ Eband:Eedge+hbar^2*(k-k0)^2/(2*mstar)$
 residual_effective_mass:ratsimp(diff(Eband,k,2)/hbar^2-1/mstar)$
 print("residual_effective_mass =",residual_effective_mass)$
 
+/* Enhancement-pass solved and numerical problems. */
+E0p:5$
+UGp:3/10$
+check_problem_gap:ratsimp(((E0p+UGp)-(E0p-UGp))-2*UGp)$
+print("check_problem_gap =",check_problem_gap)$
+
+check_kp_halfpi:trigreduce(cos(%pi/2)+2*sin(%pi/2)/(%pi/2)-4/%pi)$
+check_kp_pi:trigreduce(cos(%pi)+2*sin(%pi)/%pi+1)$
+print("check_kp_halfpi =",check_kp_halfpi)$
+print("check_kp_pi_edge =",check_kp_pi)$
+
+check_bloch_phase:rectform(exp(%i*%pi)+1)$
+print("check_three_cell_bloch_phase =",check_bloch_phase)$
+
+Etb:Eref-2*t*cos(k*a)$
+check_tight_binding_velocity:ratsimp(diff(Etb,k)/hbar-2*t*a*sin(k*a)/hbar)$
+print("check_tight_binding_velocity =",check_tight_binding_velocity)$
+
+check_band_capacity:2*(2*10^22)-4*10^22$
+check_zone_wavelength:ratsimp(2*%pi/(%pi/a)-2*a)$
+print("check_band_capacity =",check_band_capacity)$
+print("check_zone_boundary_wavelength =",check_zone_wavelength)$
+
+eSI:1.602176634b-19$
+hSI:6.62607015b-34$
+hbarSI:1.054571817b-34$
+meSI:9.1093837139b-31$
+cSI:299792458.0b0$
+mstar_ratio:hbarSI^2*(0.100b10)^2/(2*meSI*(0.200*eSI))$
+v_tight_binding:2*(0.80*eSI)*(0.40b-9)/hbarSI$
+lambda_direct:hSI*cSI/(1.55*eSI)$
+delta_k_force:(2.0b-15*0.50b-12)/hbarSI$
+print("answer_effective_mass_over_me =",bfloat(mstar_ratio))$
+print("answer_tight_binding_velocity_m_per_s =",bfloat(v_tight_binding))$
+print("answer_direct_threshold_wavelength_m =",bfloat(lambda_direct))$
+print("answer_force_delta_k_per_m =",bfloat(delta_k_force))$

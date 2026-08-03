@@ -108,3 +108,89 @@ $$\langle\mathbf S\rangle
 =\boxed{\frac{\lvert E_0\rvert^2}{2\eta}\hat{\mathbf k}}.$$
 
 It has unit $\mathrm{W\,m^{-2}}$. In a lossless dielectric, $\mathbf E_0$ and $\mathbf H_0$ are in phase, so the average power flows in the phase-propagation direction.
+
+## Solved Problems
+
+### 1. Reconstructing a plane wave from its frequency and electric amplitude
+
+A $100\ \mathrm{MHz}$ plane wave travels along $+z$ through a nonmagnetic dielectric with $\epsilon_r=4.00$. Its peak electric field is $100\ \mathrm{V\,m^{-1}}$ along $+x$. Find $v$, $\lambda$, $k$, $\mathbf H_0$, and $\langle\mathbf S\rangle$.
+
+**Solution.** The propagation speed and wavelength are
+
+$$v=\frac{c}{\sqrt{\epsilon_r}}=1.499\times10^8\ \mathrm{m\,s^{-1}},$$
+
+$$\lambda=\frac vf=1.499\ \mathrm m,
+\qquad
+k=\frac{2\pi}{\lambda}=4.192\ \mathrm{rad\,m^{-1}}.$$
+
+The impedance is $\eta=\eta_0/2=188.37\ \Omega$. To make $\mathbf E\times\mathbf H$ point along $+z$, $\mathbf H$ must point along $+y$:
+
+$$\mathbf H_0=\frac{100}{188.37}\hat{\mathbf y}
+=0.5309\hat{\mathbf y}\ \mathrm{A\,m^{-1}}.$$
+
+The mean power flux is
+
+$$\langle\mathbf S\rangle
+=\frac{E_0^2}{2\eta}\hat{\mathbf z}
+=26.54\hat{\mathbf z}\ \mathrm{W\,m^{-2}}.$$
+
+Thus the phase convention $\cos(kz-\omega t)$ and the vector triad give
+
+$$\boxed{v=1.499\times10^8\ \mathrm{m\,s^{-1}},\quad
+\lambda=1.499\ \mathrm m,\quad k=4.192\ \mathrm{rad\,m^{-1}},\quad
+\mathbf H_0=0.5309\hat{\mathbf y}\ \mathrm{A\,m^{-1}}}.$$
+
+$k\lambda=2\pi$ is dimensionless, and $E_0/H_0$ has unit ohm. If $\epsilon_r\to1$, both $v$ and $\eta$ approach their vacuum values.
+
+### 2. Field amplitudes from a specified energy flux
+
+A nonmagnetic dielectric of refractive index $n=1.50$ carries a $+z$-directed plane-wave intensity of $20.0\ \mathrm{W\,m^{-2}}$. Find the peak $E$ and $H$ amplitudes and the average total energy density.
+
+**Solution.** The impedance is
+
+$$\eta=\frac{\eta_0}{n}=251.15\ \Omega.$$
+
+Using peak phasors and the positive-power convention,
+
+$$E_0=\sqrt{2\eta\langle S\rangle}=100.23\ \mathrm{V\,m^{-1}},$$
+
+$$H_0=\frac{E_0}{\eta}=0.3991\ \mathrm{A\,m^{-1}}.$$
+
+Energy travels at $v=c/n$, so
+
+$$\langle u\rangle=\frac{\langle S\rangle}{v}
+=1.001\times10^{-7}\ \mathrm{J\,m^{-3}}.$$
+
+Hence
+
+$$\boxed{E_0=100.23\ \mathrm{V\,m^{-1}},\quad
+H_0=0.3991\ \mathrm{A\,m^{-1}},\quad
+\langle u\rangle=1.001\times10^{-7}\ \mathrm{J\,m^{-3}}}.$$
+
+The relation $\langle S\rangle/\langle u\rangle=v$ supplies both the physical interpretation and a dimensional check. All three quantities vanish consistently as the specified intensity tends to zero.
+
+## Descriptive Questions
+
+1. Use the phasor form of Maxwell's equations to prove that a uniform plane electromagnetic wave is transverse.
+2. Explain why frequency is unchanged but wavelength changes when a monochromatic wave enters a stationary dielectric.
+3. Distinguish phase velocity, intrinsic impedance, and refractive index, including the material assumptions behind $n\simeq\sqrt{\epsilon_r}$.
+4. Why must the electric field, magnetic field, and propagation vector form a right-handed triad for positive energy flow?
+
+## Numerical Problems
+
+1. Light of vacuum wavelength $600\ \mathrm{nm}$ enters a nonmagnetic dielectric of index $1.50$. Find its wavelength in the medium.
+   **Final answer:** $\boxed{\lambda=400\ \mathrm{nm}}$.
+2. A transparent nonmagnetic material has $n=2.20$ at the operating frequency. Estimate its relative permittivity.
+   **Final answer:** $\boxed{\epsilon_r=4.84}$.
+3. Find the intrinsic impedance of a nonmagnetic dielectric with $\epsilon_r=2.25$.
+   **Final answer:** $\boxed{\eta=251.15\ \Omega}$.
+4. A plane wave with $E_0=90.0\ \mathrm{V\,m^{-1}}$ travels in a nonmagnetic medium of index $1.50$. Find its peak magnetic flux density.
+   **Final answer:** $\boxed{B_0=4.503\times10^{-7}\ \mathrm T}$.
+
+Every worked and numerical result is checked in the [MJ-8 problem-verification worksheet]({{ '/assets/maxima/bsc/sem-v/mj-8/problem-checks.mac' | relative_url }}); every printed check is zero.
+
+## References
+
+1. [Plane wave - Wikipedia](https://en.wikipedia.org/wiki/Plane_wave)
+2. [The Feynman Lectures on Physics, Vol. II, Chapter 20: Solutions of Maxwell's Equations in Free Space](https://www.feynmanlectures.caltech.edu/II_20.html)
+3. [MIT 6.013, Plane Waves and the Wave Equation](https://web.mit.edu/6.013_book/www/chapter14/14.0.html)

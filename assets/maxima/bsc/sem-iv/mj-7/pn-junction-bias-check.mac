@@ -1,0 +1,80 @@
+/* Biased diode current, resistances, capacitances, and every worked value. */
+kill(all)$
+
+idiode : is*(exp(v/(eta*vt))-1)$
+rd : eta*vt/(idiode+is)$
+print("symbolic dynamic-resistance residual =",
+      ratsimp(rd*diff(idiode,v)-1))$
+w_bias : wzero*sqrt(1-v/vbi)$
+cj_bias : cjzero/sqrt(1-v/vbi)$
+print("symbolic depletion-capacitance residual =",
+      ratsimp(w_bias*cj_bias-wzero*cjzero))$
+
+/* Solved problem 1. */
+is1 : 10/10^9$ eta1 : 3/2$ vt1 : 259/10000$ v1 : 3/10$
+i1 : subst([is=is1,eta=eta1,vt=vt1,v=v1],idiode)$
+rd1 : subst([is=is1,eta=eta1,vt=vt1,v=v1],rd)$
+rdc1 : v1/i1$
+print("solved 1 current rounded residual =",
+      round(ev(i1*10^9,numer))-22565)$
+print("solved 1 static-resistance rounded residual =",
+      round(ev(rdc1,numer))-13295)$
+print("solved 1 dynamic-resistance rounded residual =",
+      round(ev(rd1,numer))-1721)$
+print("solved 1 derivative residual =",
+      ratsimp(subst([is=is1,eta=eta1,vt=vt1,v=v1],rd*diff(idiode,v))-1))$
+
+/* Solved problem 2. */
+w2 : (6/10^7)*sqrt(1-(-5)/(72/100))$
+cj2 : (40/10^12)/sqrt(1-(-5)/(72/100))$
+cd2 : ((2/10^6)*(2/1000))/((3/2)*(259/10000))$
+print("solved 2 width rounded residual =",
+      round(ev(w2*10^9,numer))-1691)$
+print("solved 2 junction-capacitance rounded residual =",
+      round(ev(cj2*10^14,numer))-1419)$
+print("solved 2 width-capacitance residual =",
+      ratsimp(w2*cj2-(6/10^7)*(40/10^12)))$
+print("solved 2 diffusion-capacitance rounded residual =",
+      round(ev(cd2*10^9,numer))-103)$
+
+/* Numerical problems. */
+q_n1 : 16/10^20$ area_n1 : 1/2000000$ ni_n1 : 10^16$
+na_n1 : 2*10^22$ nd_n1 : 5*10^21$
+dn_n1 : 3/1000$ dp_n1 : 1/1000$
+ln_n1 : 30/10^6$ lp_n1 : 20/10^6$
+np0_n1 : ni_n1^2/na_n1$ pn0_n1 : ni_n1^2/nd_n1$
+isn_n1 : q_n1*area_n1*dn_n1*np0_n1/ln_n1$
+isp_n1 : q_n1*area_n1*dp_n1*pn0_n1/lp_n1$
+is_n1 : isn_n1+isp_n1$
+print("numerical 1 minority-electron density residual =",
+      ratsimp(np0_n1-5*10^9))$
+print("numerical 1 minority-hole density residual =",
+      ratsimp(pn0_n1-2*10^10))$
+print("numerical 1 electron-current contribution residual =",
+      ratsimp(isn_n1-1/25000000000000))$
+print("numerical 1 hole-current contribution residual =",
+      ratsimp(isp_n1-1/12500000000000))$
+print("numerical 1 saturation-current sum residual =",
+      ratsimp(is_n1-3/25000000000000))$
+
+in2 : (5/10^9)*(exp((-1/5)/(2*(259/10000)))-1)$
+print("numerical 2 current rounded residual =",
+      round(ev(in2*10^12,numer))+4895)$
+
+gd_n3 : 1/40$ ibias_n3 : 1/1000$ vt_n3 : 1/40$
+eta_n3 : 8/5$ dv_n3 : 1/500$ di_n3 : 1/20000$
+print("numerical 3 dynamic-resistance residual =", ratsimp(1/gd_n3-40))$
+print("numerical 3 ideality-factor relation residual =",
+      ratsimp(gd_n3*eta_n3*vt_n3-ibias_n3))$
+print("numerical 3 small-signal current residual =",
+      ratsimp(di_n3-gd_n3*dv_n3))$
+
+vbi_n4 : 3/4$ cj0_n4 : 60$
+cj_a_n4 : cj0_n4/sqrt(1+(9/4)/vbi_n4)$
+cj_b_n4 : cj0_n4/sqrt(1+6/vbi_n4)$
+cj_c_n4 : cj0_n4/sqrt(1+(45/4)/vbi_n4)$
+print("numerical 4 capacitance-ratio equation residual =",
+      ratsimp((30/20)^2-(vbi_n4+6)/(vbi_n4+9/4)))$
+print("numerical 4 first-measurement residual =", radcan(cj_a_n4-30))$
+print("numerical 4 second-measurement residual =", radcan(cj_b_n4-20))$
+print("numerical 4 prediction residual =", radcan(cj_c_n4-15))$

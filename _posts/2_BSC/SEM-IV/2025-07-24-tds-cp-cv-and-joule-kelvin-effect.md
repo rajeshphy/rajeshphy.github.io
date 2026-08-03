@@ -140,3 +140,90 @@ $$
 This approximation predicts an inversion temperature $T_i\simeq2a/(Rb)=2T_B$: below it attractions dominate and throttling cools; above it excluded volume dominates and throttling warms.
 
 The linked [Unit III Maxima worksheet]({{ '/assets/maxima/bsc/sem-iv/mj-6/unit-iii-checks.mac' | relative_url }}) verifies the van der Waals $C_P-C_V$ and exact Joule-Kelvin expressions. Every displayed symbolic residual is zero.
+
+## Solved Problems
+
+### 1. Derive $(\partial V/\partial T)_p$ from an equation of state
+
+Let the equation of state be written explicitly as $p=p(T,V)$. Its total differential is
+
+$$
+dp=\left(\frac{\partial p}{\partial T}\right)_VdT
++\left(\frac{\partial p}{\partial V}\right)_TdV.
+$$
+
+Along an isobar $dp=0$, so
+
+$$
+\boxed{
+\left(\frac{\partial V}{\partial T}\right)_p
+=-\frac{(\partial p/\partial T)_V}
+{(\partial p/\partial V)_T}}.
+$$
+
+For a stable ordinary fluid, the denominator is negative and the numerator is usually positive, giving positive thermal expansion. The derivative has units $\mathrm{m^3\,K^{-1}}$, as required.
+
+### 2. Derive the dilute van der Waals Joule-Kelvin coefficient
+
+Expand the molar equation through first order in density:
+
+$$p\simeq\frac{RT}{V_m}+\frac{RTb-a}{V_m^2}.$$
+
+Solving perturbatively for volume at fixed $p$ gives
+
+$$V_m\simeq\frac{RT}{p}+b-\frac{a}{RT}.$$
+
+Therefore
+
+$$
+T\left(\frac{\partial V_m}{\partial T}\right)_p-V_m
+=T\left(\frac Rp+\frac{a}{RT^2}\right)
+-\left(\frac{RT}{p}+b-\frac{a}{RT}\right)
+=\frac{2a}{RT}-b.
+$$
+
+Hence
+
+$$
+\boxed{\mu_{\mathrm{JT}}\simeq
+\frac{1}{C_{P,m}}\left(\frac{2a}{RT}-b\right)}.
+$$
+
+Both terms in parentheses have molar-volume units; division by $C_{P,m}$ gives $\mathrm{K\,Pa^{-1}}$. This is a low-pressure approximation and fails near condensation or the critical region.
+
+## Descriptive Questions
+
+1. Derive both $T\,dS$ equations and state the natural independent variables used in each.
+2. Explain why $C_P-C_V$ is nonnegative in a stable single phase.
+3. State the steady-flow assumptions that make a throttling process isenthalpic.
+4. Explain physically why an ideal gas has zero Joule-Kelvin coefficient.
+
+## Numerical Problems
+
+1. Find the molar value of $C_P-C_V$ for an ideal gas.
+
+   **Final answer:** $C_{P,m}-C_{V,m}=R=8.314\ \mathrm{J\,mol^{-1}K^{-1}}$.
+
+2. A system has $T=300\ \mathrm K$, $V=0.010\ \mathrm{m^3}$, $\alpha=3.0\times10^{-3}\ \mathrm{K^{-1}}$, and $\kappa_T=1.0\times10^{-5}\ \mathrm{Pa^{-1}}$.
+
+   **Final answer:** $C_P-C_V=TV\alpha^2/\kappa_T=2.70\ \mathrm{J\,K^{-1}}$.
+
+3. For carbon dioxide use $a=0.364\ \mathrm{Pa\,m^6\,mol^{-2}}$, $b=4.27\times10^{-5}\ \mathrm{m^3\,mol^{-1}}$, $C_{P,m}=37.1\ \mathrm{J\,mol^{-1}K^{-1}}$, and $T=300\ \mathrm K$ in the dilute formula.
+
+   **Final answer:** $\mu_{\mathrm{JT}}=6.72\times10^{-6}\ \mathrm{K\,Pa^{-1}}=0.672\ \mathrm{K\,bar^{-1}}$.
+
+4. Estimate the dilute inversion temperature for those van der Waals constants.
+
+   **Final answer:** $T_i=2a/(Rb)=2.051\times10^3\ \mathrm K$.
+
+5. A gas with $\mu_{\mathrm{JT}}=0.25\ \mathrm{K\,bar^{-1}}$ is throttled through a pressure drop of $20\ \mathrm{bar}$ within a range where $\mu_{\mathrm{JT}}$ is constant.
+
+   **Final answer:** $\Delta T=\mu_{\mathrm{JT}}\Delta p=-5.0\ \mathrm K$.
+
+The [$T\,dS$ and Joule-Kelvin Maxima worksheet]({{ '/assets/maxima/bsc/sem-iv/mj-6/tds-joule-kelvin-checks.mac' | relative_url }}) verifies the implicit derivative, van der Waals limits, response identity, and all five numerical answers.
+
+## References
+
+1. [Joule-Thomson effect](https://en.wikipedia.org/wiki/Joule%E2%80%93Thomson_effect), Wikipedia.
+2. M. W. Zemansky and R. H. Dittman, *Heat and Thermodynamics*, 7th ed., McGraw-Hill, 1997, chapters “Thermodynamic relations” and “Real gases.”
+3. P. Atkins, J. de Paula, and J. Keeler, *Atkins' Physical Chemistry*, 11th ed., Oxford University Press, 2018, chapters “The first law” and “The properties of gases.”

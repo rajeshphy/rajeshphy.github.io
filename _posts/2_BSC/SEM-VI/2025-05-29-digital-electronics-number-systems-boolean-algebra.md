@@ -247,4 +247,75 @@ $$\boxed{F=\overline A\,\overline B+CD}.$$
 
 The unused don't-care $m_5$ may take either output value without altering the specification.
 
+## Solved Problems
+
+### 1. Distinguish unsigned carry from signed overflow
+
+Add `01101101` and `00110110` in an eight-bit register, and interpret the result as both unsigned and two's-complement data.
+
+The operands are $109$ and $54$. Column addition gives
+
+$$
+\begin{array}{r}
+01101101_2\\[-2pt]
+{}+00110110_2\\ \hline
+10100011_2
+\end{array}
+$$
+
+because $109+54=163$. Since $163<2^8$, there is no ninth-bit carry and the unsigned result is valid. Under the two's-complement sign convention both inputs are positive, but the stored result has leading bit 1 and represents
+
+$$
+10100011_2=163-256=-93.
+$$
+
+Two positive signed operands cannot have a negative mathematical sum, so the signed-overflow flag must be set. The register has still performed the correct dimensionless modular operation, $163\bmod256=163$; only the signed interpretation is outside the allowed interval $[-128,127]$.
+
+### 2. Minimize a four-variable switching function
+
+Minimize
+
+$$
+F(A,B,C,D)=\Sigma m(0,2,5,7,8,10,13,15).
+$$
+
+The cells $0,2,8,10$ form a four-cell group. Within it $A$ and $C$ change, while $B=0$ and $D=0$, so its implicant is $\overline B\,\overline D$. The cells $5,7,13,15$ form another four-cell group with $B=D=1$, giving $BD$. Hence
+
+$$
+\boxed{F=\overline B\,\overline D+BD=\overline{B\oplus D}}.
+$$
+
+The result is independent of $A$ and $C$: it is 1 exactly when $B=D$. Exhaustive substitution in the 16 dimensionless input states gives zero mismatch with the stated minterm set.
+
+## Descriptive Questions
+
+1. How is the range of an $n$-bit two's-complement word derived, and why do carry-out and signed overflow test different conditions?
+2. What are the Boolean-algebra postulates, and how does duality generate the dual of each distributive law?
+3. How are canonical SOP and POS expressions constructed directly from a truth table?
+4. What adjacency, wraparound, grouping, and don't-care rules govern a four-variable Karnaugh map?
+
+## Numerical Problems
+
+1. Convert $214.6875_{10}$ directly to binary, and then obtain its octal and hexadecimal forms by grouping bits.
+
+   **Answer:** {::nomarkdown}\(11010110.1011_2=326.54_8=D6.B_{16}\){:/nomarkdown}.
+2. Evaluate $73-121$ in an eight-bit two's-complement register and state whether signed overflow occurs.
+
+   **Answer:** {::nomarkdown}\(01001001_2+10000111_2=11010000_2=-48_{10}\){:/nomarkdown}; no signed overflow.
+3. Add decimal $58$ and $67$ using 8421 BCD, applying the $0110_2$ correction wherever a digit sum is invalid.
+
+   **Answer:** {::nomarkdown}\(125_{10}=0001\ 0010\ 0101_{\rm BCD}\){:/nomarkdown}.
+4. For a three-variable function that is 1 on rows $0,2,5,7$, write both canonical forms without minimizing.
+
+   **Answer:** $F=\Sigma m(0,2,5,7)=\Pi M(1,3,4,6)$.
+5. Express the seven-bit ASCII code of the uppercase character `Z` in decimal, hexadecimal, and binary.
+
+   **Answer:** {::nomarkdown}\(90_{10}=5A_{16}=1011010_2\){:/nomarkdown}.
+
 [Editable switching/Venn TikZ]({{ '/assets/tikz/bsc/sem-vi/digital/unit-1/switching-boolean-venn.tex' | relative_url }}) · [Editable Karnaugh-map TikZ]({{ '/assets/tikz/bsc/sem-vi/digital/unit-1/karnaugh-dont-cares.tex' | relative_url }}) · [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-vi/digital/unit-1/number-systems-boolean-algebra.mac' | relative_url }})
+
+## References
+
+1. [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra).
+2. M. Morris Mano and Michael D. Ciletti, *Digital Design: With an Introduction to the Verilog HDL, VHDL, and SystemVerilog*, 6th ed., Chapters 1–3, Pearson, 2018.
+3. Thomas L. Floyd, *Digital Fundamentals*, 11th ed., Chapters 2–4, Pearson, 2015.

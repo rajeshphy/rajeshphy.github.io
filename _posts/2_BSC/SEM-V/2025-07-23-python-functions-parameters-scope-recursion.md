@@ -112,4 +112,89 @@ def factorial(n):
 print(factorial(5))     # 120
 ~~~
 
-The argument decreases at each call and eventually reaches the base case. Without that base case, recursion would not terminate. Recursion is useful when a problem is naturally defined in smaller copies; ordinary numerical iteration is usually clearer for long sequences of repeated updates.
+The argument decreases at each call and eventually reaches the base case. Without that base case, recursion would not terminate. Recursion is useful when a problem is naturally defined in smaller copies; ordinary numerical iteration is usually clearer for long sequences of repeated updates. Each unresolved call occupies one stack frame, so the recursion depth must also remain finite.
+
+## Solved Problems
+
+### 1. Returning two statistics without changing the input
+
+Define a function that returns the mean and range of a non-empty list:
+
+~~~python
+def mean_and_range(values):
+    total = 0.0
+    for value in values:
+        total = total + value
+
+    mean = total / len(values)
+    spread = max(values) - min(values)
+    return mean, spread
+~~~
+
+For `values = [2.0, 5.0, 4.0]`,
+
+$$\text{mean}=\frac{2+5+4}{3}=\frac{11}{3},$$
+
+$$\text{spread}=5-2=3.$$
+
+Thus
+
+~~~python
+mean, spread = mean_and_range([2.0, 5.0, 4.0])
+~~~
+
+binds `mean` to $11/3$ and `spread` to $3$. The function reads but does not assign to a list element, so the caller's list is unchanged.
+
+### 2. Recursive Euclidean algorithm
+
+The identity
+
+$$\gcd(a,b)=\gcd(b,a\bmod b)$$
+
+with base case $\gcd(a,0)=a$ gives
+
+~~~python
+def gcd_recursive(a, b):
+    if b == 0:
+        return a
+    return gcd_recursive(b, a % b)
+~~~
+
+For $(48,18)$, the calls are
+
+$$\gcd(48,18)=\gcd(18,12)=\gcd(12,6)=\gcd(6,0).$$
+
+The base case returns $6$, which then returns through every waiting call:
+
+$$\boxed{\gcd(48,18)=6}.$$
+
+Because $0\le a\bmod b<b$ for positive $b$, the second argument decreases and termination follows.
+
+## Descriptive Questions
+
+1. Distinguish a function definition, parameter, argument, call, and return value.
+2. Explain how reassignment of a scalar parameter differs from mutation of a list parameter.
+3. Distinguish local and global scope and explain why explicit parameters improve a numerical routine.
+4. State the base-case and decreasing-argument requirements for a terminating recursive function.
+
+## Numerical Problems
+
+1. A function returns `a*a + b*b`. What does the call with arguments $3$ and $4$ return?
+   **Answer:** $25$.
+
+2. A scalar `x = 5` is passed to a function that executes `x = x + 1` and returns `x`. State the returned value and the caller's original `x`.
+   **Answer:** returned value `6`; caller's `x` remains `5`.
+
+3. A list `data = [1, 2]` is passed to a function that executes `data.append(3)`. State the caller's list afterward.
+   **Answer:** `[1, 2, 3]`.
+
+4. For the recursion $T(n)=n+T(n-1)$ with $T(0)=0$, find $T(5)$ and count calls including the base case.
+   **Answer:** $T(5)=15$; six calls, for arguments $5,4,3,2,1,0$.
+
+The returned statistics, greatest common divisor, and recursive sums are checked in the [Unit III Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-9/unit-iii-problem-checks.mac' | relative_url }}); the mutation and scope examples were independently executed in Python, and every displayed Maxima residual is zero.
+
+## References
+
+1. [Function (computer programming) — Wikipedia](https://en.wikipedia.org/wiki/Subroutine).
+2. [Python tutorial: Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions), Python Software Foundation, section 4.9.
+3. Allen B. Downey, *Think Python: How to Think Like a Computer Scientist*, 2nd ed., Chapters 3 and 6, “Functions” and “Fruitful Functions.”

@@ -142,7 +142,7 @@ $$
 Hence
 
 $$
-W=\int_0^I LI'\,\mathrm dI'
+W=\int_0^I LI^{\prime}\,\mathrm dI^{\prime}
 =\boxed{\frac12LI^2}.
 $$
 
@@ -455,4 +455,108 @@ The factor is $1+\delta_s/4$, not $1+\delta_s/2$, when the logarithmic decrement
   <figcaption>The response is generated from $e^{-\beta t}\sin\omega_dt$; successive same-side maxima are separated by $T_d$ and determine $\delta_s$.</figcaption>
 </figure>
 
-The reciprocity, magnetic-energy, displacement-current, torque, exact damped-motion, first-throw, electromagnetic-damping, and decrement relations are verified with exact zero residuals in the [Unit III induction and galvanometer worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-3/induction-galvanometer.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Mutual inductance of two coaxial solenoids
+
+Two tightly coupled solenoids of common length $\ell$ and area $A$ have $N_1$ and $N_2$ turns. The core has linear permeability $\mu$. Find their mutual inductance and verify reciprocity.
+
+**Solution.** Current $I_1$ produces the interior field
+
+$$
+B_1=\mu\frac{N_1}{\ell}I_1.
+$$
+
+The flux linkage of coil 2 is
+
+$$
+\Lambda_{21}=N_2B_1A
+=\mu\frac{N_1N_2A}{\ell}I_1.
+$$
+
+Therefore
+
+$$
+M_{21}=\frac{\Lambda_{21}}{I_1}
+=\mu\frac{N_1N_2A}{\ell}.
+$$
+
+Interchanging the coils gives the identical expression, so
+
+$$
+\boxed{M_{12}=M_{21}=\mu\frac{N_1N_2A}{\ell}}.
+$$
+
+### 2. Displacement current inside a charging capacitor
+
+A circular parallel-plate capacitor of plate radius $R$ is charged by current $I$. Neglect fringing. Find the displacement current enclosed by a circular path of radius $r<R$ and the magnetic field on that path.
+
+**Solution.** The free charge is uniform, so
+
+$$
+D=\frac{Q}{\pi R^2}.
+$$
+
+The displacement flux through radius $r$ is $D\pi r^2$. Hence
+
+$$
+I_d(r)=\frac{\mathrm d}{\mathrm dt}(D\pi r^2)
+=\frac{r^2}{R^2}\frac{\mathrm dQ}{\mathrm dt}
+=\boxed{I\frac{r^2}{R^2}}.
+$$
+
+Ampere-Maxwell law gives
+
+$$
+B(2\pi r)=\mu_0 I_d(r),
+$$
+
+so
+
+$$
+\boxed{B(r)=\frac{\mu_0Ir}{2\pi R^2}},\qquad r<R.
+$$
+
+At $r=R$ this joins continuously to the exterior field $\mu_0I/(2\pi r)$.
+
+## Descriptive Questions
+
+1. How does Lenz's law determine the sign in Faraday's law without opposing the magnetic flux itself?
+2. Under what physical assumptions is mutual-inductance reciprocity valid?
+3. Why is displacement current required for local charge conservation in a charging capacitor?
+4. How do electromagnetic damping and logarithmic decrement affect a ballistic-galvanometer first throw?
+
+## Numerical Problems
+
+### 1. Induced emf
+
+A $200$-turn coil has flux per turn decreasing uniformly from $4.00\,\mathrm{mWb}$ to $1.00\,\mathrm{mWb}$ in $20.0\,\mathrm{ms}$. Find the induced-emf magnitude.
+
+**Answer:** $\lvert\mathcal E\rvert=30.0\,\mathrm V$.
+
+### 2. Magnetic energy
+
+Find the energy stored by an inductor $L=0.500\,\mathrm H$ carrying $I=3.00\,\mathrm A$.
+
+**Answer:** $W=2.25\,\mathrm J$.
+
+### 3. Torque on a coil
+
+A $50$-turn coil carries $0.200\,\mathrm A$, has area $4.00\,\mathrm{cm^2}$, and is in $B=0.300\,\mathrm T$. Find the torque when its normal makes $30.0^\circ$ with the field.
+
+**Answer:** $\tau=6.00\times10^{-4}\,\mathrm{N\,m}$.
+
+### 4. Ballistic-galvanometer charge
+
+A galvanometer has $\kappa=2.00\times10^{-7}\,\mathrm{N\,m\,rad^{-1}}$, $T_0=4.00\,\mathrm s$, $N=100$, $A=2.00\times10^{-4}\,\mathrm{m^2}$, and $B=0.200\,\mathrm T$. Neglect damping and find the charge corresponding to first throw $\theta_1=0.0800\,\mathrm{rad}$.
+
+**Answer:** $q=2.55\,\mathrm{\mu C}$.
+
+The symbolic solutions and all printed numerical answers are verified in the [Unit III induction and galvanometer worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-3/induction-galvanometer.mac' | relative_url }}).
+
+## References
+
+1. [Electromagnetic induction: Wikipedia](https://en.wikipedia.org/wiki/Electromagnetic_induction)
+2. David J. Griffiths, *Introduction to Electrodynamics*, 4th ed., Cambridge University Press, 2017.
+3. Richard P. Feynman, Robert B. Leighton, and Matthew Sands, *The Feynman Lectures on Physics*, Vol. II, Basic Books, 2011.
+4. D. C. Tayal, *Electricity and Magnetism*, Himalaya Publishing House.

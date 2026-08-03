@@ -150,7 +150,7 @@ $$
 \boxed{\omega_2^2=\frac{3k}{m},\quad(A_1,A_2)\propto(1,-1)}.
 $$
 
-<figure class="diagram-figure">
+<figure class="diagram-figure diagram-pan" tabindex="0">
   <img src="{{ '/assets/images/bsc/sem-v/mj-10/unit-ii/coupled-oscillator-modes.png' | relative_url }}" alt="Equation-generated in-phase and out-of-phase normal modes of two equal coupled oscillators" loading="lazy">
   <figcaption>The eigenvectors $(1,1)$ and $(1,-1)$ give the two normal-mode frequencies.</figcaption>
 </figure>
@@ -216,3 +216,129 @@ $$
 $$
 
 [Maxima verification: coupled-mode eigenvalue residuals]({{ '/assets/maxima/bsc/sem-v/mj-10/unit-ii/coupled-oscillators.mac' | relative_url }}).
+
+## Solved Problems
+
+### 1. Harmonic oscillator acted on by a constant force
+
+A one-dimensional oscillator of mass $m$ and spring constant $k$ is also acted on by a constant force $F_0$ in the $+x$ direction. Find its motion for $x(0)=x_0$ and $\dot x(0)=v_0$.
+
+The total potential and Lagrangian are
+
+$$
+V(x)=\frac12kx^2-F_0x,
+\qquad
+L=\frac12m\dot x^2-\frac12kx^2+F_0x.
+$$
+
+The Euler-Lagrange equation is
+
+$$
+\frac{d}{dt}(m\dot x)-(-kx+F_0)=0,
+$$
+
+so
+
+$$
+m\ddot x+kx=F_0.
+$$
+
+The static equilibrium is $x_{\mathrm{eq}}=F_0/k$. With $y=x-x_{\mathrm{eq}}$,
+
+$$
+m\ddot y+ky=0,
+\qquad
+\omega=\sqrt{\frac{k}{m}}.
+$$
+
+The initial data are $y(0)=x_0-F_0/k$ and $\dot y(0)=v_0$, giving
+
+$$
+\boxed{
+x(t)=\frac{F_0}{k}
++\left(x_0-\frac{F_0}{k}\right)\cos\omega t
++\frac{v_0}{\omega}\sin\omega t}.
+$$
+
+Completing the square,
+
+$$
+V=\frac12k\left(x-\frac{F_0}{k}\right)^2-\frac{F_0^2}{2k},
+$$
+
+shows that the force shifts the equilibrium but does not change the angular frequency. As $F_0\to0$, the usual oscillator about $x=0$ is recovered.
+
+### 2. Uniform magnetic field in the Landau gauge
+
+For $\mathbf B=B\hat{\mathbf z}$, choose $\phi=0$ and $\mathbf A=Bx\hat{\mathbf y}$. Derive the planar equations of motion and identify the conserved canonical momentum.
+
+Since
+
+$$
+\nabla\times(Bx\hat{\mathbf y})=B\hat{\mathbf z},
+$$
+
+the Lagrangian is
+
+$$
+L=\frac m2(\dot x^2+\dot y^2)+qBx\dot y.
+$$
+
+For $x$,
+
+$$
+\frac{\partial L}{\partial\dot x}=m\dot x,
+\qquad
+\frac{\partial L}{\partial x}=qB\dot y,
+$$
+
+and therefore
+
+$$
+\boxed{m\ddot x=qB\dot y}.
+$$
+
+For $y$,
+
+$$
+\frac{\partial L}{\partial y}=0,
+\qquad
+\frac{\partial L}{\partial\dot y}=m\dot y+qBx.
+$$
+
+Thus $y$ is cyclic and
+
+$$
+\boxed{p_y=m\dot y+qBx=\text{constant}}.
+$$
+
+Differentiating this constant gives
+
+$$
+\boxed{m\ddot y=-qB\dot x}.
+$$
+
+Together these are precisely the Cartesian components of $m\ddot{\mathbf r}=q\dot{\mathbf r}\times\mathbf B$. The canonical momentum $p_y$ is gauge-dependent, but the mechanical momentum $m\dot y=p_y-qBx$ and the orbit are physical.
+
+## Descriptive Questions
+
+1. Derive Hamilton's principle with fixed configuration endpoints and show explicitly how integration by parts produces the Euler-Lagrange equations.
+2. Explain why adding a total time derivative $dF(q,t)/dt$ to a Lagrangian leaves the equations of motion unchanged.
+3. Obtain the normal-coordinate eigenvalue equation for two coupled oscillators and explain the physical meaning of its eigenvectors.
+4. Derive the electromagnetic Lagrangian in scalar and vector potentials and distinguish canonical momentum from mechanical momentum.
+
+## Numerical Problems
+
+1. For $m=0.50\ \mathrm{kg}$, $k=8.0\ \mathrm{N\,m^{-1}}$, and $F_0=2.0\ \mathrm N$, find the shifted equilibrium, angular frequency, and period. **Answer:** $0.250\ \mathrm m$, $4.000\ \mathrm{s^{-1}}$, $1.571\ \mathrm s$.
+2. A body is projected upward from $y_0=20.0\ \mathrm m$ with $v_0=5.0\ \mathrm{m\,s^{-1}}$. With $y$ upward and $g=9.81\ \mathrm{m\,s^{-2}}$, find the time to reach the ground, the time to maximum height, and that height. **Answer:** $2.592\ \mathrm s$, $0.5097\ \mathrm s$, $21.274\ \mathrm m$.
+3. Two equal masses $m=0.20\ \mathrm{kg}$ are joined by three equal springs of constant $k=50\ \mathrm{N\,m^{-1}}$ in the arrangement derived above. Find both normal-mode angular frequencies. **Answer:** $15.811\ \mathrm{s^{-1}}$, $27.386\ \mathrm{s^{-1}}$.
+4. In the Landau gauge $\mathbf A=Bx\hat{\mathbf y}$, a particle has $m=0.050\ \mathrm{kg}$, $q=4.0\ \mathrm{mC}$, $B=0.80\ \mathrm T$, $x=0.15\ \mathrm m$, and $\dot y=2.0\ \mathrm{m\,s^{-1}}$. Find $m\dot y$, $qBx$, and $p_y$. **Answer:** $0.1000\ \mathrm{kg\,m\,s^{-1}}$, $4.800\times10^{-4}\ \mathrm{kg\,m\,s^{-1}}$, $0.10048\ \mathrm{kg\,m\,s^{-1}}$.
+
+[Maxima verification: shifted-oscillator and electromagnetic residuals, with all numerical values]({{ '/assets/maxima/bsc/sem-v/mj-10/unit-ii/lagrangian-problems.mac' | relative_url }}).
+
+## References
+
+1. [Lagrangian mechanics — Wikipedia](https://en.wikipedia.org/wiki/Lagrangian_mechanics)
+2. H. Goldstein, C. Poole, and J. Safko, *Classical Mechanics*, 3rd ed., Chapters 1–2, Pearson (2002).
+3. L. D. Landau and E. M. Lifshitz, *Mechanics*, 3rd ed., Sections 2–6, Butterworth-Heinemann (1976).
+4. J. R. Taylor, *Classical Mechanics*, Chapters 6–7, University Science Books (2005).

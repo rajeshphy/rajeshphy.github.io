@@ -23,4 +23,79 @@ print("Sine-square average residual (must be 0):",
 print("Average-energy sum residual (must be 0):",
   ratsimp(k*A^2*avg_cos2/2+k*A^2*avg_sin2/2-k*A^2/2))$
 
+/* Initial-value form. */
+xiv : x0*cos(omega*t)+v0/omega*sin(omega*t)$
+print("Initial-value ODE residual (must be 0):",
+  trigsimp(diff(xiv,t,2)+omega^2*xiv))$
+print("Initial-position check (must be 0):",
+  trigsimp(ev(xiv,t=0)-x0))$
+print("Initial-velocity check (must be 0):",
+  trigsimp(subst(0,t,diff(xiv,t))-v0))$
+
+/* Solved problem 1: motion from initial data. */
+sp1_m : 1/2$
+sp1_k : 8$
+sp1_w : sqrt(sp1_k/sp1_m)$
+sp1_x0 : 3/100$
+sp1_v0 : 4/25$
+sp1_sine_coefficient : sp1_v0/sp1_w$
+sp1_A : sqrt(sp1_x0^2+sp1_sine_coefficient^2)$
+sp1_phi : atan2(-sp1_sine_coefficient,sp1_x0)$
+sp1_E : sp1_k*sp1_A^2/2$
+print("Solved 1 answers [omega, sine coefficient, A, phi, E]:",
+  [sp1_w,sp1_sine_coefficient,sp1_A,float(sp1_phi),sp1_E])$
+print("Solved 1 check (must be 0):",
+  radcan((sp1_w-4)+(sp1_sine_coefficient-1/25)
+    +(sp1_A-1/20)+(sp1_E-1/100)
+    +(sp1_phi+atan(4/3))
+    +(sp1_x0/sp1_A-3/5)
+    +(-sp1_sine_coefficient/sp1_A+4/5)))$
+
+/* Solved problem 2: energy at a specified position. */
+sp2_m : 1/5$
+sp2_k : 5$
+sp2_A : 2/25$
+sp2_x : 1/25$
+sp2_v : sqrt(sp2_k/sp2_m*(sp2_A^2-sp2_x^2))$
+sp2_U : sp2_k*sp2_x^2/2$
+sp2_K : sp2_m*sp2_v^2/2$
+sp2_E : sp2_k*sp2_A^2/2$
+print("Solved 2 answers [speed magnitude, U, K, E]:",
+  [sp2_v,sp2_U,sp2_K,sp2_E])$
+print("Solved 2 check (must be 0):",
+  radcan((sp2_v-sqrt(3)/5)+(sp2_U-1/250)
+    +(sp2_K-3/250)+(sp2_E-2/125)))$
+
+/* Numerical problems. */
+n1_w : sqrt(20/(4/5))$
+n1_T : 2*%pi/n1_w$
+n1_f : 1/n1_T$
+print("Numerical 1 answers [omega, period, frequency]:",
+  [n1_w,float(n1_T),float(n1_f)])$
+print("Numerical 1 check (must be 0):",
+  ratsimp((n1_w-5)+(n1_T-2*%pi/5)+(n1_f-5/(2*%pi))))$
+
+n2_a : -6^2*(-3/100)$
+print("Numerical 2 answer, acceleration:",n2_a)$
+print("Numerical 2 check (must be 0):",ratsimp(n2_a-27/25))$
+
+n3_vmax : 2*%pi*2*(1/20)$
+print("Numerical 3 answer, maximum speed:",float(n3_vmax))$
+print("Numerical 3 check (must be 0):",ratsimp(n3_vmax-%pi/5))$
+
+n4_t : (4/5)/4$
+print("Numerical 4 answer, first equilibrium time:",n4_t)$
+print("Numerical 4 check (must be 0):",ratsimp(n4_t-1/5))$
+
+n5_E : 40*(1/50)^2/2$
+n5_avg : n5_E/2$
+print("Numerical 5 answers [average K, average U, E]:",
+  [n5_avg,n5_avg,n5_E])$
+print("Numerical 5 check (must be 0):",
+  ratsimp((n5_avg-1/250)+(n5_E-1/125)))$
+
+n6_A : sqrt(2*(1/8)/100)$
+print("Numerical 6 answer, amplitude:",n6_A)$
+print("Numerical 6 check (must be 0):",radcan(n6_A-1/20))$
+
 quit();

@@ -231,4 +231,101 @@ Rotating the grating places the chosen wavelength and order on the exit slit; ot
   <figcaption>The slit curves use their exact sinc and array factors; the Airy intensity uses $[2J_1(u)/u]^2$, with its first zero marked.</figcaption>
 </figure>
 
-The aperture integrals, array factor, Airy scaling, and resolving-power steps are checked in the [Unit II Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-2/mj4-unit-2-checks.mac' | relative_url }}).
+## Solved Problems
+
+### Problem 1: Missing orders in a double-slit pattern
+
+Two slits have width $a$ and centre separation $d=3a$. Which interference maxima are absent?
+
+An interference maximum requires
+
+$$
+d\sin\theta=m\lambda,
+$$
+
+while a single-slit envelope minimum requires
+
+$$
+a\sin\theta=p\lambda,
+\qquad p=1,2,3,\ldots
+$$
+
+A missing order satisfies both conditions. Dividing them gives
+
+$$
+\frac da=\frac mp.
+$$
+
+Since $d/a=3$,
+
+$$
+\boxed{m=3p}.
+$$
+
+Thus the 3rd, 6th, 9th, and every subsequent multiple-of-three interference maximum is absent. The central maximum $m=0$ is not removed.
+
+### Problem 2: Telescope aperture for one-arcsecond resolution
+
+Find the minimum objective diameter that just resolves two sources separated by
+$1.00$ arcsecond at $\lambda=550\,\mathrm{nm}$.
+
+Convert the angular separation to radians:
+
+$$
+\theta
+=1.00\left(\frac{\pi}{180\times3600}\right)
+=\frac{\pi}{648000}\,\mathrm{rad}.
+$$
+
+Rayleigh's criterion gives
+
+$$
+D=\frac{1.22\lambda}{\theta}.
+$$
+
+Therefore
+
+$$
+\begin{aligned}
+D
+&=\frac{1.22(550\times10^{-9})(648000)}{\pi}\\
+&=1.384\times10^{-1}\,\mathrm m.
+\end{aligned}
+$$
+
+Hence $\boxed{D\simeq0.138\,\mathrm m=13.8\,\mathrm{cm}}$. A smaller clear aperture has a larger diffraction angle and cannot meet the criterion.
+
+## Descriptive Questions
+
+1. Why is the central single-slit maximum twice as wide as the neighboring maxima?
+2. How does the single-slit envelope control a double-slit pattern and create missing orders?
+3. How do the number and spacing of illuminated slits affect the principal maxima of a grating?
+4. How do telescope resolving power, grating resolving power, and an exit slit enter monochromatic-light selection?
+
+## Numerical Problems
+
+1. Light of wavelength $500\,\mathrm{nm}$ falls normally on a slit of width $0.200\,\mathrm{mm}$. Find the small angle of the first minimum.
+
+   **Answer:** $\boldsymbol{\theta_1\simeq2.50\times10^{-3}\,\mathrm{rad}}$.
+
+2. Two narrow slits have centre separation $0.500\,\mathrm{mm}$ and use $\lambda=600\,\mathrm{nm}$. Find the small-angle separation of adjacent interference maxima.
+
+   **Answer:** $\boldsymbol{\Delta\theta\simeq1.20\times10^{-3}\,\mathrm{rad}}$.
+
+3. A grating has $600$ lines per millimetre. Find the first-order angle for $\lambda=500\,\mathrm{nm}$.
+
+   **Answer:** $\boldsymbol{\theta_1=\sin^{-1}(0.300)\simeq17.46^\circ}$.
+
+4. A grating illuminates $N=25000$ lines in second order at $\lambda=600\,\mathrm{nm}$. Find its resolving power and the just-resolved wavelength interval.
+
+   **Answer:** $\boldsymbol{\mathcal R=50000,\quad\Delta\lambda=0.0120\,\mathrm{nm}}$.
+
+The aperture integrals, array factor, Airy scaling, resolving-power steps, and all worked answers are checked in the [Unit II Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-2/mj4-unit-2-checks.mac' | relative_url }}).
+
+## References
+
+1. [Fraunhofer diffraction — Wikipedia](https://en.wikipedia.org/wiki/Fraunhofer_diffraction)
+2. [Single-Slit Diffraction — OpenStax, *University Physics Volume 3*](https://openstax.org/books/university-physics-volume-3/pages/4-1-single-slit-diffraction)
+3. [Diffraction Gratings — OpenStax, *University Physics Volume 3*](https://openstax.org/books/university-physics-volume-3/pages/4-4-diffraction-gratings)
+4. [Circular Apertures and Resolution — OpenStax, *University Physics Volume 3*](https://openstax.org/books/university-physics-volume-3/pages/4-5-circular-apertures-and-resolution)
+5. [Max Born and Emil Wolf, *Principles of Optics* — Cambridge University Press](https://www.cambridge.org/core/books/principles-of-optics/9D54D6FF0317074912CB285C3FF7341C)

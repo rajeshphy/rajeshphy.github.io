@@ -25,7 +25,7 @@ $$\boxed{\delta=\varphi_s-\varphi_f
 
 $\delta$ is dimensionless and is normally quoted in radians or degrees.
 
-<figure class="post-figure">
+<figure class="diagram-figure diagram-pan" tabindex="0">
   <img src="{{ '/assets/images/bsc/sem-v/mj-8/unit-iii/retarders-babinet.png' | relative_url }}" alt="Phase-retardation plate and crossed-wedge Babinet compensator with equation-derived retardance" loading="lazy">
   <figcaption>Fixed thickness gives a wave plate; a crossed-wedge thickness difference gives continuously variable retardation. Editable <a href="{{ '/assets/tikz/bsc/sem-v/mj-8/unit-iii/retarders-babinet.tex' | relative_url }}">TikZ source</a>.</figcaption>
 </figure>
@@ -63,7 +63,7 @@ which is linear at angle $-\theta$. The plane of polarization is therefore rotat
 
 Plane-polarized light is produced by transmitting an unpolarized beam through a Nicol prism or another linear polarizer. If its transmission axis is $\hat{\mathbf a}$, only the field projection $(\mathbf E\cdot\hat{\mathbf a})\hat{\mathbf a}$ is transmitted.
 
-Circularly polarized light is produced by sending plane-polarized light through a quarter-wave plate with the incident plane at $45^\circ$ to the fast and slow axes. Elliptically polarized light is produced when both orthogonal components are nonzero and either their amplitudes are unequal or their phase difference is not an integer multiple of $\pi$.
+Circularly polarized light is produced by sending plane-polarized light through a quarter-wave plate with the incident plane at $45^\circ$ to the fast and slow axes. Elliptically polarized light is produced when both orthogonal components are nonzero, their phase difference is not an integer multiple of $\pi$, and the equal-amplitude quarter-cycle special case that gives circular polarization is avoided.
 
 ## Detection with an analyzer
 
@@ -108,4 +108,91 @@ $$\boxed{\theta=\frac12\tan^{-1}\!\left(\frac{S_2}{S_1}\right)},
 \qquad
 \boxed{\chi=\frac12\sin^{-1}\!\left(\frac{S_3}{S_0}\right)}.$$
 
-The quadrant of the azimuth is fixed by the signs of both $S_1$ and $S_2$. The quarter- and half-wave Jones identities are checked in the [Unit III Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-8/polarization-rotation.mac' | relative_url }}); every printed residual is zero.
+The quadrant of the azimuth is fixed by the signs of both $S_1$ and $S_2$.
+
+## Solved Problems
+
+### 1. Zero-order quarter- and half-wave plate thicknesses
+
+Quartz has $\lvert n_s-n_f\rvert=0.00900$ at $\lambda_0=589\ \mathrm{nm}$. Find the least positive thicknesses that act as a quarter-wave plate and a half-wave plate.
+
+**Solution.** Retardation is defined as slow phase minus fast phase, so its magnitude is
+
+$$\lvert\delta\rvert=\frac{2\pi}{\lambda_0}\lvert n_s-n_f\rvert d.$$
+
+For the zero-order quarter-wave plate, $\lvert\delta\rvert=\pi/2$:
+
+$$d_{\lambda/4}=\frac{\lambda_0}{4\lvert n_s-n_f\rvert}
+=\frac{589\ \mathrm{nm}}{4(0.00900)}
+=16.36\ \mathrm{\mu m}.$$
+
+For the zero-order half-wave plate, $\lvert\delta\rvert=\pi$:
+
+$$d_{\lambda/2}=\frac{\lambda_0}{2\lvert n_s-n_f\rvert}
+=32.72\ \mathrm{\mu m}.$$
+
+Thus
+
+$$\boxed{d_{\lambda/4}=16.36\ \mathrm{\mu m},\qquad
+d_{\lambda/2}=32.72\ \mathrm{\mu m}}.$$
+
+The half-wave thickness is twice the quarter-wave thickness at the same wavelength. Refractive-index difference and retardation are dimensionless, so $d$ inherits the wavelength unit. If $\lvert n_s-n_f\rvert\to0$, the required thickness diverges because an isotropic plate cannot accumulate differential phase.
+
+### 2. Reconstructing a polarized state from analyzer intensities
+
+In consistent intensity units, a complete analyzer set gives
+
+$$I_H=9,\quad I_V=1,\quad I_{+45}=5,\quad I_{-45}=5,$$
+
+and calibrated circular channels give $I_R=8$, $I_L=2$, with $S_3=I_R-I_L$ in the stated convention. Find the Stokes parameters, check whether the light is completely polarized, and obtain $\theta$ and $\chi$.
+
+**Solution.** The measured differences give
+
+$$S_0=I_H+I_V=10,$$
+
+$$S_1=I_H-I_V=8,\qquad
+S_2=I_{+45}-I_{-45}=0,\qquad
+S_3=I_R-I_L=6.$$
+
+The polarization identity is satisfied:
+
+$$S_1^2+S_2^2+S_3^2=8^2+0^2+6^2=100=S_0^2.$$
+
+Thus the state is completely polarized. Its ellipse parameters are
+
+$$\theta=\frac12\operatorname{atan2}(0,8)=0^\circ,$$
+
+$$\chi=\frac12\sin^{-1}\!\left(\frac6{10}\right)=18.43^\circ.$$
+
+Therefore
+
+$$\boxed{(S_0,S_1,S_2,S_3)=(10,8,0,6),\quad
+\theta=0^\circ,\quad \chi=18.43^\circ}.$$
+
+The major axis lies along $x$; the sign of $\chi$ follows the calibrated $S_3$ convention. Stokes parameters here share the same intensity unit, so all ratios used for angles are dimensionless. If $S_3\to0$ with these other readings fixed consistently, $\chi\to0$ and the state becomes linear.
+
+## Descriptive Questions
+
+1. Derive the thickness conditions for zero-order quarter- and half-wave plates from optical path difference.
+2. Explain how a quarter-wave plate and analyzer distinguish circularly polarized light from unpolarized light.
+3. Describe how a Babinet compensator produces continuously variable retardation and list its principal uses.
+4. How are the four Stokes parameters obtained from intensity measurements, and what identity characterizes completely polarized light?
+
+## Numerical Problems
+
+1. A plate has $\lvert\Delta n\rvert=0.0120$, thickness $24.5\ \mathrm{\mu m}$, and is used at $588\ \mathrm{nm}$. Classify its zero-order retardance.
+   **Final answer:** $\boxed{\delta=\pi}$, so it is a half-wave plate.
+2. Linear input makes $17.0^\circ$ with a half-wave plate's fast axis. Using the article's axis convention, find the output azimuth and signed rotation.
+   **Final answer:** $\boxed{\theta_{\rm out}=-17.0^\circ,\quad \Delta\theta=-34.0^\circ}$.
+3. A Babinet compensator has $\Delta n=0.00900$, local thickness difference $10.0\ \mathrm{\mu m}$, and $\lambda_0=600\ \mathrm{nm}$. Find its retardance magnitude.
+   **Final answer:** $\boxed{\lvert\delta\rvert=0.300\pi=54.0^\circ}$.
+4. Linearly polarized light of intensity $80.0\ \mathrm{W\,m^{-2}}$ meets an analyzer at $30.0^\circ$. Find the transmitted intensity.
+   **Final answer:** $\boxed{I=60.0\ \mathrm{W\,m^{-2}}}$.
+
+The quarter- and half-wave Jones identities are checked in the [Unit III Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-8/polarization-rotation.mac' | relative_url }}), and every worked and numerical value above is checked in the [MJ-8 problem-verification worksheet]({{ '/assets/maxima/bsc/sem-v/mj-8/problem-checks.mac' | relative_url }}); every printed residual and check is zero.
+
+## References
+
+1. [Waveplate - Wikipedia](https://en.wikipedia.org/wiki/Waveplate)
+2. [RP Photonics Encyclopedia, Waveplates](https://www.rp-photonics.com/waveplates.html)
+3. [RP Photonics Encyclopedia, Babinet-Soleil Compensators](https://www.rp-photonics.com/babinet_soleil_compensators.html)

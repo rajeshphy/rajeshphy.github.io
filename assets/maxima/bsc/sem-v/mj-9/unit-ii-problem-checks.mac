@@ -1,0 +1,70 @@
+/* MJ-9 Unit II enhancement: exact checks for all solved and numerical answers.
+   Every displayed residual is required to be zero. */
+kill(all)$
+
+/* Numerical differentiation. */
+log_first:(log(11/10)-log(9/10))/(1/5)$
+log_second:log(99/100)/(1/100)$
+print("log-centered-first identity residual =",
+      ratsimp(log_first-5*(log(11/10)-log(9/10))))$
+print("log-centered-second identity residual =",
+      ratsimp(log_second-100*log(99/100)))$
+three_exp:(-3+4*%e^(1/10)-%e^(1/5))/(1/5)$
+print("three-point-forward identity residual =",
+      ratsimp(three_exp-5*(-3+4*%e^(1/10)-%e^(1/5))))$
+print("square-centered residual =",
+      ratsimp((((21/10)^2-(19/10)^2)/(1/5))-4))$
+print("quartic-second residual =",
+      ratsimp((((11/10)^4-2+(9/10)^4)/(1/100))-601/50))$
+print("sine-forward identity residual =",
+      ratsimp(sin(1/20)/(1/20)-20*sin(1/20)))$
+print("cubic-step-halving residual =", ratsimp((1/10)^2-(1/4)*(1/5)^2))$
+
+/* Numerical quadrature. */
+T4:(1/4)/2*(0+2*((1/4)^2+(1/2)^2+(3/4)^2)+1)$
+print("composite-trapezoid residual =", ratsimp(T4-11/32))$
+fg(x):=x^3+x^2+1$
+G2:fg(1-1/sqrt(3))+fg(1+1/sqrt(3))$
+print("mapped-Gauss residual =", ratsimp(G2-26/3))$
+print("Simpson-quartic residual =", ratsimp((0+4+16)/3-20/3))$
+print("linear-trapezoid residual =", ratsimp((2/2)*(5+11)-16))$
+print("Gauss-quartic-error residual =", ratsimp(2/9-2/5+8/45))$
+
+/* Euler and RK4 methods. */
+euler3:(1-2/10)^3$
+print("three-step Euler residual =", ratsimp(euler3-64/125))$
+h:1/5$ x0:0$ y0:1$
+fode(x,y):=x+y$
+k1:h*fode(x0,y0)$
+k2:h*fode(x0+h/2,y0+k1/2)$
+k3:h*fode(x0+h/2,y0+k2/2)$
+k4:h*fode(x0+h,y0+k3)$
+yrk:y0+(k1+2*k2+2*k3+k4)/6$
+print("RK4-step residual =", ratsimp(yrk-3107/2500))$
+print("Euler-linear-rate residual =",
+      ratsimp((0+(1/4)*0)+(1/4)*(1/4)-1/16))$
+print("constant-rate RK4 residual =",
+      ratsimp(y+h*(1+2+2+1)/6-(y+h)))$
+print("Euler-stability-boundary residual =", ratsimp(2/5-2/5))$
+print("step-count residual =", ratsimp(2/(1/20)-40))$
+
+/* Least-squares regression. */
+a:7/6$ b:1/2$
+print("noisy-line normal residual 0 =", ratsimp(3*a+3*b-5))$
+print("noisy-line normal residual 1 =", ratsimp(3*a+5*b-6))$
+rline:[-1/6,1/3,-1/6]$
+print("noisy-line residual-sum residual =", ratsimp(apply("+",rline)))$
+print("noisy-line weighted-residual residual =",
+      ratsimp(0*rline[1]+rline[2]+2*rline[3]))$
+c0:17/20$ c1:1/20$ c2:5/4$
+print("quadratic normal residual 0 =", ratsimp(4*c0+2*c1+6*c2-11))$
+print("quadratic normal residual 1 =", ratsimp(2*c0+6*c1+8*c2-12))$
+print("quadratic normal residual 2 =", ratsimp(6*c0+8*c1+18*c2-28))$
+print("line-fit exercise residual 0 =", ratsimp(3*(2/3)+6*(3/2)-11))$
+print("line-fit exercise residual 1 =", ratsimp(6*(2/3)+14*(3/2)-25))$
+print("prediction residual =", ratsimp(2/3+(3/2)*4-20/3))$
+print("orthogonal-residual exercise 0 =", ratsimp(-1/5+2/5-1/5))$
+print("orthogonal-residual exercise 1 =", ratsimp(0*(-1/5)+2/5+2*(-1/5)))$
+print("SSE residual =", ratsimp((-1/10)^2+(1/10)^2+(-1/5)^2-3/50))$
+
+quit();

@@ -1,0 +1,44 @@
+/* MJ-9 Unit III enhancement: exact arithmetic checks for programming examples.
+   Every displayed residual is required to be zero. */
+kill(all)$
+matrix_norm2(M):=apply("+",map(lambda([z],z^2),list_matrix_entries(M)))$
+
+/* Algorithms and flowcharts. */
+print("maximum residual =", ratsimp(max(16/5,-1,27/5,51/10)-27/5))$
+print("Euclidean-gcd residual =", gcd(252,105)-21)$
+print("mean-algorithm residual =", ratsimp((2+4+7)/3-13/3))$
+print("sum-of-squares residual =", ratsimp(sum(k^2,k,1,4)-30))$
+print("second-gcd residual =", gcd(144,55)-1)$
+
+/* Data types, arithmetic, precision, and I/O. */
+print("division reconstruction residual =", 7-2*3-1)$
+print("temperature-conversion residual =", ratsimp(25+27315/100-29815/100))$
+print("grouped-expression residual =", ratsimp(5^2/(2+3)-5))$
+print("right-associated-power residual =", 2^(3^2)-512)$
+print("absolute-tolerance residual =", ratsimp(abs(1/10^14)-1/10^14))$
+
+/* Conditionals, loops, and iteration. */
+print("discriminant residual =", 2^2-4*1*5+16)$
+print("harmonic-sum residual =", ratsimp(sum(1/k,k,1,5)-137/60))$
+print("doubling-threshold residual =", 2^10-1024)$
+print("even-range-sum residual =", sum(2*k,k,1,5)-30)$
+print("tripling-loop residual =", 3^5-243)$
+
+/* One- and two-dimensional arrays. */
+print("mean-deviation-sum residual =",
+      ratsimp((2-11/3)+(4-11/3)+(5-11/3)))$
+A:matrix([1,2],[3,4])$ B:matrix([2,0],[1,2])$
+print("matrix-product residual =",
+      ratsimp(matrix_norm2(A.B-matrix([4,4],[10,8]))))$
+print("array-total residual =", 1+2+3+4+5+6-21)$
+print("matrix-vector residual =",
+      ratsimp(matrix_norm2(matrix([1,-1],[2,3]).matrix([4],[2])
+                           -matrix([2],[14]))))$
+
+/* Functions, parameter passing, scope, and recursion. */
+print("mean-and-range residual =", ratsimp((2+5+4)/3-11/3))$
+print("recursive-gcd residual =", gcd(48,18)-6)$
+print("power-sum residual =", 3^2+4^2-25)$
+print("triangular-recursion residual =", sum(k,k,1,5)-15)$
+
+quit();

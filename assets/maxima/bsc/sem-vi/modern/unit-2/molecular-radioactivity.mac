@@ -32,4 +32,63 @@ mean_den : integrate(lambda*exp(-lambda*t),t,0,inf)$
 print("mean-life residual =",
       ratsimp(mean_num/mean_den-1/lambda))$
 
+/* Worked-problem and exercise values. */
+fpprintprec : 12$
+h_si : 6.62607015b-34$
+c_si : 2.99792458b8$
+u_si : 1.66053906660b-27$
+
+Bco : 1.931b0$
+co_line_cm : 2*Bco*3$
+co_line_Hz : c_si*100*co_line_cm$
+Ico : h_si/(8*%pi^2*c_si*100*Bco)$
+muco : (12*15.99491462b0/(12+15.99491462b0))*u_si$
+Rco : sqrt(Ico/muco)$
+print("CO J=2 to 3 line (cm^-1, GHz) =",
+      bfloat(co_line_cm),bfloat(co_line_Hz/1b9))$
+print("CO inertia (kg m^2) and bond length (angstrom) =",
+      bfloat(Ico),bfloat(Rco*1b10))$
+Isym : hs/(8*%pi^2*cs*100*Bs)$
+print("Rigid-rotor inertia check =",
+      ratsimp(8*%pi^2*cs*100*Bs*Isym-hs))$
+Rsym : sqrt(Is/mus)$
+print("Bond-length definition check =",
+      radcan(Rsym^2*mus-Is))$
+
+activity_ratio : 2^(-20/8)$
+print("Activity (MBq) and decayed fraction =",
+      bfloat(3.2b0*activity_ratio),bfloat(1-activity_ratio))$
+print("Decay-fraction check =",
+      ratsimp((1-activity_ratio)+activity_ratio-1))$
+
+muHCl : (1.00782503223b0*34.968852682b0/
+         (1.00782503223b0+34.968852682b0))*u_si$
+HCl_cm : sqrt(480b0/muHCl)/(2*%pi*c_si*100)$
+print("HCl harmonic wavenumber (cm^-1) =",bfloat(HCl_cm))$
+omegasym : sqrt(ks/mus)$
+print("Harmonic-frequency check =",
+      radcan(omegasym^2-ks/mus))$
+
+lambda0_cm : 532b-7$
+raman_shift : 1600$
+lambdaS_nm : 1/(1/lambda0_cm-raman_shift)*1b7$
+print("Raman Stokes wavelength (nm) =",bfloat(lambdaS_nm))$
+lambdaSsym : 1/(1/lambda0s-deltas)$
+print("Raman-shift check =",
+      ratsimp(1/lambdaSsym-(1/lambda0s-deltas)))$
+
+Qdt : (2.014102b0+3.016049b0-4.002603b0-1.008665b0)*
+      931.49410242b0$
+print("D-T fusion Q value (MeV) =",bfloat(Qdt))$
+Qsym : (m1s+m2s-m3s-m4s)*us$
+print("Fusion mass-defect check =",
+      ratsimp(Qsym-(m1s+m2s-m3s-m4s)*us))$
+
+QNa : (21.9944364b0-21.9913851b0)*931.49410242b0-
+      2*0.51099895b0$
+print("Na-22 ground-state beta-plus Q (MeV) =",bfloat(QNa))$
+Qbetasym : (mparents-mdaughters)*us-2*mes$
+print("Beta-plus atomic-mass check =",
+      ratsimp(Qbetasym-((mparents-mdaughters)*us-2*mes)))$
+
 quit()$

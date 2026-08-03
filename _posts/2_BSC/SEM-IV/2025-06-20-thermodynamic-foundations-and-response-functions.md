@@ -113,3 +113,79 @@ The units are $\mathrm{K\,m^3(K^{-2})/(Pa^{-1})=J\,K^{-1}}$. In a stable one-pha
 $$\boxed{C_P-C_V=nR}.$$
 
 The general identity is re-derived from Maxwell relations in Unit III.
+
+## Solved Problems
+
+### 1. Recover a state function from an exact differential
+
+Suppose a fixed-composition system has
+
+$$dU=C\,dT+\Lambda V\,dV,$$
+
+where $C$ and $\Lambda$ are constants. Exactness requires the mixed derivatives to agree. Here
+
+$$
+\frac{\partial C}{\partial V}=0
+=\frac{\partial(\Lambda V)}{\partial T},
+$$
+
+so the condition is satisfied. Integrating first with respect to $T$ and then matching the $V$ derivative gives
+
+$$
+\boxed{U(T,V)=CT+\frac12\Lambda V^2+U_0}.
+$$
+
+Therefore
+
+$$
+\Delta U=C(T_2-T_1)+\frac{\Lambda}{2}(V_2^2-V_1^2),
+$$
+
+independent of the path. Here $[C]=\mathrm{J\,K^{-1}}$ and $[\Lambda]=\mathrm{J\,m^{-6}}$, so both terms have units of joules.
+
+### 2. Apply the first law to a rigid, electrically stirred vessel
+
+A rigid vessel loses $100\ \mathrm J$ as heat while an electric stirrer does $500\ \mathrm J$ of work on the fluid. With heat into and work by the system positive,
+
+$$Q=-100\ \mathrm J,\qquad W=-500\ \mathrm J.$$
+
+The first law gives
+
+$$
+\Delta U=Q-W=-100-(-500)=\boxed{400\ \mathrm J}.
+$$
+
+Although $dV=0$ eliminates boundary $pV$ work, it does not eliminate electrical or shaft work. This is why $Q=\Delta U$ at constant volume needs the explicit “only $pV$ work” assumption.
+
+## Descriptive Questions
+
+1. Distinguish intensive and extensive variables and explain why their classification matters when system size changes.
+2. Why are $dU$ and $dH$ exact differentials while $\delta Q$ and $\delta W$ are not?
+3. State the conditions under which heat at constant volume equals $\Delta U$ and heat at constant pressure equals $\Delta H$.
+4. Explain why mechanical stability requires positive isothermal compressibility.
+
+## Numerical Problems
+
+1. A closed system absorbs $500\ \mathrm J$ and does $120\ \mathrm J$ of work. Find its change in internal energy.
+
+   **Final answer:** $\Delta U=Q-W=380\ \mathrm J$.
+
+2. At fixed temperature, a sample of volume $2.0\times10^{-3}\ \mathrm{m^3}$ with $\kappa_T=5.0\times10^{-10}\ \mathrm{Pa^{-1}}$ experiences $\Delta p=2.0\times10^7\ \mathrm{Pa}$. Use the linear approximation.
+
+   **Final answer:** $\Delta V=-V\kappa_T\Delta p=-2.0\times10^{-5}\ \mathrm{m^3}$.
+
+3. A sample has $V=1.5\times10^{-3}\ \mathrm{m^3}$ and $\alpha=3.0\times10^{-4}\ \mathrm{K^{-1}}$. Find $\Delta V$ for an $80\ \mathrm K$ rise at constant pressure.
+
+   **Final answer:** $\Delta V=V\alpha\Delta T=3.6\times10^{-5}\ \mathrm{m^3}$.
+
+4. For $T=300\ \mathrm K$, $V=1.0\times10^{-3}\ \mathrm{m^3}$, $\alpha=1.0\times10^{-3}\ \mathrm{K^{-1}}$, and $\kappa_T=1.0\times10^{-6}\ \mathrm{Pa^{-1}}$, find $C_P-C_V$.
+
+   **Final answer:** $C_P-C_V=TV\alpha^2/\kappa_T=0.300\ \mathrm{J\,K^{-1}}$.
+
+The [foundations and response-functions Maxima worksheet]({{ '/assets/maxima/bsc/sem-iv/mj-6/foundations-response-checks.mac' | relative_url }}) verifies the sign convention, ideal-gas response identities, response calculation, and printed answers.
+
+## References
+
+1. [Laws of thermodynamics](https://en.wikipedia.org/wiki/Laws_of_thermodynamics), Wikipedia.
+2. H. B. Callen, *Thermodynamics and an Introduction to Thermostatistics*, 2nd ed., Wiley, 1985, chapters 1-3.
+3. M. W. Zemansky and R. H. Dittman, *Heat and Thermodynamics*, 7th ed., McGraw-Hill, 1997, chapters “Fundamental concepts” and “The first law.”

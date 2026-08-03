@@ -17,3 +17,39 @@ Mweak:N*mu*x/3$
 residual_classical_curie:ratsimp(Mweak/H-mu0*N*mu^2/(3*kB*T))$
 print("residual_classical_curie =",residual_classical_curie)$
 
+/* Enhancement-pass solved and numerical problems. */
+check_curie_weiss_problem:ratsimp((1/2)/(300-100)-1/400)$
+check_curie_weiss_M:ratsimp((1/400)*2000-5)$
+check_rectangular_loop:ratsimp(4*(4/5)*1200-3840)$
+check_hysteresis_power:ratsimp(50*3840-192000)$
+print("check_curie_weiss_problem =",check_curie_weiss_problem)$
+print("check_curie_weiss_magnetization =",check_curie_weiss_M)$
+print("check_rectangular_hysteresis_area =",check_rectangular_loop)$
+print("check_hysteresis_power =",check_hysteresis_power)$
+
+check_quantum_moment:ratsimp((2*sqrt((5/2)*(7/2)))^2-35)$
+check_ferrimagnetic_difference:ratsimp(4-5/2-3/2)$
+print("check_quantum_effective_moment =",check_quantum_moment)$
+print("check_ferrimagnetic_difference =",check_ferrimagnetic_difference)$
+
+mu0SI:4*%pi*1.0b-7$
+kBSI:1.380649b-23$
+muBSI:9.2740100783b-24$
+eSI:1.602176634b-19$
+meSI:9.1093837139b-31$
+curie_chi_num:mu0SI*8.00b28*muBSI^2/(3*kBSI*300.0b0)$
+diamag_chi_num:-mu0SI*5.00b28*eSI^2*1.00b-20/(6*meSI)$
+quantum_moment_num:2*sqrt((5/2)*(7/2))$
+saturation_num:1.00b28*2*muBSI$
+ferrimagnetic_num:6.00b27*1.5b0*muBSI$
+linear_B_num:mu0SI*(1+0.0200b0)*4.00b4$
+zeeman_num:2.00b0*muBSI*1.50b0$
+print("answer_curie_susceptibility =",bfloat(curie_chi_num))$
+print("answer_curie_magnetization_A_per_m =",bfloat(curie_chi_num*1.00b3))$
+print("answer_diamagnetic_susceptibility =",bfloat(diamag_chi_num))$
+print("answer_quantum_effective_moment_over_muB =",bfloat(quantum_moment_num))$
+print("answer_saturation_magnetization_A_per_m =",bfloat(saturation_num))$
+print("answer_ferrimagnetic_magnetization_A_per_m =",bfloat(ferrimagnetic_num))$
+print("answer_linear_material_B_T =",bfloat(linear_B_num))$
+print("answer_zeeman_separation_J =",bfloat(zeeman_num))$
+print("answer_zeeman_separation_meV =",bfloat(1000*zeeman_num/eSI))$

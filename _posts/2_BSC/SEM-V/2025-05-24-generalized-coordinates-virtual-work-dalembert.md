@@ -206,3 +206,133 @@ $$
 $$
 
 This is D'Alembert's equation in generalized coordinates and is the direct bridge from Newton's laws to Lagrange's equations.
+
+## Solved Problems
+
+### 1. Bead on a uniformly rotating smooth rod
+
+A bead of mass $m$ slides without friction on a straight horizontal rod that rotates with prescribed constant angular speed $\Omega$ about one end. Obtain its radial equation directly from D'Alembert's principle.
+
+The constraint is time-dependent:
+
+$$
+\mathbf r=r\,\hat{\mathbf e}_r,
+\qquad
+\phi=\Omega t.
+$$
+
+The rotating polar unit vectors obey
+
+$$
+\dot{\hat{\mathbf e}}_r=\Omega\hat{\mathbf e}_\phi,
+\qquad
+\dot{\hat{\mathbf e}}_\phi=-\Omega\hat{\mathbf e}_r.
+$$
+
+Therefore
+
+$$
+\mathbf v=\dot r\,\hat{\mathbf e}_r+\Omega r\,\hat{\mathbf e}_\phi,
+$$
+
+and then
+
+$$
+\mathbf a=(\ddot r-\Omega^2r)\hat{\mathbf e}_r
++2\Omega\dot r\,\hat{\mathbf e}_\phi.
+$$
+
+At fixed time an allowed virtual displacement is along the rod,
+
+$$
+\delta\mathbf r=\delta r\,\hat{\mathbf e}_r.
+$$
+
+The smooth rod's reaction is perpendicular to this displacement, so it does no virtual work. There is no applied force along the rod. D'Alembert's principle gives
+
+$$
+(-m\mathbf a)\cdot\delta\mathbf r
+=-m(\ddot r-\Omega^2r)\delta r=0.
+$$
+
+Since $\delta r$ is arbitrary,
+
+$$
+\boxed{\ddot r-\Omega^2r=0},
+\qquad
+r=C_1e^{\Omega t}+C_2e^{-\Omega t}.
+$$
+
+The outward term $m\Omega^2r$ is not an additional real force in the inertial frame; it is the radial part of the acceleration required by the rotating constraint. The transverse reaction supplies $2m\Omega\dot r\,\hat{\mathbf e}_\phi$.
+
+### 2. Atwood machine in one generalized coordinate
+
+Two masses $m_1$ and $m_2>m_1$ are joined by a light inextensible string over an ideal pulley. Let $x$ increase when $m_2$ moves downward; the same $x$ makes $m_1$ move upward. The system has one degree of freedom.
+
+For an allowed virtual change $\delta x$, gravity does virtual work
+
+$$
+\delta W=m_2g\,\delta x-m_1g\,\delta x,
+$$
+
+so the generalized force is
+
+$$
+Q_x=(m_2-m_1)g.
+$$
+
+Both masses have speed $\dot x$, hence
+
+$$
+T=\frac12(m_1+m_2)\dot x^2.
+$$
+
+D'Alembert's equation gives
+
+$$
+\frac{d}{dt}\frac{\partial T}{\partial\dot x}
+-\frac{\partial T}{\partial x}=Q_x,
+$$
+
+or
+
+$$
+(m_1+m_2)\ddot x=(m_2-m_1)g.
+$$
+
+Therefore
+
+$$
+\boxed{a=\ddot x=\frac{m_2-m_1}{m_1+m_2}g}.
+$$
+
+From $T-m_1g=m_1a$ for the rising mass,
+
+$$
+\boxed{T=\frac{2m_1m_2}{m_1+m_2}g}.
+$$
+
+Both expressions have the correct limits: $a=0$ when $m_1=m_2$, while $a\to g$ when $m_2/m_1\to\infty$.
+
+## Descriptive Questions
+
+1. Distinguish actual displacement from virtual displacement for a rheonomous constraint, and state precisely why $\delta t=0$ in the latter.
+2. Derive the generalized-velocity formula from $\mathbf r_i=\mathbf r_i(q_1,\ldots,q_s,t)$ and interpret its explicit-time term.
+3. Explain the rank condition behind $s=3N-k$ and why dependent constraint equations must not be counted separately.
+4. Derive D'Alembert's equation in generalized coordinates and identify the condition under which ideal constraint forces disappear from it.
+
+## Numerical Problems
+
+1. At an instant a particle has cylindrical data $\rho=0.40\ \mathrm m$, $\dot\rho=0.30\ \mathrm{m\,s^{-1}}$, $\dot\phi=2.0\ \mathrm{s^{-1}}$, and $\dot z=-0.20\ \mathrm{m\,s^{-1}}$. Find its speed. **Answer:** $0.8775\ \mathrm{m\,s^{-1}}$.
+2. A particle has $r=2.0\ \mathrm m$, $\theta=\pi/3$, $\dot r=0.40\ \mathrm{m\,s^{-1}}$, $\dot\theta=0.20\ \mathrm{s^{-1}}$, and $\dot\phi=0.50\ \mathrm{s^{-1}}$. Find its speed in spherical coordinates. **Answer:** $1.034\ \mathrm{m\,s^{-1}}$.
+3. In an ideal Atwood machine, $m_1=2.0\ \mathrm{kg}$ and $m_2=3.0\ \mathrm{kg}$. Find the acceleration and string tension using $g=9.81\ \mathrm{m\,s^{-2}}$. **Answer:** $1.962\ \mathrm{m\,s^{-2}}$ toward the $m_2$ side, $23.544\ \mathrm N$.
+4. A bead moves without friction on the vertical parabola $y=ax^2$, where $a=0.50\ \mathrm{m^{-1}}$. At $x=0.40\ \mathrm m$ it has $\dot x=0.60\ \mathrm{m\,s^{-1}}$. From D'Alembert's equation, find $\ddot x$ for $g=9.81\ \mathrm{m\,s^{-2}}$. **Answer:** $-3.507\ \mathrm{m\,s^{-2}}$.
+
+[Maxima verification: rotating-rod residuals and all problem values]({{ '/assets/maxima/bsc/sem-v/mj-10/unit-i/generalized-coordinate-problems.mac' | relative_url }}).
+
+## References
+
+1. [D'Alembert's principle — Wikipedia](https://en.wikipedia.org/wiki/D%27Alembert%27s_principle)
+2. H. Goldstein, C. Poole, and J. Safko, *Classical Mechanics*, 3rd ed., Chapter 1, Pearson (2002).
+3. L. D. Landau and E. M. Lifshitz, *Mechanics*, 3rd ed., Sections 1–5, Butterworth-Heinemann (1976).
+4. J. R. Taylor, *Classical Mechanics*, Chapter 7, University Science Books (2005).

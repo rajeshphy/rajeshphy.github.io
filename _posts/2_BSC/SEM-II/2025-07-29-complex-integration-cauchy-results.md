@@ -15,21 +15,43 @@ $$
 z=z(t),\qquad a\le t\le b.
 $$
 
-Because $dz=z'(t)dt$, define
+Because $dz=z^{\prime}(t)dt$, define
 
 $$
 \boxed{
 \int_C f(z)\,dz
-=\int_a^b f(z(t))z'(t)\,dt}.
+=\int_a^b f(z(t))z^{\prime}(t)\,dt}.
 $$
 
-Reversing the direction changes the sign. If $F'(z)=f(z)$ throughout a domain containing the contour, the chain rule gives
+Reversing the direction changes the sign. If $F^{\prime}(z)=f(z)$ throughout a domain containing the contour, the chain rule gives
 
 $$
 \int_C f(z)dz
 =\int_a^b\frac{d}{dt}F(z(t))dt
 =F(z_b)-F(z_a).
 $$
+
+Thus an antiderivative makes the integral path-independent. Conversely, for continuous $f$ on a connected domain, path independence lets one define
+
+$$
+F(z)=\int_{z_*}^{z}f(\zeta)\,d\zeta,
+$$
+
+and the difference quotient shows that $F^{\prime}(z)=f(z)$.
+
+If $\lvert f(z)\rvert\leq M$ on a contour of length $L$, the parametrized definition and the triangle inequality give
+
+$$
+\begin{aligned}
+\left\lvert\int_Cf(z)\,dz\right\rvert
+&\leq\int_a^b
+\lvert f(z(t))\rvert\lvert z^{\prime}(t)\rvert\,dt\\
+&\leq M\int_a^b\lvert z^{\prime}(t)\rvert\,dt
+=ML.
+\end{aligned}
+$$
+
+This is the $ML$ inequality.
 
 ## Simply and multiply connected regions
 
@@ -46,7 +68,9 @@ $$
 The integrand is analytic in the punctured plane, but the contour surrounds its missing point $z=0$. It cannot be contracted to a point while remaining in that domain.
 
 <figure class="diagram-figure">
-  <img src="{{ '/assets/images/bsc/sem-ii/unit-3/connected-contours.png' | relative_url }}" alt="Contractible contour in a simply connected region and noncontractible contour around a hole" loading="lazy">
+  <div class="diagram-pan">
+    <img src="{{ '/assets/images/bsc/sem-ii/unit-3/connected-contours.png' | relative_url }}" alt="Contractible contour in a simply connected region and noncontractible contour around a hole" loading="lazy">
+  </div>
   <figcaption>A closed contour contracts to a point in a simply connected region. In a multiply connected region, a contour surrounding a hole cannot contract without crossing the excluded set.</figcaption>
 </figure>
 
@@ -78,7 +102,7 @@ $$
 =\iint_D(u_x-v_y)dA.
 $$
 
-Both integrands vanish by the Cauchy-Riemann equations. Goursat's form of the theorem removes the extra assumption that $f'$ is continuous.
+Both integrands vanish by the Cauchy-Riemann equations. Goursat's form of the theorem removes the extra assumption that $f^{\prime}$ is continuous.
 
 ## Cauchy's integral formula
 
@@ -157,3 +181,132 @@ $$
 $$
 
 The unit-circle integral and sample Cauchy-formula integrals are checked in the [Unit III Maxima worksheet]({{ '/assets/maxima/bsc/sem-ii/unit-3/unit-3-complex-analysis.mac' | relative_url }}).
+
+## Solved Problems
+
+1. Evaluate $\int_C\bar z\,dz$ directly when $C$ is the upper semicircle $\lvert z\rvert=2$, directed from $2$ to $-2$.
+
+   Parametrize
+
+   $$
+   z(t)=2e^{it},
+   \qquad 0\leq t\leq\pi.
+   $$
+
+   Then
+
+   $$
+   \bar z(t)=2e^{-it},
+   \qquad
+   dz=2ie^{it}dt.
+   $$
+
+   Therefore
+
+   $$
+   \int_C\bar z\,dz
+   =\int_0^\pi
+   (2e^{-it})(2ie^{it})dt
+   =4i\int_0^\pi dt
+   =\boxed{4\pi i}.
+   $$
+
+   The nonzero result is consistent with $\bar z$ being nonanalytic; reversing the semicircle would change the sign.
+
+2. Evaluate
+
+   $$
+   \oint_{\lvert z\rvert=2}
+   \frac{e^z}{(z-1)^3}\,dz
+   $$
+
+   for counterclockwise orientation.
+
+   Cauchy's derivative formula with $f(z)=e^z$, $z_0=1$, and $n=2$ gives
+
+   $$
+   f^{\prime\prime}(1)=\frac{2!}{2\pi i}
+   \oint_{\lvert z\rvert=2}
+   \frac{e^z}{(z-1)^3}\,dz.
+   $$
+
+   Since $f^{\prime\prime}(1)=e$,
+
+   $$
+   \oint_{\lvert z\rvert=2}
+   \frac{e^z}{(z-1)^3}\,dz
+   =\frac{2\pi i}{2!}e
+   =\boxed{\pi i e}.
+   $$
+
+   The pole lies inside the contour, and the positive sign follows from counterclockwise orientation.
+
+3. Let $\Gamma$ be the upper semicircle $\lvert z\rvert=1$. Obtain an $ML$ bound for
+
+   $$
+   \int_\Gamma\frac{dz}{z^2+9}.
+   $$
+
+   On $\Gamma$,
+
+   $$
+   \lvert z^2+9\rvert
+   \geq 9-\lvert z\rvert^2=8,
+   $$
+
+   so
+
+   $$
+   \left\lvert\frac1{z^2+9}\right\rvert\leq\frac18.
+   $$
+
+   The arc length is $L=\pi$, hence
+
+   $$
+   \boxed{
+   \left\lvert\int_\Gamma\frac{dz}{z^2+9}\right\rvert
+   \leq\frac{\pi}{8}}.
+   $$
+
+   The estimate is a bound, not an assertion that the integral equals $\pi/8$.
+
+## Descriptive Questions
+
+1. Derive the parametrized contour integral and prove the $ML$ inequality.
+2. Explain the relationship among antiderivatives, path independence, and vanishing closed-contour integrals.
+3. Derive the Cauchy-Goursat theorem from Green's theorem under continuous first partial derivatives.
+4. Derive Cauchy's integral formula, its derivative form, and Cauchy's inequality with all orientation assumptions stated.
+
+## Numerical Problems
+
+1. Evaluate $\int_C z^2\,dz$ from $0$ to $1+i$ along any path in the complex plane.
+
+   **Answer:** $(-2+2i)/3$.
+
+2. Evaluate $\oint_{\lvert z\rvert=3}dz/(z-2)$ counterclockwise.
+
+   **Answer:** $2\pi i$.
+
+3. Evaluate $\oint_{\lvert z\rvert=1}dz/(z-2)$.
+
+   **Answer:** $0$.
+
+4. Evaluate $\oint_{\lvert z\rvert=2}z^3\,dz/(z-i)^2$ counterclockwise.
+
+   **Answer:** $-6\pi i$.
+
+5. Evaluate $\oint_{\lvert z-1\rvert=1/2}\cos z\,dz/(z-1)$ counterclockwise.
+
+   **Answer:** $2\pi i\cos1$.
+
+6. If $\lvert f(z)\rvert\leq5$ on $\lvert z\rvert=2$ and $f$ is analytic inside, find the Cauchy bound for $\lvert f^{(3)}(0)\rvert$.
+
+   **Answer:** $\lvert f^{(3)}(0)\rvert\leq15/4$.
+
+All added contour integrals, Cauchy-formula values, and bounds are verified in the [Unit III Maxima worksheet]({{ '/assets/maxima/bsc/sem-ii/unit-3/unit-3-complex-analysis.mac' | relative_url }}); every printed residual is zero.
+
+## References
+
+1. [Cauchy's integral formula — Wikipedia](https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula)
+2. [MIT OpenCourseWare 18.04, lecture notes: Topics 3 and 4](https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/resources/lecture-notes/)
+3. James Ward Brown and Ruel V. Churchill, *Complex Variables and Applications*, 9th ed., Chapter 4.

@@ -29,4 +29,41 @@ print("Laplace-equation residual =",res_laplace)$
 print("interior E=-grad(V) residual =",res_E_in)$
 print("exterior E=-grad(V) residual =",res_E_out)$
 
+/* Enhancement checks: solved problems and numerical answers. */
+E_shell_mid : rho*(r^3-a^3)/(3*eps0*r^2)$
+E_shell_out : rho*(b^3-a^3)/(3*eps0*r^2)$
+res_shell_mid_gauss :
+  ratsimp(4*%pi*r^2*E_shell_mid-rho*4*%pi*(r^3-a^3)/(3*eps0))$
+res_shell_out_gauss :
+  ratsimp(4*%pi*r^2*E_shell_out-rho*4*%pi*(b^3-a^3)/(3*eps0))$
+res_shell_a : ratsimp(subst(a,r,E_shell_mid))$
+res_shell_b : ratsimp(subst(b,r,E_shell_mid)-subst(b,r,E_shell_out))$
+
+print("enhancement thick-shell middle Gauss residual =",res_shell_mid_gauss)$
+print("enhancement thick-shell exterior Gauss residual =",res_shell_out_gauss)$
+print("enhancement thick-shell inner-boundary residual =",res_shell_a)$
+print("enhancement thick-shell outer-boundary residual =",res_shell_b)$
+
+V_annulus :
+  (b*Vb-a*Va)/(b-a)+a*b*(Va-Vb)/((b-a)*r)$
+res_annulus_laplace : ratsimp(lap_radial(V_annulus))$
+res_annulus_a : ratsimp(subst(a,r,V_annulus)-Va)$
+res_annulus_b : ratsimp(subst(b,r,V_annulus)-Vb)$
+
+print("enhancement annular-potential Laplace residual =",res_annulus_laplace)$
+print("enhancement annular-potential inner-boundary residual =",res_annulus_a)$
+print("enhancement annular-potential outer-boundary residual =",res_annulus_b)$
+
+eps0_si : 88541878128/10^22$
+E_line_num : (3/10^9)/(2*%pi*eps0_si*(1/5))$
+E_sheet_num : (6/10^9)/(2*eps0_si)$
+E_sphere_num : (4/10^6)*(1/50)/(3*eps0_si)$
+res_num_line : round(bfloat(E_line_num))-270$
+res_num_sheet : round(bfloat(E_sheet_num))-339$
+res_num_sphere : round(bfloat(E_sphere_num/10))-301$
+
+print("enhancement numerical line-field residual =",res_num_line)$
+print("enhancement numerical sheet-field residual =",res_num_sheet)$
+print("enhancement numerical sphere-field residual =",res_num_sphere)$
+
 quit()$

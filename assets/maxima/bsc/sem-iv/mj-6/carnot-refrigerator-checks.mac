@@ -1,0 +1,20 @@
+/* MJ-6: Carnot ratios, energy balances, COPs, and printed answers. */
+kill(all)$
+/* Each adiabat has the same volume multiplier rho=(Th/Tc)^(1/(g-1)). */
+rho : (Th/Tc)^(1/(g-1))$
+V3 : rho*V2$
+V4 : rho*V1$
+print("adiabat_ratio_residual =", ratsimp(V3/V4-V2/V1))$
+Qh : R*Th*log(r)$
+Qc : R*Tc*log(r)$ /* positive rejected magnitude */
+W : ratsimp(Qh-Qc)$
+print("Carnot_efficiency_residual =", ratsimp(W/Qh-(1-Tc/Th)))$
+print("refrigerator_COP_residual =", ratsimp(Qc/W-Tc/(Th-Tc)))$
+print("heat_pump_identity_residual =", ratsimp(Qh/W-(Qc/W+1)))$
+Wengine : eta*Qin$
+Qcold : COP*Wengine$
+print("coupled_device_residual =", ratsimp(Qcold-COP*eta*Qin))$
+print("engine_efficiency_residual =", ratsimp((1-300/600)-1/2))$
+print("engine_energy_balance_residual =", ratsimp(1200-600-600))$
+print("refrigerator_numeric_residual =", ratsimp(270/(300-270)-9))$
+print("real_engine_residual =", ratsimp((2000-1300)/2000-7/20))$

@@ -15,3 +15,51 @@ print("residual_diatomic_branch_sum =",residual_diatomic_sum)$
 Ulow:3*%pi^4*N*kB*T^4/(5*thetaD^3)$
 residual_t3:ratsimp(diff(Ulow,T)-12*%pi^4*N*kB*T^3/(5*thetaD^3))$
 print("residual_debye_T3 =",residual_t3)$
+
+/* Enhancement-pass solved and numerical problems. */
+check_monatomic_zone:ratsimp(2*sqrt(C/M)*sin(%pi/2)-2*sqrt(C/M))$
+check_acoustic_slope:ratsimp(limit(2*sqrt(C/M)*sin(k*a/2)/k,k,0)-a*sqrt(C/M))$
+print("check_monatomic_zone_boundary =",check_monatomic_zone)$
+print("check_monatomic_acoustic_slope =",check_acoustic_slope)$
+
+omega2_center_plus:2*C*(1/M1+1/M2)$
+omega2_center_minus:0$
+check_diatomic_center_sum:ratsimp(omega2_center_plus+omega2_center_minus-2*C*(1/M1+1/M2))$
+print("check_diatomic_zone_center =",check_diatomic_center_sum)$
+
+check_debye_fraction:ratsimp(integrate(w^2,w,0,wD/5)/integrate(w^2,w,0,wD)-1/125)$
+check_einstein_theta:ratsimp((3*R*exp(1)/(exp(1)-1)^2)/(3*R)-exp(1)/(exp(1)-1)^2)$
+check_classical_heat:ratsimp((1/4)*3*R*20-15*R)$
+print("check_debye_mode_fraction =",check_debye_fraction)$
+print("check_einstein_at_thetaE =",check_einstein_theta)$
+print("check_dulong_petit_heat =",check_classical_heat)$
+
+hSI:6.62607015b-34$
+kBSI:1.380649b-23$
+eSI:1.602176634b-19$
+RSI:8.31446261815324b0$
+Mnum:4.65b-26$
+Cnum:25.0b0$
+anum:0.250b-9$
+omega_max_num:2*sqrt(Cnum/Mnum)$
+sound_speed_num:anum*sqrt(Cnum/Mnum)$
+M1num:3.30b-26$
+M2num:5.50b-26$
+Cdinum:20.0b0$
+optical_frequency_num:sqrt(2*Cdinum*(1/M1num+1/M2num))/(2*%pi)$
+debye_cv_num:(12*%pi^4/5)*RSI*(10.0b0/300.0b0)^3$
+phonon_energy_ev:hSI*5.00b12/eSI$
+phonon_occupation:1/(exp(hSI*5.00b12/(kBSI*300.0b0))-1)$
+einstein_cv_num:3*RSI*%e/(%e-1)^2$
+zero_point_ev:0.5b0*hSI*8.00b12/eSI$
+classical_heat_num:0.250b0*3*RSI*20.0b0$
+print("answer_monatomic_omega_max_rad_per_s =",bfloat(omega_max_num))$
+print("answer_monatomic_f_max_hz =",bfloat(omega_max_num/(2*%pi)))$
+print("answer_monatomic_sound_speed_m_per_s =",bfloat(sound_speed_num))$
+print("answer_diatomic_optical_frequency_hz =",bfloat(optical_frequency_num))$
+print("answer_debye_molar_cv_J_per_mol_K =",bfloat(debye_cv_num))$
+print("answer_phonon_energy_eV =",bfloat(phonon_energy_ev))$
+print("answer_phonon_occupation =",bfloat(phonon_occupation))$
+print("answer_einstein_molar_cv_J_per_mol_K =",bfloat(einstein_cv_num))$
+print("answer_zero_point_energy_eV =",bfloat(zero_point_ev))$
+print("answer_classical_heat_J =",bfloat(classical_heat_num))$

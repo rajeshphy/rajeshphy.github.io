@@ -48,18 +48,18 @@ The overall phase of $N$ is physically irrelevant because it cancels from $\lver
 A bound-state wavefunction must be single-valued, finite, and square-integrable. It is continuous wherever the potential has no infinite discontinuity. To obtain the derivative condition in one dimension, integrate the stationary Schrödinger equation across $(x_0-\epsilon,x_0+\epsilon)$:
 
 $$
--\frac{\hbar^2}{2m}\int_{x_0-\epsilon}^{x_0+\epsilon}\psi''dx
+-\frac{\hbar^2}{2m}\int_{x_0-\epsilon}^{x_0+\epsilon}\psi^{\prime\prime}dx
 +\int_{x_0-\epsilon}^{x_0+\epsilon}(V-E)\psi\,dx=0.
 $$
 
 Therefore
 
 $$
-\psi'(x_0+\epsilon)-\psi'(x_0-\epsilon)
+\psi^{\prime}(x_0+\epsilon)-\psi^{\prime}(x_0-\epsilon)
 =\frac{2m}{\hbar^2}\int_{x_0-\epsilon}^{x_0+\epsilon}(V-E)\psi\,dx.
 $$
 
-If $V$ and $\psi$ remain finite, the integral vanishes as $\epsilon\to0$, so $\psi'$ is continuous. At an infinite wall this argument fails and the physical boundary condition is instead $\psi=0$ at the wall; its derivative need not match the identically zero exterior derivative. For a normalizable state on an unbounded domain, $\psi$ must approach zero sufficiently rapidly as $\lvert\mathbf r\rvert\to\infty$.
+If $V$ and $\psi$ remain finite, the integral vanishes as $\epsilon\to0$, so $\psi^{\prime}$ is continuous. At an infinite wall this argument fails and the physical boundary condition is instead $\psi=0$ at the wall; its derivative need not match the identically zero exterior derivative. For a normalizable state on an unbounded domain, $\psi$ must approach zero sufficiently rapidly as $\lvert\mathbf r\rvert\to\infty$.
 
 ## Linearity and superposition
 
@@ -148,8 +148,8 @@ e^{i\mathbf p\cdot\mathbf r/\hbar},
 $$
 
 $$
-\langle\mathbf p\vert\mathbf p'\rangle
-=\delta^{(3)}(\mathbf p-\mathbf p').
+\langle\mathbf p\vert\mathbf p^{\prime}\rangle
+=\delta^{(3)}(\mathbf p-\mathbf p^{\prime}).
 $$
 
 A physical localized free state is a square-integrable superposition of these plane waves.
@@ -170,6 +170,8 @@ $$
 $$
 
 for functions obeying the operator's boundary conditions. If $\hat A\phi_a=a\phi_a$, then
+
+The integration-by-parts equality is a statement about the operator **and its domain**. Vanishing boundary terms make a differential operator symmetric on that domain; a quantum observable requires the corresponding self-adjoint domain so that its spectrum and time evolution have the required physical properties.
 
 $$
 a\langle\phi_a\vert\phi_a\rangle
@@ -214,8 +216,8 @@ For one Cartesian component and any differentiable test function $f$,
 $$
 \begin{aligned}
 [\hat x,\hat p_x]f
-&=x(-i\hbar f')-(-i\hbar)(xf)'\\
-&=-i\hbar xf'+i\hbar(f+xf')=i\hbar f.
+&=x(-i\hbar f^{\prime})-(-i\hbar)(xf)^{\prime}\\
+&=-i\hbar xf^{\prime}+i\hbar(f+xf^{\prime})=i\hbar f.
 \end{aligned}
 $$
 
@@ -239,4 +241,110 @@ $$
 =\int\psi^{\ast}(-i\hbar\nabla)\psi\,d^3r}.
 $$
 
-Integration by parts shows that $-i\hbar\nabla$ is Hermitian when the surface term vanishes under the physical boundary conditions.
+Integration by parts makes $-i\hbar\nabla$ symmetric when the surface term vanishes. On the full line, its standard self-adjoint domain consists of square-integrable, absolutely continuous states whose first derivative is also square-integrable; on a finite interval, an appropriate periodic or phase-periodic boundary domain gives a self-adjoint momentum operator.
+
+## Solved Problems
+
+### 1. Normalizing a localized exponential state
+
+In one dimension let $\psi(x)=N e^{-a\lvert x\rvert}$, where $a>0$. Normalize the state, find $\langle\lvert x\rvert\rangle$, and evaluate the probability of $\lvert x\rvert<0.500\ \mathrm{nm}$ when $a=2.00\ \mathrm{nm^{-1}}$.
+
+**Solution.** Choose $N$ real and positive; any constant phase would be physically irrelevant. Evenness gives
+
+$$
+1=2N^2\int_0^\infty e^{-2ax}dx
+=2N^2\left(\frac1{2a}\right),
+$$
+
+so
+
+$$
+\boxed{N=\sqrt a}.
+$$
+
+This has units $\mathrm{m^{-1/2}}$, as a one-dimensional wavefunction must. The mean absolute position is
+
+$$
+\begin{aligned}
+\langle\lvert x\rvert\rangle
+&=2a\int_0^\infty x e^{-2ax}dx\\
+&=\frac1{2a}
+=\boxed{0.250\ \mathrm{nm}}.
+\end{aligned}
+$$
+
+For $b=0.500\ \mathrm{nm}$,
+
+$$
+\begin{aligned}
+P(\lvert x\rvert<b)
+&=2a\int_0^b e^{-2ax}dx\\
+&=1-e^{-2ab}
+=1-e^{-2}
+=\boxed{0.8647}.
+\end{aligned}
+$$
+
+The state is real, so its probability current is zero; there is no preferred direction of flow. As $a$ increases, the normalization amplitude grows while the length $1/a$ and $\langle\lvert x\rvert\rangle$ shrink, consistently describing stronger localization. The probability tends to zero as $b\to0$ and to one as $b\to\infty$.
+
+### 2. Expectation values for a polynomial trial wavefunction
+
+On $0<x<L$, let $\psi(x)=N x(L-x)$ and let it vanish at the endpoints. Normalize it and find $\langle x\rangle$ and $\langle p_x\rangle$.
+
+**Solution.** The polynomial is real and symmetric about $L/2$. Direct normalization gives
+
+$$
+\int_0^L x^2(L-x)^2dx=\frac{L^5}{30},
+$$
+
+and hence
+
+$$
+\boxed{N=\frac{\sqrt{30}}{L^{5/2}}}.
+$$
+
+The factor $Nx(L-x)$ has units $L^{-1/2}$, as required. For position,
+
+$$
+\langle x\rangle
+=N^2\int_0^L x^3(L-x)^2dx
+=\boxed{\frac L2}.
+$$
+
+For momentum, keep the operator sign $-i\hbar\,d/dx$:
+
+$$
+\begin{aligned}
+\langle p_x\rangle
+&=-i\hbar\int_0^L\psi\frac{d\psi}{dx}dx\\
+&=-\frac{i\hbar}{2}\left[\psi^2(x)\right]_0^L
+=\boxed{0}.
+\end{aligned}
+$$
+
+The zero integral is real and reflects equal positive- and negative-momentum content rather than absence of kinetic energy. It does not by itself assert that $-i\hbar,d/dx$ is self-adjoint on the rigid-wall Dirichlet domain; self-adjointness depends on the operator domain. The midpoint value follows independently from reflection symmetry $x\mapsto L-x$ and remains $L/2$ under any overall phase choice.
+
+## Descriptive Questions
+
+1. State the quantum postulates used to predict possible measurement results, their probabilities, and subsequent time evolution.
+2. Why must a physical bound-state wavefunction be square-integrable, and under what circumstances can its first derivative be discontinuous?
+3. Derive the three-dimensional probability-current density and explain the sign of each term in the continuity equation.
+4. How do Hermiticity and commutation determine real eigenvalues, orthogonality, and the possibility of simultaneous eigenstates?
+
+## Numerical Problems
+
+1. An observable has eigenvalues $3.00$ and $7.00$ with probabilities $1/5$ and $4/5$. Find its mean and standard deviation.<br>
+   **Final answer:** $\boxed{\langle A\rangle=6.20,\quad\Delta A=1.60}$.
+2. A one-dimensional plane wave has density $\rho=4.00\times10^6\ \mathrm{m^{-1}}$ and positive momentum $2.00\times10^{-24}\ \mathrm{kg\,m\,s^{-1}}$. Find its electron probability current.<br>
+   **Final answer:** $\boxed{j=+8.78\times10^{12}\ \mathrm{s^{-1}}}$.
+3. A constant wavefunction is normalized only on an interval of length $2.00\ \mathrm{nm}$. Find its amplitude magnitude.<br>
+   **Final answer:** $\boxed{\lvert A\rvert=L^{-1/2}=2.24\times10^4\ \mathrm{m^{-1/2}}}$.
+
+Every added normalization, expectation value, and probability-current value is checked in the [MJ-11 problem-verification worksheet]({{ '/assets/maxima/bsc/sem-v/mj-11/problem-checks.mac' | relative_url }}); every printed residual and check is zero.
+
+## References
+
+1. [Wikipedia: Wave function](https://en.wikipedia.org/wiki/Wave_function)
+2. [OpenStax, *University Physics Volume 3*, Section 7.1: Wave Functions](https://openstax.org/books/university-physics-volume-3/pages/7-1-wave-functions)
+3. [MIT OpenCourseWare 8.04, Lecture Note 6: Probability density and current](https://www.ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2016/resources/mit8_04s16_lecnotes6/)
+4. [The Feynman Lectures on Physics, Vol. III, Chapter 20: Operators](https://www.feynmanlectures.caltech.edu/III_20.html)

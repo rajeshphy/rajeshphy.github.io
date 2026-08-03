@@ -9,4 +9,56 @@ print("length-contraction residual (must be 0):",ratsimp(L_solution-L0/g))$
 clock_triangle : c^2*dt^2-c^2*dtau^2-v^2*dt^2$
 print("light-clock residual (must be 0):",
   ratsimp(radcan(subst(dt=g*dtau,clock_triangle))))$
+
+/* Solved problems and numerical problems. */
+c0 : 3*10^8$
+
+p1_b : 49/50$ p1_g : 50/sqrt(99)$ p1_tau : 2197*10^-9$
+p1_dt : p1_g*p1_tau$
+p1_d : p1_b*c0*p1_dt$
+p1_dprime : p1_d/p1_g$
+print("solved 1 dilation identity residual (must be 0):",
+  radcan(p1_dt-p1_g*p1_tau))$
+print("solved 1 lifetime rounding residual (must be 0):",
+  round(float(p1_dt*10^8))-1104)$
+print("solved 1 Earth-distance rounding residual (must be 0):",
+  round(float(p1_d))-3246)$
+print("solved 1 contracted-distance residual (must be 0):",
+  radcan(p1_dprime-p1_b*c0*p1_tau))$
+print("solved 1 contracted-distance rounding residual (must be 0):",
+  round(float(p1_dprime*10))-6459)$
+
+p2_b : 4/5$ p2_g : 5/3$ p2_L0 : 10$
+p2_L : p2_L0/p2_g$
+p2_dtp : p2_g*(-p2_b*p2_L/c0)$
+print("solved 2 contracted-length residual (must be 0):",ratsimp(p2_L-6))$
+print("solved 2 simultaneity-offset residual (must be 0):",
+  ratsimp(p2_dtp+8*10^-8/3))$
+
+q1_g : 5/3$ q1_lab : 10*10^-6$
+q1_moving : q1_lab/q1_g$
+q1_lag : q1_lab-q1_moving$
+print("numerical 1 moving-clock residual (must be 0):",
+  ratsimp(q1_moving-6*10^-6))$
+print("numerical 1 clock-lag residual (must be 0):",
+  ratsimp(q1_lag-4*10^-6))$
+q2_b : 3/5$ q2_g : 5/4$ q2_passage_time : (2/5)*10^-6$
+q2_lab_length : q2_b*c0*q2_passage_time$
+q2_proper_length : q2_g*q2_lab_length$
+print("numerical 2 passage-length residual (must be 0):",
+  ratsimp(q2_lab_length-72))$
+print("numerical 2 recovered-proper-length residual (must be 0):",
+  ratsimp(q2_proper_length-90))$
+q3_b : sqrt(3)/2$
+print("numerical 3 dilation-factor residual (must be 0):",
+  radcan(1/sqrt(1-q3_b^2)-2))$
+q4_b : sqrt(1-(4/5)^2)$
+print("numerical 4 speed residual (must be 0):",radcan(q4_b-3/5))$
+q5_tau : sqrt((c0*5*10^-6)^2-900^2)/c0$
+print("numerical 5 proper-time residual (must be 0):",
+  radcan(q5_tau-4*10^-6))$
+q6_length : sqrt(1-(3/5)^2)$
+q6_volume : q6_length*1*1$
+print("numerical 6 moving-edge residual (must be 0):",radcan(q6_length-4/5))$
+print("numerical 6 volume residual (must be 0):",radcan(q6_volume-4/5))$
 quit();

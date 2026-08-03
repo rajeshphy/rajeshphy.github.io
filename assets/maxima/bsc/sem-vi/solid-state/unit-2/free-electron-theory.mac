@@ -1,3 +1,4 @@
+kill(all)$
 display2d:false$
 
 NE:V/(3*%pi^2)*(2*m*E/hbar^2)^(3/2)$
@@ -17,3 +18,56 @@ kappa:ratsimp(ce*vF^2*tau/3)$
 residual_wiedemann_franz:radcan(kappa/(sigma*T)-%pi^2*kB^2/(3*e^2))$
 print("residual_wiedemann_franz =",residual_wiedemann_franz)$
 
+/* Physical constants used in the worked and exercise numerical checks. */
+hbar0 : 1.054571817*10^(-34)$
+mass_e : 9.1093837015*10^(-31)$
+charge_e : 1.602176634*10^(-19)$
+boltzmann : 1.380649*10^(-23)$
+n0 : 8.5*10^28$
+
+/* Solved problem 1: Fermi parameters of a monovalent metal. */
+kF0 : (3*%pi^2*n0)^(1/3)$
+EF0 : hbar0^2*kF0^2/(2*mass_e)$
+vF0 : hbar0*kF0/mass_e$
+TF0 : EF0/boltzmann$
+kF0_check : round(float(kF0/10^7))-1360$
+EF0_check : round(float(EF0/charge_e)*1000)-7049$
+vF0_check : round(float(vF0/1000))-1575$
+TF0_check : round(float(TF0))-81804$
+print("worked Fermi wave-number rounding check =",kF0_check)$
+print("worked Fermi-energy rounding check (eV) =",EF0_check)$
+print("worked Fermi-speed rounding check =",vF0_check)$
+print("worked Fermi-temperature rounding check =",TF0_check)$
+
+/* Solved problem 2: relaxation time and mean free path from resistivity. */
+rho0 : 1.7*10^(-8)$
+tau0 : mass_e/(n0*charge_e^2*rho0)$
+ell0_nm : vF0*tau0*10^9$
+tau0_check : round(float(tau0*10^17))-2456$
+ell0_check : round(float(ell0_nm)*1000)-38672$
+print("worked relaxation-time rounding check =",tau0_check)$
+print("worked mean-free-path rounding check (nm) =",ell0_check)$
+
+/* Exercise answers: DOS, occupation, chemical potential and transport. */
+dos_ev : 3*(8*10^28)/(2*7)$
+dos_ev_check : round(float(dos_ev/10^24))-17143$
+fermi_one_kT : 1/(exp(1)+1)$
+fermi_one_kT_check : round(float(fermi_one_kT)*10^6)-268941$
+kB_ev : 8.617333262*10^(-5)$
+mu_drop_ev : (%pi^2/12)*(kB_ev*300)^2/5.5$
+mu_drop_check : round(float(mu_drop_ev)*10^9)-99941$
+ac_magnitude_check : round(float(1/sqrt(5))*10^6)-447214$
+ac_phase_lead_check : round(float(atan(2)*180/%pi)*1000)-63435$
+TF7 : 7/kB_ev$
+cv_molar : (%pi^2/2)*8.314462618*300/TF7$
+cv_molar_check : round(float(cv_molar)*1000)-152$
+lorenz0 : (%pi^2/3)*(boltzmann/charge_e)^2$
+kappa0 : lorenz0*300/rho0$
+kappa0_check : round(float(kappa0)*10)-4311$
+print("DOS rounding check (eV^-1 m^-3) =",dos_ev_check)$
+print("Fermi occupation rounding check =",fermi_one_kT_check)$
+print("chemical-potential drop rounding check (eV) =",mu_drop_check)$
+print("AC conductivity magnitude-ratio check =",ac_magnitude_check)$
+print("AC conductivity phase-lead check (degree) =",ac_phase_lead_check)$
+print("electronic molar-heat rounding check =",cv_molar_check)$
+print("Wiedemann-Franz conductivity rounding check =",kappa0_check)$

@@ -26,4 +26,55 @@ fringes_rotated : 2*c*(L*v^2/c^3)/lambda$
 print("rotated fringe residual (must be 0):",
   ratsimp(fringes_rotated-2*L*v^2/(lambda*c^2)))$
 
+/* Solved problems and numerical problems. */
+c0 : 3*10^8$
+g0 : 981/100$
+
+p1_normal : 70*(g0+2)$
+print("solved 1 ground-frame residual (must be 0):",
+  ratsimp(p1_normal-8267/10))$
+print("solved 1 lift-frame residual (must be 0):",
+  ratsimp(p1_normal-70*g0-70*2))$
+
+p2_b : 1/10000$
+p2_tpar : 2*11/c0/(1-p2_b^2)$
+p2_tperp : 2*11/c0/sqrt(1-p2_b^2)$
+p2_exact_shift : 2*c0*(p2_tpar-p2_tperp)/(500*10^-9)$
+p2_exact_shift_function :
+  2*c0*(2*11/c0/(1-b^2)-2*11/c0/sqrt(1-b^2))/(500*10^-9)$
+p2_small_shift : 2*11*(3*10^4)^2/((500*10^-9)*c0^2)$
+print("solved 2 small-beta fringe residual (must be 0):",
+  ratsimp(p2_small_shift-11/25))$
+print("solved 2 exact-to-small limit residual (must be 0):",
+  ratsimp(subst(b=0,diff(p2_exact_shift_function,b,2))/2-2*11/(500*10^-9)))$
+
+q1_acceleration : 12/3$
+print("numerical 1 acceleration residual (must be 0):",
+  ratsimp(q1_acceleration-4))$
+q2_centrifugal : 2*4^2*(1/2)$
+print("numerical 2 centrifugal-force residual (must be 0):",
+  ratsimp(q2_centrifugal-16))$
+q3_b : 3/5$
+print("numerical 3 longitudinal-factor residual (must be 0):",
+  ratsimp(1/(1-q3_b^2)-25/16))$
+print("numerical 3 transverse-factor residual (must be 0):",
+  radcan(1/sqrt(1-q3_b^2)-5/4))$
+q4_A : 5/2$ q4_t : 4$
+q4_puck_advance : 0$
+q4_carriage_advance : q4_A*q4_t^2/2$
+q4_displacement : q4_puck_advance-q4_carriage_advance$
+print("numerical 4 carriage-advance residual (must be 0):",
+  ratsimp(q4_carriage_advance-20))$
+print("numerical 4 carriage-displacement residual (must be 0):",
+  ratsimp(q4_displacement+20))$
+q5_speed : c0*sqrt((1/10)*(500*10^-9)/(2*10))$
+print("numerical 5 drift-speed residual (must be 0):",
+  radcan(q5_speed-15000))$
+q6_galilean : c0-(2/5)*c0$
+q6_lorentz : (c0-(2/5)*c0)/(1-c0*(2/5)*c0/c0^2)$
+print("numerical 6 Galilean-speed residual (must be 0):",
+  ratsimp(q6_galilean-(3/5)*c0))$
+print("numerical 6 relativistic-speed residual (must be 0):",
+  ratsimp(q6_lorentz-c0))$
+
 quit();

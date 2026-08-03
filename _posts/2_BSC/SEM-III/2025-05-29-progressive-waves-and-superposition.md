@@ -40,9 +40,9 @@ $$
 The dimensions are $[T/\mu]={\rm m^2\,s^{-2}}$, so $v$ has units ${\rm m\,s^{-1}}$. For a right-moving profile $y=f(x-vt)$, put $\xi=x-vt$. Then
 
 $$
-y_{xx}=f''(\xi),
+y_{xx}=f^{\prime\prime}(\xi),
 \qquad
-y_{tt}=v^2f''(\xi),
+y_{tt}=v^2f^{\prime\prime}(\xi),
 $$
 
 so the profile satisfies the wave equation. Similarly, $g(x+vt)$ travels in the $-x$ direction. The general one-dimensional solution is
@@ -216,4 +216,89 @@ On an oscilloscope in $X$-$Y$ mode, these facts allow measurement of an unknown 
   <figcaption>Every curve is plotted from the equations in the note with its parameter values printed beside the panel.</figcaption>
 </figure>
 
-The wave-equation, resultant-amplitude, beat, and Lissajous identities are checked in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-1/mj4-unit-1-checks.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Resultant of two equal-frequency oscillations
+
+Two collinear oscillations have amplitudes $A_1=3\,\mathrm{mm}$ and $A_2=4\,\mathrm{mm}$, with the second leading the first by $90^\circ$. Find the resultant amplitude and phase lead.
+
+**Step 1: Use the phasor components.** With $\delta=\pi/2$,
+
+$$
+R\cos\alpha=A_1+A_2\cos\delta=3\,\mathrm{mm},
+$$
+
+$$
+R\sin\alpha=A_2\sin\delta=4\,\mathrm{mm}.
+$$
+
+**Step 2: Determine the amplitude.**
+
+$$
+R=\sqrt{3^2+4^2}\,\mathrm{mm}=5\,\mathrm{mm}.
+$$
+
+**Step 3: Determine the phase.**
+
+$$
+\tan\alpha=\frac{4}{3}
+\quad\Longrightarrow\quad
+\alpha=\tan^{-1}\!\left(\frac43\right)\simeq53.13^\circ.
+$$
+
+The component check is $5\cos\alpha=3$ and $5\sin\alpha=4$, so both the amplitude and quadrant are consistent.
+
+### 2. Phase from an equal-frequency Lissajous figure
+
+An equal-frequency Lissajous ellipse has vertical semiaxis $B=6\,\mathrm{cm}$ and crosses the positive $y$-axis at $y_0=3\,\mathrm{cm}$. Its major axis has positive slope. Find the phase difference.
+
+**Step 1: Use the intercept relation.**
+
+$$
+\left\lvert\sin\delta\right\rvert
+=\frac{\lvert y_0\rvert}{B}=\frac{3}{6}=\frac12.
+$$
+
+Thus the possible phases in $0\leq\delta\leq\pi$ are $30^\circ$ and $150^\circ$.
+
+**Step 2: Use the orientation.** A positive-slope ellipse has $\cos\delta>0$, which selects the first quadrant:
+
+$$
+\boxed{\delta=30^\circ}.
+$$
+
+Substitution gives $\lvert\sin30^\circ\rvert=1/2$, reproducing the measured intercept.
+
+## Descriptive Questions
+
+1. How does particle velocity differ from wave velocity in a transverse progressive wave?
+2. Why does the amplitude of an ideal spherical wave vary as $1/r$ while its intensity varies as $1/r^2$?
+3. How does linearity of the wave equation lead to the superposition principle?
+4. How can a Lissajous figure determine an unknown frequency and an equal-frequency phase difference?
+
+## Numerical Problems
+
+1. A string has tension $64\,\mathrm{N}$ and linear density $1.00\times10^{-2}\,\mathrm{kg\,m^{-1}}$. A travelling wave on it has wavelength $0.400\,\mathrm{m}$. Find its speed and frequency.
+
+   **Answer:** $v=80.0\,\mathrm{m\,s^{-1}}$ and $f=200\,\mathrm{Hz}$.
+
+2. The displacement amplitude of an outgoing spherical wave is $3.00\,\mathrm{mm}$ at $r=2.00\,\mathrm{m}$. Find its amplitude at $r=5.00\,\mathrm{m}$ and the corresponding intensity ratio $I(5)/I(2)$.
+
+   **Answer:** $A(5)=1.20\,\mathrm{mm}$ and $I(5)/I(2)=4/25=0.160$.
+
+3. Two tuning forks of frequencies $256\,\mathrm{Hz}$ and $260\,\mathrm{Hz}$ sound together. Find the beat frequency and the time between successive intensity maxima.
+
+   **Answer:** $f_b=4.00\,\mathrm{Hz}$ and $T_b=0.250\,\mathrm{s}$.
+
+4. A closed Lissajous figure has three vertical tangencies and two horizontal tangencies. If the standard signal applied along $y$ has frequency $f_y=200\,\mathrm{Hz}$, find the unknown frequency $f_x$ using the tangency-count relation stated above.
+
+   **Answer:** $f_x=(3/2)f_y=300\,\mathrm{Hz}$.
+
+The solved results and all numerical answers are verified by exact residuals in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-1/mj4-unit-1-checks.mac' | relative_url }}).
+
+## References
+
+1. [Wave equation - Wikipedia](https://en.wikipedia.org/wiki/Wave_equation)
+2. F. S. Crawford Jr., *Waves*, Berkeley Physics Course, Vol. 3, McGraw-Hill, sections on progressive waves and superposition.
+3. H. J. Pain, *The Physics of Vibrations and Waves*, Wiley, chapters on travelling waves and beats.
+4. A. P. French, *Vibrations and Waves*, MIT Introductory Physics Series, W. W. Norton, chapters on coupled harmonic motions and Lissajous figures.

@@ -1,0 +1,98 @@
+/* Semiconductor materials and band gaps. Every printed residual/check is 0. */
+kill(all)$
+
+/* Carrier-current signs and conductivity. */
+Jn : (-q*n)*(-mun*E)$
+Jp : ( q*p)*( mup*E)$
+print("electron-current sign residual =", ratsimp(Jn-q*n*mun*E))$
+print("hole-current sign residual =", ratsimp(Jp-q*p*mup*E))$
+print("conductivity-sum residual =", ratsimp((Jn+Jp)/E-q*(n*mun+p*mup)))$
+
+/* Correlated energy and momentum signs for indirect absorption. */
+Egamma_abs : Eg-Eph$
+Dk_abs : qph$
+Egamma_emit : Eg+Eph$
+Dk_emit : -qph$
+print("phonon-absorption energy residual =", ratsimp(Egamma_abs+Eph-Eg))$
+print("phonon-absorption momentum residual =", ratsimp(Dk_abs-qph))$
+print("phonon-emission energy residual =", ratsimp(Egamma_emit-Eph-Eg))$
+print("phonon-emission momentum residual =", ratsimp(Dk_emit+qph))$
+print("threshold-separation residual =", ratsimp(Egamma_emit-Egamma_abs-2*Eph))$
+
+/* Constants used below. */
+q0 : 1.602176634e-19$
+hc_ev_nm : 1239.841984$
+
+/* Solved problem 1. */
+n1 : 2.50e21$
+p1 : 4.00e14$
+mun1 : 0.140$
+mup1 : 0.0500$
+sigma1 : q0*(n1*mun1+p1*mup1)$
+rho1 : 1/sigma1$
+electron_percent1 : 100*n1*mun1/(n1*mun1+p1*mup1)$
+print("solved-1 conductivity check =", round(100*sigma1)-5608)$
+print("solved-1 resistivity check =", round(1e5*rho1)-1783)$
+print("solved-1 electron-percent check =", round(1e6*electron_percent1)-99999994)$
+print("solved-1 reciprocal check =", ratsimp(sigma1*rho1-1))$
+
+/* Solved problem 2. */
+Eg2 : 1120/1000$
+Eph2 : 57/1000$
+Eminus2 : Eg2-Eph2$
+Eplus2 : Eg2+Eph2$
+lambda_minus2 : hc_ev_nm/Eminus2$
+lambda_plus2 : hc_ev_nm/Eplus2$
+print("solved-2 absorption-energy check =", Eminus2-1063/1000)$
+print("solved-2 emission-energy check =", Eplus2-1177/1000)$
+print("solved-2 long-wavelength check =", round(10*lambda_minus2)-11664)$
+print("solved-2 short-wavelength check =", round(10*lambda_plus2)-10534)$
+print("solved-2 branch-spacing check =", Eplus2-Eminus2-114/1000)$
+
+/* Numerical problem 1: compare photon and crystal wavevector scales. */
+a_n1 : 565/10^12$
+lambda_n1 : 900/10^9$
+kgamma_n1 : 2*%pi/lambda_n1$
+kzone_n1 : %pi/a_n1$
+momentum_ratio_n1 : kgamma_n1/kzone_n1$
+print("numerical-1 photon-wavevector check =", round(kgamma_n1/1000)-6981)$
+print("numerical-1 zone-wavevector check =", round(kzone_n1/10^6)-5560)$
+print("numerical-1 wavevector-ratio check =", ratsimp(momentum_ratio_n1-113/90000))$
+
+q_n2 : 16/10^20$
+sigma_n2 : 24$
+n_n2 : 125*10^19$
+mun_n2 : 1/10$
+mup_n2 : 1/20$
+p_n2 : (sigma_n2/q_n2-n_n2*mun_n2)/mup_n2$
+print("numerical-2 inferred-hole-density check =", p_n2-5*10^20)$
+print("numerical-2 conductivity-reconstruction residual =", ratsimp(q_n2*(n_n2*mun_n2+p_n2*mup_n2)-sigma_n2))$
+
+/* Numerical problem 3: signed carrier flow and conventional current. */
+q_exact_n3 : 1602176634/10^28$
+electron_flow_n3 : -8*10^14$
+hole_flow_n3 : 3*10^14$
+In_n3 : (-q_exact_n3)*electron_flow_n3$
+Ip_n3 : q_exact_n3*hole_flow_n3$
+Itotal_n3 : In_n3+Ip_n3$
+print("numerical-3 electron-current check =", round(10^7*In_n3)-1282)$
+print("numerical-3 hole-current check =", round(10^7*Ip_n3)-481)$
+print("numerical-3 net-current check =", round(10^7*Itotal_n3)-1762)$
+print("numerical-3 electron-sign residual =", ratsimp(In_n3-q_exact_n3*8*10^14))$
+print("numerical-3 current-sum residual =", ratsimp(Itotal_n3-q_exact_n3*11*10^14))$
+
+vn_n4 : -0.135*250$
+vp_n4 :  0.0480*250$
+print("numerical-4 electron-velocity check =", round(100*vn_n4)+3375)$
+print("numerical-4 hole-velocity check =", round(100*vp_n4)-1200)$
+
+Elow_n5 : 1065/1000$
+Ehigh_n5 : 1155/1000$
+Eg_n5 : (Elow_n5+Ehigh_n5)/2$
+Eph_n5 : (Ehigh_n5-Elow_n5)/2$
+print("numerical-5 inferred-gap check =", Eg_n5-1110/1000)$
+print("numerical-5 inferred-phonon-energy check =", Eph_n5-45/1000)$
+print("numerical-5 edge-reconstruction residual =", ratsimp((Eg_n5-Eph_n5)-Elow_n5))$
+
+spacing_nm_n6 : (5.0e24)^(-1/3)*1e9$
+print("numerical-6 spacing check =", round(100*spacing_nm_n6)-585)$

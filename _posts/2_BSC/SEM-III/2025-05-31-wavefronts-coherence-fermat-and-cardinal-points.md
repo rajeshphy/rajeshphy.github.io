@@ -180,14 +180,14 @@ Under this convention a concave mirror has $R<0$ and $f<0$.
 
 A centered paraxial optical system has three pairs of cardinal points:
 
-1. **Principal points $H_1,H_2$.** Their perpendicular planes are conjugate with unit transverse magnification. Object distance $s$ is measured from the first principal plane and image distance $s'$ from the second.
+1. **Principal points $H_1,H_2$.** Their perpendicular planes are conjugate with unit transverse magnification. Object distance $s$ is measured from the first principal plane and image distance $s^{\prime}$ from the second.
 2. **Focal points $F_1,F_2$.** A ray directed toward the front focus $F_1$ emerges parallel to the axis. A parallel incident ray emerges through the rear focus $F_2$. Planes normal to the axis through these points are the focal planes.
 3. **Nodal points $N_1,N_2$.** A ray directed toward $N_1$ emerges as if from $N_2$ with the same physical angle to the axis.
 
 If the system power is $\Phi$, the Gaussian equation referred to the principal planes is
 
 $$
-\boxed{\frac{n_2}{s'}-\frac{n_1}{s}=\Phi}.
+\boxed{\frac{n_2}{s^{\prime}}-\frac{n_1}{s}=\Phi}.
 $$
 
 Putting the image or object at infinity gives the oriented front and rear focal lengths:
@@ -214,4 +214,100 @@ Therefore, when the entrance and exit media have the same refractive index, $N_1
   <figcaption>The refracted wavelet geometry enforces Snell's law; principal planes provide the reference surfaces for a thick optical system.</figcaption>
 </figure>
 
-The electromagnetic wave speed, Fermat stationarity, surface/lens formulae, and cardinal-point relations are checked in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-1/mj4-unit-1-checks.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Focal length and image position of a symmetric thin lens
+
+A thin biconvex lens in air has refractive index $n=1.50$, radii $R_1=+0.200\,\mathrm{m}$ and $R_2=-0.200\,\mathrm{m}$, and an object at $u=-0.300\,\mathrm{m}$. Find the focal length and image distance.
+
+**Step 1: Apply the lens-maker relation.**
+
+$$
+\begin{aligned}
+\frac1f
+&=(n-1)\left(\frac1{R_1}-\frac1{R_2}\right)\\
+&=0.50\left(\frac1{0.200}-\frac1{-0.200}\right)
+=5.00\,\mathrm{m^{-1}}.
+\end{aligned}
+$$
+
+Thus
+
+$$
+f=0.200\,\mathrm{m}.
+$$
+
+**Step 2: Use the Gaussian lens equation.**
+
+$$
+\frac1v-\frac1u=\frac1f
+\quad\Longrightarrow\quad
+\frac1v+\frac1{0.300}=\frac1{0.200}.
+$$
+
+Therefore $1/v=5-10/3=5/3\,\mathrm{m^{-1}}$, so
+
+$$
+\boxed{v=0.600\,\mathrm{m}}.
+$$
+
+The positive image distance identifies a real image on the outgoing side of the lens.
+
+### 2. Refraction from Fermat's stationary optical path
+
+A ray passes from air, $n_1=1.00$, into glass, $n_2=1.50$, at incidence angle $i=30^\circ$. Find the refracted angle and verify the stationary-path condition.
+
+**Step 1: Use the result of the optical-path variation.**
+
+$$
+n_1\sin i=n_2\sin r.
+$$
+
+**Step 2: Substitute the data.**
+
+$$
+\sin r=\frac{1.00}{1.50}\sin30^\circ
+=\frac13.
+$$
+
+Hence
+
+$$
+\boxed{r=\sin^{-1}\!\left(\frac13\right)\simeq19.47^\circ}.
+$$
+
+Finally, $1.00\sin30^\circ=1/2$ and $1.50\sin r=1.50(1/3)=1/2$, so the two sides of the stationarity condition agree exactly.
+
+## Descriptive Questions
+
+1. How does Huygens's construction lead to the laws of reflection and refraction?
+2. What is the distinction between temporal coherence and spatial coherence?
+3. Why is Fermat's principle a stationary-optical-path principle rather than simply a shortest-path rule?
+4. What are the six cardinal points of a centered optical system and how are they used?
+
+## Numerical Problems
+
+1. A source has frequency width $\Delta\nu=2.00\,\mathrm{MHz}$. Estimate its coherence time and vacuum coherence length.
+
+   **Answer:** $\tau_c=0.500\,\mu\mathrm{s}$ and $\ell_c=150\,\mathrm{m}$.
+
+2. A plane electromagnetic wave in vacuum has electric-field amplitude $300\,\mathrm{V\,m^{-1}}$. Find its magnetic-field amplitude using $c=3.00\times10^8\,\mathrm{m\,s^{-1}}$.
+
+   **Answer:** $B_0=1.00\,\mu\mathrm{T}$.
+
+3. A concave spherical mirror has $f=-20.0\,\mathrm{cm}$ and an object at $u=-60.0\,\mathrm{cm}$. Find the image distance with the sign convention used above.
+
+   **Answer:** $v=-30.0\,\mathrm{cm}$.
+
+4. A centered optical system has power $\Phi=4.00\,\mathrm{m^{-1}}$, entrance index $n_1=1.00$, and exit index $n_2=1.50$. Find $f_1$, $f_2$, and the principal-to-nodal offset.
+
+   **Answer:** $f_1=-0.250\,\mathrm{m}$, $f_2=0.375\,\mathrm{m}$, and $H_1N_1=H_2N_2=0.125\,\mathrm{m}$.
+
+The solved results and all numerical answers are verified by exact residuals in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-1/mj4-unit-1-checks.mac' | relative_url }}).
+
+## References
+
+1. [Huygens-Fresnel principle - Wikipedia](https://en.wikipedia.org/wiki/Huygens%E2%80%93Fresnel_principle)
+2. F. A. Jenkins and H. E. White, *Fundamentals of Optics*, McGraw-Hill, sections on wavefronts, Fermat's principle, and Gaussian optics.
+3. Max Born and Emil Wolf, *Principles of Optics*, Cambridge University Press, sections on geometrical optics and coherence.
+4. Ajoy Ghatak, *Optics*, McGraw Hill Education, chapters on lens systems and cardinal points.

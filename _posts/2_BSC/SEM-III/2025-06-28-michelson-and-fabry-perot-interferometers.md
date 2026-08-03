@@ -13,7 +13,7 @@ hidden: true
 
 A half-silvered plate divides the incident amplitude into two perpendicular arms. After reflection at mirrors $M_1$ and $M_2$, the beams return and recombine. A compensating plate of the same glass and thickness makes both beams traverse equal glass paths, preventing an unwanted wavelength-dependent phase difference.
 
-The two returning waves behave as if they came from $M_1$ and the virtual image $M_2'$ of the other mirror. If the effective separation of these parallel surfaces is $d$, a ray observed at angle $\theta$ has the round-trip optical-path difference
+The two returning waves behave as if they came from $M_1$ and the virtual image $M_2^{\prime}$ of the other mirror. If the effective separation of these parallel surfaces is $d$, a ray observed at angle $\theta$ has the round-trip optical-path difference
 
 $$
 \boxed{\Delta=2d\cos\theta}.
@@ -181,4 +181,112 @@ As $R$ increases, the Airy maxima become narrower while their normalized peak va
   <figcaption>The Fabry-Perot curves are exact Airy functions for the reflectances printed on the plot.</figcaption>
 </figure>
 
-The measurement formulae, small-$v/c$ expansions, and Airy sum are checked in the [Unit II Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-2/mj4-unit-2-checks.mac' | relative_url }}).
+## Solved Problems
+
+### Problem 1: Separation of a close spectral doublet
+
+Successive visibility maxima occur after a Michelson mirror displacement
+$\Delta x=0.180\,\mathrm{mm}$ for a doublet near
+$\bar\lambda=600\,\mathrm{nm}$. Find the wavelength separation.
+
+The recurrence condition is
+
+$$
+2\Delta x\left\lvert
+\frac1{\lambda_1}-\frac1{\lambda_2}
+\right\rvert=1.
+$$
+
+For a close doublet,
+
+$$
+\left\lvert
+\frac1{\lambda_1}-\frac1{\lambda_2}
+\right\rvert
+\simeq\frac{\Delta\lambda}{\bar\lambda^2},
+$$
+
+so
+
+$$
+\Delta\lambda
+\simeq\frac{\bar\lambda^2}{2\Delta x}
+=\frac{(600\times10^{-9})^2}
+{2(0.180\times10^{-3})}
+=1.00\times10^{-9}\,\mathrm m.
+$$
+
+Hence $\boxed{\Delta\lambda\simeq1.00\,\mathrm{nm}}$. The ratio
+$\Delta\lambda/\bar\lambda=1/600\ll1$ validates the close-doublet approximation.
+
+### Problem 2: Minimum Fabry-Perot transmission
+
+Show that the normalized transmission minimum of a lossless symmetric Fabry-Perot interferometer is
+
+$$
+\left(\frac{1-R}{1+R}\right)^2,
+$$
+
+and evaluate it for $R=0.80$.
+
+At an antiresonance, $\delta=(2m+1)\pi$, hence
+$\sin^2(\delta/2)=1$. The Airy formula gives
+
+$$
+\frac{I_{\min}}{I_0}
+=\frac{1}{1+F},
+\qquad
+F=\frac{4R}{(1-R)^2}.
+$$
+
+Therefore
+
+$$
+\begin{aligned}
+\frac{I_{\min}}{I_0}
+&=\frac{1}{1+4R/(1-R)^2}\\
+&=\frac{(1-R)^2}{(1-R)^2+4R}
+=\boxed{\left(\frac{1-R}{1+R}\right)^2}.
+\end{aligned}
+$$
+
+For $R=0.80=4/5$,
+
+$$
+\frac{I_{\min}}{I_0}
+=\left(\frac{1/5}{9/5}\right)^2
+=\boxed{\frac1{81}\simeq0.0123}.
+$$
+
+## Descriptive Questions
+
+1. Why is a compensating plate used in a Michelson interferometer?
+2. Under what mirror conditions does a Michelson interferometer show circular or nearly straight fringes?
+3. What stationary-ether prediction failed in the Michelson-Morley experiment, and what did the null result mean?
+4. Why do Fabry-Perot transmission peaks become sharper as plate reflectance increases?
+
+## Numerical Problems
+
+1. In a Michelson interferometer, $400$ fringes cross the field when one mirror is moved. For $\lambda=500\,\mathrm{nm}$, use $2x=N\lambda$.
+
+   **Answer:** $\boldsymbol{x=0.100\,\mathrm{mm}}$.
+
+2. A $5.00\,\mathrm{cm}$ gas cell inserted in one arm produces $120$ fringe shifts at $\lambda=600\,\mathrm{nm}$. Use $\mu=1+N\lambda/(2t)$.
+
+   **Answer:** $\boldsymbol{\mu=1.00072}$.
+
+3. The stationary-ether model uses $L=11.0\,\mathrm m$, $v=30.0\,\mathrm{km\,s^{-1}}$, $\lambda=500\,\mathrm{nm}$, and $c=3.00\times10^8\,\mathrm{m\,s^{-1}}$. Evaluate $N=2Lv^2/(\lambda c^2)$.
+
+   **Answer:** $\boldsymbol{N_{\mathrm{predicted}}=0.440\ \text{fringe}}$.
+
+4. At normal incidence, adjacent Fabry-Perot resonances satisfy $2d\nu_m/c=m$. An air-spaced etalon has plate separation $d=1.50\,\mathrm{cm}$. Find its free spectral range $\Delta\nu=\nu_{m+1}-\nu_m$.
+
+   **Answer:** $\boldsymbol{\Delta\nu=10.0\,\mathrm{GHz}}$.
+
+The measurement formulae, small-$v/c$ expansions, Airy sum, and all worked answers are checked in the [Unit II Maxima worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-4/unit-2/mj4-unit-2-checks.mac' | relative_url }}).
+
+## References
+
+1. [Michelson interferometer — Wikipedia](https://en.wikipedia.org/wiki/Michelson_interferometer)
+2. [The Michelson Interferometer — OpenStax, *University Physics Volume 3*](https://openstax.org/books/university-physics-volume-3/pages/3-5-the-michelson-interferometer)
+3. [Max Born and Emil Wolf, *Principles of Optics* — Cambridge University Press](https://www.cambridge.org/core/books/principles-of-optics/9D54D6FF0317074912CB285C3FF7341C)

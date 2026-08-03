@@ -1,0 +1,18 @@
+/* MJ-5 Unit II: quantum/cosmology correspondence calculations. */
+kill(all)$
+
+/* |psi>=(2|0>+i|1>)/sqrt(5): normalization and <sigma_z>. */
+p0:4/5$
+p1:1/5$
+print("born_normalization_residual =",ratsimp(p0+p1-1))$
+print("sigma_z_expectation_residual =",ratsimp((p0-p1)-3/5))$
+
+/* Flat Lambda=0 critical density for H0=70 km s^-1 Mpc^-1. */
+H0:70000/3.0856775814913673e22$
+G:6.67430e-11$
+rho_c:3*H0^2/(8*%pi*G)$
+print("critical_density_rounding_residual =",round(1e29*rho_c)-920)$
+
+/* Independent short exercises: repeated overlap and cosmological redshift. */
+print("decoherence_rounding_residual =",round(1000*0.99^100)-366)$
+print("redshift_residual =",ratsimp(1/(1/4)-1-3))$

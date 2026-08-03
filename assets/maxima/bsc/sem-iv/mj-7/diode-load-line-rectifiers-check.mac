@@ -1,0 +1,89 @@
+/* Diode load line, conduction boundaries, PIV, and every worked value. */
+kill(all)$
+
+i_load(vs,vd,r) := (vs-vd)/r$
+print("symbolic load-line residual =",
+      ratsimp(vd+i_load(vs,vd,r)*r-vs))$
+
+/* Solved problem 1. */
+iq1 : i_load(5,7/10,1000)$
+print("solved 1 current residual =", ratsimp(iq1-43/10000))$
+print("solved 1 KVL residual =", ratsimp(7/10+iq1*1000-5))$
+
+/* Solved problem 2. */
+vm2 : 10$
+theta2 : asin((7/10)/vm2)$
+ipk2 : (10-7/10)/1000$
+print("solved 2 angle rounded residual =",
+      round(ev(theta2*180/%pi*1000,numer))-4014)$
+print("solved 2 peak-current residual =", ratsimp(ipk2-93/10000))$
+v_anode_negative2 : -vm2$
+v_cathode_negative2 : 0$
+piv2 : v_cathode_negative2-v_anode_negative2$
+print("solved 2 PIV residual =", ratsimp(piv2-10))$
+
+/* Solved problem 3. */
+vm_ct : 12+7/10$
+vm_br : 12+2*(7/10)$
+source_high3 : vm_br$
+source_low3 : 0$
+output_high3 : source_high3$
+piv_br_ideal : output_high3-source_low3$
+print("solved 3 centre-tap peak residual =", ratsimp(vm_ct-127/10))$
+print("solved 3 centre-tap PIV residual =", ratsimp(2*vm_ct-127/5))$
+print("solved 3 bridge peak residual =", ratsimp(vm_br-67/5))$
+print("solved 3 bridge PIV residual =", ratsimp(piv_br_ideal-67/5))$
+
+/* Nonlinear Q point printed in the equation-generated figure. */
+qv_figure : find_root((7/10-vd)/100-(1/10^9)*(exp(vd/(52/1000))-1),
+                      vd,3/5,7/10)$
+qi_figure : (7/10-qv_figure)/100$
+print("figure Q voltage rounded residual =",
+      round(ev(qv_figure*10^6,numer))-664522)$
+print("figure Q current rounded residual =",
+      round(ev(qi_figure*10^9,numer))-354783)$
+print("figure Q equation rounded residual =",
+      round(ev(((7/10-qv_figure)/100
+               -(1/10^9)*(exp(qv_figure/(52/1000))-1))*10^15,numer)))$
+
+/* Numerical problems. */
+vs_n1 : 5$ vd_n1 : 4/5$ iq_n1 : 3/250$
+rl_n1 : 350$ pr_n1 : 63/1250$ iaxis_n1 : 1/70$
+print("numerical 1 designed-load-line residual =",
+      ratsimp(vd_n1+iq_n1*rl_n1-vs_n1))$
+print("numerical 1 resistor-power residual =",
+      ratsimp(pr_n1-iq_n1^2*rl_n1))$
+print("numerical 1 current-axis intercept residual =",
+      ratsimp(iaxis_n1-vs_n1/rl_n1))$
+
+vm_n2 : 10$ vf_n2 : 3/5$ rl_n2 : 880$
+vo_n2 : 22/5$ il_n2 : 1/200$
+print("numerical 2 conducting-state KVL residual =",
+      radcan(vm_n2*sin(%pi/6)-vf_n2-vo_n2))$
+print("numerical 2 conducting-state load residual =",
+      ratsimp(vo_n2-il_n2*rl_n2))$
+print("numerical 2 blocking-state diode-voltage residual =",
+      radcan(vm_n2*sin(7*%pi/6)+5))$
+
+vm_n3 : 10$ vf_n3 : 7/10$ rl_n3 : 930$
+vo_n3 : 93/10$ il_n3 : 1/100$ source_frequency_n3 : 50$
+output_frequency_n3 : 50$
+print("numerical 3 surviving-peak KVL residual =",
+      ratsimp(vm_n3-vf_n3-vo_n3))$
+print("numerical 3 peak-load-current residual =",
+      ratsimp(vo_n3-rl_n3*il_n3))$
+print("numerical 3 half-wave frequency residual =",
+      ratsimp(output_frequency_n3-source_frequency_n3))$
+
+vo_positive_n4 : 107/10$ io_positive_n4 : 107/10000$
+vo_negative_n4 : 53/5$ io_negative_n4 : 53/5000$
+print("numerical 4 positive-crest KVL residual =",
+      ratsimp(12-3/5-7/10-vo_positive_n4))$
+print("numerical 4 positive-crest load residual =",
+      ratsimp(vo_positive_n4-1000*io_positive_n4))$
+print("numerical 4 negative-crest KVL residual =",
+      ratsimp(12-3/4-13/20-vo_negative_n4))$
+print("numerical 4 negative-crest load residual =",
+      ratsimp(vo_negative_n4-1000*io_negative_n4))$
+print("numerical 4 unequal-peak residual =",
+      ratsimp(vo_positive_n4-vo_negative_n4-1/10))$

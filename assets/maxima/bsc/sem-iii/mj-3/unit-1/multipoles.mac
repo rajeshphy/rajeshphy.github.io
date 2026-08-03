@@ -43,4 +43,41 @@ res_tensor :
 
 print("axial quadrupole-tensor residual =",res_tensor)$
 
+/* Enhancement checks: solved problems and numerical answers. */
+assume(s>0,r>0)$
+V_cart : p*z/(4*%pi*eps0*(x^2+z^2)^(3/2))$
+Ex_cart : -diff(V_cart,x)$
+Ez_cart : -diff(V_cart,z)$
+Ex_expected : 3*p/(16*sqrt(2)*%pi*eps0*s^3)$
+Ez_expected : p/(16*sqrt(2)*%pi*eps0*s^3)$
+res_offaxis_x :
+  radcan(subst(s,z,subst(s,x,Ex_cart))-Ex_expected)$
+res_offaxis_z :
+  radcan(subst(s,z,subst(s,x,Ez_cart))-Ez_expected)$
+
+print("enhancement off-axis dipole x-component residual =",res_offaxis_x)$
+print("enhancement off-axis dipole z-component residual =",res_offaxis_z)$
+
+Aq : q*a^2/(4*%pi*eps0)$
+c0 : 1/sqrt(3)$
+s0 : sqrt(2/3)$
+res_quad_nodal_radial : radcan(3*Aq*(3*c0^2-1)/r^4)$
+res_quad_nodal_polar :
+  radcan(6*Aq*s0*c0/r^4-2*sqrt(2)*Aq/r^4)$
+
+print("enhancement quadrupole nodal radial-field residual =",res_quad_nodal_radial)$
+print("enhancement quadrupole nodal polar-field residual =",res_quad_nodal_polar)$
+
+eps0_si : 88541878128/10^22$
+E_axis_num : 2*(2/10^8)/(4*%pi*eps0_si*(3/10)^3)$
+E_equator_num : (2/10^8)/(4*%pi*eps0_si*(1/5)^3)$
+V_quad_num : 2*(5/10^9)*(1/100)^2/(4*%pi*eps0_si*(1/5)^3)$
+res_num_axis : round(bfloat(E_axis_num/100))-133$
+res_num_equator : round(bfloat(E_equator_num/100))-225$
+res_num_quadrupole : round(bfloat(100*V_quad_num))-112$
+
+print("enhancement numerical axial-dipole residual =",res_num_axis)$
+print("enhancement numerical equatorial-dipole residual =",res_num_equator)$
+print("enhancement numerical axial-quadrupole residual =",res_num_quadrupole)$
+
 quit()$

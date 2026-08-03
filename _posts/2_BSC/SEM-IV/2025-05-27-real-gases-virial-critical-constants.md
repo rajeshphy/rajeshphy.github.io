@@ -107,7 +107,11 @@ $$
 \boxed{p_r=\frac{8T_r}{3v_r-1}-\frac{3}{v_r^2}}.
 $$
 
-![Reduced van der Waals isotherms calculated from the reduced equation]({{ '/assets/images/bsc/sem-iv/mj-6/van-der-waals-isotherms.png' | relative_url }})
+<div class="diagram-pan" role="region" aria-label="Scrollable diagram" tabindex="0">
+<figure class="diagram-figure">
+  <img src="{{ '/assets/images/bsc/sem-iv/mj-6/van-der-waals-isotherms.png' | relative_url }}" alt="Reduced van der Waals isotherms calculated from the reduced equation">
+</figure>
+</div>
 
 For $T_r<1$, the analytic isotherm contains mechanically unstable portions. A real sample instead separates into liquid and vapour over the coexistence interval. At $T_r=1$, the inflection is $(v_r,p_r)=(1,1)$; for $T_r>1$, compression alone does not produce a discontinuous gas-liquid transition.
 
@@ -122,3 +126,74 @@ $$
 \left.\frac{\partial^2p}{\partial V_m^2}\right\rvert_c=0,
 \qquad B(T_B)=0.
 $$
+
+Mechanical stability requires $\kappa_T>0$, equivalently $(\partial p/\partial V_m)_T<0$. A positive isothermal slope on the analytic van der Waals loop is therefore unstable. The virial series, by contrast, is a low-density expansion and should not be extrapolated through the liquid region or too close to the critical point.
+
+## Solved Problems
+
+### 1. Locate the critical point in reduced variables and test its stability boundary
+
+For
+
+$$p_r=\frac{8T_r}{3v_r-1}-\frac{3}{v_r^2},$$
+
+the first two volume derivatives are
+
+$$
+\left(\frac{\partial p_r}{\partial v_r}\right)_{T_r}
+=-\frac{24T_r}{(3v_r-1)^2}+\frac6{v_r^3},
+$$
+
+$$
+\left(\frac{\partial^2p_r}{\partial v_r^2}\right)_{T_r}
+=\frac{144T_r}{(3v_r-1)^3}-\frac{18}{v_r^4}.
+$$
+
+At $(T_r,v_r)=(1,1)$ both expressions vanish and the equation gives $p_r=1$. Hence the reduced critical point is $(1,1,1)$, independent of $a$ and $b$. Below $T_r=1$, roots of the first derivative mark spinodal boundaries; between them the positive slope violates $\kappa_T>0$.
+
+### 2. Determine the leading pressure correction on the Boyle isotherm
+
+At $T_B$, the second virial coefficient is zero, so retain the next term:
+
+$$Z=1+\frac{C(T_B)}{V_m^2}+O(V_m^{-3}).$$
+
+In the low-pressure limit, use the leading approximation $V_m\simeq RT_B/p$. Then
+
+$$
+\boxed{Z=1+C(T_B)\left(\frac{p}{RT_B}\right)^2+O(p^3)}.
+$$
+
+Thus the linear-in-density departure has vanished; the first surviving correction to $Z$ is quadratic in pressure. The combination $C/V_m^2$ is dimensionless because $[C]=\mathrm{m^6\,mol^{-2}}$.
+
+## Descriptive Questions
+
+1. Explain separately the physical meanings and SI units of the van der Waals constants $a$ and $b$.
+2. Why is the Boyle temperature defined by $B(T_B)=0$ rather than by requiring all virial coefficients to vanish?
+3. State the thermodynamic meaning of the two critical-point derivative conditions.
+4. Why must the van der Waals loop below $T_c$ be replaced by phase coexistence for a real sample?
+
+## Numerical Problems
+
+1. For carbon dioxide take $a=0.364\ \mathrm{Pa\,m^6\,mol^{-2}}$ and $b=4.27\times10^{-5}\ \mathrm{m^3\,mol^{-1}}$. Find $B$ at $350\ \mathrm K$.
+
+   **Final answer:** $B=b-a/(RT)=-8.24\times10^{-5}\ \mathrm{m^3\,mol^{-1}}$.
+
+2. Using the same constants, calculate the van der Waals Boyle temperature.
+
+   **Final answer:** $T_B=a/(Rb)=1.025\times10^3\ \mathrm K$.
+
+3. Calculate the predicted critical temperature and pressure for those constants.
+
+   **Final answer:** $T_c=304\ \mathrm K$ and $p_c=7.394\ \mathrm{MPa}$.
+
+4. Evaluate the reduced pressure at $T_r=1.20$ and $v_r=2.00$.
+
+   **Final answer:** $p_r=8(1.20)/(3\times2-1)-3/2^2=1.17$.
+
+The [real-gas Maxima worksheet]({{ '/assets/maxima/bsc/sem-iv/mj-6/real-gases-checks.mac' | relative_url }}) verifies the virial values, critical derivatives, reduced equation, and all printed numerical answers.
+
+## References
+
+1. [Van der Waals equation](https://en.wikipedia.org/wiki/Van_der_Waals_equation), Wikipedia.
+2. P. Atkins, J. de Paula, and J. Keeler, *Atkins' Physical Chemistry*, 11th ed., Oxford University Press, 2018, chapter “The properties of gases.”
+3. M. W. Zemansky and R. H. Dittman, *Heat and Thermodynamics*, 7th ed., McGraw-Hill, 1997, chapter “Equations of state.”

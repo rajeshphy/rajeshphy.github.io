@@ -66,4 +66,265 @@ trig_integral_residual :
 print("trigonometric-pole residue residual =",trig_residue_residual)$
 print("trigonometric definite-integral residual =",trig_integral_residual)$
 
+/* Post 1 enhancement: complex arithmetic, powers, and roots. */
+p1_s1_residual : radcan(rectform((-sqrt(3)+%i)^6+64))$
+p1_s2_r0 : sqrt(2)+%i*sqrt(2)$
+p1_s2_r1 : -sqrt(2)+%i*sqrt(2)$
+p1_s2_r2 : -sqrt(2)-%i*sqrt(2)$
+p1_s2_r3 : sqrt(2)-%i*sqrt(2)$
+print("post-1 solved-1 power residual =",p1_s1_residual)$
+print("post-1 solved-2 root-0 residual =",radcan(rectform(p1_s2_r0^4+16)))$
+print("post-1 solved-2 root-1 residual =",radcan(rectform(p1_s2_r1^4+16)))$
+print("post-1 solved-2 root-2 residual =",radcan(rectform(p1_s2_r2^4+16)))$
+print("post-1 solved-2 root-3 residual =",radcan(rectform(p1_s2_r3^4+16)))$
+
+p1_n1_residual : radcan(rectform((3-4*%i)/(1+2*%i)-(-1-2*%i)))$
+p1_n2_modulus_residual : radcan(sqrt((-1)^2+(-sqrt(3))^2)-2)$
+p1_n3_area_residual :
+    radcan(abs(imagpart((2+%i)*(1-3*%i)))/2-5/2)$
+p1_n4_residual :
+    radcan(rectform((1-%i)+2*(1+%i)-(3+%i)))$
+p1_n5_locus_residual : radcan(sqrt((5-2)^2+(-1+1)^2)-3)$
+p1_n6_positive_residual : radcan(rectform((3+2*%i)^2-(5+12*%i)))$
+p1_n6_negative_residual : radcan(rectform((-3-2*%i)^2-(5+12*%i)))$
+print("post-1 numerical-1 residual =",p1_n1_residual)$
+print("post-1 numerical-2 modulus residual =",p1_n2_modulus_residual)$
+print("post-1 numerical-3 triangle-area residual =",p1_n3_area_residual)$
+print("post-1 numerical-4 conjugate-equation residual =",p1_n4_residual)$
+print("post-1 numerical-5 locus residual =",p1_n5_locus_residual)$
+print("post-1 numerical-6 positive-root residual =",p1_n6_positive_residual)$
+print("post-1 numerical-6 negative-root residual =",p1_n6_negative_residual)$
+
+/* Post 2 enhancement: Cauchy-Riemann and harmonic-conjugate checks. */
+p2_s1_u : x^2-y^2+x$
+p2_s1_v : 2*x*y+y$
+p2_s1_cr1 : ratsimp(diff(p2_s1_u,x)-diff(p2_s1_v,y))$
+p2_s1_cr2 : ratsimp(diff(p2_s1_u,y)+diff(p2_s1_v,x))$
+p2_s1_function :
+    ratsimp(expand(subst([x=(z+zc)/2,y=(z-zc)/(2*%i)],
+      p2_s1_u+%i*p2_s1_v)-(z^2+z)))$
+p2_s1_derivative :
+    ratsimp(diff(p2_s1_u,x)+%i*diff(p2_s1_v,x)
+      -(2*(x+%i*y)+1))$
+print("post-2 solved-1 CR-first residual =",p2_s1_cr1)$
+print("post-2 solved-1 CR-second residual =",p2_s1_cr2)$
+print("post-2 solved-1 reconstruction residual =",p2_s1_function)$
+print("post-2 solved-1 derivative residual =",p2_s1_derivative)$
+
+p2_s2_cr_line_residual :
+    ratsimp(subst(y=x,diff(x^2,x)-diff(y^2,y)))$
+p2_s2_second_cr_residual :
+    ratsimp(diff(x^2,y)+diff(y^2,x))$
+p2_s2_derivative_residual :
+    ratsimp(subst(y=x,diff(x^2,x)+%i*diff(y^2,x)-2*x))$
+print("post-2 solved-2 CR-line residual =",p2_s2_cr_line_residual)$
+print("post-2 solved-2 second-CR residual =",p2_s2_second_cr_residual)$
+print("post-2 solved-2 derivative residual =",p2_s2_derivative_residual)$
+
+p2_n1_residual : radcan(rectform(3*(1-%i)^2-(-6*%i)))$
+p2_n2_u : x^3-3*x*y^2+a*x$
+p2_n2_v : b*x^2*y-y^3+2*y$
+p2_n2_cr1 :
+    ratsimp(subst([a=2,b=3],
+      diff(p2_n2_u,x)-diff(p2_n2_v,y)))$
+p2_n2_cr2 :
+    ratsimp(subst([a=2,b=3],
+      diff(p2_n2_u,y)+diff(p2_n2_v,x)))$
+p2_n2_reconstruction_residual :
+    ratsimp(expand(subst([a=2,b=3],p2_n2_u+%i*p2_n2_v)
+      -((x+%i*y)^3+2*(x+%i*y))))$
+p2_n3_cr1_origin :
+    subst([x=0,y=0],diff(x^2-y^2,x)-diff(-2*x*y,y))$
+p2_n3_cr2_origin :
+    subst([x=0,y=0],diff(x^2-y^2,y)+diff(-2*x*y,x))$
+p2_n4_multiplier :
+    2*(cos(%pi/3)+%i*sin(%pi/3))$
+p2_n4_multiplier_residual :
+    radcan(rectform(p2_n4_multiplier-(1+%i*sqrt(3))))$
+p2_n5_cr1_origin :
+    subst([x=0,y=0],diff((x^2+y^2)^2,x))$
+p2_n5_cr2_origin :
+    subst([x=0,y=0],diff((x^2+y^2)^2,y))$
+p2_n6_value_residual :
+    radcan(rectform(1/(1+%i)-(1-%i)/2))$
+p2_n6_derivative_residual :
+    radcan(rectform(-1/(1+%i)^2-%i/2))$
+print("post-2 numerical-1 residual =",p2_n1_residual)$
+print("post-2 numerical-2 CR-first residual =",p2_n2_cr1)$
+print("post-2 numerical-2 CR-second residual =",p2_n2_cr2)$
+print("post-2 numerical-2 reconstruction residual =",p2_n2_reconstruction_residual)$
+print("post-2 numerical-3 CR-first residual =",p2_n3_cr1_origin)$
+print("post-2 numerical-3 CR-second residual =",p2_n3_cr2_origin)$
+print("post-2 numerical-4 multiplier residual =",p2_n4_multiplier_residual)$
+print("post-2 numerical-5 CR-first residual =",p2_n5_cr1_origin)$
+print("post-2 numerical-5 CR-second residual =",p2_n5_cr2_origin)$
+print("post-2 numerical-6 value residual =",p2_n6_value_residual)$
+print("post-2 numerical-6 derivative residual =",p2_n6_derivative_residual)$
+
+/* Post 3 enhancement: singularities and branches. */
+p3_s1_limit_residual :
+    ratsimp(limit((exp(z)-1-z)/z^2,z,0)-1/2)$
+p3_s2_pole_residual :
+    radcan(limit((z-2)^2*sqrt(z)/(z-2)^2,z,2)-sqrt(2))$
+p3_s2_monodromy_residual : radcan(rectform(exp(%i*%pi)+1))$
+p3_s3_jump_residual :
+    ratsimp((log(r)+%i*%pi)-(log(r)-%i*%pi)-2*%pi*%i)$
+print("post-3 solved-1 removable-limit residual =",p3_s1_limit_residual)$
+print("post-3 solved-2 pole-limit residual =",p3_s2_pole_residual)$
+print("post-3 solved-2 square-root monodromy residual =",p3_s2_monodromy_residual)$
+print("post-3 solved-3 logarithm-jump residual =",p3_s3_jump_residual)$
+
+p3_n1_right_pole_residual : subst(z=2,(z-2)*(z+5))$
+p3_n1_left_pole_residual : subst(z=-5,(z-2)*(z+5))$
+p3_n2_first_pole_residual : trigrat(cos(%pi/2))$
+p3_n2_accumulation_residual :
+    limit(2/((2*k+1)*%pi),k,inf)$
+p3_n3_product_order_residual :
+    ratsimp((z-z0)^5/(z-z0)^3-(z-z0)^2)$
+p3_n3_quotient_order_residual :
+    ratsimp((1/(z-z0)^3)/(z-z0)^5-1/(z-z0)^8)$
+p3_n4_squared_candidate_residual :
+    radcan(rectform((-1+%i)^2+2*%i))$
+p3_n4_principal_value :
+    sqrt(2)*(cos(-%pi/4)+%i*sin(-%pi/4))$
+p3_n4_principal_residual :
+    radcan(rectform(p3_n4_principal_value-(1-%i)))$
+p3_n4_target_mismatch_residual :
+    radcan(rectform(p3_n4_principal_value-(-1+%i)
+      -(2-2*%i)))$
+p3_n5_factor : exp(4*%pi*%i/3)$
+p3_n5_three_circuit_residual :
+    radcan(rectform(p3_n5_factor^3-1))$
+p3_n6_residual :
+    radcan(rectform(exp(log(2)-%i*%pi/3)-(1-%i*sqrt(3))))$
+print("post-3 numerical-1 right-pole residual =",p3_n1_right_pole_residual)$
+print("post-3 numerical-1 left-pole residual =",p3_n1_left_pole_residual)$
+print("post-3 numerical-2 pole-location residual =",p3_n2_first_pole_residual)$
+print("post-3 numerical-2 accumulation residual =",p3_n2_accumulation_residual)$
+print("post-3 numerical-3 product-order residual =",p3_n3_product_order_residual)$
+print("post-3 numerical-3 quotient-order residual =",p3_n3_quotient_order_residual)$
+print("post-3 numerical-4 squared-candidate residual =",p3_n4_squared_candidate_residual)$
+print("post-3 numerical-4 principal-value residual =",p3_n4_principal_residual)$
+print("post-3 numerical-4 target-mismatch residual =",p3_n4_target_mismatch_residual)$
+print("post-3 numerical-5 return residual =",p3_n5_three_circuit_residual)$
+print("post-3 numerical-6 principal-log residual =",p3_n6_residual)$
+
+/* Post 4 enhancement: contour and Cauchy-formula checks. */
+p4_s1_residual :
+    ratsimp(integrate(4*%i,t,0,%pi)-4*%pi*%i)$
+p4_s2_residual :
+    ratsimp(2*%pi*%i*residue(exp(z)/(z-1)^3,z,1)-%pi*%i*%e)$
+p4_s3_bound_residual : ratsimp(%pi*(1/8)-%pi/8)$
+print("post-4 solved-1 contour residual =",p4_s1_residual)$
+print("post-4 solved-2 Cauchy-derivative residual =",p4_s2_residual)$
+print("post-4 solved-3 ML-bound residual =",p4_s3_bound_residual)$
+
+p4_n1_residual :
+    radcan(rectform((1+%i)^3/3-(-2+2*%i)/3))$
+p4_n2_residual :
+    ratsimp(2*%pi*%i*residue(1/(z-2),z,2)-2*%pi*%i)$
+p4_n3_residual : residue(1/(z-2),z,0)$
+p4_n4_residual :
+    ratsimp(2*%pi*%i*residue(z^3/(z-%i)^2,z,%i)+6*%pi*%i)$
+p4_n5_residual :
+    ratsimp(2*%pi*%i*residue(cos(z)/(z-1),z,1)
+      -2*%pi*%i*cos(1))$
+p4_n6_residual : ratsimp(3!*5/2^3-15/4)$
+print("post-4 numerical-1 residual =",p4_n1_residual)$
+print("post-4 numerical-2 residual =",p4_n2_residual)$
+print("post-4 numerical-3 residual =",p4_n3_residual)$
+print("post-4 numerical-4 residual =",p4_n4_residual)$
+print("post-4 numerical-5 residual =",p4_n5_residual)$
+print("post-4 numerical-6 bound residual =",p4_n6_residual)$
+
+/* Post 5 enhancement: Laurent annuli and residue calculations. */
+p5_s1_partial_fraction_residual :
+    ratsimp(1/((z-1)*(z-3))
+      -(-1/(2*(z-1))+1/(2*(z-3))))$
+p5_s1_inner_residual :
+    ratsimp(1/2/(1-z)-1/6/(1-z/3)
+      -1/((z-1)*(z-3)))$
+p5_s1_middle_residual :
+    ratsimp(-1/(2*z)/(1-1/z)-1/6/(1-z/3)
+      -1/((z-1)*(z-3)))$
+p5_s1_outer_residual :
+    ratsimp(-1/(2*z)/(1-1/z)+1/(2*z)/(1-3/z)
+      -1/((z-1)*(z-3)))$
+print("post-5 solved-1 partial-fraction residual =",p5_s1_partial_fraction_residual)$
+print("post-5 solved-1 inner-annulus residual =",p5_s1_inner_residual)$
+print("post-5 solved-1 middle-annulus residual =",p5_s1_middle_residual)$
+print("post-5 solved-1 outer-annulus residual =",p5_s1_outer_residual)$
+
+p5_s2_f : z/((z-1)^2*(z+2))$
+p5_s2_res1 : residue(p5_s2_f,z,1)$
+p5_s2_res2 : residue(p5_s2_f,z,-2)$
+p5_s2_res1_residual : ratsimp(p5_s2_res1-2/9)$
+p5_s2_res2_residual : ratsimp(p5_s2_res2+2/9)$
+p5_s2_integral_residual :
+    ratsimp(2*%pi*%i*(p5_s2_res1+p5_s2_res2))$
+p5_s3_residue :
+    subst(w=0,diff(exp(w),w,2))/2!$
+p5_s3_residue_residual :
+    ratsimp(p5_s3_residue-1/2)$
+p5_s3_integral_residual :
+    ratsimp(2*%pi*%i*p5_s3_residue-%pi*%i)$
+print("post-5 solved-2 double-pole residual =",p5_s2_res1_residual)$
+print("post-5 solved-2 simple-pole residual =",p5_s2_res2_residual)$
+print("post-5 solved-2 contour residual =",p5_s2_integral_residual)$
+print("post-5 solved-3 essential-residue residual =",p5_s3_residue_residual)$
+print("post-5 solved-3 essential-integral residual =",p5_s3_integral_residual)$
+
+p5_n1_residual : ratsimp(2^5/5!-4/15)$
+p5_n2_radius_residual : ratsimp(1-1)$
+p5_n3_residual : ratsimp(residue(1/(z^2+4),z,2*%i)+%i/4)$
+p5_n4_residual : ratsimp(residue(sin(z)/z^3,z,0))$
+p5_n5_residue_sum :
+    residue((z^2+1)/(z*(z-1)),z,0)
+    +residue((z^2+1)/(z*(z-1)),z,1)$
+p5_n5_residual :
+    ratsimp(2*%pi*%i*p5_n5_residue_sum-2*%pi*%i)$
+p5_n6_residual : ratsimp(residue(exp(z)/z^4,z,0)-1/6)$
+print("post-5 numerical-1 coefficient residual =",p5_n1_residual)$
+print("post-5 numerical-2 radius residual =",p5_n2_radius_residual)$
+print("post-5 numerical-3 residue residual =",p5_n3_residual)$
+print("post-5 numerical-4 residue residual =",p5_n4_residual)$
+print("post-5 numerical-5 contour residual =",p5_n5_residual)$
+print("post-5 numerical-6 Laurent residual =",p5_n6_residual)$
+
+/* Post 6 enhancement: real-integral reductions. */
+p6_s1_residue : residue(1/(z^2+1)^2,z,%i)$
+p6_s1_residue_residual : ratsimp(p6_s1_residue-1/(4*%i))$
+p6_s1_integral_residual :
+    ratsimp(2*%pi*%i*p6_s1_residue-%pi/2)$
+p6_s2_residue :
+    residue(exp(%i*b*z)/(z^2+a^2),z,%i*a)$
+p6_s2_residue_residual :
+    ratsimp(p6_s2_residue-exp(-a*b)/(2*%i*a))$
+p6_s2_integral_residual :
+    ratsimp(2*%pi*%i*p6_s2_residue-%pi*exp(-a*b)/a)$
+print("post-6 solved-1 residue residual =",p6_s1_residue_residual)$
+print("post-6 solved-1 integral residual =",p6_s1_integral_residual)$
+print("post-6 solved-2 residue residual =",p6_s2_residue_residual)$
+print("post-6 solved-2 integral residual =",p6_s2_integral_residual)$
+
+p6_n1_residual :
+    radcan(integrate(1/(x^4+1),x,0,inf)-%pi/(2*sqrt(2)))$
+p6_n2_residual :
+    radcan(integrate(1/(1+x^6),x,0,inf)-%pi/3)$
+p6_n3_residual :
+    ratsimp(-subst(b=2,diff(%pi*exp(-b),b))-%pi*exp(-2))$
+p6_n4_residual :
+    ratsimp((2*%pi-5*(2*%pi/3))/4+%pi/3)$
+p6_n5_pv_plus :
+    limit(log((RR-1)/(RR+1)),RR,inf)$
+p6_n5_pv_minus :
+    limit(log((RR+1)/(RR-1)),RR,inf)$
+p6_n5_residual :
+    ratsimp((p6_n5_pv_plus-p6_n5_pv_minus)/2)$
+print("post-6 numerical-1 residual =",p6_n1_residual)$
+print("post-6 numerical-2 residual =",p6_n2_residual)$
+print("post-6 numerical-3 residual =",p6_n3_residual)$
+print("post-6 numerical-4 residual =",p6_n4_residual)$
+print("post-6 numerical-5 principal-value residual =",p6_n5_residual)$
+
 quit();

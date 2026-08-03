@@ -1,0 +1,17 @@
+/* MJ-6: Brownian moments, heat waves, and printed answers. */
+kill(all)$
+assume(D>0,t>0)$
+P : exp(-x^2/(4*D*t))/sqrt(4*%pi*D*t)$
+print("Brownian_normalization_residual =", ratsimp(integrate(P,x,minf,inf)-1))$
+print("Brownian_PDE_residual =", ratsimp(diff(P,t)-D*diff(P,x,2)))$
+print("Brownian_moment_residual =", ratsimp(integrate(x^2*P,x,minf,inf)-2*D*t))$
+q : sqrt(omega/(2*alpha))$
+factor : %i*omega-alpha*(1+%i)^2*q^2$
+print("heat_wave_PDE_residual =", ratsimp(factor))$
+print("penetration_depth_residual =", ratsimp(subst(x=1/q,exp(-q*x)-exp(-1))))$
+kb : 1.380649e-23$
+print("Brownian_rms_rounding_residual =", round(1000*sqrt(2*.5*10))-3162)$
+DB : kb*300/(6*%pi*1e-3*.5e-6)$
+print("Stokes_Einstein_rounding_residual =", round(DB*1e15)-439)$
+print("rod_diffusivity_rounding_residual =", round((200/(8900*385))*1e9)-58369)$
+print("periodic_amplitude_rounding_residual =", round((%pi*.1^2/(600*log(2)^2))*1e8)-10898)$

@@ -24,4 +24,85 @@ print("Young contact-angle residual (must be 0):",
   ratsimp(ev(young_balance,
     gammaSV=gammaSL+gammaLV*cos(theta))))$
 
+/* Capillary rise or depression. */
+hcap : 2*gamma*cos(theta)/(rho*g*a)$
+print("Capillary vertical-force residual (must be 0):",
+  ratsimp(rho*g*%pi*a^2*hcap
+    -2*%pi*a*gamma*cos(theta)))$
+print("Capillary pressure-balance residual (must be 0):",
+  ratsimp(rho*g*hcap-2*gamma*cos(theta)/a))$
+
+/* Solved problem 1. */
+gamma1 : 9/125$
+rho1 : 998$
+g1 : 981/100$
+a1 : 1/4000$
+theta1 : %pi/9$
+h1 : 2*gamma1*cos(theta1)/(rho1*g1*a1)$
+pc1 : rho1*g1*h1$
+print("Solved 1 force balance residual (must be 0):",
+  ratsimp(rho1*g1*%pi*a1^2*h1
+    -2*%pi*a1*gamma1*cos(theta1)))$
+print("Solved 1 pressure-method residual (must be 0):",
+  ratsimp(pc1-2*gamma1*cos(theta1)/a1))$
+print("Solved 1 displayed rise rounding check (must be 0):",
+  round(float(100000*h1))-5529)$
+print("Solved 1 displayed pressure rounding check (must be 0):",
+  round(float(pc1))-541)$
+
+/* Solved problem 2. */
+gamma2 : 3/100$
+Ri2 : 1/1000$
+Rf2 : 3/2500$
+dpi2 : 4*gamma2/Ri2$
+dpf2 : 4*gamma2/Rf2$
+W2 : 8*%pi*gamma2*(Rf2^2-Ri2^2)$
+W2_integral : integrate((4*gamma2/R)*4*%pi*R^2,R,Ri2,Rf2)$
+print("Solved 2 initial-pressure residual (must be 0):",
+  ratsimp(dpi2-120))$
+print("Solved 2 final-pressure residual (must be 0):",
+  ratsimp(dpf2-100))$
+print("Solved 2 pressure-work residual (must be 0):",
+  ratsimp(W2_integral-W2))$
+print("Solved 2 displayed work rounding check (must be 0):",
+  round(float(10000000000*W2))-3318)$
+
+/* Six numerical problems. */
+n1_F : 2*(25/1000)*(8/100)$
+print("Numerical 1 film-force residual (must be 0):",
+  ratsimp(n1_F-1/250))$
+
+n2_dp : 2*(9/125)/(1/2000)$
+print("Numerical 2 drop-pressure residual (must be 0):",
+  ratsimp(n2_dp-288))$
+
+n3_R : 1/4000$
+n3_gamma : 3/50$
+n3_dV : ev(dV_cylinder,R=n3_R)$
+n3_dA : ev(dA_cylinder,R=n3_R)$
+n3_dp : ratsimp(n3_gamma*n3_dA/n3_dV)$
+print("Numerical 3 cylindrical-jet pressure residual (must be 0):",
+  ratsimp(n3_dp-240))$
+
+n4_theta : acos(((5/100)-(2/100))/(4/100))$
+print("Numerical 4 contact-angle cosine residual (must be 0):",
+  trigsimp(cos(n4_theta)-3/4))$
+print("Numerical 4 displayed angle rounding check (must be 0):",
+  round(float(10*180*n4_theta/%pi))-414)$
+
+n5_h : 2*(485/1000)*cos(3*%pi/4)
+  /((13546)*(981/100)*(1/2000))$
+print("Numerical 5 signed-depression residual (must be 0):",
+  ratsimp(n5_h+97000*sqrt(2)/(13546*981)))$
+print("Numerical 5 displayed depression rounding check (must be 0):",
+  round(float(-100000*n5_h))-1032)$
+
+n6_R : 2/1000$
+n6_r : n6_R/2$
+n6_dU : (5/100)*(8*4*%pi*n6_r^2-4*%pi*n6_R^2)$
+print("Numerical 6 volume-conservation residual (must be 0):",
+  ratsimp(8*n6_r^3-n6_R^3))$
+print("Numerical 6 displayed energy rounding check (must be 0):",
+  round(float(1000000000*n6_dU))-2513)$
+
 quit();

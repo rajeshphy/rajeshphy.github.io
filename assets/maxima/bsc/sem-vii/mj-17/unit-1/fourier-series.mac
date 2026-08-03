@@ -18,3 +18,47 @@ print("triangular-wave a3 residual = ",radcan(tri_a3+4/(9*%pi)))$
 
 tri_a2 : 2*integrate(x*cos(2*x),x,0,%pi)/%pi$
 print("triangular even-harmonic residual = ",radcan(tri_a2))$
+
+/* Enhanced solved-problem and final-answer checks. */
+parabola_a0 : 2*integrate(x^2,x,0,%pi)/%pi$
+parabola_a3 : 2*integrate(x^2*cos(3*x),x,0,%pi)/%pi$
+parabola_a4 : 2*integrate(x^2*cos(4*x),x,0,%pi)/%pi$
+print("periodic-parabola a0 residual = ",radcan(parabola_a0-2*%pi^2/3))$
+print("periodic-parabola a3 residual = ",radcan(parabola_a3+4/9))$
+print("periodic-parabola a4 residual = ",radcan(parabola_a4-1/4))$
+print("periodic-parabola endpoint residual = ",radcan(%pi^2/3+4*%pi^2/6-%pi^2))$
+
+parabola_primitive : x^2*sin(n*x)/n+2*x*cos(n*x)/n^2-2*sin(n*x)/n^3$
+print("periodic-parabola antiderivative residual = ",trigsimp(diff(parabola_primitive,x)-x^2*cos(n*x)))$
+
+exp_cos_primitive : exp(x)*(cos(n*x)+n*sin(n*x))/(1+n^2)$
+exp_sin_primitive : exp(x)*(sin(n*x)-n*cos(n*x))/(1+n^2)$
+print("exponential cosine-antiderivative residual = ",radcan(exponentialize(diff(exp_cos_primitive,x)-exp(x)*cos(n*x))))$
+print("exponential sine-antiderivative residual = ",radcan(exponentialize(diff(exp_sin_primitive,x)-exp(x)*sin(n*x))))$
+print("exponential jump-midpoint residual = ",radcan(exponentialize((exp(%pi)+exp(-%pi))/2-cosh(%pi))))$
+
+half_a1 : A*integrate(sin(x)*cos(x),x,0,%pi)/%pi$
+half_a2 : A*integrate(sin(x)*cos(2*x),x,0,%pi)/%pi$
+half_a4 : A*integrate(sin(x)*cos(4*x),x,0,%pi)/%pi$
+half_b1 : A*integrate(sin(x)^2,x,0,%pi)/%pi$
+half_b3 : A*integrate(sin(x)*sin(3*x),x,0,%pi)/%pi$
+print("half-wave a1 residual = ",radcan(half_a1))$
+print("half-wave a2 residual = ",radcan(half_a2+2*A/(3*%pi)))$
+print("half-wave a4 residual = ",radcan(half_a4+2*A/(15*%pi)))$
+print("half-wave b1 residual = ",radcan(half_b1-A/2))$
+print("half-wave b3 residual = ",radcan(half_b3))$
+
+problem_2_cross : integrate(cos(3*%pi*x/2)*cos(5*%pi*x/2),x,-2,2)$
+problem_2_norm : integrate(cos(3*%pi*x/2)^2,x,-2,2)$
+problem_3_c0 : integrate(1+x/%pi,x,-%pi,%pi)/(2*%pi)$
+problem_3_c1 : integrate((1+x/%pi)*exp(-%i*x),x,-%pi,%pi)/(2*%pi)$
+problem_4_sum : %pi/2-4/%pi-4/(9*%pi)$
+print("listed real-harmonic coefficients residual = ",radcan(3+2*cos(2*x)-4*sin(3*x)-(6/2+2*cos(2*x)-4*sin(3*x))))$
+print("orthogonality numerical residual = ",radcan(problem_2_cross))$
+print("orthogonality norm numerical residual = ",radcan(problem_2_norm-2))$
+print("complex c0 numerical residual = ",radcan(problem_3_c0-1))$
+print("complex c1 numerical residual = ",radcan(exponentialize(problem_3_c1+%i/%pi)))$
+print("two-harmonic triangular residual = ",radcan(problem_4_sum-(%pi/2-40/(9*%pi))))$
+print("jump midpoint numerical residual = ",radcan((2+5)/2-7/2))$
+print("phase-shift real-coefficient residual = ",radcan(exponentialize(8*cos(4*x-%pi/3)-4*cos(4*x)-4*sqrt(3)*sin(4*x))))$
+print("phase-shift complex-coefficient residual = ",radcan((4-%i*4*sqrt(3))/2-(2-2*%i*sqrt(3))))$

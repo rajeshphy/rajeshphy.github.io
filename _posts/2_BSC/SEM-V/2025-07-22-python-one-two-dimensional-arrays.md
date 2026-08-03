@@ -121,3 +121,97 @@ print(y)               # [1.0, -1.0]
 ~~~
 
 The same indexing pattern appears in Gaussian elimination, Jacobi iteration, interpolation tables, and polynomial fitting. The dimensions of every array should be checked before such operations are performed.
+
+The row-by-row initialization shown above also avoids aliasing. In contrast,
+
+~~~python
+A = [[0.0] * columns] * rows
+~~~
+
+repeats references to one row object. Changing `A[0][1]` would then change column $1$ in every apparent row. A nested comprehension creates independent row lists and preserves the intended two-dimensional indexing.
+
+## Solved Problems
+
+### 1. Mean and deviations stored in one-dimensional arrays
+
+For
+
+~~~python
+values = [2.0, 4.0, 5.0]
+~~~
+
+the mean is
+
+$$\bar x=\frac{2+4+5}{3}=\frac{11}{3}.$$
+
+A loop can form the deviations:
+
+~~~python
+mean = sum(values) / len(values)
+deviation = [0.0] * len(values)
+
+for i in range(len(values)):
+    deviation[i] = values[i] - mean
+~~~
+
+Thus
+
+$$\mathbf d=\left(-\frac53,\frac13,\frac43\right).$$
+
+Their sum is
+
+$$\sum_i d_i=-\frac53+\frac13+\frac43=0,$$
+
+as required by the definition of the arithmetic mean.
+
+### 2. Matrix multiplication with nested loops
+
+Let
+
+$$A=\begin{pmatrix}1&2\\3&4\end{pmatrix},\qquad
+B=\begin{pmatrix}2&0\\1&2\end{pmatrix}.$$
+
+The product entry is $C_{ij}=\sum_{k=0}^{1}A_{ik}B_{kj}$. Therefore
+
+$$C_{00}=1(2)+2(1)=4,$$
+
+$$C_{01}=1(0)+2(2)=4,$$
+
+$$C_{10}=3(2)+4(1)=10,$$
+
+$$C_{11}=3(0)+4(2)=8.$$
+
+Hence
+
+$$\boxed{C=AB=\begin{pmatrix}4&4\\10&8\end{pmatrix}}.$$
+
+The inner dimensions are both $2$; without this agreement, the sum over $k$ would not be defined.
+
+## Descriptive Questions
+
+1. Explain zero-based indexing and state the valid indices of a one-dimensional array of length $n$.
+2. Describe initialization, access, and update operations for one- and two-dimensional Python lists.
+3. Translate the mathematical definitions of a dot product and matrix product into loop-index form.
+4. Explain row aliasing in a repeated-list initialization and how a nested comprehension avoids it.
+
+## Numerical Problems
+
+1. For `values = [3, 6, 9, 12]`, state `values[0]` and `values[-1]`.
+   **Answer:** `3` and `12`.
+
+2. Use nested loops to sum all entries of $\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}$.
+   **Answer:** $21$.
+
+3. Compute $A\mathbf x$ for $A=\begin{pmatrix}1&-1\\2&3\end{pmatrix}$ and $\mathbf x=(4,2)^T$.
+   **Answer:** $A\mathbf x=(2,14)^T$.
+
+4. Execute `A = [[0]*3]*2` followed by `A[0][1] = 7`. What is `A`?
+   **Answer:** `[[0, 7, 0], [0, 7, 0]]`, because both entries refer to the same row object.
+
+The array sums, deviations, and matrix operations are checked in the [Unit III Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-9/unit-iii-problem-checks.mac' | relative_url }}); the aliasing result was independently executed in Python, and every displayed Maxima residual is zero.
+
+## References
+
+1. [Array (data structure) — Wikipedia](https://en.wikipedia.org/wiki/Array_(data_structure)).
+2. [Python tutorial: Data Structures](https://docs.python.org/3/tutorial/datastructures.html), Python Software Foundation, sections 5.1–5.6.
+3. Allen B. Downey, *Think Python: How to Think Like a Computer Scientist*, 2nd ed., Chapter 10, “Lists.”

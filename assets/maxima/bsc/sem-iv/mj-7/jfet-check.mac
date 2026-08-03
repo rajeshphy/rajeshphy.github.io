@@ -1,0 +1,72 @@
+/* Ideal JFET transfer law, region boundary, derivative, and all worked values. */
+kill(all)$
+
+id_sat(idss,vgs,vp) := idss*(1-vgs/vp)^2$
+vds_boundary(vgs,vp) := vgs-vp$
+gm_from_transfer(idss,vgs,vp) := diff(idss*(1-x/vp)^2,x), nouns$
+
+id_symbolic : idss*(1-vgs/vp)^2$
+gm_symbolic : diff(id_symbolic,vgs)$
+print("symbolic gm residual =", ratsimp(gm_symbolic+2*idss*(1-vgs/vp)/vp))$
+print("transfer endpoint IDSS residual =", ratsimp(subst(0,vgs,id_symbolic)-idss))$
+print("transfer cutoff residual =", ratsimp(subst(vp,vgs,id_symbolic)))$
+
+/* Solved problem 1, currents in amperes. */
+id1 : id_sat(12/1000,-1,-4)$
+gm1 : subst([idss=12/1000,vgs=-1,vp=-4],gm_symbolic)$
+print("solved 1 current residual =", ratsimp(id1-27/4000))$
+print("solved 1 boundary residual =", ratsimp(vds_boundary(-1,-4)-3))$
+print("solved 1 gm residual =", ratsimp(gm1-9/2000))$
+
+/* Solved problem 2. */
+vgs2 : -6*(1-sqrt((2/1000)/(8/1000)))$
+gm2 : subst([idss=8/1000,vgs=vgs2,vp=-6],gm_symbolic)$
+print("solved 2 gate-voltage residual =", radcan(vgs2+3))$
+print("solved 2 current-backcheck residual =", radcan(id_sat(8/1000,vgs2,-6)-2/1000))$
+print("solved 2 gm residual =", radcan(gm2-1/750))$
+
+/* Solved problem 3: gradual-channel current. */
+id3 : (2*(10/1000)/(-5)^2)*(((-1)-(-5))*2-2^2/2)$
+idsat3 : id_sat(10/1000,-1,-5)$
+print("solved 3 triode-current residual =", ratsimp(id3-3/625))$
+print("solved 3 saturation-current residual =", ratsimp(idsat3-4/625))$
+
+/* Numerical problem 1: extract transfer-law parameters from linearized data. */
+vgs1_n1 : -1$ sqrt_id1_n1 : 3$
+vgs2_n1 : -3$ sqrt_id2_n1 : 1$
+slope_n1 : (sqrt_id2_n1-sqrt_id1_n1)/(vgs2_n1-vgs1_n1)$
+intercept_n1 : sqrt_id1_n1-slope_n1*vgs1_n1$
+vp_n1 : -intercept_n1/slope_n1$
+idss_mA_n1 : intercept_n1^2$
+print("numerical 1 extracted-IDSS residual =", ratsimp(idss_mA_n1-16))$
+print("numerical 1 extracted-pinch-off-voltage residual =", ratsimp(vp_n1+4))$
+print("numerical 1 first-transfer-point residual =", ratsimp(idss_mA_n1*(1-vgs1_n1/vp_n1)^2-9))$
+print("numerical 1 second-transfer-point residual =", ratsimp(idss_mA_n1*(1-vgs2_n1/vp_n1)^2-1))$
+
+/* Numerical problem 2: small-drain-voltage channel resistance. */
+gd0_n2 : 2*(8/1000)*((-2)-(-4))/(-4)^2$
+rch_n2 : 1/gd0_n2$
+print("numerical 2 channel-conductance residual =", ratsimp(gd0_n2-1/500))$
+print("numerical 2 channel-resistance residual =", ratsimp(rch_n2-500))$
+
+/* Numerical problem 3: gate input resistance and control power. */
+vgs_n3 : -4$ ig_n3 : 2/10^9$
+rin_n3 : abs(vgs_n3)/ig_n3$
+pg_n3 : abs(vgs_n3)*ig_n3$
+print("numerical 3 gate-input-resistance residual =", ratsimp(rin_n3-2*10^9))$
+print("numerical 3 gate-control-power residual =", ratsimp(pg_n3-8/10^9))$
+dvgs_n4 : (-115/100)-(-120/100)$
+dvds_n4 : 2-6$
+muf_n4 : -dvds_n4/dvgs_n4$
+test_dvgs_n4 : -3/100$
+test_dvds_n4 : -muf_n4*test_dvgs_n4$
+print("numerical 4 constant-current amplification-factor residual =", ratsimp(muf_n4-80))$
+print("numerical 4 predicted-drain-correction residual =", ratsimp(test_dvds_n4-12/5))$
+
+/* Numerical problem 5: transfer-characteristic curvature from data. */
+id_left_n5 : 3125/10^6$
+id_mid_n5 : 2/1000$
+id_right_n5 : 1125/10^6$
+step_n5 : 1/2$
+curvature_n5 : (id_left_n5-2*id_mid_n5+id_right_n5)/step_n5^2$
+print("numerical 5 transfer-curvature residual =", ratsimp(curvature_n5-1/1000))$

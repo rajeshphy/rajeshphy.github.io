@@ -2,6 +2,7 @@
 kill(all)$
 display2d:false$
 assume(m>0,b>0,k>0)$
+assume(F0>0)$
 
 D : (k-m*w^2)^2+b^2*w^2$
 Aresp : F0/sqrt(D)$
@@ -54,5 +55,106 @@ Estore : m*w0sq*A0^2/2$
 Elost_cycle : %pi*b*sqrt(w0sq)*A0^2$
 print("Quality-factor energy residual (must be 0):",
   ratsimp(2*%pi*Estore/Elost_cycle-m*sqrt(w0sq)/b))$
+
+print("Static-amplitude limit residual (must be 0):",
+  radcan(limit(Aresp,w,0)-F0/k))$
+print("High-frequency amplitude limit residual (must be 0):",
+  radcan(limit(w^2*Aresp,w,inf)-F0/m))$
+print("Natural-frequency amplitude residual (must be 0):",
+  radcan(ev(Aresp,w=sqrt(k/m))-F0/(b*sqrt(k/m))))$
+
+/* Solved problem 1: off-resonance response. */
+sp1_m : 1$
+sp1_k : 25$
+sp1_b : 2$
+sp1_F : 3$
+sp1_w : 4$
+sp1_D : (sp1_k-sp1_m*sp1_w^2)^2+sp1_b^2*sp1_w^2$
+sp1_A : sp1_F/sqrt(sp1_D)$
+sp1_delta : atan2(sp1_b*sp1_w,sp1_k-sp1_m*sp1_w^2)$
+sp1_P : sp1_b*sp1_w^2*sp1_A^2/2$
+print("Solved 1 answers [amplitude, phase, average power]:",
+  [float(sp1_A),float(sp1_delta),float(sp1_P)])$
+print("Solved 1 check (must be 0):",
+  radcan((sp1_A-3/sqrt(145))+(sp1_D-145)
+    +(sp1_delta-atan(8/9))+(sp1_P-144/145)))$
+
+/* Solved problem 2: response at the natural frequency. */
+sp2_m : 1/2$
+sp2_k : 72$
+sp2_b : 3$
+sp2_F : 6$
+sp2_w0 : sqrt(sp2_k/sp2_m)$
+sp2_A : sp2_F/(sp2_b*sp2_w0)$
+sp2_delta : %pi/2$
+sp2_Pmax : sp2_F^2/(2*sp2_b)$
+sp2_band : sp2_b/sp2_m$
+sp2_Q : sp2_m*sp2_w0/sp2_b$
+sp2_E : sp2_m*sp2_w0^2*sp2_A^2/2$
+sp2_loss : sp2_Pmax*2*%pi/sp2_w0$
+print("Solved 2 answers [omega_0, A, phase, Pmax, bandwidth, Q, E, loss]:",
+  [sp2_w0,sp2_A,sp2_delta,sp2_Pmax,sp2_band,sp2_Q,sp2_E,sp2_loss])$
+print("Solved 2 check (must be 0):",
+  ratsimp((sp2_w0-12)+(sp2_A-1/6)+(sp2_delta-%pi/2)+(sp2_Pmax-6)
+    +(sp2_band-6)+(sp2_Q-2)+(sp2_E-1)
+    +(sp2_loss-%pi)+(2*%pi*sp2_E/sp2_loss-2)))$
+
+/* Numerical problems. */
+n1_Astatic : 4/80$
+n1_delta : 0$
+print("Numerical 1 answers [static amplitude, phase]:",
+  [n1_Astatic,n1_delta])$
+print("Numerical 1 check (must be 0):",
+  ratsimp((n1_Astatic-1/20)+n1_delta))$
+
+n2_wr : sqrt(20^2-2*3^2)$
+print("Numerical 2 answer, displacement-resonance frequency:",float(n2_wr))$
+print("Numerical 2 check (must be 0):",radcan(n2_wr-sqrt(382)))$
+
+n3_m : 1/2$
+n3_k : 50$
+n3_blimit : sqrt(2*n3_m*n3_k)$
+print("Numerical 3 answer, damping-coefficient limit:",float(n3_blimit))$
+print("Numerical 3 check (must be 0):",
+  radcan(n3_blimit-5*sqrt(2)))$
+
+n4_w0 : 12$
+n4_beta : 3/2$
+n4_base : sqrt(n4_w0^2+n4_beta^2)$
+n4_w1 : n4_base-n4_beta$
+n4_w2 : n4_base+n4_beta$
+n4_band : n4_w2-n4_w1$
+print("Numerical 4 answers [omega_1, omega_2, bandwidth]:",
+  [float(n4_w1),float(n4_w2),n4_band])$
+print("Numerical 4 check (must be 0):",
+  radcan((n4_w1-(sqrt(585)-3)/2)
+    +(n4_w2-(sqrt(585)+3)/2)+(n4_band-3)))$
+
+n5_m : 1/2$
+n5_w : 10$
+n5_A : 1/25$
+n5_delta : %pi/4$
+n5_b : 3$
+n5_detuning : n5_b*n5_w/tan(n5_delta)$
+n5_k : n5_m*n5_w^2+n5_detuning$
+n5_F : n5_A*sqrt(n5_detuning^2+(n5_b*n5_w)^2)$
+print("Numerical 5 answers [stiffness, force amplitude]:",
+  [n5_k,float(n5_F)])$
+print("Numerical 5 detuning check (must be 0):",
+  trigsimp(n5_detuning-30))$
+print("Numerical 5 stiffness check (must be 0):",
+  ratsimp(n5_k-80))$
+print("Numerical 5 force-amplitude check (must be 0):",
+  radcan(n5_F-6*sqrt(2)/5))$
+print("Numerical 5 sine-coefficient check (must be 0):",
+  radcan(trigsimp(n5_detuning*sin(n5_delta)
+    -n5_b*n5_w*cos(n5_delta))))$
+print("Numerical 5 cosine-coefficient check (must be 0):",
+  radcan(trigsimp(n5_A*(n5_detuning*cos(n5_delta)
+    +n5_b*n5_w*sin(n5_delta))-n5_F)))$
+
+n6_Q : 100/5$
+print("Numerical 6 answer, quality factor:",n6_Q)$
+print("Numerical 6 check (must be 0):",ratsimp(n6_Q-20))$
 
 quit();

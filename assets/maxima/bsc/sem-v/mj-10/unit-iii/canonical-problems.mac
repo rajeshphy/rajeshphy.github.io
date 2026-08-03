@@ -1,0 +1,44 @@
+/* MJ-10: canonical-transformation and bracket problems.
+   Every printed residual/check is exactly zero. */
+kill(all)$
+zcheck(actual, reported, tolerance) :=
+  if abs(float(actual-reported)) < tolerance then 0 else 1$
+PB(A,B) := diff(A,q)*diff(B,p)-diff(A,p)*diff(B,q)$
+
+/* Harmonic-oscillator phase-space rotation. */
+Q : q*cos(beta)+p*sin(beta)/(m*omega)$
+P : p*cos(beta)-m*omega*q*sin(beta)$
+print("phase-space rotation bracket residual =", trigsimp(PB(Q,P)-1))$
+H : p^2/(2*m)+m*omega^2*q^2/2$
+Hnew_old : P^2/(2*m)+m*omega^2*Q^2/2$
+print("phase-space rotation energy residual =", trigsimp(Hnew_old-H))$
+
+/* Angular-momentum Poisson algebra. */
+PB3(A,B) := sum(diff(A,q[j])*diff(B,p[j])-diff(A,p[j])*diff(B,q[j]),j,1,3)$
+Lx : q[2]*p[3]-q[3]*p[2]$
+Ly : q[3]*p[1]-q[1]*p[3]$
+Lz : q[1]*p[2]-q[2]*p[1]$
+print("angular-momentum bracket residual =", ratsimp(PB3(Lx,Ly)-Lz))$
+
+/* Numerical problem 1: linear canonical map. */
+Q1 : 2*q+p$ P1 : q+p$
+print("linear-map bracket residual =", ratsimp(PB(Q1,P1)-1))$
+print("linear-map Q value check =", subst([q=1,p=3],Q1)-5)$
+print("linear-map P value check =", subst([q=1,p=3],P1)-4)$
+
+/* Numerical problem 2: F2=qP+alpha q^2/2 at q=2,p=11,alpha=3. */
+P2 : 11-3*2$ Q2 : 2$
+print("generating-function P check =", P2-5)$
+print("generating-function Q check =", Q2-2)$
+
+/* Numerical problem 3: polynomial Poisson bracket. */
+A3 : q^2*p$ B3 : q*p^2$
+print("polynomial bracket symbolic residual =", ratsimp(PB(A3,B3)-3*q^2*p^2))$
+print("polynomial bracket value check =", subst([q=2,p=3],PB(A3,B3))-108)$
+
+/* Numerical problem 4: polar phase-space parameters. */
+lag_r_theta : diff(r*cos(theta),r)*diff(r*sin(theta),theta)
+              -diff(r*cos(theta),theta)*diff(r*sin(theta),r)$
+print("polar Lagrange-bracket residual =", trigsimp(lag_r_theta-r))$
+print("polar Lagrange-bracket value check =", trigsimp(subst(r=2,lag_r_theta)-2))$
+print("polar Poisson-bracket value check =", ratsimp(1/2-0.5))$

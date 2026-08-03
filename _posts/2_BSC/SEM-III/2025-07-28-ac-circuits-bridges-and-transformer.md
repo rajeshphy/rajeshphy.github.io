@@ -468,7 +468,7 @@ $$
 If $a=N_p/N_s$, a load $Z_L$ referred to the primary is
 
 $$
-\boxed{Z_L'=a^2Z_L}.
+\boxed{Z_L^{\prime}=a^2Z_L}.
 $$
 
 Indeed,
@@ -484,17 +484,17 @@ $$
 A practical winding has copper resistance $R_1,R_2$ and leakage reactance $X_1,X_2$. Core magnetization is represented by $jX_m$, while core loss is represented by $R_c$. Referred to the primary,
 
 $$
-R_2'=a^2R_2,\qquad
-X_2'=a^2X_2,\qquad
-Z_L'=a^2Z_L.
+R_2^{\prime}=a^2R_2,\qquad
+X_2^{\prime}=a^2X_2,\qquad
+Z_L^{\prime}=a^2Z_L.
 $$
 
 The approximate primary-referred series parameters are
 
 $$
-\boxed{R_{\mathrm{eq}}=R_1+R_2'},
+\boxed{R_{\mathrm{eq}}=R_1+R_2^{\prime}},
 \qquad
-\boxed{X_{\mathrm{eq}}=X_1+X_2'}.
+\boxed{X_{\mathrm{eq}}=X_1+X_2^{\prime}}.
 $$
 
 The shunt branch $R_c\parallel jX_m$ accounts for core-loss current and magnetizing current.
@@ -557,4 +557,112 @@ $$
   <figcaption>The real-transformer model separates the shunt core branch, series winding impedance, referred load, secondary vector sum, and real-power loss mechanisms.</figcaption>
 </figure>
 
-The series and parallel half-power roots, quality factors, bridge balances, Anderson reduction, rms transformer emf, turns-current ratios, and referred impedances are verified with exact zero residuals in the [Unit III AC, bridges, and transformer worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-3/ac-bridges-transformer.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Design relations for a series LCR circuit
+
+A series circuit must resonate at angular frequency $\omega_0$ with quality factor $Q$, and its capacitance $C$ is prescribed. Find $L$ and $R$.
+
+**Solution.** Resonance requires
+
+$$
+\omega_0=\frac{1}{\sqrt{LC}},
+$$
+
+so
+
+$$
+\boxed{L=\frac{1}{\omega_0^2C}}.
+$$
+
+For a series circuit, $Q=\omega_0L/R$. Therefore
+
+$$
+R=\frac{\omega_0L}{Q}
+=\boxed{\frac{1}{\omega_0CQ}}.
+$$
+
+Substitution returns both the required resonance frequency and quality factor.
+
+### 2. Condition for maximum transformer efficiency
+
+Let $x$ be the fraction of full load, $P_o$ the full-load output at fixed power factor, $P_c$ the approximately constant core loss, and $P_{\mathrm{cu}}$ the full-load copper loss. Find the load for maximum efficiency.
+
+**Solution.** At load fraction $x$, output is $xP_o$ and copper loss is $x^2P_{\mathrm{cu}}$. Hence
+
+$$
+\eta(x)=\frac{xP_o}{xP_o+P_c+x^2P_{\mathrm{cu}}}.
+$$
+
+Differentiation gives
+
+$$
+\frac{\mathrm d\eta}{\mathrm dx}
+=\frac{P_o(P_c-x^2P_{\mathrm{cu}})}
+{(xP_o+P_c+x^2P_{\mathrm{cu}})^2}.
+$$
+
+The stationary point is the efficiency maximum:
+
+$$
+\boxed{x=\sqrt{\frac{P_c}{P_{\mathrm{cu}}}}},
+\qquad
+\boxed{x^2P_{\mathrm{cu}}=P_c}.
+$$
+
+Thus maximum efficiency occurs when variable copper loss equals constant core loss.
+
+## Descriptive Questions
+
+1. Why can Kirchhoff's laws be applied algebraically to phasors at a single angular frequency?
+2. How do resonance and source-current behavior differ between ideal series and parallel LCR circuits?
+3. Why must both magnitude and phase conditions be satisfied at the null of an AC bridge?
+4. How do copper, hysteresis, eddy-current, and leakage effects appear in a real transformer?
+
+## Numerical Problems
+
+### 1. Series LCR response
+
+For $R=20.0\,\Omega$, $L=0.200\,\mathrm H$, and $C=50.0\,\mathrm{\mu F}$, find $f_0,Q$, and the half-power bandwidth $\Delta f$.
+
+**Answer:** $f_0=50.3\,\mathrm{Hz}$, $Q=3.16$, and $\Delta f=15.9\,\mathrm{Hz}$.
+
+### 2. Parallel LCR response
+
+Ideal branches $R=2.00\,\mathrm{k\Omega}$, $L=0.100\,\mathrm H$, and $C=10.0\,\mathrm{\mu F}$ are in parallel. For the current-driven bandwidth definition, find $f_0,Q_p$, and $\Delta\omega_p$.
+
+**Answer:** $f_0=159\,\mathrm{Hz}$, $Q_p=20.0$, and $\Delta\omega_p=50.0\,\mathrm{rad\,s^{-1}}$.
+
+### 3. De-Sauty bridge
+
+A De-Sauty bridge has $C_s=0.200\,\mathrm{\mu F}$, $R_4=600\,\Omega$, and $R_2=400\,\Omega$. Find $C_x$ at balance.
+
+**Answer:** $C_x=0.300\,\mathrm{\mu F}$.
+
+### 4. Carey Foster bridge
+
+The slide wire has resistance gradient $r=0.0200\,\Omega\,\mathrm{cm^{-1}}$. Balance points before and after interchange are $l_1=35.0\,\mathrm{cm}$ and $l_2=47.0\,\mathrm{cm}$. Find $X-Y$.
+
+**Answer:** $X-Y=0.240\,\Omega$.
+
+### 5. Anderson bridge
+
+An Anderson bridge has $R_2=100\,\Omega$, $R_3=200\,\Omega$, $R_4=500\,\Omega$, $r=50.0\,\Omega$, and $C=1.00\,\mathrm{\mu F}$. Find $R_x$ and $L_x$.
+
+**Answer:** $R_x=40.0\,\Omega$ and $L_x=2.70\times10^{-2}\,\mathrm H$.
+
+### 6. Ideal transformer
+
+An ideal transformer has $N_p=1000$, $N_s=200$, and $V_p=230\,\mathrm V$. If the secondary current is $10.0\,\mathrm A$, find $V_s$ and $I_p$.
+
+**Answer:** $V_s=46.0\,\mathrm V$ and $I_p=2.00\,\mathrm A$.
+
+The symbolic solutions and all printed numerical answers are verified in the [Unit III AC, bridges, and transformer worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-3/ac-bridges-transformer.mac' | relative_url }}).
+
+## References
+
+1. [RLC circuit: Wikipedia](https://en.wikipedia.org/wiki/RLC_circuit)
+2. Charles K. Alexander and Matthew N. O. Sadiku, *Fundamentals of Electric Circuits*, 7th ed., McGraw-Hill, 2021.
+3. William H. Hayt, Jack E. Kemmerly, and Steven M. Durbin, *Engineering Circuit Analysis*, 9th ed., McGraw-Hill, 2019.
+4. Stephen J. Chapman, *Electric Machinery Fundamentals*, 5th ed., McGraw-Hill, 2012.
+5. Murray R. Spiegel, *Theory and Problems of Basic Circuit Analysis*, Schaum's Outline Series, McGraw-Hill, 1974.

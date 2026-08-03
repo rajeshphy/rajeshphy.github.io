@@ -27,4 +27,59 @@ Sst : N*kB*(log(V/N*(2*%pi*m*kB*T/h^2)^(3/2))+5/2)$
 print("Sackur-Tetrode extensivity residual =",
       ratsimp(subst([V=q*V,N=q*N],Sst)-q*Sst))$
 
+/* Worked-problem and exercise values. */
+fpprintprec : 12$
+kB_si : 1.380649b-23$
+h_si : 6.62607015b-34$
+u_si : 1.66053906660b-27$
+R_si : 8.31446261815324b0$
+
+mN2 : 28.0134b0*u_si$
+vmp_N2 : sqrt(2*kB_si*300/mN2)$
+vmean_N2 : sqrt(8*kB_si*300/(%pi*mN2))$
+vrms_N2 : sqrt(3*kB_si*300/mN2)$
+print("Nitrogen characteristic speeds (m/s) =",
+      bfloat(vmp_N2),bfloat(vmean_N2),bfloat(vrms_N2))$
+mean_speed : integrate(v*f(v),v,0,inf)$
+rms_speed : sqrt(integrate(v^2*f(v),v,0,inf))$
+print("Maxwell mean-speed check =",
+      radcan(mean_speed-2/(sqrt(%pi)*sqrt(a))))$
+print("Maxwell rms-speed check =",
+      radcan(rms_speed-sqrt(3/(2*a))))$
+
+mHe : 4.002602b0*u_si$
+lambda_He : h_si/sqrt(2*%pi*mHe*kB_si*300)$
+degeneracy_He : 2.45b25*lambda_He^3$
+print("Helium thermal wavelength (nm) and n lambda^3 =",
+      bfloat(lambda_He*1b9),bfloat(degeneracy_He))$
+lambda_sym : hs/sqrt(2*%pi*ms*kBs*Ts)$
+print("Thermal-wavelength check =",
+      radcan(2*%pi*ms*kBs*Ts*lambda_sym^2-hs^2))$
+
+U_num : (3/2)*2*R_si*400$
+H_num : (5/2)*2*R_si*400$
+print("Monatomic U and H (kJ) =",
+      bfloat(U_num/1000),bfloat(H_num/1000))$
+print("Ideal-gas enthalpy check =",
+      ratsimp((3*Ns*kBs*Ts/2+Ns*kBs*Ts)-5*Ns*kBs*Ts/2))$
+
+deltaS_num : R_si*log(2)$
+print("Isothermal expansion entropy (J/K) =",bfloat(deltaS_num))$
+print("Isothermal entropy check =",
+      ratsimp(Ns*kBs*log(V2s/V1s)-Ns*kBs*log(V2s/V1s)))$
+
+relative_fluctuation : sqrt(2/(3*1b20))$
+print("Relative energy fluctuation =",bfloat(relative_fluctuation))$
+lnZmono : -(3*Ns/2)*log(betas)$
+variance_mono : diff(lnZmono,betas,2)$
+Umono_sym : 3*Ns/(2*betas)$
+print("Canonical fluctuation check =",
+      ratsimp(variance_mono/Umono_sym^2-2/(3*Ns)))$
+
+Q_diatomic : (5/2)*R_si*100$
+print("Rigid-diatomic constant-volume heat (J) =",bfloat(Q_diatomic))$
+Q_sym : (5/2)*ns*Rs*dTs$
+print("Diatomic equipartition check =",
+      ratsimp(Q_sym-(5/2)*ns*Rs*dTs))$
+
 quit()$

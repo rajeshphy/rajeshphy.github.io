@@ -34,7 +34,10 @@ identity_residuals : makelist(
      bor2(a,band2(a,b))-a,
      band2(a,bor2(a,b))-a]),
   n,0,3)$
-print("Boolean identity residuals =", identity_residuals)$
+identity_check : sum(
+  sum(abs(identity_residuals[i][j]),j,1,length(identity_residuals[i])),
+  i,1,length(identity_residuals))$
+print("Boolean identity check =", identity_check)$
 
 /* Canonical minterm and maxterm reconstruction. */
 minterm(index,n) := product(bxnor2(bit(index,k),bit(n,k)),k,0,3)$
@@ -48,8 +51,10 @@ pos_value(n) := and_list(makelist(maxterm(zeros[i],n),i,1,length(zeros)))$
 required_value(n) := if member(n,ones) then 1 else 0$
 canonical_sop_residuals : makelist(sop_value(n)-required_value(n),n,0,15)$
 canonical_pos_residuals : makelist(pos_value(n)-required_value(n),n,0,15)$
-print("canonical SOP residuals =", canonical_sop_residuals)$
-print("canonical POS residuals =", canonical_pos_residuals)$
+canonical_sop_check : sum(abs(canonical_sop_residuals[i]),i,1,16)$
+canonical_pos_check : sum(abs(canonical_pos_residuals[i]),i,1,16)$
+print("canonical SOP check =", canonical_sop_check)$
+print("canonical POS check =", canonical_pos_check)$
 
 /* K-map: F = sum m(1,3,7,11,15), d = sum d(0,2,5).
    The proposed cover is A'B' + CD; do not constrain don't-care cells. */
@@ -59,5 +64,31 @@ kmap_cover(n) := block([a:bit(n,3),b:bit(n,2),c:bit(n,1),d:bit(n,0)],
 kmap_residuals : makelist(
   if member(n,dont_cares) then 0 else kmap_cover(n)-required_value(n),
   n,0,15)$
-print("specified-cell K-map residuals =", kmap_residuals)$
+specified_kmap_check : sum(abs(kmap_residuals[i]),i,1,16)$
+print("specified-cell K-map check =", specified_kmap_check)$
 
+/* Solved problem 1: 8-bit addition, unsigned carry and signed overflow. */
+addition_value_check : 109+54-163$
+addition_word_check : mod(109+54,256)-163$
+addition_signed_check : (163-256)-(-93)$
+print("worked 8-bit addition value check =", addition_value_check)$
+print("worked 8-bit addition word check =", addition_word_check)$
+print("worked signed interpretation check =", addition_signed_check)$
+
+/* Solved problem 2: B'D' + BD covers exactly the listed minterms. */
+worked_ones : [0,2,5,7,8,10,13,15]$
+worked_cover(n) := block([b:bit(n,2),d:bit(n,0)],bxnor2(b,d))$
+worked_kmap_check : sum(
+  abs(worked_cover(n)-(if member(n,worked_ones) then 1 else 0)),n,0,15)$
+print("worked K-map cover check =", worked_kmap_check)$
+
+/* Exercise answers: radix conversion, modular subtraction, BCD and ASCII. */
+conversion_check :
+  (2^7+2^6+2^4+2^2+2)+(2^(-1)+2^(-3)+2^(-4))-3435/16$
+subtraction_word_check : mod(73-121,256)-208$
+bcd_125_check : (1*16^2+2*16+5)-293$
+ascii_z_check : (2^6+2^4+2^3+2)-90$
+print("214.6875 radix-conversion check =", conversion_check)$
+print("73 - 121 encoded-word check =", subtraction_word_check)$
+print("BCD 125 digit-packing check =", bcd_125_check)$
+print("ASCII Z code check =", ascii_z_check)$

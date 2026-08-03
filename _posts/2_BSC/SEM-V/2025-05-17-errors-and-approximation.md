@@ -102,3 +102,82 @@ $$\frac{\Delta A}{A}\approx2\frac{\Delta r}{r}
 =2\frac{0.01}{2.00}=0.010,$$
 
 so $A\approx12.57\,\mathrm{cm^2}$ with $\Delta A\approx0.13\,\mathrm{cm^2}$. The precision reported in the result should not exceed the precision justified by this propagated error.
+
+## Solved Problems
+
+### 1. Uncertainty in the volume of a cylinder
+
+A cylinder has $r=(2.50\pm0.01)\,\mathrm{cm}$ and $h=(10.0\pm0.1)\,\mathrm{cm}$. Its volume is
+
+$$V=\pi r^2h=\pi(2.50\,\mathrm{cm})^2(10.0\,\mathrm{cm})
+=196.350\,\mathrm{cm^3}.$$
+
+For independent maximum-error bounds, logarithmic differentiation gives
+
+$$\frac{dV}{V}=2\frac{dr}{r}+\frac{dh}{h}.$$
+
+Taking absolute upper bounds,
+
+$$\frac{\Delta V}{V}\lesssim
+2\frac{0.01}{2.50}+\frac{0.1}{10.0}
+=0.018.$$
+
+Thus
+
+$$\Delta V\approx(196.350)(0.018)
+=3.534\,\mathrm{cm^3},$$
+
+and the justified result is
+
+$$\boxed{V=(196.4\pm3.5)\,\mathrm{cm^3}}.$$
+
+The relative uncertainty is dimensionless, while $\Delta V$ has the same unit as $V$.
+
+### 2. Removing subtractive cancellation
+
+Evaluate $\sqrt{10^8+1}-\sqrt{10^8}$. Direct subtraction asks floating-point arithmetic to subtract two numbers close to $10^4$, so their common leading digits cancel. Multiplying by the conjugate gives
+
+$$
+\begin{aligned}
+\sqrt{10^8+1}-\sqrt{10^8}
+&=\frac{(10^8+1)-10^8}
+{\sqrt{10^8+1}+\sqrt{10^8}}\\
+&=\frac{1}{\sqrt{10^8+1}+10^4}\\
+&\approx4.9999999875\times10^{-5}.
+\end{aligned}
+$$
+
+The transformation changes neither the sign nor the unit, but it replaces a dangerous subtraction by a well-scaled division. For large $N$,
+
+$$\sqrt{N+1}-\sqrt N\sim\frac{1}{2\sqrt N},$$
+
+which also gives $5.0\times10^{-5}$ when $N=10^8$.
+
+## Descriptive Questions
+
+1. Distinguish absolute, relative, and percentage error, and state when relative error is undefined.
+2. Explain how round-off and truncation errors arise and why reducing a step size cannot remove both indefinitely.
+3. Derive the first-order maximum-error formula for a function of several measured variables.
+4. Explain subtractive cancellation and show how an algebraically equivalent expression can improve numerical stability.
+
+## Numerical Problems
+
+1. Taking $9.81\,\mathrm{m\,s^{-2}}$ as exact, find the absolute, relative, and percentage errors when it is stored as $9.8\,\mathrm{m\,s^{-2}}$.
+   **Answer:** $E_a=0.01\,\mathrm{m\,s^{-2}}$, $E_r=1/981\approx1.0194\times10^{-3}$, $E_p\approx0.10194\%$.
+
+2. A sphere has radius $(5.00\pm0.02)\,\mathrm{cm}$. Use first-order propagation to find its volume uncertainty.
+   **Answer:** $V=500\pi/3\approx523.60\,\mathrm{cm^3}$, $\Delta V=2\pi\approx6.28\,\mathrm{cm^3}$.
+
+3. The density $\rho=m/(\pi r^2l)$ is calculated from $m=(50.0\pm0.5)\,\mathrm g$, $r=(1.50\pm0.02)\,\mathrm{cm}$, and $l=(20.0\pm0.1)\,\mathrm{cm}$. Find the maximum first-order relative error.
+   **Answer:** $\Delta\rho/\rho\lesssim1/24\approx0.04167$, or $4.167\%$.
+
+4. Approximate $\sin(0.1)$ by $x-x^3/3!$ and find both the actual truncation error and the next-term bound.
+   **Answer:** approximation $=0.09983333333$; actual error $\approx8.33135\times10^{-8}$; bound $0.1^5/5!\approx8.33333\times10^{-8}$.
+
+All symbolic identities and printed values above are checked in the [Unit I Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-9/unit-i-problem-checks.mac' | relative_url }}); every displayed residual is zero.
+
+## References
+
+1. [Approximation error — Wikipedia](https://en.wikipedia.org/wiki/Approximation_error).
+2. Richard L. Burden, J. Douglas Faires, and Annette M. Burden, *Numerical Analysis*, 10th ed., Chapter 1, “Mathematical Preliminaries and Error Analysis.”
+3. Steven C. Chapra and Raymond P. Canale, *Numerical Methods for Engineers*, 8th ed., Chapters 3–4, “Approximations and Round-Off Errors” and “Truncation Errors and the Taylor Series.”

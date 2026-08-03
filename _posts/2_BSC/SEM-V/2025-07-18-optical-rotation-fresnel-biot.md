@@ -48,7 +48,7 @@ $$\boxed{\alpha=\frac{\Delta\varphi}{2}
 
 Changing the order $L-R$ reverses the algebraic sign but not the physical conclusion: optical rotation is caused by circular birefringence.
 
-<figure class="post-figure">
+<figure class="diagram-figure diagram-pan" tabindex="0">
   <img src="{{ '/assets/images/bsc/sem-v/mj-8/unit-iii/optical-rotation.png' | relative_url }}" alt="Fresnel decomposition of linear polarization into circular eigenwaves and recombination at a rotated angle" loading="lazy">
   <figcaption>Unequal circular phase constants rotate the linear superposition by half their accumulated phase difference. Editable <a href="{{ '/assets/tikz/bsc/sem-v/mj-8/unit-iii/optical-rotation.tex' | relative_url }}">TikZ source</a>.</figcaption>
 </figure>
@@ -109,4 +109,68 @@ The circular-birefringence theory and Biot relations predict three direct tests:
 
 The persistence of linear output together with a rotated extinction direction supports Fresnel's decomposition: the two circular components acquire unequal phase but, in the ideal non-dichroic case, retain equal amplitudes.
 
-The half-relative-phase rotation formula is checked in the [Unit III Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-8/polarization-rotation.mac' | relative_url }}); its printed residual is zero.
+## Solved Problems
+
+### 1. Rotation by a sugar solution
+
+A solution has specific rotation
+
+$$[\alpha]_{\lambda}^{T}=+66.5\ \mathrm{degree\,dm^{-1}(g\,mL^{-1})^{-1}}.$$
+
+Its path length is $2.00\ \mathrm{dm}$ and concentration is $0.120\ \mathrm{g\,mL^{-1}}$. Find the signed optical rotation.
+
+**Solution.** Use the same length and concentration units carried by the tabulated specific rotation:
+
+$$\alpha=[\alpha]_{\lambda}^{T}lc.$$
+
+Therefore
+
+$$\alpha=(+66.5)(2.00)(0.120)^\circ=+15.96^\circ.$$
+
+Thus
+
+$$\boxed{\alpha=+15.96^\circ}.$$
+
+The positive sign means rotation in the positive azimuth convention declared at the start of the article; it should not be interpreted without that convention. The units $\mathrm{dm}$ and $\mathrm{g\,mL^{-1}}$ cancel their inverse factors in $[\alpha]$. If either length or concentration tends to zero, the rotation tends to zero linearly, as Biot's laws require.
+
+### 2. Circular birefringence from a measured rotation
+
+A $589\ \mathrm{nm}$ beam acquires a signed rotation $\alpha=+2.50^\circ$ after travelling $l=0.100\ \mathrm m$ in an ideal optically active medium. Find $n_L-n_R$ in the circular-basis convention used above.
+
+**Solution.** First convert the measured angle to radians:
+
+$$\alpha=2.50\frac{\pi}{180}=0.04363\ \mathrm{rad}.$$
+
+Fresnel's relation gives
+
+$$n_L-n_R=\frac{\alpha\lambda_0}{\pi l}
+=\frac{(0.04363)(589\times10^{-9})}{\pi(0.100)}
+=8.181\times10^{-8}.$$
+
+Hence
+
+$$\boxed{n_L-n_R=+8.18\times10^{-8}}.$$
+
+The positive sign is tied to the article's $L-R$ basis and azimuth convention; interchanging the circular labels reverses both signs consistently. Refractive-index difference is dimensionless because $\lambda_0/l$ is dimensionless and radians carry no physical unit. If $n_L-n_R\to0$, the predicted rotation vanishes.
+
+## Descriptive Questions
+
+1. Starting from circular eigenwaves, explain why the rotation of a linear polarization is half their accumulated relative phase.
+2. State Biot's length, concentration, additivity, and approximate wavelength laws together with their conditions of use.
+3. Distinguish specific rotation from the refractive-index difference responsible for circular birefringence.
+4. Describe Fresnel's compound-prism evidence for oppositely circular eigenwaves and explain what observation supports $n_L\ne n_R$.
+
+## Numerical Problems
+
+1. Two independent constituents produce rotations $+13.2^\circ$ and $-4.7^\circ$ under identical conditions. Find the net rotation.
+   **Final answer:** $\boxed{\alpha_{\rm net}=+8.5^\circ}$.
+2. A sample rotates by $12.0^\circ$ at $546\ \mathrm{nm}$. Using Biot's approximate $1/\lambda^2$ law, estimate its rotation at $436\ \mathrm{nm}$.
+   **Final answer:** $\boxed{\alpha(436\ \mathrm{nm})=18.82^\circ}$.
+
+The half-relative-phase identity is checked in the [Unit III Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-8/polarization-rotation.mac' | relative_url }}), and every worked and numerical value above is checked in the [MJ-8 problem-verification worksheet]({{ '/assets/maxima/bsc/sem-v/mj-8/problem-checks.mac' | relative_url }}); every printed residual and check is zero.
+
+## References
+
+1. [Optical rotation - Wikipedia](https://en.wikipedia.org/wiki/Optical_rotation)
+2. [RP Photonics Encyclopedia, Optical Activity](https://www.rp-photonics.com/optical_activity.html)
+3. [IUPAC Gold Book, Optical Rotatory Power](https://goldbook.iupac.org/terms/view/O04313/pdf)

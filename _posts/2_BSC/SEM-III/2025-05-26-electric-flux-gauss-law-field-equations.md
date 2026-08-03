@@ -194,4 +194,102 @@ $$
 
 This Dirichlet theorem is why a correctly constructed image-charge potential is the physical solution. If instead the normal derivative is specified everywhere, the electric field is unique and the potential is unique up to an additive constant, provided the total-flux compatibility condition is satisfied.
 
-The radial-field, Poisson, and Laplace identities are verified with exact residuals in the [Unit I field-equations worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-1/gauss-field-equations.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Field of a uniformly charged thick spherical shell
+
+A nonconducting shell occupies $a<r<b$ and carries uniform volume charge density $\rho$. Find $\mathbf E$ everywhere.
+
+**Solution.** Spherical symmetry gives $\mathbf E=E(r)\hat{\mathbf r}$. Gauss's law on a sphere of radius $r$ is
+
+$$
+E(r)4\pi r^2=\frac{Q_{\mathrm{enc}}(r)}{\epsilon_0}.
+$$
+
+For $r<a$, no charge is enclosed, so $E=0$. For $a<r<b$,
+
+$$
+Q_{\mathrm{enc}}=\rho\frac{4\pi}{3}(r^3-a^3),
+$$
+
+while for $r>b$ the enclosed charge is $\rho 4\pi(b^3-a^3)/3$. Therefore
+
+$$
+\boxed{\mathbf E(r)=
+\begin{cases}
+0,&r<a,\\[3pt]
+\dfrac{\rho(r^3-a^3)}{3\epsilon_0r^2}\hat{\mathbf r},&a<r<b,\\[7pt]
+\dfrac{\rho(b^3-a^3)}{3\epsilon_0r^2}\hat{\mathbf r},&r>b.
+\end{cases}}
+$$
+
+The inner and middle fields agree at $r=a$, and the middle and outer fields agree at $r=b$; no separate surface charge was specified.
+
+### 2. Spherical solution of Laplace's equation between two equipotentials
+
+Concentric spherical surfaces $r=a$ and $r=b$ are held at $V_a$ and $V_b$, with no charge between them. Find $V(r)$ for $a<r<b$.
+
+**Solution.** Spherical symmetry reduces Laplace's equation to
+
+$$
+\frac{1}{r^2}\frac{\mathrm d}{\mathrm dr}
+\left(r^2\frac{\mathrm dV}{\mathrm dr}\right)=0.
+$$
+
+Integrating twice gives $V=A+B/r$. The two boundary equations are
+
+$$
+V_a=A+\frac{B}{a},\qquad V_b=A+\frac{B}{b}.
+$$
+
+Solving them,
+
+$$
+A=\frac{bV_b-aV_a}{b-a},\qquad
+B=\frac{ab(V_a-V_b)}{b-a}.
+$$
+
+Hence
+
+$$
+\boxed{V(r)=\frac{bV_b-aV_a}{b-a}
++\frac{ab(V_a-V_b)}{(b-a)r}}.
+$$
+
+Direct substitution gives $V(a)=V_a$, $V(b)=V_b$, and $\nabla^2V=0$ throughout the annulus.
+
+## Descriptive Questions
+
+1. Why does zero net flux through a closed surface not imply that the electric field vanishes at every point on it?
+2. What symmetry conditions are required before Gauss's law can determine an electric field directly?
+3. How does the conservative nature of an electrostatic field lead to a scalar potential?
+4. What boundary data are required by the Dirichlet uniqueness theorem?
+
+## Numerical Problems
+
+### 1. Infinite line charge
+
+An infinite line carries $\lambda=3.00\,\mathrm{nC\,m^{-1}}$. Find the field at perpendicular distance $s=0.200\,\mathrm m$.
+
+**Answer:** $E=2.70\times10^2\,\mathrm{N\,C^{-1}}$, directed radially outward.
+
+### 2. Infinite plane sheet
+
+Find the field on either side of an infinite sheet with $\sigma=6.00\,\mathrm{nC\,m^{-2}}$.
+
+**Answer:** $E=3.39\times10^2\,\mathrm{N\,C^{-1}}$, normal to the sheet.
+
+### 3. Uniformly charged solid sphere
+
+A solid sphere has $\rho=4.00\,\mathrm{\mu C\,m^{-3}}$. Find the field at $r=2.00\,\mathrm{cm}$, where $r$ lies inside the sphere.
+
+**Answer:** $E=3.01\times10^3\,\mathrm{N\,C^{-1}}$, radially outward.
+
+The symbolic solutions and all printed numerical answers are verified in the [Unit I field-equations worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-1/gauss-field-equations.mac' | relative_url }}).
+
+## References
+
+1. [Gauss's law: Wikipedia](https://en.wikipedia.org/wiki/Gauss%27s_law)
+2. David J. Griffiths, *Introduction to Electrodynamics*, 4th ed., Cambridge University Press, 2017.
+3. Edward M. Purcell and David J. Morin, *Electricity and Magnetism*, 3rd ed., Cambridge University Press, 2013.
+4. John R. Reitz, Frederick J. Milford, and Robert W. Christy, *Foundations of Electromagnetic Theory*, 4th ed., Addison-Wesley, 1993.

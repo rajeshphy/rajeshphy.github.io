@@ -175,4 +175,86 @@ $$1234_{16}\times10_{16}+5678_{16}=179B8_{16}.$$
 
 Multiplication by $10_{16}$ shifts the segment left four bits, so segment starts are separated by 16 bytes and different segment:offset pairs can identify the same physical byte. The prefetch queue permits the bus interface to fetch instruction bytes while the execution unit works, but a control transfer must begin fetching from the new instruction address.
 
+## Solved Problems
+
+### 1. Trace a JK flip-flop command sequence
+
+An edge-triggered JK flip-flop starts at $Q_0=0$. Successive clock edges apply
+
+$$
+(J,K)=(1,0),(0,0),(1,1),(0,1),(1,1).
+$$
+
+Apply $Q_{n+1}=J\overline Q_n+\overline KQ_n$ after each edge:
+
+| edge | $(J,K)$ | operation | state after edge |
+|---:|---:|---|---:|
+| 1 | $(1,0)$ | set | 1 |
+| 2 | $(0,0)$ | hold | 1 |
+| 3 | $(1,1)$ | toggle | 0 |
+| 4 | $(0,1)$ | reset | 0 |
+| 5 | $(1,1)$ | toggle | 1 |
+
+Thus the state sequence is
+
+$$
+\boxed{Q_1,Q_2,Q_3,Q_4,Q_5=1,1,0,0,1}.
+$$
+
+The sequence is dimensionless and assumes each input pair satisfies setup and hold time at its edge; propagation delay changes when the new level becomes observable, not the logical sequence.
+
+### 2. Form and interpret an 8086 physical address
+
+Find the physical address represented by `2A3C:4F20` and give one alias with zero offset. The segment contribution is shifted left by four bits:
+
+$$
+2A3C_{16}\times10_{16}=2A3C0_{16}.
+$$
+
+Adding the offset,
+
+$$
+\begin{aligned}
+A_{phys}
+&=2A3C0_{16}+4F20_{16}\\
+&=\boxed{2F2E0_{16}}.
+\end{aligned}
+$$
+
+This is below $FFFFF_{16}$, so reduction modulo $2^{20}$ changes nothing. Since {::nomarkdown}\(2F2E_{16}\times10_{16}=2F2E0_{16}\){:/nomarkdown}, `2F2E:0000` is an alias. Physical addresses count bytes; the segment and offset are dimensionless hexadecimal integers.
+
+## Descriptive Questions
+
+1. How is the JK characteristic equation derived, and how does master-slave clocking remove race-around?
+2. How do ripple and synchronous counters differ in state timing, accumulated delay, and maximum clock rate?
+3. How are ROM, RAM, and shift-register memory distinguished by addressing method, access order, and write capability?
+4. How do the 8085 and 8086 differ in data path, address formation, register organization, and instruction-fetch mechanism?
+
+## Numerical Problems
+
+1. A two-stage synchronizer runs with $T_{clk}=20\ \mathrm{ns}$, $t_{cq}=2.0\ \mathrm{ns}$, and second-stage setup time $t_{su}=1.5\ \mathrm{ns}$. Estimate its available metastability-resolution time.
+
+   **Answer:** $t_{res}\simeq16.5\ \mathrm{ns}$.
+2. Find the overflow interval of a 16-bit binary timer clocked at $2.00\ \mathrm{MHz}$, starting from zero.
+
+   **Answer:** $2^{16}/(2.00\times10^6)=32.768\ \mathrm{ms}$.
+3. What is the minimum number of flip-flops for a modulus-10 counter, and how many binary states remain unused?
+
+   **Answer:** $4$ flip-flops; $16-10=6$ unused states.
+4. Let the shift-register state be ordered as $(Q_0,Q_1,Q_2,Q_3)$, initially $(0,1,0,1)$. Under $Q_0[n+1]=x[n]$ and $Q_i[n+1]=Q_{i-1}[n]$, apply serial inputs $1,0,1$.
+
+   **Answer:** final state $(1,0,1,0)$.
+5. Determine the address-input count and total capacity of a $32\mathrm K\times8$ RAM.
+
+   **Answer:** $15$ address inputs; $262144$ bits $=32768$ bytes $=32\ \mathrm{KiB}$.
+6. An 8085 system maps an $8\ \mathrm{KiB}$ byte-addressed memory from `8000H`. Find the inclusive final address.
+
+   **Answer:** `9FFFH`.
+
 [Editable sequential-storage TikZ]({{ '/assets/tikz/bsc/sem-vi/digital/unit-3/sequential-storage.tex' | relative_url }}) · [Editable architecture TikZ]({{ '/assets/tikz/bsc/sem-vi/digital/unit-3/microprocessor-architectures.tex' | relative_url }}) · [Maxima verification worksheet]({{ '/assets/maxima/bsc/sem-vi/digital/unit-3/registers-memory-microprocessors.mac' | relative_url }})
+
+## References
+
+1. [Microprocessor](https://en.wikipedia.org/wiki/Microprocessor).
+2. Ramesh S. Gaonkar, *Microprocessor Architecture, Programming, and Applications with the 8085*, 6th ed., Chapters 1–3, Penram International.
+3. Barry B. Brey, *The Intel Microprocessors: Architecture, Programming, and Interfacing*, 8th ed., Chapters 1–3, Pearson.

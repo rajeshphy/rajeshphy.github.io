@@ -1,0 +1,47 @@
+/* MJ-10: Lagrangian solved and numerical problems.
+   Every printed residual/check is exactly zero. */
+kill(all)$
+zcheck(actual, reported, tolerance) :=
+  if abs(float(actual-reported)) < tolerance then 0 else 1$
+
+/* Shifted oscillator under a constant force. */
+xeq : F0/k$ omega : sqrt(k/m)$
+xsol : xeq+A*cos(omega*t+delta)$
+print("shifted-oscillator equation residual =",
+      ratsimp(m*diff(xsol,t,2)+k*xsol-F0))$
+
+/* Uniform B along z in Landau gauge A_y=Bx. */
+Lmag : m*(vx^2+vy^2)/2+q*B*x*vy$
+print("magnetic x Euler-Lagrange residual =",
+      ratsimp(subst(ax=q*B*vy/m,m*ax-diff(Lmag,x))))$
+print("canonical p_y conservation residual =",
+      ratsimp(subst(ay=-q*B*vx/m,m*ay+q*B*vx)))$
+
+/* Numerical problem 1: shifted oscillator. */
+xeq1 : 2.0b0/8.0b0$ omega1 : sqrt(8.0b0/0.50b0)$
+period1 : 2*%pi/omega1$
+print("equilibrium shift check =", zcheck(xeq1,0.2500b0,5b-8))$
+print("oscillator angular-frequency check =", zcheck(omega1,4.000b0,5b-8))$
+print("oscillator period check =", zcheck(period1,1.571b0,5b-4))$
+
+/* Numerical problem 2: upward launch followed by free fall. */
+g2 : 9.81b0$ y02 : 20.0b0$ v02 : 5.0b0$
+t_ground : (v02+sqrt(v02^2+2*g2*y02))/g2$
+t_top : v02/g2$ y_top : y02+v02^2/(2*g2)$
+print("ground-impact time check =", zcheck(t_ground,2.592b0,5b-4))$
+print("maximum-height time check =", zcheck(t_top,0.5097b0,5b-5))$
+print("maximum height check =", zcheck(y_top,21.274b0,5b-4))$
+
+/* Numerical problem 3: equal coupled oscillators. */
+omega_low : sqrt(50.0b0/0.20b0)$
+omega_high : sqrt(3*50.0b0/0.20b0)$
+print("lower normal-mode check =", zcheck(omega_low,15.811b0,5b-4))$
+print("upper normal-mode check =", zcheck(omega_high,27.386b0,5b-4))$
+
+/* Numerical problem 4: canonical momentum in Landau gauge. */
+pmech : 0.050b0*2.0b0$
+pgauge : 0.004b0*0.80b0*0.15b0$
+pcan : pmech+pgauge$
+print("mechanical momentum check =", zcheck(pmech,0.1000b0,5b-8))$
+print("gauge momentum term check =", zcheck(pgauge,4.800b-4,5b-9))$
+print("canonical momentum check =", zcheck(pcan,0.10048b0,5b-8))$

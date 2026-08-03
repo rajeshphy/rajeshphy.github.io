@@ -243,4 +243,89 @@ If a microscope records only the motion of the narrow meniscus, that motion equa
   <figcaption>The magnetic-pressure difference between the two menisci is balanced by the hydrostatic head $h$.</figcaption>
 </figure>
 
-The Langevin expansion, Curie-law limit, constitutive relations, hysteresis-loop area, and Quincke formula are verified with exact zero residuals in the [Unit II magnetic-matter worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-2/magnetic-matter.mac' | relative_url }}).
+## Solved Problems
+
+### 1. Linear magnetic material inside a long solenoid
+
+A long solenoid has $n$ turns per unit length and carries current $I$. Its core is a linear material of susceptibility $\chi_m$. Find $H,M$, and $B$.
+
+**Solution.** Ampere's law for $\mathbf H$ encloses only the free winding current, so
+
+$$
+\boxed{H=nI}.
+$$
+
+The linear constitutive law then gives
+
+$$
+\boxed{M=\chi_mnI}.
+$$
+
+Finally,
+
+$$
+B=\mu_0(H+M)
+=\boxed{\mu_0(1+\chi_m)nI}.
+$$
+
+Thus $H$ is fixed by free current, whereas $M$ describes the material response that changes $B$.
+
+### 2. Power dissipated by hysteresis
+
+A specimen traces a $B$-$H$ loop whose enclosed area is $A_{BH}=\lvert\oint H\,\mathrm dB\rvert$. If its volume is $\mathcal V$ and it is cycled at frequency $f$, find the average hysteresis power.
+
+**Solution.** The loop area is energy dissipated per unit volume per cycle. Energy lost by the specimen in one cycle is therefore
+
+$$
+W_{\mathrm{cycle}}=A_{BH}\mathcal V.
+$$
+
+There are $f$ cycles each second, so
+
+$$
+\boxed{P_{\mathrm{hyst}}=fA_{BH}\mathcal V}.
+$$
+
+This explains why a narrow-loop soft magnetic core is preferred in an AC transformer.
+
+## Descriptive Questions
+
+1. How do $\mathbf H$ and $\mathbf B$ separate free-current excitation from material response?
+2. Why does classical Langevin paramagnetism approach Curie's law only in the weak-field limit?
+3. How do remanence and coercivity distinguish soft and hard magnetic materials?
+4. Why does the liquid rise or fall in Quincke's method according to the sign of susceptibility?
+
+## Numerical Problems
+
+### 1. Susceptibility from magnetic-moment data
+
+A specimen of volume $3.00\times10^{-6}\,\mathrm{m^3}$ has magnetic moment $2.40\times10^{-3}\,\mathrm{A\,m^2}$ in an applied field $H=2.00\times10^5\,\mathrm{A\,m^{-1}}$. Find $M$, $\chi_m$, and $\mu_r$, and classify the response.
+
+**Answer:** $M=8.00\times10^2\,\mathrm{A\,m^{-1}}$, $\chi_m=4.00\times10^{-3}$, and $\mu_r=1.004$; the response is paramagnetic.
+
+### 2. Curie-law temperature change
+
+A paramagnet has $\chi_m=1.20\times10^{-3}$ at $300\,\mathrm K$. Find its susceptibility at $450\,\mathrm K$ in the Curie regime.
+
+**Answer:** $\chi_m=8.00\times10^{-4}$.
+
+### 3. Quincke susceptibility
+
+A liquid of density $1000\,\mathrm{kg\,m^{-3}}$ rises by $4.00\,\mathrm{mm}$ in a field $B=0.800\,\mathrm T$. Neglect the field and density of the surrounding gas. Find $\chi_m$.
+
+**Answer:** $\chi_m=1.54\times10^{-4}$.
+
+### 4. Finite-field Langevin magnetization
+
+A classical paramagnet has number density $N=5.00\times10^{27}\,\mathrm{m^{-3}}$, dipole moment $m=2.00\times10^{-23}\,\mathrm{A\,m^2}$, and Langevin parameter $x=1.50$. Use the full Langevin function to find $L(x)$ and $M$.
+
+**Answer:** $L(1.50)=0.438$ and $M=4.38\times10^4\,\mathrm{A\,m^{-1}}$.
+
+The symbolic solutions and all printed numerical answers are verified in the [Unit II magnetic-matter worksheet]({{ '/assets/maxima/bsc/sem-iii/mj-3/unit-2/magnetic-matter.mac' | relative_url }}).
+
+## References
+
+1. [Magnetization: Wikipedia](https://en.wikipedia.org/wiki/Magnetization)
+2. Charles Kittel, *Introduction to Solid State Physics*, 8th ed., Wiley, 2004.
+3. Stephen Blundell, *Magnetism in Condensed Matter*, Oxford University Press, 2001.
+4. D. C. Tayal, *Electricity and Magnetism*, Himalaya Publishing House.

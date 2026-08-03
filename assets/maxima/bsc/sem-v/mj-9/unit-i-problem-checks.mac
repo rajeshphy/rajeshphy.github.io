@@ -1,0 +1,108 @@
+/* MJ-9 Unit I enhancement: exact checks for all solved and numerical answers.
+   Every displayed residual is required to be zero. */
+kill(all)$
+matrix_norm2(M):=apply("+",map(lambda([z],z^2),list_matrix_entries(M)))$
+
+/* Errors and approximation. */
+r:5/2$ h_cyl:10$ dr:1/100$ dh:1/10$
+V:%pi*r^2*h_cyl$
+relV:2*dr/r+dh/h_cyl$
+print("cylinder-volume residual =", ratsimp(V-125*%pi/2))$
+print("cylinder-relative-error residual =", ratsimp(relV-9/500))$
+print("cylinder-absolute-error residual =", ratsimp(V*relV-9*%pi/8))$
+N:10^8$
+print("rationalization residual =",
+      ratsimp((sqrt(N+1)-sqrt(N))-1/(sqrt(N+1)+sqrt(N))))$
+print("gravity-error residual =", ratsimp(abs(981/100-98/10)-1/100))$
+Vs:4*%pi*5^3/3$
+print("sphere-volume-error residual =", ratsimp(Vs*(3*(2/100)/5)-2*%pi))$
+print("density-relative-error residual =",
+      ratsimp((1/2)/50+2*(2/100)/(3/2)+(1/10)/20-1/24))$
+print("sine-truncation identity residual =",
+      ratsimp((sin(1/10)-(1/10-(1/10)^3/6))
+              -(sin(1/10)-599/6000)))$
+
+/* Root finding. */
+lo:143/64$ hi:1145/512$ mid:(lo+hi)/2$
+print("nine-bisection midpoint residual =", ratsimp(mid-2289/1024))$
+x1:2-(2^2-3)/(2*2)$
+print("Newton iterate residual =", ratsimp(x1-7/4))$
+print("Newton equation-residual residual =", ratsimp((x1^2-3)-1/16))$
+fmult:(x-1)^2$
+standard:ratsimp(x-fmult/diff(fmult,x))$
+modified:ratsimp(x-2*fmult/diff(fmult,x))$
+print("multiple-root standard-update residual =", ratsimp(standard-(x+1)/2))$
+print("multiple-root modified-update residual =", ratsimp(modified-1))$
+g1:(7/2)^(1/3)$ g2:(g1+2)^(1/3)$
+print("fixed-point first-iterate residual =", ratsimp(g1^3-7/2))$
+print("fixed-point second-iterate residual =", ratsimp(g2^3-g1-2))$
+
+/* Newton forward and backward interpolation. */
+fq(x):=x^2+1$
+y0:fq(0)$ y1:fq(1)$ y2:fq(2)$
+d0:y1-y0$ d1:y2-y1$ d20:d1-d0$
+p:1/2$ Pf:y0+p*d0+p*(p-1)*d20/2$
+print("quadratic-forward residual =", ratsimp(Pf-5/4))$
+ye0:1$ ye1:2$ ye2:4$ ye3:8$
+de0:ye1-ye0$ de1:ye2-ye1$ de2:ye3-ye2$
+d2e0:de1-de0$ d2e1:de2-de1$ d3e0:d2e1-d2e0$
+q:-1/2$
+Pb:ye3+q*de2+q*(q+1)*d2e1/2+q*(q+1)*(q+2)*d3e0/6$
+print("exponential-table backward residual =", ratsimp(Pb-91/16))$
+print("square-table residual =", ratsimp((1+1/2*3+(1/2)*(-1/2)*2/2)-9/4))$
+print("cubic-table residual =", ratsimp((7/2)^3-343/8))$
+print("interpolation-bound residual =",
+      ratsimp(%e*abs((1/4)*(1/4-1/2)*(1/4-1))/6-%e/128))$
+
+/* Gaussian elimination and LU decomposition. */
+Ap:matrix([0,2],[1,3])$ bp:matrix([4],[5])$ xp:matrix([-1],[2])$
+print("pivoted-system residual =", ratsimp(matrix_norm2(Ap.xp-bp)))$
+A2:matrix([2,1],[4,3])$
+L2:matrix([1,0],[2,1])$ U2:matrix([2,1],[0,1])$
+print("two-by-two LU residual =", ratsimp(matrix_norm2(A2-L2.U2)))$
+print("linear-solution residual =",
+      ratsimp(matrix_norm2(matrix([2,1],[1,3]).matrix([9/5],[7/5])
+                           -matrix([5],[6]))))$
+print("second-LU residual =",
+      ratsimp(matrix_norm2(matrix([3,1],[6,5])
+                           -matrix([1,0],[2,1]).matrix([3,1],[0,3]))))$
+print("row-interchange determinant residual =",
+      ratsimp(determinant(matrix([0,2],[3,4]))+6))$
+
+/* Jacobi and Gauss-Seidel iteration. */
+J1:matrix([6/5],[5/4])$ G1:matrix([6/5],[19/20])$
+print("first-Jacobi residual =", ratsimp(matrix_norm2(J1-matrix([6/5],[5/4]))))$
+print("first-Gauss-Seidel residual =",
+      ratsimp(matrix_norm2(G1-matrix([6/5],[19/20]))))$
+TJ:matrix([0,-1/5],[-1/4,0])$
+print("Jacobi-characteristic residual =",
+      ratsimp(determinant(TJ-lambda*ident(2))-(lambda^2-1/20)))$
+TG:matrix([0,-1/5],[0,1/20])$
+print("Gauss-Seidel-characteristic residual =",
+      ratsimp(determinant(TG-lambda*ident(2))-(lambda^2-lambda/20)))$
+J2:matrix([(6-5/4)/5],[(5-6/5)/4])$
+G2:matrix([(6-19/20)/5],[(5-(6-19/20)/5)/4])$
+print("second-Jacobi residual =",
+      ratsimp(matrix_norm2(J2-matrix([19/20],[19/20]))))$
+print("second-Gauss-Seidel residual =",
+      ratsimp(matrix_norm2(G2-matrix([101/100],[399/400]))))$
+print("iteration-stopping residual =",
+      ratsimp(matrix_norm2(matrix([6],[5])
+                           -matrix([5,1],[1,4]).matrix([1001/1000],[999/1000])
+                           -matrix([-1/250],[3/1000]))))$
+
+/* Power and Jacobi eigenvalue methods. */
+Ae:matrix([4,1],[1,2])$ v2:matrix([17],[6])$
+RQ:(transpose(v2).Ae.v2)/(transpose(v2).v2)$
+print("power-Rayleigh residual =", ratsimp(RQ-1432/325))$
+Aj:matrix([5,2],[2,2])$
+Rj:matrix([2/sqrt(5),-1/sqrt(5)],[1/sqrt(5),2/sqrt(5)])$
+print("Jacobi-rotation residual =",
+      ratsimp(matrix_norm2(transpose(Rj).Aj.Rj-matrix([6,0],[0,1]))))$
+print("simple-Rayleigh residual =",
+      ratsimp(transpose(matrix([1],[0])).matrix([3,1],[1,3]).matrix([1],[0])-3))$
+print("equal-diagonal eigenpair residual =",
+      ratsimp(matrix_norm2(matrix([4,1],[1,4]).matrix([1],[1])
+                           -5*matrix([1],[1]))))$
+
+quit();

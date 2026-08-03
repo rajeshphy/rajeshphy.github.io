@@ -1,0 +1,16 @@
+/* MJ-6: collision statistics, transport scaling, and printed answers. */
+kill(all)$
+assume(lambda>0)$
+w : exp(-x/lambda)/lambda$
+print("free_path_normalization_residual =", ratsimp(integrate(w,x,0,inf)-1))$
+print("mean_free_path_residual =", ratsimp(integrate(x*w,x,0,inf)-lambda))$
+print("survival_equation_residual =", ratsimp(diff(exp(-x/lambda),x)+exp(-x/lambda)/lambda))$
+print("diffusion_dimension_factor_residual =", ratsimp((cbar*lambda/3)/(cbar*lambda)-1/3))$
+eta : (m*n*cbar/3)/(sqrt(2)*n*%pi*d^2)$
+print("viscosity_density_cancellation_residual =", ratsimp(eta-m*cbar/(3*sqrt(2)*%pi*d^2)))$
+kb : 1.380649e-23$
+lambda0 : kb*300/(sqrt(2)*%pi*(3.7e-10)^2*101325)$
+print("air_path_rounding_residual =", round(lambda0*1e10)-672)$
+print("survival_rounding_residual =", round(1000*exp(-2))-135)$
+print("collision_frequency_rounding_residual =", round((470/(70e-9))/1e7)-671)$
+print("diffusion_rounding_residual =", round((470*70e-9/3)*1e8)-1097)$

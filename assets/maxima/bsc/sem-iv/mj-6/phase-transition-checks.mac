@@ -1,0 +1,12 @@
+/* MJ-6: Clapeyron/Ehrenfest equations and printed answers. */
+kill(all)$
+gdiff : -ds*dT+dv*dp$
+print("Clapeyron_residual =", ratsimp(subst(dp=ds*dT/dv,gdiff)))$
+print("latent_heat_substitution_residual =", ratsimp(subst(L=T*ds,ds/dv-L/(T*dv))))$
+print("Ehrenfest_substitution_residual =", ratsimp(subst(dCp=T*v*da^2/dk,dCp/(T*v*da)-da/dk)))$
+R0 : 8.314462618$
+p2 : 101325*exp((-40700/R0)*(1/353.15-1/373.15))$
+print("vapour_pressure_rounding_residual =", round(p2/100)-482)$
+print("ice_slope_rounding_residual =", round((6010/(273.15*(-1.63e-6)))/1e5)+135)$
+print("first_Ehrenfest_rounding_residual =", round((10/(200*1e-4*2e-5))/1e6)-25)$
+print("second_Ehrenfest_rounding_residual =", round(((2e-5)/(1e-12))/1e6)-20)$

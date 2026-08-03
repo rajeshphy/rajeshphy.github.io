@@ -1,0 +1,92 @@
+/* Rectifier integrals, ripple, efficiency, filtering, and every worked value. */
+kill(all)$
+assume(vm>0,rl>0)$
+
+vdc_h : integrate(vm*sin(x),x,0,%pi)/(2*%pi)$
+vrms_h : sqrt(integrate(vm^2*sin(x)^2,x,0,%pi)/(2*%pi))$
+vdc_f : integrate(vm*sin(x),x,0,%pi)/%pi$
+vrms_f : sqrt(integrate(vm^2*sin(x)^2,x,0,%pi)/%pi)$
+print("half-wave average residual =", ratsimp(vdc_h-vm/%pi))$
+print("half-wave RMS residual =", radcan(vrms_h-vm/2))$
+print("full-wave average residual =", ratsimp(vdc_f-2*vm/%pi))$
+print("full-wave RMS residual =", radcan(vrms_f-vm/sqrt(2)))$
+print("half-wave ripple-square residual =",
+      ratsimp((vrms_h/vdc_h)^2-1-(%pi^2/4-1)))$
+print("full-wave ripple-square residual =",
+      ratsimp((vrms_f/vdc_f)^2-1-(%pi^2/8-1)))$
+print("half-wave efficiency residual =",
+      ratsimp((vdc_h^2/rl)/(vrms_h^2/rl)-4/%pi^2))$
+print("full-wave efficiency residual =",
+      ratsimp((vdc_f^2/rl)/(vrms_f^2/rl)-8/%pi^2))$
+
+/* Solved problem 1. */
+vd1 : 36/%pi$ vr1 : 18/sqrt(2)$
+id1 : vd1/500$ ir1 : vr1/500$
+pdc1 : vd1^2/500$ pac1 : vr1^2/500$
+print("solved 1 dc-voltage rounded residual =",
+      round(ev(vd1*100,numer))-1146)$
+print("solved 1 RMS-voltage rounded residual =",
+      round(ev(vr1*100,numer))-1273)$
+print("solved 1 dc-current rounded residual =",
+      round(ev(id1*10^6,numer))-22918)$
+print("solved 1 RMS-current rounded residual =",
+      round(ev(ir1*10^6,numer))-25456)$
+print("solved 1 dc-power rounded residual =",
+      round(ev(pdc1*10000,numer))-2626)$
+print("solved 1 ac-power residual =", radcan(pac1-81/250))$
+print("solved 1 efficiency residual =", ratsimp(pdc1/pac1-8/%pi^2))$
+
+/* Solved problem 2. */
+vrpp2 : (40/1000)/(100*(1000/10^6))$
+vrrms2 : vrpp2/(2*sqrt(3))$
+r2 : vrrms2/12$
+print("solved 2 peak-to-peak ripple residual =", ratsimp(vrpp2-2/5))$
+print("solved 2 RMS-ripple rounded residual =",
+      round(ev(vrrms2*10000,numer))-1155)$
+print("solved 2 ripple-factor rounded residual =",
+      round(ev(r2*100000,numer))-962)$
+print("solved 3 regulation residual =",
+      ratsimp(((132/10-12)/12)*100-10))$
+
+/* Numerical problems. */
+vnl_n1 : 15$ measured_voltage_n1 : 27/2$ measured_current_n1 : 3/10$
+rint_n1 : (vnl_n1-measured_voltage_n1)/measured_current_n1$
+new_current_n1 : 1/5$ new_voltage_n1 : vnl_n1-rint_n1*new_current_n1$
+regulation_n1 : (vnl_n1-new_voltage_n1)/new_voltage_n1*100$
+print("numerical 1 inferred-resistance residual =", ratsimp(rint_n1-5))$
+print("numerical 1 measured-point residual =",
+      ratsimp(vnl_n1-rint_n1*measured_current_n1-measured_voltage_n1))$
+print("numerical 1 predicted-output residual =",
+      ratsimp(new_voltage_n1-14))$
+print("numerical 1 regulation residual =",
+      ratsimp(regulation_n1-50/7))$
+
+vdc_n2 : 12$ ripple_n2 : 1/25$ rl_n2 : 600$
+vac_n2 : ripple_n2*vdc_n2$
+vrms_n2 : sqrt(vdc_n2^2+vac_n2^2)$
+pdc_n2 : vdc_n2^2/rl_n2$ pac_n2 : vac_n2^2/rl_n2$
+print("numerical 2 RMS-ripple residual =", ratsimp(vac_n2-12/25))$
+print("numerical 2 RMS-component identity residual =",
+      radcan(vrms_n2^2-vdc_n2^2-vac_n2^2))$
+print("numerical 2 total-RMS rounded residual =",
+      round(ev(vrms_n2*1000,numer))-12010)$
+print("numerical 2 dc-power residual =", ratsimp(pdc_n2-6/25))$
+print("numerical 2 ripple-power residual =", ratsimp(pac_n2-6/15625))$
+
+vdc_n3 : 12$ rl_n3 : 600$ c_n3 : 1/1000$ vpp_n3 : 1/5$
+il_n3 : vdc_n3/rl_n3$
+fr_n3 : il_n3/(c_n3*vpp_n3)$
+vrrms_n3 : vpp_n3/(2*sqrt(3))$
+ripple_n3 : vrrms_n3/vdc_n3$
+print("numerical 3 inferred-frequency residual =", ratsimp(fr_n3-100))$
+print("numerical 3 full-wave identification residual =", ratsimp(fr_n3-2*50))$
+print("numerical 3 triangular-ripple RMS residual =",
+      radcan(2*sqrt(3)*vrrms_n3-vpp_n3))$
+print("numerical 3 ripple-factor rounded residual =",
+      round(ev(ripple_n3*100000,numer))-481)$
+xl4 : 2*%pi*100*2$
+xc4 : 1/(2*%pi*100*(47/10^6))$
+print("numerical 4 inductive-reactance rounded residual =",
+      round(ev(xl4,numer))-1257)$
+print("numerical 4 capacitive-reactance rounded residual =",
+      round(ev(xc4*100,numer))-3386)$

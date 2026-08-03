@@ -38,7 +38,7 @@ $$
 }.
 $$
 
-For $\lvert\xi\rvert\gg1$, the $\xi^2$ term dominates and the equation is approximately $\psi''-\xi^2\psi\simeq0$. Its leading behaviours are $e^{-\xi^2/2}$ and $e^{+\xi^2/2}$; normalizability excludes the growing sign. Write
+For $\lvert\xi\rvert\gg1$, the $\xi^2$ term dominates and the equation is approximately $\psi^{\prime\prime}-\xi^2\psi\simeq0$. Its leading behaviours are $e^{-\xi^2/2}$ and $e^{+\xi^2/2}$; normalizability excludes the growing sign. Write
 
 $$
 \psi(\xi)=e^{-\xi^2/2}H(\xi).
@@ -47,18 +47,18 @@ $$
 Differentiation gives
 
 $$
-\psi'=e^{-\xi^2/2}(H'-\xi H),
+\psi^{\prime}=e^{-\xi^2/2}(H^{\prime}-\xi H),
 $$
 
 $$
-\psi''=e^{-\xi^2/2}
-\left[H''-2\xi H'+(\xi^2-1)H\right].
+\psi^{\prime\prime}=e^{-\xi^2/2}
+\left[H^{\prime\prime}-2\xi H^{\prime}+(\xi^2-1)H\right].
 $$
 
 Substitution cancels the $\xi^2H$ terms and leaves
 
 $$
-\boxed{H''-2\xi H'+(2\epsilon-1)H=0}.
+\boxed{H^{\prime\prime}-2\xi H^{\prime}+(2\epsilon-1)H=0}.
 $$
 
 Let $H=\sum_{j=0}^{\infty}a_j\xi^j$. Equating the coefficient of $\xi^j$ gives
@@ -176,6 +176,91 @@ $$
 
 with energy $3\hbar\omega/2$, one zero-point contribution from each Cartesian direction.
 
-![Equation-generated oscillator potential, eigenfunctions, and energy spacing]({{ '/assets/images/bsc/sem-v/mj-11/unit-iii/harmonic-oscillator.png' | relative_url }})
+<figure class="diagram-figure diagram-pan" tabindex="0">
+  <img src="{{ '/assets/images/bsc/sem-v/mj-11/unit-iii/harmonic-oscillator.png' | relative_url }}" alt="Equation-generated oscillator potential, eigenfunctions, and energy spacing" loading="lazy" decoding="async">
+</figure>
 
 The [editable TikZ source]({{ '/assets/tikz/bsc/sem-v/mj-11/unit-iii/harmonic-oscillator.tex' | relative_url }}) generates the figure. The dimensionless differential equation, Hermite-polynomial residuals, and 3D energy sum are checked in the [Maxima worksheet]({{ '/assets/maxima/bsc/sem-v/mj-11/oscillator-checks.mac' | relative_url }}).
+
+## Solved Problems
+
+### 1. Electron oscillator energies and ground-state widths
+
+An electron is in a one-dimensional oscillator with $\omega=5.00\times10^{13}\ \mathrm{rad\,s^{-1}}$. Find $E_0$, $E_3$, and the ground-state standard deviations $\Delta x$ and $\Delta p$.
+
+**Solution.** The allowed energies are positive:
+
+$$
+E_n=\left(n+\frac12\right)\hbar\omega.
+$$
+
+Therefore
+
+$$
+\boxed{E_0=0.01646\ \mathrm{eV}},\qquad
+\boxed{E_3=0.1152\ \mathrm{eV}}.
+$$
+
+The normalized ground-state Gaussian has zero mean position and momentum but nonzero spreads,
+
+$$
+\Delta x=\sqrt{\frac{\hbar}{2m_e\omega}}
+=\boxed{1.076\ \mathrm{nm}},
+$$
+
+$$
+\Delta p=\sqrt{\frac{m_e\hbar\omega}{2}}
+=\boxed{4.90\times10^{-26}\ \mathrm{kg\,m\,s^{-1}}}.
+$$
+
+Their product is
+
+$$
+\Delta x\,\Delta p=\frac{\hbar}{2},
+$$
+
+with action units. Neither standard deviation carries a sign. Raising $\omega$ narrows $\Delta x$ as $\omega^{-1/2}$ and broadens $\Delta p$ as $\omega^{1/2}$, while their product remains fixed. In the formal limit $\omega\to0^+$, the level spacing and zero-point energy vanish as confinement is removed.
+
+### 2. Degeneracy of a three-dimensional oscillator shell
+
+Find the energy and degeneracy of the isotropic three-dimensional oscillator shell with total quantum number $N=4$.
+
+**Solution.** Since $N=n_x+n_y+n_z$,
+
+$$
+\boxed{E_{N=4}=\left(4+\frac32\right)\hbar\omega
+=\frac{11}{2}\hbar\omega}.
+$$
+
+The number of ordered non-negative triples is
+
+$$
+g_4=\frac{(4+1)(4+2)}2
+=\boxed{15}.
+$$
+
+The count can be checked explicitly: permutations of $(4,0,0)$ contribute $3$, $(3,1,0)$ contribute $6$, $(2,2,0)$ contribute $3$, and $(2,1,1)$ contribute $3$, for a total of $15$. Degeneracy is dimensionless, while $\hbar\omega$ has energy units. All states in the shell have positive energy. If the three Cartesian frequencies cease to be equal, this isotropic degeneracy is generally lifted.
+
+## Descriptive Questions
+
+1. Why does normalizability force the oscillator power series to terminate, and how does that condition quantize the energy?
+2. Explain the roles of the Gaussian factor, Hermite polynomial, and parity in a one-dimensional oscillator eigenfunction.
+3. Why is the oscillator ground-state energy nonzero, and how is it connected to the uncertainty principle?
+4. Derive the energy and degeneracy of an isotropic three-dimensional oscillator from three independent Cartesian oscillators.
+
+## Numerical Problems
+
+1. For $\omega=5.00\times10^{13}\ \mathrm{rad\,s^{-1}}$, find the energy emitted in a transition from $n=4$ to $n=2$.<br>
+   **Final answer:** $\boxed{\Delta E=2\hbar\omega=0.06582\ \mathrm{eV}}$.
+2. Find the photon wavelength for an adjacent-level transition in the same oscillator.<br>
+   **Final answer:** $\boxed{\lambda=2\pi c/\omega=37.67\ \mathrm{\mu m}}$.
+3. Find the classical turning-point magnitude for the $n=2$ electron level at the same $\omega$.<br>
+   **Final answer:** $\boxed{x_t=\sqrt{2E_2/(m_e\omega^2)}=3.402\ \mathrm{nm}}$.
+
+The original oscillator differential identities are checked in the topic worksheet linked above. Every added energy, width, degeneracy, and turning-point value is checked in the [MJ-11 problem-verification worksheet]({{ '/assets/maxima/bsc/sem-v/mj-11/problem-checks.mac' | relative_url }}); every printed residual and check is zero.
+
+## References
+
+1. [Wikipedia: Quantum harmonic oscillator](https://en.wikipedia.org/wiki/Quantum_harmonic_oscillator)
+2. [OpenStax, *University Physics Volume 3*, Section 7.5: The Quantum Harmonic Oscillator](https://openstax.org/books/university-physics-volume-3/pages/7-5-the-quantum-harmonic-oscillator)
+3. [MIT OpenCourseWare 8.04, Lecture Note 13: Simple harmonic oscillator](https://www.ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2016/resources/mit8_04s16_lecnotes13/)
