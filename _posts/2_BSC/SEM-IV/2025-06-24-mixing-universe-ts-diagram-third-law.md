@@ -1,7 +1,7 @@
 ---
 title: "Mixing Entropy, the Universe, T-S Diagrams, and the Third Law"
 summary: "Ideal-gas mixing, entropy of the universe, the Carnot cycle on a temperature-entropy plane, and absolute zero."
-date: 2025-06-24 08:00:00 +0530
+date: 2025-06-24 09:00:00 +0530
 categories:
   - bsc-iv
 tags: [bsc, semester-iv, mj-6, heat-and-thermodynamics, mixing-entropy, third-law]

@@ -1,6 +1,6 @@
 ---
 title: "Compressible Capillary Flow and Rankine's Method"
-date: 2025-05-08 08:00:00 +0530
+date: 2025-05-08 09:00:00 +0530
 categories:
   - bsc-i
 tags: [compressible-flow, gas-viscosity, rankine-method]

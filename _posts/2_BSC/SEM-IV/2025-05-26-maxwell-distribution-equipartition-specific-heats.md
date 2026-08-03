@@ -1,7 +1,7 @@
 ---
 title: "Maxwell Distribution, Equipartition, and Specific Heats"
 summary: "Equilibrium molecular speeds, active degrees of freedom, equipartition, and ideal-gas heat capacities."
-date: 2025-05-26 08:00:00 +0530
+date: 2025-05-26 09:00:00 +0530
 categories:
   - bsc-iv
 tags: [bsc, semester-iv, mj-6, heat-and-thermodynamics, kinetic-theory]
