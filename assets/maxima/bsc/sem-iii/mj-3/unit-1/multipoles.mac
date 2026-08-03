@@ -1,0 +1,46 @@
+/* MJ-3 Unit I: exact checks for multipole expansion and fields. */
+kill(all)$
+
+print("MJ-3 Unit I -- dipole and quadrupole")$
+
+kernel : (1-2*u*c+u^2)^(-1/2)$
+series2 :
+  subst(0,u,kernel)
+  + subst(0,u,diff(kernel,u))*u
+  + subst(0,u,diff(kernel,u,2))*u^2/2$
+target2 : 1+c*u+(3*c^2-1)*u^2/2$
+res_series : ratsimp(series2-target2)$
+
+print("multipole-series coefficient residual =",res_series)$
+
+Vd : p*cos(th)/(k*r^2)$
+Er_d_expected : 2*p*cos(th)/(k*r^3)$
+Et_d_expected : p*sin(th)/(k*r^3)$
+res_dip_r : trigsimp(ratsimp(-diff(Vd,r)-Er_d_expected))$
+res_dip_t : trigsimp(ratsimp(-diff(Vd,th)/r-Et_d_expected))$
+
+print("dipole radial-field residual =",res_dip_r)$
+print("dipole polar-field residual =",res_dip_t)$
+
+Vq : q*a^2*(3*cos(th)^2-1)/(k*r^3)$
+Er_q_expected : 3*q*a^2*(3*cos(th)^2-1)/(k*r^4)$
+Et_q_expected : 6*q*a^2*sin(th)*cos(th)/(k*r^4)$
+res_quad_r : trigsimp(ratsimp(-diff(Vq,r)-Er_q_expected))$
+res_quad_t : trigsimp(ratsimp(-diff(Vq,th)/r-Et_q_expected))$
+
+print("quadrupole radial-field residual =",res_quad_r)$
+print("quadrupole polar-field residual =",res_quad_t)$
+
+Qxx : -2*q*a^2$
+Qyy : -2*q*a^2$
+Qzz :  4*q*a^2$
+tensor_contraction :
+  (Qxx*sin(th)^2*cos(ph)^2
+  +Qyy*sin(th)^2*sin(ph)^2
+  +Qzz*cos(th)^2)/2$
+res_tensor :
+  trigsimp(ratsimp(tensor_contraction-q*a^2*(3*cos(th)^2-1)))$
+
+print("axial quadrupole-tensor residual =",res_tensor)$
+
+quit()$

@@ -1,0 +1,19 @@
+display2d:false$
+
+/* Weiss molecular-field algebra. */
+Msol:rhs(first(solve(M=C*(H+lambda*M)/T,M)))$
+residual_curie_weiss:ratsimp(Msol/H-C/(T-C*lambda))$
+print("residual_curie_weiss =",residual_curie_weiss)$
+
+/* Isotropic orbital average used in Langevin diamagnetism. */
+rperp2:2*r2/3$
+muind:-e^2*B*rperp2/(4*m)$
+residual_diamagnetic_moment:ratsimp(muind+e^2*B*r2/(6*m))$
+print("residual_diamagnetic_moment =",residual_diamagnetic_moment)$
+
+/* Classical weak-field Curie law. */
+x:mu*mu0*H/(kB*T)$
+Mweak:N*mu*x/3$
+residual_classical_curie:ratsimp(Mweak/H-mu0*N*mu^2/(3*kB*T))$
+print("residual_classical_curie =",residual_classical_curie)$
+

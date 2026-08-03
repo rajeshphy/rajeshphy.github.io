@@ -1,0 +1,13 @@
+/* Relativistic momentum, work, and energy invariant. */
+kill(all)$ display2d:false$
+g : 1/sqrt(1-v^2/c^2)$
+p : g*m0*v$
+E : g*m0*c^2$
+print("dp/dv residual (must be 0):",ratsimp(radcan(diff(p,v)-m0*g^3)))$
+print("work derivative residual (must be 0):",ratsimp(radcan(diff((g-1)*m0*c^2,v)-v*diff(p,v))))$
+print("energy-momentum residual (must be 0):",ratsimp(radcan(E^2-p^2*c^2-m0^2*c^4)))$
+print("p=Ev/c^2 residual (must be 0):",ratsimp(p-E*v/c^2))$
+Emassless : pm*c$
+print("massless E=pc residual (must be 0):",ratsimp(Emassless^2-pm^2*c^2))$
+print("massless speed dE/dp residual (must be 0):",ratsimp(diff(Emassless,pm)-c))$
+quit();

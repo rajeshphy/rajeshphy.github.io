@@ -1,0 +1,18 @@
+/* Direct/inverse Lorentz transformations and interval. */
+kill(all)$ display2d:false$
+g : 1/sqrt(1-v^2/c^2)$
+xp : g*(x-v*t)$
+tp : g*(t-v*x/c^2)$
+xback : g*(xp+v*tp)$
+tback : g*(tp+v*xp/c^2)$
+print("gamma normalization residual (must be 0):",
+  radcan(g^2*(1-v^2/c^2)-1))$
+print("inverse x residual (must be 0):",ratsimp(radcan(xback-x)))$
+print("inverse t residual (must be 0):",ratsimp(radcan(tback-t)))$
+print("positive light-ray residual (must be 0):",
+  radcan(subst(x=c*t,xp-c*tp)))$
+print("negative light-ray residual (must be 0):",
+  radcan(subst(x=-c*t,xp+c*tp)))$
+interval : c^2*tp^2-xp^2$
+print("interval residual (must be 0):",ratsimp(radcan(interval-(c^2*t^2-x^2))))$
+quit();

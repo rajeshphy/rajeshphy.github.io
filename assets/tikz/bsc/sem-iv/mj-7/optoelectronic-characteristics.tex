@@ -1,0 +1,32 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=2 by 2,horizontal sep=1.55cm,vertical sep=1.45cm},
+  width=7.0cm,height=5.8cm,clip=false,
+  tick label style={font=\small},label style={font=\small},title style={font=\small}
+]
+\nextgroupplot[title={LED},axis lines=left,xmin=0,xmax=1.1,ymin=0,ymax=1.1,xlabel={$I_F$},ylabel={$P_{\rm opt}$},xtick={0,1},ytick={0,1}]
+\addplot[very thick,orange!85!black,domain=0:1,samples=2]{x};
+\node[anchor=south east] at (axis cs:0.95,0.72) {$P_{\rm opt}\propto I_F$};
+\nextgroupplot[title={illuminated photodiode},axis lines=middle,xmin=-4.2,xmax=2.05,ymin=-3.35,ymax=6.7,xlabel={},ylabel={$I/I_S$},xtick={-4,0,2},ytick={-3,-2,-1,0,6}]
+\addplot[very thick,black,domain=-4:2,samples=220]{exp(x)-1};
+\addplot[very thick,blue!70!black,domain=-4:2,samples=220]{exp(x)-2};
+\addplot[very thick,teal!70!black,domain=-4:2,samples=220]{exp(x)-3};
+\node[anchor=south west] at (axis cs:-3.85,5.25) {$u=V/(\eta V_T)$};
+\node[anchor=south] at (axis cs:-2.7,-1.82) {$P_{\rm opt}\uparrow$};
+\draw[->] (axis cs:-2.7,-1.45)--(axis cs:-2.7,-2.75);
+\nextgroupplot[title={solar-cell output},axis lines=left,xmin=0,xmax=4.15,ymin=0,ymax=1.12,xlabel={$u=qV/(\eta k_BT)$},ylabel={$I/I_{ph}$},xtick={0,3.93},xticklabels={$0$,$u_{\rm oc}$},ytick={0,1}]
+\addplot[very thick,green!55!black,domain=0:3.9318,samples=220]{1-0.02*(exp(x)-1)};
+\draw[densely dashed] (axis cs:3.9318,0)--(axis cs:3.9318,1.02);
+\nextgroupplot[title={semiconductor-laser light--current curve},axis lines=left,xmin=0,xmax=2.25,ymin=0,ymax=1.18,xlabel={$I/I_{th}$},ylabel={$P_{\rm out}$ (normalized)},xtick={0,1,2},ytick={0,1}]
+\addplot[very thick,violet!75!black,domain=0:1,samples=2]{0.05*x};
+\addplot[very thick,violet!75!black,domain=1:2.2,samples=2]{0.05+0.9*(x-1)};
+\draw[densely dashed] (axis cs:1,0)--(axis cs:1,1.07);
+\node[anchor=south east] at (axis cs:0.96,0.1) {$I_{th}$};
+\end{groupplot}
+\end{tikzpicture}
+\end{document}

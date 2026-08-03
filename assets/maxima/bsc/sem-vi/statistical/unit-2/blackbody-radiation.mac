@@ -1,0 +1,35 @@
+/* Symbolic checks for Statistical Mechanics Unit II.
+   Run: maxima --very-quiet -b blackbody-radiation.mac */
+kill(all)$
+display2d:false$
+
+nu : c/lambda$
+dnu_dlambda : c/lambda^2$
+u_nu : 8*%pi*h*nu^3/c^3/(exp(h*nu/(kB*T))-1)$
+u_lambda : 8*%pi*h*c/lambda^5/
+           (exp(h*c/(lambda*kB*T))-1)$
+print("frequency-to-wavelength Planck-law residual =",
+      ratsimp(u_nu*dnu_dlambda-u_lambda))$
+
+z : 1/(1-exp(-beta*h*nu))$
+mean_E : -diff(log(z),beta)$
+print("Planck mean-mode-energy residual =",
+      ratsimp(exponentialize(mean_E-h*nu/(exp(beta*h*nu)-1))))$
+
+print("Rayleigh-Jeans limit residual =",
+      ratsimp(limit(xx/(exp(xx)-1),xx,0)-1))$
+print("Wien limit residual =",
+      ratsimp(limit((exp(xx)-1)/exp(xx),xx,inf)-1))$
+
+shape(xx) := xx^5/(exp(xx)-1)$
+peak_equation :
+  ratsimp((exp(xx)-1)^2*diff(shape(xx),xx)
+          -xx^4*(5*(exp(xx)-1)-xx*exp(xx)))$
+print("Wien-peak equation residual =",peak_equation)$
+
+a_rad : 8*%pi^5*kB^4/(15*h^3*c^3)$
+sigma : 2*%pi^5*kB^4/(15*h^3*c^2)$
+print("Stefan flux-factor residual =",
+      ratsimp(c*a_rad/4-sigma))$
+
+quit()$

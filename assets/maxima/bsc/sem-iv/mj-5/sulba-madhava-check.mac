@@ -1,0 +1,20 @@
+/* MJ-5 Unit I: exact checks for Sulba geometry and Madhava series. */
+kill(all)$
+assume(a>0,b>0)$
+c:sqrt(a^2+b^2)$
+pythagorean_residual:ratsimp(c^2-a^2-b^2)$
+print("pythagorean_residual =",pythagorean_residual)$
+
+/* The Baudhayana approximation 577/408 is a Pell approximant to sqrt(2). */
+sulba_pell_residual:577^2-2*408^2-1$
+print("sulba_pell_residual =",sulba_pell_residual)$
+print("sulba_sqrt2_approximation =",float(577/408))$
+
+/* Differentiate the first five terms of the sine series. */
+s5:x-x^3/3!+x^5/5!-x^7/7!+x^9/9!$
+derivative_residual:ratsimp(diff(s5,x)-(1-x^2/2!+x^4/4!-x^6/6!+x^8/8!))$
+print("derivative_residual =",derivative_residual)$
+
+/* Madhava's arctangent series at x=1, truncated after n=4. */
+pi_approx:4*sum((-1)^n/(2*n+1),n,0,4)$
+print("pi_5_term =",float(pi_approx))$

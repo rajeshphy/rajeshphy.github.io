@@ -1,0 +1,22 @@
+display2d:false$
+
+/* Clausius-Mossotti algebra. */
+eq:X=N*alpha*(E+X/(3*eps0))$
+Xsol:rhs(first(solve(eq,X)))$
+epsr:1+Xsol/(eps0*E)$
+residual_clausius:ratsimp((epsr-1)/(epsr+2)-N*alpha/(3*eps0))$
+print("residual_clausius_mossotti =",residual_clausius)$
+
+A:w0^2-w^2$
+B:gamma*w$
+declare([Omega2,A,B],real)$
+complex_response:Omega2/(A-%i*B)$
+real_expected:Omega2*A/(A^2+B^2)$
+imag_expected:Omega2*B/(A^2+B^2)$
+residual_real:ratsimp(realpart(complex_response)-real_expected)$
+residual_imag:ratsimp(imagpart(complex_response)-imag_expected)$
+print("residual_dielectric_real_part =",residual_real)$
+print("residual_dielectric_imaginary_part =",residual_imag)$
+
+residual_index_real:expand((n+%i*kappa)^2)-(n^2-kappa^2+2*%i*n*kappa)$
+print("residual_complex_index =",residual_index_real)$

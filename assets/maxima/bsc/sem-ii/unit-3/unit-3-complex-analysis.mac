@@ -1,0 +1,69 @@
+/* MJ-2, Unit III: exact symbolic checks.  Run with maxima -q -b FILE */
+kill(all)$
+display2d:false$
+print("MJ-2 UNIT III: COMPLEX-ANALYSIS CHECKS")$
+
+/* Cube roots of 8. */
+root0 : 2$
+root1 : -1+%i*sqrt(3)$
+root2 : -1-%i*sqrt(3)$
+print("cube-root z0 residual =",ratsimp(root0^3-8))$
+print("cube-root z1 residual =",rectform(expand(root1^3-8)))$
+print("cube-root z2 residual =",rectform(expand(root2^3-8)))$
+
+/* Cauchy-Riemann equations for f(z)=z^2. */
+u : x^2-y^2$
+v : 2*x*y$
+cr1_residual : ratsimp(diff(u,x)-diff(v,y))$
+cr2_residual : ratsimp(diff(u,y)+diff(v,x))$
+derivative_residual : ratsimp((diff(u,x)+%i*diff(v,x))-2*(x+%i*y))$
+print("Cauchy-Riemann first residual =",cr1_residual)$
+print("Cauchy-Riemann second residual =",cr2_residual)$
+print("z-squared derivative residual =",derivative_residual)$
+
+/* Integral of dz/z around z=exp(i t). */
+unit_circle_integral :
+    integrate((%i*exp(%i*t))/exp(%i*t),t,0,2*%pi)$
+unit_circle_residual : ratsimp(unit_circle_integral-2*%pi*%i)$
+print("unit-circle integral residual =",unit_circle_residual)$
+
+/* Cauchy integral formula for f(z)=z^2 at z0=1. */
+cauchy_value : 2*%pi*%i*residue(z^2/(z-1),z,1)$
+cauchy_residual : ratsimp(cauchy_value-2*%pi*%i)$
+cauchy_derivative_value :
+    2*%pi*%i*residue(z^2/(z-1)^2,z,1)$
+cauchy_derivative_residual :
+    ratsimp(cauchy_derivative_value-2*%pi*%i*2)$
+print("Cauchy-formula value residual =",cauchy_residual)$
+print("Cauchy derivative-formula residual =",cauchy_derivative_residual)$
+
+/* Laurent example f=1/[z(1-z)]: a_-1=1 in 0<|z|<1. */
+laurent_residue : residue(1/(z*(1-z)),z,0)$
+laurent_residual : ratsimp(laurent_residue-1)$
+print("Laurent a_-1 residual =",laurent_residual)$
+
+/* Sample residues and their sum. */
+f_rat : 1/((z-%i*a)*(z+%i*a))$
+res_upper : residue(f_rat,z,%i*a)$
+upper_residue_residual : ratsimp(res_upper-1/(2*%i*a))$
+print("upper-pole residue residual =",upper_residue_residual)$
+
+/* Real rational integral reconstructed from its upper residue. */
+real_integral_from_residue : 2*%pi*%i*res_upper$
+real_integral_residual :
+    ratsimp(real_integral_from_residue-%pi/a)$
+print("real definite-integral residual =",real_integral_residual)$
+
+/* Unit-circle trigonometric integral. */
+d : sqrt(a^2-b^2)$
+zplus : (-a+d)/b$
+trig_residue : 1/(2*(b*zplus+a))$
+trig_residue_residual :
+    radcan(trig_residue-1/(2*d))$
+trig_integral_from_residue : (2/%i)*(2*%pi*%i)*trig_residue$
+trig_integral_residual :
+    radcan(trig_integral_from_residue-2*%pi/d)$
+print("trigonometric-pole residue residual =",trig_residue_residual)$
+print("trigonometric definite-integral residual =",trig_integral_residual)$
+
+quit();

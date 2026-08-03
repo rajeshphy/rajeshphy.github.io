@@ -1,0 +1,37 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta}
+\pgfplotsset{compat=1.18}
+\pgfmathdeclarefunction{sincx}{1}{\pgfmathparse{abs(#1)<0.001 ? 1 : sin(deg(#1))/(#1)}}
+\definecolor{ink}{HTML}{17324D}
+\definecolor{accent}{HTML}{0F766E}
+\definecolor{gold}{HTML}{C28524}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily,>=Latex]
+ \draw[ink,line width=1.5pt] (0,0)--(3,0) node[midway,above] {$n=2$};
+ \draw[->,ink!60] (3.25,0)--(5.6,1.45);
+ \draw[->,ink!60] (3.25,0)--(5.6,-1.45);
+ \draw[accent,line width=2pt] (5.8,1.45)--(8.6,1.45)
+   node[right] {$E_2+3ea_0\mathcal E$};
+ \draw[gold!90!black,line width=2pt] (5.8,-1.45)--(8.6,-1.45)
+   node[right] {$E_2-3ea_0\mathcal E$};
+ \draw[ink!55,line width=1.4pt] (5.8,0)--(8.6,0)
+   node[right,align=left] {$|21,\pm1\rangle$\\unshifted};
+ \node[ink,align=center] at (4.4,-2.55)
+   {$\displaystyle V=e\mathcal E
+   \begin{pmatrix}0&-3a_0\\-3a_0&0\end{pmatrix}$};
+ \begin{scope}[xshift=11.1cm,yshift=-2.25cm]
+ \begin{axis}[
+  width=7.4cm,height=5.7cm,
+  xmin=-10,xmax=10,ymin=-.05,ymax=1.08,
+  xlabel={$x=(\omega_{fi}-\omega)T/2$},
+  ylabel={$P/P_{\rm resonant}$},grid=both,
+  tick label style={font=\scriptsize},label style={font=\small},
+  title={Finite-time line shape},title style={font=\small},
+ ]
+  \addplot[accent,very thick,domain=-10:10,samples=801]{sincx(x)^2};
+ \end{axis}
+ \end{scope}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,30 @@
+/* Symbolic checks for Statistical Mechanics Unit I.
+   Run: maxima --very-quiet -b classical-statistics.mac */
+kill(all)$
+display2d:false$
+
+assume(a>0)$
+f(v) := 4/sqrt(%pi)*a^(3/2)*v^2*exp(-a*v^2)$
+normalization : integrate(f(v),v,0,inf)$
+print("Maxwell-speed normalization residual =",
+      ratsimp(normalization-1))$
+
+vmp : 1/sqrt(a)$
+print("Maxwell most-probable-speed residual =",
+      radcan(subst(vmp,v,diff(log(f(v)),v))))$
+
+z1 : C*beta^(-3/2)$
+print("ideal-gas energy residual =",
+      ratsimp(-N*diff(log(z1),beta)-3*N/(2*beta)))$
+
+gaussian_q : sqrt(%pi/(beta*c))$
+equipartition :
+  -diff(log(gaussian_q),beta)$
+print("equipartition residual =",
+      ratsimp(equipartition-1/(2*beta)))$
+
+Sst : N*kB*(log(V/N*(2*%pi*m*kB*T/h^2)^(3/2))+5/2)$
+print("Sackur-Tetrode extensivity residual =",
+      ratsimp(subst([V=q*V,N=q*N],Sst)-q*Sst))$
+
+quit()$

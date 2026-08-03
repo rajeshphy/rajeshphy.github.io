@@ -28,7 +28,7 @@ Use lowercase folder names when possible, and keep related files together.
 ## Image Syntax
 
 ```markdown
-![Diagram caption]({{ '/assets/images/bsc/sem-v/tunneling/example.png' | relative_url }})
+![Diagram caption]({{ '/assets/images/bsc/sem-v/topic-name/diagram.png' | relative_url }})
 ```
 
 ## PDF Link Syntax

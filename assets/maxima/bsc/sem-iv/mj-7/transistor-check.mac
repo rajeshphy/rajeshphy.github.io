@@ -1,0 +1,13 @@
+/* BJT gain identities and symmetric load-line Q point. */
+kill(all)$
+alpha : beta/(beta+1)$
+print("alpha-beta residual =", ratsimp(beta-alpha/(1-alpha)))$
+gamma : beta+1$
+print("gamma-alpha residual =", ratsimp(gamma-1/(1-alpha)))$
+Vq : Vcc/2$
+Iq : Vcc/(2*Rc)$
+print("load-line residual =", ratsimp(Vq+Iq*Rc-Vcc))$
+/* JFET transconductance from Shockley's transfer law. */
+Id : Idss*(1-Vgs/Vp)^2$
+gm : diff(Id,Vgs)$
+print("JFET gm residual =", ratsimp(gm+2*Idss*(1-Vgs/Vp)/Vp))$

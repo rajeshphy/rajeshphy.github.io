@@ -1,0 +1,23 @@
+display2d:false$
+
+mono_residual:ratsimp(trigreduce(2*C*(1-cos(k*a))-4*C*sin(k*a/2)^2))$
+print("residual_monatomic_dispersion =",mono_residual)$
+
+A:C*(1/M1+1/M2)$
+D:C*sqrt((1/M1+1/M2)^2-4*sin(k*a/2)^2/(M1*M2))$
+wac2:A-D$
+wop2:A+D$
+residual_root_sum:ratsimp(wac2+wop2-2*C*(1/M1+1/M2))$
+D2:C^2*((1/M1+1/M2)^2-4*sin(k*a/2)^2/(M1*M2))$
+residual_root_product:ratsimp(A^2-D2-4*C^2*sin(k*a/2)^2/(M1*M2))$
+print("residual_diatomic_root_sum =",residual_root_sum)$
+print("residual_diatomic_root_product =",residual_root_product)$
+
+x:'x$
+einstein:x^2*exp(x)/(exp(x)-1)^2$
+residual_einstein_high:limit(einstein,x,0)-1$
+print("residual_einstein_high_temperature =",residual_einstein_high)$
+
+Ulow:3*%pi^4*N*kB*T^4/(5*thetaD^3)$
+residual_debye_t3:ratsimp(diff(Ulow,T)-12*%pi^4*N*kB*T^3/(5*thetaD^3))$
+print("residual_debye_T3 =",residual_debye_t3)$

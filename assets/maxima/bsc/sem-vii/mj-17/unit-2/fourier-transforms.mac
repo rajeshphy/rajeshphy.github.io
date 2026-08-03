@@ -1,0 +1,20 @@
+/* Gaussian, finite-train, derivative, and convolution checks. */
+kill(all)$
+declare(a,real,L,real,k,real,k0,real)$
+assume(a>0,L>0)$
+
+gaussian : integrate(exp(-a*x^2)*exp(-%i*k*x),x,minf,inf)$
+gaussian_expected : sqrt(%pi/a)*exp(-k^2/(4*a))$
+print("Gaussian-transform residual = ",radcan(gaussian-gaussian_expected))$
+
+finite_train : integrate(cos(k0*x)*exp(-%i*k*x),x,-L/2,L/2)$
+finite_expected : sin((k-k0)*L/2)/(k-k0)+sin((k+k0)*L/2)/(k+k0)$
+print("finite-wave-train residual = ",radcan(exponentialize(finite_train-finite_expected)))$
+
+/* Derivative theorem for the Gaussian. */
+gaussian_derivative : integrate(diff(exp(-a*x^2),x)*exp(-%i*k*x),x,minf,inf)$
+print("Fourier-derivative residual = ",radcan(gaussian_derivative-%i*k*gaussian_expected))$
+
+/* Convolution of two exp(-x)H(x) functions is x exp(-x)H(x). */
+conv : integrate(exp(-u)*exp(-(x-u)),u,0,x)$
+print("convolution residual = ",ratsimp(conv-x*exp(-x)))$

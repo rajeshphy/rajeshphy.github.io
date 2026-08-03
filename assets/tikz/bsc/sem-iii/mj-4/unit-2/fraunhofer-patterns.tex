@@ -1,0 +1,75 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta}
+\definecolor{ink}{HTML}{17324D}
+\definecolor{blue}{HTML}{1877B8}
+\definecolor{orange}{HTML}{D97706}
+\definecolor{green}{HTML}{16856B}
+\definecolor{red}{HTML}{C24156}
+\begin{document}
+\begin{tikzpicture}[font=\small,>=Latex]
+\tikzset{panel/.style={draw=ink!18,rounded corners=3pt,fill=ink!1}}
+
+\node[panel,minimum width=8.35cm,minimum height=5.0cm,anchor=south west] at (0,5.25) {};
+\node[font=\bfseries,ink,anchor=west] at (.25,9.88) {(a) Single slit};
+\begin{axis}[at={(.50cm,5.68cm)},anchor=south west,width=7.50cm,height=3.90cm,
+  axis lines=left,ylabel={$I/I(0)$},
+  xmin=-4,xmax=4,ymin=0,ymax=1.08,xtick={-4,-3,-2,-1,0,1,2,3,4},ytick={0,.5,1},
+  tick label style={font=\scriptsize},label style={font=\scriptsize}]
+  \addplot[blue,very thick,domain=-4:4,samples=801]
+    {ifthenelse(abs(x)<.0001,1,(sin(deg(pi*x))/(pi*x))^2)};
+  \node[blue,font=\scriptsize,anchor=north east] at (axis cs:3.85,.93)
+    {$I/I(0)=(\sin\beta/\beta)^2$};
+\end{axis}
+
+\node[panel,minimum width=8.35cm,minimum height=5.0cm,anchor=south west] at (8.65,5.25) {};
+\node[font=\bfseries,ink,anchor=west] at (8.90,9.88) {(b) Double slit, $d/a=3$};
+\begin{axis}[at={(9.15cm,5.68cm)},anchor=south west,width=7.50cm,height=3.90cm,
+  axis lines=left,ylabel={normalized $I$},
+  xmin=-3,xmax=3,ymin=0,ymax=1.08,xtick={-3,-2,-1,0,1,2,3},ytick={0,.5,1},
+  tick label style={font=\scriptsize},label style={font=\scriptsize},clip=false]
+  \addplot[orange,very thick,domain=-3:3,samples=1001]
+    {ifthenelse(abs(x)<.0001,1,(sin(deg(pi*x))/(pi*x))^2*cos(deg(3*pi*x))^2)};
+  \addplot[blue,dashed,thick,domain=-3:3,samples=500]
+    {ifthenelse(abs(x)<.0001,1,(sin(deg(pi*x))/(pi*x))^2)};
+  \node[orange,font=\scriptsize,anchor=north east] at (axis cs:2.9,.96)
+    {envelope $\times\cos^2\alpha$};
+\end{axis}
+
+\node[panel,minimum width=8.35cm,minimum height=5.0cm,anchor=south west] at (0,0) {};
+\node[font=\bfseries,ink,anchor=west] at (.25,4.63) {(c) Multiple slits, $N=8$, $d/a=3$};
+\begin{axis}[at={(.50cm,.43cm)},anchor=south west,width=7.50cm,height=3.90cm,
+  axis lines=left,xlabel={$\beta/\pi$},ylabel={normalized $I_N$},
+  xmin=-2,xmax=2,ymin=0,ymax=1.08,xtick={-2,-1,0,1,2},ytick={0,.5,1},
+  tick label style={font=\scriptsize},label style={font=\scriptsize}]
+  \addplot[green,very thick] gnuplot[raw gnuplot] {
+    set samples 1601;
+    sinc(x)=(abs(x)<1e-8)?1:sin(pi*x)/(pi*x);
+    arr(x)=(abs(sin(3*pi*x))<1e-7)?1:sin(8*3*pi*x)/(8*sin(3*pi*x));
+    plot [x=-2:2] sinc(x)**2*arr(x)**2;
+  };
+  \node[green,font=\scriptsize,anchor=north east] at (axis cs:1.92,.96)
+    {$I_N\propto(\sin N\alpha/\sin\alpha)^2$};
+\end{axis}
+
+\node[panel,minimum width=8.35cm,minimum height=5.0cm,anchor=south west] at (8.65,0) {};
+\node[font=\bfseries,ink,anchor=west] at (8.90,4.63) {(d) Circular aperture and Rayleigh limit};
+\begin{axis}[at={(9.15cm,.43cm)},anchor=south west,width=7.50cm,height=3.90cm,
+  axis lines=left,xlabel={$u=\pi D\sin\theta/\lambda$},ylabel={$I/I(0)$},
+  xmin=0,xmax=12,ymin=0,ymax=1.08,xtick={0,3.8317,6,9,12},ytick={0,.5,1},
+  xticklabels={$0$,$3.8317$,$6$,$9$,$12$},
+  tick label style={font=\scriptsize},label style={font=\scriptsize},clip=false]
+  \addplot[red,very thick] gnuplot[raw gnuplot] {
+    set samples 900;
+    airyf(u)=(abs(u)<1e-8)?1:(2*besj1(u)/u)**2;
+    plot [u=0:12] airyf(u);
+  };
+  \draw[red,dashed] (axis cs:3.8317,0)--(axis cs:3.8317,.80);
+  \node[red,font=\scriptsize,anchor=west] at (axis cs:4.1,.65)
+    {$\theta_{\min}\simeq1.22\lambda/D$};
+  \node[ink,font=\scriptsize,anchor=east] at (axis cs:11.7,.97)
+    {$\lambda/\Delta\lambda=mN$};
+\end{axis}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,35 @@
+/* Stationary perturbation, Stark, and transition-amplitude checks. */
+kill(all)$
+
+/* Two-state determinant through second order about E1. */
+H : matrix([E1+lam*V11,lam*v],[lam*v,E2+lam*V22])$
+Eapprox : E1+lam*V11+lam^2*v^2/(E1-E2)$
+D : expand(determinant(H-Eapprox*ident(2)))$
+print("two-state determinant lambda0 residual = ",ratcoef(D,lam,0))$
+print("two-state determinant lambda1 residual = ",ratcoef(D,lam,1))$
+print("two-state determinant lambda2 residual = ",ratsimp(ratcoef(D,lam,2)))$
+
+radial : integrate(x^4*(2-x)*exp(-x),x,0,inf)$
+angular : integrate(sin(theta)*cos(theta)^2,theta,0,%pi)*2*%pi$
+stark_z : a0/(32*%pi)*radial*angular$
+print("Stark radial-integral residual = ",radial+72)$
+print("Stark angular-integral residual = ",radcan(angular-4*%pi/3))$
+print("Stark matrix-element residual = ",radcan(stark_z+3*a0))$
+
+Vstark : matrix([0,-A],[-A,0])$
+plus : matrix([1],[-1])/sqrt(2)$
+minus : matrix([1],[1])/sqrt(2)$
+v2zero(V) := radcan(V[1,1]^2+V[2,1]^2)$
+print("upper Stark eigenvector residual = ",v2zero(Vstark.plus-A*plus))$
+print("lower Stark eigenvector residual = ",v2zero(Vstark.minus+A*minus))$
+
+declare(w,real,T,real)$
+amp_left : 1-exp(%i*w*T)$
+amp_right : -2*%i*exp(%i*w*T/2)*sin(w*T/2)$
+print("constant-pulse amplitude residual = ",radcan(exponentialize(amp_left-amp_right)))$
+prob_identity : ratsimp(trigreduce(2-2*cos(w*T)-4*sin(w*T/2)^2))$
+print("constant-pulse probability residual = ",prob_identity)$
+
+/* Parity-forbidden diagonal angular factor. */
+diagonal_angular : integrate(sin(theta)*cos(theta),theta,0,%pi)*2*%pi$
+print("Stark diagonal-parity residual = ",trigsimp(diagonal_angular))$

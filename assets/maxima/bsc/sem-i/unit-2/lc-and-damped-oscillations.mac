@@ -1,0 +1,36 @@
+/* Ideal LC oscillation and all three free-damping regimes. */
+kill(all)$
+display2d:false$
+
+wlc : 1/sqrt(L*C)$
+q : Q*cos(wlc*t+phi)$
+i : diff(q,t)$
+print("LC differential-equation residual (must be 0):",
+  radcan(trigsimp(diff(q,t,2)+q/(L*C))))$
+print("LC total-energy residual (must be 0):",
+  radcan(trigsimp(q^2/(2*C)+L*i^2/2-Q^2/(2*C))))$
+print("LC energy-derivative residual (must be 0):",
+  radcan(trigsimp(diff(q^2/(2*C)+L*i^2/2,t))))$
+
+wd : sqrt(w0^2-beta^2)$
+x_under : exp(-beta*t)*(C1*cos(wd*t)+C2*sin(wd*t))$
+print("Underdamped-solution residual (must be 0):",
+  radcan(trigsimp(diff(x_under,t,2)+2*beta*diff(x_under,t)+w0^2*x_under)))$
+
+x_critical : (C1+C2*t)*exp(-beta*t)$
+print("Critical-solution residual (must be 0):",
+  factor(ev(diff(x_critical,t,2)+2*beta*diff(x_critical,t)
+    +w0^2*x_critical,w0=beta)))$
+
+s : sqrt(beta^2-w0^2)$
+x_over : C1*exp((-beta+s)*t)+C2*exp((-beta-s)*t)$
+print("Overdamped-solution residual (must be 0):",
+  radcan(diff(x_over,t,2)+2*beta*diff(x_over,t)+w0^2*x_over))$
+
+xdd_from_ode : -2*beta*xd-w0^2*x0$
+b : 2*m*beta$
+k : m*w0^2$
+print("Mechanical-energy-loss residual (must be 0):",
+  ratsimp(m*xd*xdd_from_ode+k*x0*xd+b*xd^2))$
+
+quit();

@@ -1,0 +1,31 @@
+/* Circular-satellite speed, period, energy, and radius identities. */
+kill(all)$
+display2d:false$
+
+v : sqrt(mu/r)$
+omega : v/r$
+Torb : 2*%pi/omega$
+
+print("Circular-force-balance residual (must be 0):",
+  radcan(v^2/r-mu/r^2))$
+print("Orbital-angular-speed residual (must be 0):",
+  radcan(omega^2-mu/r^3))$
+print("Circular-period residual (must be 0):",
+  radcan(Torb^2-4*%pi^2*r^3/mu))$
+
+K : m*v^2/2$
+U : -mu*m/r$
+Etot : K+U$
+print("Circular kinetic-energy residual (must be 0):",
+  radcan(K-mu*m/(2*r)))$
+print("Circular total-energy residual (must be 0):",
+  radcan(Etot+mu*m/(2*r)))$
+
+r3_from_T : mu*T^2/(4*%pi^2)$
+print("Period-to-radius residual (must be 0):",
+  ratsimp(4*%pi^2*r3_from_T-mu*T^2))$
+rgeo3 : mu/OmegaE^2$
+print("Geostationary-radius residual (must be 0):",
+  ratsimp(rgeo3*OmegaE^2-mu))$
+
+quit();

@@ -1,0 +1,35 @@
+/* Plasma frequency, shielding, gyro-motion, and MHD-wave checks. */
+kill(all)$
+declare(r,real,lambda,real)$
+assume(r>0,lambda>0)$
+
+omega_pe_sq : n0*e^2/(me*eps0)$
+print("plasma-oscillation residual = ",ratsimp(me*omega_pe_sq-n0*e^2/eps0))$
+
+phi : Q*exp(-r/lambda)/(4*%pi*eps0*r)$
+debye_residual : ratsimp((1/r^2)*diff(r^2*diff(phi,r),r)-phi/lambda^2)$
+print("Debye-potential differential residual = ",radcan(debye_residual))$
+
+/* dvx/dt=Omega vy, dvy/dt=-Omega vx. */
+gyro_energy_rate : 2*vx*(Omega*vy)+2*vy*(-Omega*vx)$
+print("gyro-speed conservation residual = ",ratsimp(gyro_energy_rate))$
+
+/* Mirror equality at v_parallel=0. */
+mirror_residual : ratsimp((vperp0^2/vtot^2)-B0/Bm)$
+mirror_equality : mirror_residual,
+  vperp0^2=vtot^2*B0/Bm$
+print("magnetic-mirror equality residual = ",ratsimp(mirror_equality))$
+
+S : sin(theta)$
+C : cos(theta)$
+M : matrix(
+ [w^2-k^2*vA^2-k^2*cs^2*S^2,-k^2*cs^2*S*C],
+ [-k^2*cs^2*S*C,w^2-k^2*cs^2*C^2])$
+dispersion : w^4-k^2*(vA^2+cs^2)*w^2+k^4*vA^2*cs^2*C^2$
+print("magnetosonic determinant residual = ",trigsimp(expand(determinant(M)-dispersion)))$
+
+D : sqrt((vA^2+cs^2)^2-4*vA^2*cs^2*C^2)$
+vf2 : (vA^2+cs^2+D)/2$
+vs2 : (vA^2+cs^2-D)/2$
+print("magnetosonic root-sum residual = ",ratsimp(vf2+vs2-vA^2-cs^2))$
+print("magnetosonic root-product residual = ",radcan(vf2*vs2-vA^2*cs^2*C^2))$

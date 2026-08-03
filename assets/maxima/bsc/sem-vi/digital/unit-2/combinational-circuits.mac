@@ -1,0 +1,80 @@
+/* UG-VI MJ-14 Unit II: exhaustive Boolean checks. */
+kill(all)$
+
+bnot(x) := 1-x$
+band2(x,y) := x*y$
+bor2(x,y) := 1-(1-x)*(1-y)$
+bxor2(x,y) := x+y-2*x*y$
+bxnor2(x,y) := 1-bxor2(x,y)$
+bnand2(x,y) := bnot(band2(x,y))$
+bnor2(x,y) := bnot(bor2(x,y))$
+bit(n,k) := mod(quotient(n,2^k),2)$
+
+/* NAND-only and NOR-only realizations of NOT, AND and OR. */
+universal_gate_residuals : makelist(
+  block([a:bit(n,1),b:bit(n,0)],
+    [bnand2(a,a)-bnot(a),
+     bnand2(bnand2(a,b),bnand2(a,b))-band2(a,b),
+     bnand2(bnand2(a,a),bnand2(b,b))-bor2(a,b),
+     bnor2(a,a)-bnot(a),
+     bnor2(bnor2(a,b),bnor2(a,b))-bor2(a,b),
+     bnor2(bnor2(a,a),bnor2(b,b))-band2(a,b)]),
+  n,0,3)$
+print("universal-gate residuals =", universal_gate_residuals)$
+
+/* Full-adder equations must reproduce ordinary three-bit addition. */
+full_adder_residuals : makelist(
+  block([a:bit(n,2),b:bit(n,1),ci:bit(n,0),s,co],
+    s:bxor2(bxor2(a,b),ci),
+    co:bor2(band2(a,b),band2(ci,bxor2(a,b))),
+    a+b+ci-(s+2*co)),
+  n,0,7)$
+print("full-adder arithmetic residuals =", full_adder_residuals)$
+
+/* Full-subtractor equations use A-B-Bin = D-2 Bout. */
+full_subtractor_residuals : makelist(
+  block([a:bit(n,2),b:bit(n,1),bi:bit(n,0),d,bo],
+    d:bxor2(bxor2(a,b),bi),
+    bo:bor2(band2(bnot(a),b),band2(bi,bnot(bxor2(a,b)))),
+    a-b-bi-(d-2*bo)),
+  n,0,7)$
+print("full-subtractor arithmetic residuals =", full_subtractor_residuals)$
+
+/* Four-to-one multiplexer, tested for all data and select words. */
+mux_residuals : makelist(
+  block([data:quotient(n,4),sel:mod(n,4),i0,i1,i2,i3,s1,s0,y,chosen],
+    i0:bit(data,0), i1:bit(data,1), i2:bit(data,2), i3:bit(data,3),
+    s1:bit(sel,1), s0:bit(sel,0),
+    y:bor2(bor2(band2(band2(bnot(s1),bnot(s0)),i0),
+                 band2(band2(bnot(s1),s0),i1)),
+           bor2(band2(band2(s1,bnot(s0)),i2),
+                 band2(band2(s1,s0),i3))),
+    chosen:bit(data,sel),
+    y-chosen),
+  n,0,63)$
+print("4-to-1 multiplexer residuals =", mux_residuals)$
+
+/* Two-to-four decoder is one-hot; a one-hot encoder recovers its input. */
+decoder_encoder_residuals : makelist(
+  block([a1:bit(n,1),a0:bit(n,0),d0,d1,d2,d3,e1,e0],
+    d0:band2(bnot(a1),bnot(a0)),
+    d1:band2(bnot(a1),a0),
+    d2:band2(a1,bnot(a0)),
+    d3:band2(a1,a0),
+    e1:bor2(d2,d3), e0:bor2(d1,d3),
+    [d0+d1+d2+d3-1,e1-a1,e0-a0]),
+  n,0,3)$
+print("decoder/encoder residuals =", decoder_encoder_residuals)$
+
+/* One-bit comparator outputs are mutually exclusive and exhaustive. */
+comparator_residuals : makelist(
+  block([a:bit(n,1),b:bit(n,0),g,e,l],
+    g:band2(a,bnot(b)), e:bxnor2(a,b), l:band2(bnot(a),b),
+    [g+e+l-1,g*l,g*e,l*e]),
+  n,0,3)$
+print("one-bit comparator residuals =", comparator_residuals)$
+
+/* ASCII decimal digits are 0011 followed by the 8421 BCD nibble. */
+bcd_ascii_residuals : makelist((2^5+2^4+d)-(48+d),d,0,9)$
+print("BCD-to-ASCII digit residuals =", bcd_ascii_residuals)$
+

@@ -1,0 +1,20 @@
+display2d:false$
+assume(lambdaL>0)$
+
+Bfield:B0*exp(-x/lambdaL)$
+residual_london:ratsimp(diff(Bfield,x,2)-Bfield/lambdaL^2)$
+residual_surface:ratsimp(ev(Bfield,x=0)-B0)$
+residual_bulk:limit(Bfield,x,inf)$
+print("residual_london_equation =",residual_london)$
+print("residual_surface_boundary =",residual_surface)$
+print("residual_bulk_boundary =",residual_bulk)$
+
+Hc:Hc0*(1-(T/Tc)^2)$
+residual_critical_zero:ratsimp(ev(Hc,T=0)-Hc0)$
+residual_critical_tc:ratsimp(ev(Hc,T=Tc))$
+print("residual_critical_field_T0 =",residual_critical_zero)$
+print("residual_critical_field_Tc =",residual_critical_tc)$
+
+gap:3.53*kB*Tc$
+residual_bcs_gap:ratsimp(gap/(kB*Tc)-3.53)$
+print("residual_bcs_gap_ratio =",residual_bcs_gap)$

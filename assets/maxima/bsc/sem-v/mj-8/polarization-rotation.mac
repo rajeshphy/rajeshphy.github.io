@@ -1,0 +1,43 @@
+/* MJ-8 Unit III: polarization, retardation, and optical-rotation identities.
+   Every printed residual must be zero. */
+kill(all)$
+
+/* Elimination of the common phase from two orthogonal components. */
+ex : A*cos(psi)$
+ey : B*cos(psi+d)$
+ellipse_left : (ex/A)^2+(ey/B)^2-2*(ex/A)*(ey/B)*cos(d)$
+residual_ellipse : trigsimp(trigreduce(ellipse_left-sin(d)^2))$
+
+/* Quarter-wave plate: equal incident components acquire pi/2 retardation. */
+ex_q : 1/sqrt(2)$
+ey_q : %i/sqrt(2)$
+s0_q : radcan(ex_q*conjugate(ex_q)+ey_q*conjugate(ey_q))$
+s1_q : radcan(ex_q*conjugate(ex_q)-ey_q*conjugate(ey_q))$
+s2_q : radcan(2*realpart(ex_q*conjugate(ey_q)))$
+s3_q : radcan(-2*imagpart(ex_q*conjugate(ey_q)))$
+
+residual_qwp_intensity : radcan(s0_q-1)$
+residual_qwp_equal_axes : radcan(s1_q)$
+residual_qwp_diagonal : radcan(s2_q)$
+residual_qwp_circular : radcan(s3_q-1)$
+
+/* Half-wave plate preserves intensity and reflects azimuth about a principal axis. */
+ex_h : cos(theta)$
+ey_h : -sin(theta)$
+residual_hwp_intensity : trigsimp(ex_h^2+ey_h^2-1)$
+residual_hwp_azimuth : trigsimp(ex_h*sin(-theta)-ey_h*cos(-theta))$
+
+/* Fresnel circular-birefringence rotation. */
+k_left : 2*%pi*n_left/lambda0$
+k_right : 2*%pi*n_right/lambda0$
+rotation : (k_left-k_right)*length/2$
+residual_fresnel_rotation : ratsimp(rotation-%pi*length*(n_left-n_right)/lambda0)$
+
+print("polarization-ellipse residual =", residual_ellipse)$
+print("QWP intensity residual =", residual_qwp_intensity)$
+print("QWP equal-axis residual =", residual_qwp_equal_axes)$
+print("QWP diagonal-Stokes residual =", residual_qwp_diagonal)$
+print("QWP circular-Stokes residual =", residual_qwp_circular)$
+print("HWP intensity residual =", residual_hwp_intensity)$
+print("HWP azimuth residual =", residual_hwp_azimuth)$
+print("Fresnel optical-rotation residual =", residual_fresnel_rotation)$

@@ -1,0 +1,29 @@
+/* Michelson-Morley ether-drift times, expansion, and fringe shift. */
+kill(all)$
+display2d:false$
+
+tpar_paths : L/(c-v)+L/(c+v)$
+tpar_closed : 2*L*c/(c^2-v^2)$
+print("longitudinal path-sum residual (must be 0):",
+  ratsimp(tpar_paths-tpar_closed))$
+
+tperp_closed : 2*L/sqrt(c^2-v^2)$
+transverse_triangle : (c*tperp_closed/2)^2-L^2-(v*tperp_closed/2)^2$
+print("transverse triangle residual (must be 0):",
+  radcan(transverse_triangle))$
+
+tpar_beta : 2*L/c/(1-b^2)$
+tperp_beta : 2*L/c/sqrt(1-b^2)$
+dt_beta : tpar_beta-tperp_beta$
+print("exact time-difference residual (must be 0):",
+  radcan(dt_beta-2*L/c*(1/(1-b^2)-1/sqrt(1-b^2))))$
+
+coeff2 : ratsimp(subst(b=0,diff(dt_beta,b,2))/2)$
+print("beta^2 coefficient residual (must be 0):",
+  ratsimp(coeff2-L/c))$
+
+fringes_rotated : 2*c*(L*v^2/c^3)/lambda$
+print("rotated fringe residual (must be 0):",
+  ratsimp(fringes_rotated-2*L*v^2/(lambda*c^2)))$
+
+quit();

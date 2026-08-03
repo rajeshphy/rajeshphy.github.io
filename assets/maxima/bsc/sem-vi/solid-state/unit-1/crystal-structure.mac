@@ -1,0 +1,28 @@
+display2d:false$
+
+dot(u,v):=sum(u[i]*v[i],i,1,3)$
+a1:[-a/2,a/2,a/2]$
+a2:[a/2,-a/2,a/2]$
+a3:[a/2,a/2,-a/2]$
+b1:[0,2*%pi/a,2*%pi/a]$
+b2:[2*%pi/a,0,2*%pi/a]$
+b3:[2*%pi/a,2*%pi/a,0]$
+
+residual_reciprocal_11:ratsimp(dot(a1,b1)-2*%pi)$
+residual_reciprocal_12:ratsimp(dot(a1,b2))$
+residual_reciprocal_13:ratsimp(dot(a1,b3))$
+residual_reciprocal_22:ratsimp(dot(a2,b2)-2*%pi)$
+residual_reciprocal_23:ratsimp(dot(a2,b3))$
+residual_reciprocal_33:ratsimp(dot(a3,b3)-2*%pi)$
+print("residual_reciprocal_11 =",residual_reciprocal_11)$
+print("residual_reciprocal_12 =",residual_reciprocal_12)$
+print("residual_reciprocal_13 =",residual_reciprocal_13)$
+print("residual_reciprocal_22 =",residual_reciprocal_22)$
+print("residual_reciprocal_23 =",residual_reciprocal_23)$
+print("residual_reciprocal_33 =",residual_reciprocal_33)$
+
+v_direct:abs(determinant(matrix(a1,a2,a3)))$
+v_recip:abs(determinant(matrix(b1,b2,b3)))$
+residual_cell_volume:ratsimp(v_direct*v_recip-(2*%pi)^3)$
+print("residual_cell_volume =",residual_cell_volume)$
+

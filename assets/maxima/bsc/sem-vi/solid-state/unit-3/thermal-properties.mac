@@ -1,0 +1,17 @@
+display2d:false$
+
+gD:9*N*w^2/wD^3$
+residual_mode_count:ratsimp(integrate(gD,w,0,wD)-3*N)$
+print("residual_debye_mode_count =",residual_mode_count)$
+
+mono_residual:ratsimp(trigreduce(2*C*(1-cos(k*a))-4*C*sin(k*a/2)^2))$
+print("residual_monatomic_dispersion =",mono_residual)$
+
+A:C*(1/M1+1/M2)$
+D:C*sqrt((1/M1+1/M2)^2-4*sin(k*a/2)^2/(M1*M2))$
+residual_diatomic_sum:ratsimp((A-D)+(A+D)-2*A)$
+print("residual_diatomic_branch_sum =",residual_diatomic_sum)$
+
+Ulow:3*%pi^4*N*kB*T^4/(5*thetaD^3)$
+residual_t3:ratsimp(diff(Ulow,T)-12*%pi^4*N*kB*T^3/(5*thetaD^3))$
+print("residual_debye_T3 =",residual_t3)$

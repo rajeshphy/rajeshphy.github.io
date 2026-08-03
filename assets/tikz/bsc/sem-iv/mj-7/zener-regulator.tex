@@ -1,0 +1,16 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[american]{circuitikz}
+\standaloneenv{circuitikz}
+\begin{document}
+\begin{circuitikz}[voltage shift=0.5]
+  \draw
+    (0,0) node[ground]{} to[V,invert,l=$V_s$] (0,3)
+    to[R,l=$R_s$,i>^=$I_s$] (3.3,3) coordinate(out)
+    -- (6.2,3)
+    to[R,l=$R_L$,i>^=$I_L$] (6.2,0) node[ground]{};
+  \draw (3.3,0) node[ground]{} to[zD,l=$D_Z$,i<_=$I_Z$] (out);
+  \draw[->,thick,teal!70!black] (4.15,2.65)--(4.15,0.35)
+    node[midway,right] {$V_o\simeq V_Z$};
+  \node[above] at (out) {output node};
+\end{circuitikz}
+\end{document}

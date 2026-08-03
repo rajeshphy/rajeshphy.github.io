@@ -1,0 +1,9 @@
+/* Carrier equilibrium identities. Every printed residual must be zero. */
+kill(all)$
+assume(Nc>0,Nv>0,k>0,T>0)$
+n : Nc*exp(-(Ec-Ef)/(k*T))$
+p : Nv*exp(-(Ef-Ev)/(k*T))$
+ni2 : Nc*Nv*exp(-(Ec-Ev)/(k*T))$
+print("mass-action residual =", ratsimp(n*p-ni2))$
+Ef_i : (Ec+Ev)/2 + k*T*log(Nv/Nc)/2$
+print("intrinsic neutrality residual =", ratsimp(subst(Ef_i,Ef,n)-subst(Ef_i,Ef,p)))$

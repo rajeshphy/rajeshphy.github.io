@@ -1,0 +1,25 @@
+/* Retarded potentials and uniform-motion field checks. */
+kill(all)$
+declare(beta,real, mu,real, R,real)$
+assume(beta>0,beta<1,R>0)$
+kappa : 1-beta*mu$
+s_parallel : R*(mu-beta)$
+s_perp_sq : R^2*(1-mu^2)$
+residual_geometry : ratsimp(s_parallel^2+(1-beta^2)*s_perp_sq-R^2*kappa^2)$
+print("uniform-motion denominator residual = ",residual_geometry)$
+
+gamma : 1/sqrt(1-beta^2)$
+residual_longitudinal : radcan((1-beta^2)-1/gamma^2)$
+residual_transverse : radcan((1-beta^2)/(1-beta^2)^(3/2)-gamma)$
+print("longitudinal field-factor residual = ",residual_longitudinal)$
+print("transverse field-factor residual = ",residual_transverse)$
+
+/* Implicit retarded-time differentiation: u = dt_r/dt. */
+b : beta*mu$
+u : 1/(1-b)$
+residual_retarded_time : ratsimp(u-(1+b*u))$
+print("retarded-time derivative residual = ",residual_retarded_time)$
+
+/* dR/dt and grad R combine with kappa exactly. */
+residual_grad_R : ratsimp(1+b/kappa-1/kappa)$
+print("retarded-distance gradient residual = ",residual_grad_R)$

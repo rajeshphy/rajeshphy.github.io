@@ -1,0 +1,30 @@
+/* MJ-8 Unit I: Maxwell-wave and energy identities.
+   Every printed residual must be zero. */
+kill(all)$
+assume(epsilon>0,mu>0,omega>0)$
+
+k : omega*sqrt(mu*epsilon)$
+v : omega/k$
+eta : sqrt(mu/epsilon)$
+h0 : e0/eta$
+u_e_peak : epsilon*e0^2/2$
+u_b_peak : mu*h0^2/2$
+s_average : e0*h0/2$
+charge : q0*cos(omega*t)$
+D_gap : charge/area$
+I_wire : diff(charge,t)$
+I_disp : diff(D_gap*area,t)$
+
+residual_dispersion : ratsimp(k^2-mu*epsilon*omega^2)$
+residual_speed : radcan(v-1/sqrt(mu*epsilon))$
+residual_impedance : radcan(eta*h0/e0-1)$
+residual_energy_partition : radcan(u_b_peak-u_e_peak)$
+residual_poynting : radcan(s_average-e0^2/(2*eta))$
+residual_charge_balance : ratsimp(I_disp-I_wire)$
+
+print("dispersion residual =", residual_dispersion)$
+print("speed residual =", residual_speed)$
+print("impedance residual =", residual_impedance)$
+print("energy-partition residual =", residual_energy_partition)$
+print("time-averaged Poynting residual =", residual_poynting)$
+print("capacitor current-continuity residual =", residual_charge_balance)$

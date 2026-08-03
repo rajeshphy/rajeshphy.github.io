@@ -1,0 +1,56 @@
+/* MJ-3 Unit II: exact checks for magnetic matter and Quincke's method. */
+kill(all)$
+assume(x>0,k>0,hc>0)$
+
+print("MJ-3 Unit II -- magnetic properties of matter")$
+
+M : chi_m*H$
+B : mu0*(H+M)$
+mu_r : 1+chi_m$
+res_constitutive : ratsimp(B-mu0*mu_r*H)$
+
+print("B-H-M constitutive residual =",res_constitutive)$
+
+/* Langevin function from the orientational partition integral. */
+Z : 2*sinh(x)/x$
+L : coth(x)-1/x$
+res_Langevin : trigsimp(radcan(diff(log(Z),x)-L))$
+res_weak_linear : radcan(limit(L/x,x,0)-1/3)$
+res_weak_cubic :
+  radcan(limit((L-x/3)/x^3,x,0)+1/45)$
+res_saturation : radcan(limit(L,x,inf)-1)$
+
+print("Langevin derivative residual =",res_Langevin)$
+print("Langevin weak-field linear-coefficient residual =",res_weak_linear)$
+print("Langevin weak-field cubic-coefficient residual =",res_weak_cubic)$
+print("Langevin saturation residual =",res_saturation)$
+
+M_weak : N*m^2*mu0*H/(3*kB*T)$
+chi_Curie : mu0*N*m^2/(3*kB*T)$
+res_Curie : ratsimp(M_weak-chi_Curie*H)$
+
+print("Curie-law residual =",res_Curie)$
+
+/* Analytic two-branch hysteresis curve used in the figure. */
+norm : tanh(k*(1+hc))$
+B_top : tanh(k*(H+hc))/norm$
+B_bottom : tanh(k*(H-hc))/norm$
+res_Hc_negative : trigsimp(subst(-hc,H,B_top))$
+res_Hc_positive : trigsimp(subst(hc,H,B_bottom))$
+res_remanence_symmetry :
+  trigsimp(subst(0,H,B_top)+subst(0,H,B_bottom))$
+
+print("upper-branch coercive-point residual =",res_Hc_negative)$
+print("lower-branch coercive-point residual =",res_Hc_positive)$
+print("remanence-symmetry residual =",res_remanence_symmetry)$
+
+/* Quincke magnetic pressure balanced by hydrostatic pressure. */
+delta_chi :
+  2*mu0*delta_rho*g*h/(B1^2-B2^2)$
+Fmag : A*delta_chi*(B1^2-B2^2)/(2*mu0)$
+Fhyd : A*delta_rho*g*h$
+res_Quincke : ratsimp(Fmag-Fhyd)$
+
+print("Quincke force-balance residual =",res_Quincke)$
+
+quit()$

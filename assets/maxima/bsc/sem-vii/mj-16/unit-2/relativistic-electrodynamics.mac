@@ -1,0 +1,25 @@
+/* Lorentz transformation of F^{mu nu} and the four-force. */
+kill(all)$
+L : matrix([g,-b*g,0,0],[-b*g,g,0,0],[0,0,1,0],[0,0,0,1])$
+F : matrix(
+ [0,-Ex/c,-Ey/c,-Ez/c],
+ [Ex/c,0,-Bz,By],
+ [Ey/c,Bz,0,-Bx],
+ [Ez/c,-By,Bx,0])$
+Fp : L.F.transpose(L)$
+
+m4zero(M) := ratsimp(sum(sum(M[i,j]^2,j,1,4),i,1,4))$
+print("field-tensor antisymmetry residual = ",m4zero(F+transpose(F)))$
+print("E-prime-y component residual = ",ratsimp(Fp[1,3]+g*(Ey-b*c*Bz)/c))$
+print("B-prime-z component residual = ",ratsimp(Fp[2,3]+g*(Bz-b*Ey/c)))$
+print("E-prime-x component residual = ",radcan(subst(1/sqrt(1-b^2),g,Fp[1,2]+Ex/c)))$
+print("E-prime-z component residual = ",ratsimp(Fp[1,4]+g*(Ez+b*c*By)/c))$
+print("B-prime-x component residual = ",ratsimp(Fp[3,4]+Bx))$
+print("B-prime-y component residual = ",ratsimp(Fp[2,4]-g*(By+b*Ez/c)))$
+
+Ucov : matrix([gu*c],[-gu*ux],[-gu*uy],[-gu*uz])$
+K : q*F.Ucov$
+print("four-force time-component residual = ",ratsimp(K[1,1]-gu*q*(Ex*ux+Ey*uy+Ez*uz)/c))$
+print("four-force x-component residual = ",ratsimp(K[2,1]-gu*q*(Ex+uy*Bz-uz*By)))$
+print("four-force y-component residual = ",ratsimp(K[3,1]-gu*q*(Ey+uz*Bx-ux*Bz)))$
+print("four-force z-component residual = ",ratsimp(K[4,1]-gu*q*(Ez+ux*By-uy*Bx)))$

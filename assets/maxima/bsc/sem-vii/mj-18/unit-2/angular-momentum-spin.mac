@@ -1,0 +1,35 @@
+/* Angular momentum, Pauli spin, central-field, and coupling checks. */
+kill(all)$
+sx : matrix([0,1],[1,0])$
+sy : matrix([0,-%i],[%i,0])$
+sz : matrix([1,0],[0,-1])$
+I2 : ident(2)$
+m2zero(M) := radcan(sum(sum(M[i,j]*conjugate(M[i,j]),j,1,2),i,1,2))$
+v2zero(V) := radcan(sum(V[i,1]*conjugate(V[i,1]),i,1,2))$
+
+print("Pauli x-y commutator residual = ",m2zero(sx.sy-sy.sx-2*%i*sz))$
+print("Pauli y-z commutator residual = ",m2zero(sy.sz-sz.sy-2*%i*sx))$
+print("Pauli z-x commutator residual = ",m2zero(sz.sx-sx.sz-2*%i*sy))$
+print("spin-Casimir residual = ",m2zero(sx.sx+sy.sy+sz.sz-3*I2))$
+
+plusx : matrix([1/sqrt(2)],[1/sqrt(2)])$
+plusy : matrix([1/sqrt(2)],[%i/sqrt(2)])$
+print("Sx spinor-eigenvalue residual = ",v2zero(sx.plusx-plusx))$
+print("Sy spinor-eigenvalue residual = ",v2zero(sy.plusy-plusy))$
+
+/* Spherical radial identity for R=u/r. */
+radial_identity : ratsimp((1/r^2)*diff(r^2*diff(u(r)/r,r),r)-diff(u(r),r,2)/r)$
+print("central-field radial-substitution residual = ",radial_identity)$
+
+triplet0 : matrix([0],[1/sqrt(2)],[1/sqrt(2)],[0])$
+singlet : matrix([0],[1/sqrt(2)],[-1/sqrt(2)],[0])$
+triplet_norm : sum(triplet0[i,1]^2,i,1,4)$
+singlet_norm : sum(singlet[i,1]^2,i,1,4)$
+singlet_overlap : sum(singlet[i,1]*triplet0[i,1],i,1,4)$
+print("triplet normalization residual = ",radcan(triplet_norm-1))$
+print("singlet normalization residual = ",radcan(singlet_norm-1))$
+print("singlet-triplet orthogonality residual = ",radcan(singlet_overlap))$
+
+ls(j,l,s) := (j*(j+1)-l*(l+1)-s*(s+1))/2$
+print("l=1, j=3/2 spin-orbit residual = ",ratsimp(ls(3/2,1,1/2)-1/2))$
+print("l=1, j=1/2 spin-orbit residual = ",ratsimp(ls(1/2,1,1/2)+1))$

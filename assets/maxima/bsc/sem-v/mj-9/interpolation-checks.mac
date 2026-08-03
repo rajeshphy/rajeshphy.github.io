@@ -1,0 +1,11 @@
+/* MJ-9 Unit I: Newton forward/backward formulae reproduce a cubic exactly. */
+f(x):=x^3-2*x+1$
+y0:f(0)$ y1:f(1)$ y2:f(2)$ y3:f(3)$
+d0:y1-y0$ d1:y2-y1$ d2:y3-y2$
+d20:d1-d0$ d21:d2-d1$ d30:d21-d20$
+p:x$ forward:y0+p*d0+p*(p-1)*d20/2+p*(p-1)*(p-2)*d30/6$
+forward_residual: ratsimp(expand(forward-f(x)));
+q:x-3$
+backward:y3+q*d2+q*(q+1)*d21/2+q*(q+1)*(q+2)*d30/6$
+backward_residual: ratsimp(expand(backward-f(x)));
+quit();

@@ -1,0 +1,13 @@
+/* MJ-6 Unit I: van der Waals critical and Boyle-temperature checks. */
+kill(all)$
+p : R*T/(v-b)-a/v^2$
+vc : 3*b$
+Tc : 8*a/(27*R*b)$
+pc : a/(27*b^2)$
+residual_p : ratsimp(subst([v=vc,T=Tc],p)-pc);
+residual_dp : ratsimp(subst([v=vc,T=Tc],diff(p,v)));
+residual_d2p : ratsimp(subst([v=vc,T=Tc],diff(p,v,2)));
+/* B(T)=b-a/(RT), hence B(T_B)=0 for T_B=a/(Rb). */
+B : b-a/(R*T)$
+TB : a/(R*b)$
+residual_Boyle : ratsimp(subst(T=TB,B));

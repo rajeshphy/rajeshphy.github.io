@@ -1,0 +1,112 @@
+/* MJ-2, Unit II: exact symbolic checks.  Run with maxima -q -b FILE */
+kill(all)$
+display2d:false$
+print("MJ-2 UNIT II: DIFFERENTIAL-EQUATION CHECKS")$
+declare(m,integer,n,integer)$
+
+/* Homogeneous first-order and linear non-homogeneous examples. */
+assume(x>0)$
+y_ratio : x*(log(x)+C)$
+ratio_residual : ratsimp(diff(y_ratio,x)-(1+y_ratio/x))$
+print("homogeneous first-order residual =",ratio_residual)$
+y_linear : exp(-x)+C*exp(-2*x)$
+linear_residual : ratsimp(diff(y_linear,x)+2*y_linear-exp(-x))$
+print("linear non-homogeneous residual =",linear_residual)$
+
+/* Exact equation and inexact equation after multiplying by mu=x. */
+psi_exact : x^2*y+3*x+2*y^2$
+exact_M_residual : ratsimp(diff(psi_exact,x)-(2*x*y+3))$
+exact_N_residual : ratsimp(diff(psi_exact,y)-(x^2+4*y))$
+print("exact-potential M residual =",exact_M_residual)$
+print("exact-potential N residual =",exact_N_residual)$
+M_if : x*(2*y-x)$
+N_if : x*x$
+if_exactness_residual : ratsimp(diff(M_if,y)-diff(N_if,x))$
+psi_if : x^2*y-x^3/3$
+if_potential_M_residual : ratsimp(diff(psi_if,x)-M_if)$
+if_potential_N_residual : ratsimp(diff(psi_if,y)-N_if)$
+print("integrating-factor exactness residual =",if_exactness_residual)$
+print("integrating-factor potential-M residual =",if_potential_M_residual)$
+print("integrating-factor potential-N residual =",if_potential_N_residual)$
+
+/* Constant-coefficient and Cauchy-Euler equations. */
+y_distinct : C1*exp(2*x)+C2*exp(3*x)$
+distinct_root_residual : ratsimp(diff(y_distinct,x,2)-5*diff(y_distinct,x)+6*y_distinct)$
+y_repeated : (C1+C2*x)*exp(2*x)$
+repeated_root_residual : ratsimp(diff(y_repeated,x,2)-4*diff(y_repeated,x)+4*y_repeated)$
+y_complex : C1*cos(2*x)+C2*sin(2*x)$
+complex_root_residual : trigsimp(diff(y_complex,x,2)+4*y_complex)$
+y_euler : x^2*(C1+C2*log(x))$
+euler_residual : ratsimp(x^2*diff(y_euler,x,2)-3*x*diff(y_euler,x)+4*y_euler)$
+print("distinct-root residual =",distinct_root_residual)$
+print("repeated-root residual =",repeated_root_residual)$
+print("complex-root residual =",complex_root_residual)$
+print("Cauchy-Euler residual =",euler_residual)$
+
+/* Simultaneous first-order system. */
+x_first : (A*exp(4*t)+B*exp(2*t))/2$
+y_first : (A*exp(4*t)-B*exp(2*t))/2$
+first_system_x_residual : ratsimp(diff(x_first,t)-3*x_first-y_first)$
+first_system_y_residual : ratsimp(diff(y_first,t)-x_first-3*y_first)$
+print("first-order system x residual =",first_system_x_residual)$
+print("first-order system y residual =",first_system_y_residual)$
+
+/* Simultaneous second-order system. */
+u_mode : A*cos(t)+B*sin(t)$
+v_mode : C*cos(sqrt(3)*t)+D*sin(sqrt(3)*t)$
+x_second : (u_mode+v_mode)/2$
+y_second : (u_mode-v_mode)/2$
+second_system_x_residual : trigsimp(diff(x_second,t,2)+2*x_second-y_second)$
+second_system_y_residual : trigsimp(diff(y_second,t,2)+2*y_second-x_second)$
+print("second-order system x residual =",second_system_x_residual)$
+print("second-order system y residual =",second_system_y_residual)$
+
+/* First Laplace mode and its boundary data. */
+u_laplace : V0*sin(%pi*x/a)*sinh(%pi*y/a)/sinh(%pi*b/a)$
+laplace_pde_residual : trigsimp(diff(u_laplace,x,2)+diff(u_laplace,y,2))$
+laplace_x0_residual : trigsimp(subst(x=0,u_laplace))$
+laplace_xa_residual : trigsimp(subst(x=a,u_laplace))$
+laplace_y0_residual : trigsimp(subst(y=0,u_laplace))$
+laplace_yb_residual : trigsimp(subst(y=b,u_laplace)-V0*sin(%pi*x/a))$
+print("Laplace PDE residual =",laplace_pde_residual)$
+print("Laplace x=0 boundary residual =",laplace_x0_residual)$
+print("Laplace x=a boundary residual =",laplace_xa_residual)$
+print("Laplace y=0 boundary residual =",laplace_y0_residual)$
+print("Laplace y=b boundary residual =",laplace_yb_residual)$
+
+/* Given wave equations: string and rectangular membrane modes. */
+u_string : sin(n*%pi*x/L)*cos(n*%pi*c*t/L)$
+string_wave_residual : trigsimp(diff(u_string,t,2)-c^2*diff(u_string,x,2))$
+string_x0_residual : trigsimp(subst(x=0,u_string))$
+string_xL_residual : trigsimp(subst(x=L,u_string))$
+print("string wave-equation residual =",string_wave_residual)$
+print("string x=0 boundary residual =",string_x0_residual)$
+print("string x=L boundary residual =",string_xL_residual)$
+
+omega2 : c^2*%pi^2*(m^2/a^2+n^2/b^2)$
+u_rect : sin(m*%pi*x/a)*sin(n*%pi*y/b)*cos(sqrt(omega2)*t)$
+rect_wave_residual : radcan(trigsimp(diff(u_rect,t,2)-c^2*(diff(u_rect,x,2)+diff(u_rect,y,2))))$
+print("rectangular-membrane PDE residual =",rect_wave_residual)$
+
+/* Axisymmetric circular-membrane radial equation. */
+R0 : bessel_j(0,k*r)$
+bessel_residual_raw :
+    radcan(r^2*diff(R0,r,2)+r*diff(R0,r)+k^2*r^2*R0)$
+/* Maxima differentiates into J_0,J_1,J_2; apply
+   J_2(z)=2 J_1(z)/z-J_0(z) to reduce the exact residual. */
+bessel_residual :
+    ratsimp(subst(2*bessel_j(1,k*r)/(k*r)-bessel_j(0,k*r),
+                  bessel_j(2,k*r),bessel_residual_raw))$
+print("circular-membrane Bessel residual =",bessel_residual)$
+
+/* Given heat equation: exact two-mode solution and fixed ends. */
+T_heat : T0*(sin(%pi*x/L)*exp(-kappa*%pi^2*t/L^2)
+        +sin(3*%pi*x/L)*exp(-9*kappa*%pi^2*t/L^2)/2)$
+heat_pde_residual : trigsimp(diff(T_heat,t)-kappa*diff(T_heat,x,2))$
+heat_x0_residual : trigsimp(subst(x=0,T_heat))$
+heat_xL_residual : trigsimp(subst(x=L,T_heat))$
+print("heat-equation residual =",heat_pde_residual)$
+print("heat x=0 boundary residual =",heat_x0_residual)$
+print("heat x=L boundary residual =",heat_xL_residual)$
+
+quit();

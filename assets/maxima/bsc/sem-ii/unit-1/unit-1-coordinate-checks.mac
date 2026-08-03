@@ -1,0 +1,51 @@
+/* MJ-2, Unit I: exact symbolic checks.  Run with maxima -q -b FILE */
+kill(all)$
+display2d:false$
+print("MJ-2 UNIT I: VECTOR-CALCULUS CHECKS")$
+
+/* Directional derivative example. */
+phi : x^2+y^2+3*z$
+directional : diff(phi,x)*2/3+diff(phi,y)/3+diff(phi,z)*2/3$
+directional_residual : ratsimp(subst([x=1,y=-1,z=0],directional)-8/3)$
+print("directional-derivative residual =",directional_residual)$
+
+/* Source and circulation fields shown in the figure. */
+source_divergence_residual : diff(x,x)+diff(y,y)-2$
+source_curl_residual : diff(y,x)-diff(x,y)$
+rotation_divergence_residual : diff(-y,x)+diff(x,y)$
+rotation_curl_residual : diff(x,x)-diff(-y,y)-2$
+print("source divergence residual =",source_divergence_residual)$
+print("source curl residual =",source_curl_residual)$
+print("rotation divergence residual =",rotation_divergence_residual)$
+print("rotation curl residual =",rotation_curl_residual)$
+
+/* Gauss and Stokes examples. */
+gauss_residual : ratsimp(3*(4*%pi*R^3/3)-4*%pi*R^3)$
+stokes_residual : ratsimp(2*%pi*R^2-R^2*integrate(1,p,0,2*%pi))$
+print("Gauss-example residual =",gauss_residual)$
+print("Stokes-example residual =",stokes_residual)$
+
+/* Cylindrical Laplacian versus the same Cartesian scalar field. */
+phi_cyl : rho^4+z^2$
+lap_cyl : 1/rho*diff(rho*diff(phi_cyl,rho),rho)+diff(phi_cyl,z,2)$
+phi_cart_cyl : (x^2+y^2)^2+z^2$
+lap_cart_cyl : diff(phi_cart_cyl,x,2)+diff(phi_cart_cyl,y,2)+diff(phi_cart_cyl,z,2)$
+cylindrical_laplacian_residual : ratsimp(lap_cyl-subst([x=rho*cos(p),y=rho*sin(p)],lap_cart_cyl))$
+print("cylindrical-Laplacian residual =",trigreduce(cylindrical_laplacian_residual))$
+
+/* Phi-dependent test: r^3 cos(theta)+r^2 sin(theta)^2 cos(2 phi)
+   equals z(x^2+y^2+z^2)+(x^2-y^2). */
+phi_sph : r^3*cos(th)+r^2*sin(th)^2*cos(2*p)$
+lap_sph : (1/r^2*diff(r^2*diff(phi_sph,r),r)
+          +1/(r^2*sin(th))*diff(sin(th)*diff(phi_sph,th),th)
+          +1/(r^2*sin(th)^2)*diff(phi_sph,p,2))$
+phi_cart_sph : z*(x^2+y^2+z^2)+(x^2-y^2)$
+lap_cart_sph : diff(phi_cart_sph,x,2)+diff(phi_cart_sph,y,2)+diff(phi_cart_sph,z,2)$
+spherical_laplacian_residual :
+    ratsimp(trigreduce(trigreduce(
+      ratsimp(lap_sph-subst(
+        [x=r*sin(th)*cos(p),y=r*sin(th)*sin(p),z=r*cos(th)],
+        lap_cart_sph)),p),th))$
+print("spherical-Laplacian residual =",spherical_laplacian_residual)$
+
+quit();

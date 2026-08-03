@@ -1,0 +1,19 @@
+display2d:false$
+
+Pmat:matrix([cos(q*a),sin(q*a)/q],[-q*sin(q*a),cos(q*a)])$
+Dmat:matrix([1,0],[2*m*H/hbar^2,1])$
+Mmat:Dmat.Pmat$
+Pdim:m*H*a/hbar^2$
+residual_transfer_trace:trigreduce(ratsimp((Mmat[1,1]+Mmat[2,2])/2-(cos(q*a)+Pdim*sin(q*a)/(q*a))))$
+print("residual_kronig_penney_trace =",residual_transfer_trace)$
+
+detgap:(E0-E)^2-U^2$
+residual_gap_plus:ratsimp(ev(detgap,E=E0+U))$
+residual_gap_minus:ratsimp(ev(detgap,E=E0-U))$
+print("residual_gap_upper_root =",residual_gap_plus)$
+print("residual_gap_lower_root =",residual_gap_minus)$
+
+Eband:Eedge+hbar^2*(k-k0)^2/(2*mstar)$
+residual_effective_mass:ratsimp(diff(Eband,k,2)/hbar^2-1/mstar)$
+print("residual_effective_mass =",residual_effective_mass)$
+

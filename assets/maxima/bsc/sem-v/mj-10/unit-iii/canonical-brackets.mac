@@ -1,0 +1,38 @@
+/* Canonical scaling Q = a*q, P = p/a, with a non-zero.
+   qn and pn are independent new-coordinate atoms.
+   Every printed residual must be the scalar zero. */
+kill(all)$
+
+PB_old(X,Y) := diff(X,q)*diff(Y,p)-diff(X,p)*diff(Y,q)$
+Q_old : a*q$
+P_old : p/a$
+print("fundamental Poisson-bracket residual =",
+      ratsimp(PB_old(Q_old,P_old)-1))$
+
+/* Type-2 generating function F2(q,pn) = a*q*pn. */
+F2 : a*q*pn$
+print("type-2 momentum relation residual =",
+      ratsimp(diff(F2,q)-a*pn))$
+print("type-2 coordinate relation residual =",
+      ratsimp(diff(F2,pn)-a*q))$
+
+/* Inverse map q = qn/a, p = a*pn. */
+q_of_new : qn/a$
+p_of_new : a*pn$
+lagrange_qn_pn :
+  diff(q_of_new,qn)*diff(p_of_new,pn)
+  -diff(q_of_new,pn)*diff(p_of_new,qn)$
+print("mixed Lagrange-bracket residual =",
+      ratsimp(lagrange_qn_pn-1))$
+
+/* Direct invariance test for two non-trivial phase-space functions. */
+A_old : q^2*p$
+B_old : q*p^2$
+old_bracket_in_new :
+  subst([q=q_of_new,p=p_of_new],PB_old(A_old,B_old))$
+A_new : subst([q=q_of_new,p=p_of_new],A_old)$
+B_new : subst([q=q_of_new,p=p_of_new],B_old)$
+PB_new(X,Y) :=
+  diff(X,qn)*diff(Y,pn)-diff(X,pn)*diff(Y,qn)$
+print("Poisson-bracket invariance residual =",
+      ratsimp(old_bracket_in_new-PB_new(A_new,B_new)))$

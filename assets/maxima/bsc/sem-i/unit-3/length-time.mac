@@ -1,0 +1,12 @@
+/* Time dilation and length contraction substitutions. */
+kill(all)$ display2d:false$
+g : 1/sqrt(1-v^2/c^2)$
+dt_from_proper : g*(dtau+v*0/c^2)$
+print("time-dilation residual (must be 0):",ratsimp(dt_from_proper-g*dtau))$
+proper_length : g*(L-v*0)$
+L_solution : rhs(solve(proper_length=L0,L)[1])$
+print("length-contraction residual (must be 0):",ratsimp(L_solution-L0/g))$
+clock_triangle : c^2*dt^2-c^2*dtau^2-v^2*dt^2$
+print("light-clock residual (must be 0):",
+  ratsimp(radcan(subst(dt=g*dtau,clock_triangle))))$
+quit();

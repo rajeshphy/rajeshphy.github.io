@@ -1,0 +1,66 @@
+/* UG-III MJ-4 Unit III: symbolic checks for the polarization notes. */
+display2d:false$
+ratprint:false$
+
+check(label, expression) := block(
+  [residual : radcan(trigsimp(trigreduce(expand(expression))))],
+  print(label, " residual = ", residual),
+  if not is(equal(residual, 0)) then error("non-zero residual", label),
+  residual
+)$
+
+/* Brewster condition: tan(i_B)=n2/n1 and r_B=pi/2-i_B. */
+den : sqrt(n1^2+n2^2)$
+sin_i : n2/den$
+cos_i : n1/den$
+sin_r : n1/den$
+cos_r : n2/den$
+check("Brewster Snell law", n1*sin_i-n2*sin_r)$
+check("Brewster p-Fresnel numerator", n2*cos_i-n1*cos_r)$
+check("Brewster ray orthogonality", cos_i*cos_r-sin_i*sin_r)$
+
+/* Extraordinary-wave determinant and its two principal-direction limits. */
+s2 : 1-c2$
+nex2 : no^2*ne^2/(no^2*s2+ne^2*c2)$
+det_ex : (no^2-nex2*c2)*(ne^2-nex2*s2)-nex2^2*c2*s2$
+check("Extraordinary eigenvalue determinant", det_ex)$
+check("Extraordinary index along optic axis", subst(1,c2,nex2)-no^2)$
+check("Extraordinary index normal to optic axis", subst(0,c2,nex2)-ne^2)$
+
+/* Polarization ellipse, with X=cos(psi), Y=cos(psi-delta). */
+ellipse_residual :
+  cp^2+(cp*cd+sp*sd)^2-2*cp*(cp*cd+sp*sd)*cd-sd^2$
+ellipse_residual : subst(1-cp^2,sp^2,expand(ellipse_residual))$
+ellipse_residual : subst(1-cd^2,sd^2,expand(ellipse_residual))$
+check("Polarization ellipse elimination", ellipse_residual)$
+check("Quarter-wave circle", a^2*cos(psi)^2+a^2*sin(psi)^2-a^2)$
+
+/* Retarder phases and half-wave rotation. */
+dq : (2*m+1)*lambda/(4*dn)$
+dh : (2*m+1)*lambda/(2*dn)$
+check("Quarter-wave retardation", 2*%pi*dn*dq/lambda-(2*m+1)*%pi/2)$
+check("Half-wave retardation", 2*%pi*dn*dh/lambda-(2*m+1)*%pi)$
+alpha : theta-phi$
+x_hwp : cos(alpha)*cos(phi)+sin(alpha)*sin(phi)$
+y_hwp : cos(alpha)*sin(phi)-sin(alpha)*cos(phi)$
+check("Half-wave output x component", x_hwp-cos(2*phi-theta))$
+check("Half-wave output y component", y_hwp-sin(2*phi-theta))$
+
+/* Analyzer averages for circular and principal-axis elliptical light. */
+check("Circular analyzer azimuth independence",
+      (cos(beta)^2+sin(beta)^2)/2-1/2)$
+ellipse_average :
+  (a^2*cos(beta)^2+b^2*sin(beta)^2)/2$
+check("Ellipse analyzer value on x axis", subst(0,beta,ellipse_average)-a^2/2)$
+check("Ellipse analyzer value on y axis", subst(%pi/2,beta,ellipse_average)-b^2/2)$
+
+/* Circular-basis recombination in an optically active medium. */
+pL : C+%i*S$
+pR : C-%i*S$
+check("Circular recombination x coefficient", (pL+pR)/2-C)$
+check("Circular recombination y coefficient", (-%i*pL+%i*pR)/2-S)$
+phiL : 2*%pi*nL*l/lambda$
+phiR : 2*%pi*nR*l/lambda$
+check("Optical rotation", (phiL-phiR)/2-%pi*l*(nL-nR)/lambda)$
+
+print("ALL POLARIZATION RESIDUALS ARE ZERO")$

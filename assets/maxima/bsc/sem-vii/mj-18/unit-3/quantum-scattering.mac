@@ -1,0 +1,32 @@
+/* Green function, Coulomb, partial-wave, and low-energy checks. */
+kill(all)$
+declare(r,real,k,real,q,real,eta,real)$
+assume(r>0,k>0,q>0,eta>0)$
+
+g : exp(%i*k*r)/r$
+green_residual : (1/r^2)*diff(r^2*diff(g,r),r)+k^2*g$
+print("outgoing-Green radial residual = ",radcan(green_residual))$
+
+q2 : 2*k^2*(1-cos(theta))$
+print("momentum-transfer identity residual = ",ratsimp(trigreduce(q2-4*k^2*sin(theta/2)^2)))$
+
+coulomb_radial : integrate(exp(-eta*r)*sin(q*r),r,0,inf)$
+print("screened-Coulomb integral residual = ",radcan(coulomb_radial-q/(q^2+eta^2)))$
+
+E : hbar^2*k^2/(2*mu)$
+born_cross : mu^2*kappaC^2/(4*hbar^4*k^4*sin(theta/2)^4)$
+rutherford : kappaC^2/(16*E^2*sin(theta/2)^4)$
+print("Coulomb cross-section residual = ",ratsimp(born_cross-rutherford))$
+
+/* Three-channel optical theorem. */
+declare(d0,real,d1,real,d2,real)$
+f_forward : (exp(%i*d0)*sin(d0)+3*exp(%i*d1)*sin(d1)+5*exp(%i*d2)*sin(d2))/k$
+sigma : 4*%pi/k^2*(sin(d0)^2+3*sin(d1)^2+5*sin(d2)^2)$
+print("partial-wave optical-theorem residual = ",trigsimp(rectform(sigma-4*%pi*imagpart(f_forward)/k)))$
+
+P2 : (3*x^2-1)/2$
+print("Legendre partial-wave norm residual = ",integrate(P2^2,x,-1,1)-2/5)$
+
+/* Effective-range amplitude at threshold. */
+f_effective : 1/(-1/a+re*k^2/2-%i*k)$
+print("scattering-length limit residual = ",ratsimp(at(f_effective,k=0)+a))$

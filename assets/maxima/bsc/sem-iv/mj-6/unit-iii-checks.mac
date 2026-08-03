@@ -1,0 +1,21 @@
+/* MJ-6 Unit III: Maxwell, Cp-Cv and Joule-Kelvin checks. */
+kill(all)$
+/* Van der Waals: p=RT/(v-b)-a/v^2. */
+p : R*T/(v-b)-a/v^2$
+dpdT_v : diff(p,T)$
+dpdv_T : diff(p,v)$
+/* Cp-Cv = -T (dp/dT|v)^2/(dp/dv|T). */
+cpminuscv : ratsimp(-T*dpdT_v^2/dpdv_T)$
+residual_cp_cv : ratsimp(cpminuscv-R/(1-2*a*(v-b)^2/(R*T*v^3)));
+/* mu_JT=[T(dv/dT)_p-v]/Cp and (dv/dT)_p=-(dp/dT)_v/(dp/dv)_T. */
+dvdT_p : ratsimp(-dpdT_v/dpdv_T)$
+mu : ratsimp((T*dvdT_p-v)/Cp)$
+residual_mu : ratsimp(mu-(1/Cp)*(R*T*v^3*(v-b)/(R*T*v^3-2*a*(v-b)^2)-v));
+/* Ideal-gas limit a=b=0 gives mu=0. */
+residual_ideal_mu : ratsimp(subst([a=0,b=0],mu));
+/* The dilute van der Waals limit is Cp*mu = 2a/(RT)-b. */
+muCp_dilute : limit(ratsimp(Cp*mu),v,inf)$
+residual_dilute_mu : ratsimp(muCp_dilute-(2*a/(R*T)-b));
+/* Complex heat-wave ansatz exp[i*w*t-(1+i)q*x], q^2=w/(2*alpha). */
+heat_equation_factor : %i*w-alpha*(1+%i)^2*q^2$
+residual_heat_wave : ratsimp(subst(q^2=w/(2*alpha),heat_equation_factor));

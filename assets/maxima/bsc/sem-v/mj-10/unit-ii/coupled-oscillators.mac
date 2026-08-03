@@ -1,0 +1,16 @@
+/* Equal-mass, equal-spring coupled oscillator.
+   Every printed residual must be the scalar zero. */
+kill(all)$
+K : matrix([2*k,-k],[-k,2*k])$
+v1 : matrix([1],[1])$
+v2 : matrix([1],[-1])$
+r1 : ratsimp(K . v1-k*v1)$
+r2 : ratsimp(K . v2-3*k*v2)$
+print("in-phase component 1 residual =", ratsimp(r1[1,1]))$
+print("in-phase component 2 residual =", ratsimp(r1[2,1]))$
+print("out-of-phase component 1 residual =", ratsimp(r2[1,1]))$
+print("out-of-phase component 2 residual =", ratsimp(r2[2,1]))$
+print("frequency polynomial at omega1 residual =",
+      ratsimp(determinant(K-m*(k/m)*ident(2))))$
+print("frequency polynomial at omega2 residual =",
+      ratsimp(determinant(K-m*(3*k/m)*ident(2))))$

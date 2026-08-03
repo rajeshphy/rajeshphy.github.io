@@ -1,0 +1,16 @@
+/* Relativistic Doppler equivalent forms and low-speed term. */
+kill(all)$ display2d:false$
+g : 1/sqrt(1-b^2)$
+recede1 : 1/(g*(1+b))$
+recede2 : sqrt((1-b)/(1+b))$
+print("receding-factor residual (must be 0):",ratsimp(radcan(recede1-recede2)))$
+approach1 : 1/(g*(1-b))$
+approach2 : sqrt((1+b)/(1-b))$
+print("approaching-factor residual (must be 0):",ratsimp(radcan(approach1-approach2)))$
+first_derivative : subst(b=0,diff(recede1,b))$
+print("low-speed linear coefficient residual (must be 0):",ratsimp(first_derivative+1))$
+angular : 1/(g*(1-b*mu))$
+print("angular receding limit residual (must be 0):",ratsimp(subst(mu=-1,angular)-recede1))$
+print("angular approaching limit residual (must be 0):",ratsimp(subst(mu=1,angular)-approach1))$
+print("transverse factor residual (must be 0):",ratsimp(subst(mu=0,angular)-1/g))$
+quit();

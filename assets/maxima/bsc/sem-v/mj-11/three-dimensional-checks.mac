@@ -1,0 +1,35 @@
+/* MJ-11 Unit III: 3D applications; every printed residual must vanish. */
+kill(all)$
+
+plane:exp(%i*(kx*x+ky*y+kz*z))$
+plane_residual:ratsimp(
+  diff(plane,x,2)+diff(plane,y,2)+diff(plane,z,2)
+  +(kx^2+ky^2+kz^2)*plane)$
+
+box:sin(kx*x)*sin(ky*y)*sin(kz*z)$
+box_residual:trigsimp(
+  diff(box,x,2)+diff(box,y,2)+diff(box,z,2)
+  +(kx^2+ky^2+kz^2)*box)$
+
+Y10:cos(theta)$
+L2Y10:-(1/sin(theta))*diff(sin(theta)*diff(Y10,theta),theta)$
+rotator_l1_residual:trigsimp(L2Y10-2*Y10)$
+
+assume(r>0,aa>0,mu>0,hbar>0,alpha>0)$
+a0:hbar^2/(mu*alpha)$
+R:exp(-r/a0)$
+radial_laplacian:(1/r^2)*diff(r^2*diff(R,r),r)$
+E1:-hbar^2/(2*mu*a0^2)$
+hydrogen_eigen_residual:radcan(
+  -hbar^2*radial_laplacian/(2*mu)-alpha*R/r-E1*R)$
+
+Rnorm:exp(-r/aa)/sqrt(%pi*aa^3)$
+hydrogen_normalization_residual:radcan(
+  4*%pi*integrate(r^2*Rnorm^2,r,0,inf)-1)$
+
+print("plane_residual =",plane_residual)$
+print("box_residual =",box_residual)$
+print("rotator_l1_residual =",rotator_l1_residual)$
+print("hydrogen_eigen_residual =",hydrogen_eigen_residual)$
+print("hydrogen_normalization_residual =",hydrogen_normalization_residual)$
+quit();

@@ -1,0 +1,73 @@
+/* UG-VI MJ-14 Unit III: sequential, memory and architecture checks. */
+kill(all)$
+
+bnot(x) := 1-x$
+band2(x,y) := x*y$
+bor2(x,y) := 1-(1-x)*(1-y)$
+bit(n,k) := mod(quotient(n,2^k),2)$
+
+/* JK characteristic equation against hold, reset, set and toggle. */
+jk_expected(j,k,q) :=
+  if j=0 and k=0 then q
+  elseif j=0 and k=1 then 0
+  elseif j=1 and k=0 then 1
+  else 1-q$
+jk_equation(j,k,q) := bor2(band2(j,bnot(q)),band2(bnot(k),q))$
+jk_residuals : makelist(
+  block([j:bit(n,2),k:bit(n,1),q:bit(n,0)],
+    jk_equation(j,k,q)-jk_expected(j,k,q)),
+  n,0,7)$
+print("JK characteristic-equation residuals =", jk_residuals)$
+
+/* Active-high SR characteristic equation over its three allowed inputs. */
+sr_residuals : makelist(
+  block([s:bit(n,2),r:bit(n,1),q:bit(n,0),expected],
+    if s=1 and r=1 then 0
+    else (
+      expected:if s=1 then 1 elseif r=1 then 0 else q,
+      bor2(s,band2(bnot(r),q))-expected)),
+  n,0,7)$
+print("allowed-state SR residuals =", sr_residuals)$
+
+/* A clock-counting timer: N/f seconds = 1000N/f milliseconds. */
+clock_hz : 10^6$
+pulse_count : 2500$
+timer_ms_residual : 1000*pulse_count/clock_hz-5/2$
+print("timer conversion residual (ms) =", timer_ms_residual)$
+
+/* Counter modulus and memory-capacity relations. */
+counter_modulus_residual : 2^8-256$
+memory_bit_residual : 2^12*8-32768$
+memory_byte_residual : (2^12*8)/8-4096$
+print("8-stage binary-counter modulus residual =", counter_modulus_residual)$
+print("4K x 8 memory bit-capacity residual =", memory_bit_residual)$
+print("4K x 8 memory byte-capacity residual =", memory_byte_residual)$
+
+/* Four serial inputs 1,0,1,1 leave [Q0,Q1,Q2,Q3] = [1,1,0,1]. */
+shift(state,x) := [x,state[1],state[2],state[3]]$
+q0 : [0,0,0,0]$
+q1 : shift(q0,1)$
+q2 : shift(q1,0)$
+q3 : shift(q2,1)$
+q4 : shift(q3,1)$
+shift_register_residuals : q4-[1,1,0,1]$
+print("four-shift register residuals =", shift_register_residuals)$
+
+/* Address-space and word-range checks. */
+address_8085_residual : 2^16-65536$
+address_8086_residual : 2^20-1048576$
+unsigned_32_residual : (2^32-1)-4294967295$
+signed_32_min_residual : -2^31-(-2147483648)$
+signed_32_max_residual : (2^31-1)-2147483647$
+print("8085 address-space residual =", address_8085_residual)$
+print("8086 address-space residual =", address_8086_residual)$
+print("32-bit unsigned-maximum residual =", unsigned_32_residual)$
+print("32-bit signed-minimum residual =", signed_32_min_residual)$
+print("32-bit signed-maximum residual =", signed_32_max_residual)$
+
+/* 8086 physical address = 16*segment + offset (within 20 bits). */
+segment : 4660$      /* 1234H */
+offset : 22136$      /* 5678H */
+physical : mod(16*segment+offset,2^20)$
+segmentation_residual : physical-96696$  /* 179B8H */
+print("8086 segment:offset residual =", segmentation_residual)$

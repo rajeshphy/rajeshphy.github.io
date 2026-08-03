@@ -1,0 +1,135 @@
+/* MJ-4 Waves and Optics, Unit II: exact symbolic audit.
+   Run with: maxima -q -b mj4-unit-2-checks.mac
+   Every displayed residual must be exactly 0. */
+
+kill(all)$
+assume(I1>0,I2>0,c>0)$
+
+/* Two-beam intensity and visibility. */
+Imax : (sqrt(I1)+sqrt(I2))^2$
+Imin : (sqrt(I1)-sqrt(I2))^2$
+r01 : radcan((Imax-Imin)/(Imax+Imin)
+              -2*sqrt(I1*I2)/(I1+I2))$
+print("U2-01 fringe-visibility residual =", r01)$
+
+/* One-reflection-reversal thin-film phases. */
+delta : 4*%pi*mu*t*cr/lam+%pi$
+t_dark : m*lam/(2*mu*cr)$
+t_bright : (m+1/2)*lam/(2*mu*cr)$
+r02 : ratsimp(ev(delta,t=t_dark)-(2*m+1)*%pi)$
+print("U2-02 reflected-dark phase residual =", r02)$
+
+r03 : ratsimp(ev(delta,t=t_bright)-2*(m+1)*%pi)$
+print("U2-03 reflected-bright phase residual =", r03)$
+
+/* Fizeau wedge spacing. */
+xm : m*lam/(2*mu*alpha)$
+xmp1 : (m+1)*lam/(2*mu*alpha)$
+r04 : ratsimp(xmp1-xm-lam/(2*mu*alpha))$
+print("U2-04 wedge-fringe-spacing residual =", r04)$
+
+/* Newton-ring diameters and measurements. */
+D2(m) := 4*m*lam*R/mu$
+r05 : ratsimp(D2(m+p)-D2(m)-4*p*lam*R/mu)$
+print("U2-05 Newton diameter-difference residual =", r05)$
+
+lambda_meas : mu*(D2(m+p)-D2(m))/(4*p*R)$
+r06 : ratsimp(lambda_meas-lam)$
+print("U2-06 Newton wavelength residual =", r06)$
+
+Dair2(m) := 4*m*lam*R$
+Dliq2(m) := 4*m*lam*R/mu$
+r07 : ratsimp(Dair2(m)/Dliq2(m)-mu)$
+print("U2-07 Newton liquid-index residual =", r07)$
+
+/* Michelson wavelength, doublet, and cell checks. */
+lambda_mich : 2*x/N$
+r08 : ratsimp(2*x-N*lambda_mich)$
+print("U2-08 Michelson wavelength residual =", r08)$
+
+r09 : ratsimp(1/lam1-1/lam2-(lam2-lam1)/(lam1*lam2))$
+print("U2-09 doublet reciprocal-difference residual =", r09)$
+
+mu_cell : 1+N*lam/(2*tcell)$
+r10 : ratsimp(2*tcell*(mu_cell-1)-N*lam)$
+print("U2-10 Michelson cell-index residual =", r10)$
+
+/* Michelson-Morley exact forms and second-order series. */
+tpar : L/(c-v)+L/(c+v)$
+r11 : ratsimp(ev(tpar,v=beta*c)-2*L/(c*(1-beta^2)))$
+print("U2-11 parallel-arm exact residual =", r11)$
+
+tperp : 2*L/sqrt(c^2-v^2)$
+r12 : radcan(ev(tperp,v=beta*c)-2*L/(c*sqrt(1-beta^2)))$
+print("U2-12 perpendicular-arm exact residual =", r12)$
+
+tpar_series : ratdisrep(taylor(2*L/(c*(1-beta^2)),beta,0,2))$
+r13 : ratsimp(tpar_series-2*L*(1+beta^2)/c)$
+print("U2-13 parallel-arm O(beta^2) residual =", r13)$
+
+tperp_series : ratdisrep(taylor(2*L/(c*sqrt(1-beta^2)),beta,0,2))$
+r14 : ratsimp(tperp_series-2*L*(1+beta^2/2)/c)$
+print("U2-14 perpendicular-arm O(beta^2) residual =", r14)$
+
+/* Fabry-Perot denominator and Airy coefficient. */
+den : (1-Rf*cos(d))^2+(Rf*sin(d))^2$
+airy_den : (1-Rf)^2+4*Rf*sin(d/2)^2$
+r15 : trigrat(expand(den-airy_den))$
+print("U2-15 Fabry-Perot Airy-denominator residual =", r15)$
+
+/* Fresnel-zone geometry and odd focal orders. */
+rn2_exact : n*b*lam+n^2*lam^2/4$
+r16 : ratsimp(b^2+rn2_exact-(b+n*lam/2)^2)$
+print("U2-16 exact half-period-zone radius residual =", r16)$
+
+qodd : 2*j+1$
+r17 : ratsimp(2*qodd*%pi-2*(2*j+1)*%pi)$
+print("U2-17 odd-order zone-plate phase residual =", r17)$
+
+/* Fresnel-integral normalization. */
+Iedge(Cv,Sv) := ((1/2+Cv)^2+(1/2+Sv)^2)/2$
+r18 : ratsimp(Iedge(1/2,1/2)-1)$
+print("U2-18 illuminated-edge limit residual =", r18)$
+
+r19 : ratsimp(Iedge(0,0)-1/4)$
+print("U2-19 geometrical-edge intensity residual =", r19)$
+
+r20 : ratsimp(Iedge(-1/2,-1/2))$
+print("U2-20 shadow-edge limit residual =", r20)$
+
+r21 : ratsimp((dC^2+dS^2)/2
+       -((dC+dS)^2+(dS-dC)^2)/4)$
+print("U2-21 slit complex-normalization residual =", r21)$
+
+/* Fraunhofer slit integral and double-slit factor. */
+r22 : trigsimp(integrate(cos(q*x),x,-a/2,a/2)-2*sin(q*a/2)/q)$
+print("U2-22 single-slit aperture-integral residual =", r22)$
+
+r23 : trigrat(cos(phi-alpha)+cos(phi+alpha)
+                 -2*cos(phi)*cos(alpha))$
+print("U2-23 double-slit phasor residual =", r23)$
+
+/* Finite geometric array check (the algebra is identical for arbitrary N). */
+array7 : sum(z^j,j,0,6)$
+r24 : ratsimp(expand((1-z)*array7-(1-z^7)))$
+print("U2-24 seven-slit geometric-array residual =", r24)$
+
+/* Circular-aperture Bessel antiderivative. */
+bessel_primitive : rho*bessel_j(1,q*rho)/q$
+bessel_raw : ev(diff(bessel_primitive,rho)-rho*bessel_j(0,q*rho),
+                besselexpand=true)$
+r25 : ratsimp(subst(2*bessel_j(1,q*rho)/(q*rho)-bessel_j(0,q*rho),
+                    bessel_j(2,q*rho),bessel_raw))$
+print("U2-25 circular-aperture Bessel-integral residual =", r25)$
+
+/* Grating resolving-power cancellation. */
+width : lam/(Nlines*dspace*cos(theta))$
+separation : m*dlam/(dspace*cos(theta))$
+dlam_rayleigh : lam/(m*Nlines)$
+r26 : ratsimp(ev(separation-width,dlam=dlam_rayleigh))$
+print("U2-26 grating Rayleigh residual =", r26)$
+
+r27 : ratsimp(lam/dlam_rayleigh-m*Nlines)$
+print("U2-27 grating resolving-power residual =", r27)$
+
+quit()$

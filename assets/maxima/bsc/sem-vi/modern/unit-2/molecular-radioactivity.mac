@@ -1,0 +1,35 @@
+/* Symbolic checks for Modern Physics Unit II.
+   Run: maxima --very-quiet -b molecular-radioactivity.mac */
+kill(all)$
+display2d:false$
+
+Nplus : 1/sqrt(2*(1+S))$
+Nminus : 1/sqrt(2*(1-S))$
+print("bonding-orbital normalization residual =",
+      ratsimp(Nplus^2*2*(1+S)-1))$
+print("antibonding-orbital normalization residual =",
+      ratsimp(Nminus^2*2*(1-S)-1))$
+
+F(J) := B*J*(J+1)$
+print("rigid-rotor line-position residual =",
+      ratsimp(F(J+1)-F(J)-2*B*(J+1)))$
+print("rigid-rotor adjacent-spacing residual =",
+      ratsimp((F(J+2)-F(J+1))-(F(J+1)-F(J))-2*B))$
+
+G(v) := hbar*omega*(v+1/2)$
+print("harmonic-vibration spacing residual =",
+      ratsimp(G(v+1)-G(v)-hbar*omega))$
+
+Ndecay(t) := N0*exp(-lambda*t)$
+print("radioactive-decay differential residual =",
+      ratsimp(diff(Ndecay(t),t)+lambda*Ndecay(t)))$
+print("half-life residual =",
+      ratsimp(subst(log(2)/lambda,t,Ndecay(t))/N0-1/2))$
+
+assume(lambda>0)$
+mean_num : integrate(t*lambda*exp(-lambda*t),t,0,inf)$
+mean_den : integrate(lambda*exp(-lambda*t),t,0,inf)$
+print("mean-life residual =",
+      ratsimp(mean_num/mean_den-1/lambda))$
+
+quit()$

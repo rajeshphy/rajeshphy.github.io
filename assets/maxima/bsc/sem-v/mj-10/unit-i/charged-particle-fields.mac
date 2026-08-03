@@ -1,0 +1,43 @@
+/* Uniform electric, magnetic, and crossed-field solutions.
+   Every printed residual must be the scalar zero. */
+kill(all)$
+assume(m > 0, B > 0)$
+
+/* E = E e_y, r(0) = 0, v(0) = v0 e_x. */
+x_e : v0*t$
+y_e : q*E*t^2/(2*m)$
+print("electric x-equation residual =",
+      ratsimp(m*diff(x_e,t,2)))$
+print("electric y-equation residual =",
+      ratsimp(m*diff(y_e,t,2)-q*E))$
+print("electric parabola residual =",
+      ratsimp(y_e-q*E*x_e^2/(2*m*v0^2)))$
+
+/* B = B e_z. */
+w : q*B/m$
+v_x : vp*cos(w*t)$
+v_y : -vp*sin(w*t)$
+x_b : vp*sin(w*t)/w$
+y_b : vp*(cos(w*t)-1)/w$
+print("magnetic x-equation residual =",
+      ratsimp(m*diff(v_x,t)-q*B*v_y))$
+print("magnetic y-equation residual =",
+      ratsimp(m*diff(v_y,t)+q*B*v_x))$
+print("magnetic x-integration residual =",
+      ratsimp(diff(x_b,t)-v_x))$
+print("magnetic y-integration residual =",
+      ratsimp(diff(y_b,t)-v_y))$
+
+/* E = E e_x, B = B e_z, q > 0, r(0) = v(0) = 0. */
+a : E/B$
+Omega : q*B/m$
+x_c : a*(1-cos(Omega*t))/Omega$
+y_c : -a*(Omega*t-sin(Omega*t))/Omega$
+print("crossed-field x-equation residual =",
+      ratsimp(m*diff(x_c,t,2)-q*(E+B*diff(y_c,t))))$
+print("crossed-field y-equation residual =",
+      ratsimp(m*diff(y_c,t,2)+q*B*diff(x_c,t)))$
+print("crossed-field initial vx residual =",
+      ratsimp(subst(t=0,diff(x_c,t))))$
+print("crossed-field initial vy residual =",
+      ratsimp(subst(t=0,diff(y_c,t))))$

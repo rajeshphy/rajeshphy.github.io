@@ -1,0 +1,34 @@
+/* Simultaneity and relativistic velocity addition. */
+kill(all)$ display2d:false$
+g : 1/sqrt(1-v^2/c^2)$
+dtp : g*(dt-v*dx/c^2)$
+vsim : c^2*dt/dx$
+print("simultaneous-frame residual (must be 0):",ratsimp(subst(v=vsim,dtp)))$
+
+dtp_dt : g*(1-u*v/c^2)$
+dxp_dt : g*(u-v)$
+up : (u-v)/(1-u*v/c^2)$
+print("longitudinal differential residual (must be 0):",
+  ratsimp(dxp_dt/dtp_dt-up))$
+
+uyp : uy/(g*(1-u*v/c^2))$
+uzp : uz/(g*(1-u*v/c^2))$
+print("transverse-y differential residual (must be 0):",
+  ratsimp(uy/dtp_dt-uyp))$
+print("transverse-z differential residual (must be 0):",
+  ratsimp(uz/dtp_dt-uzp))$
+
+uinv : (up+v)/(1+up*v/c^2)$
+print("inverse velocity residual (must be 0):",ratsimp(uinv-u))$
+uyinv : uyp/(g*(1+up*v/c^2))$
+uzinv : uzp/(g*(1+up*v/c^2))$
+print("inverse transverse-y residual (must be 0):",
+  radcan(ratsimp(uyinv-uy)))$
+print("inverse transverse-z residual (must be 0):",
+  radcan(ratsimp(uzinv-uz)))$
+print("positive light-speed residual (must be 0):",ratsimp(subst(u=c,up)-c))$
+print("negative light-speed residual (must be 0):",ratsimp(subst(u=-c,up)+c))$
+sumrule : (w+v)/(1+w*v/c^2)$
+gap_identity : (1-w^2/c^2)*(1-v^2/c^2)/(1+w*v/c^2)^2$
+print("subluminal identity residual (must be 0):",ratsimp(1-sumrule^2/c^2-gap_identity))$
+quit();

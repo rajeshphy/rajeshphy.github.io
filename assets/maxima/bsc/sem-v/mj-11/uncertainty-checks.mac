@@ -1,0 +1,14 @@
+/* MJ-11 Unit I: all displayed residuals must vanish. */
+kill(all)$
+assume(hbar>0,m>0,w>0,x>0,eps0>0,e>0)$
+Eosc:hbar^2/(8*m*x^2)+m*w^2*x^2/2$
+x2:hbar/(2*m*w)$
+osc_stationary_residual:radcan(subst(x=sqrt(x2),diff(Eosc,x)))$
+osc_energy_residual:radcan(subst(x=sqrt(x2),Eosc)-hbar*w/2)$
+Eatom:hbar^2/(2*m*x^2)-e^2/(4*%pi*eps0*x)$
+a0:4*%pi*eps0*hbar^2/(m*e^2)$
+atomic_radius_residual:radcan(subst(x=a0,diff(Eatom,x)))$
+print("osc_stationary_residual =",osc_stationary_residual)$
+print("osc_energy_residual =",osc_energy_residual)$
+print("atomic_radius_residual =",atomic_radius_residual)$
+quit();

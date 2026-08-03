@@ -1,0 +1,59 @@
+/* Isothermal compressible capillary flow and ideal Rankine method. */
+kill(all)$
+display2d:false$
+
+C : %pi*a^4*(p1^2-p2^2)/(16*eta*l)$
+Q2 : C/p2$
+eta_outlet : %pi*a^4*(p1^2-p2^2)*t/(16*l*p2*V2)$
+
+print("Outlet-flow viscosity residual (must be 0):",
+  ratsimp(ev(Q2,eta=eta_outlet)-V2/t))$
+print("Pressure-factorization residual (must be 0):",
+  expand(p1^2-p2^2-(p1-p2)*(p1+p2)))$
+
+pm : (p1+p2)/2$
+Qm : ratsimp(C/pm)$
+Qm_expected : %pi*a^4*(p1-p2)/(8*eta*l)$
+print("Mean-pressure flow residual (must be 0):",
+  ratsimp(Qm-Qm_expected))$
+
+Q2_drop : ratsimp(ev(Q2,p1=p2+d))$
+Q2_drop_expected : %pi*a^4*d/(8*eta*l)*(1+d/(2*p2))$
+print("Small-drop expansion residual (must be 0):",
+  ratsimp(Q2_drop-Q2_drop_expected))$
+
+/* Exact closed-loop Rankine method. */
+pL : P-dpr+dpr*VL/Vtot$
+pH : P+dpr*VL/Vtot$
+print("Rankine pressure-difference residual (must be 0):",
+  ratsimp(pH-pL-dpr))$
+print("Rankine gas-content residual (must be 0):",
+  ratsimp(pL*VL+pH*(Vtot-VL)-P*Vtot))$
+
+throughput : %pi*a^4*(pH^2-pL^2)/(16*eta*l)$
+storage_derivative : diff(pL*VL,VL)$
+dt_dVL : ratsimp(storage_derivative/throughput)$
+dt_dVL_expected : 16*eta*l/(%pi*a^4*dpr)
+  *(P-dpr+2*dpr*VL/Vtot)/(2*P-dpr+2*dpr*VL/Vtot)$
+print("Rankine differential-time residual (must be 0):",
+  ratsimp(dt_dVL-dt_dVL_expected))$
+
+Iprimitive : VL-P*Vtot/(2*dpr)
+  *log(2*P-dpr+2*dpr*VL/Vtot)$
+ratio_integrand : (P-dpr+2*dpr*VL/Vtot)
+  /(2*P-dpr+2*dpr*VL/Vtot)$
+print("Rankine antiderivative residual (must be 0):",
+  ratsimp(diff(Iprimitive,VL)-ratio_integrand))$
+
+Iab : (Vb-Va)-P*Vtot/(2*dpr)
+  *log((2*P-dpr+2*dpr*Vb/Vtot)
+    /(2*P-dpr+2*dpr*Va/Vtot))$
+print("Rankine small-pressure integral residual (must be 0):",
+  ratsimp(limit(Iab,dpr,0)-(Vb-Va)/2))$
+
+eta_rankine_small : %pi*a^4*(m*g/A)*t/(16*l*((Vb-Va)/2))$
+print("Rankine quoted-limit residual (must be 0):",
+  ratsimp(ev(eta_rankine_small,Vb-Va=Omega)
+    -%pi*a^4*m*g*t/(8*l*A*Omega)))$
+
+quit();

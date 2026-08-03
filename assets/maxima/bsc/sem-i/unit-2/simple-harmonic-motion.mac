@@ -1,0 +1,26 @@
+/* SHM equation, energy, and one-period averages. */
+kill(all)$
+display2d:false$
+
+x : A*cos(omega*t+phi)$
+v : diff(x,t)$
+k : m*omega^2$
+
+print("SHM differential-equation residual (must be 0):",
+  trigsimp(diff(x,t,2)+omega^2*x))$
+
+K : m*v^2/2$
+U : k*x^2/2$
+print("SHM total-energy residual (must be 0):",
+  trigsimp(K+U-k*A^2/2))$
+
+avg_cos2 : integrate(cos(alpha)^2,alpha,0,2*%pi)/(2*%pi)$
+avg_sin2 : integrate(sin(alpha)^2,alpha,0,2*%pi)/(2*%pi)$
+print("Cosine-square average residual (must be 0):",
+  ratsimp(avg_cos2-1/2))$
+print("Sine-square average residual (must be 0):",
+  ratsimp(avg_sin2-1/2))$
+print("Average-energy sum residual (must be 0):",
+  ratsimp(k*A^2*avg_cos2/2+k*A^2*avg_sin2/2-k*A^2/2))$
+
+quit();

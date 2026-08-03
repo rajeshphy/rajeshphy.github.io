@@ -1,0 +1,22 @@
+/* Abrupt-junction electrostatics, diode slope, and ideal MOSFET boundary checks. */
+kill(all)$
+assume(eps>0,q>0,NA>0,ND>0,Vbi>0,Is>0,eta>0,VT>0)$
+W : sqrt((2*eps*Vbi/q)*(1/NA+1/ND))$
+xp : ND*W/(NA+ND)$
+xn : NA*W/(NA+ND)$
+print("depletion charge residual =", ratsimp(NA*xp-ND*xn))$
+print("built-in potential residual =",
+      radcan(q*(NA*xp^2+ND*xn^2)/(2*eps)-Vbi))$
+
+Idiode : Is*(exp(V/(eta*VT))-1)$
+rd : eta*VT/(Idiode+Is)$
+print("diode dynamic-resistance residual =",
+      ratsimp(rd*diff(Idiode,V)-1))$
+
+u : Vgs-Vth$
+Idlin : K*(u*Vds-Vds^2/2)$
+Idsat : K*u^2/2$
+print("MOSFET current-boundary residual =",
+      ratsimp(subst(u,Vds,Idlin)-Idsat))$
+print("MOSFET slope-boundary residual =",
+      ratsimp(subst(u,Vds,diff(Idlin,Vds))))$

@@ -1,0 +1,28 @@
+/* Simple, compound, and torsional small-oscillation identities. */
+kill(all)$
+display2d:false$
+
+theta_s : A*cos(sqrt(g/l)*t+phi)$
+print("Simple-pendulum ODE residual (must be 0):",
+  radcan(trigsimp(diff(theta_s,t,2)+(g/l)*theta_s)))$
+print("Simple-pendulum period residual (must be 0):",
+  ratsimp(4*%pi^2/(g/l)-4*%pi^2*l/g))$
+
+theta_c : B*cos(sqrt(m*g*d/I)*t+psi)$
+print("Compound-pendulum ODE residual (must be 0):",
+  radcan(trigsimp(diff(theta_c,t,2)+(m*g*d/I)*theta_c)))$
+print("Compound-pendulum period residual (must be 0):",
+  ratsimp(4*%pi^2/(m*g*d/I)-4*%pi^2*I/(m*g*d)))$
+
+Iparallel : m*(kg^2+d^2)$
+leq : Iparallel/(m*d)$
+print("Equivalent-length residual (must be 0):",
+  ratsimp(leq-(d+kg^2/d)))$
+
+theta_t : C0*cos(sqrt(kappa/I0)*t+chi)$
+print("Torsional-pendulum ODE residual (must be 0):",
+  radcan(trigsimp(diff(theta_t,t,2)+(kappa/I0)*theta_t)))$
+print("Torsional-pendulum period residual (must be 0):",
+  ratsimp(4*%pi^2/(kappa/I0)-4*%pi^2*I0/kappa))$
+
+quit();

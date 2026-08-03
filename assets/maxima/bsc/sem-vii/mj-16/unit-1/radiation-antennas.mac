@@ -1,0 +1,32 @@
+/* Accelerated-charge, dipole, and antenna checks. */
+kill(all)$
+declare(theta,real,beta,real,a,real)$
+assume(a>0,beta>0,beta<1)$
+
+residual_solid_angle : trigsimp(integrate(sin(theta)^3,theta,0,%pi)-4/3)$
+print("Larmor angular-integral residual = ",residual_solid_angle)$
+
+gamma : 1/sqrt(1-beta^2)$
+residual_perpendicular : radcan(gamma^6*a^2*(1-beta^2)-gamma^4*a^2)$
+residual_parallel : radcan(gamma^6*a^2*(a^2/a^2)-gamma^6*a^2)$
+print("Lienard perpendicular-limit residual = ",residual_perpendicular)$
+print("Lienard parallel-limit residual = ",residual_parallel)$
+
+declare(mu,real)$
+Iparallel : integrate((1-mu^2)/(1-beta*mu)^5,mu,-1,1)$
+Iperpendicular : integrate(
+ ((1+beta^2)*(1+mu^2)-4*beta*mu)/(2*(1-beta*mu)^5),
+ mu,-1,1)$
+print("Lienard parallel angular-integral residual = ",
+ radcan(Iparallel-4/(3*(1-beta^2)^3)))$
+print("Lienard perpendicular angular-integral residual = ",
+ radcan(Iperpendicular-4/(3*(1-beta^2)^2)))$
+
+/* p0=I0*l/omega maps the dipole power to the short-element form. */
+residual_element : ratsimp((I0*l/omega)^2*omega^4-I0^2*l^2*omega^2)$
+print("small-current-element substitution residual = ",residual_element)$
+
+/* Four-element geometric sum. */
+array_sum : 1+z+z^2+z^3$
+residual_array : ratsimp(array_sum-(1-z^4)/(1-z))$
+print("four-element array-factor residual = ",residual_array)$

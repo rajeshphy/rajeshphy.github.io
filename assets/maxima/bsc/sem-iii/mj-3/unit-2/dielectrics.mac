@@ -1,0 +1,45 @@
+/* MJ-3 Unit II: exact checks for dielectric relations. */
+kill(all)$
+
+print("MJ-3 Unit II -- dielectrics")$
+
+/* Gauss law after rho_b=-div(P). */
+rho_b : -divP$
+divE  : (rho_f+rho_b)/eps0$
+divD  : eps0*divE+divP$
+res_gauss_D : ratsimp(divD-rho_f)$
+
+print("dielectric Gauss-law residual =",res_gauss_D)$
+
+/* Linear isotropic constitutive relations. */
+P : eps0*chi_e*E$
+D : eps0*E+P$
+res_D_linear : ratsimp(D-eps0*(1+chi_e)*E)$
+res_eps_r    : ratsimp((1+chi_e)-eps_r)$
+
+print("linear D-field residual =",res_D_linear)$
+print("epsilon_r=1+chi_e residual (under eps_r=1+chi_e) =",
+      subst(1+chi_e,eps_r,res_eps_r))$
+
+/* Lorentz local field and Clausius-Mossotti equation. */
+x : N*alpha/(3*eps0)$
+P_local : N*alpha*E/(1-x)$
+eps_r_solution : (1+2*x)/(1-x)$
+P_macro : eps0*(eps_r_solution-1)*E$
+res_P : ratsimp(P_local-P_macro)$
+res_CM :
+  ratsimp((eps_r_solution-1)/(eps_r_solution+2)-x)$
+
+print("local-field polarization residual =",res_P)$
+print("Clausius-Mossotti residual =",res_CM)$
+
+/* Normal-D and tangential-E interface statements. */
+D2n : D1n+sigma_f$
+res_D_boundary : ratsimp(D2n-D1n-sigma_f)$
+E2t : E1t$
+res_E_boundary : ratsimp(E2t-E1t)$
+
+print("normal-D boundary residual =",res_D_boundary)$
+print("tangential-E boundary residual =",res_E_boundary)$
+
+quit()$

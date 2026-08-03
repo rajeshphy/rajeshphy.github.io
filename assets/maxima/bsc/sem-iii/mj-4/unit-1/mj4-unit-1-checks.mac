@@ -1,0 +1,91 @@
+/* MJ-4 Waves and Optics, Unit I: exact symbolic audit.
+   Run with: maxima -q -b mj4-unit-1-checks.mac
+   Every displayed residual must be exactly 0. */
+
+kill(all)$
+
+/* Progressive harmonic wave and string dispersion. */
+y : A*cos(k*x-w*t+ph)$
+r01 : ratsimp(diff(y,x,2) - (k^2/w^2)*diff(y,t,2))$
+print("U1-01 harmonic wave-equation residual =", r01)$
+
+r02 : ratsimp(ev(T*k^2-mu*w^2, w^2=T*k^2/mu))$
+print("U1-02 stretched-string dispersion residual =", r02)$
+
+/* Equal-frequency phasor resultant. */
+R2 : A1^2+A2^2+2*A1*A2*cos(d)$
+r03 : trigsimp(expand((A1+A2*cos(d))^2+(A2*sin(d))^2-R2))$
+print("U1-03 resultant-amplitude residual =", r03)$
+
+/* Beat/carrier identity. */
+r04 : trigrat(cos(p)+cos(q)-2*cos((p-q)/2)*cos((p+q)/2))$
+print("U1-04 beat-factorization residual =", r04)$
+
+/* Equal-frequency Lissajous elimination. */
+X : sin(z)$
+Y : sin(z+d)$
+r05 : trigsimp(trigreduce(expand(X^2+Y^2-2*X*Y*cos(d)-sin(d)^2)))$
+print("U1-05 Lissajous-conic residual =", r05)$
+
+/* Standing-wave formation. */
+r06 : trigrat(sin(k*x-w*t)+sin(k*x+w*t)-2*sin(k*x)*cos(w*t))$
+print("U1-06 standing-wave superposition residual =", r06)$
+
+declare(n,integer)$
+r07 : trigsimp(sin(n*%pi))$
+print("U1-07 fixed-fixed boundary residual =", r07)$
+
+r08 : trigrat(cos((2*n-1)*%pi/2))$
+print("U1-08 fixed-free boundary residual =", r08)$
+
+/* Progressive-wave energy and power. */
+r09 : ratsimp(ev(T*k^2-mu*w^2, T=mu*v^2, w=v*k))$
+print("U1-09 kinetic-potential coefficient residual =", r09)$
+
+r10 : ratsimp(ev(T*k*w*A^2/2-mu*v*w^2*A^2/2,
+                  T=mu*v^2, w=v*k))$
+print("U1-10 average-power identity residual =", r10)$
+
+r11 : trigsimp(integrate(sin(z)*cos(z),z,0,2*%pi)/(2*%pi))$
+print("U1-11 standing-wave mean-flux residual =", r11)$
+
+/* Carrier-envelope identity. */
+r12 : trigrat(cos(k1*x-w1*t)+cos(k2*x-w2*t)
+       -2*cos(((k1-k2)*x-(w1-w2)*t)/2)
+          *cos(((k1+k2)*x-(w1+w2)*t)/2))$
+print("U1-12 carrier-envelope residual =", r12)$
+
+/* Fermat stationarity at a plane interface. */
+Lop : n1*sqrt(a^2+x^2)+n2*sqrt(b^2+(ell-x)^2)$
+sini : x/sqrt(a^2+x^2)$
+sinr : (ell-x)/sqrt(b^2+(ell-x)^2)$
+r13 : ratsimp(diff(Lop,x)-(n1*sini-n2*sinr))$
+print("U1-13 Fermat-Snell residual =", r13)$
+
+/* Paraxial surface, thin lens, and mirror signs. */
+surface_angles : n1*(-h/u+h/R)-n2*(-h/v+h/R)$
+surface_formula : h*(n2/v-n1/u-(n2-n1)/R)$
+r14 : ratsimp(surface_angles-surface_formula)$
+print("U1-14 spherical-surface sign residual =", r14)$
+
+surface1 : n/v1-1/u-(n-1)/R1$
+surface2 : 1/v-n/v1-(1-n)/R2$
+lens_formula : 1/v-1/u-(n-1)*(1/R1-1/R2)$
+r15 : ratsimp(surface1+surface2-lens_formula)$
+print("U1-15 thin-lens addition residual =", r15)$
+
+reflected_surface : (-n)/v-n/u-((-n)-n)/R$
+mirror_formula : -n*(1/v+1/u-2/R)$
+r16 : ratsimp(reflected_surface-mirror_formula)$
+print("U1-16 spherical-mirror sign residual =", r16)$
+
+/* Cardinal-point focal and nodal relations. */
+f1 : -n1/Phi$
+f2 : n2/Phi$
+r17 : ratsimp(f1+f2-(n2-n1)/Phi)$
+print("U1-17 cardinal nodal-offset residual =", r17)$
+
+r18 : ratsimp(n2/f2+n1/f1)$
+print("U1-18 front-rear focal-power residual =", r18)$
+
+quit()$

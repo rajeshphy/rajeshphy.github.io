@@ -1,0 +1,51 @@
+/* Symbolic checks for Modern Physics Unit I.
+   Run: maxima --very-quiet -b atomic-spectra.mac */
+kill(all)$
+display2d:false$
+
+Edef : mu*v^2/2$
+Ldef : mu*v*b$
+eccentricity_residual :
+  ratsimp(
+    subst([E=Edef,L=Ldef],
+      2*E*L^2/(mu*K^2)-(2*E*b/K)^2))$
+print("Coulomb-orbit eccentricity residual =",eccentricity_residual)$
+
+btheta : K/(2*E)*cos(theta/2)/sin(theta/2)$
+rutherford_residual :
+  trigsimp(ratsimp(subst(2*sin(theta/2)*cos(theta/2),sin(theta),
+    -btheta/sin(theta)*diff(btheta,theta)
+    -(K/(4*E))^2/sin(theta/2)^4)))$
+print("Rutherford cross-section residual =",
+      rutherford_residual)$
+
+rbohr : 4*%pi*eps0*hbar^2*n^2/(mu*qe^2)$
+vbohr : n*hbar/(mu*rbohr)$
+force_residual :
+  ratsimp(mu*vbohr^2/rbohr-qe^2/(4*%pi*eps0*rbohr^2))$
+energy :
+  ratsimp(mu*vbohr^2/2-qe^2/(4*%pi*eps0*rbohr))$
+energy_expected :
+  -mu*qe^4/(2*(4*%pi*eps0)^2*hbar^2*n^2)$
+print("Bohr force-balance residual =",force_residual)$
+print("Bohr energy residual =",ratsimp(energy-energy_expected))$
+
+kappa : mu*qe^2/(4*%pi*eps0*hbar^2*n)$
+radial_energy : -hbar^2*kappa^2/(2*mu)$
+print("radial-quantization energy residual =",
+      ratsimp(radial_energy-energy_expected))$
+
+sofactor(j,l,s) := (j*(j+1)-l*(l+1)-s*(s+1))/2$
+print("2p j=1/2 spin-orbit residual =",
+      ratsimp(sofactor(1/2,1,1/2)+1))$
+print("2p j=3/2 spin-orbit residual =",
+      ratsimp(sofactor(3/2,1,1/2)-1/2))$
+
+lande(j,l,s) :=
+  1+(j*(j+1)+s*(s+1)-l*(l+1))/(2*j*(j+1))$
+print("2p_1/2 Lande-factor residual =",
+      ratsimp(lande(1/2,1,1/2)-2/3))$
+print("2p_3/2 Lande-factor residual =",
+      ratsimp(lande(3/2,1,1/2)-4/3))$
+
+quit()$

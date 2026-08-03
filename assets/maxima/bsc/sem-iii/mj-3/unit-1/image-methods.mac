@@ -1,0 +1,56 @@
+/* MJ-3 Unit I: exact checks for plane and sphere image solutions. */
+kill(all)$
+assume(a>R,R>0)$
+
+print("MJ-3 Unit I -- method of images")$
+
+/* Grounded plane, with k=1/(4*pi*eps0). */
+Vplane : k*q*(1/sqrt(rho^2+(z-a)^2)-1/sqrt(rho^2+(z+a)^2))$
+res_plane_boundary : ratsimp(subst(0,z,Vplane))$
+sigma_from_V : radcan(-eps0*subst(0,z,diff(Vplane,z)))$
+sigma_expected : -q*a/(2*%pi*(rho^2+a^2)^(3/2))$
+res_plane_sigma :
+  radcan(subst(1/(4*%pi*eps0),k,sigma_from_V)-sigma_expected)$
+res_plane_charge :
+  radcan(integrate(sigma_expected*2*%pi*rho,rho,0,inf)+q)$
+
+print("grounded-plane boundary residual =",res_plane_boundary)$
+print("grounded-plane surface-charge residual =",res_plane_sigma)$
+print("grounded-plane total-induced-charge residual =",res_plane_charge)$
+
+/* Grounded sphere. */
+b : R^2/a$
+qp : -q*R/a$
+s2 : a^2+R^2-2*a*R*c$
+sp2: b^2+R^2-2*b*R*c$
+res_distance : ratsimp(sp2-(R^2/a^2)*s2)$
+res_sphere_boundary : ratsimp(q/s+qp/(R*s/a))$
+
+print("sphere image-distance residual =",res_distance)$
+print("grounded-sphere boundary residual =",res_sphere_boundary)$
+
+/* Surface charge from the exterior radial field, using s'=(R/a)s. */
+Er_surface :
+  q*(R-a*c)/s^3
+  +qp*(R-b*c)/(R*s/a)^3$
+Er_expected : -q*(a^2-R^2)/(R*s^3)$
+res_sphere_sigma : ratsimp(Er_surface-Er_expected)$
+
+print("grounded-sphere surface-field residual =",res_sphere_sigma)$
+
+/* Exact angular integral after x=cos(theta). */
+angular_integral :
+  (1/(a*R))*(1/(a-R)-1/(a+R))$
+Qind :
+  -q*(a^2-R^2)*R*angular_integral/2$
+res_sphere_charge : ratsimp(Qind+q*R/a)$
+
+print("grounded-sphere total-induced-charge residual =",res_sphere_charge)$
+
+image_force : q*qp/(a-b)^2$
+force_expected : -q^2*R*a/(a^2-R^2)^2$
+res_sphere_force : ratsimp(image_force-force_expected)$
+
+print("grounded-sphere force residual =",res_sphere_force)$
+
+quit()$

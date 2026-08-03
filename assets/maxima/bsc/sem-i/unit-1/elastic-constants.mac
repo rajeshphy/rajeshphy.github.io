@@ -1,0 +1,23 @@
+/* Isotropic elastic-constant identities. */
+kill(all)$
+display2d:false$
+
+Y_Knu : 3*K*(1-2*nu)$
+Y_Gnu : 2*G*(1+nu)$
+nu_KG : (3*K-2*G)/(2*(3*K+G))$
+Y_KG : 9*K*G/(3*K+G)$
+
+print("Y=3K(1-2nu) residual (must be 0):",
+  ratsimp(Y_KG-ev(Y_Knu,nu=nu_KG)))$
+print("Y=2G(1+nu) residual (must be 0):",
+  ratsimp(Y_KG-ev(Y_Gnu,nu=nu_KG)))$
+
+nu_solved : rhs(solve(Y_Knu=Y_Gnu,nu)[1])$
+print("Eliminated Poisson-ratio residual (must be 0):",
+  ratsimp(nu_solved-nu_KG))$
+print("nu=Y/(2G)-1 residual (must be 0):",
+  ratsimp(nu_KG-(Y_KG/(2*G)-1)))$
+print("nu=(3K-Y)/(6K) residual (must be 0):",
+  ratsimp(nu_KG-(3*K-Y_KG)/(6*K)))$
+
+quit();

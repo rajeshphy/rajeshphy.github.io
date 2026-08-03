@@ -1,0 +1,23 @@
+/* MJ-9 Unit II: finite-difference identities for a cubic test function.
+   Every printed residual must be zero. */
+kill(all)$
+
+f(x) := x^3-2*x+1$
+forward : (f(x+h)-f(x))/h$
+backward : (f(x)-f(x-h))/h$
+centered : (f(x+h)-f(x-h))/(2*h)$
+second_centered : (f(x+h)-2*f(x)+f(x-h))/h^2$
+
+residual_forward : ratsimp(expand(forward-diff(f(x),x)-3*x*h-h^2))$
+residual_backward : ratsimp(expand(backward-diff(f(x),x)+3*x*h-h^2))$
+residual_centered : ratsimp(expand(centered-diff(f(x),x)-h^2))$
+residual_second_centered : ratsimp(expand(second_centered-diff(f(x),x,2)))$
+residual_example_first : ratsimp(subst([x=1,h=1/10],centered)-101/100)$
+residual_example_second : ratsimp(subst([x=1,h=1/10],second_centered)-6)$
+
+print("forward-difference residual =", residual_forward)$
+print("backward-difference residual =", residual_backward)$
+print("centered-first residual =", residual_centered)$
+print("centered-second residual =", residual_second_centered)$
+print("example first-derivative residual =", residual_example_first)$
+print("example second-derivative residual =", residual_example_second)$

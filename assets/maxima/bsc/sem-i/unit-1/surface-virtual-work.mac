@@ -1,0 +1,27 @@
+/* Surface tension, excess pressure and virtual-work identities. */
+kill(all)$
+display2d:false$
+
+dA_film : 2*L*dx$
+F_film : 2*gamma*L$
+print("Two-sided film work residual (must be 0):",
+  ratsimp(F_film*dx-gamma*dA_film))$
+
+dV_sphere : 4*%pi*R^2*dR$
+dA_sphere : 8*%pi*R*dR$
+print("Spherical-drop work residual (must be 0):",
+  ratsimp((2*gamma/R)*dV_sphere-gamma*dA_sphere))$
+print("Soap-bubble work residual (must be 0):",
+  ratsimp((4*gamma/R)*dV_sphere-2*gamma*dA_sphere))$
+
+dV_cylinder : 2*%pi*R*L*dR$
+dA_cylinder : 2*%pi*L*dR$
+print("Cylindrical-interface work residual (must be 0):",
+  ratsimp((gamma/R)*dV_cylinder-gamma*dA_cylinder))$
+
+young_balance : gammaSV-gammaSL-gammaLV*cos(theta)$
+print("Young contact-angle residual (must be 0):",
+  ratsimp(ev(young_balance,
+    gammaSV=gammaSL+gammaLV*cos(theta))))$
+
+quit();

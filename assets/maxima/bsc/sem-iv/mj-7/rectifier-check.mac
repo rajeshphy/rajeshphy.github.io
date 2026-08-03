@@ -1,0 +1,15 @@
+/* Exact averages, RMS values, ripple factors, and efficiencies. */
+kill(all)$
+assume(Vm>0,RL>0)$
+Vdc_h : integrate(Vm*sin(x),x,0,%pi)/(2*%pi)$
+Vrms_h : sqrt(integrate(Vm^2*sin(x)^2,x,0,%pi)/(2*%pi))$
+Vdc_f : integrate(Vm*sin(x),x,0,%pi)/%pi$
+Vrms_f : sqrt(integrate(Vm^2*sin(x)^2,x,0,%pi)/%pi)$
+print("half average residual =", ratsimp(Vdc_h-Vm/%pi))$
+print("half RMS residual =", ratsimp(Vrms_h-Vm/2))$
+print("full average residual =", ratsimp(Vdc_f-2*Vm/%pi))$
+print("full RMS residual =", ratsimp(Vrms_f-Vm/sqrt(2)))$
+print("half ripple-square residual =", ratsimp((Vrms_h/Vdc_h)^2-1-(%pi^2/4-1)))$
+print("full ripple-square residual =", ratsimp((Vrms_f/Vdc_f)^2-1-(%pi^2/8-1)))$
+print("half ideal-efficiency residual =", ratsimp((Vdc_h^2/RL)/(Vrms_h^2/RL)-4/%pi^2))$
+print("full ideal-efficiency residual =", ratsimp((Vdc_f^2/RL)/(Vrms_f^2/RL)-8/%pi^2))$

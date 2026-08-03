@@ -1,0 +1,32 @@
+/* Symbolic checks for Modern Physics Unit III.
+   Run: maxima --very-quiet -b laser-rate-equations.mac */
+kill(all)$
+display2d:false$
+
+rho : (A21/B21)/(exp(x)-1)$
+equilibrium_residual :
+  ratsimp(
+    exp(x)*B21*rho-(B21*rho+A21))$
+print("Einstein detailed-balance residual =",equilibrium_residual)$
+
+N2(t) := W*N/(2*W+A)*(1-exp(-(2*W+A)*t))$
+two_level_ode_residual :
+  ratsimp(diff(N2(t),t)-(W*N-(2*W+A)*N2(t)))$
+print("two-level rate-equation residual =",two_level_ode_residual)$
+print("two-level initial-condition residual =",
+      ratsimp(N2(0)))$
+print("strong-pump saturation residual =",
+      ratsimp(limit(W/(2*W+A),W,inf)-1/2))$
+
+dN3 : Wp*N1-N3/tau32$
+dN2 : N3/tau32-N2/tau21-Wl*(N2-N1)$
+dN1 : N2/tau21+Wl*(N2-N1)-Wp*N1$
+print("three-level population-conservation residual =",
+      ratsimp(dN1+dN2+dN3))$
+
+gth : alpha+log(1/(R1*R2))/(2*L)$
+round_trip_at_threshold : R1*R2*exp(2*(gth-alpha)*L)$
+print("laser-threshold round-trip residual =",
+      radcan(round_trip_at_threshold-1))$
+
+quit()$

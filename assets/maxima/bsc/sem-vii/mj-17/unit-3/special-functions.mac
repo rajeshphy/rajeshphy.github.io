@@ -1,0 +1,37 @@
+/* Frobenius recurrences and special-function residuals. */
+kill(all)$
+
+P0 : 1$
+P1 : x$
+P2 : (3*x^2-1)/2$
+P3 : (5*x^3-3*x)/2$
+legendre_residual(P,l) := ratsimp((1-x^2)*diff(P,x,2)-2*x*diff(P,x)+l*(l+1)*P)$
+print("Legendre P0 equation residual = ",legendre_residual(P0,0))$
+print("Legendre P1 equation residual = ",legendre_residual(P1,1))$
+print("Legendre P2 equation residual = ",legendre_residual(P2,2))$
+print("Legendre P3 equation residual = ",legendre_residual(P3,3))$
+print("Legendre recurrence residual = ",ratsimp(3*P3-5*x*P2+2*P1))$
+print("Legendre P3 norm residual = ",integrate(P3^2,x,-1,1)-2/7)$
+
+/* J0 Frobenius coefficient a_m x^(2m). */
+a(m) := (-1)^m/(4^m*(m!)^2)$
+print("Bessel Frobenius recurrence residual = ",ratsimp(4*4^2*a(4)+a(3)))$
+
+H0 : 1$
+H1 : 2*x$
+H2 : 4*x^2-2$
+H3 : 8*x^3-12*x$
+hermite_residual(H,n) := ratsimp(diff(H,x,2)-2*x*diff(H,x)+2*n*H)$
+print("Hermite H2 equation residual = ",hermite_residual(H2,2))$
+print("Hermite H3 recurrence residual = ",ratsimp(H3-2*x*H2+4*H1))$
+print("Hermite H2 norm residual = ",radcan(integrate(exp(-x^2)*H2^2,x,minf,inf)-sqrt(%pi)*2^2*2!))$
+
+L0 : 1$
+L1 : 1-x$
+L2 : 1-2*x+x^2/2$
+L3 : 1-3*x+3*x^2/2-x^3/6$
+laguerre_residual(L,n) := ratsimp(x*diff(L,x,2)+(1-x)*diff(L,x)+n*L)$
+print("Laguerre L2 equation residual = ",laguerre_residual(L2,2))$
+print("Laguerre L3 recurrence residual = ",ratsimp(3*L3-(5-x)*L2+2*L1))$
+print("Laguerre L3 norm residual = ",radcan(integrate(exp(-x)*L3^2,x,0,inf)-1))$
+print("Laguerre L2-L3 orthogonality residual = ",radcan(integrate(exp(-x)*L2*L3,x,0,inf)))$

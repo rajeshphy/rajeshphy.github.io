@@ -1,0 +1,28 @@
+/* MJ-11 Unit II: all displayed residuals must vanish. */
+kill(all)$
+assume(s>0,s0>0,m>0,hbar>0)$
+rho:exp(-x^2/(2*s^2))/(sqrt(2*%pi)*s)$
+normalization_residual:radcan(integrate(rho,x,minf,inf)-1)$
+mean_residual:radcan(integrate(x*rho,x,minf,inf))$
+variance_residual:radcan(integrate(x^2*rho,x,minf,inf)-s^2)$
+tau:hbar*t/(2*m*s0^2)$
+sigma_t_squared:s0^2*(1+tau^2)$
+width_identity_residual:ratsimp(
+  sigma_t_squared-(s0^2+(hbar*t/(2*m*s0))^2))$
+initial_uncertainty_residual:ratsimp(s0*hbar/(2*s0)-hbar/2)$
+packet_centre:x0+p0*t/m$
+group_velocity_residual:ratsimp(diff(packet_centre,t)-p0/m)$
+q:1+%i*tau$
+packet:q^(-1/2)*exp(
+  -(x-packet_centre)^2/(4*s0^2*q)
+  +%i*p0*(x-x0-p0*t/(2*m))/hbar)$
+free_schrodinger_residual:ratsimp(
+  (%i*hbar*diff(packet,t)+hbar^2*diff(packet,x,2)/(2*m))/packet)$
+print("normalization_residual =",normalization_residual)$
+print("mean_residual =",mean_residual)$
+print("variance_residual =",variance_residual)$
+print("width_identity_residual =",width_identity_residual)$
+print("initial_uncertainty_residual =",initial_uncertainty_residual)$
+print("group_velocity_residual =",group_velocity_residual)$
+print("free_schrodinger_residual =",free_schrodinger_residual)$
+quit();

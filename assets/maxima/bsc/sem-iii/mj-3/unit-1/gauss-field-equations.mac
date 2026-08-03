@@ -1,0 +1,32 @@
+/* MJ-3 Unit I: exact checks for Gauss-law applications and field equations. */
+kill(all)$
+
+print("MJ-3 Unit I -- Gauss law and field equations")$
+
+E_in  : rho*r/(3*eps0)$
+E_out : rho*R^3/(3*eps0*r^2)$
+
+res_div_in  : ratsimp(diff(r^2*E_in,r)/r^2-rho/eps0)$
+res_div_out : ratsimp(diff(r^2*E_out,r)/r^2)$
+res_surface : ratsimp(subst(R,r,E_in)-subst(R,r,E_out))$
+
+print("uniform sphere, interior divergence residual =",res_div_in)$
+print("uniform sphere, exterior divergence residual =",res_div_out)$
+print("uniform sphere, field-continuity residual =",res_surface)$
+
+V_in : rho*(3*R^2-r^2)/(6*eps0)$
+V_out: rho*R^3/(3*eps0*r)$
+
+lap_radial(expr) := diff(r^2*diff(expr,r),r)/r^2$
+
+res_poisson : ratsimp(lap_radial(V_in)+rho/eps0)$
+res_laplace : ratsimp(lap_radial(V_out))$
+res_E_in    : ratsimp(-diff(V_in,r)-E_in)$
+res_E_out   : ratsimp(-diff(V_out,r)-E_out)$
+
+print("Poisson-equation residual =",res_poisson)$
+print("Laplace-equation residual =",res_laplace)$
+print("interior E=-grad(V) residual =",res_E_in)$
+print("exterior E=-grad(V) residual =",res_E_out)$
+
+quit()$

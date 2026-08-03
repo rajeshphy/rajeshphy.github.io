@@ -1,0 +1,50 @@
+/* Symbolic checks for Statistical Mechanics Unit III.
+   Run: maxima --very-quiet -b quantum-statistics.mac */
+kill(all)$
+display2d:false$
+
+XiB : 1/(1-x)$
+XiF : 1+x$
+print("Bose occupation residual =",
+      ratsimp(x*diff(log(XiB),x)-x/(1-x)))$
+print("Fermi occupation residual =",
+      ratsimp(x*diff(log(XiF),x)-x/(1+x)))$
+
+Nexratio : tau^(3/2)$
+N0frac : 1-tau^(3/2)$
+print("Bose number-partition residual =",
+      ratsimp(N0frac+Nexratio-1))$
+
+Ubose : CU*T^(5/2)$
+print("Bose heat-capacity derivative residual =",
+      ratsimp(diff(Ubose,T)-(5/2)*CU*T^(3/2)))$
+
+Uph : arad*V*T^4$
+Pph : Uph/(3*V)$
+Fph : -Pph*V$
+Sph : 4*arad*V*T^3/3$
+print("photon thermodynamic-identity residual =",
+      ratsimp(Fph-(Uph-T*Sph)))$
+print("photon heat-capacity residual =",
+      ratsimp(diff(Uph,T)-4*arad*V*T^3))$
+
+gF(e) := C*sqrt(e)$
+Nfermi : 2*C*EF^(3/2)/3$
+Ufermi : 2*C*EF^(5/2)/5$
+print("Fermi state-count antiderivative residual =",
+      ratsimp(diff(Nfermi,EF)-gF(EF)))$
+print("Fermi energy antiderivative residual =",
+      ratsimp(diff(Ufermi,EF)-EF*gF(EF)))$
+print("zero-temperature Fermi-energy residual =",
+      ratsimp(Ufermi/Nfermi-3*EF/5))$
+print("Fermi pressure residual =",
+      ratsimp((2*Ufermi/3)/V-(2/5)*(Nfermi/V)*EF))$
+
+g_at_EF_over_N : gF(EF)/Nfermi$
+print("Fermi-level density-of-states residual =",
+      ratsimp(g_at_EF_over_N-3/(2*EF)))$
+print("Pauli-susceptibility coefficient residual =",
+      ratsimp(mu0*muB^2*gF(EF)/V
+              -3*mu0*(Nfermi/V)*muB^2/(2*EF)))$
+
+quit()$

@@ -1,0 +1,19 @@
+display2d:false$
+
+NE:V/(3*%pi^2)*(2*m*E/hbar^2)^(3/2)$
+gE:V/(2*%pi^2)*(2*m/hbar^2)^(3/2)*sqrt(E)$
+residual_dos:radcan(diff(NE,E)-gE)$
+print("residual_density_of_states =",residual_dos)$
+
+kF:(3*%pi^2*n)^(1/3)$
+EF:hbar^2*kF^2/(2*m)$
+vF:hbar*kF/m$
+residual_fermi_velocity:radcan(vF^2-2*EF/m)$
+print("residual_fermi_velocity =",residual_fermi_velocity)$
+
+sigma:n*e^2*tau/m$
+ce:%pi^2*n*kB^2*T/(2*EF)$
+kappa:ratsimp(ce*vF^2*tau/3)$
+residual_wiedemann_franz:radcan(kappa/(sigma*T)-%pi^2*kB^2/(3*e^2))$
+print("residual_wiedemann_franz =",residual_wiedemann_franz)$
+

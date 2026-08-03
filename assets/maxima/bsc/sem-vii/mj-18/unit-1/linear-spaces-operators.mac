@@ -1,0 +1,26 @@
+/* Completeness, outer products, projectors, and operator algebra. */
+kill(all)$
+e1 : matrix([1],[0])$
+e2 : matrix([0],[1])$
+outer(u,v) := u . transpose(v)$
+identity2 : ident(2)$
+m2zero(M) := ratsimp(sum(sum(M[i,j]^2,j,1,2),i,1,2))$
+v2zero(V) := ratsimp(V[1,1]^2+V[2,1]^2)$
+
+residual_completeness : outer(e1,e1)+outer(e2,e2)-identity2$
+print("basis-completeness residual = ",m2zero(residual_completeness))$
+
+u : matrix([3/5],[4/5])$
+P : outer(u,u)$
+print("projector-idempotence residual = ",m2zero(P.P-P))$
+print("projector-Hermitian residual = ",m2zero(transpose(P)-P))$
+
+A : matrix([1,2],[3,4])$
+B : matrix([0,-1],[1,2])$
+comm : A.B-B.A$
+print("product-adjoint residual = ",m2zero(transpose(A.B)-transpose(B).transpose(A)))$
+print("commutator-adjoint residual = ",m2zero(transpose(comm)+(transpose(A).transpose(B)-transpose(B).transpose(A))))$
+
+psi : matrix([p],[q])$
+coords : matrix([transpose(e1).psi],[transpose(e2).psi])$
+print("coordinate-reconstruction residual = ",v2zero(identity2.psi-(e1*coords[1,1]+e2*coords[2,1])))$

@@ -1,0 +1,46 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{ink}{HTML}{21352F}
+\definecolor{teal}{HTML}{087F7B}
+\definecolor{blue}{HTML}{4B77A8}
+\definecolor{gold}{HTML}{C58B2A}
+\definecolor{rose}{HTML}{B65A62}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily]
+\begin{axis}[
+  width=13.2cm,height=8.0cm,
+  xmin=0,xmax=4.2,ymin=0,ymax=1.25,
+  axis lines=left,
+  axis line style={draw=ink!70,->},
+  xlabel={$x=v/\sqrt{2k_BT_0/m}$},
+  ylabel={$f_x(x)$},
+  title={\bfseries Normalized Maxwell speed distributions},
+  legend style={draw=none,fill=none,at={(.98,.98)},anchor=north east},
+  tick label style={font=\small},
+  clip=false
+]
+  \addplot[blue,very thick,domain=0:4.1,samples=160]
+    {4/sqrt(pi)*x^2/(.6^1.5)*exp(-x^2/.6)};
+  \addlegendentry{$T/T_0=0.6$}
+  \addplot[teal,very thick,domain=0:4.1,samples=160]
+    {4/sqrt(pi)*x^2*exp(-x^2)};
+  \addlegendentry{$T/T_0=1$}
+  \addplot[rose,very thick,domain=0:4.1,samples=160]
+    {4/sqrt(pi)*x^2/(1.7^1.5)*exp(-x^2/1.7)};
+  \addlegendentry{$T/T_0=1.7$}
+  \addplot[blue,dashed] coordinates
+    {(0.774596,0) (0.774596,1.0715)};
+  \addplot[teal,dashed] coordinates
+    {(1,0) (1,0.8302)};
+  \addplot[rose,dashed] coordinates
+    {(1.303840,0) (1.303840,0.6367)};
+  \node[draw=ink!18,fill=gold!8,rounded corners=3pt,
+        font=\small,align=center] at (axis cs:2.9,.78)
+    {$\displaystyle f_x=\frac{4}{\sqrt\pi}
+      \frac{x^2}{\tau^{3/2}}e^{-x^2/\tau}$\\
+     $\displaystyle x_{\rm mp}=\sqrt{\tau}$};
+\end{axis}
+\end{tikzpicture}
+\end{document}

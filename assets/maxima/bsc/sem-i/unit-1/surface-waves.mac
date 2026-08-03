@@ -1,0 +1,38 @@
+/* Deep-water gravity-capillary wave identities. */
+kill(all)$
+display2d:false$
+
+phi0 : -%i*omega*zeta/k$
+print("Kinematic boundary residual (must be 0):",
+  ratsimp(-%i*omega*zeta-k*phi0))$
+print("Potential time-derivative residual (must be 0):",
+  ratsimp(-%i*omega*phi0+omega^2*zeta/k))$
+
+omega2 : g*k+(gamma/rho)*k^3$
+print("Dynamic boundary residual (must be 0):",
+  ratsimp(rho*(omega2/k-g)-gamma*k^2))$
+
+c2 : ratsimp(omega2/k^2)$
+c2_expected : g/k+gamma*k/rho$
+print("Phase-speed residual (must be 0):",
+  ratsimp(c2-c2_expected))$
+print("Gravity-wave limit residual (must be 0):",
+  ratsimp(limit(k*c2,k,0)-g))$
+print("Capillary-wave limit residual (must be 0):",
+  ratsimp(limit(c2/k,k,inf)-gamma/rho))$
+
+c2_lambda : ratsimp(ev(c2,k=2*%pi/lambda))$
+c2_lambda_expected : g*lambda/(2*%pi)
+  +2*%pi*gamma/(rho*lambda)$
+print("Wavelength-form residual (must be 0):",
+  ratsimp(c2_lambda-c2_lambda_expected))$
+
+kc2 : rho*g/gamma$
+print("Crossover condition residual (must be 0):",
+  ratsimp(g-gamma*kc2/rho))$
+
+cmin4 : 4*g^2/kc2$
+print("Minimum-speed residual (must be 0):",
+  ratsimp(cmin4-4*g*gamma/rho))$
+
+quit();

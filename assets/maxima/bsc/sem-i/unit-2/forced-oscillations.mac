@@ -1,0 +1,58 @@
+/* Forced response, resonances, power bandwidth, and quality factor. */
+kill(all)$
+display2d:false$
+assume(m>0,b>0,k>0)$
+
+D : (k-m*w^2)^2+b^2*w^2$
+Aresp : F0/sqrt(D)$
+cosdelta : (k-m*w^2)/sqrt(D)$
+sindelta : b*w/sqrt(D)$
+
+print("Phase-normalization residual (must be 0):",
+  radcan(cosdelta^2+sindelta^2-1))$
+print("Steady sine-coefficient residual (must be 0):",
+  radcan((k-m*w^2)*sindelta-b*w*cosdelta))$
+print("Steady cosine-coefficient residual (must be 0):",
+  radcan(Aresp*((k-m*w^2)*cosdelta+b*w*sindelta)-F0))$
+print("Response-amplitude residual (must be 0):",
+  radcan(Aresp^2*D-F0^2))$
+
+wr2 : k/m-b^2/(2*m^2)$
+Dstationary : ratsimp(diff(D,w)/(2*w))$
+print("Displacement-resonance residual (must be 0):",
+  ratsimp(ratsubst(wr2,w^2,Dstationary)))$
+
+w0sq : k/m$
+beta : b/(2*m)$
+print("Resonance-frequency form residual (must be 0):",
+  ratsimp(wr2-(w0sq-2*beta^2)))$
+
+yden : m^2*(w0sq-y)^2+b^2*y$
+power_stationary_numerator : ratsimp(yden-y*diff(yden,y))$
+print("Power-stationarity residual (must be 0):",
+  ratsimp(power_stationary_numerator-m^2*(w0sq^2-y^2)))$
+
+P_y : F0^2*b*y/(2*yden)$
+print("Maximum-power residual (must be 0):",
+  ratsimp(ev(P_y,y=w0sq)-F0^2/(2*b)))$
+
+rootbase : sqrt(w0sq+beta^2)$
+w1 : rootbase-beta$
+w2 : rootbase+beta$
+half_condition(z) := (m*w0sq-m*z^2)^2-b^2*z^2$
+print("Lower half-power root residual (must be 0):",
+  radcan(half_condition(w1)))$
+print("Upper half-power root residual (must be 0):",
+  radcan(half_condition(w2)))$
+print("Exact bandwidth residual (must be 0):",
+  ratsimp(w2-w1-b/m))$
+
+Qband : sqrt(w0sq)/(w2-w1)$
+print("Quality-factor bandwidth residual (must be 0):",
+  ratsimp(Qband-m*sqrt(w0sq)/b))$
+Estore : m*w0sq*A0^2/2$
+Elost_cycle : %pi*b*sqrt(w0sq)*A0^2$
+print("Quality-factor energy residual (must be 0):",
+  ratsimp(2*%pi*Estore/Elost_cycle-m*sqrt(w0sq)/b))$
+
+quit();

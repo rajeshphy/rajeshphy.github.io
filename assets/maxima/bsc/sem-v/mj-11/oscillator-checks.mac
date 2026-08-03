@@ -1,0 +1,30 @@
+/* MJ-11 Unit III: oscillator equations; every printed residual must vanish. */
+kill(all)$
+assume(xi>minf,xi<inf)$
+
+H0:1$
+H1:2*xi$
+H2:4*xi^2-2$
+H3:8*xi^3-12*xi$
+psi0:exp(-xi^2/2)*H0$
+psi1:exp(-xi^2/2)*H1$
+psi2:exp(-xi^2/2)*H2$
+psi3:exp(-xi^2/2)*H3$
+osc_residual(psi,n):=radcan(exp(xi^2/2)*
+  (diff(psi,xi,2)+(2*(n+1/2)-xi^2)*psi))$
+
+n0_residual:osc_residual(psi0,0)$
+n1_residual:osc_residual(psi1,1)$
+n2_residual:osc_residual(psi2,2)$
+n3_residual:osc_residual(psi3,3)$
+hermite2_residual:ratsimp(diff(H2,xi,2)-2*xi*diff(H2,xi)+4*H2)$
+energy_3d_residual:ratsimp(
+  ((nx+1/2)+(ny+1/2)+(nz+1/2))-(nx+ny+nz+3/2))$
+
+print("n0_residual =",n0_residual)$
+print("n1_residual =",n1_residual)$
+print("n2_residual =",n2_residual)$
+print("n3_residual =",n3_residual)$
+print("hermite2_residual =",hermite2_residual)$
+print("energy_3d_residual =",energy_3d_residual)$
+quit();

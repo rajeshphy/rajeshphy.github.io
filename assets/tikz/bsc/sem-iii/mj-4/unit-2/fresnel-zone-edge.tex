@@ -1,0 +1,116 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{17324D}
+\definecolor{blue}{HTML}{1877B8}
+\definecolor{orange}{HTML}{D97706}
+\definecolor{green}{HTML}{16856B}
+\definecolor{red}{HTML}{C24156}
+\begin{document}
+\begin{tikzpicture}[font=\small,>=Latex]
+\tikzset{panel/.style={draw=ink!18,rounded corners=3pt,fill=ink!1}}
+
+\node[panel,minimum width=5.45cm,minimum height=4.75cm,anchor=south west] at (0,5.05) {};
+\node[font=\bfseries,ink,anchor=west] at (.22,9.43) {(a) Half-period zones};
+\begin{scope}[shift={(2.70,7.18)}]
+  \foreach \n in {8,7,...,1}{
+    \pgfmathsetmacro{\rr}{.48*sqrt(\n)}
+    \ifodd\n
+      \fill[blue!12] (0,0) circle (\rr);
+    \else
+      \fill[white] (0,0) circle (\rr);
+    \fi
+    \draw[blue!75,thin] (0,0) circle (\rr);
+  }
+  \fill[ink] (0,0) circle (1.6pt);
+  \draw[->,red,thick] (0,0)--({.48*sqrt(6)},0) node[midway,below] {$r_6$};
+  \node[font=\scriptsize,align=center,ink,fill=white,inner sep=1pt] at (0,-1.58)
+    {$r_n^2=nb\lambda+n^2\lambda^2/4$\\$r_n\simeq\sqrt{nb\lambda}$};
+\end{scope}
+
+\node[panel,minimum width=5.45cm,minimum height=4.75cm,anchor=south west] at (5.72,5.05) {};
+\node[font=\bfseries,ink,anchor=west] at (5.94,9.43) {(b) Zone-plate foci};
+\begin{scope}[shift={(6.10,5.55)}]
+  \draw[very thick,ink] (.80,.15)--(.80,3.55);
+  \foreach \y in {.35,.75,1.15,1.55,1.95,2.35,2.75,3.15}{
+    \draw[line width=3pt,blue] (.76,\y)--(.84,\y+.18);
+  }
+  \coordinate (Fone) at (4.45,1.85);
+  \coordinate (Fthree) at (2.10,1.85);
+  \foreach \y in {.45,1.15,2.55,3.25}{
+    \draw[orange,thick] (.85,\y)--(Fone);
+    \draw[red!65,thin] (.85,\y)--(Fthree);
+  }
+  \fill[orange] (Fone) circle (2pt) node[below] {$f_1$};
+  \fill[red] (Fthree) circle (2pt) node[below] {$f_1/3$};
+  \draw[->,ink] (.05,1.85)--(5.05,1.85);
+  \node[font=\scriptsize,align=center,ink] at (2.80,.25)
+    {$f_q=f_1/q,\quad q=\pm1,\pm3,\ldots$};
+\end{scope}
+
+\node[panel,minimum width=5.55cm,minimum height=4.75cm,anchor=south west] at (11.44,5.05) {};
+\node[font=\bfseries,ink,anchor=west] at (11.66,9.43) {(c) Cornu spiral};
+\begin{axis}[at={(11.87cm,5.47cm)},anchor=south west,width=4.75cm,height=3.65cm,
+  axis equal image,axis lines=middle,xlabel={$C(u)$},ylabel={$S(u)$},
+  xmin=-.85,xmax=.85,ymin=-.85,ymax=.85,
+  xtick={-.5,0,.5},ytick={-.5,0,.5},tick label style={font=\scriptsize},label style={font=\scriptsize}]
+  \addplot[green,very thick] gnuplot[raw gnuplot] {
+    N=280;
+    C(u)=u/N*sum [j=0:N-1] cos(pi/2*(u*(j+0.5)/N)**2);
+    S(u)=u/N*sum [j=0:N-1] sin(pi/2*(u*(j+0.5)/N)**2);
+    set samples 320;
+    set parametric;
+    plot [u=-4:4] C(u),S(u);
+  };
+\end{axis}
+
+\node[panel,minimum width=8.35cm,minimum height=4.75cm,anchor=south west] at (0,0) {};
+\node[font=\bfseries,ink,anchor=west] at (.22,4.38) {(d) Straight-edge Fresnel intensity};
+\begin{axis}[at={(.52cm,.40cm)},anchor=south west,width=7.45cm,height=3.55cm,
+  axis lines=left,xlabel={$u$},ylabel={$I_{\rm edge}/I_0$},xmin=-3.5,xmax=3.5,ymin=0,ymax=1.55,
+  xtick={-3,-2,-1,0,1,2,3},ytick={0,.25,.5,1,1.5},
+  tick label style={font=\scriptsize},label style={font=\scriptsize},clip=false]
+  \addplot[blue,very thick] gnuplot[raw gnuplot] {
+    N=320;
+    C(u)=u/N*sum [j=0:N-1] cos(pi/2*(u*(j+0.5)/N)**2);
+    S(u)=u/N*sum [j=0:N-1] sin(pi/2*(u*(j+0.5)/N)**2);
+    set samples 380;
+    plot [u=-3.5:3.5] 0.5*((0.5+C(u))**2+(0.5+S(u))**2);
+  };
+  \addplot[red,only marks,mark=*,mark size=1.8pt] coordinates {(0,.25)};
+  \draw[red,dashed] (axis cs:0,0)--(axis cs:0,1.5);
+  \node[red,font=\scriptsize,anchor=south east] at (axis cs:-.05,.28) {$I(0)=I_0/4$};
+\end{axis}
+
+\node[panel,minimum width=8.35cm,minimum height=4.75cm,anchor=south west] at (8.65,0) {};
+\node[font=\bfseries,ink,anchor=west] at (8.87,4.38) {(e) Complementary slit and wire patterns};
+\begin{axis}[at={(9.17cm,.40cm)},anchor=south west,width=7.45cm,height=3.55cm,
+  axis lines=left,xlabel={screen coordinate $X$},ylabel={$I/I_0$},xmin=-4,xmax=4,ymin=0,ymax=2.15,
+  xtick={-4,-2,0,2,4},ytick={0,1,2},
+  tick label style={font=\scriptsize},label style={font=\scriptsize},
+  legend style={font=\scriptsize,draw=none,fill=none,at={(.98,.96)},anchor=north east}]
+  \addplot[orange,very thick] gnuplot[raw gnuplot] {
+    N=300; h=1.1;
+    C(u)=u/N*sum [j=0:N-1] cos(pi/2*(u*(j+0.5)/N)**2);
+    S(u)=u/N*sum [j=0:N-1] sin(pi/2*(u*(j+0.5)/N)**2);
+    dC(X)=C(h-X)-C(-h-X);
+    dS(X)=S(h-X)-S(-h-X);
+    set samples 360;
+    plot [X=-4:4] 0.5*(dC(X)**2+dS(X)**2);
+  };
+  \addlegendentry{slit}
+  \addplot[red,very thick] gnuplot[raw gnuplot] {
+    N=300; h=1.1;
+    C(u)=u/N*sum [j=0:N-1] cos(pi/2*(u*(j+0.5)/N)**2);
+    S(u)=u/N*sum [j=0:N-1] sin(pi/2*(u*(j+0.5)/N)**2);
+    dC(X)=C(h-X)-C(-h-X);
+    dS(X)=S(h-X)-S(-h-X);
+    set samples 360;
+    plot [X=-4:4] (1-(dC(X)+dS(X))/2)**2+((dC(X)-dS(X))/2)**2;
+  };
+  \addlegendentry{wire}
+\end{axis}
+\end{tikzpicture}
+\end{document}

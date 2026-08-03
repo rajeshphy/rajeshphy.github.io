@@ -1,0 +1,20 @@
+/* Fourier orthogonality and waveform-coefficient checks. */
+kill(all)$
+
+residual_cc : trigsimp(integrate(cos(2*x)*cos(3*x),x,-%pi,%pi))$
+residual_ss : trigsimp(integrate(sin(2*x)^2,x,-%pi,%pi)-%pi)$
+residual_sc : trigsimp(integrate(sin(2*x)*cos(3*x),x,-%pi,%pi))$
+print("cosine orthogonality residual = ",residual_cc)$
+print("sine norm residual = ",residual_ss)$
+print("sine-cosine orthogonality residual = ",residual_sc)$
+
+/* Representative general-pattern coefficients. */
+saw_b3 : integrate(x*sin(3*x),x,-%pi,%pi)/%pi$
+square_b5 : 2*integrate(sin(5*x),x,0,%pi)/%pi$
+tri_a3 : 2*integrate(x*cos(3*x),x,0,%pi)/%pi$
+print("sawtooth b3 residual = ",radcan(saw_b3-2/3))$
+print("square-wave b5 residual = ",radcan(square_b5-4/(5*%pi)))$
+print("triangular-wave a3 residual = ",radcan(tri_a3+4/(9*%pi)))$
+
+tri_a2 : 2*integrate(x*cos(2*x),x,0,%pi)/%pi$
+print("triangular even-harmonic residual = ",radcan(tri_a2))$

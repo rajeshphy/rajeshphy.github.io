@@ -1,0 +1,88 @@
+/* MJ-3 Unit III: exact checks for induction, energy, and galvanometer dynamics. */
+kill(all)$
+assume(J>0,wd>0,w0>0,beta>0,eta>0)$
+
+print("MJ-3 Unit III -- induction and ballistic galvanometer")$
+
+/* Coupled-coil reciprocity from exactness of dW. */
+A1 : L1*I1+M21*I2$
+A2 : M12*I1+L2*I2$
+integrability : diff(A1,I2)-diff(A2,I1)$
+res_reciprocity :
+  ratsimp(subst(M,M21,subst(M,M12,integrability)))$
+
+print("mutual-inductance reciprocity residual =",res_reciprocity)$
+
+W : L1*I1^2/2+M*I1*I2+L2*I2^2/2$
+res_energy_1 : ratsimp(diff(W,I1)-(L1*I1+M*I2))$
+res_energy_2 : ratsimp(diff(W,I2)-(M*I1+L2*I2))$
+
+print("coupled-energy I1-gradient residual =",res_energy_1)$
+print("coupled-energy I2-gradient residual =",res_energy_2)$
+
+Wself : L*I^2/2$
+res_self_power : ratsimp(diff(Wself,I)-L*I)$
+print("self-inductor energy derivative residual =",res_self_power)$
+
+/* Maxwell correction and charge continuity. */
+d_rho_dt : -divJ$
+d_divD_dt : d_rho_dt$
+res_continuity : ratsimp(divJ+d_divD_dt)$
+print("displacement-current continuity residual =",res_continuity)$
+
+/* Current-loop potential energy. */
+U : -mu*B*cos(th)$
+res_loop_energy : trigsimp(diff(U,th)-mu*B*sin(th))$
+print("current-loop energy/torque residual =",res_loop_energy)$
+
+/* Underdamped ballistic motion. */
+kappa : J*(beta^2+wd^2)$
+c : 2*J*beta$
+A : G*q/(J*wd)$
+theta : A*exp(-beta*t)*sin(wd*t)$
+res_ode :
+  trigsimp(ratsimp(J*diff(theta,t,2)+c*diff(theta,t)+kappa*theta))$
+res_initial_angle : trigsimp(subst(0,t,theta))$
+res_initial_impulse :
+  trigsimp(ratsimp(J*subst(0,t,diff(theta,t))-G*q))$
+
+print("free damped-motion ODE residual =",res_ode)$
+print("initial-angle residual =",res_initial_angle)$
+print("charge-impulse residual =",res_initial_impulse)$
+
+/* First maximum: sin(alpha)=wd/w0, cos(alpha)=beta/w0. */
+res_peak_condition :
+  ratsimp(wd*(beta/w0)-beta*(wd/w0))$
+theta1_from_solution :
+  G*q/(J*wd)*exp(-beta*alpha/wd)*(wd/w0)$
+theta1_expected :
+  G*q/(J*w0)*exp(-beta*alpha/wd)$
+res_first_throw : ratsimp(theta1_from_solution-theta1_expected)$
+
+print("first-maximum derivative residual =",res_peak_condition)$
+print("exact first-throw residual =",res_first_throw)$
+
+/* Electromagnetic damping. */
+eback : G*v$
+iback : -eback/Rt$
+tau_em : G*iback$
+res_em_damping : ratsimp(tau_em+G^2*v/Rt)$
+print("electromagnetic-damping torque residual =",res_em_damping)$
+
+/* Same-side and alternating-side logarithmic decrements. */
+delta_s : 2*%pi*beta/wd$
+delta_a : %pi*beta/wd$
+eta_def : beta/wd$
+res_delta_same : ratsimp(delta_s-2*%pi*eta_def)$
+res_delta_alt : ratsimp(delta_a-delta_s/2)$
+res_weak_angle :
+  radcan(limit(atan(1/eta)-%pi/2,eta,0,plus))$
+res_correction_mapping :
+  ratsimp((2*%pi*eta)/4-(%pi*eta)/2)$
+
+print("same-side decrement residual =",res_delta_same)$
+print("alternating-side decrement residual =",res_delta_alt)$
+print("weak-damping arctangent-limit residual =",res_weak_angle)$
+print("two decrement-convention correction residual =",res_correction_mapping)$
+
+quit()$

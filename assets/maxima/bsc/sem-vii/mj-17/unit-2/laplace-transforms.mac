@@ -1,0 +1,28 @@
+/* Laplace-transform theorem and oscillator checks. */
+kill(all)$
+declare(s,real,T,real,omega,real,m,real)$
+assume(s>0,T>0,omega>0,m>0)$
+
+residual_partial_fraction : ratsimp((3/(s+1)-1/(s+2))-(2*s+5)/((s+1)*(s+2)))$
+print("inverse-transform partial-fraction residual = ",residual_partial_fraction)$
+
+/* Change of scale for f(t)=exp(b t). */
+residual_scale : ratsimp(1/(s-a*b)-(1/a)/(s/a-b))$
+print("change-of-scale theorem residual = ",residual_scale)$
+
+/* Periodic-transform formula for f(t)=1. */
+periodic_constant : integrate(exp(-s*t),t,0,T)/(1-exp(-s*T))$
+print("periodic-function transform residual = ",radcan(periodic_constant-1/s))$
+
+/* Derivative and integral theorems for exp(a t). */
+residual_derivative : ratsimp(a/(s-a)-(s/(s-a)-1))$
+residual_integral : ratsimp((1/(s-a)-1/s)/a-1/(s*(s-a)))$
+print("Laplace-derivative residual = ",residual_derivative)$
+print("Laplace-integral residual = ",residual_integral)$
+
+/* Step-forced oscillator. */
+y : F0/(m*omega^2)*(1-cos(omega*t))$
+residual_ode : trigsimp(diff(y,t,2)+omega^2*y-F0/m)$
+print("oscillator differential-equation residual = ",residual_ode)$
+print("oscillator initial-displacement residual = ",at(y,t=0))$
+print("oscillator initial-velocity residual = ",at(diff(y,t),t=0))$

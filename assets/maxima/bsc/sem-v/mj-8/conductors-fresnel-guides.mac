@@ -1,0 +1,67 @@
+/* MJ-8 Unit II: conductor, Fresnel, waveguide, and fibre identities.
+   Every printed residual must be zero. */
+kill(all)$
+assume(omega>0,mu>0,epsilon>0,sigma>0)$
+
+q : sigma/(omega*epsilon)$
+r : sqrt(1+q^2)$
+alpha2 : omega^2*mu*epsilon*(r-1)/2$
+beta2 : omega^2*mu*epsilon*(r+1)/2$
+delta_gc : sqrt(2/(omega*mu*sigma))$
+alpha_gc : sqrt(omega*mu*sigma/2)$
+
+residual_conductor_real : radcan(beta2-alpha2-omega^2*mu*epsilon)$
+residual_conductor_imag : radcan(4*alpha2*beta2-omega^2*mu^2*sigma^2)$
+residual_skin_depth_gc : radcan(alpha_gc*delta_gc-1)$
+
+/* Fresnel energy balances for lossless, nonmagnetic media. */
+a : n1*ci$
+b : n2*ct$
+rs : (a-b)/(a+b)$
+ts : 2*a/(a+b)$
+Rs : rs^2$
+Ts : b/a*ts^2$
+
+rp : (n2*ci-n1*ct)/(n2*ci+n1*ct)$
+tp : 2*n1*ci/(n2*ci+n1*ct)$
+Rp : rp^2$
+Tp : n2*ct/(n1*ci)*tp^2$
+
+residual_fresnel_s : ratsimp(Rs+Ts-1)$
+residual_fresnel_p : ratsimp(Rp+Tp-1)$
+
+/* At Brewster incidence: tan(theta_B)=n2/n1 and theta_t=pi/2-theta_B. */
+norm : sqrt(n1^2+n2^2)$
+ci_b : n1/norm$
+ct_b : n2/norm$
+residual_brewster : radcan(subst([ci=ci_b,ct=ct_b],rp))$
+
+/* Slab eigenvalue geometry and a fixed-transverse-number guide. */
+u2 : a0^2*(ncore^2*k0^2-beta0^2)$
+w2 : a0^2*(beta0^2-nclad^2*k0^2)$
+V2 : a0^2*k0^2*(ncore^2-nclad^2)$
+residual_slab_V : ratsimp(u2+w2-V2)$
+
+beta_g : sqrt(n_g^2*omega^2/c0^2-kappa^2)$
+v_phase : omega/beta_g$
+v_group : 1/diff(beta_g,omega)$
+residual_velocity_product : radcan(v_phase*v_group-c0^2/n_g^2)$
+
+NA2 : ncore^2-nclad^2$
+Delta : (ncore^2-nclad^2)/(2*ncore^2)$
+Delta_linear : (ncore-nclad)/ncore$
+residual_NA_exact : ratsimp(NA2-(ncore^2-nclad^2))$
+residual_NA_Delta : ratsimp(NA2-2*ncore^2*Delta)$
+residual_NA_weak_guidance : ratsimp(Delta-Delta_linear+(ncore-nclad)^2/(2*ncore^2))$
+
+print("conductor real-part residual =", residual_conductor_real)$
+print("conductor imaginary-part residual =", residual_conductor_imag)$
+print("good-conductor skin-depth residual =", residual_skin_depth_gc)$
+print("Fresnel s energy residual =", residual_fresnel_s)$
+print("Fresnel p energy residual =", residual_fresnel_p)$
+print("Brewster residual =", residual_brewster)$
+print("slab normalized-frequency residual =", residual_slab_V)$
+print("phase-group velocity-product residual =", residual_velocity_product)$
+print("fibre numerical-aperture residual =", residual_NA_exact)$
+print("fibre exact-Delta residual =", residual_NA_Delta)$
+print("weak-guidance expansion residual =", residual_NA_weak_guidance)$

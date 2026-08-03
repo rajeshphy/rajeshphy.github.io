@@ -1,0 +1,36 @@
+/* Central-force polar kinematics and centrifugal identities. */
+kill(all)$
+display2d:false$
+
+x : r(t)*cos(theta(t))$
+y : r(t)*sin(theta(t))$
+ax : diff(x,t,2)$
+ay : diff(y,t,2)$
+
+arad : trigsimp(ax*cos(theta(t))+ay*sin(theta(t)))$
+atheta : trigsimp(-ax*sin(theta(t))+ay*cos(theta(t)))$
+
+print("Radial-acceleration residual (must be 0):",
+  trigsimp(arad-(diff(r(t),t,2)-r(t)*diff(theta(t),t)^2)))$
+print("Transverse-acceleration residual (must be 0):",
+  trigsimp(atheta-(r(t)*diff(theta(t),t,2)
+    +2*diff(r(t),t)*diff(theta(t),t))))$
+
+Lz : trigsimp(m*(x*diff(y,t)-y*diff(x,t)))$
+print("Angular-momentum residual (must be 0):",
+  trigsimp(Lz-m*r(t)^2*diff(theta(t),t)))$
+print("Areal-velocity residual (must be 0):",
+  trigsimp(Lz/(2*m)-r(t)^2*diff(theta(t),t)/2))$
+
+Fx : Fr*cos(theta(t))$
+Fy : Fr*sin(theta(t))$
+print("Central-force torque residual (must be 0):",
+  trigsimp(x*Fy-y*Fx))$
+
+Veff : V(r)+L^2/(2*m*r^2)$
+print("Effective-radial-force residual (must be 0):",
+  ratsimp(-diff(Veff,r)-(-diff(V(r),r)+L^2/(m*r^3))))$
+print("Centrifugal-form residual (must be 0):",
+  ratsimp(ev(m*r*omega^2-L^2/(m*r^3),L=m*r^2*omega)))$
+
+quit();

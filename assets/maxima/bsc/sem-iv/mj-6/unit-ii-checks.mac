@@ -1,0 +1,17 @@
+/* MJ-6 Unit II: ideal-gas and Carnot identities. */
+kill(all)$
+/* For one mole, Cp-Cv=R follows from H=U+RT. */
+H : U(T)+R*T$
+Cp : diff(H,T)$
+Cv : diff(U(T),T)$
+residual_Mayer : ratsimp(Cp-Cv-R);
+/* Carnot cycle: Qh=R Th log(V2/V1), Qc=R Tc log(V3/V4) is the
+   positive magnitude rejected to the cold reservoir,
+   and the two adiabats give V3/V4=V2/V1. */
+Qh : R*Th*log(r)$
+Qc : R*Tc*log(r)$
+eta : ratsimp((Qh-Qc)/Qh)$
+residual_Carnot : ratsimp(eta-(1-Tc/Th));
+/* Entropy mixing at equal T,P: sum n_i R ln(n/n_i). */
+Smix : n1*R*log((n1+n2)/n1)+n2*R*log((n1+n2)/n2)$
+residual_equal_amounts : ratsimp(subst(n2=n1,Smix)-2*n1*R*log(2));

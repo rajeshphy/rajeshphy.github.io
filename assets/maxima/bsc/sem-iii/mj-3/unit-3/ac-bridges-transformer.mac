@@ -1,0 +1,101 @@
+/* MJ-3 Unit III: exact checks for LCR circuits, bridges, and transformer. */
+kill(all)$
+assume(R>0,L>0,C>0,R2>0,R3>0,R4>0)$
+
+print("MJ-3 Unit III -- AC circuits, bridges, and transformer")$
+
+/* Series LCR half-power roots. */
+disc_s : sqrt(R^2+4*L/C)$
+w1 : (-R+disc_s)/(2*L)$
+w2 : ( R+disc_s)/(2*L)$
+res_series_bw : radcan(w2-w1-R/L)$
+res_series_product : radcan(w1*w2-1/(L*C))$
+res_lower_half : radcan(w1*L-1/(w1*C)+R)$
+res_upper_half : radcan(w2*L-1/(w2*C)-R)$
+
+print("series bandwidth residual =",res_series_bw)$
+print("series half-power-root product residual =",res_series_product)$
+print("series lower half-power residual =",res_lower_half)$
+print("series upper half-power residual =",res_upper_half)$
+
+w0 : 1/sqrt(L*C)$
+Qs1 : w0/(R/L)$
+Qs2 : w0*L/R$
+Qs3 : 1/(w0*C*R)$
+print("series Q first identity residual =",radcan(Qs1-Qs2))$
+print("series Q second identity residual =",radcan(Qs2-Qs3))$
+
+/* Parallel LCR current-source half-power roots. */
+disc_p : sqrt(1/R^2+4*C/L)$
+wp1 : (-1/R+disc_p)/(2*C)$
+wp2 : ( 1/R+disc_p)/(2*C)$
+res_parallel_bw : radcan(wp2-wp1-1/(R*C))$
+res_parallel_product : radcan(wp1*wp2-1/(L*C))$
+res_parallel_lower : radcan(wp1*C-1/(wp1*L)+1/R)$
+res_parallel_upper : radcan(wp2*C-1/(wp2*L)-1/R)$
+
+print("parallel bandwidth residual =",res_parallel_bw)$
+print("parallel half-power-root product residual =",res_parallel_product)$
+print("parallel lower half-power residual =",res_parallel_lower)$
+print("parallel upper half-power residual =",res_parallel_upper)$
+
+Qp1 : w0/(1/(R*C))$
+Qp2 : w0*R*C$
+Qp3 : R/(w0*L)$
+print("parallel Q first identity residual =",radcan(Qp1-Qp2))$
+print("parallel Q second identity residual =",radcan(Qp2-Qp3))$
+
+/* De-Sauty balance. */
+Cx_bal : Cs*R4/R2$
+res_desauty :
+  ratsimp(subst(Cx_bal,Cx,R4/Cx-R2/Cs))$
+print("De-Sauty balance residual =",res_desauty)$
+
+/* Carey Foster interchange eliminates end corrections. */
+d_before : RR-RL+r*Lw-2*r*l1$
+d_after  : RL-RR-r*Lw+2*r*l2$
+res_carey :
+  ratsimp((d_before+d_after)/2-r*(l2-l1))$
+print("Carey Foster interchange residual =",res_carey)$
+
+/* Anderson bridge null condition. */
+AR : R3*R4+r*(R3+R4)$
+Rx : R2*R3/R4$
+Lx : C*R2*AR/R4$
+left_divider : R2/(Rx+R2+%i*w*Lx)$
+right_divider : R4/(R3+R4+%i*w*C*AR)$
+res_anderson_complex : radcan(left_divider-right_divider)$
+res_anderson_real :
+  ratsimp(R2*(R3+R4)-R4*(Rx+R2))$
+res_anderson_imag :
+  ratsimp(R2*C*AR-R4*Lx)$
+
+print("Anderson complex-null residual =",res_anderson_complex)$
+print("Anderson real-balance residual =",res_anderson_real)$
+print("Anderson imaginary-balance residual =",res_anderson_imag)$
+
+/* Transformer emf, ratios, and referred impedance. */
+omega : 2*%pi*f$
+Erms : omega*N*Phi_m/sqrt(2)$
+res_emf : radcan(Erms-sqrt(2)*%pi*f*N*Phi_m)$
+print("transformer rms-emf residual =",res_emf)$
+
+a : Np/Ns$
+Vp : a*Vs$
+Ip : Is/a$
+res_power : ratsimp(Vp*Ip-Vs*Is)$
+res_current_ratio : ratsimp(Is/Ip-a)$
+res_referred_Z : ratsimp(Vp/Ip-a^2*(Vs/Is))$
+
+print("ideal transformer power residual =",res_power)$
+print("ideal transformer current-ratio residual =",res_current_ratio)$
+print("primary-referred impedance residual =",res_referred_Z)$
+
+Req : R1+a^2*Rsec$
+Xeq : X1+a^2*Xsec$
+res_Req : ratsimp(Req-R1-a^2*Rsec)$
+res_Xeq : ratsimp(Xeq-X1-a^2*Xsec)$
+print("primary-referred resistance residual =",res_Req)$
+print("primary-referred reactance residual =",res_Xeq)$
+
+quit()$

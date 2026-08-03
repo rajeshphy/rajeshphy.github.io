@@ -1,0 +1,26 @@
+/* Poiseuille profile, volume rate and kinetic-energy correction. */
+kill(all)$
+display2d:false$
+
+v(r) := dpv*(a^2-r^2)/(4*eta*l)$
+Qint : integrate(v(r)*2*%pi*r,r,0,a)$
+Qpois : %pi*a^4*dpv/(8*eta*l)$
+
+print("Poiseuille volume-rate residual (must be 0):",
+  ratsimp(Qint-Qpois))$
+
+vbar : ratsimp(Qint/(%pi*a^2))$
+print("Mean-speed residual (must be 0):",
+  ratsimp(vbar-v(0)/2))$
+
+Ekdot : integrate(rho*v(r)^3/2*2*%pi*r,r,0,a)$
+print("Parabolic kinetic-flux residual (must be 0):",
+  ratsimp(Ekdot-rho*Qint*vbar^2))$
+
+/* q is kept independent here: Pmeas is the reservoir-to-outlet drop. */
+Pcorrect : 8*eta*l*q/(%pi*a^4)+rho*q^2/(%pi^2*a^4)$
+eta_collected : %pi*a^4*Pmeas*t/(8*l*V)-rho*V/(8*%pi*l*t)$
+print("Collected-volume correction residual (must be 0):",
+  ratsimp(ev(Pcorrect,q=V/t,eta=eta_collected)-Pmeas))$
+
+quit();

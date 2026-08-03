@@ -1,0 +1,33 @@
+/* MJ-5 Units II-III: dimensional/algebraic residuals. */
+kill(all)$
+assume(a0>0,A>0)$
+a:a0+A*(1-cos(eta))$
+cycle_endpoint_residual:trigsimp(subst(2*%pi,eta,a)-subst(0,eta,a))$
+print("cycle_endpoint_residual =",cycle_endpoint_residual)$
+
+/* Raman energy bookkeeping: scattered photon plus molecular gain. */
+energy_residual:ratsimp(h*nu0-(h*(nu0-num)+h*num))$
+print("raman_energy_residual =",energy_residual)$
+
+/* Equivalent algebraic forms of the Bose occupation factor. */
+bose_factor_identity_residual:
+    ratsimp(exp(beta*(eps-mu))/(exp(beta*(eps-mu))-1)-
+            1/(1-exp(-beta*(eps-mu))))$
+print("bose_factor_identity_residual =",bose_factor_identity_residual)$
+
+/* Square the Saha prefactor to avoid fractional-power sign assumptions. */
+saha_units_residual:ratsimp((mass^3*energy^3/hbar^6)/(length^(-6))-1)$
+/* With energy = mass*length^2/time^2 and hbar = mass*length^2/time. */
+saha_units_residual:ev(saha_units_residual,
+                       energy=mass*length^2/time^2,
+                       hbar=mass*length^2/time)$
+print("saha_dimensional_residual =",ratsimp(saha_units_residual))$
+
+/* Chandrasekhar scaling: R cancels between relativistic degeneracy and gravity. */
+assume(hbar>0,c_light>0,G>0,M>0,mu_e>0,m_u>0,R>0)$
+N_e:M/(mu_e*m_u)$
+K:hbar*c_light*N_e^(4/3)/R$
+W:-G*M^2/R$
+M_limit:(hbar*c_light/G)^(3/2)/(mu_e*m_u)^2$
+chandrasekhar_balance_residual:radcan(subst(M_limit,M,K+W))$
+print("chandrasekhar_balance_residual =",chandrasekhar_balance_residual)$
