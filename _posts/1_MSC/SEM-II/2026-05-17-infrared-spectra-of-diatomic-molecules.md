@@ -32,7 +32,7 @@ $$
 =-\widehat{\boldsymbol\mu}\cdot\mathbf E(t).
 $$
 
-If the molecule begins in $|i\rangle$, first-order time-dependent
+If the molecule begins in $\|i\rangle$, first-order time-dependent
 perturbation theory gives the amplitude for reaching $|f\rangle$:
 
 $$
