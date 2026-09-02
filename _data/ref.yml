@@ -4,8 +4,13 @@ items:
     url: /about/
   - title: Ellipsometry Software
     url: "https://drive.google.com/drive/folders/1myPcC0rQhWPy3CIFjw6iiR7l_8IU5orP?usp=sharing"
+
   - title: Extra Website
     children:
+    - title: wxmaxima
+      url: https://maxima-on-wasm.pages.dev/
+    - title: Mathematica
+      url: https://www.wolframalpha.com/
     - title: Free Science Journals
       url: /free-science-journals/
     - title: Jharkhand Academician Desk 
