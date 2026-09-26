@@ -11,6 +11,11 @@ items:
       url: https://maxima-on-wasm.pages.dev/
     - title: Mathematica
       url: https://www.wolframalpha.com/
+    - title: Zotero Bibliography
+      url: https://zbib.org/
+      
+
+
     - title: Free Science Journals
       url: /free-science-journals/
     - title: Jharkhand Academician Desk 
