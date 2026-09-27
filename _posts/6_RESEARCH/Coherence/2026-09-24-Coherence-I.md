@@ -42,3 +42,58 @@ is the correlation function with $m^{\mathrm{t h}}$ moment for $x_{1}$ and $n^{\
 Two complex time correlation function $\langle z_{1}^{\*} ( t_{1} ) z_{2} ( t_{2} ) \rangle$ is called the mutual correlation function of random variables $z_{1} ( t_{1} )$ and $z_{2} ( t_{2} )$. In situation in which $z_{1} = z_{2} = z ,$, the correlation function $\langle z^{*} ( t_{1} ) z ( t_{2} ) \rangle$ is referred to as the auto-correlation function.
 
 ## Complex Analytic Signal Representation
+
+Let $x( t )$ be a real function of a real variable $t$. Let us also assume that the Fourier transform of $x( t )$ exists such that
+
+
+$$
+\begin{aligned}
+x(t) &= \int_{-\infty}^{\infty} \tilde{x}(\omega) e^{-i \omega t} d\omega \\
+&= \int_{-\infty}^{0} \tilde{x}(\omega) e^{-i \omega t} d\omega + \int_{0}^{\infty} \tilde{x}(\omega) e^{-i \omega t} d\omega \\
+&= z^*(t) + z(t)
+\end{aligned}
+$$
+
+Here, $z ( t )$ is the complex analytic signal associated with the real random variable $x ( t )$ .We can write $z ( t )$ as a Fourier transform:
+
+$$
+z ( t )=\int_{-\infty}^{\infty} \tilde{z} ( \omega) e^{-i \omega t} d \omega
+$$
+
+where
+
+$$
+\begin{aligned}
+\tilde{z}(\omega) &= \tilde{x}(\omega) \quad \text{when } \omega \geq 0 \\
+&= 0 \quad\quad \text{when } \omega < 0
+\end{aligned}
+$$
+
+
+We note that $z ( t )$ is a complex analytic signal and therefore it is single valued and has continuous derivatives. Moreover, $x^{*}(t)$ can be written as
+
+$$
+\begin{aligned}
+x^{*}(t) &= \int_{-\infty}^{\infty} \tilde{x}^{*}(\omega) e^{+i \omega t} d\omega \\
+&= \int_{\infty}^{-\infty} \tilde{x}^{*}(-\omega) e^{-i \omega t} d(-\omega) \quad \text{(By substituting } \omega \text{ with } -\omega\text{)} \\
+&= \int_{-\infty}^{\infty} \tilde{x}^{*}(-\omega) e^{-i \omega t} d\omega
+\end{aligned}
+$$
+
+This simply implies that $\tilde{x}^{*}(-\omega) = \tilde{x}(\omega)$, and therefore the positive frequency part of the signal contains as much information as the negative frequency part. 
+
+It is known that for a complex analytic signal $z(t)$, the real part is exactly $\frac{1}{2}x(t)$. Let us denote its imaginary part by $\frac{1}{2}y(t)$, so that $z(t) = \frac{1}{2}[x(t) + iy(t)]$. The real signals $x(t)$ and $y(t)$ then form a Hilbert transform pair:
+
+$$
+\begin{aligned}
+y(t) &= \frac{1}{\pi} P \int_{-\infty}^{\infty} \frac{x(t')}{t' - t} dt' \\
+x(t) &= -\frac{1}{\pi} P \int_{-\infty}^{\infty} \frac{y(t')}{t' - t} dt'
+\end{aligned}
+$$
+
+where the Cauchy's principle value is defined as
+
+$$
+P \int_{-\infty}^{\infty} \frac{x(t')}{t' - t} dt' = \lim_{\delta \to 0} \left[ \int_{-\infty}^{t-\delta} \frac{x(t')}{t' - t} dt' + \int_{t+\delta}^{\infty} \frac{x(t')}{t' - t} dt' \right]
+$$
+
