@@ -97,3 +97,31 @@ $$
 P \int_{-\infty}^{\infty} \frac{x(t')}{t' - t} dt' = \lim_{\delta \to 0} \left[ \int_{-\infty}^{t-\delta} \frac{x(t')}{t' - t} dt' + \int_{t+\delta}^{\infty} \frac{x(t')}{t' - t} dt' \right]
 $$
 
+## The correlation functions in classical optics
+
+So far, we have seen how a real signal corresponding to a physical process can be represented in terms of a complex analytic signal for the ease of mathematical calculations. We have also studied how, from a given random variable, one can construct correlation functions of different orders so as to extract relevant information up to various levels. 
+
+Let us take the electric field to be a real random signal $V^{(\mathrm{r})}(\boldsymbol{r}, t)$ representing the classical electric field due to a chaotic light source. We represent this real signal in terms of the complex analytic signals as follows:
+
+$$
+\begin{aligned}
+V^{(\mathrm{r})}(\boldsymbol{r}, t) &= \int_{-\infty}^{\infty} \tilde{v}(\boldsymbol{r}, \omega) e^{-i \omega t} d\omega \\
+&= \int_{-\infty}^{0} \tilde{v}(\boldsymbol{r}, \omega) e^{-i \omega t} d\omega + \int_{0}^{\infty} \tilde{v}(\boldsymbol{r}, \omega) e^{-i \omega t} d\omega \\
+&= V^{*}(\boldsymbol{r}, t) + V(\boldsymbol{r}, t)
+\end{aligned}
+$$
+
+Here, $V(\boldsymbol{r}, t)$ is the complex analytic signal corresponding to the real random variable $V^{(\mathrm{r})}(\boldsymbol{r}, t)$. Also, since $V^{(\mathrm{r})}(\boldsymbol{r}, t)$ is real, we have $\tilde{v}^{*}(\boldsymbol{r}, \omega) = \tilde{v}(\boldsymbol{r}, -\omega)$. Let us look at the first few correlation functions that can be constructed using this analytic signal:
+
+- **Intensity:** $I(\boldsymbol{r}, t) \equiv \langle V^{*}(\boldsymbol{r}, t) V(\boldsymbol{r}, t) \rangle$
+  
+  This expectation value is the simplest second-order correlation function corresponding to the analytic signal. The quantity $V^{*}(\boldsymbol{r}, t) V(\boldsymbol{r}, t)$ represents the instantaneous intensity of the field at $(\boldsymbol{r}, t)$, and its expectation value is the ensemble-averaged intensity of the field at $(\boldsymbol{r}, t)$.
+
+- **Cross-correlation function:** $\Gamma(\boldsymbol{r}_1, t_1; \boldsymbol{r}_2, t_2) \equiv \langle V^{*}(\boldsymbol{r}_1, t_1) V(\boldsymbol{r}_2, t_2) \rangle$
+ 
+  The next expectation value we consider is the two-point correlation function, which is commonly referred to as the cross-correlation function.
+
+- **Higher-order correlation function:** $$\Gamma(\boldsymbol{r}_1, t_1; \boldsymbol{r}_2, t_2; \boldsymbol{r}_3, t_3; \boldsymbol{r}_4, t_4) \equiv \langle V^{*}(\boldsymbol{r}_1, t_1) V^{*}(\boldsymbol{r}_2, t_2) V(\boldsymbol{r}_3, t_3) V(\boldsymbol{r}_4, t_4) \rangle$$
+
+  This is a fourth-order (four-point) correlation function. Here, we will not be studying it extensively within classical theory, but in the context of the quantum theory of coherence, four-point correlation functions will be analyzed in greater detail.
+
