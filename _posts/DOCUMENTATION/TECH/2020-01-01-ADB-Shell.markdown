@@ -1,0 +1,157 @@
+---
+title:  "Introduction to ADB (Android Debug Bridge)"
+summary: "Learn how to use ADB to connect your Android device to your Mac and perform various operations."
+date:   2026-11-01 10:47:26 +0530
+categories: doc-tech
+tags: [ADB, Android, Terminal, Developer Tools]
+permalink: /ADB-Shell/
+---
+
+## 🎯 Learning Objectives
+
+- Understand what ADB is and why it is useful.
+- Install and configure ADB on macOS.
+- Connect an Android phone using ADB.
+- Perform basic ADB operations such as listing files, transferring files, and accessing device shell.
+
+---
+
+## 1. 🔍 What is ADB?
+
+**ADB (Android Debug Bridge)** is a command-line tool that allows communication between your computer and an Android device. It is used by developers and advanced users to:
+
+- Debug apps
+- Transfer files
+- Access internal system logs
+- Run shell commands on the Android device
+
+---
+
+## 2. ⚙️ Installation on macOS
+
+### Step 1: Install Homebrew (if not already installed)
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### Step 2: Install ADB using Homebrew
+
+```bash
+brew install android-platform-tools
+```
+
+---
+
+## 3. 📲 Enable USB Debugging on Android
+
+### On Your Phone (e.g., Oppo F7):
+
+1. Go to **Settings > About Phone**
+2. Tap **Build Number** 7 times to enable Developer Options
+3. Go to **Settings > Additional Settings > Developer Options**
+4. Enable **USB Debugging**
+
+---
+
+## 4. 🔌 Connect Phone to Mac
+
+- Use a **USB data cable**
+- Set USB mode to **File Transfer (MTP)**
+- Accept **"Allow USB debugging"** prompt on your phone
+
+---
+
+## 5. 💻 Verify ADB Connection
+
+### Command:
+
+```bash
+adb devices
+```
+
+Expected output:
+
+```
+List of devices attached
+ABC1234567	device
+```
+
+If it says **unauthorized**, check your phone for the prompt and tap **Allow**.
+
+---
+
+## 6. 🧪 Common ADB Commands
+
+### 📂 List files on phone storage:
+
+```bash
+adb shell ls /sdcard/
+```
+
+### 🖥️ Start a shell session inside the phone:
+
+```bash
+adb shell
+```
+
+### 📤 Copy file **from phone to Mac**:
+
+```bash
+adb pull /sdcard/DCIM/Camera/IMG_20230605_103214.jpg ~/Pictures/
+```
+
+### 📥 Copy file **from Mac to phone**:
+
+```bash
+adb push myfile.pdf /sdcard/Download/
+```
+
+### 🧹 Delete a file from phone:
+
+```bash
+adb shell rm /sdcard/Download/myfile.pdf
+```
+
+---
+
+## 7. 📸 Access Camera Folder
+
+### View contents:
+
+```bash
+adb shell ls /sdcard/DCIM/Camera
+```
+
+### Copy all camera images:
+
+```bash
+adb pull /sdcard/DCIM/Camera ~/Pictures/OppoCamera
+```
+
+---
+
+## 8. 🧰 Optional: Automate with a Script
+
+You can create a simple sync script to pull new photos from your phone automatically. Ask the instructor for details.
+
+---
+
+## 📝 Summary
+
+| Task | Command |
+|------|---------|
+| Install ADB | `brew install android-platform-tools` |
+| Connect device | `adb devices` |
+| Enter phone shell | `adb shell` |
+| List phone files | `adb shell ls /sdcard/` |
+| Pull file from phone | `adb pull <source> <destination>` |
+| Push file to phone | `adb push <source> <destination>` |
+| Delete file | `adb shell rm <path>` |
+
+---
+
+## 📚 References
+
+- [Official Android ADB Docs](https://developer.android.com/studio/command-line/adb)
+- `man adb` (if installed via Homebrew)
